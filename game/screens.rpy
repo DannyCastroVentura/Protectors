@@ -6,6 +6,20 @@ init offset = -1
 
 
 ################################################################################
+## Transforms
+################################################################################
+
+transform fit_to_screen_height:
+    fit "contain"  # scales image to fill as much as possible without cutting or distorting 
+    xalign 0.5   # Center horizontally
+    yalign 0.5   # Center vertically if needed
+
+transform stretch_fullscreen:
+    xysize (config.screen_width, config.screen_height)
+
+
+
+################################################################################
 ## Styles
 ################################################################################
 

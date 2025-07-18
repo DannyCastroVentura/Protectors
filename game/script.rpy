@@ -1,33 +1,43 @@
-﻿# The script of the game goes in this file.
+﻿default mc_name = "Daniel"
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+init python:
+    mc = Character("TEMP")
 
-define e = Character("Eileen")
-
-
-# The game starts here.
+define nova = Character("Nova")
+define anonymous_yet = Character("??")
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    anonymous_yet "Greetings, human."    
+    anonymous_yet "Can you ear me?"
+    anonymous_yet "Please try to open your eyes."
 
-    scene bg room
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    $ set_background("dream")
+    image nova = getImage("images/nova")
 
-    show eileen happy
+    show nova at center, fit_to_screen_height
 
-    # These display lines of dialogue.
+    anonymous_yet "Is it better now?"
 
-    e "You've created a new Ren'Py game."
+    anonymous_yet "I'm Nova — your new assistant and guide through this unfamiliar world."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    nova "There’s much to discover, but before we begin..."
 
-    # This ends the game.
+    nova "I’d like to know what to call you."
+
+    $ mc_name = renpy.input("What’s your name?")
+    $ mc_name = mc_name.strip()
+    if not mc_name:
+        $ mc_name = "Daniel"
+
+    $ mc.name = mc_name
+
+    nova "Ah, [mc.name]."
+    nova "That's a lovely name."
+
+    nova "Alright then, [mc.name] — let’s dive in."
+
+    mc "I'm ready. Lead the way, Nova."
 
     return

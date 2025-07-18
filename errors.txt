@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/functions.rpy", line 3: invalid syntax
+    define config.screen_width = 1280
+            ^
+
+Ren'Py Version: Ren'Py 8.3.7.25031702
+Fri Jul 18 18:15:47 2025

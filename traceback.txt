@@ -1,0 +1,30 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 10, in script
+    $ set_background("dream")
+  File "game/script.rpy", line 10, in <module>
+    $ set_background("dream")
+  File "game/functions.rpy", line 32, in set_background
+    renpy.show(tag, at_list=[fullscreen_image])
+NameError: name 'fullscreen_image' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 10, in script
+    $ set_background("dream")
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 10, in <module>
+    $ set_background("dream")
+  File "game/functions.rpy", line 32, in set_background
+    renpy.show(tag, at_list=[fullscreen_image])
+NameError: name 'fullscreen_image' is not defined
+
+Windows-10-10.0.26120 AMD64
+Ren'Py 8.3.7.25031702
+Protectors 1.0
+Fri Jul 18 18:18:14 2025
