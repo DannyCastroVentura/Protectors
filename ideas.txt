@@ -1,6 +1,10 @@
 - I will be able to have at max 3 protectors working at the same team -> for missions and so on -> the others will stay at my house protecting me
 
-- each of them have 10 levels -> at level 5 and level 10 we can choose from 2 different things
+- each of them have 10 levels -> at level 5 we can choose from 2 different things
     - each protector would have a different habilities ex:
-        - for ninja at level 5 -> we can make it finding a very recent technology and it would make him very powerfull others
-        - we can make him finding a duet -> and he would have always an assistent (ranged ninja)
+        - for ninja at level 5 -> dust power or new powerfull power
+
+I already worked on creating images for:
+- ninja
+- samurai
+- templar -> I'm working on it - I have it until 4 (1, 2, 3 and 4)
