@@ -1,32 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 67, in script
-    show ninja_starting at fit_to_screen_height, farLeft
-  File "game/script.rpy", line 67, in <module>
-    show ninja_starting at fit_to_screen_height, farLeft
-NameError: name 'farLeft' is not defined
+  File "game/script.rpy", line 9, in script
+    define nova = Character("Nova", "")
+  File "game/script.rpy", line 9, in <module>
+    define nova = Character("Nova", "")
+TypeError: 'kind' is an invalid keyword argument for str()
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 67, in script
-    show ninja_starting at fit_to_screen_height, farLeft
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1124, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1083, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1083, in <listcomp>
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1218, in py_eval
-    return py_eval_bytecode(code, globals, locals)
+  File "game/script.rpy", line 9, in script
+    define nova = Character("Nova", "")
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 2248, in execute
+    self.set()
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 2262, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1211, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 67, in <module>
-    show ninja_starting at fit_to_screen_height, farLeft
-NameError: name 'farLeft' is not defined
+  File "game/script.rpy", line 9, in <module>
+    define nova = Character("Nova", "")
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\character.py", line 1794, in Character
+    return type(kind)(name, kind=kind, **properties)
+TypeError: 'kind' is an invalid keyword argument for str()
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Wed Jul 23 17:41:47 2025
+Wed Jul 23 22:21:31 2025

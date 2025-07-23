@@ -2,11 +2,11 @@
 
 init python:
     mc = Character("TEMP")
-    ninja_path = get_folder_from_map("ninja")    
+    ninja_path = get_folder_from_map("ninja")
     templar_path = get_folder_from_map("templar")
     samurai_path = get_folder_from_map("samurai")
 
-define nova = Character("Nova")
+define nova = Character("Nova", color="#00a2ff")
 define anonymous_yet = Character("??")
 
 label start:
@@ -62,6 +62,8 @@ label start:
     nova "Each brings something unique to your team."
     mc "Alright. Let’s see who they are."
 
+    hide nova
+
     # TODO: improve the image dispersion - they are stuck at the limits as they should
     # showing ninja
     image ninja_starting = getImage(f"{ninja_path}/1")
@@ -76,18 +78,31 @@ label start:
     image samurai_starting = getImage(f"{samurai_path}/1")
     show samurai_starting at fit_to_screen_height, farRight
 
-    nova "Okay, so you can choose only one.."
+    nova "These are the candidates.."
+
+    nova "You have the Ninja, the Templar or the Samurai."
+
+    nova "You can choose only one.."
     nova "Who will that be?"
 
     menu:
         "Ninja (stats)":
+            hide templar_starting
+            hide samurai_starting
+            show ninja_starting at fit_to_screen_height, center
             # TODO: choose ninja, and add it to the bag of protectors
-            mc ""
+            nova "Are you sure you want to choose the Ninja for your first protector?"
         "Templar (stats)":
+            hide ninja_starting
+            hide samurai_starting
+            show templar_starting at fit_to_screen_height, center
             # TODO: choose Templar, and add it to the bag of protectors
-            mc ""
-        "Samurai (stats)":
+            nova "Are you sure you want to choose the Templar for your first protector?"
+        "Samurai (stats)":            
+            hide ninja_starting
+            hide templar_starting
+            show samurai_starting at fit_to_screen_height, center
             # TODO: choose Samurai, and add it to the bag of protectors
-            mc ""
+            nova "Are you sure you want to choose the Samurai for your first protector?"
 
     return
