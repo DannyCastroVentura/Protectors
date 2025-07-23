@@ -8,3 +8,10 @@ I already worked on creating images for:
 - ninja
 - samurai
 - templar -> I'm working on it - I have it until 4 (1, 2, 3 and 4)
+
+
+
+
+https://deepai.org/machine-learning-model/text2img
+
+A dark templar wielding a glowing green and purple sword infused with dark unholy power, mounting a horse – full-body

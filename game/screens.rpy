@@ -9,6 +9,31 @@ init offset = -1
 ## Transforms
 ################################################################################
 
+# styles
+transform farLeft:
+    xalign 0
+    yalign 1.0
+
+transform midLeft:
+    xalign 0.3
+    yalign 1.0
+
+transform farMidLeft:
+    xalign 0.1
+    yalign 1.0
+
+transform midRight:
+    xalign 0.7
+    yalign 1.0
+
+transform farMidRight:
+    xalign 0.9
+    yalign 1.0
+
+transform farRight:
+    xalign 0.99999
+    yalign 1.0
+
 transform fit_to_screen_height:
     fit "contain"  # scales image to fill as much as possible without cutting or distorting 
     xalign 0.5   # Center horizontally
@@ -16,6 +41,8 @@ transform fit_to_screen_height:
 
 transform stretch_fullscreen:
     xysize (config.screen_width, config.screen_height)
+
+
 
 
 

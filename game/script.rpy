@@ -2,12 +2,14 @@
 
 init python:
     mc = Character("TEMP")
+    ninja_path = get_folder_from_map("ninja")    
+    templar_path = get_folder_from_map("templar")
+    samurai_path = get_folder_from_map("samurai")
 
 define nova = Character("Nova")
 define anonymous_yet = Character("??")
 
 label start:
-
     anonymous_yet "Greetings, human."    
     anonymous_yet "Can you ear me?"
     anonymous_yet "Please try to open your eyes."
@@ -59,5 +61,33 @@ label start:
     nova "Let’s begin by finding your first ally. The Alliance is offering you three Protector candidates."
     nova "Each brings something unique to your team."
     mc "Alright. Let’s see who they are."
+
+    # TODO: improve the image dispersion - they are stuck at the limits as they should
+    # showing ninja
+    image ninja_starting = getImage(f"{ninja_path}/1")
+    show ninja_starting at fit_to_screen_height, farLeft
+    
+    # showing templar
+    
+    image templar_starting = getImage(f"{templar_path}/1")
+    show templar_starting at fit_to_screen_height, center
+
+    # showing samurai
+    image samurai_starting = getImage(f"{samurai_path}/1")
+    show samurai_starting at fit_to_screen_height, farRight
+
+    nova "Okay, so you can choose only one.."
+    nova "Who will that be?"
+
+    menu:
+        "Ninja (stats)":
+            # TODO: choose ninja, and add it to the bag of protectors
+            mc ""
+        "Templar (stats)":
+            # TODO: choose Templar, and add it to the bag of protectors
+            mc ""
+        "Samurai (stats)":
+            # TODO: choose Samurai, and add it to the bag of protectors
+            mc ""
 
     return

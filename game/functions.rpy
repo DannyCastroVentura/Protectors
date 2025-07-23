@@ -17,6 +17,22 @@ init python:
     # showing disabled options
     config.menu_include_disabled = False
 
+    """
+    Scans the given folder and returns a dictionary where each subfolder name
+    maps to its full relative path.
+    """
+    folder_path = "game\images\protectors"
+    full_path = os.path.join(config.basedir, folder_path)
+    folder_map = {}
+
+    if os.path.isdir(full_path):
+        for name in os.listdir(full_path):
+            subfolder_path = os.path.join(full_path, name)
+            if os.path.isdir(subfolder_path):
+                relative_path = os.path.join(folder_path, name).replace("\\", "/")
+                folder_map[name] = "/".join(relative_path.split("/")[1:])
+
+
     def getImage(path):
         for ext in valid_extensions:
             if renpy.loadable(path + ext):
@@ -33,4 +49,11 @@ init python:
         
         else:
             renpy.say("System", f"Background '{name}' not found.")
+
+    def get_folder_from_map(key):
+        global folder_map
+        """
+        Retrieves the path associated with a folder name (key) from the map.
+        """
+        return folder_map.get(key, None)
 
