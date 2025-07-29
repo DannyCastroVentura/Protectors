@@ -1650,3 +1650,79 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+screen my_protectors_screen():
+    # Quest toggle button (top-left corner)
+    if not show_my_protectors:
+        textbutton "My protectors ({})".format(get_count_of_my_protectors()):
+            xalign 0.0
+            yalign 0.0
+            padding (20, 10)
+            background "#4448"
+            text_size 40
+            action SetVariable("show_my_protectors", True)
+    else:
+        # Quest log overlay panel
+        frame:
+            xalign 0.0
+            yalign 0.0
+            padding (10, 10)
+            background Solid("#000000cc")
+            xmaximum 600
+            ymaximum 500
+
+            has vbox
+
+            # Close button
+            textbutton "Close":
+                xalign 1.0
+                action SetVariable("show_my_protectors", False)
+        
+            # Scrollable quest list
+            viewport:
+                scrollbars "vertical"
+                mousewheel True
+                draggable True
+
+                vbox:
+                    spacing 20  # Reduced space between quests
+
+                    for my_protector in my_protectors_map.values():
+                        button:
+                            background "#00000020"
+                            padding (5, 5)
+                            xmaximum 580
+                            action Show("protector_detail_screen", my_protector=my_protector)
+
+                            has vbox
+
+                            text "{} ({})".format(
+                                str(my_protector['bigLetterName']),
+                                get_current_status_from_my_protector(my_protector['name'])
+                            ):
+                                size 30
+                                color "#FFFFFF"
+                                xalign 0.0
+                                line_spacing 0
+
+screen protector_detail_screen(my_protector):
+    frame:
+        background Solid("#000000cc")
+        xysize (config.screen_width, config.screen_height)
+        padding (30, 30)
+
+        has vbox
+
+        textbutton "Close" action [Hide("protector_detail_screen")]:
+            xalign 1.0
+            padding (10, 5)
+
+        hbox:
+            spacing 50
+            # TODO: add here the current image for the protector
+
+            vbox:
+                spacing 20
+                text "[my_protector['bigLetterName']]" size 50 color "#FFF"
+                text "Status: [get_current_status_from_my_protector(my_protector['name'])]" size 30 color "#EEE"
+                text "Description:\n[my_protector.get('description', 'No description available')]" size 25 color "#DDD"

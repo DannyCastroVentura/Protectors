@@ -1,16 +1,19 @@
 ﻿default mc_name = "Daniel"
+default show_my_protectors = False
+default show_my_protector_specific_info = False
 
 init python:
     mc = Character("TEMP")
     ninja_path = get_folder_from_map("ninja")
     templar_path = get_folder_from_map("templar")
     samurai_path = get_folder_from_map("samurai")
+    config.overlay_screens.append("my_protectors_screen")
 
 define nova = Character("Nova", color="#00a2ff")
 define anonymous_yet = Character("??")
 
 label start:
-    anonymous_yet "Greetings, human."    
+    anonymous_yet "Greetings, human."
     anonymous_yet "Can you ear me?"
     anonymous_yet "Please try to open your eyes."
 
@@ -63,8 +66,81 @@ label start:
     mc "Alright. Let’s see who they are."
 
     hide nova
+    # TODO: change the first 3 protectors, so we remove the samurai, and add the recruit
+    call showFirst3Protectors()
 
-    # TODO: improve the image dispersion - they are stuck at the limits as they should
+    nova "These are the candidates.."
+    
+    $ while_aux = 0
+    while while_aux == 0:
+        call showFirst3Protectors()
+
+        nova "You have the Ninja, the Templar and the Samurai."
+
+        nova "You can choose only one.."
+        nova "Who will that be?"
+        menu:
+            "Ninja \n([get_protector_base_information('ninja')])":
+                hide templar_starting
+                hide samurai_starting
+                show ninja_starting at fit_to_screen_height, center
+                nova "Are you sure you want to choose the Ninja for your first protector?"
+                menu:
+                    "Yes!":
+                        $ while_aux = 1
+                        nova "Great!"
+                        nova "I'm adding Ninja to your list of protectors!"
+                        $ add_new_protector("ninja")
+                        nova "Ninja added!"
+                    "What were the other ones?":
+                        nova "Let's recap."
+            "Templar \n([get_protector_base_information('templar')])":
+                hide ninja_starting
+                hide samurai_starting
+                show templar_starting at fit_to_screen_height, center
+                nova "Are you sure you want to choose the Templar for your first protector?"
+                menu:
+                    "Yes!":
+                        $ while_aux = 1
+                        nova "Great!"
+                        nova "I'm adding Templar to your list of protectors!"
+                        $ add_new_protector("templar")
+                        nova "Templar added!"
+                    "What were the other ones?":
+                        nova "Let's recap."
+            "Samurai \n([get_protector_base_information('samurai')])":
+                hide ninja_starting
+                hide templar_starting
+                show samurai_starting at fit_to_screen_height, center
+                nova "Are you sure you want to choose the Samurai for your first protector?"
+                menu:
+                    "Yes!":
+                        $ while_aux = 1
+                        nova "Great!"
+                        nova "I'm adding Samurai to your list of protectors!"
+                        $ add_new_protector("samurai")
+                        nova "Samurai added!"
+                    "What were the other ones?":
+                        nova "Let's recap."
+
+    hide templar_starting
+    hide samurai_starting
+    hide ninja_starting
+    show nova at center, fit_to_screen_height
+    nova "Great! Now you have your first protector!"
+    nova "You can check your protectors by clicking in the button \"My Protectors\""
+    nova "So we can now continue!!"
+    nova "So we can now continue!"
+    nova "So we can now continue!!"
+    return
+
+
+label showFirst3Protectors(): 
+    # hiding the 3 protectors before showing
+    hide templar_starting
+    hide samurai_starting
+    hide ninja_starting
+
     # showing ninja
     image ninja_starting = getImage(f"{ninja_path}/1")
     show ninja_starting at fit_to_screen_height, farLeft
@@ -77,32 +153,8 @@ label start:
     # showing samurai
     image samurai_starting = getImage(f"{samurai_path}/1")
     show samurai_starting at fit_to_screen_height, farRight
+    return
 
-    nova "These are the candidates.."
-
-    nova "You have the Ninja, the Templar or the Samurai."
-
-    nova "You can choose only one.."
-    nova "Who will that be?"
-
-    menu:
-        "Ninja (stats)":
-            hide templar_starting
-            hide samurai_starting
-            show ninja_starting at fit_to_screen_height, center
-            # TODO: choose ninja, and add it to the bag of protectors
-            nova "Are you sure you want to choose the Ninja for your first protector?"
-        "Templar (stats)":
-            hide ninja_starting
-            hide samurai_starting
-            show templar_starting at fit_to_screen_height, center
-            # TODO: choose Templar, and add it to the bag of protectors
-            nova "Are you sure you want to choose the Templar for your first protector?"
-        "Samurai (stats)":            
-            hide ninja_starting
-            hide templar_starting
-            show samurai_starting at fit_to_screen_height, center
-            # TODO: choose Samurai, and add it to the bag of protectors
-            nova "Are you sure you want to choose the Samurai for your first protector?"
-
+label novaShowingProtector():
+    nova "Going back"
     return

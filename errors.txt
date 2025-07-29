@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 82: choice menuitem expects a non-empty block.
-    "Ninja (stats)":
-                    ^
+File "game/script.rpy", line 160: expected statement.
+    rollback()  
+                ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Jul 23 17:43:52 2025
+Tue Jul 29 18:22:19 2025
