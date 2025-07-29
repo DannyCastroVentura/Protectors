@@ -1,6 +1,7 @@
 ﻿default mc_name = "Daniel"
 default show_my_protectors = False
 default show_my_protector_specific_info = False
+default show_whole_functionality_for_seeing_my_protectors = False
 
 init python:
     mc = Character("TEMP")
@@ -128,9 +129,31 @@ label start:
     hide ninja_starting
     show nova at center, fit_to_screen_height
     nova "Great! Now you have your first protector!"
+    $ show_whole_functionality_for_seeing_my_protectors = True
     nova "You can check your protectors by clicking in the button \"My Protectors\""
-    nova "So we can now continue!!"
-    nova "So we can now continue!"
+    nova "Once you click, you'll see all your protectors - for now, you have only one!"
+    nova "If you click on your protector, you'll see more information about him."
+    nova "Great! Now let's continue!"
+    nova "Let me take you to your base of operations!"
+    # TODO: change the background for the base of operations
+    nova "In here you can sleep - this will make your protectors to also rest."
+    nova "You can train them - note that this will only work for a few levels.."
+    nova "If you really want your protectors to level up you should make them fight real fights.."
+    nova "From here you can also check the different regions where you have to bring peace.."
+    nova "By checking them you can also see what missions you have in which region."
+    nova "Probably it would be better for you to start small, then you can increase the difficulty."
+    nova "Missions will automatically be added here, and if they are not done in time, then they are also canceled."
+    # TODO: missions
+    #   the missions need to have a deadline for the time (counted on days)
+    #   they have to be on a region depending on the difficulty of the mission
+    #   every day some random missions should appear (3?)
+    #   
+
+    # TODO: continue here
+
+    nova "Let me take you to the region where you should be able to have an easy start!"
+    # TODO: change the background for the easy region
+    nova "Okay, here we are, in this region you'll find some"
     nova "So we can now continue!!"
     return
 

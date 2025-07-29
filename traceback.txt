@@ -1,31 +1,23 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 132, in script
-    nova "So we can now continue!!"
-  File "game/screens.rpy", line 1710, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 1710, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 1711, in execute
-    frame:
-  File "game/screens.rpy", line 1716, in execute
-    has vbox
-  File "game/screens.rpy", line 1722, in execute
-    hbox:
-  File "game/screens.rpy", line 1725, in execute
-    vbox:
-  File "game/screens.rpy", line 1728, in execute
-    text "Status: [get_current_status_from_my_protector(my_protector['name'])]" size 30 color "#EEE"
-  File "game/functions.rpy", line 119, in get_current_status_from_my_protector
-    my_protector_info = my_protectors_map[protector_name]
-KeyError: 'samurai'
+  File "game/script.rpy", line 131, in script
+    nova "You can check your protectors by clicking in the button \"My Protectors\""
+  File "game/screens.rpy", line 1654, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1654, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1655, in execute
+    if show_whole_functionality_for_seeing_my_protectors:
+  File "game/screens.rpy", line 1655, in <module>
+    if show_whole_functionality_for_seeing_my_protectors:
+NameError: name 'show_whole_functionality_for_seeing_my_protectors' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 132, in script
-    nova "So we can now continue!!"
+  File "game/script.rpy", line 131, in script
+    nova "You can check your protectors by clicking in the button \"My Protectors\""
   File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 2586, in execute
     Say.execute(self)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 623, in execute
@@ -58,40 +50,17 @@ Full traceback:
     self.update()
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 700, in update
     self.screen.function(**self.scope)
-  File "game/screens.rpy", line 1710, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 1710, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 1711, in execute
-    frame:
-  File "game/screens.rpy", line 1716, in execute
-    has vbox
-  File "game/screens.rpy", line 1722, in execute
-    hbox:
-  File "game/screens.rpy", line 1725, in execute
-    vbox:
-  File "game/screens.rpy", line 1728, in execute
-    text "Status: [get_current_status_from_my_protector(my_protector['name'])]" size 30 color "#EEE"
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\text\text.py", line 2079, in __init__
-    self.set_text(text, scope, substitute) # type: ignore
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\text\text.py", line 2216, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute) # type: ignore
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 373, in substitute
-    s = interpolate(s, variables) # type: ignore
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 86, in interpolate
-    raise e
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 78, in interpolate
-    value = renpy.python.py_eval(code, {}, scope)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1218, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1211, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "<none>", line 1, in <module>
-  File "game/functions.rpy", line 119, in get_current_status_from_my_protector
-    my_protector_info = my_protectors_map[protector_name]
-KeyError: 'samurai'
+  File "game/screens.rpy", line 1654, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1654, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1655, in execute
+    if show_whole_functionality_for_seeing_my_protectors:
+  File "game/screens.rpy", line 1655, in <module>
+    if show_whole_functionality_for_seeing_my_protectors:
+NameError: name 'show_whole_functionality_for_seeing_my_protectors' is not defined
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Tue Jul 29 18:46:34 2025
+Tue Jul 29 22:29:51 2025

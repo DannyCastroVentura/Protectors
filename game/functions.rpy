@@ -8,6 +8,13 @@ init python:
     dynamic_backgrounds = {}
 
     my_protectors_map = {}
+    
+    # showing disabled options
+    config.menu_include_disabled = False
+
+    folder_path = "game\images\protectors"
+    full_path = os.path.join(config.basedir, folder_path)
+    folder_map = {}
 
     protectors_base_information = {
         "ninja": {
@@ -49,17 +56,6 @@ init python:
             tag_name = "bg " + name  # Prefix the image name with "bg"
             dynamic_backgrounds[name] = tag_name
             renpy.image(tag_name, f)  # Define as a Ren'Py image
-
-    # showing disabled options
-    config.menu_include_disabled = False
-
-    """
-    Scans the given folder and returns a dictionary where each subfolder name
-    maps to its full relative path.
-    """
-    folder_path = "game\images\protectors"
-    full_path = os.path.join(config.basedir, folder_path)
-    folder_map = {}
 
     if os.path.isdir(full_path):
         for name in os.listdir(full_path):
@@ -105,7 +101,7 @@ init python:
 
     def get_protector_base_information(protector_name):
         global protectors_base_information
-        protector_base_information_str = 'Health: ' + str(protectors_base_information[protector_name]['health']) + ' / ' + 'Damage: ' + str(protectors_base_information[protector_name]['damage']) + ' / ' + 'Atack-speed: ' + str(protectors_base_information[protector_name]['atack-speed'])
+        protector_base_information_str = 'Health: ' + str(protectors_base_information[protector_name]['health'] * 300) + ' / ' + 'Damage: ' + str(protectors_base_information[protector_name]['damage'] * 30) + ' / ' + 'Atack-speed: ' + str(protectors_base_information[protector_name]['atack-speed'])
         return protector_base_information_str
 
     def get_count_of_my_protectors():
@@ -121,7 +117,7 @@ init python:
         real_health = my_protector_base_stats['health'] + (my_protector_base_stats['health'] * my_protector_info['level'] * 0.1) + (my_protector_base_stats['health'] * my_protector_info['stage'] * 5)
         real_damage = my_protector_base_stats['damage'] + (my_protector_base_stats['damage'] * my_protector_info['level'] * 0.1) + (my_protector_base_stats['damage'] * my_protector_info['stage'] * 5)
         real_atack_speed = my_protector_base_stats['atack-speed'] + (my_protector_base_stats['atack-speed'] * my_protector_info['level'] * 0.1) + (my_protector_base_stats['atack-speed'] * my_protector_info['stage'] * 5)
-        returning_string = str(real_health) + " / " + str(real_damage) + " / " + str(real_atack_speed)
+        returning_string = str(real_health * 300) + " / " + str(real_damage * 30) + " / " + str(real_atack_speed)
         return returning_string
 
     def capitalize_first_letter(s):

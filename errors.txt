@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 160: expected statement.
-    rollback()  
-                ^
+File "game/screens.rpy", line 1655: screen expects a non-empty block.
+    if show_whole_functionality_for_seeing_my_protectors:
+                                                         ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Jul 29 18:22:19 2025
+Tue Jul 29 22:29:47 2025
