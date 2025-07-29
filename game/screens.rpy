@@ -1725,4 +1725,5 @@ screen protector_detail_screen(my_protector):
                 spacing 20
                 text "[my_protector['bigLetterName']]" size 50 color "#FFF"
                 text "Status: [get_current_status_from_my_protector(my_protector['name'])]" size 30 color "#EEE"
-                text "Description:\n[my_protector.get('description', 'No description available')]" size 25 color "#DDD"
+                text "Stage: [str(my_protector['stage'] + 1)]" size 25 color "#DDD"
+                text "Level: [str(my_protector['level'] + 1)]" size 25 color "#DDD"
