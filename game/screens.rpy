@@ -42,9 +42,13 @@ transform fit_to_screen_height:
 transform stretch_fullscreen:
     xysize (config.screen_width, config.screen_height)
 
-style mytextbutton:
+style hover_white:
     color "#b3b3b3"
     hover_color "#ffffff"
+    
+style hover_black:
+    color "#b3b3b3"
+    hover_color "#000000"
 
 
 
@@ -1657,7 +1661,7 @@ screen my_protectors_screen():
     if show_whole_functionality_for_seeing_my_protectors:
         if not show_my_protectors:
             textbutton "My protectors ({})".format(get_count_of_my_protectors()):
-                text_style "mytextbutton"
+                text_style "hover_white"
                 background "#4448"
                 xalign 0.0
                 yalign 0.0
@@ -1678,6 +1682,7 @@ screen my_protectors_screen():
 
                 # Close button
                 textbutton "Close":
+                    text_style "hover_white"
                     xalign 1.0
                     action SetVariable("show_my_protectors", False)
             
@@ -1721,6 +1726,7 @@ screen protector_detail_screen(my_protector):
 
             # Close button - top right
             textbutton "Close" action Hide("protector_detail_screen"):
+                text_style "hover_white"
                 xalign 1.0
                 yalign 0.0
                 padding (10, 5)
@@ -1750,7 +1756,6 @@ screen protector_detail_screen(my_protector):
                     ui.add(image_path)
 
 screen protector_selection():
-
     tag menu
 
     # Full-screen container to allow positioning in center
@@ -1775,7 +1780,9 @@ screen protector_selection():
             if not has_available:
                 text "No protectors are currently available." xalign 0.5
 
-            textbutton "Back" xalign 0.5 action Return()
+            textbutton "Back" action Return():
+                text_style "hover_black"
+                xalign 0.5
 
 
 screen current_day_screen():

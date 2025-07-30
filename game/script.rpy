@@ -3,10 +3,12 @@ default show_my_protectors = False
 default show_my_protector_specific_info = False
 default show_whole_functionality_for_seeing_my_protectors = False
 default show_current_day = False
-default current_day = 0
+default current_day = 1
 
 init python:
-    mc = Character("TEMP")
+    if 'mc_name' not in globals():
+        mc_name = "Daniel"
+    mc = Character([mc_name])
     ninja_path = get_folder_from_map("ninja")
     templar_path = get_folder_from_map("templar")
     samurai_path = get_folder_from_map("samurai")

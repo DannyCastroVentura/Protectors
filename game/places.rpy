@@ -19,7 +19,6 @@ label base_of_operations():
             call base_travel_menu()
     jump base_of_operations
 
-    
 label training_ground():
     $ set_background("training-ground")
     "Training Ground"
@@ -41,5 +40,3 @@ label resting_area():
         "Let's go to elsewhere":
             call base_travel_menu()
     jump resting_area
-
-

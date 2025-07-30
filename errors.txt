@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1787: 'color' is not a keyword argument or valid child of the textbutton statement.
-    color "b3b3b3"
-         ^
+File "game/classes.rpy", line 61: expected an indented block
+    class missions:
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Jul 30 19:02:33 2025
+Wed Jul 30 21:59:35 2025
