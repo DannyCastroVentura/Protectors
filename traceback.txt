@@ -1,35 +1,31 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 131, in script
-    nova "You can check your protectors by clicking in the button \"My Protectors\""
-  File "game/screens.rpy", line 1654, in execute
+  File "game/places.rpy", line 16, in script
+    menu:
+  File "game/screens.rpy", line 1777, in execute
     screen my_protectors_screen():
-  File "game/screens.rpy", line 1654, in execute
+  File "game/screens.rpy", line 1777, in execute
     screen my_protectors_screen():
-  File "game/screens.rpy", line 1655, in execute
-    if show_whole_functionality_for_seeing_my_protectors:
-  File "game/screens.rpy", line 1655, in <module>
-    if show_whole_functionality_for_seeing_my_protectors:
-NameError: name 'show_whole_functionality_for_seeing_my_protectors' is not defined
+  File "game/screens.rpy", line 1778, in execute
+    if show_current_day:
+  File "game/screens.rpy", line 1779, in execute
+    textbutton "Day: {}".format(current_day):
+  File "game/screens.rpy", line 1779, in <module>
+    textbutton "Day: {}".format(current_day):
+NameError: name 'current_day' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 131, in script
-    nova "You can check your protectors by clicking in the button \"My Protectors\""
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 2586, in execute
-    Say.execute(self)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 623, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\sayexports.py", line 132, in say
-    who(what, *args, **kwargs)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\character.py", line 1471, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\character.py", line 1117, in do_display
-    display_say(who,
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\character.py", line 814, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "game/places.rpy", line 16, in script
+    menu:
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1632, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\menuexports.py", line 134, in menu
+    rv = renpy.store.menu(new_items)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\menuexports.py", line 424, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2218, in interact
@@ -50,17 +46,19 @@ Full traceback:
     self.update()
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 700, in update
     self.screen.function(**self.scope)
-  File "game/screens.rpy", line 1654, in execute
+  File "game/screens.rpy", line 1777, in execute
     screen my_protectors_screen():
-  File "game/screens.rpy", line 1654, in execute
+  File "game/screens.rpy", line 1777, in execute
     screen my_protectors_screen():
-  File "game/screens.rpy", line 1655, in execute
-    if show_whole_functionality_for_seeing_my_protectors:
-  File "game/screens.rpy", line 1655, in <module>
-    if show_whole_functionality_for_seeing_my_protectors:
-NameError: name 'show_whole_functionality_for_seeing_my_protectors' is not defined
+  File "game/screens.rpy", line 1778, in execute
+    if show_current_day:
+  File "game/screens.rpy", line 1779, in execute
+    textbutton "Day: {}".format(current_day):
+  File "game/screens.rpy", line 1779, in <module>
+    textbutton "Day: {}".format(current_day):
+NameError: name 'current_day' is not defined
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Tue Jul 29 22:29:51 2025
+Wed Jul 30 18:43:50 2025

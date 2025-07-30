@@ -42,7 +42,9 @@ transform fit_to_screen_height:
 transform stretch_fullscreen:
     xysize (config.screen_width, config.screen_height)
 
-
+style mytextbutton:
+    color "#b3b3b3"
+    hover_color "#ffffff"
 
 
 
@@ -1655,10 +1657,11 @@ screen my_protectors_screen():
     if show_whole_functionality_for_seeing_my_protectors:
         if not show_my_protectors:
             textbutton "My protectors ({})".format(get_count_of_my_protectors()):
+                text_style "mytextbutton"
+                background "#4448"
                 xalign 0.0
                 yalign 0.0
                 padding (20, 10)
-                background "#4448"
                 text_size 40
                 action SetVariable("show_my_protectors", True)
         else:
@@ -1697,8 +1700,8 @@ screen my_protectors_screen():
                                 has vbox
 
                                 text "{} ({})".format(
-                                    str(my_protector['bigLetterName']),
-                                    get_current_status_from_my_protector(my_protector['name'])
+                                    my_protector.bigLetterName,
+                                    get_current_status_from_my_protector(my_protector.name)
                                 ):
                                     size 30
                                     color "#FFFFFF"
@@ -1723,7 +1726,7 @@ screen protector_detail_screen(my_protector):
                 padding (10, 5)
 
             # Protector name - top right corner
-            text "[my_protector['bigLetterName']]" size 50 color "#FFF":
+            text "[my_protector.bigLetterName]" size 50 color "#FFF":
                 xalign 0.2
                 yalign 0.1
 
@@ -1732,13 +1735,55 @@ screen protector_detail_screen(my_protector):
                 spacing 20
                 xalign 0.2
                 yalign 0.5
-                text "Stats: [get_current_status_from_my_protector(my_protector['name'])]" size 30 color "#EEE"
-                text "Stage: [str(my_protector['stage'] + 1)]" size 25 color "#DDD"
-                text "Level: [str(my_protector['level'] + 1)]" size 25 color "#DDD"
+                text "Status: [my_protector.status]" size 25 color "#DDD"
+                text "Stats: [get_current_status_from_my_protector(my_protector.name)]" size 30 color "#EEE"
+                text "Stage: [my_protector.stage + 1]" size 25 color "#DDD"
+                text "Level: [my_protector.level + 1]" size 25 color "#DDD"
+                text "XP: [my_protector.xp]" size 25 color "#DDD"
 
             # Image - mid right, just below the name
             python:
-                image_path = getImage(get_folder_from_map(my_protector["name"]) + '/' + str(my_protector["stage"] + 1))
+                image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage + 1))
                 if image_path:
+                    ui.at(midRight)
                     ui.at(fit_to_screen_height)
                     ui.add(image_path)
+
+screen protector_selection():
+
+    tag menu
+
+    # Full-screen container to allow positioning in center
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding (100, 50)
+        style_prefix "menu"
+
+        vbox:
+            spacing 10
+            align (0.5, 0.5)
+
+            label "Choose a protector to train" xalign 0.5
+
+            $ has_available = False
+            for key, protector in my_protectors_map.items():
+                if protector.status == "Available":
+                    $ has_available = True
+                    textbutton protector.bigLetterName + ' (' + protector.get_current_status() + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump("send_to_training")]
+
+            if not has_available:
+                text "No protectors are currently available." xalign 0.5
+
+            textbutton "Back" xalign 0.5 action Return()
+
+
+screen current_day_screen():
+    if show_current_day:
+        textbutton "Day: {}".format(current_day):
+            xalign 1.0
+            yalign 0.0
+            padding (20, 10)
+            background "#4448"
+            text_color "b3b3b3"
+            text_size 40

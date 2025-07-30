@@ -2,6 +2,8 @@
 default show_my_protectors = False
 default show_my_protector_specific_info = False
 default show_whole_functionality_for_seeing_my_protectors = False
+default show_current_day = False
+default current_day = 0
 
 init python:
     mc = Character("TEMP")
@@ -9,9 +11,13 @@ init python:
     templar_path = get_folder_from_map("templar")
     samurai_path = get_folder_from_map("samurai")
     config.overlay_screens.append("my_protectors_screen")
+    config.overlay_screens.append("current_day_screen")
+    
 
 define nova = Character("Nova", color="#00a2ff")
 define anonymous_yet = Character("??")
+define selected_protector = None
+
 
 label start:
     anonymous_yet "Greetings, human."
@@ -81,7 +87,7 @@ label start:
         nova "You can choose only one.."
         nova "Who will that be?"
         menu:
-            "Ninja \n([get_protector_base_information('ninja')])":
+            "Ninja \n([protectors_base_information['ninja'].get_base_information()])":
                 hide templar_starting
                 hide samurai_starting
                 show ninja_starting at fit_to_screen_height, center
@@ -95,7 +101,7 @@ label start:
                         nova "Ninja added!"
                     "What were the other ones?":
                         nova "Let's recap."
-            "Templar \n([get_protector_base_information('templar')])":
+            "Templar \n([protectors_base_information['templar'].get_base_information()])":
                 hide ninja_starting
                 hide samurai_starting
                 show templar_starting at fit_to_screen_height, center
@@ -109,7 +115,7 @@ label start:
                         nova "Templar added!"
                     "What were the other ones?":
                         nova "Let's recap."
-            "Samurai \n([get_protector_base_information('samurai')])":
+            "Samurai \n([protectors_base_information['samurai'].get_base_information()])":
                 hide ninja_starting
                 hide templar_starting
                 show samurai_starting at fit_to_screen_height, center
@@ -139,19 +145,19 @@ label start:
         call nova_explains_tutorial()
         $ set_background("base-of-operations")
         nova "Then that would be all!"
-        nova "Do you have any question so far?"
+        nova "Did you understood everything so far?"
         menu:
-            "No, I understood everything!":
+            "Yes, I understood everything!":
                 $ while_aux = 1
                 mc "I think I understood everything!"
                 nova "Great!"
                 nova "In any case you can alsways call me!"
-                # TODO: make it possible to call nova
-            "Yes, could you please repeat?":
+            "No, could you please repeat?":
                 mc "I'm not sure if I understood.."
                 mc "Could you repeat please?"
                 nova "Sure!"
     
+    $ show_current_day = True
     jump base_of_operations
 
     # TODO: missions
@@ -160,13 +166,22 @@ label start:
     #   every day some random missions should appear (3?)
     #
     # TODO: training
-    #   I should be able to select one of my protectors and then send them to train
-    #   they should be unavailable once I added them to the training ( I need to add a new entry to the map, saying "available")
-    #   they should be back next day
+    #   need to create the logic for automatically they are back on the day after
+    #   need to create the same logic as I will later on use for missions
+    #   as I'll create the mission object, insert the training there (should be the one with id = 0)
+    #   this training should have time only as 1 day - so they are back on the next day
     #   the winning experience should always be the same ( for this I also need to add a new entry to the map, saying "xp")
     #
     # TODO: resting
     #   resting should move the day to the next day
+    # 
+    # TODO: make it possible to call nova
+    # 
+    # TODO: update the protector so they also have xp info
+    # 
+    # TODO: in missions - if the atack of the enemy is bigger than the health of the protector - protector will imidiatly be killed.
+    # 
+    
     return
 
 
@@ -214,4 +229,8 @@ label nova_explains_tutorial():
     nova "Resting area: \nNew missions appear every day, but be careful! Old missions might disapear when you rest."
     nova "Resting area: \nEvery mission have a time to be started. If a mission was not yet initiated and this time finished, then this mission is closed as ignored."
     
+    return
+
+label show_my_available_protectors():
+    call screen protector_selection
     return
