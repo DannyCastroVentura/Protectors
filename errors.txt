@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1655: screen expects a non-empty block.
-    if show_whole_functionality_for_seeing_my_protectors:
-                                                         ^
+File "game/script.rpy", line 165: while statement expects a non-empty block.
+    while while_aux == 0:
+                         ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Jul 29 22:29:47 2025
+Wed Jul 30 12:25:49 2025

@@ -133,16 +133,28 @@ label start:
     nova "You can check your protectors by clicking in the button \"My Protectors\""
     nova "Once you click, you'll see all your protectors - for now, you have only one!"
     nova "If you click on your protector, you'll see more information about him."
-    nova "Great! Now let's continue!"
-    nova "Let me take you to your base of operations!"
-    # TODO: change the background for the base of operations
-    nova "In here you can sleep - this will make your protectors to also rest."
-    nova "You can train them - note that this will only work for a few levels.."
-    nova "If you really want your protectors to level up you should make them fight real fights.."
-    nova "From here you can also check the different regions where you have to bring peace.."
-    nova "By checking them you can also see what missions you have in which region."
-    nova "Probably it would be better for you to start small, then you can increase the difficulty."
-    nova "Missions will automatically be added here, and if they are not done in time, then they are also canceled."
+    nova "Great! Now let's continue!"    
+    $ while_aux = 0
+    while while_aux == 0:        
+        call nova_explains_tutorial()
+        $ set_background("base-of-operations")
+        nova "Then that would be all!"
+        nova "Do you have any question so far?"
+        menu:
+            "No, I understood everything!":
+                $ while_aux = 1
+                mc "I think I understood everything!"
+                nova "Great!"
+                nova "In any case you can alsways call me!"
+                # TODO: make it possible to call nova
+            "Yes, could you please repeat?":
+                mc "I'm not sure if I understood.."
+                mc "Could you repeat please?"
+                nova "Sure!"
+    
+    # TODO: sandbox
+    #   need to make the system a sandbox, give the freedom to the user to go to the different places
+
     # TODO: missions
     #   the missions need to have a deadline for the time (counted on days)
     #   they have to be on a region depending on the difficulty of the mission
@@ -151,9 +163,6 @@ label start:
 
     # TODO: continue here
 
-    nova "Let me take you to the region where you should be able to have an easy start!"
-    # TODO: change the background for the easy region
-    nova "Okay, here we are, in this region you'll find some"
     nova "So we can now continue!!"
     return
 
@@ -178,6 +187,28 @@ label showFirst3Protectors():
     show samurai_starting at fit_to_screen_height, farRight
     return
 
-label novaShowingProtector():
-    nova "Going back"
+label nova_explains_tutorial():
+    nova "Let me take you to your base of operations!"
+    $ set_background("base-of-operations")
+    nova "Here we are!"
+    nova "You can use your base of operations to: \n- Check your missions list \n- Train you protectors\n- Rest area"
+    nova "Check your missions list: \nIn here you can see what missions you have received."
+    nova "Check your missions list: \nNote that there will be some missions very hard to handle - I recommend to start with the basic ones first!"
+    nova "Check your missions list: \nIf the mission is to difficult for the experience of the protector, he might be unable from escape - and if this happens, he'll die and you'll lose this protector."
+    nova "Check your missions list: \nIf all of your protectors die - you'll lose the game."
+    nova "Check your missions list: \nBe careful when assinging protectors to missions."
+
+    $ set_background("training-ground")
+    nova "Training ground: \nThis is the a place we have built for helping you make new protectors stronger."
+    nova "Training ground: \nTraining ground should be very helpful for inexperienced protectors."
+    nova "Training ground: \nBut as they become stronger - the training ground start to be less effective."
+    
+    $ set_background("rest-area")
+    nova "Rest area: \nYou can also go to the bedrooms to rest!"
+    nova "Rest area: \nResting is very important, as your protectors also need to recover when they are back from their missions."
+    nova "Rest area: \nResting is also very helpful when you need to advance the time."
+    nova "Rest area: \nAdvancing time can be helpful for a lot of things, including - to get new missions."
+    nova "Rest area: \nNew missions appear every day, but be careful! Old missions might disapear when you rest."
+    nova "Rest area: \nEvery mission have a time to be started. If a mission was not yet initiated and this time finished, then this mission is closed as ignored."
+    
     return
