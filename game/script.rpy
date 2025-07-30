@@ -152,18 +152,21 @@ label start:
                 mc "Could you repeat please?"
                 nova "Sure!"
     
-    # TODO: sandbox
-    #   need to make the system a sandbox, give the freedom to the user to go to the different places
+    jump base_of_operations
 
     # TODO: missions
     #   the missions need to have a deadline for the time (counted on days)
     #   they have to be on a region depending on the difficulty of the mission
     #   every day some random missions should appear (3?)
-    #   
-
-    # TODO: continue here
-
-    nova "So we can now continue!!"
+    #
+    # TODO: training
+    #   I should be able to select one of my protectors and then send them to train
+    #   they should be unavailable once I added them to the training ( I need to add a new entry to the map, saying "available")
+    #   they should be back next day
+    #   the winning experience should always be the same ( for this I also need to add a new entry to the map, saying "xp")
+    #
+    # TODO: resting
+    #   resting should move the day to the next day
     return
 
 
@@ -203,12 +206,12 @@ label nova_explains_tutorial():
     nova "Training ground: \nTraining ground should be very helpful for inexperienced protectors."
     nova "Training ground: \nBut as they become stronger - the training ground start to be less effective."
     
-    $ set_background("rest-area")
-    nova "Rest area: \nYou can also go to the bedrooms to rest!"
-    nova "Rest area: \nResting is very important, as your protectors also need to recover when they are back from their missions."
-    nova "Rest area: \nResting is also very helpful when you need to advance the time."
-    nova "Rest area: \nAdvancing time can be helpful for a lot of things, including - to get new missions."
-    nova "Rest area: \nNew missions appear every day, but be careful! Old missions might disapear when you rest."
-    nova "Rest area: \nEvery mission have a time to be started. If a mission was not yet initiated and this time finished, then this mission is closed as ignored."
+    $ set_background("resting-area")
+    nova "Resting area: \nYou can also go to the bedrooms to rest!"
+    nova "Resting area: \nResting is very important, as your protectors also need to recover when they are back from their missions."
+    nova "Resting area: \nResting is also very helpful when you need to advance the time."
+    nova "Resting area: \nAdvancing time can be helpful for a lot of things, including - to get new missions."
+    nova "Resting area: \nNew missions appear every day, but be careful! Old missions might disapear when you rest."
+    nova "Resting area: \nEvery mission have a time to be started. If a mission was not yet initiated and this time finished, then this mission is closed as ignored."
     
     return

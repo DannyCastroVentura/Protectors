@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 165: while statement expects a non-empty block.
-    while while_aux == 0:
-                         ^
+The label training_ground is defined twice, at File "game/places.rpy", line 23:
+label training_ground():
+and File "game/places.rpy", line 34:
+label training_ground():
+
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Jul 30 12:25:49 2025
+Wed Jul 30 14:21:39 2025
