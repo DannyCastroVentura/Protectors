@@ -1770,16 +1770,17 @@ screen protector_selection():
             align (0.5, 0.5)
 
             label "Choose a protector to train" xalign 0.5
+            if allMissions[0].status != "assigned":
+                $ has_available = False
+                for key, protector in my_protectors_map.items():
+                    if protector.status == "Available":
+                        $ has_available = True
+                        textbutton protector.bigLetterName + ' (' + protector.get_current_status() + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump("send_to_training")]
 
-            $ has_available = False
-            for key, protector in my_protectors_map.items():
-                if protector.status == "Available":
-                    $ has_available = True
-                    textbutton protector.bigLetterName + ' (' + protector.get_current_status() + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump("send_to_training")]
-
-            if not has_available:
-                text "No protectors are currently available." xalign 0.5
-
+                if not has_available:
+                    text "No protectors are currently available." xalign 0.5
+            else: 
+                text "Training facility already occupied with: [my_protectors_map[allMissions[0].assignedProtectorName].bigLetterName] " xalign 0.5
             textbutton "Back" action Return():
                 text_style "hover_black"
                 xalign 0.5

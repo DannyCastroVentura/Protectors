@@ -1,26 +1,117 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 17, in script call
-    call check_my_missions()
-  File "game/places.rpy", line 17, in script call
-    call check_my_missions()
-ScriptError: could not find label 'check_my_missions'.
+  File "game/places.rpy", line 19, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors()
+  File "game/places.rpy", line 30, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 39, in script call
+    call rest()
+  File "game/places.rpy", line 41, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors()
+  File "game/script.rpy", line 239, in script
+    call screen protector_selection
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/screens.rpy", line 1758, in execute
+    screen protector_selection():
+  File "game/screens.rpy", line 1758, in execute
+    screen protector_selection():
+  File "game/screens.rpy", line 1762, in execute
+    frame:
+  File "game/screens.rpy", line 1768, in execute
+    vbox:
+  File "game/screens.rpy", line 1773, in execute
+    if allMissions[0].status != "assigned":
+  File "game/screens.rpy", line 1783, in execute
+    text "Protector [my_protectors_map[allMissions[0].protectorName].bigLetterName]" xalign 0.5
+AttributeError: 'Mission' object has no attribute 'protectorName'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/places.rpy", line 17, in script call
-    call check_my_missions()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1427, in execute
-    rv = renpy.game.context().call(label, return_site=self.next.name)
-  File "game/places.rpy", line 17, in script call
-    call check_my_missions()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'check_my_missions'.
+  File "game/places.rpy", line 19, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors()
+  File "game/places.rpy", line 30, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 39, in script call
+    call rest()
+  File "game/places.rpy", line 41, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors()
+  File "game/script.rpy", line 239, in script
+    call screen protector_selection
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1987, in execute
+    self.call("execute")
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1966, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\statements.py", line 374, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\statementexports.py", line 345, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2218, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2748, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 480, in visit_all
+    callback(self)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2748, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 491, in per_interact
+    self.update()
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 700, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 1758, in execute
+    screen protector_selection():
+  File "game/screens.rpy", line 1758, in execute
+    screen protector_selection():
+  File "game/screens.rpy", line 1762, in execute
+    frame:
+  File "game/screens.rpy", line 1768, in execute
+    vbox:
+  File "game/screens.rpy", line 1773, in execute
+    if allMissions[0].status != "assigned":
+  File "game/screens.rpy", line 1783, in execute
+    text "Protector [my_protectors_map[allMissions[0].protectorName].bigLetterName]" xalign 0.5
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\text\text.py", line 2177, in _scope
+    return self.set_text(self.text_parameter, scope, self.substitute, update)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\text\text.py", line 2216, in set_text
+    i, did_sub = renpy.substitutions.substitute(i, scope, substitute) # type: ignore
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 373, in substitute
+    s = interpolate(s, variables) # type: ignore
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 86, in interpolate
+    raise e
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 78, in interpolate
+    value = renpy.python.py_eval(code, {}, scope)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1218, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1211, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+AttributeError: 'Mission' object has no attribute 'protectorName'
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Wed Jul 30 22:28:33 2025
+Thu Jul 31 01:39:10 2025

@@ -183,7 +183,10 @@ label start:
     # 
     # TODO: in missions - if the atack of the enemy is bigger than the health of the protector - protector will imidiatly be killed.
     # 
-    
+    # TODO: try to understand why the fuck the level of ninja after one training gave him more than 10 xp
+    #
+    # TODO: make the stats show with 2 decimal places at max
+
     return
 
 

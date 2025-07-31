@@ -1,4 +1,7 @@
 default my_protectors_map = {}
+define protectors_base_information = {}
+define allMissions = []
+define config.console = True
 
 init python:
     import os
@@ -6,6 +9,12 @@ init python:
     
     if 'my_protectors_map' not in globals():
         my_protectors_map = {}
+
+    if 'protectors_base_information' not in globals():
+        protectors_base_information = {}
+
+    if 'allMissions' not in globals():
+        allMissions = []
     
     dynamic_backgrounds = {}
 
@@ -38,6 +47,17 @@ init python:
     folder_path = "game\images\protectors"
     full_path = os.path.join(config.basedir, folder_path)
     folder_map = {}
+
+    # creating protectors    
+    protectors_base_information["ninja"] = BaseProtectorData(0.7, 1, 1.3)
+    protectors_base_information["recruit"] = BaseProtectorData(1.1, 0.8, 1.1)
+    protectors_base_information["robot"] = BaseProtectorData(1.5, 0.75, 0.75)
+    protectors_base_information["samurai"] = BaseProtectorData(1.25, 1.25, 0.5)
+    protectors_base_information["skeleton"] = BaseProtectorData(0.5, 1.5, 1)
+    protectors_base_information["templar"] = BaseProtectorData(1.5, 1.2, 0.3)
+
+    # creating missions
+    allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 10, 0))
 
     # Scan and define backgrounds
     for f in renpy.list_files():

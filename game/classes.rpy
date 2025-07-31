@@ -8,15 +8,6 @@ init python:
             
         def get_base_information(self):
             return 'Health: ' + str(self.health * health_size) + ' / ' + 'Damage: ' + str(self.damage * damage_size) + ' / ' + 'Atack-speed: ' + str(self.atack_speed * atack_speed_size)
-    
-    protectors_base_information = {
-        "ninja": BaseProtectorData(0.7, 1, 1.3),
-        "recruit": BaseProtectorData(1.1, 0.8, 1.1),
-        "robot": BaseProtectorData(1.5, 0.75, 0.75),
-        "samurai": BaseProtectorData(1.25, 1.25, 0.5),
-        "skeleton": BaseProtectorData(0.5, 1.5, 1),
-        "templar": BaseProtectorData(1.5, 1.2, 0.3)
-    }
 
     class Protector:
         def __init__(self, name, bigLetterName, stage, level, status, xp = 0):
@@ -58,12 +49,41 @@ init python:
             returning_string = str(real_health * health_size) + " / " + str(real_damage * damage_size) + " / " + str(real_atack_speed * atack_speed_size)
             return returning_string
 
-    class missions:
-        def __init__(self, mission_id, name, description, difficulty, xp_received, gold_received):
-            self.mission_id = mission_id
-            self.name = name
+    class Mission:
+        _id_counter = 0
+        def __init__(self, title, description, difficulty, neededDaysToFinish, xp_received = None, gold_received = None):
+            self.mission_id = Mission._id_counter
+            Mission._id_counter += 1
+            self.title = title
             self.description = description
             self.difficulty = difficulty
-            self.status = status
-            self.xp = xp
-            self.basePoints = protectors_base_information[name]
+            self.neededDaysToFinish = neededDaysToFinish
+            self.daysPassed = 0 # this will going to be updated every time a day passes and this mission is assigned # this needs to be reseted once this mission is finished
+            self.status = "hidden" # possible values: hidden / visible / assigned # this needs to be reseted once this mission is finished
+            self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
+            if xp_received == None or gold_received == None:
+                randomNumber = renpy.random.randint(1, difficulty)
+                self.xp_received = (randomNumber) * 10
+                self.gold_received = (difficulty - randomNumber) * 10
+            else:
+                self.xp_received = xp_received
+                self.gold_received = gold_received
+        
+        def startMission(self, protectorName):
+            self.assignedProtectorName = protectorName
+            self.status = "assigned"
+        
+        def updateDaysPassed(self):
+            if self.status == "assigned":
+                self.daysPassed += 1
+            
+            if self.daysPassed == self.neededDaysToFinish:
+                self.finishMission()
+        
+        def finishMission(self):
+            self.daysPassed = 0
+            self.status = "hidden"
+            my_protectors_map[self.assignedProtectorName].status = "Available"
+            my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received)
+            self.assignedProtectorName = None
+    

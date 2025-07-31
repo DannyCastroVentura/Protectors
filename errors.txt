@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 61: expected an indented block
-    class missions:
+File "game/classes.rpy", line 77: invalid syntax
+            if self.status = "assigned":
+                            ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Jul 30 21:59:35 2025
+Thu Jul 31 01:23:30 2025
