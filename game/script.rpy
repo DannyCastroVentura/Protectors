@@ -176,8 +176,6 @@ label start:
     # 
     # TODO: create a notification when the day ends to notify every update (every mission which finished today)
     #
-    # TODO: once a protector is ready for the stage up, the box my protectors should be red and I need to click on the protector so I do the stage up for him.
-    #
     # TODO: if the protector have 20 of level and 10 of stage, when showing the max level I should show (+oo)
     #
     # TODO: once we click on the protector as he is ready for promotion, we should have a lot of events, 

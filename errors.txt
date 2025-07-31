@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1699: 'my_color' is not a keyword argument or valid child of the for statement.
-    my_color = "#FFFFFF"
-            ^
+File "game/screens.rpy", line 1728: screen expects a non-empty block.
+    if my_protector.readyForPromotion == True:
+                                              ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Thu Jul 31 16:06:01 2025
+Thu Jul 31 16:33:15 2025

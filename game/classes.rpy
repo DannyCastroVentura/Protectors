@@ -47,8 +47,8 @@ init python:
                         # we need to increase the stage
                         # check if stage is already at 10
                         if self.stage != 10:
-                            self.level = 1
                             self.readyForPromotion = True
+                            self.stats = self.get_current_stats()
                             break
                         else:
                             self.level = 20

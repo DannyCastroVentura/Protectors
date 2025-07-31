@@ -50,6 +50,9 @@ style hover_black:
     color "#b3b3b3"
     hover_color "#000000"
 
+style red_hover_red_dark:
+    color "#ff0000"
+    hover_color "#880000"
 
 
 ################################################################################
@@ -1660,8 +1663,12 @@ style slider_slider:
 screen my_protectors_screen():
     if show_whole_functionality_for_seeing_my_protectors:
         if not show_my_protectors:
+            $ button_style = "hover_white"
+            for my_protector in my_protectors_map.values():
+                if my_protector.readyForPromotion == True:
+                    $ button_style = "red_hover_red_dark"
             textbutton "My protectors ({})".format(get_count_of_my_protectors()):
-                text_style "hover_white"
+                text_style button_style
                 background "#4448"
                 xalign 0.0
                 yalign 0.0
@@ -1718,45 +1725,86 @@ screen my_protectors_screen():
 
 
 screen protector_detail_screen(my_protector):
-    frame:
-        modal True
-        background Solid("#000000ea")
-        xysize (config.screen_width, config.screen_height)
+    if my_protector.readyForPromotion == True:
+        frame:
+            modal True
+            background Solid("#000000ea")
+            xysize (config.screen_width, config.screen_height)
 
-        fixed:
-            xfill True
-            yfill True
+            fixed:
+                xfill True
+                yfill True
 
-            # Close button - top right
-            textbutton "Close" action Hide("protector_detail_screen"):
-                text_style "hover_white"
-                xalign 1.0
-                yalign 0.0
-                padding (10, 5)
+                # Close button - top right
+                textbutton "Close" action Hide("protector_detail_screen"):
+                    text_style "hover_white"
+                    xalign 1.0
+                    yalign 0.0
+                    padding (10, 5)
 
-            # Protector name - top right corner
-            text "[my_protector.bigLetterName]" size 50 color "#FFF":
-                xalign 0.2
-                yalign 0.1
+                # Protector name - top right corner
+                text "[my_protector.bigLetterName] ready for promotion!" size 50 color "#FFF":
+                    xalign 0.2
+                    yalign 0.1
 
-            # Text block - vertically centered on left side
-            vbox:
-                spacing 20
-                xalign 0.2
-                yalign 0.5
-                text "Status: [my_protector.status]" size 25 color "#DDD"
-                text "Stats: [str(my_protector.stats)]" size 30 color "#EEE"
-                text "Level: [my_protector.level] / 20" size 25 color "#DDD"
-                text "Stage: [my_protector.stage] / 10" size 25 color "#DDD"
-                text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
+                # Text block - vertically centered on left side
+                vbox:
+                    spacing 20
+                    xalign 0.2
+                    yalign 0.5
+                    text "Status: [my_protector.status]" size 25 color "#DDD"
+                    text "Stats: [str(my_protector.stats)]" size 30 color "#EEE"
+                    text "Level: [my_protector.level] / 20" size 25 color "#DDD"
+                    text "Stage: [my_protector.stage] / 10" size 25 color "#DDD"
+                    text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
 
-            # Image - mid right, just below the name
-            python:
-                image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage))
-                if image_path:
-                    ui.at(midRight)
-                    ui.at(fit_to_screen_height)
-                    ui.add(image_path)
+                # Image - mid right, just below the name
+                python:
+                    image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage))
+                    if image_path:
+                        ui.at(midRight)
+                        ui.at(fit_to_screen_height)
+                        ui.add(image_path)
+    else:
+        frame:
+            modal True
+            background Solid("#000000ea")
+            xysize (config.screen_width, config.screen_height)
+
+            fixed:
+                xfill True
+                yfill True
+
+                # Close button - top right
+                textbutton "Close" action Hide("protector_detail_screen"):
+                    text_style "hover_white"
+                    xalign 1.0
+                    yalign 0.0
+                    padding (10, 5)
+
+                # Protector name - top right corner
+                text "[my_protector.bigLetterName]" size 50 color "#FFF":
+                    xalign 0.2
+                    yalign 0.1
+
+                # Text block - vertically centered on left side
+                vbox:
+                    spacing 20
+                    xalign 0.2
+                    yalign 0.5
+                    text "Status: [my_protector.status]" size 25 color "#DDD"
+                    text "Stats: [str(my_protector.stats)]" size 30 color "#EEE"
+                    text "Level: [my_protector.level] / 20" size 25 color "#DDD"
+                    text "Stage: [my_protector.stage] / 10" size 25 color "#DDD"
+                    text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
+
+                # Image - mid right, just below the name
+                python:
+                    image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage))
+                    if image_path:
+                        ui.at(midRight)
+                        ui.at(fit_to_screen_height)
+                        ui.add(image_path)
 
 screen protector_selection():
     tag menu
