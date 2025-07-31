@@ -30,7 +30,7 @@ label training_ground():
             call base_travel_menu()
     jump training_ground
     
-label resting_area():
+label resting_area():    
     $ set_background("resting-area")
     "Resting Area"
     mc "Here we are! What should I do here?"

@@ -1696,6 +1696,9 @@ screen my_protectors_screen():
                         spacing 20  # Reduced space between quests
 
                         for my_protector in my_protectors_map.values():
+                            $ my_color = "#FFFFFF"
+                            if my_protector.readyForPromotion == True:
+                                $ my_color = "#ff0000"
                             button:
                                 background "#00000020"
                                 padding (5, 5)
@@ -1706,10 +1709,10 @@ screen my_protectors_screen():
 
                                 text "{} ({})".format(
                                     my_protector.bigLetterName,
-                                    get_current_status_from_my_protector(my_protector.name)
+                                    str(my_protector.stats)
                                 ):
                                     size 30
-                                    color "#FFFFFF"
+                                    color my_color
                                     xalign 0.0
                                     line_spacing 0
 
@@ -1742,14 +1745,14 @@ screen protector_detail_screen(my_protector):
                 xalign 0.2
                 yalign 0.5
                 text "Status: [my_protector.status]" size 25 color "#DDD"
-                text "Stats: [get_current_status_from_my_protector(my_protector.name)]" size 30 color "#EEE"
-                text "Stage: [my_protector.stage + 1]" size 25 color "#DDD"
-                text "Level: [my_protector.level + 1]" size 25 color "#DDD"
-                text "XP: [my_protector.xp]" size 25 color "#DDD"
+                text "Stats: [str(my_protector.stats)]" size 30 color "#EEE"
+                text "Level: [my_protector.level] / 20" size 25 color "#DDD"
+                text "Stage: [my_protector.stage] / 10" size 25 color "#DDD"
+                text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
 
             # Image - mid right, just below the name
             python:
-                image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage + 1))
+                image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage))
                 if image_path:
                     ui.at(midRight)
                     ui.at(fit_to_screen_height)
@@ -1775,7 +1778,7 @@ screen protector_selection():
                 for key, protector in my_protectors_map.items():
                     if protector.status == "Available":
                         $ has_available = True
-                        textbutton protector.bigLetterName + ' (' + protector.get_current_status() + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump("send_to_training")]
+                        textbutton protector.bigLetterName + ' (' + str(protector.stats) + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump("send_to_training")]
 
                 if not has_available:
                     text "No protectors are currently available." xalign 0.5

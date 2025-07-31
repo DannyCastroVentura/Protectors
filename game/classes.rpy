@@ -6,8 +6,17 @@ init python:
             self.damage = damage
             self.atack_speed = atack_speed
             
+        def get_base_health_information(self):
+            return round(self.health * health_size, 2)
+        
+        def get_base_damage_information(self):
+            return round(self.damage * damage_size, 2)
+        
+        def get_base_atack_speed_information(self):
+            return round(self.atack_speed * atack_speed_size, 2)
+        
         def get_base_information(self):
-            return 'Health: ' + str(self.health * health_size) + ' / ' + 'Damage: ' + str(self.damage * damage_size) + ' / ' + 'Atack-speed: ' + str(self.atack_speed * atack_speed_size)
+            return 'Health: ' + str(self.get_base_health_information()) + ' / ' + 'Damage: ' + str(self.get_base_damage_information()) + ' / ' + 'Atack-speed: ' + str(self.get_base_atack_speed_information())
 
     class Protector:
         def __init__(self, name, bigLetterName, stage, level, status, xp = 0):
@@ -17,37 +26,66 @@ init python:
             self.level = level
             self.status = status
             self.xp = xp
+            self.readyForPromotion = False
             self.basePoints = protectors_base_information[name]
+            self.stats = self.get_current_stats()
         
         def increasing_xp(self, incoming_xp):
+            # renpy.say(mc, f"the incoming_xp is: {incoming_xp}")
             self.xp += incoming_xp
 
             while True:
-                xp_needed = (
-                    xp_size * increasing_per_level_multiplier_xp * self.level +
-                    xp_size * self.stage * increasing_per_stage_multiplier_xp
-                )
-
+                xp_needed = self.get_amount_of_xp_needed_for_leveling_up()
                 if self.xp >= xp_needed:
+                    if self.level == 20 and self.stage == 10:
+                        break
+                    # Then we are going to level up!
                     self.xp -= xp_needed
                     self.level += 1
-
-                    # Check for stage-up
-                    if self.level >= 20:
-                        self.level = 0
-                        self.stage += 1
-
+                    # check if level is already at 20
+                    if self.level == 20:
+                        # we need to increase the stage
+                        # check if stage is already at 10
+                        if self.stage != 10:
+                            self.level = 1
+                            self.readyForPromotion = True
+                            break
+                        else:
+                            self.level = 20
+                            self.stage = 10
+                            self.readyForPromotion = False
                 else:
+                    self.stats = self.get_current_stats()
                     break
 
+        def get_amount_of_xp_needed_for_leveling_up(self):
+            return ( 
+                        round(( xp_starter_size + 
+                            (xp_size * increasing_per_level_multiplier_xp * (self.level - 1)) +
+                            (xp_size * increasing_per_stage_multiplier_xp * (self.stage - 1)) 
+                        ), 2)
+                    )
 
-        def get_current_status(self):
-            my_protector_base_stats = self.basePoints
-            real_health = my_protector_base_stats.health + (my_protector_base_stats.health * self.level * increasing_per_level_multiplier_health) + (my_protector_base_stats.health * self.stage * increasing_per_stage_multiplier_health)
-            real_damage = my_protector_base_stats.damage + (my_protector_base_stats.damage * self.level * increasing_per_level_multiplier_damage) + (my_protector_base_stats.damage * self.stage * increasing_per_stage_multiplier_damage)
-            real_atack_speed = my_protector_base_stats.atack_speed + (my_protector_base_stats.atack_speed * self.level * increasing_per_level_multiplier_atack_speed) + (my_protector_base_stats.atack_speed * self.stage * increasing_per_stage_multiplier_atack_speed)
-            returning_string = str(real_health * health_size) + " / " + str(real_damage * damage_size) + " / " + str(real_atack_speed * atack_speed_size)
-            return returning_string
+        def get_health_stat(self):
+            return round((self.basePoints.health + (self.basePoints.health * (self.level - 1) * increasing_per_level_multiplier_health) + 
+                        (self.basePoints.health * (self.stage - 1) * increasing_per_stage_multiplier_health)) * health_size, 2)
+
+        def get_damage_stat(self):
+            return round((self.basePoints.damage + (self.basePoints.damage * (self.level - 1) * increasing_per_level_multiplier_damage) + 
+                        (self.basePoints.damage * (self.stage - 1) * increasing_per_stage_multiplier_damage)) * damage_size, 2)
+
+        def get_atack_speed_stat(self):
+            return round((self.basePoints.atack_speed + (self.basePoints.atack_speed * (self.level - 1) * increasing_per_level_multiplier_atack_speed) + 
+                        (self.basePoints.atack_speed * (self.stage - 1) * increasing_per_stage_multiplier_atack_speed)) * atack_speed_size, 2)
+
+        def get_current_stats(self):
+            return str(
+                        self.get_health_stat()
+                    ) + " / " + str(
+                        self.get_damage_stat()
+                    ) + " / " + str(
+                        self.get_atack_speed_stat()
+                    )
 
     class Mission:
         _id_counter = 0

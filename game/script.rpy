@@ -22,6 +22,7 @@ define selected_protector = None
 
 
 label start:
+    $ initializing_things()
     anonymous_yet "Greetings, human."
     anonymous_yet "Can you ear me?"
     anonymous_yet "Please try to open your eyes."
@@ -166,26 +167,22 @@ label start:
     #   the missions need to have a deadline for the time (counted on days)
     #   they have to be on a region depending on the difficulty of the mission
     #   every day some random missions should appear (3?)
-    #
-    # TODO: training
-    #   need to create the logic for automatically they are back on the day after
-    #   need to create the same logic as I will later on use for missions
-    #   as I'll create the mission object, insert the training there (should be the one with id = 0)
-    #   this training should have time only as 1 day - so they are back on the next day
-    #   the winning experience should always be the same ( for this I also need to add a new entry to the map, saying "xp")
-    #
-    # TODO: resting
-    #   resting should move the day to the next day
     # 
     # TODO: make it possible to call nova
     # 
-    # TODO: update the protector so they also have xp info
-    # 
     # TODO: in missions - if the atack of the enemy is bigger than the health of the protector - protector will imidiatly be killed.
-    # 
-    # TODO: try to understand why the fuck the level of ninja after one training gave him more than 10 xp
     #
-    # TODO: make the stats show with 2 decimal places at max
+    # TODO: create a wallet, so the money got from the missions go there.
+    # 
+    # TODO: create a notification when the day ends to notify every update (every mission which finished today)
+    #
+    # TODO: once a protector is ready for the stage up, the box my protectors should be red and I need to click on the protector so I do the stage up for him.
+    #
+    # TODO: if the protector have 20 of level and 10 of stage, when showing the max level I should show (+oo)
+    #
+    # TODO: once we click on the protector as he is ready for promotion, we should have a lot of events, 
+    #   at the end of each event we should continuing the leveling up by doing protector.increasing_xp(0)
+    #   and if the protector is ready again for promotion, we should keep promoting him.
 
     return
 

@@ -9,29 +9,31 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 39, in script call
     call rest()
-  File "game/places.rpy", line 41, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 28, in script call
-    call show_my_available_protectors()
-  File "game/places.rpy", line 28, in script call
-    call show_my_available_protectors()
-  File "game/script.rpy", line 239, in script
-    call screen protector_selection
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/screens.rpy", line 1758, in execute
-    screen protector_selection():
-  File "game/screens.rpy", line 1758, in execute
-    screen protector_selection():
-  File "game/screens.rpy", line 1762, in execute
+  File "game/places.rpy", line 37, in script
+    menu:
+  File "game/screens.rpy", line 1660, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1660, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1661, in execute
+    if show_whole_functionality_for_seeing_my_protectors:
+  File "game/screens.rpy", line 1662, in execute
+    if not show_my_protectors:
+  File "game/screens.rpy", line 1673, in execute
     frame:
-  File "game/screens.rpy", line 1768, in execute
+  File "game/screens.rpy", line 1681, in execute
+    has vbox
+  File "game/screens.rpy", line 1690, in execute
+    viewport:
+  File "game/screens.rpy", line 1695, in execute
     vbox:
-  File "game/screens.rpy", line 1773, in execute
-    if allMissions[0].status != "assigned":
-  File "game/screens.rpy", line 1783, in execute
-    text "Protector [my_protectors_map[allMissions[0].protectorName].bigLetterName]" xalign 0.5
-AttributeError: 'Mission' object has no attribute 'protectorName'
+  File "game/screens.rpy", line 1698, in execute
+    for my_protector in my_protectors_map.values():
+  File "game/screens.rpy", line 1700, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 1700, in <module>
+    if my_protector.readyForPromotion == True:
+AttributeError: 'Protector' object has no attribute 'readyForPromotion'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -44,24 +46,14 @@ Full traceback:
     call base_travel_menu()
   File "game/places.rpy", line 39, in script call
     call rest()
-  File "game/places.rpy", line 41, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 28, in script call
-    call show_my_available_protectors()
-  File "game/places.rpy", line 28, in script call
-    call show_my_available_protectors()
-  File "game/script.rpy", line 239, in script
-    call screen protector_selection
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1987, in execute
-    self.call("execute")
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1966, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\statements.py", line 374, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\statementexports.py", line 345, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "game/places.rpy", line 37, in script
+    menu:
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1632, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\menuexports.py", line 134, in menu
+    rv = renpy.store.menu(new_items)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\menuexports.py", line 424, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2218, in interact
@@ -82,36 +74,31 @@ Full traceback:
     self.update()
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 700, in update
     self.screen.function(**self.scope)
-  File "game/screens.rpy", line 1758, in execute
-    screen protector_selection():
-  File "game/screens.rpy", line 1758, in execute
-    screen protector_selection():
-  File "game/screens.rpy", line 1762, in execute
+  File "game/screens.rpy", line 1660, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1660, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1661, in execute
+    if show_whole_functionality_for_seeing_my_protectors:
+  File "game/screens.rpy", line 1662, in execute
+    if not show_my_protectors:
+  File "game/screens.rpy", line 1673, in execute
     frame:
-  File "game/screens.rpy", line 1768, in execute
+  File "game/screens.rpy", line 1681, in execute
+    has vbox
+  File "game/screens.rpy", line 1690, in execute
+    viewport:
+  File "game/screens.rpy", line 1695, in execute
     vbox:
-  File "game/screens.rpy", line 1773, in execute
-    if allMissions[0].status != "assigned":
-  File "game/screens.rpy", line 1783, in execute
-    text "Protector [my_protectors_map[allMissions[0].protectorName].bigLetterName]" xalign 0.5
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\text\text.py", line 2177, in _scope
-    return self.set_text(self.text_parameter, scope, self.substitute, update)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\text\text.py", line 2216, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute) # type: ignore
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 373, in substitute
-    s = interpolate(s, variables) # type: ignore
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 86, in interpolate
-    raise e
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\substitutions.py", line 78, in interpolate
-    value = renpy.python.py_eval(code, {}, scope)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1218, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1211, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "<none>", line 1, in <module>
-AttributeError: 'Mission' object has no attribute 'protectorName'
+  File "game/screens.rpy", line 1698, in execute
+    for my_protector in my_protectors_map.values():
+  File "game/screens.rpy", line 1700, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 1700, in <module>
+    if my_protector.readyForPromotion == True:
+AttributeError: 'Protector' object has no attribute 'readyForPromotion'
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Thu Jul 31 01:39:10 2025
+Thu Jul 31 16:07:36 2025

@@ -1,18 +1,19 @@
 default my_protectors_map = {}
-define protectors_base_information = {}
-define allMissions = []
+default protectors_base_information = {}
+default allMissions = []
 define config.console = True
 
 init python:
     import os
     import json
     
+
     if 'my_protectors_map' not in globals():
         my_protectors_map = {}
 
     if 'protectors_base_information' not in globals():
         protectors_base_information = {}
-
+    
     if 'allMissions' not in globals():
         allMissions = []
     
@@ -22,10 +23,11 @@ init python:
     valid_extensions = [".png", ".jpg", ".jpeg", ".webp"]
 
     # creating basic multipliers for stat
-    health_size = 300
-    damage_size = 30
+    health_size = 30
+    damage_size = 3
     atack_speed_size = 1
-    xp_size = 10
+    xp_starter_size = 10
+    xp_size = 20
 
     # multiplier per level
     increasing_per_level_multiplier_health = 0.1
@@ -34,12 +36,10 @@ init python:
     increasing_per_level_multiplier_xp = 0.5
 
     # multiplier per stage
-    increasing_per_stage_multiplier_health = 5
-    increasing_per_stage_multiplier_damage = 5
-    increasing_per_stage_multiplier_atack_speed = 5
-    increasing_per_stage_multiplier_xp = 0.5  
-
-    
+    increasing_per_stage_multiplier_health = 3
+    increasing_per_stage_multiplier_damage = 3
+    increasing_per_stage_multiplier_atack_speed = 3
+    increasing_per_stage_multiplier_xp = 10     
     
     # showing disabled options
     config.menu_include_disabled = False
@@ -47,17 +47,6 @@ init python:
     folder_path = "game\images\protectors"
     full_path = os.path.join(config.basedir, folder_path)
     folder_map = {}
-
-    # creating protectors    
-    protectors_base_information["ninja"] = BaseProtectorData(0.7, 1, 1.3)
-    protectors_base_information["recruit"] = BaseProtectorData(1.1, 0.8, 1.1)
-    protectors_base_information["robot"] = BaseProtectorData(1.5, 0.75, 0.75)
-    protectors_base_information["samurai"] = BaseProtectorData(1.25, 1.25, 0.5)
-    protectors_base_information["skeleton"] = BaseProtectorData(0.5, 1.5, 1)
-    protectors_base_information["templar"] = BaseProtectorData(1.5, 1.2, 0.3)
-
-    # creating missions
-    allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 10, 0))
 
     # Scan and define backgrounds
     for f in renpy.list_files():
@@ -98,7 +87,7 @@ init python:
         """
         return folder_map.get(key, None)
 
-    def add_new_protector(protector_name, stage = 0, level = 0):
+    def add_new_protector(protector_name, stage = 1, level = 1):
         global my_protectors_map
         my_protectors_map[protector_name] = Protector(protector_name, capitalize_first_letter(protector_name), stage, level, "Available")
         return
@@ -108,12 +97,21 @@ init python:
         # Parse JSON to Python dictionary
         return len(my_protectors_map)
 
-    def get_current_status_from_my_protector(protector_name):
-        global my_protectors_map
-        returning_string = my_protectors_map[protector_name].get_current_status()
-        return returning_string
-
     def capitalize_first_letter(s):
         if not s:
             return s  # return empty string as is
         return s[0].upper() + s[1:]
+
+
+    def initializing_things():
+        # creating protectors    
+        protectors_base_information["ninja"] = BaseProtectorData(0.7, 1, 1.3)
+        protectors_base_information["recruit"] = BaseProtectorData(1.1, 0.8, 1.1)
+        protectors_base_information["robot"] = BaseProtectorData(1.5, 0.75, 0.75)
+        protectors_base_information["samurai"] = BaseProtectorData(1.25, 1.25, 0.5)
+        protectors_base_information["skeleton"] = BaseProtectorData(0.5, 1.5, 1)
+        protectors_base_information["templar"] = BaseProtectorData(1.5, 1.2, 0.3)
+
+        # Recreate missions
+        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 7000, 0))
+        return 
