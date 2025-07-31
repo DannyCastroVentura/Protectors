@@ -1765,6 +1765,29 @@ screen protector_detail_screen(my_protector):
                         ui.at(midRight)
                         ui.at(fit_to_screen_height)
                         ui.add(image_path)
+
+                # Promotion prompt - bottom center
+                vbox:
+                    xalign 0.5
+                    yalign 0.85
+                    spacing 10
+
+                    text "Do you want to promote [my_protector.bigLetterName]?" size 30 color "#FFF" xalign 0.5
+
+                    hbox:
+                        spacing 40
+                        xalign 0.5
+
+                        textbutton "Yes" action Function(my_protector.promote):
+                            xminimum 150
+                            yminimum 50
+                            text_size 25
+
+                        textbutton "No" action Hide("protector_detail_screen"):
+                            xminimum 150
+                            yminimum 50
+                            text_size 25
+
     else:
         frame:
             modal True
@@ -1806,7 +1829,11 @@ screen protector_detail_screen(my_protector):
                         ui.at(fit_to_screen_height)
                         ui.add(image_path)
 
-screen protector_selection():
+screen protector_selection(isThisMission):
+    if isThisMission:
+        $ where_to = "send_to_mission"
+    else:
+        $ where_to = "send_to_training"
     tag menu
 
     # Full-screen container to allow positioning in center
@@ -1826,7 +1853,7 @@ screen protector_selection():
                 for key, protector in my_protectors_map.items():
                     if protector.status == "Available":
                         $ has_available = True
-                        textbutton protector.bigLetterName + ' (' + str(protector.stats) + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump("send_to_training")]
+                        textbutton protector.bigLetterName + ' (' + str(protector.stats) + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump(where_to)]
 
                 if not has_available:
                     text "No protectors are currently available." xalign 0.5
@@ -1841,6 +1868,17 @@ screen current_day_screen():
     if show_current_day:
         textbutton "Day: {}".format(current_day):
             xalign 1.0
+            yalign 0.0
+            padding (20, 10)
+            background "#4448"
+            text_color "b3b3b3"
+            text_size 40
+
+            
+screen wallet_screen():
+    if show_wallet:
+        textbutton "{} $".format(money):
+            xalign 0.5
             yalign 0.0
             padding (20, 10)
             background "#4448"

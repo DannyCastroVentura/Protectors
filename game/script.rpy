@@ -3,7 +3,9 @@ default show_my_protectors = False
 default show_my_protector_specific_info = False
 default show_whole_functionality_for_seeing_my_protectors = False
 default show_current_day = False
+default show_wallet = False
 default current_day = 1
+default money = 0
 
 init python:
     if 'mc_name' not in globals():
@@ -14,6 +16,8 @@ init python:
     samurai_path = get_folder_from_map("samurai")
     config.overlay_screens.append("my_protectors_screen")
     config.overlay_screens.append("current_day_screen")
+    config.overlay_screens.append("wallet_screen")
+    
     
 
 define nova = Character("Nova", color="#00a2ff")
@@ -159,7 +163,7 @@ label start:
                 mc "I'm not sure if I understood.."
                 mc "Could you repeat please?"
                 nova "Sure!"
-    
+    $ show_wallet = True
     $ show_current_day = True
     jump base_of_operations
 
@@ -171,16 +175,12 @@ label start:
     # TODO: make it possible to call nova
     # 
     # TODO: in missions - if the atack of the enemy is bigger than the health of the protector - protector will imidiatly be killed.
-    #
-    # TODO: create a wallet, so the money got from the missions go there.
     # 
     # TODO: create a notification when the day ends to notify every update (every mission which finished today)
     #
     # TODO: if the protector have 20 of level and 10 of stage, when showing the max level I should show (+oo)
     #
-    # TODO: once we click on the protector as he is ready for promotion, we should have a lot of events, 
-    #   at the end of each event we should continuing the leveling up by doing protector.increasing_xp(0)
-    #   and if the protector is ready again for promotion, we should keep promoting him.
+    # TODO: create the new frame for the stage 5 - as he should choose which one should he get, and depending on the one he chose, he will get some advantages
 
     return
 
@@ -228,9 +228,8 @@ label nova_explains_tutorial():
     nova "Resting area: \nAdvancing time can be helpful for a lot of things, including - to get new missions."
     nova "Resting area: \nNew missions appear every day, but be careful! Old missions might disapear when you rest."
     nova "Resting area: \nEvery mission have a time to be started. If a mission was not yet initiated and this time finished, then this mission is closed as ignored."
-    
     return
 
-label show_my_available_protectors():
-    call screen protector_selection
+label show_my_available_protectors(isThisMission):
+    call screen protector_selection(isThisMission)
     return

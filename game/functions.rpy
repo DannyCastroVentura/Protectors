@@ -30,16 +30,14 @@ init python:
     xp_size = 20
 
     # multiplier per level
-    increasing_per_level_multiplier_health = 0.1
-    increasing_per_level_multiplier_damage = 0.1
-    increasing_per_level_multiplier_atack_speed = 0.1
+    level_factor_health = 0.05
+    level_factor_damage = 0.05
     increasing_per_level_multiplier_xp = 0.5
 
     # multiplier per stage
-    increasing_per_stage_multiplier_health = 3
-    increasing_per_stage_multiplier_damage = 3
-    increasing_per_stage_multiplier_atack_speed = 3
-    increasing_per_stage_multiplier_xp = 10     
+    stage_factor_health = 1.5
+    stage_factor_damage = 1.5
+    increasing_per_stage_multiplier_xp = 10
     
     # showing disabled options
     config.menu_include_disabled = False
@@ -102,6 +100,10 @@ init python:
             return s  # return empty string as is
         return s[0].upper() + s[1:]
 
+    def updating_wallet(incoming_money):
+        global money
+        money = money + incoming_money
+        return
 
     def initializing_things():
         # creating protectors    
@@ -113,5 +115,5 @@ init python:
         protectors_base_information["templar"] = BaseProtectorData(1.5, 1.2, 0.3)
 
         # Recreate missions
-        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 7000, 0))
+        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1900, 0))
         return 

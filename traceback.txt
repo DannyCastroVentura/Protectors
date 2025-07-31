@@ -1,46 +1,50 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 27, in script
-    anonymous_yet "Greetings, human."
-  File "renpy/common/000window.rpy", line 132, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 75, in _window_show
-    renpy.with_statement(trans)
-Exception: Screen my_protectors_button_screen is not known.
-
+  File "game/places.rpy", line 19, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 30, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 39, in script call
+    call rest()
+  File "game/resting.rpy", line 5, in script
+    python:
+  File "game/resting.rpy", line 7, in <module>
+    mission.updateDaysPassed()
+  File "game/classes.rpy", line 127, in updateDaysPassed
+    self.finishMission()
+  File "game/classes.rpy", line 135, in finishMission
+    money = money + self.gold_received
+UnboundLocalError: local variable 'money' referenced before assignment
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 27, in script
-    anonymous_yet "Greetings, human."
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 2586, in execute
-    Say.execute(self)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 591, in execute
-    statement_name(stmt_name)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 58, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 132, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 75, in _window_show
-    renpy.with_statement(trans)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\statementexports.py", line 257, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 1581, in do_with
-    return self.interact(trans_pause=True,
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2218, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2429, in interact_core
-    renpy.display.screen.show_overlay_screens(suppress_overlay)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 1624, in show_overlay_screens
-    show_screen(i)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 1328, in show_screen
-    raise Exception("Screen %s is not known.\n" % (name[0],))
-Exception: Screen my_protectors_button_screen is not known.
-
+  File "game/places.rpy", line 19, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 30, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 39, in script call
+    call rest()
+  File "game/resting.rpy", line 5, in script
+    python:
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/resting.rpy", line 7, in <module>
+    mission.updateDaysPassed()
+  File "game/classes.rpy", line 127, in updateDaysPassed
+    self.finishMission()
+  File "game/classes.rpy", line 135, in finishMission
+    money = money + self.gold_received
+UnboundLocalError: local variable 'money' referenced before assignment
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Thu Jul 31 16:35:18 2025
+Thu Jul 31 21:23:24 2025

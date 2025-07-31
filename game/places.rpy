@@ -25,7 +25,7 @@ label training_ground():
     mc "Here we are! What should I do here?"
     menu:
         "Send a protector to train":
-            call show_my_available_protectors()
+            call show_my_available_protectors(False)
         "Let's go to elsewhere":
             call base_travel_menu()
     jump training_ground

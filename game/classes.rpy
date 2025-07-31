@@ -67,16 +67,15 @@ init python:
                     )
 
         def get_health_stat(self):
-            return round((self.basePoints.health + (self.basePoints.health * (self.level - 1) * increasing_per_level_multiplier_health) + 
-                        (self.basePoints.health * (self.stage - 1) * increasing_per_stage_multiplier_health)) * health_size, 2)
+            return round((self.basePoints.health + (self.basePoints.health * (self.level - 1) * level_factor_health * (self.level - 1) * level_factor_health) + 
+                        (self.basePoints.health * (self.stage - 1) * stage_factor_health * (self.stage - 1) * stage_factor_health)) * health_size, 2)
 
         def get_damage_stat(self):
-            return round((self.basePoints.damage + (self.basePoints.damage * (self.level - 1) * increasing_per_level_multiplier_damage) + 
-                        (self.basePoints.damage * (self.stage - 1) * increasing_per_stage_multiplier_damage)) * damage_size, 2)
+            return round((self.basePoints.damage + (self.basePoints.damage * (self.level - 1) * level_factor_damage * (self.level - 1) * level_factor_damage) + 
+                        (self.basePoints.damage * (self.stage - 1) * stage_factor_damage * (self.stage - 1) * stage_factor_damage)) * damage_size, 2)
 
-        def get_atack_speed_stat(self):
-            return round((self.basePoints.atack_speed + (self.basePoints.atack_speed * (self.level - 1) * increasing_per_level_multiplier_atack_speed) + 
-                        (self.basePoints.atack_speed * (self.stage - 1) * increasing_per_stage_multiplier_atack_speed)) * atack_speed_size, 2)
+        def get_atack_speed_stat(self):                        
+            return round(self.basePoints.atack_speed, 2)
 
         def get_current_stats(self):
             return str(
@@ -86,6 +85,14 @@ init python:
                     ) + " / " + str(
                         self.get_atack_speed_stat()
                     )
+    
+        def promote(self):
+            self.stage += 1
+            self.level = 1
+            self.readyForPromotion = False
+            self.increasing_xp(0)
+
+
 
     class Mission:
         _id_counter = 0
@@ -124,4 +131,5 @@ init python:
             my_protectors_map[self.assignedProtectorName].status = "Available"
             my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received)
             self.assignedProtectorName = None
+            updating_wallet(self.gold_received)
     
