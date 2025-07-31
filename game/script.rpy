@@ -170,13 +170,11 @@ label start:
     # TODO: missions
     #   the missions need to have a deadline for the time (counted on days)
     #   they have to be on a region depending on the difficulty of the mission
-    #   every day some random missions should appear (3?)
+    #   I have to have always a specific number of missions, once they are gone, new ones should appear (100 missions?)
     # 
     # TODO: make it possible to call nova
     # 
     # TODO: in missions - if the atack of the enemy is bigger than the health of the protector - protector will imidiatly be killed.
-    # 
-    # TODO: create a notification when the day ends to notify every update (every mission which finished today)
     #
     # TODO: if the protector have 20 of level and 10 of stage, when showing the max level I should show (+oo)
     #

@@ -126,6 +126,8 @@ init python:
                 self.finishMission()
         
         def finishMission(self):
+            bigLetterName = my_protectors_map[self.assignedProtectorName].bigLetterName
+            renpy.notify(f"{bigLetterName} has successfully completed {self.title}.")
             self.daysPassed = 0
             self.status = "hidden"
             my_protectors_map[self.assignedProtectorName].status = "Available"

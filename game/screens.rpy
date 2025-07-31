@@ -54,6 +54,23 @@ style red_hover_red_dark:
     color "#ff0000"
     hover_color "#880000"
 
+transform notify_fade:
+    alpha 0.0
+    linear 0.5 alpha 1.0     # Fade in over 0.5 seconds
+    pause 2.0                # Stay fully visible
+    linear 0.5 alpha 0.0     # Fade out over 0.5 seconds
+
+screen notify(message):
+    frame:
+        at notify_fade
+        style "notify_frame"
+        xalign 1.0
+        yalign 0.1
+
+        text message style "notify_text"
+
+    timer 30.0 action Hide('notify')
+
 
 ################################################################################
 ## Styles
@@ -1302,25 +1319,6 @@ style skip_triangle:
     ## We have to use a font that has the BLACK RIGHT-POINTING SMALL TRIANGLE
     ## glyph in it.
     font "DejaVuSans.ttf"
-
-
-## Notify screen ###############################################################
-##
-## The notify screen is used to show the player a message. (For example, when
-## the game is quicksaved or a screenshot has been taken.)
-##
-## https://www.renpy.org/doc/html/screen_special.html#notify-screen
-
-screen notify(message):
-
-    zorder 100
-    style_prefix "notify"
-
-    frame at notify_appear:
-        text "[message!tq]"
-
-    timer 3.25 action Hide('notify')
-
 
 transform notify_appear:
     on show:
