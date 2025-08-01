@@ -27,6 +27,7 @@ define selected_protector = None
 
 label start:
     $ initializing_things()
+    $ testing_things()
     anonymous_yet "Greetings, human."
     anonymous_yet "Can you ear me?"
     anonymous_yet "Please try to open your eyes."

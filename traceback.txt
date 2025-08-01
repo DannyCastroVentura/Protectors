@@ -1,50 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 19, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 28, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 30, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 39, in script call
-    call rest()
-  File "game/resting.rpy", line 5, in script
-    python:
-  File "game/resting.rpy", line 7, in <module>
-    mission.updateDaysPassed()
-  File "game/classes.rpy", line 126, in updateDaysPassed
-    self.finishMission()
-  File "game/classes.rpy", line 129, in finishMission
-    renpy.notify(None, f"{self.assignedProtectorName} has successfully completed {self.title}.")
-TypeError: notify() takes 1 positional argument but 2 were given
+  File "game/script.rpy", line 30, in script
+    $ testing_things()
+  File "game/script.rpy", line 30, in <module>
+    $ testing_things()
+  File "game/functions.rpy", line 281, in testing_things
+    renpy.say(None, str(mission.name))
+AttributeError: 'Mission' object has no attribute 'name'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/places.rpy", line 19, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 28, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 30, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 39, in script call
-    call rest()
-  File "game/resting.rpy", line 5, in script
-    python:
+  File "game/script.rpy", line 30, in script
+    $ testing_things()
   File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 834, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1187, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/resting.rpy", line 7, in <module>
-    mission.updateDaysPassed()
-  File "game/classes.rpy", line 126, in updateDaysPassed
-    self.finishMission()
-  File "game/classes.rpy", line 129, in finishMission
-    renpy.notify(None, f"{self.assignedProtectorName} has successfully completed {self.title}.")
-TypeError: notify() takes 1 positional argument but 2 were given
+  File "game/script.rpy", line 30, in <module>
+    $ testing_things()
+  File "game/functions.rpy", line 281, in testing_things
+    renpy.say(None, str(mission.name))
+AttributeError: 'Mission' object has no attribute 'name'
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Thu Jul 31 23:56:35 2025
+Fri Aug  1 10:47:19 2025

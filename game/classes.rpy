@@ -96,19 +96,21 @@ init python:
 
     class Mission:
         _id_counter = 0
-        def __init__(self, title, description, difficulty, neededDaysToFinish, xp_received = None, gold_received = None):
+        def __init__(self, title, description, difficulty, neededDaysToFinish, disapearingInThisDays, mission_type, status = "not assigned", xp_received = None, gold_received = None):
             self.mission_id = Mission._id_counter
             Mission._id_counter += 1
             self.title = title
             self.description = description
             self.difficulty = difficulty
             self.neededDaysToFinish = neededDaysToFinish
+            self.disapearingInThisDays = disapearingInThisDays
+            self.mission_type = mission_type
             self.daysPassed = 0 # this will going to be updated every time a day passes and this mission is assigned # this needs to be reseted once this mission is finished
-            self.status = "hidden" # possible values: hidden / visible / assigned # this needs to be reseted once this mission is finished
+            self.status = status # possible values: not assigned / assigned # this needs to be reseted once this mission is finished
             self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
             if xp_received == None or gold_received == None:
-                randomNumber = renpy.random.randint(1, difficulty)
-                self.xp_received = (randomNumber) * 10
+                randomNumber = renpy.random.randint(0, difficulty)
+                self.xp_received = (randomNumber) * 20
                 self.gold_received = (difficulty - randomNumber) * 10
             else:
                 self.xp_received = xp_received
@@ -135,3 +137,8 @@ init python:
             self.assignedProtectorName = None
             updating_wallet(self.gold_received)
     
+    class MissionTemplate:
+        def __init__(self, title, description, mission_type):
+            self.title = title
+            self.description = description
+            self.mission_type = mission_type

@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 78: is not terminated with a newline. (Check strings and parenthesis.)
-                return round((self.basePoints.atack_speed, 2)
+File "game/functions.rpy", line 265: invalid syntax
+            mission = 
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Thu Jul 31 21:27:33 2025
+Fri Aug  1 10:43:11 2025
