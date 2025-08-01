@@ -13,8 +13,8 @@ label base_of_operations():
     "Base of Operations"
     mc "Here we are! What should I do here?"
     menu:
-        "Check my missions":
-            call check_my_missions()
+        "Go to computer":
+            call go_to_computer()
         "Let's go to elsewhere":
             call base_travel_menu()
     jump base_of_operations

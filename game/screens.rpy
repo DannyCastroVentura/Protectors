@@ -275,6 +275,9 @@ screen choice(items):
     style_prefix "choice"
 
     vbox:
+        xalign 0.5   # Center horizontally
+        yalign 0.5   # Center vertically
+        spacing 20   # Space between menu choices
         for i in items:
             textbutton i.caption action i.action
 

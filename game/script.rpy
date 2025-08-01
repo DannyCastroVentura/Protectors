@@ -169,7 +169,6 @@ label start:
     jump base_of_operations
 
     # TODO: missions
-    #   we need to create the different regions to check for the specific mission
     #   also when we click on a mission title, we should get the detail for that mission, and then click on "Send a protector for this mission?"
     #   We can send the protector for any mission - if he have the right stats -> need to think a bit better - maybe depending on the type of the mission, different stats are needed?
     #   for the stage missions, our protector can be killed, we need to be careful

@@ -109,6 +109,9 @@ init python:
             return s  # return empty string as is
         return s[0].upper() + s[1:]
 
+    def update_menu_disable_options(value):
+        config.menu_include_disabled = value
+
     def updating_wallet(incoming_money):
         global money
         money = money + incoming_money

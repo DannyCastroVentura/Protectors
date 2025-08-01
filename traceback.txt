@@ -1,30 +1,58 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 30, in script
-    $ testing_things()
-  File "game/script.rpy", line 30, in <module>
-    $ testing_things()
-  File "game/functions.rpy", line 281, in testing_things
-    renpy.say(None, str(mission.name))
-AttributeError: 'Mission' object has no attribute 'name'
+  File "game/places.rpy", line 17, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 7, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 35, in script call
+    call see_all_missions(2)
+  File "game/base_of_operations.rpy", line 58, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 20, in script call
+    call see_missions_for_region(1)
+  File "game/places.rpy", line 17, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 7, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 35, in script call
+    call see_all_missions(2)
+  File "game/base_of_operations.rpy", line 58, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 20, in script call
+    call see_missions_for_region(1)
+ScriptError: could not find label 'see_missions_for_region'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 30, in script
-    $ testing_things()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 30, in <module>
-    $ testing_things()
-  File "game/functions.rpy", line 281, in testing_things
-    renpy.say(None, str(mission.name))
-AttributeError: 'Mission' object has no attribute 'name'
+  File "game/places.rpy", line 17, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 7, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 35, in script call
+    call see_all_missions(2)
+  File "game/base_of_operations.rpy", line 58, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 20, in script call
+    call see_missions_for_region(1)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1427, in execute
+    rv = renpy.game.context().call(label, return_site=self.next.name)
+  File "game/places.rpy", line 17, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 7, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 35, in script call
+    call see_all_missions(2)
+  File "game/base_of_operations.rpy", line 58, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 20, in script call
+    call see_missions_for_region(1)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'see_missions_for_region'.
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Fri Aug  1 10:47:19 2025
+Fri Aug  1 13:07:30 2025
