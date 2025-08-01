@@ -169,17 +169,22 @@ label start:
     jump base_of_operations
 
     # TODO: missions
-    #   the missions need to have a deadline for the time (counted on days)
-    #   they have to be on a region depending on the difficulty of the mission
-    #   I have to have always a specific number of missions, once they are gone, new ones should appear (100 missions?)
+    #   we need to create the different regions to check for the specific mission
+    #   also when we click on a mission title, we should get the detail for that mission, and then click on "Send a protector for this mission?"
+    #   We can send the protector for any mission - if he have the right stats -> need to think a bit better - maybe depending on the type of the mission, different stats are needed?
+    #   for the stage missions, our protector can be killed, we need to be careful
+    #   stage missions only appear after we successfully do 15 (?number still to figure?) missions for that stage)
+    #   once stage mission is completed, we can go to the next region - and everything should be the same
     # 
     # TODO: make it possible to call nova
-    # 
-    # TODO: in missions - if the atack of the enemy is bigger than the health of the protector - protector will imidiatly be killed.
     #
     # TODO: if the protector have 20 of level and 10 of stage, when showing the max level I should show (+oo)
     #
     # TODO: create the new frame for the stage 5 - as he should choose which one should he get, and depending on the one he chose, he will get some advantages
+    # 
+    # TODO: create a way to buy items or item drop chang? Still need to think about it
+    # 
+    # TODO: while we are having good results the resitance will provide some other new protectors
 
     return
 
