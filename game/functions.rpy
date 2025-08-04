@@ -258,7 +258,7 @@ init python:
 
 
         # Recreate missions
-        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1900, 0, None, None))
+        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 1900, 0))
 
         for missionNumber in range(len(allMissions), missionsListSize, 1):
             randomNumber = renpy.random.randint(1, maxDifficulty)

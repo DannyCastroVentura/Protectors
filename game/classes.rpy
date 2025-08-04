@@ -102,11 +102,11 @@ init python:
             self.title = title
             self.description = description
             self.difficulty = difficulty
-            self.neededDaysToFinish = neededDaysToFinish
-            self.disapearingInThisDays = disapearingInThisDays
+            self.neededDaysToFinish = neededDaysToFinish 
+            self.disapearingInThisDays = disapearingInThisDays # this will going to be updated every time a day passes and this mission is assigned #if this reaches 0 and mission title is not "training", then the mission is deleted
             self.mission_type = mission_type
-            self.daysPassed = 0 # this will going to be updated every time a day passes and this mission is assigned # this needs to be reseted once this mission is finished
-            self.status = status # possible values: not assigned / assigned # this needs to be reseted once this mission is finished
+            self.daysPassed = 0
+            self.status = status # possible values: not assigned / assigned # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
             self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
             if xp_received == None or gold_received == None:
                 randomNumber = renpy.random.randint(0, difficulty)
@@ -120,6 +120,7 @@ init python:
             self.assignedProtectorName = protectorName
             self.status = "assigned"
         
+        # TODO: update this, as now we are not going to update the days passed, we are going to update the 
         def updateDaysPassed(self):
             if self.status == "assigned":
                 self.daysPassed += 1
@@ -136,6 +137,7 @@ init python:
             my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received)
             self.assignedProtectorName = None
             updating_wallet(self.gold_received)
+            # TODO: if mission.title not "training" then we should delete this mission
     
     class MissionTemplate:
         def __init__(self, title, description, mission_type):

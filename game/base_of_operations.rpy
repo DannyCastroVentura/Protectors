@@ -62,10 +62,21 @@ label see_all_missions(page):
     call see_all_missions(1)
 
 label see_missions_for_region(regionNumber):
+    $ min_level = (regionNumber - 1) * 20
+    $ max_level = regionNumber * 20
     $ set_background("regions/1")
+    call screen mission_screen(min_level, max_level)
     # TODO: 
-    #   -   create a new frame so I can see all the missions in this region (possibly I'll need some pagination)
-    #   -   then create the detail mission frame
-    #   -   I'll also need to add the number of missions remaining until I can face the boss for this region (maybe I could use a chart? this would be dope.)
-    mc "TODO"
+    #   -   I'll also need to add the number of missions remaining until I can face the boss for this region 
+    #   -   (maybe I could use a chart? this would be dope.)
     return
+
+label show_mission_detail(mission):
+    call screen mission_detail_screen(mission)
+    $ result = _return
+
+    if result == "start":
+        "You chose to start [mission.title]."
+        # TODO: Start mission logic here
+    return
+

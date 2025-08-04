@@ -1885,3 +1885,125 @@ screen wallet_screen():
             background "#4448"
             text_color "b3b3b3"
             text_size 40
+
+screen mission_screen(min_level, max_level):
+    default page = 0
+    default page_size = 5
+    default filtered_missions = [m for m in allMissions if min_level <= m.difficulty <= max_level and m.title != "Training"]
+    default max_pages = max((len(filtered_missions) - 1) // page_size, 0)
+    default mode = "list"
+    default selected_mission = None
+
+    frame:
+        style "menu_frame"
+        xalign 0.5
+        yalign 0.5
+        xsize 800
+        ysize 725
+        padding (10, 10)
+
+        if mode == "list":
+            vbox:
+                spacing 10
+                xalign 0.5
+                yalign 0.0
+                text "Missions (Difficulty: [min_level] - [max_level])" size 40
+
+                for i in range(page * page_size, min((page + 1) * page_size, len(filtered_missions))):
+                    $ mission = filtered_missions[i]
+                    button:
+                        xfill True
+                        frame:
+                            xfill True
+                            background "#444"
+                            padding (10, 10)
+                            vbox:
+                                spacing 5
+                                text mission.title size 24 color "#fff"
+                                text mission.description size 16 color "#ccc"
+                                text "Difficulty: [mission.difficulty]" size 14 color "#aaa"
+                        action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_mission", mission)]
+
+                hbox:
+                    spacing 20
+                    xalign 0.5
+
+                    if page > 0:
+                        textbutton "Previous" action SetScreenVariable("page", page - 1)
+                    else:
+                        textbutton "Previous" action NullAction() sensitive False
+
+                    if page < max_pages:
+                        textbutton "Next" action SetScreenVariable("page", page + 1)
+                    else:
+                        textbutton "Next" action NullAction() sensitive False
+
+                textbutton "Return" action Return() xalign 0.5
+
+        elif mode == "detail" and selected_mission is not None:
+            vbox:
+                yalign 0.0
+                xalign 0.5
+                spacing 20
+                null height 40  # This adds 40 pixels of vertical space at the top
+                
+                vbox:
+                    xalign 0.5
+                    text "[selected_mission.title]" size 40 color "#000000"
+                    
+                    vbox:
+                        xalign 0.5
+                        spacing 20
+                        text "([selected_mission.mission_type])" size 30 color "#000000"
+                    
+                        vbox:
+                            xalign 0.5
+                            text "Difficulty: [selected_mission.difficulty]" size 20 color "#5a5a5a"
+                
+                text selected_mission.description size 18 color "#5a5a5a" xmaximum 640
+                $ neededDaysToFinish_day_name = "day"
+                $ disapearingInThisDays_day_name = "day"
+                if selected_mission.neededDaysToFinish > 1:
+                    $ neededDaysToFinish_day_name = "days"
+                if selected_mission.disapearingInThisDays > 1:
+                    $ disapearingInThisDays_day_name = "days"
+                text "Time it takes to complete: [selected_mission.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a" xmaximum 640
+                text "Mission type: " size 18 color "#5a5a5a" xmaximum 640
+                text "Will disapear in [selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a" xmaximum 640
+                
+
+                hbox:
+                    xalign 0.5
+                    spacing 20
+                    textbutton "Start Mission" action Return("start")
+                    textbutton "Back" action SetScreenVariable("mode", "list")
+
+
+
+screen mission_detail_screen(mission):
+    modal True
+
+    frame:
+        style "menu_frame"
+        xalign 0.5
+        yalign 0.5
+        xsize 700
+        ysize 500
+        padding (10, 10)
+
+        vbox:
+            spacing 20
+
+            text mission.title size 40 color "#fff"
+            text "Difficulty: [mission.difficulty]" size 20 color "#aaa"
+
+            text mission.description size 18 color "#ccc" xmaximum 640
+
+            # Optional: Add more info fields here
+            # text "Reward: [mission.reward]" size 18 color "#ccf"
+
+            hbox:
+                spacing 20
+                xalign 0.5
+                textbutton "Start Mission" action Return("start")
+                textbutton "Back" action Return("back")
