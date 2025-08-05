@@ -1899,15 +1899,18 @@ screen mission_screen(min_level, max_level):
         xalign 0.5
         yalign 0.5
         xsize 800
-        ysize 725
-        padding (10, 10)
+        ysize 800
+        padding (20, 20)
 
         if mode == "list":
             vbox:
                 spacing 10
                 xalign 0.5
                 yalign 0.0
-                text "Missions (Difficulty: [min_level] - [max_level])" size 40
+                vbox:
+                    xalign 0.5
+                    text "Missions (Difficulty: [min_level] - [max_level])" size 40
+                
 
                 for i in range(page * page_size, min((page + 1) * page_size, len(filtered_missions))):
                     $ mission = filtered_missions[i]
@@ -1968,14 +1971,21 @@ screen mission_screen(min_level, max_level):
                 if selected_mission.disapearingInThisDays > 1:
                     $ disapearingInThisDays_day_name = "days"
                 text "Time it takes to complete: [selected_mission.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a" xmaximum 640
-                text "Mission type: " size 18 color "#5a5a5a" xmaximum 640
-                text "Will disapear in [selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a" xmaximum 640
                 
-
+                if selected_mission.status == "assigned":
+                    text "Assigned protector: [selected_mission.assignedProtectorName]" size 18 color "#5a5a5a" xmaximum 640
+                else:
+                    text "Will disapear in [selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a" xmaximum 640
+            
+                # TODO: add here an option to update the selected_mission.assignedProtectorName
+                
+                null ysize 1  # This adds 40 pixels of vertical space at the top
+                
                 hbox:
                     xalign 0.5
                     spacing 20
-                    textbutton "Start Mission" action Return("start")
+                    if selected_mission.status == "not assigned" and selected_mission.assignedProtectorName != None:
+                        textbutton "Start Mission" action Return("start")
                     textbutton "Back" action SetScreenVariable("mode", "list")
 
 

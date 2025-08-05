@@ -184,8 +184,6 @@ label start:
     # TODO: create a way to buy items or item drop chang? Still need to think about it
     # 
     # TODO: while we are having good results the resitance will provide some other new protectors
-    #
-    # TODO: it seems that the training is not working - check what is happening
     # 
     # TODO: I should work on the missions, I have a lot of todos to do.
 

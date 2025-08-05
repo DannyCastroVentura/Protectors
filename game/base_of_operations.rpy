@@ -1,7 +1,5 @@
 ﻿label go_to_computer:
     $ set_background("computer")
-    "Computer"
-    mc "Here we are! What should I do here?"
     menu:
         "See all missions":
             call see_all_missions(1)
@@ -72,6 +70,7 @@ label see_missions_for_region(regionNumber):
     return
 
 label show_mission_detail(mission):
+    # TODO: before this I should also specify which protector would do the mission
     call screen mission_detail_screen(mission)
     $ result = _return
 

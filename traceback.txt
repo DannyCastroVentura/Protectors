@@ -1,34 +1,72 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 29, in script
-    $ initializing_things()
-  File "game/script.rpy", line 29, in <module>
-    $ initializing_things()
-  File "game/functions.rpy", line 261, in initializing_things
-    allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 1900, 0))
-  File "game/classes.rpy", line 108, in __init__
-    self.daysPassed
-AttributeError: 'Mission' object has no attribute 'daysPassed'
+After initialization, but before game start.
+  File "game/screens.rpy", line 1889, in prepare_screen
+    screen mission_screen(min_level, max_level):
+  File "game/screens.rpy", line 1889, in prepare
+    screen mission_screen(min_level, max_level):
+  File "game/screens.rpy", line 1897, in prepare
+    frame:
+  File "game/screens.rpy", line 1897, in prepare
+    frame:
+  File "game/screens.rpy", line 1905, in prepare
+    if mode == "list":
+  File "game/screens.rpy", line 1946, in prepare
+    elif mode == "detail" and selected_mission is not None:
+  File "game/screens.rpy", line 1947, in prepare
+    vbox:
+  File "game/screens.rpy", line 1947, in prepare
+    vbox:
+  File "game/screens.rpy", line 1980, in prepare
+    null height 40%  # This adds 40 pixels of vertical space at the top
+  File "game/screens.rpy", line 1980, in prepare
+    null height 40%  # This adds 40 pixels of vertical space at the top
+SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 1980)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 29, in script
-    $ initializing_things()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 29, in <module>
-    $ initializing_things()
-  File "game/functions.rpy", line 261, in initializing_things
-    allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 1900, 0))
-  File "game/classes.rpy", line 108, in __init__
-    self.daysPassed
-AttributeError: 'Mission' object has no attribute 'daysPassed'
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\main.py", line 652, in main
+    run(restart)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\main.py", line 94, in run
+    renpy.display.screen.prepare_screens()
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 1027, in prepare_screens
+    s.ast.prepare_screen()
+  File "game/screens.rpy", line 1889, in prepare_screen
+    screen mission_screen(min_level, max_level):
+  File "game/screens.rpy", line 1889, in prepare
+    screen mission_screen(min_level, max_level):
+  File "game/screens.rpy", line 1897, in prepare
+    frame:
+  File "game/screens.rpy", line 1897, in prepare
+    frame:
+  File "game/screens.rpy", line 1905, in prepare
+    if mode == "list":
+  File "game/screens.rpy", line 1946, in prepare
+    elif mode == "detail" and selected_mission is not None:
+  File "game/screens.rpy", line 1947, in prepare
+    vbox:
+  File "game/screens.rpy", line 1947, in prepare
+    vbox:
+  File "game/screens.rpy", line 1980, in prepare
+    null height 40%  # This adds 40 pixels of vertical space at the top
+  File "game/screens.rpy", line 1980, in prepare
+    null height 40%  # This adds 40 pixels of vertical space at the top
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\py3analysis.py", line 803, in ast_eval
+    return self.ast_eval_literal(expr)[0]
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\py3analysis.py", line 785, in ast_eval_literal
+    expr = py_compile(expr, 'eval', ast_node=True)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1153, in py_compile
+    raise e
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1090, in py_compile
+    raise orig_e
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1082, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 1980)
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Mon Aug  4 23:00:09 2025
+Tue Aug  5 12:20:12 2025

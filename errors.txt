@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1948: 'padding' is not a keyword argument or valid child of the vbox statement.
-    padding (10, 10)
-           ^
+File "game/screens.rpy", line 1982: 'None' is not a keyword argument or valid child of the vbox statement.
+    None ysize 1  
+        ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Mon Aug  4 22:31:48 2025
+Tue Aug  5 12:38:50 2025

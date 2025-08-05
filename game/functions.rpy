@@ -1,6 +1,7 @@
 default my_protectors_map = {}
 default protectors_base_information = {}
 default allMissions = []
+default missionsToDelete = []
 define config.console = True
 default allMissionTemplates = []
 
@@ -17,6 +18,9 @@ init python:
     
     if 'allMissions' not in globals():
         allMissions = []
+
+    if 'missionsToDelete' not in globals():
+        missionsToDelete = []
 
     if 'allMissionTemplates' not in globals():
         allMissionTemplates = []
@@ -260,23 +264,50 @@ init python:
         # Recreate missions
         allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 1900, 0))
 
-        for missionNumber in range(len(allMissions), missionsListSize, 1):
+        creating_new_missions()
+        
+        return 
+
+    def creating_new_missions():
+        global allMissions
+        global missionsListSize
+        global maxDifficulty
+        global maxNeededDaysToFinish
+        global maxDisapearingInThisDays
+        global allMissionTemplates
+
+        for missionNumber in range(len(allMissions), missionsListSize):
             randomNumber = renpy.random.randint(1, maxDifficulty)
             neededDaysToFinish = renpy.random.randint(1, maxNeededDaysToFinish)
             disapearingInThisDays = renpy.random.randint(1, maxDisapearingInThisDays)
             randomMission = renpy.random.randint(1, len(allMissionTemplates) - 1)
             mission = allMissionTemplates[randomMission]
+
             allMissions.append(
                 Mission(
                     mission.title,
                     mission.description,
-                    randomNumber,
+                    randomNumber,  # difficulty
                     neededDaysToFinish,
                     disapearingInThisDays,
                     mission.mission_type
                 )
             )
-        return 
+
+        # ✅ Sort missions by difficulty (ascending)
+        allMissions.sort(key=lambda m: m.difficulty)
+        return
+
+
+    def marking_missions_to_be_deleted(title):
+        global missionsToDelete
+        missionsToDelete.append(title)
+        return
+
+    def delete_mission(title):
+        global allMissions
+        allMissions = [m for m in allMissions if m.title != title]
+        return
 
     def testing_things():
         # global allMissions
