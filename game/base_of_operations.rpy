@@ -4,6 +4,10 @@
         "See all missions":
             call see_all_missions(1)
         "Check online shop":
+            # TODO: make this work -> online shop for some items
+            #   -   for this we would need to create a couple of items
+            #   -   and think of what could these items do :\
+            #   -   implement the logic
             call check_my_missions()
         "Go back":
             jump base_of_operations
@@ -68,14 +72,3 @@ label see_missions_for_region(regionNumber):
     #   -   I'll also need to add the number of missions remaining until I can face the boss for this region 
     #   -   (maybe I could use a chart? this would be dope.)
     return
-
-label show_mission_detail(mission):
-    # TODO: before this I should also specify which protector would do the mission
-    call screen mission_detail_screen(mission)
-    $ result = _return
-
-    if result == "start":
-        "You chose to start [mission.title]."
-        # TODO: Start mission logic here
-    return
-

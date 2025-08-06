@@ -299,14 +299,14 @@ init python:
         return
 
 
-    def marking_missions_to_be_deleted(title):
+    def marking_missions_to_be_deleted(mission_id):
         global missionsToDelete
-        missionsToDelete.append(title)
+        missionsToDelete.append(mission_id)
         return
 
-    def delete_mission(title):
+    def delete_mission(chosen_mission_id):
         global allMissions
-        allMissions = [m for m in allMissions if m.title != title]
+        allMissions = [m for m in allMissions if m.mission_id != chosen_mission_id]
         return
 
     def testing_things():
@@ -343,4 +343,5 @@ init python:
         for mission in allMissions:
             if mission.assignedProtectorName == protectorName and mission.status != "started":
                 mission.assignedProtectorName = None
+                mission.status = "not assigned"
         return

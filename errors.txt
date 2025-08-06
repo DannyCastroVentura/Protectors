@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1997: 'size' is not a keyword argument or valid child of the textbutton statement.
-    textbutton protector.bigLetterName size 18 action Function(assign_protector, selected_mission.mission_id, protector.name)
-                                           ^
+File "game/screens.rpy", line 1997: 'select_protector_button_style' is not a keyword argument or valid child of the for statement.
+    select_protector_button_style = "button_small_text"
+                                 ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Aug  6 17:58:33 2025
+Wed Aug  6 23:00:48 2025

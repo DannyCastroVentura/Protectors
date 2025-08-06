@@ -54,11 +54,6 @@ style red_hover_red_dark:
     color "#ff0000"
     hover_color "#880000"
 
-style button_small_text:
-        size 10
-        font "DejaVuSans.ttf"  # optional
-        color "#f30f0f"
-        
 transform notify_fade:
     alpha 0.0
     linear 0.5 alpha 1.0     # Fade in over 0.5 seconds
@@ -1688,7 +1683,7 @@ screen my_protectors_screen():
                 yalign 0.0
                 padding (10, 10)
                 background Solid("#000000cc")
-                xmaximum 600
+                xmaximum 525
                 ymaximum 500
 
                 has vbox
@@ -1712,6 +1707,10 @@ screen my_protectors_screen():
                             $ my_color = "#FFFFFF"
                             if my_protector.readyForPromotion == True:
                                 $ my_color = "#ff0000"
+                            if my_protector.status == "In a mission":
+                                $ my_color = "#1E3A8A"
+                            if my_protector.status == "Training":
+                                $ my_color = "#FACC15"
                             button:
                                 background "#00000020"
                                 padding (5, 5)
@@ -1978,7 +1977,7 @@ screen mission_screen(min_level, max_level):
                 text "Time it takes to complete: [selected_mission.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a" xmaximum 640
                 
                 if selected_mission.status == "assigned":
-                    text "Assigned protector: [selected_mission.assignedProtectorName]" size 18 color "#5a5a5a" xmaximum 640
+                    text "Assigned protector: [my_protectors_map[selected_mission.assignedProtectorName].bigLetterName]" size 18 color "#5a5a5a" xmaximum 640
                 
                 if selected_mission.status != "started":
                     text "Will disapear in [selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a" xmaximum 640
@@ -1987,15 +1986,16 @@ screen mission_screen(min_level, max_level):
                 $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
 
                 if selected_mission.status != "started":
-                    # TODO: make this showing the protectors smaller if a protector is already assigned
                     text "Assign a protector:" size 18 color "#5a5a5a"
                     
                     hbox:
                         xalign 0.5
                         spacing 10
                         for protector in available_protectors:
-                            # TODO: this style is not working
-                            textbutton protector.bigLetterName style "button_small_text" action Function(assign_protector, selected_mission.mission_id, protector.name)
+                            $ select_protector_button_style = "button_small_text"
+                            if protector.name == selected_mission.assignedProtectorName:
+                                $ select_protector_button_style = "button_small_text_selected"
+                            textbutton protector.bigLetterName style str(select_protector_button_style) action Function(assign_protector, selected_mission.mission_id, protector.name)
 
                         
                         if len(available_protectors) == 0:

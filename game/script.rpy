@@ -17,6 +17,37 @@ init python:
     config.overlay_screens.append("my_protectors_screen")
     config.overlay_screens.append("current_day_screen")
     config.overlay_screens.append("wallet_screen")
+
+    # button_small_text
+    # Button box styling (background, padding, etc.)
+    style.button_small_text = Style("button")
+    style.button_small_text.background = "#444444"
+    style.button_small_text.hover_background = "#666666"
+    style.button_small_text.xpadding = 10
+    style.button_small_text.ypadding = 5
+
+    # Text styling
+    style.button_small_text_text = Style("button_text")
+    style.button_small_text_text.color = "#FFFFFF"
+    style.button_small_text_text.hover_color = "#FFCC00"
+    style.button_small_text_text.size = 18
+    style.button_small_text_text.bold = True
+
+    # button_small_text_selected
+    # Button box styling (background, padding, etc.)
+    style.button_small_text_selected = Style("button")
+    style.button_small_text_selected.background = "#ffffff"
+    style.button_small_text_selected.hover_background = "#666666"
+    style.button_small_text_selected.xpadding = 10
+    style.button_small_text_selected.ypadding = 5
+
+    # Text styling
+    style.button_small_text_selected_text = Style("button_text")
+    style.button_small_text_selected_text.color = "#444444"
+    style.button_small_text_selected_text.hover_color = "#FFCC00"
+    style.button_small_text_selected_text.size = 18
+    style.button_small_text_selected_text.bold = True
+
     
     
 
@@ -186,6 +217,8 @@ label start:
     # TODO: while we are having good results the resitance will provide some other new protectors
     # 
     # TODO: I should work on the missions, I have a lot of todos to do.
+    # 
+    # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
 
     return
 

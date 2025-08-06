@@ -109,6 +109,7 @@ init python:
             self.neededDaysToFinish = neededDaysToFinish 
             self.disapearingInThisDays = disapearingInThisDays # this will going to be updated every time a day passes and this mission is assigned #if this reaches 0 and mission title is not "training", then the mission is deleted
             self.mission_type = mission_type
+            self.daysPassed = 0 # days passed since the mission started, this will be updated every day passed while the mission is running -> we should multiple the xp received per day worked.
             self.status = status # possible values: not assigned / assigned / started # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
             self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
             if xp_received == None or gold_received == None:
@@ -129,14 +130,15 @@ init python:
         def updateDaysPassed(self):
             if self.status == "started":
                 self.neededDaysToFinish -= 1
-            else:
+                self.daysPassed += 1
+                if self.neededDaysToFinish <= 0:
+                    self.finishMission()
+            elif self.mission_id != 0:
                 self.disapearingInThisDays -= 1
+                if self.disapearingInThisDays <= 0:
+                    marking_missions_to_be_deleted(self.mission_id)
             
-            if self.neededDaysToFinish == 0:
-                self.finishMission()
 
-            if self.disapearingInThisDays == 0:
-                marking_missions_to_be_deleted(self.title)
             return
         
         def finishMission(self):
@@ -146,12 +148,12 @@ init python:
             renpy.notify(f"{bigLetterName} has successfully completed {self.title}.")
             self.status = "hidden"
             my_protectors_map[self.assignedProtectorName].status = "Available"
-            my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received)
+            my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
             self.assignedProtectorName = None
             updating_wallet(self.gold_received)
             self.neededDaysToFinish = 1
-            if self.title != "Training":
-                delete_mission(self.title)
+            if self.mission_id != 0:
+                delete_mission(self.mission_id)
             return
     
     class MissionTemplate:

@@ -6,8 +6,8 @@
         for mission in allMissions:
             mission.updateDaysPassed()
 
-        for title in missionsToDelete:
-            delete_mission(title)
+        for mission_id in missionsToDelete:
+            delete_mission(mission_id)
 
         creating_new_missions()
 
