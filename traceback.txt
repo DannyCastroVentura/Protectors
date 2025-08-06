@@ -5,6 +5,36 @@ While running game code:
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
+    call see_all_missions(1)
   File "game/base_of_operations.rpy", line 19, in script call
     call see_missions_for_region(1)
   File "game/base_of_operations.rpy", line 66, in script
@@ -13,9 +43,9 @@ While running game code:
     store._return = renpy.call_screen(name, *args, **kwargs)
   File "renpy/common/00action_other.rpy", line 619, in __call__
     rv = self.callable(*self.args, **self.kwargs)
-  File "game/functions.rpy", line 325, in assign_protector
-    allMissions[mission_index].assignedProtectorName = protector_name
-NameError: name 'protector_name' is not defined
+  File "game/functions.rpy", line 333, in start_mission
+    mission_index = next((i for i, m in enumerate(allMissions) if m.mission_id == target_mission_id), -1)
+NameError: name 'target_mission_id' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -23,6 +53,36 @@ Full traceback:
   File "game/places.rpy", line 16, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 60, in script call
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 19, in script call
     call see_missions_for_region(1)
@@ -70,11 +130,11 @@ Full traceback:
     return action(*args, **kwargs)
   File "renpy/common/00action_other.rpy", line 619, in __call__
     rv = self.callable(*self.args, **self.kwargs)
-  File "game/functions.rpy", line 325, in assign_protector
-    allMissions[mission_index].assignedProtectorName = protector_name
-NameError: name 'protector_name' is not defined
+  File "game/functions.rpy", line 333, in start_mission
+    mission_index = next((i for i, m in enumerate(allMissions) if m.mission_id == target_mission_id), -1)
+NameError: name 'target_mission_id' is not defined
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Wed Aug  6 16:39:33 2025
+Wed Aug  6 17:35:31 2025

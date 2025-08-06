@@ -54,6 +54,11 @@ style red_hover_red_dark:
     color "#ff0000"
     hover_color "#880000"
 
+style button_small_text:
+        size 10
+        font "DejaVuSans.ttf"  # optional
+        color "#f30f0f"
+        
 transform notify_fade:
     alpha 0.0
     linear 0.5 alpha 1.0     # Fade in over 0.5 seconds
@@ -1989,7 +1994,12 @@ screen mission_screen(min_level, max_level):
                         xalign 0.5
                         spacing 10
                         for protector in available_protectors:
-                            textbutton protector.bigLetterName action Function(assign_protector, selected_mission.mission_id, protector.name)
+                            # TODO: this style is not working
+                            textbutton protector.bigLetterName style "button_small_text" action Function(assign_protector, selected_mission.mission_id, protector.name)
+
+                        
+                        if len(available_protectors) == 0:
+                            text "There are no available protectors." size 15 color "#5a5a5a" xmaximum 640
 
 
                 
@@ -1999,8 +2009,7 @@ screen mission_screen(min_level, max_level):
                     xalign 0.5
                     spacing 20
                     if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
-                        # TODO: add the logic for starting the mission
-                        textbutton "Start Mission" action Return("start")
+                        textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name)
                     textbutton "Back" action SetScreenVariable("mode", "list")
 
 

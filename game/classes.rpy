@@ -123,13 +123,9 @@ init python:
         def startMission(self, protectorName):
             self.assignedProtectorName = protectorName
             self.status = "started"
-
-            # TODO: on starting the mission, 
-            #   we should also go through all the missions and reset
-            #   the self.assignedProtectorName to None for the missions which have the assignedProtectorName equals to the protector name and are not "started"
+            resetAssignmentsForThisProtectorName(protectorName)
             return
-        
-        # TODO: update this, as now we are not going to update the days passed, we are going to update the 
+
         def updateDaysPassed(self):
             if self.status == "started":
                 self.neededDaysToFinish -= 1
@@ -144,6 +140,8 @@ init python:
             return
         
         def finishMission(self):
+            # TODO: Evaluate if the mission is going to pass or not
+            #   -   depending on the type of the mission, different things on the protector would be evaluated
             bigLetterName = my_protectors_map[self.assignedProtectorName].bigLetterName
             renpy.notify(f"{bigLetterName} has successfully completed {self.title}.")
             self.status = "hidden"
@@ -151,7 +149,6 @@ init python:
             my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received)
             self.assignedProtectorName = None
             updating_wallet(self.gold_received)
-            # TODO: if mission.title not "training" then we should delete this mission
             self.neededDaysToFinish = 1
             if self.title != "Training":
                 delete_mission(self.title)

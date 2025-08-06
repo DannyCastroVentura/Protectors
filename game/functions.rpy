@@ -325,7 +325,22 @@ init python:
         allMissions[mission_index].status = "assigned"
         renpy.restart_interaction()
         
-        # allMissions[mission_index].startMission(protectorName)
+        return
 
-        # my_protectors_map[protectorName].status = "In a mission" # my protectors map
+    def start_mission(mission, protectorName):
+        global allMissions
+        
+        target_mission_id = mission.mission_id
+        mission_index = next((i for i, m in enumerate(allMissions) if m.mission_id == target_mission_id), -1)
+        
+        allMissions[mission_index].startMission(protectorName)
+
+        my_protectors_map[protectorName].status = "In a mission"
+        return
+
+    def resetAssignmentsForThisProtectorName(protectorName):
+        global allMissions
+        for mission in allMissions:
+            if mission.assignedProtectorName == protectorName and mission.status != "started":
+                mission.assignedProtectorName = None
         return
