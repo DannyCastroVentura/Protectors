@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1982: 'None' is not a keyword argument or valid child of the vbox statement.
-    None ysize 1  
-        ^
+File "game/screens.rpy", line 1978: vbox expects a non-empty block.
+    if selected_mission.status != "started":
+                                            ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Aug  5 12:38:50 2025
+Wed Aug  6 16:49:38 2025

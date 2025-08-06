@@ -1,72 +1,80 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "game/screens.rpy", line 1889, in prepare_screen
-    screen mission_screen(min_level, max_level):
-  File "game/screens.rpy", line 1889, in prepare
-    screen mission_screen(min_level, max_level):
-  File "game/screens.rpy", line 1897, in prepare
-    frame:
-  File "game/screens.rpy", line 1897, in prepare
-    frame:
-  File "game/screens.rpy", line 1905, in prepare
-    if mode == "list":
-  File "game/screens.rpy", line 1946, in prepare
-    elif mode == "detail" and selected_mission is not None:
-  File "game/screens.rpy", line 1947, in prepare
-    vbox:
-  File "game/screens.rpy", line 1947, in prepare
-    vbox:
-  File "game/screens.rpy", line 1980, in prepare
-    null height 40%  # This adds 40 pixels of vertical space at the top
-  File "game/screens.rpy", line 1980, in prepare
-    null height 40%  # This adds 40 pixels of vertical space at the top
-SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 1980)
+While running game code:
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 19, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 66, in script
+    call screen mission_screen(min_level, max_level)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/common/00action_other.rpy", line 619, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/functions.rpy", line 325, in assign_protector
+    allMissions[mission_index].assignedProtectorName = protector_name
+NameError: name 'protector_name' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\main.py", line 652, in main
-    run(restart)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\main.py", line 94, in run
-    renpy.display.screen.prepare_screens()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 1027, in prepare_screens
-    s.ast.prepare_screen()
-  File "game/screens.rpy", line 1889, in prepare_screen
-    screen mission_screen(min_level, max_level):
-  File "game/screens.rpy", line 1889, in prepare
-    screen mission_screen(min_level, max_level):
-  File "game/screens.rpy", line 1897, in prepare
-    frame:
-  File "game/screens.rpy", line 1897, in prepare
-    frame:
-  File "game/screens.rpy", line 1905, in prepare
-    if mode == "list":
-  File "game/screens.rpy", line 1946, in prepare
-    elif mode == "detail" and selected_mission is not None:
-  File "game/screens.rpy", line 1947, in prepare
-    vbox:
-  File "game/screens.rpy", line 1947, in prepare
-    vbox:
-  File "game/screens.rpy", line 1980, in prepare
-    null height 40%  # This adds 40 pixels of vertical space at the top
-  File "game/screens.rpy", line 1980, in prepare
-    null height 40%  # This adds 40 pixels of vertical space at the top
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\py3analysis.py", line 803, in ast_eval
-    return self.ast_eval_literal(expr)[0]
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\py3analysis.py", line 785, in ast_eval_literal
-    expr = py_compile(expr, 'eval', ast_node=True)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1153, in py_compile
-    raise e
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1090, in py_compile
-    raise orig_e
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\python.py", line 1082, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 1980)
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 19, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 66, in script
+    call screen mission_screen(min_level, max_level)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1987, in execute
+    self.call("execute")
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1966, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\statements.py", line 374, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\statementexports.py", line 345, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2218, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 3289, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 794, in event
+    rv = self.child.event(ev, x, y, st)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1526, in event
+    rv = super(Window, self).event(ev, x, y, st)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 285, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\behavior.py", line 1182, in event
+    return handle_click(self.clicked)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\behavior.py", line 1103, in handle_click
+    rv = run(action)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\behavior.py", line 401, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_other.rpy", line 619, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/functions.rpy", line 325, in assign_protector
+    allMissions[mission_index].assignedProtectorName = protector_name
+NameError: name 'protector_name' is not defined
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Tue Aug  5 12:20:12 2025
+Wed Aug  6 16:39:33 2025

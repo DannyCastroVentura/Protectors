@@ -1849,7 +1849,7 @@ screen protector_selection(isThisMission):
             align (0.5, 0.5)
 
             label "Choose a protector to train" xalign 0.5
-            if allMissions[0].status != "assigned":
+            if allMissions[0].status != "started":
                 $ has_available = False
                 for key, protector in my_protectors_map.items():
                     if protector.status == "Available":
@@ -1974,17 +1974,32 @@ screen mission_screen(min_level, max_level):
                 
                 if selected_mission.status == "assigned":
                     text "Assigned protector: [selected_mission.assignedProtectorName]" size 18 color "#5a5a5a" xmaximum 640
-                else:
+                
+                if selected_mission.status != "started":
                     text "Will disapear in [selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a" xmaximum 640
             
-                # TODO: add here an option to update the selected_mission.assignedProtectorName
+                # List of available protectors
+                $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
+
+                if selected_mission.status != "started":
+                    # TODO: make this showing the protectors smaller if a protector is already assigned
+                    text "Assign a protector:" size 18 color "#5a5a5a"
+                    
+                    hbox:
+                        xalign 0.5
+                        spacing 10
+                        for protector in available_protectors:
+                            textbutton protector.bigLetterName action Function(assign_protector, selected_mission.mission_id, protector.name)
+
+
                 
                 null ysize 1  # This adds 40 pixels of vertical space at the top
                 
                 hbox:
                     xalign 0.5
                     spacing 20
-                    if selected_mission.status == "not assigned" and selected_mission.assignedProtectorName != None:
+                    if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
+                        # TODO: add the logic for starting the mission
                         textbutton "Start Mission" action Return("start")
                     textbutton "Back" action SetScreenVariable("mode", "list")
 

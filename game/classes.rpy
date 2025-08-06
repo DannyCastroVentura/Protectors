@@ -5,6 +5,7 @@ init python:
             self.health = health
             self.damage = damage
             self.atack_speed = atack_speed
+            return
             
         def get_base_health_information(self):
             return round(self.health * health_size, 2)
@@ -29,6 +30,7 @@ init python:
             self.readyForPromotion = False
             self.basePoints = protectors_base_information[name]
             self.stats = self.get_current_stats()
+            return
         
         def increasing_xp(self, incoming_xp):
             # renpy.say(mc, f"the incoming_xp is: {incoming_xp}")
@@ -57,6 +59,7 @@ init python:
                 else:
                     self.stats = self.get_current_stats()
                     break
+            return
 
         def get_amount_of_xp_needed_for_leveling_up(self):
             return ( 
@@ -91,6 +94,7 @@ init python:
             self.level = 1
             self.readyForPromotion = False
             self.increasing_xp(0)
+            return
 
 
 
@@ -105,7 +109,7 @@ init python:
             self.neededDaysToFinish = neededDaysToFinish 
             self.disapearingInThisDays = disapearingInThisDays # this will going to be updated every time a day passes and this mission is assigned #if this reaches 0 and mission title is not "training", then the mission is deleted
             self.mission_type = mission_type
-            self.status = status # possible values: not assigned / assigned # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
+            self.status = status # possible values: not assigned / assigned / started # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
             self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
             if xp_received == None or gold_received == None:
                 randomNumber = renpy.random.randint(0, difficulty)
@@ -114,14 +118,20 @@ init python:
             else:
                 self.xp_received = xp_received
                 self.gold_received = gold_received
+            return
         
         def startMission(self, protectorName):
             self.assignedProtectorName = protectorName
-            self.status = "assigned"
+            self.status = "started"
+
+            # TODO: on starting the mission, 
+            #   we should also go through all the missions and reset
+            #   the self.assignedProtectorName to None for the missions which have the assignedProtectorName equals to the protector name and are not "started"
+            return
         
         # TODO: update this, as now we are not going to update the days passed, we are going to update the 
         def updateDaysPassed(self):
-            if self.status == "assigned":
+            if self.status == "started":
                 self.neededDaysToFinish -= 1
             else:
                 self.disapearingInThisDays -= 1
@@ -131,6 +141,7 @@ init python:
 
             if self.disapearingInThisDays == 0:
                 marking_missions_to_be_deleted(self.title)
+            return
         
         def finishMission(self):
             bigLetterName = my_protectors_map[self.assignedProtectorName].bigLetterName
@@ -144,9 +155,11 @@ init python:
             self.neededDaysToFinish = 1
             if self.title != "Training":
                 delete_mission(self.title)
+            return
     
     class MissionTemplate:
         def __init__(self, title, description, mission_type):
             self.title = title
             self.description = description
             self.mission_type = mission_type
+            return
