@@ -1687,13 +1687,12 @@ screen my_protectors_screen():
                 ymaximum 500
 
                 has vbox
-
                 # Close button
                 textbutton "Close":
                     text_style "hover_white"
                     xalign 1.0
                     action SetVariable("show_my_protectors", False)
-            
+
                 # Scrollable quest list
                 viewport:
                     scrollbars "vertical"
@@ -1705,8 +1704,10 @@ screen my_protectors_screen():
 
                         for my_protector in my_protectors_map.values():
                             $ my_color = "#FFFFFF"
+                            $ message = my_protector.status
                             if my_protector.readyForPromotion == True:
                                 $ my_color = "#ff0000"
+                                $ message = "Ready for promotion"
                             if my_protector.status == "In a mission":
                                 $ my_color = "#1E3A8A"
                             if my_protector.status == "Training":
@@ -1714,18 +1715,13 @@ screen my_protectors_screen():
                             button:
                                 background "#00000020"
                                 padding (5, 5)
-                                xmaximum 580
+                                xfill True
                                 action Show("protector_detail_screen", my_protector=my_protector)
 
-                                has vbox
-
-                                text "{} ({})".format(
-                                    my_protector.bigLetterName,
-                                    str(my_protector.stats)
-                                ):
+                                text "{} ({})".format(my_protector.bigLetterName, message):
                                     size 30
+                                    xalign 0.5 
                                     color my_color
-                                    xalign 0.0
                                     line_spacing 0
 
 
@@ -1757,11 +1753,48 @@ screen protector_detail_screen(my_protector):
                     spacing 20
                     xalign 0.2
                     yalign 0.5
-                    text "Status: [my_protector.status]" size 25 color "#DDD"
-                    text "Stats: [str(my_protector.stats)]" size 30 color "#EEE"
-                    text "Level: [my_protector.level] / 20" size 25 color "#DDD"
-                    text "Stage: [my_protector.stage] / 10" size 25 color "#DDD"
-                    text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
+                    
+                    vbox:
+                        xalign 0.5
+                        text "Level: [my_protector.level]" size 25 color "#DDD" xalign 0.5
+                        # TODO: add here Health Points
+                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up():
+                            xmaximum 400
+                            ymaximum 30
+
+                        vbox:
+                            xalign 0.5
+                            text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
+                    
+                    text "Stats:" size 25 color "#DDD"
+                    
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        vbox:
+                            xalign 0.5
+                            text "Strength:" size 20 color "#EEE"
+                            text "Constitution:" size 20 color "#EEE"
+                            text "Wisdom:" size 20 color "#EEE"
+                            text "Luck:" size 20 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_current_stats()['strength'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['constitution'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['luck'])]" size 20 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "Dexterity:" size 20 color "#EEE"
+                            text "Intelligence:" size 20 color "#EEE"
+                            text "Charisma:" size 20 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['charisma'])]" size 20 color "#EEE"
+                    
+                    text "Stage: [my_protector.stage]" size 25 color "#DDD"
 
                 # Image - mid right, just below the name
                 python:
@@ -1811,20 +1844,58 @@ screen protector_detail_screen(my_protector):
                     padding (10, 5)
 
                 # Protector name - top right corner
-                text "[my_protector.bigLetterName]" size 50 color "#FFF":
+                text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF":
                     xalign 0.2
                     yalign 0.1
+                
 
                 # Text block - vertically centered on left side
                 vbox:
                     spacing 20
                     xalign 0.2
                     yalign 0.5
-                    text "Status: [my_protector.status]" size 25 color "#DDD"
-                    text "Stats: [str(my_protector.stats)]" size 30 color "#EEE"
-                    text "Level: [my_protector.level] / 20" size 25 color "#DDD"
-                    text "Stage: [my_protector.stage] / 10" size 25 color "#DDD"
-                    text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
+
+                    vbox:
+                        xalign 0.5
+                        text "Level: [my_protector.level]" size 25 color "#DDD" xalign 0.5
+                        # TODO: add here Health Points
+                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up():
+                            xmaximum 400
+                            ymaximum 30
+
+                        vbox:
+                            xalign 0.5
+                            text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
+                    
+                    text "Stats:" size 25 color "#DDD"
+                    
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        vbox:
+                            xalign 0.5
+                            text "Strength:" size 20 color "#EEE"
+                            text "Constitution:" size 20 color "#EEE"
+                            text "Wisdom:" size 20 color "#EEE"
+                            text "Luck:" size 20 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_current_stats()['strength'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['constitution'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['luck'])]" size 20 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "Dexterity:" size 20 color "#EEE"
+                            text "Intelligence:" size 20 color "#EEE"
+                            text "Charisma:" size 20 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['charisma'])]" size 20 color "#EEE"
+                    
+                    text "Stage: [my_protector.stage]" size 25 color "#DDD"
 
                 # Image - mid right, just below the name
                 python:
@@ -1858,7 +1929,7 @@ screen protector_selection(isThisMission):
                 for key, protector in my_protectors_map.items():
                     if protector.status == "Available":
                         $ has_available = True
-                        textbutton protector.bigLetterName + ' (' + str(protector.stats) + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump(where_to)]
+                        textbutton protector.bigLetterName + ' (' + str(protector.status) + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump(where_to)]
 
                 if not has_available:
                     text "No protectors are currently available." xalign 0.5
@@ -2065,14 +2136,39 @@ screen base_stats(baseProtectorObject):
     tag stats  # Optional: makes it easy to hide/replace
 
     frame:
-        background "#000000ff"
-        xalign 0.5
+        background "#00000069"
+        xalign 0.3
         yalign 0.5
 
         vbox:
-            spacing 10
-            text "Base Stats" size 40 bold True xalign 0.5
-
-            text "[str(baseProtectorObject.get_base_information())]"
-
-            textbutton "Close" action Hide("base_stats") xalign 0.5
+            spacing 20
+            text "Base Stats" size 30 xalign 0.5 color "#FFF"
+            hbox:
+                xalign 0.5
+                spacing 50
+                vbox:
+                    spacing 30
+                    xalign 0.5
+                    text "Strength:" size 25 color "#EEE"
+                    text "Constitution:" size 25 color "#EEE"
+                    text "Wisdom:" size 25 color "#EEE"
+                    text "Luck:" size 25 color "#EEE"
+                vbox:
+                    spacing 30
+                    xalign 0.5
+                    text "[str(baseProtectorObject.get_base_information()['strength'])]" size 25 color "#EEE"
+                    text "[str(baseProtectorObject.get_base_information()['constitution'])]" size 25 color "#EEE"
+                    text "[str(baseProtectorObject.get_base_information()['wisdom'])]" size 25 color "#EEE"
+                    text "[str(baseProtectorObject.get_base_information()['luck'])]" size 25 color "#EEE"
+                vbox:
+                    spacing 30
+                    xalign 0.5
+                    text "Dexterity:" size 25 color "#EEE"
+                    text "Intelligence:" size 25 color "#EEE"
+                    text "Charisma:" size 25 color "#EEE"
+                vbox:
+                    spacing 30
+                    xalign 0.5
+                    text "[str(baseProtectorObject.get_base_information()['dexterity'])]" size 25 color "#EEE"
+                    text "[str(baseProtectorObject.get_base_information()['intelligence'])]" size 25 color "#EEE"
+                    text "[str(baseProtectorObject.get_base_information()['charisma'])]" size 25 color "#EEE"

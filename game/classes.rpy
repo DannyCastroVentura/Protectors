@@ -21,39 +21,19 @@ init python:
             self.incrementing_charisma = incrementing_charisma
             self.incrementing_luck = incrementing_luck
             return
-            
-        def get_base_strength(self):
-            return self.strength
-            
-        def get_base_dexterity(self):
-            return self.dexterity
-            
-        def get_base_constitution(self):
-            return self.constitution
-            
-        def get_base_intelligence(self):
-            return self.intelligence
-            
-        def get_base_wisdom(self):
-            return self.wisdom
-            
-        def get_base_charisma(self):
-            return self.charisma
-            
-        def get_base_luck(self):
-            return self.luck
 
         def get_base_information(self):
-            return 'Strength: ' + str(self.get_base_strength()) + '\n\
-                    Dexterity: ' + str(self.get_base_dexterity()) + '\n\
-                    Constitution: ' + str(self.get_base_constitution()) + '\n\
-                    Intelligence: ' + str(self.get_base_intelligence()) + '\n\
-                    Wisdom: ' + str(self.get_base_wisdom()) + '\n\
-                    Charisma: ' + str(self.get_base_charisma()) + '\n\
-                    Luck: ' + str(self.get_base_luck())
+            return {
+                "strength": self.strength,
+                "dexterity": self.dexterity,
+                "constitution": self.constitution,
+                "intelligence": self.intelligence,
+                "wisdom": self.wisdom,
+                "charisma": self.charisma,
+                "luck": self.luck
+            }
 
     class Protector:
-        # TODO: REFACTOR ALL THIS
         def __init__(self, name, bigLetterName, stage, level, status, xp = 0):
             self.name = name
             self.bigLetterName = bigLetterName
@@ -63,69 +43,74 @@ init python:
             self.xp = xp
             self.readyForPromotion = False
             self.basePoints = protectors_base_information[name]
-            self.stats = self.get_current_stats()
             return
-        
+
         def increasing_xp(self, incoming_xp):
+            if self.level / 20 > (self.stage):
+                self.readyForPromotion = True
             # renpy.say(mc, f"the incoming_xp is: {incoming_xp}")
+
             self.xp += incoming_xp
 
             while True:
                 xp_needed = self.get_amount_of_xp_needed_for_leveling_up()
                 if self.xp >= xp_needed:
-                    if self.level == 20 and self.stage == 10:
-                        break
                     # Then we are going to level up!
                     self.xp -= xp_needed
                     self.level += 1
-                    # check if level is already at 20
-                    if self.level == 20:
+                    # check if level is ready for promotion
+                    if self.level / 20 > (self.stage):
                         # we need to increase the stage
                         # check if stage is already at 10
                         if self.stage != 10:
                             self.readyForPromotion = True
-                            self.stats = self.get_current_stats()
-                            break
-                        else:
-                            self.level = 20
-                            self.stage = 10
-                            self.readyForPromotion = False
                 else:
-                    self.stats = self.get_current_stats()
                     break
             return
 
         def get_amount_of_xp_needed_for_leveling_up(self):
             return ( 
-                        round(( xp_starter_size + 
-                            (xp_size * increasing_per_level_multiplier_xp * (self.level - 1)) +
-                            (xp_size * increasing_per_stage_multiplier_xp * (self.stage - 1)) 
-                        ), 2)
-                    )
+                round(( xp_starter_size + 
+                    (xp_size * increasing_per_level_multiplier_xp * (self.level - 1))
+                ), 2)
+            )
 
-        def get_health_stat(self):
-            return round((self.basePoints.health + (self.basePoints.health * (self.level - 1) * level_factor_health * (self.level - 1) * level_factor_health) + 
-                        (self.basePoints.health * (self.stage - 1) * stage_factor_health * (self.stage - 1) * stage_factor_health)) * health_size, 2)
+        # TODO: Think on a way to make the protector stronger depending on the stage level
 
-        def get_damage_stat(self):
-            return round((self.basePoints.damage + (self.basePoints.damage * (self.level - 1) * level_factor_damage * (self.level - 1) * level_factor_damage) + 
-                        (self.basePoints.damage * (self.stage - 1) * stage_factor_damage * (self.stage - 1) * stage_factor_damage)) * damage_size, 2)
-
-        def get_atack_speed_stat(self):                        
-            return round(self.basePoints.atack_speed, 2)
+        def get_strength_attributes(self):
+            return int(self.basePoints.strength + (self.level * self.basePoints.incrementing_strength))
+        
+        def get_dexterity_attributes(self):
+            return int(self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity))
+        
+        def get_constitution_attributes(self):
+            return int(self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution))
+        
+        def get_intelligence_attributes(self):
+            return int(self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence))
+        
+        def get_wisdom_attributes(self):
+            return int(self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom))
+        
+        def get_charisma_attributes(self):
+            return int(self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma))
+        
+        def get_luck_attributes(self):
+            return int(self.basePoints.luck + (self.level * self.basePoints.incrementing_luck))
 
         def get_current_stats(self):
-            return str(
-                        self.get_health_stat()
-                    ) + " / " + str(
-                        self.get_damage_stat()
-                    ) + " / " + str(
-                        self.get_atack_speed_stat()
-                    )
+            return {
+                "strength": self.get_strength_attributes(),
+                "dexterity": self.get_dexterity_attributes(),
+                "constitution": self.get_constitution_attributes(),
+                "intelligence": self.get_intelligence_attributes(),
+                "wisdom": self.get_wisdom_attributes(),
+                "charisma": self.get_charisma_attributes(),
+                "luck": self.get_luck_attributes()
+            }
     
         def promote(self):
             self.stage += 1
-            self.level = 1
             self.readyForPromotion = False
             self.increasing_xp(0)
             return
@@ -197,8 +182,9 @@ init python:
             
             # updating the boss mission for this stage
             mission_stage = min(((self.difficulty - 1) // 20) + 1, 10)
-            bossMission = next((m for m in bossMissions if m.regionNumber == mission_stage), None)
-            bossMission.successfulMinorMissions += 1
+            if self.mission_id != 0:
+                bossMission = next((m for m in bossMissions if m.regionNumber == mission_stage), None)
+                bossMission.successfulMinorMissions += 1
 
             # deleting the mission if not training
             if self.mission_id != 0:

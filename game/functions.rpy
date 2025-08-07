@@ -40,21 +40,20 @@ init python:
     valid_extensions = [".png", ".jpg", ".jpeg", ".webp"]
 
     # creating basic multipliers for stat
-    health_size = 30
-    damage_size = 3
-    atack_speed_size = 1
-    xp_starter_size = 10
-    xp_size = 20
+    health_size = 30 # TODO: these things are not doing anything
+    damage_size = 3 # TODO: these things are not doing anything
+    atack_speed_size = 1 # TODO: these things are not doing anything
+    xp_starter_size = 10 # TODO: these things are not doing anything
+    xp_size = 20 # TODO: these things are not doing anything
 
     # multiplier per level
-    level_factor_health = 0.05
-    level_factor_damage = 0.05
-    increasing_per_level_multiplier_xp = 0.5
+    level_factor_health = 0.05 # TODO: these things are not doing anything
+    level_factor_damage = 0.05 # TODO: these things are not doing anything
+    increasing_per_level_multiplier_xp = 2
 
     # multiplier per stage
-    stage_factor_health = 1.5
-    stage_factor_damage = 1.5
-    increasing_per_stage_multiplier_xp = 10
+    stage_factor_health = 1.5 # TODO: these things are not doing anything
+    stage_factor_damage = 1.5 # TODO: these things are not doing anything
     
     # showing disabled options
     config.menu_include_disabled = False
@@ -323,7 +322,7 @@ init python:
 
 
         # Recreate missions
-        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 1900, 0))
+        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 9000, 0))
 
         creating_new_missions()
 

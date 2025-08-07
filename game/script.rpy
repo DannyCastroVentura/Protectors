@@ -126,11 +126,12 @@ label start:
         nova "You can choose only one.."
         nova "Who will that be?"
         menu:
-            "Ninja \n([protectors_base_information['ninja'].get_base_information()])":
+            "Ninja":
                 hide templar_starting
                 hide samurai_starting
                 # TODO: show it on the right, and the stats on the left
-                show ninja_starting at fit_to_screen_height, center
+                show ninja_starting at fit_to_screen_height, right
+                show screen base_stats(protectors_base_information['ninja'])
                 nova "Are you sure you want to choose the Ninja for your first protector?"
                 menu:
                     "Yes!":
@@ -157,11 +158,12 @@ label start:
                         nova "Templar added!"
                     "What were the other ones?":
                         nova "Let's recap."
-            "Samurai \n([protectors_base_information['samurai'].get_base_information()])":
+            "Samurai":
                 hide ninja_starting
                 hide templar_starting
                 # TODO: show it on the right, and the stats on the left
-                show samurai_starting at fit_to_screen_height, center
+                show samurai_starting at fit_to_screen_height, right
+                show screen base_stats(protectors_base_information['samurai'])
                 nova "Are you sure you want to choose the Samurai for your first protector?"
                 menu:
                     "Yes!":
@@ -174,6 +176,7 @@ label start:
                         nova "Let's recap."
 
     hide templar_starting
+    hide screen base_stats
     hide samurai_starting
     hide ninja_starting
     show nova at center, fit_to_screen_height
