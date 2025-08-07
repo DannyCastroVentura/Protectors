@@ -22,18 +22,35 @@ init python:
             self.incrementing_luck = incrementing_luck
             return
             
-        # TODO: REFACTOR ALL THIS
-        def get_base_health_information(self):
-            return round(self.health * health_size, 2)
-        
-        def get_base_damage_information(self):
-            return round(self.damage * damage_size, 2)
-        
-        def get_base_atack_speed_information(self):
-            return round(self.atack_speed * atack_speed_size, 2)
-        
+        def get_base_strength(self):
+            return self.strength
+            
+        def get_base_dexterity(self):
+            return self.dexterity
+            
+        def get_base_constitution(self):
+            return self.constitution
+            
+        def get_base_intelligence(self):
+            return self.intelligence
+            
+        def get_base_wisdom(self):
+            return self.wisdom
+            
+        def get_base_charisma(self):
+            return self.charisma
+            
+        def get_base_luck(self):
+            return self.luck
+
         def get_base_information(self):
-            return 'Health: ' + str(self.get_base_health_information()) + ' / ' + 'Damage: ' + str(self.get_base_damage_information()) + ' / ' + 'Atack-speed: ' + str(self.get_base_atack_speed_information())
+            return 'Strength: ' + str(self.get_base_strength()) + '\n\
+                    Dexterity: ' + str(self.get_base_dexterity()) + '\n\
+                    Constitution: ' + str(self.get_base_constitution()) + '\n\
+                    Intelligence: ' + str(self.get_base_intelligence()) + '\n\
+                    Wisdom: ' + str(self.get_base_wisdom()) + '\n\
+                    Charisma: ' + str(self.get_base_charisma()) + '\n\
+                    Luck: ' + str(self.get_base_luck())
 
     class Protector:
         # TODO: REFACTOR ALL THIS

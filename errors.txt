@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1933: The vbox statement is not a valid child of the bar statement.
-    vbox:
-        ^
+File "game/classes.rpy", line 47: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a ' at the end of the first line.)
+                return 'Strength: ' + str(self.get_base_strength()) + '\n\
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Thu Aug  7 15:38:20 2025
+Thu Aug  7 18:39:34 2025

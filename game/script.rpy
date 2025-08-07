@@ -129,6 +129,7 @@ label start:
             "Ninja \n([protectors_base_information['ninja'].get_base_information()])":
                 hide templar_starting
                 hide samurai_starting
+                # TODO: show it on the right, and the stats on the left
                 show ninja_starting at fit_to_screen_height, center
                 nova "Are you sure you want to choose the Ninja for your first protector?"
                 menu:
@@ -143,6 +144,7 @@ label start:
             "Templar \n([protectors_base_information['templar'].get_base_information()])":
                 hide ninja_starting
                 hide samurai_starting
+                # TODO: show it on the right, and the stats on the left
                 show templar_starting at fit_to_screen_height, center
                 nova "Are you sure you want to choose the Templar for your first protector?"
                 menu:
@@ -157,6 +159,7 @@ label start:
             "Samurai \n([protectors_base_information['samurai'].get_base_information()])":
                 hide ninja_starting
                 hide templar_starting
+                # TODO: show it on the right, and the stats on the left
                 show samurai_starting at fit_to_screen_height, center
                 nova "Are you sure you want to choose the Samurai for your first protector?"
                 menu:
