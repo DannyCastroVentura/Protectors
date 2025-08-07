@@ -38,8 +38,6 @@ Full traceback:
     self.child.visit_all(callback, seen=None)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\displayable.py", line 434, in visit_all
     d.visit_all(callback, seen)
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\displayable.py", line 424, in visit_all
     for d in self.visit():
   File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1376, in visit
@@ -56,4 +54,4 @@ TypeError: 'int' object is not subscriptable
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Thu Aug  7 19:00:52 2025
+Thu Aug  7 19:09:50 2025

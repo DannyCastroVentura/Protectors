@@ -2065,9 +2065,7 @@ screen base_stats(baseProtectorObject):
     tag stats  # Optional: makes it easy to hide/replace
 
     frame:
-        at truecenter
-        padding 40
-        background "#0008"
+        background "#000000ff"
         xalign 0.5
         yalign 0.5
 
