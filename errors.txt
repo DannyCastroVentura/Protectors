@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 47: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a ' at the end of the first line.)
-                return 'Strength: ' + str(self.get_base_strength()) + '\n\
+File "game/classes.rpy", line 47: expected an indented block
+    return {
+    ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Thu Aug  7 18:39:34 2025
+Thu Aug  7 19:00:24 2025

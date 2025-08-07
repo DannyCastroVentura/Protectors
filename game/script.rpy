@@ -141,11 +141,12 @@ label start:
                         nova "Ninja added!"
                     "What were the other ones?":
                         nova "Let's recap."
-            "Templar \n([protectors_base_information['templar'].get_base_information()])":
+            "Templar":
                 hide ninja_starting
                 hide samurai_starting
                 # TODO: show it on the right, and the stats on the left
-                show templar_starting at fit_to_screen_height, center
+                show templar_starting at fit_to_screen_height, right
+                show screen base_stats(protectors_base_information['templar'])
                 nova "Are you sure you want to choose the Templar for your first protector?"
                 menu:
                     "Yes!":

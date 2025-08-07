@@ -2058,3 +2058,23 @@ screen mission_detail_screen(mission):
                 xalign 0.5
                 textbutton "Start Mission" action Return("start")
                 textbutton "Back" action Return("back")
+
+
+screen base_stats(baseProtectorObject):
+
+    tag stats  # Optional: makes it easy to hide/replace
+
+    frame:
+        at truecenter
+        padding 40
+        background "#0008"
+        xalign 0.5
+        yalign 0.5
+
+        vbox:
+            spacing 10
+            text "Base Stats" size 40 bold True xalign 0.5
+
+            text "[str(baseProtectorObject.get_base_information())]"
+
+            textbutton "Close" action Hide("base_stats") xalign 0.5
