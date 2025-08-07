@@ -5,49 +5,19 @@ While running game code:
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 60, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  [Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 7, in script call
-    call check_my_missions()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 60, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  [Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 7, in script call
-    call check_my_missions()
-ScriptError: could not find label 'check_my_missions'.
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/common/00action_other.rpy", line 619, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/functions.rpy", line 355, in start_mission
+    mission = next(m for m in enumerate(allMissions) if m.mission_id == target_mission_id)
+  File "game/functions.rpy", line 355, in <genexpr>
+    mission = next(m for m in enumerate(allMissions) if m.mission_id == target_mission_id)
+AttributeError: 'tuple' object has no attribute 'mission_id'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -56,55 +26,59 @@ Full traceback:
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 60, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  [Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 7, in script call
-    call check_my_missions()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1427, in execute
-    rv = renpy.game.context().call(label, return_site=self.next.name)
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 60, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  [Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 7, in script call
-    call check_my_missions()
-  File "D:\renpy\renpy-8.3.7-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'check_my_missions'.
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1987, in execute
+    self.call("execute")
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ast.py", line 1966, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\statements.py", line 374, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\exports\statementexports.py", line 345, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 2218, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\core.py", line 3289, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\screen.py", line 794, in event
+    rv = self.child.event(ev, x, y, st)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1526, in event
+    rv = super(Window, self).event(ev, x, y, st)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 285, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\behavior.py", line 1182, in event
+    return handle_click(self.clicked)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\behavior.py", line 1103, in handle_click
+    rv = run(action)
+  File "D:\renpy\renpy-8.3.7-sdk\renpy\display\behavior.py", line 401, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_other.rpy", line 619, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/functions.rpy", line 355, in start_mission
+    mission = next(m for m in enumerate(allMissions) if m.mission_id == target_mission_id)
+  File "game/functions.rpy", line 355, in <genexpr>
+    mission = next(m for m in enumerate(allMissions) if m.mission_id == target_mission_id)
+AttributeError: 'tuple' object has no attribute 'mission_id'
 
 Windows-10-10.0.26120 AMD64
 Ren'Py 8.3.7.25031702
 Protectors 1.0
-Thu Aug  7 00:07:20 2025
+Thu Aug  7 15:45:10 2025

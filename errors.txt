@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1997: 'select_protector_button_style' is not a keyword argument or valid child of the for statement.
-    select_protector_button_style = "button_small_text"
-                                 ^
+File "game/screens.rpy", line 1933: The vbox statement is not a valid child of the bar statement.
+    vbox:
+        ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Aug  6 23:00:48 2025
+Thu Aug  7 15:38:20 2025

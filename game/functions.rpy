@@ -1,6 +1,7 @@
 default my_protectors_map = {}
 default protectors_base_information = {}
 default allMissions = []
+default bossMissions = []
 default missionsToDelete = []
 define config.console = True
 default allMissionTemplates = []
@@ -18,6 +19,9 @@ init python:
     
     if 'allMissions' not in globals():
         allMissions = []
+
+    if 'bossMissions' not in globals():
+        bossMissions = []
 
     if 'missionsToDelete' not in globals():
         missionsToDelete = []
@@ -122,13 +126,70 @@ init python:
         return
 
     def initializing_things():
+        global protectors_base_information
+        global allMissionTemplates
+        global allMissions
+        global bossMissions
+
+
         # creating protectors    
-        protectors_base_information["ninja"] = BaseProtectorData(0.7, 1, 1.3)
-        protectors_base_information["recruit"] = BaseProtectorData(1.1, 0.8, 1.1)
-        protectors_base_information["robot"] = BaseProtectorData(1.5, 0.75, 0.75)
-        protectors_base_information["samurai"] = BaseProtectorData(1.25, 1.25, 0.5)
-        protectors_base_information["skeleton"] = BaseProtectorData(0.5, 1.5, 1)
-        protectors_base_information["templar"] = BaseProtectorData(1.5, 1.2, 0.3)
+        protectors_base_information["ninja"] = BaseProtectorData(10, 17, 12, 14, 13, 8, 11, 0.15, 0.5, 0.2, 0.34, 0.25, 0.125, 0.16)
+        # it gains:
+        # 1 dex per 2 levels
+        # 1 intelligence wisdom per 3 levels
+        # 1 wisdom per 4 levels
+        # 1 constitution per 5 levels
+        # 1 luck per 6 levels
+        # 1 strenght per 7 levels
+        # 1 charisma per 8 levels
+
+        protectors_base_information["recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.15, 0.34, 0.25, 0.2, 0.16, 0.2)
+        # it gains:
+        # 1 strength per 2 levels
+        # 1 constitution per 3 levels
+        # 1 int per 4 levels
+        # 1 wisdom per 5 levels
+        # 1 charisma per 6 levels
+        # 1 dexterity per 7 levels
+        # 1 luck per 8 levels
+
+        protectors_base_information["robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1)
+        # it gains:
+        # 1 intelligence per 2 levels
+        # 1 dexterity per 3 levels
+        # 1 strenght per 4 levels
+        # 1 constitution per 5 levels
+        # 1 wisdom per 6 levels
+        # 1 charisma per 8 levels
+        # 1 luck per 10 levels
+
+        protectors_base_information["samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.5, 0.25, 0.2, 0.34, 0.16, 0.125)
+        # it gains:
+        # 1 strenght per 2 levels
+        # 1 dexterity per 2 levels
+        # 1 wisdom per 3 levels
+        # 1 constitution per 4 levels
+        # 1 inteligence per 5 levels
+        # 1 charisma per 6 levels
+        # 1 luck per 8 levels
+
+        protectors_base_information["skeleton"] = BaseProtectorData(17, 18, 10, 6, 8, 6, 20, 0.34, 0.5, 0.25, 0.2, 0.125, 0, 0)
+        # it gains:
+        # 1 dexterity per 2 levels
+        # 1 strenght per 3 levels
+        # 1 constitution per 4 levels
+        # 1 intelligence per 5 levels
+        # 1 wisdom per 6 levels
+        
+        protectors_base_information["templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125)
+        # it gains:
+        # 1 strenght per 2 levels
+        # 1 constitution per 2 levels
+        # 1 wisdom per 3 levels
+        # 1 charisma per 4 levels
+        # 1 intelligence per 5 levels
+        # 1 dexterity per 6 levels
+        # 1 luck per 8 levels
 
         # Recreate Possible Missions # Tittle / description
         # 🔥 23
@@ -265,6 +326,17 @@ init python:
         allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 1900, 0))
 
         creating_new_missions()
+
+        bossMissions.append(BossMission(1, "The Mireborn Tyrant", "Deep within a poisonous swamp, a mutated beast commands venomous creatures and twisted flora. It oozes acid and rage — only its death can cleanse the land.", 20))
+        bossMissions.append(BossMission(2, "The Pale King", "A ruler who transcended death now commands legions of the undead. His soul is bound to a cursed throne. Break his chains and survive the wrath of his fallen empire.", 25))
+        bossMissions.append(BossMission(3, "The Hollow Sentinel", "A forgotten guardian awakens in the ruins of an ancient temple. Armed with rusted steel and remnants of lost magic, it strikes with surprising precision. Defeat it to gain access to the inner sanctum.", 30))
+        bossMissions.append(BossMission(4, "The Drowned Prophet", "Sunken beneath a once-great city lies a priest possessed by ancient sea gods. His chants summon tidal waves and spectral leviathans. Silence him before the flood rises.", 35))
+        bossMissions.append(BossMission(5, "The Iron Colossus", "A living war machine, awakened from the forgotten age, marches toward civilization. Scale its limbs, sabotage its systems, and battle it atop its metal heart.", 40))
+        bossMissions.append(BossMission(6, "The Clockwork Butcher", "In the quiet town of Elderglen, people vanish at night. A deranged clockmaker turned mechanical horror stalks the foggy streets. Enter his twisted workshop and end the nightmare before the town is silenced forever.", 45))
+        bossMissions.append(BossMission(7, "The Infernal Architect", "A demon that builds war machines in a fortress of fire and gears. Deactivate his defenses and destroy his creations before confronting him in a hellish showdown.", 50))
+        bossMissions.append(BossMission(8, "The Eclipse Warden", "At the edge of the world, a being of shadow and solar flame guards the passage to the void. Fight through alternating light and dark phases in a battle of cosmic rhythm.", 60))
+        bossMissions.append(BossMission(9, "The Shattered Queen", "In a realm of mirrors and illusions, an exiled queen of a fallen kingdom bends reality to her will. Break her illusions to reveal her true form — and end her madness.", 70))
+        bossMissions.append(BossMission(10, "The Void-Touched Seraph", "Once a divine guardian, now corrupted by the void. This winged horror fights in aerial stages, using celestial and abyssal magic. Only a grounded will can reach the skies.", 90))
         
         return 
 
@@ -331,9 +403,9 @@ init python:
         global allMissions
         
         target_mission_id = mission.mission_id
-        mission_index = next((i for i, m in enumerate(allMissions) if m.mission_id == target_mission_id), -1)
+        mission = next(m for m in allMissions if m.mission_id == target_mission_id)
         
-        allMissions[mission_index].startMission(protectorName)
+        mission.startMission(protectorName)
 
         my_protectors_map[protectorName].status = "In a mission"
         return

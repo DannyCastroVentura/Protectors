@@ -1890,7 +1890,9 @@ screen wallet_screen():
             text_color "b3b3b3"
             text_size 40
 
-screen mission_screen(min_level, max_level):
+screen mission_screen(regionNumber):    
+    $ min_level = (regionNumber - 1) * 20
+    $ max_level = regionNumber * 20
     default page = 0
     default page_size = 5
     default filtered_missions = [m for m in allMissions if min_level <= m.difficulty <= max_level and m.title != "Training"]
@@ -1903,7 +1905,7 @@ screen mission_screen(min_level, max_level):
         xalign 0.5
         yalign 0.5
         xsize 800
-        ysize 800
+        ysize 925
         padding (20, 20)
 
         if mode == "list":
@@ -1913,8 +1915,23 @@ screen mission_screen(min_level, max_level):
                 yalign 0.0
                 vbox:
                     xalign 0.5
-                    text "Missions (Difficulty: [min_level] - [max_level])" size 40
-                
+                    
+                    vbox:
+                        xalign 0.5
+                        text "Missions" size 40
+                    
+                    vbox:
+                        xalign 0.5
+                        $ bossMission = next((m for m in bossMissions if m.regionNumber == regionNumber), None)
+                        vbox:
+                            xalign 0.5
+                            bar value bossMission.successfulMinorMissions range bossMission.successfulMinorMissionsRequired:
+                                xmaximum 400
+                                ymaximum 30
+
+                            vbox:
+                                xalign 0.5
+                                text "[bossMission.successfulMinorMissions] / [bossMission.successfulMinorMissionsRequired]" size 24
 
                 for i in range(page * page_size, min((page + 1) * page_size, len(filtered_missions))):
                     $ mission = filtered_missions[i]

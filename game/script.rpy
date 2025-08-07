@@ -219,6 +219,13 @@ label start:
     # TODO: I should work on the missions, I have a lot of todos to do.
     # 
     # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
+    # 
+    # TODO: refactor the attributes of the protectors
+    #   -   instead, its better if they have different attributes like:
+    #       -   strength
+    #       -   and other ones
+    #       -   and then these attributes will make the other attributes as health and damage to increase or decrease
+    #       -   for these, I can check with chatgpt for some help in diggin into this further
 
     return
 

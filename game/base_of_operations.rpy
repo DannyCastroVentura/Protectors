@@ -64,11 +64,9 @@ label see_all_missions(page):
     call see_all_missions(1)
 
 label see_missions_for_region(regionNumber):
-    $ min_level = (regionNumber - 1) * 20
-    $ max_level = regionNumber * 20
-    $ set_background("regions/1")
-    call screen mission_screen(min_level, max_level)
+    $ set_background(f"regions/{regionNumber}")
+    call screen mission_screen(regionNumber)
     # TODO: 
-    #   -   I'll also need to add the number of missions remaining until I can face the boss for this region 
-    #   -   (maybe I could use a chart? this would be dope.)
+    #   -   create the boss mission so I can unlock the next region
+    #   -   but first, I'll need to conclude the minor missions
     return

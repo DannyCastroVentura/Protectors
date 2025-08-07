@@ -1,12 +1,28 @@
 init python:
     # CLASSES
     class BaseProtectorData:
-        def __init__(self, health, damage, atack_speed):
-            self.health = health
-            self.damage = damage
-            self.atack_speed = atack_speed
+        def __init__(self, strength, dexterity, constitution, 
+            intelligence, wisdom, charisma, luck, incrementing_strength, 
+            incrementing_dexterity, incrementing_constitution, 
+            incrementing_intelligence, incrementing_wisdom, 
+            incrementing_charisma, incrementing_luck):
+            self.strength = strength
+            self.dexterity = dexterity
+            self.constitution = constitution
+            self.intelligence = intelligence
+            self.wisdom = wisdom
+            self.charisma = charisma
+            self.luck = luck
+            self.incrementing_strength = incrementing_strength
+            self.incrementing_dexterity = incrementing_dexterity
+            self.incrementing_constitution = incrementing_constitution
+            self.incrementing_intelligence = incrementing_intelligence
+            self.incrementing_wisdom = incrementing_wisdom
+            self.incrementing_charisma = incrementing_charisma
+            self.incrementing_luck = incrementing_luck
             return
             
+        # TODO: REFACTOR ALL THIS
         def get_base_health_information(self):
             return round(self.health * health_size, 2)
         
@@ -20,6 +36,7 @@ init python:
             return 'Health: ' + str(self.get_base_health_information()) + ' / ' + 'Damage: ' + str(self.get_base_damage_information()) + ' / ' + 'Atack-speed: ' + str(self.get_base_atack_speed_information())
 
     class Protector:
+        # TODO: REFACTOR ALL THIS
         def __init__(self, name, bigLetterName, stage, level, status, xp = 0):
             self.name = name
             self.bigLetterName = bigLetterName
@@ -142,18 +159,38 @@ init python:
             return
         
         def finishMission(self):
+            global my_protectors_map
+            global bossMissions
+            
             # TODO: Evaluate if the mission is going to pass or not
             #   -   depending on the type of the mission, different things on the protector would be evaluated
+
+            # getting the show off name for the protector
             bigLetterName = my_protectors_map[self.assignedProtectorName].bigLetterName
+
+            # notifying that the mission was completed
             renpy.notify(f"{bigLetterName} has successfully completed {self.title}.")
-            self.status = "hidden"
+
+            # updating the protector status and xp
             my_protectors_map[self.assignedProtectorName].status = "Available"
             my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
-            self.assignedProtectorName = None
+
+            # Updating wallet
             updating_wallet(self.gold_received)
-            self.neededDaysToFinish = 1
+            
+            # updating the boss mission for this stage
+            mission_stage = min(((self.difficulty - 1) // 20) + 1, 10)
+            bossMission = next((m for m in bossMissions if m.regionNumber == mission_stage), None)
+            bossMission.successfulMinorMissions += 1
+
+            # deleting the mission if not training
             if self.mission_id != 0:
                 delete_mission(self.mission_id)
+
+            # if training            
+            self.neededDaysToFinish = 1
+            self.status = "not assigned"
+            self.assignedProtectorName = None
             return
     
     class MissionTemplate:
@@ -161,4 +198,13 @@ init python:
             self.title = title
             self.description = description
             self.mission_type = mission_type
+            return
+
+    class BossMission:
+        def __init__(self, regionNumber, title, description, successfulMinorMissionsRequired):
+            self.regionNumber = regionNumber
+            self.title = title
+            self.description = description
+            self.successfulMinorMissionsRequired = successfulMinorMissionsRequired
+            self.successfulMinorMissions = 0
             return
