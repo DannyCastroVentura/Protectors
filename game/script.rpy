@@ -11,9 +11,6 @@ init python:
     if 'mc_name' not in globals():
         mc_name = "Daniel"
     mc = Character([mc_name])
-    ninja_path = get_folder_from_map("ninja")
-    templar_path = get_folder_from_map("templar")
-    samurai_path = get_folder_from_map("samurai")
     config.overlay_screens.append("my_protectors_screen")
     config.overlay_screens.append("current_day_screen")
     config.overlay_screens.append("wallet_screen")
@@ -116,11 +113,11 @@ label start:
     call showFirst3Protectors()
 
     nova "These are the candidates.."
-    
+    $ first_protector_selected = ""
     $ while_aux = 0
     while while_aux == 0:
         call showFirst3Protectors()
-
+        hide screen base_stats
         nova "You have the Ninja, the Templar and the Samurai."
 
         nova "You can choose only one.."
@@ -129,14 +126,13 @@ label start:
             "Ninja":
                 hide templar_starting
                 hide samurai_starting
-                # TODO: show it on the right, and the stats on the left
                 show ninja_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['ninja'])
                 nova "Are you sure you want to choose the Ninja for your first protector?"
-                # TODO: make these options to be at the bottom so it does not get over the stats
-                menu:
+                menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
+                        $ first_protector_selected = "ninja"
                         nova "Great!"
                         nova "I'm adding Ninja to your list of protectors!"
                         $ add_new_protector("ninja")
@@ -146,14 +142,13 @@ label start:
             "Templar":
                 hide ninja_starting
                 hide samurai_starting
-                # TODO: show it on the right, and the stats on the left
                 show templar_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['templar'])
                 nova "Are you sure you want to choose the Templar for your first protector?"
-                # TODO: make these options to be at the bottom so it does not get over the stats
-                menu:
+                menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
+                        $ first_protector_selected = "templar"
                         nova "Great!"
                         nova "I'm adding Templar to your list of protectors!"
                         $ add_new_protector("templar")
@@ -163,14 +158,13 @@ label start:
             "Samurai":
                 hide ninja_starting
                 hide templar_starting
-                # TODO: show it on the right, and the stats on the left
                 show samurai_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['samurai'])
                 nova "Are you sure you want to choose the Samurai for your first protector?"
-                # TODO: make these options to be at the bottom so it does not get over the stats
-                menu:
+                menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
+                        $ first_protector_selected = "samurai"
                         nova "Great!"
                         nova "I'm adding Samurai to your list of protectors!"
                         $ add_new_protector("samurai")
@@ -184,6 +178,69 @@ label start:
     hide ninja_starting
     show nova at center, fit_to_screen_height
     nova "Great! Now you have your first protector!"
+    nova "Now let's choose the weapon you want him to start with!"
+    
+    hide nova
+    $ while_aux = 0
+    while while_aux == 0:
+        call showFirst3Weapons()
+        hide screen weapon_base_stats
+        nova "You can choose one of these weapons."
+        nova "Maybe its a good thing you consider what might be better for your protector."
+        nova "Which will you choose?"
+        menu:
+            "Thieves knife":
+                hide ironcladMace_starting
+                hide elderwoodStaff_starting
+                show thievesKnife_starting at fit_to_screen_height, farMidRight
+                $ weapon = next(w for w in weapons if w.name == "Thieves knife")
+                show screen weapon_base_stats(weapon)
+                nova "Are you sure you want to choose the Thieves knife for your first protector to use?"
+                menu(screen="custom_menu"):
+                    "Yes!":
+                        $ while_aux = 1
+                        nova "Great!"
+                        nova "I'm adding Thieves knife to your protector!"
+                        # TODO: create this function
+                        $ update_protector_weapon(first_protector_selected, "Thieves knife")
+                        nova "Thieves knife added!"
+                    "What were the other ones?":
+                        nova "Let's recap."
+            "Ironclad Mace":
+                hide elderwoodStaff_starting
+                hide thievesKnife_starting
+                show ironcladMace_starting at fit_to_screen_height, farMidRight
+                $ weapon = next(w for w in weapons if w.name == "Ironclad Mace")
+                show screen weapon_base_stats(weapon)
+                nova "Are you sure you want to choose the Ironclad Mace for your first protector to use?"
+                menu(screen="custom_menu"):
+                    "Yes!":
+                        $ while_aux = 1
+                        nova "Great!"
+                        nova "I'm adding Ironclad Mace to your protector!"
+                        # TODO: create this function
+                        $ update_protector_weapon(first_protector_selected, "Ironclad Mace")
+                        nova "Ironclad Mace added!"
+                    "What were the other ones?":
+                        nova "Let's recap."
+            "Elderwood Staff":
+                hide ironcladMace_starting
+                hide thievesKnife_starting
+                show elderwoodStaff_starting at fit_to_screen_height, farMidRight
+                $ weapon = next(w for w in weapons if w.name == "Elderwood Staff")
+                show screen weapon_base_stats(weapon)
+                nova "Are you sure you want to choose the Elderwood Staff for your first protector to use?"
+                menu(screen="custom_menu"):
+                    "Yes!":
+                        $ while_aux = 1
+                        nova "Great!"
+                        nova "I'm adding Elderwood Staff to your protector!"
+                        # TODO: create this function
+                        $ update_protector_weapon(first_protector_selected, "Elderwood Staff")
+                        nova "Elderwood Staff added!"
+                    "What were the other ones?":
+                        nova "Let's recap."
+
     $ show_whole_functionality_for_seeing_my_protectors = True
     nova "You can check your protectors by clicking in the button \"My Protectors\""
     nova "Once you click, you'll see all your protectors - for now, you have only one!"
@@ -210,32 +267,24 @@ label start:
     jump base_of_operations
 
     # TODO: missions
-    #   also when we click on a mission title, we should get the detail for that mission, and then click on "Send a protector for this mission?"
-    #   We can send the protector for any mission - if he have the right stats -> need to think a bit better - maybe depending on the type of the mission, different stats are needed?
+    #   normal missions sould be always possible to send our protectors, at the end, it will say if it was successful or not.
+    #   for the normal missions, or protector is not in life danger
     #   for the stage missions, our protector can be killed, we need to be careful
-    #   stage missions only appear after we successfully do 15 (?number still to figure?) missions for that stage)
     #   once stage mission is completed, we can go to the next region - and everything should be the same
     # 
     # TODO: make it possible to call nova
-    #
-    # TODO: if the protector have 20 of level and 10 of stage, when showing the max level I should show (+oo)
     #
     # TODO: create the new frame for the stage 5 - as he should choose which one should he get, and depending on the one he chose, he will get some advantages
     # 
     # TODO: create a way to buy items or item drop chang? Still need to think about it
     # 
-    # TODO: while we are having good results the resitance will provide some other new protectors
+    # TODO: while we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
     # 
     # TODO: I should work on the missions, I have a lot of todos to do.
     # 
     # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
-    # 
-    # TODO: refactor the attributes of the protectors
-    #   -   instead, its better if they have different attributes like:
-    #       -   strength
-    #       -   and other ones
-    #       -   and then these attributes will make the other attributes as health and damage to increase or decrease
-    #       -   for these, I can check with chatgpt for some help in diggin into this further
+    #   -   or if it was successful or not -> maybe also the reason?
+    #   
 
     return
 
@@ -247,17 +296,38 @@ label showFirst3Protectors():
     hide ninja_starting
 
     # showing ninja
-    image ninja_starting = getImage(f"{ninja_path}/1")
+    image ninja_starting = getImage(f"{get_folder_from_map("ninja")}/1")
     show ninja_starting at fit_to_screen_height, farLeft
     
     # showing templar
     
-    image templar_starting = getImage(f"{templar_path}/1")
+    image templar_starting = getImage(f"{get_folder_from_map("templar")}/1")
     show templar_starting at fit_to_screen_height, center
 
     # showing samurai
-    image samurai_starting = getImage(f"{samurai_path}/1")
+    image samurai_starting = getImage(f"{get_folder_from_map("samurai")}/1")
     show samurai_starting at fit_to_screen_height, farRight
+
+    return
+
+label showFirst3Weapons(): 
+    # hiding the 3 protectors before showing
+    hide thievesKnife_starting
+    hide ironcladMace_starting
+    hide elderwoodStaff_starting
+    
+    # showing ShadowFang
+    image thievesKnife_starting = getImage("images/weapons/knife")
+    show thievesKnife_starting at fit_to_screen_height, farLeft
+
+    # showing Ironclad Mace
+    image ironcladMace_starting = getImage("images/weapons/mace")
+    show ironcladMace_starting at fit_to_screen_height, center
+    
+    # showing Elderwood Staff    
+    image elderwoodStaff_starting = getImage("images/weapons/staff")
+    show elderwoodStaff_starting at fit_to_screen_height, farRight
+
     return
 
 label nova_explains_tutorial():

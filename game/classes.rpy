@@ -75,28 +75,26 @@ init python:
                 ), 2)
             )
 
-        # TODO: Think on a way to make the protector stronger depending on the stage level
-
         def get_strength(self):
-            return int(self.basePoints.strength + (self.level * self.basePoints.incrementing_strength))
+            return int(self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength)))
         
         def get_dexterity(self):
-            return int(self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity))
+            return int(self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((self.stage - 1) * self.level * self.basePoints.incrementing_dexterity)))
         
         def get_constitution(self):
-            return int(self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution))
+            return int(self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution)))
         
         def get_intelligence(self):
-            return int(self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence))
+            return int(self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((self.stage - 1) * self.level * self.basePoints.incrementing_intelligence)))
         
         def get_wisdom(self):
-            return int(self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom))
+            return int(self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((self.stage - 1) * self.level * self.basePoints.incrementing_wisdom)))
         
         def get_charisma(self):
-            return int(self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma))
+            return int(self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((self.stage - 1) * self.level * self.basePoints.incrementing_charisma)))
         
         def get_luck(self):
-            return int(self.basePoints.luck + (self.level * self.basePoints.incrementing_luck))
+            return int(self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((self.stage - 1) * self.level * self.basePoints.incrementing_luck)))
 
         def get_current_stats(self):
             return {
@@ -234,3 +232,13 @@ init python:
             self.successfulMinorMissionsRequired = successfulMinorMissionsRequired
             self.successfulMinorMissions = 0
             return
+
+    class Weapon:
+        _id_counter = 0
+        def __init__(self, name, description, weapon_type, class_name, base_damage):
+            self.weapon_id = Weapon._id_counter
+            self.name = name # name of the weapon
+            self.description = description # a small description for the weapon, it also can have a story of the weapon
+            self.type = weapon_type # the type (knife, sword, axe, lance, etc..)
+            self.class_name = class_name # dexterity weapon / strength weapon / magic weapon
+            self.base_damage = base_damage # damage

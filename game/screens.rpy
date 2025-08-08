@@ -280,6 +280,16 @@ screen choice(items):
         for i in items:
             textbutton i.caption action i.action
 
+screen custom_menu(items):
+    style_prefix "choice"
+
+    vbox:
+        xalign 0.5   # Center horizontally
+        yalign 0.8   # Center vertically
+        spacing 20   # Space between menu choices
+        for i in items:
+            textbutton i.caption action i.action
+
 
 style choice_vbox is vbox
 style choice_button is button
@@ -2168,3 +2178,43 @@ screen base_stats(baseProtectorObject):
                     text "[str(baseProtectorObject.get_base_information()['dexterity'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['intelligence'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['charisma'])]" size 25 color "#EEE"
+
+
+screen weapon_base_stats(weaponObject):
+    key config.keymap["hide_windows"] action None
+    $ build = "Strength-focused protectors"
+    if weaponObject.type == "Dexterity weapon":
+        $ build = "Dexterity-focused protectors"
+    if weaponObject.type == "Magic weapon":
+        $ build = "Intelligence- and Wisdom-focused protectors"
+
+    frame:
+        background "#00000069"
+        xalign 0.2
+        yalign 0.5
+        padding (50, 50)
+
+        vbox:
+            spacing 20
+            text "Base Stats" size 30 xalign 0.5 color "#FFF"
+            hbox:
+                xalign 0.5
+                spacing 50
+                vbox:
+                    spacing 30
+                    xalign 0.5
+                    text "Name:" size 25 color "#EEE"
+                    text "Description:" size 25 color "#EEE"
+                    text "Base damage:" size 25 color "#EEE"
+                    text "Type:" size 25 color "#EEE"
+                    text "Class:" size 25 color "#EEE"
+                    text "Recommended to use on:" size 25 color "#EEE"
+                vbox:
+                    spacing 30
+                    xalign 0.5
+                    text "[str(weaponObject.name)]" size 25 color "#EEE"
+                    text "[str(weaponObject.description)]" size 25 color "#EEE"
+                    text "[str(weaponObject.base_damage)]" size 25 color "#EEE"
+                    text "[str(weaponObject.type)]" size 25 color "#EEE"
+                    text "[str(weaponObject.class_name)]" size 25 color "#EEE"
+                    text "[str(build)]" size 25 color "#EEE"
