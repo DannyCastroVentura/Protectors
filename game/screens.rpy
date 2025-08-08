@@ -143,7 +143,6 @@ style frame:
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
 
-
 ################################################################################
 ## In-game screens
 ################################################################################
@@ -1743,58 +1742,57 @@ screen protector_detail_screen(my_protector):
                     yalign 0.0
                     padding (10, 5)
 
-                # Protector name - top right corner
-                text "[my_protector.bigLetterName] ready for promotion!" size 50 color "#FFF":
-                    xalign 0.2
-                    yalign 0.1
-
+                vbox:
+                    yalign 0.08
+                    xalign 0.5
+                    text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
                 # Text block - vertically centered on left side
                 vbox:
                     spacing 20
                     xalign 0.2
-                    yalign 0.5
-                    
+                    yalign 0.5                
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Level: [my_protector.level]" size 25 color "#DDD"
+                        text "Stage: [my_protector.stage]" size 25 color "#DDD"
                     vbox:
                         xalign 0.5
-                        text "Level: [my_protector.level]" size 25 color "#DDD" xalign 0.5
-                        # TODO: add here Health Points
-                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up():
-                            xmaximum 400
-                            ymaximum 30
-
-                        vbox:
-                            xalign 0.5
-                            text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
-                    
-                    text "Stats:" size 25 color "#DDD"
-                    
+                        spacing 20
+                        bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+                        text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                        bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
+                        text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
+                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
+                        text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
+                        null height 10  # This adds 40 pixels of vertical space at the top
                     hbox:
                         xalign 0.5
                         spacing 20
                         vbox:
                             xalign 0.5
-                            text "Strength:" size 20 color "#EEE"
-                            text "Constitution:" size 20 color "#EEE"
-                            text "Wisdom:" size 20 color "#EEE"
-                            text "Luck:" size 20 color "#EEE"
+                            text "Strength:" size 22 color "#EEE"
+                            text "Constitution:" size 22 color "#EEE"
+                            text "Wisdom:" size 22 color "#EEE"
+                            text "Luck:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
-                            text "[str(my_protector.get_current_stats()['strength'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['constitution'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['luck'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
+                        vbox:
+                            null width 40  # This adds 40 pixels of vertical space at the top
                         vbox:
                             xalign 0.5
-                            text "Dexterity:" size 20 color "#EEE"
-                            text "Intelligence:" size 20 color "#EEE"
-                            text "Charisma:" size 20 color "#EEE"
+                            text "Dexterity:" size 22 color "#EEE"
+                            text "Intelligence:" size 22 color "#EEE"
+                            text "Charisma:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
-                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['charisma'])]" size 20 color "#EEE"
-                    
-                    text "Stage: [my_protector.stage]" size 25 color "#DDD"
+                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
 
                 # Image - mid right, just below the name
                 python:
@@ -1843,59 +1841,58 @@ screen protector_detail_screen(my_protector):
                     yalign 0.0
                     padding (10, 5)
 
-                # Protector name - top right corner
-                text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF":
-                    xalign 0.2
-                    yalign 0.1
-                
-
+                vbox:
+                    yalign 0.08
+                    xalign 0.5
+                    text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
                 # Text block - vertically centered on left side
                 vbox:
                     spacing 20
                     xalign 0.2
-                    yalign 0.5
-
+                    yalign 0.5                
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Level: [my_protector.level]" size 25 color "#DDD"
+                        text "Stage: [my_protector.stage]" size 25 color "#DDD"
                     vbox:
                         xalign 0.5
-                        text "Level: [my_protector.level]" size 25 color "#DDD" xalign 0.5
-                        # TODO: add here Health Points
-                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up():
-                            xmaximum 400
-                            ymaximum 30
-
-                        vbox:
-                            xalign 0.5
-                            text "XP: [my_protector.xp] / [ my_protector.get_amount_of_xp_needed_for_leveling_up() ]" size 25 color "#DDD"
-                    
-                    text "Stats:" size 25 color "#DDD"
-                    
+                        spacing 20
+                        bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+                        text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                        bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
+                        text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
+                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
+                        text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
+                        null height 10  # This adds 40 pixels of vertical space at the top
                     hbox:
                         xalign 0.5
                         spacing 20
                         vbox:
                             xalign 0.5
-                            text "Strength:" size 20 color "#EEE"
-                            text "Constitution:" size 20 color "#EEE"
-                            text "Wisdom:" size 20 color "#EEE"
-                            text "Luck:" size 20 color "#EEE"
+                            text "Strength:" size 22 color "#EEE"
+                            text "Constitution:" size 22 color "#EEE"
+                            text "Wisdom:" size 22 color "#EEE"
+                            text "Luck:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
-                            text "[str(my_protector.get_current_stats()['strength'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['constitution'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['luck'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
+                        vbox:
+                            null width 40  # This adds 40 pixels of vertical space at the top
                         vbox:
                             xalign 0.5
-                            text "Dexterity:" size 20 color "#EEE"
-                            text "Intelligence:" size 20 color "#EEE"
-                            text "Charisma:" size 20 color "#EEE"
+                            text "Dexterity:" size 22 color "#EEE"
+                            text "Intelligence:" size 22 color "#EEE"
+                            text "Charisma:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
-                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 20 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['charisma'])]" size 20 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
                     
-                    text "Stage: [my_protector.stage]" size 25 color "#DDD"
 
                 # Image - mid right, just below the name
                 python:

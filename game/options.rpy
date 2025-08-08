@@ -207,3 +207,22 @@ init python:
 ## by a slash.
 
 # define build.itch_project = "renpytom/test-project"
+
+style hp_bar:
+    xmaximum 500
+    ymaximum 11
+    left_bar Solid("#ff4444")
+    right_bar Solid("#660000")
+    
+
+style mana_bar:
+    xmaximum 500
+    ymaximum 20
+    left_bar Solid("#3399ff")
+    right_bar Solid("#003366")
+    
+style xp_bar:
+    xmaximum 500
+    ymaximum 40
+    left_bar Solid("#ffcc33")
+    right_bar Solid("#666633")

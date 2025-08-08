@@ -77,36 +77,36 @@ init python:
 
         # TODO: Think on a way to make the protector stronger depending on the stage level
 
-        def get_strength_attributes(self):
+        def get_strength(self):
             return int(self.basePoints.strength + (self.level * self.basePoints.incrementing_strength))
         
-        def get_dexterity_attributes(self):
+        def get_dexterity(self):
             return int(self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity))
         
-        def get_constitution_attributes(self):
+        def get_constitution(self):
             return int(self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution))
         
-        def get_intelligence_attributes(self):
+        def get_intelligence(self):
             return int(self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence))
         
-        def get_wisdom_attributes(self):
+        def get_wisdom(self):
             return int(self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom))
         
-        def get_charisma_attributes(self):
+        def get_charisma(self):
             return int(self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma))
         
-        def get_luck_attributes(self):
+        def get_luck(self):
             return int(self.basePoints.luck + (self.level * self.basePoints.incrementing_luck))
 
         def get_current_stats(self):
             return {
-                "strength": self.get_strength_attributes(),
-                "dexterity": self.get_dexterity_attributes(),
-                "constitution": self.get_constitution_attributes(),
-                "intelligence": self.get_intelligence_attributes(),
-                "wisdom": self.get_wisdom_attributes(),
-                "charisma": self.get_charisma_attributes(),
-                "luck": self.get_luck_attributes()
+                "strength": self.get_strength(),
+                "dexterity": self.get_dexterity(),
+                "constitution": self.get_constitution(),
+                "intelligence": self.get_intelligence(),
+                "wisdom": self.get_wisdom(),
+                "charisma": self.get_charisma(),
+                "luck": self.get_luck()
             }
     
         def promote(self):
@@ -115,7 +115,30 @@ init python:
             self.increasing_xp(0)
             return
 
+        def get_health_points(self):
+            return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
 
+        def get_mana_points(self):
+            return int(20 + self.get_intelligence() * 5 + self.get_wisdom() * 3)
+
+        # TODO: complete these final stats
+        # Physical weapon: Damage = WeaponBaseDamage + Strength * 2 + Dexterity * 1
+        # Dexterity weapon: Damage = WeaponBaseDamage + Dexterity * 2 + Strength * 1
+        # Magic weapon: MagicDamage = WeaponBaseDamage + Intelligence * 2 + Wisdom * 1
+        def get_damage_points(self):
+            return 0 
+
+        def get_defense(self):
+            return int(self.get_constitution() * 1.5 + self.get_dexterity() * 0.5)
+        
+        def get_critical_change(self):
+            return int(5 + self.get_luck() * 0.5 + self.get_dexterity() * 0.2)
+
+        def get_evasion(self):
+            return inf(self.get_dexterity() * 0.4 + self.get_luck() * 0.2)
+
+        def cooldown_reduction(self):
+            return int(self.get_wisdom() * 0.05)
 
     class Mission:
         _id_counter = 0

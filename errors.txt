@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 150: end of line expected.
-    show expression screen base_stats(protectors_base_information['templar'])
-                           ^
+File "game/screens.rpy", line 1869: Line is indented, but the preceding text statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    null height 10
+    ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Aug  8 10:54:39 2025
+Fri Aug  8 12:49:59 2025
