@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 51: Indentation mismatch.
-    if self.level / 20 > (self.stage):
+File "game/script.rpy", line 150: end of line expected.
+    show expression screen base_stats(protectors_base_information['templar'])
+                           ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Aug  8 00:06:56 2025
+Fri Aug  8 10:54:39 2025

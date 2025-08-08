@@ -4,12 +4,12 @@ default allMissions = []
 default bossMissions = []
 default missionsToDelete = []
 define config.console = True
+# define config.keymap["hide_windows"] = []
 default allMissionTemplates = []
 
 init python:
     import os
     import json
-
 
     if 'my_protectors_map' not in globals():
         my_protectors_map = {}
@@ -56,7 +56,7 @@ init python:
     stage_factor_damage = 1.5 # TODO: these things are not doing anything
     
     # showing disabled options
-    config.menu_include_disabled = False
+    config.menu_include_disabled = False    
 
     folder_path = "game\images\protectors"
     full_path = os.path.join(config.basedir, folder_path)

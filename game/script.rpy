@@ -130,9 +130,10 @@ label start:
                 hide templar_starting
                 hide samurai_starting
                 # TODO: show it on the right, and the stats on the left
-                show ninja_starting at fit_to_screen_height, right
+                show ninja_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['ninja'])
                 nova "Are you sure you want to choose the Ninja for your first protector?"
+                # TODO: make these options to be at the bottom so it does not get over the stats
                 menu:
                     "Yes!":
                         $ while_aux = 1
@@ -146,9 +147,10 @@ label start:
                 hide ninja_starting
                 hide samurai_starting
                 # TODO: show it on the right, and the stats on the left
-                show templar_starting at fit_to_screen_height, right
+                show templar_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['templar'])
                 nova "Are you sure you want to choose the Templar for your first protector?"
+                # TODO: make these options to be at the bottom so it does not get over the stats
                 menu:
                     "Yes!":
                         $ while_aux = 1
@@ -162,9 +164,10 @@ label start:
                 hide ninja_starting
                 hide templar_starting
                 # TODO: show it on the right, and the stats on the left
-                show samurai_starting at fit_to_screen_height, right
+                show samurai_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['samurai'])
                 nova "Are you sure you want to choose the Samurai for your first protector?"
+                # TODO: make these options to be at the bottom so it does not get over the stats
                 menu:
                     "Yes!":
                         $ while_aux = 1

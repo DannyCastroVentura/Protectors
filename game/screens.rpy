@@ -2132,13 +2132,12 @@ screen mission_detail_screen(mission):
 
 
 screen base_stats(baseProtectorObject):
-
-    tag stats  # Optional: makes it easy to hide/replace
-
+    key config.keymap["hide_windows"] action None
     frame:
         background "#00000069"
-        xalign 0.3
+        xalign 0.2
         yalign 0.5
+        padding (50, 50)
 
         vbox:
             spacing 20
