@@ -6,6 +6,7 @@ init python:
         global bossMissions
         global weapons
         global initial_weapons_choice
+        global equipments
 
 
         # creating protectors    
@@ -523,4 +524,768 @@ init python:
         
         weapon = next(w for w in weapons if w.name == "Elderwood Staff")
         initial_weapons_choice.append(weapon.weapon_id)
+
+        # equipment
+        equipments.append(Equipment(
+            "Reinforced Iron Helmet",
+            "A sturdy helmet made of reinforced iron. Offers excellent protection.",
+            "helmet",
+            "Tank",
+            2,
+            1.5
+        ))
+
+        
+        equipments.append(Equipment(
+            "Light Leather Hood",                    # Name
+            "A lightweight hood for agility and quick movements.",  # Description
+            "helmet",                                # Type
+            "Evasion",                               # Class name
+            1,                                       # prio1: Scales Dexterity by 1x
+            1.2                                      # prio2: Scales Evasion by 1.2x
+        ))
+
+        equipments.append(Equipment(
+            "Mystic Wizard's Hat",                   # Name
+            "A wizard’s hat, enhancing magical powers and intellect.",  # Description
+            "helmet",                                # Type
+            "Magic",                                 # Class name
+            1.8,                                     # prio1: Scales Intelligence by 1.8x
+            1.3                                      # prio2: Scales Mana by 1.3x
+        ))
+
+        equipments.append(Equipment(
+            "Iron Chestplate",                       # Name
+            "A strong iron chestplate offering high defense.",  # Description
+            "body armor",                            # Type
+            "Tank",                                  # Class name
+            2.5,                                     # prio1: Scales Constitution by 2.5x
+            1.8                                      # prio2: Scales Strength by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Mystic Robe",                           # Name
+            "A robe that grants extra magical resistance and boosts mana regeneration.",  # Description
+            "body armor",                            # Type
+            "Magic",                                 # Class name
+            1.2,                                     # prio1: Scales Intelligence by 1.2x
+            1.6                                      # prio2: Scales Mana by 1.6x
+        ))
+
+        equipments.append(Equipment(
+            "Golden Plate Mail",                     # Name
+            "A glorious plate mail forged from gold, offers supreme defense.",  # Description
+            "body armor",                            # Type
+            "Tank",                                  # Class name
+            3,                                       # prio1: Scales Constitution by 3x
+            1.2                                      # prio2: Scales Strength by 1.2x
+        ))
+
+        equipments.append(Equipment(
+            "Boots of the Swift",                    # Name
+            "Boots that increase your movement speed and dexterity.",  # Description
+            "boots",                                 # Type
+            "Evasion",                               # Class name
+            1.5,                                     # prio1: Scales Dexterity by 1.5x
+            1.8                                      # prio2: Scales Evasion by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Feathered Boots",                       # Name
+            "Light as a feather, offering extreme agility and evasion.",  # Description
+            "boots",                                 # Type
+            "Evasion",                               # Class name
+            2,                                       # prio1: Scales Dexterity by 2x
+            2                                       # prio2: Scales Evasion by 2x
+        ))
+
+        equipments.append(Equipment(
+            "Wraith Cloak",                          # Name
+            "A cloak made from the essence of wraiths, enhancing evasion and stealth.",  # Description
+            "body armor",                            # Type
+            "Evasion",                               # Class name
+            2.5,                                     # prio1: Scales Evasion by 2.5x
+            1.8                                      # prio2: Scales Stealth by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Elven Cloak",                           # Name
+            "A cloak that boosts agility and offers increased critical hit chance.",  # Description
+            "body armor",                            # Type
+            "Critical",                              # Class name
+            2,                                       # prio1: Scales Dexterity by 2x
+            2.5                                      # prio2: Scales Critical Chance by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Crown of the Ancients",                 # Name
+            "A crown that increases wisdom and enhances magical abilities.",  # Description
+            "helmet",                                # Type
+            "Magic",                                 # Class name
+            2.2,                                     # prio1: Scales Intelligence by 2.2x
+            1.6                                      # prio2: Scales Mana Regeneration by 1.6x
+        ))
+
+        # equipment
+        equipments.append(Equipment(
+            "Silver Circlet",                         # Name
+            "A delicate circlet that enhances magical defense and intelligence.",  # Description
+            "helmet",                                 # Type
+            "Magic",                                  # Class name
+            1.5,                                      # prio1: Scales Intelligence by 1.5x
+            1.8                                       # prio2: Scales Magical Defense by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Titanium Chestplate",                    # Name
+            "A high-tech chestplate offering immense defense against all attacks.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            3.2,                                      # prio1: Scales Constitution by 3.2x
+            1.4                                       # prio2: Scales Physical Defense by 1.4x
+        ))
+
+        equipments.append(Equipment(
+            "Boots of the Abyss",                    # Name
+            "Boots that grant the wearer enhanced movement speed and dark resistance.",  # Description
+            "boots",                                  # Type
+            "Evasion",                                # Class name
+            2.2,                                      # prio1: Scales Dexterity by 2.2x
+            1.5                                       # prio2: Scales Dark Resistance by 1.5x
+        ))
+
+        equipments.append(Equipment(
+            "Celestial Boots",                        # Name
+            "Boots blessed by the stars, increasing speed and mana regeneration.",  # Description
+            "boots",                                  # Type
+            "Magic",                                  # Class name
+            1.7,                                      # prio1: Scales Dexterity by 1.7x
+            1.8                                       # prio2: Scales Mana Regeneration by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Shadow Cloak",                           # Name
+            "A cloak that grants the wearer invisibility for short periods and boosts stealth.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            3.0,                                      # prio1: Scales Evasion by 3x
+            2.0                                       # prio2: Scales Stealth by 2x
+        ))
+
+        equipments.append(Equipment(
+            "Vampire's Mantle",                       # Name
+            "A dark mantle that increases strength and grants life steal on attacks.",  # Description
+            "body armor",                             # Type
+            "Strength",                               # Class name
+            2.5,                                      # prio1: Scales Strength by 2.5x
+            1.4                                       # prio2: Scales Life Steal by 1.4x
+        ))
+
+        equipments.append(Equipment(
+            "Titan's Helm",                           # Name
+            "A massive helmet that grants immense protection and boosts strength.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            3.2,                                      # prio1: Scales Strength by 3.2x
+            2.0                                       # prio2: Scales Constitution by 2x
+        ))
+
+        equipments.append(Equipment(
+            "Assassin's Cowl",                        # Name
+            "A cowl that boosts stealth, evasion, and critical hit chance.",  # Description
+            "helmet",                                 # Type
+            "Critical",                               # Class name
+            2.5,                                      # prio1: Scales Evasion by 2.5x
+            2.8                                       # prio2: Scales Critical Hit Chance by 2.8x
+        ))
+
+        equipments.append(Equipment(
+            "Phoenix Wings",                          # Name
+            "Wings of a fallen phoenix, offering extreme fire resistance and a chance to rise from the ashes.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            4.5,                                      # prio1: Scales Constitution by 4.5x
+            2.0                                       # prio2: Scales Fire Resistance by 2.0x
+        ))
+
+        
+        equipments.append(Equipment(
+            "Crown of the Immortal King",             # Name
+            "A crown that gives the wearer the power to revive once upon death and boosts all stats.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            6.0,                                      # prio1: Scales Strength by 6x
+            4.0                                       # prio2: Scales Constitution by 4x
+        ))
+
+        equipments.append(Equipment(
+            "Wings of the Seraphim",                  # Name
+            "Wings that bestow divine power, granting increased movement and evasion.",  # Description
+            "boots",                                  # Type
+            "Evasion",                                # Class name
+            3.5,                                      # prio1: Scales Dexterity by 3.5x
+            4.0                                       # prio2: Scales Evasion by 4x
+        ))
+
+            
+        equipments.append(Equipment(
+            "Elderwood Armor",                        # Name
+            "Armor crafted from the ancient trees of the elderwood. Increases defense and regeneration.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            4.0,                                      # prio1: Scales Constitution by 4x
+            2.5                                       # prio2: Scales Health Regeneration by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Cloak of the Revenant",                  # Name
+            "A cloak made from the shadows of the dead. It grants invisibility and an aura that weakens enemies.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            4.0,                                      # prio1: Scales Evasion by 4x
+            3.5                                       # prio2: Scales Stealth by 3.5x
+        ))
+
+        equipments.append(Equipment(
+            "Cloak of the Phoenix",                   # Name
+            "A cloak that grants regeneration and the ability to rise from death once, like a phoenix.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            6.0,                                      # prio1: Scales Constitution by 6x
+            2.8                                       # prio2: Scales Health Regeneration by 2.8x
+        ))
+
+        equipments.append(Equipment(
+            "Crown of the Celestial Emperor",         # Name
+            "A crown that gives the wearer divine strength and resilience, making them nearly immortal.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            7.0,                                      # prio1: Scales Constitution by 7x
+            3.0                                       # prio2: Scales Immortality Chance by 3x
+        ))
+
+        # equipment
+        equipments.append(Equipment(
+            "Titanium Helm",                          # Name
+            "A sturdy titanium helmet that grants extra defense and resistance.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            2.5,                                      # prio1: Scales Constitution by 2.5x
+            1.8                                       # prio2: Scales Physical Resistance by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Dragonscale Body Armor",                 # Name
+            "Armor crafted from dragon scales. Offers great defense and fire resistance.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            3.2,                                      # prio1: Scales Constitution by 3.2x
+            2.0                                       # prio2: Scales Fire Resistance by 2x
+        ))
+
+        equipments.append(Equipment(
+            "Shadowstrike Boots",                     # Name
+            "Boots made for stealth and speed. They increase dexterity and evasion.",  # Description
+            "boots",                                  # Type
+            "Evasion",                                # Class name
+            2.5,                                      # prio1: Scales Dexterity by 2.5x
+            2.0                                       # prio2: Scales Evasion by 2x
+        ))
+
+        equipments.append(Equipment(
+            "Elven Armor",                            # Name
+            "Lightweight body armor favored by elves, increases dexterity and evasion.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            2.0,                                      # prio1: Scales Dexterity by 2x
+            1.7                                       # prio2: Scales Evasion by 1.7x
+        ))
+
+        equipments.append(Equipment(
+            "Ironclad Helmet",                        # Name
+            "A helmet forged from iron, offers high physical defense and durability.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            3.0,                                      # prio1: Scales Constitution by 3x
+            1.5                                       # prio2: Scales Physical Defense by 1.5x
+        ))
+
+        equipments.append(Equipment(
+            "Windrunner Pants",                       # Name
+            "Pants designed for swift movement, they boost speed and critical hit chance.",  # Description
+            "pants",                                  # Type
+            "Critical",                               # Class name
+            2.5,                                      # prio1: Scales Dexterity by 2.5x
+            1.8                                       # prio2: Scales Critical Hit Chance by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Mystic Boots",                           # Name
+            "Boots imbued with magic, increasing movement speed and resistance to magic attacks.",  # Description
+            "boots",                                  # Type
+            "Magic",                                  # Class name
+            2.0,                                      # prio1: Scales Dexterity by 2x
+            2.5                                       # prio2: Scales Magical Resistance by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Darksteel Body Armor",                   # Name
+            "A body armor made from darksteel, offering immense protection but reducing speed.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            3.8,                                      # prio1: Scales Constitution by 3.8x
+            1.4                                       # prio2: Scales Physical Resistance by 1.4x
+        ))
+
+        equipments.append(Equipment(
+            "Flameguard Helm",                        # Name
+            "A helmet that provides increased fire resistance and boosts physical defense.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            2.5,                                      # prio1: Scales Constitution by 2.5x
+            2.0                                       # prio2: Scales Fire Resistance by 2x
+        ))
+
+        equipments.append(Equipment(
+            "Knight's Armor",                         # Name
+            "Heavy armor worn by knights, offering high defense and stability.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            3.0,                                      # prio1: Scales Constitution by 3x
+            1.7                                       # prio2: Scales Stability by 1.7x
+        ))
+
+        equipments.append(Equipment(
+            "Spectral Boots",                         # Name
+            "Boots crafted from the essence of shadows. They grant enhanced evasion and a bonus to stealth.",  # Description
+            "boots",                                  # Type
+            "Evasion",                                # Class name
+            2.3,                                      # prio1: Scales Dexterity by 2.3x
+            2.3                                       # prio2: Scales Stealth by 2.3x
+        ))
+
+        equipments.append(Equipment(
+            "Steelfoot Pants",                        # Name
+            "Heavy pants made from steel that increase physical defense and movement speed.",  # Description
+            "pants",                                  # Type
+            "Tank",                                   # Class name
+            2.0,                                      # prio1: Scales Constitution by 2x
+            1.6                                       # prio2: Scales Movement Speed by 1.6x
+        ))
+
+        equipments.append(Equipment(
+            "Windward Body Armor",                    # Name
+            "A body armor that boosts evasion and agility, perfect for swift fighters.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            2.8,                                      # prio1: Scales Dexterity by 2.8x
+            1.5                                       # prio2: Scales Evasion by 1.5x
+        ))
+
+        equipments.append(Equipment(
+            "Giant's Helmet",                         # Name
+            "A massive helmet that greatly increases strength and durability.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            3.5,                                      # prio1: Scales Strength by 3.5x
+            1.8                                       # prio2: Scales Constitution by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Mercenary Pants",                        # Name
+            "Pants made for mercenaries, boosting strength and providing extra durability.",  # Description
+            "pants",                                  # Type
+            "Strength",                               # Class name
+            2.5,                                      # prio1: Scales Strength by 2.5x
+            1.5                                       # prio2: Scales Constitution by 1.5x
+        ))
+
+        equipments.append(Equipment(
+            "Ironboots",                              # Name
+            "Boots made from iron, providing solid defense and increased resistance to damage.",  # Description
+            "boots",                                  # Type
+            "Tank",                                   # Class name
+            2.8,                                      # prio1: Scales Constitution by 2.8x
+            1.6                                       # prio2: Scales Physical Resistance by 1.6x
+        ))
+
+        equipments.append(Equipment(
+            "Hardened Leather Body Armor",            # Name
+            "Light armor made from hardened leather, boosting evasion and critical hit chance.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            2.3,                                      # prio1: Scales Dexterity by 2.3x
+            2.0                                       # prio2: Scales Critical Hit Chance by 2.0x
+        ))
+
+        equipments.append(Equipment(
+            "Elderhelm",                              # Name
+            "An ancient helmet that grants wisdom and protects against magical attacks.",  # Description
+            "helmet",                                 # Type
+            "Magic",                                  # Class name
+            2.0,                                      # prio1: Scales Intelligence by 2x
+            1.8                                       # prio2: Scales Magical Defense by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Vanguard Pants",                         # Name
+            "Pants worn by the vanguard, enhancing defense and fortitude.",  # Description
+            "pants",                                  # Type
+            "Tank",                                   # Class name
+            2.0,                                      # prio1: Scales Constitution by 2x
+            1.5                                       # prio2: Scales Defense by 1.5x
+        ))
+
+        equipments.append(Equipment(
+            "Swiftstride Boots",                      # Name
+            "Boots that increase movement speed and evasion, perfect for agile warriors.",  # Description
+            "boots",                                  # Type
+            "Evasion",                                # Class name
+            2.2,                                      # prio1: Scales Dexterity by 2.2x
+            1.9                                       # prio2: Scales Evasion by 1.9x
+        ))
+        # equipment
+        equipments.append(Equipment(
+            "Helm of the Fallen King",                # Name
+            "A regal helmet that enhances strength and grants resistance to critical hits.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            4.5,                                      # prio1: Scales Strength by 4.5x
+            2.5                                       # prio2: Scales Critical Hit Resistance by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Dragonbone Armor",                       # Name
+            "A body armor crafted from the bones of ancient dragons, offering massive defense and fire resistance.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            5.0,                                      # prio1: Scales Constitution by 5x
+            3.0                                       # prio2: Scales Fire Resistance by 3x
+        ))
+
+        equipments.append(Equipment(
+            "Demonhunter Boots",                      # Name
+            "Boots designed for elite demon hunters, offering speed, evasion, and increased critical damage.",  # Description
+            "boots",                                  # Type
+            "Critical",                               # Class name
+            3.5,                                      # prio1: Scales Dexterity by 3.5x
+            3.0                                       # prio2: Scales Critical Damage by 3x
+        ))
+
+        equipments.append(Equipment(
+            "Celestial Chestplate",                   # Name
+            "A chestplate blessed by the gods, offering extraordinary defense and holy resistance.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            5.2,                                      # prio1: Scales Constitution by 5.2x
+            2.5                                       # prio2: Scales Holy Resistance by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Windrider Helm",                         # Name
+            "A helmet that grants enhanced agility and grants a chance to dodge attacks.",  # Description
+            "helmet",                                 # Type
+            "Evasion",                                # Class name
+            4.0,                                      # prio1: Scales Dexterity by 4x
+            2.5                                       # prio2: Scales Dodge Chance by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Armageddon Boots",                       # Name
+            "Boots that imbue the wearer with fiery speed, boosting movement speed and fire resistance.",  # Description
+            "boots",                                  # Type
+            "Tank",                                   # Class name
+            3.2,                                      # prio1: Scales Constitution by 3.2x
+            2.5                                       # prio2: Scales Fire Resistance by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Phantom Lurker Pants",                   # Name
+            "Pants woven from the fabric of shadows, increasing evasion and granting stealth.",  # Description
+            "pants",                                  # Type
+            "Evasion",                                # Class name
+            4.0,                                      # prio1: Scales Dexterity by 4x
+            2.8                                       # prio2: Scales Stealth by 2.8x
+        ))
+
+        equipments.append(Equipment(
+            "Berserker Plate",                        # Name
+            "A heavy armor that increases strength and grants a temporary rage buff after being hit.",  # Description
+            "body armor",                             # Type
+            "Strength",                               # Class name
+            4.8,                                      # prio1: Scales Strength by 4.8x
+            2.5                                       # prio2: Scales Rage Damage by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Revenant Helm",                          # Name
+            "A helm forged from the remains of a powerful revenant. It increases health and provides a shield upon death.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            4.0,                                      # prio1: Scales Constitution by 4x
+            3.0                                       # prio2: Scales Death Shield by 3x
+        ))
+
+        equipments.append(Equipment(
+            "Frostguard Armor",                       # Name
+            "An icy armor that greatly boosts defense against frost and grants immunity to freezing effects.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            5.5,                                      # prio1: Scales Constitution by 5.5x
+            3.5                                       # prio2: Scales Frost Resistance by 3.5x
+        ))
+
+        equipments.append(Equipment(
+            "Gladiator's Boots",                      # Name
+            "Boots that provide incredible movement speed and stamina, perfect for relentless combat.",  # Description
+            "boots",                                  # Type
+            "Tank",                                   # Class name
+            3.8,                                      # prio1: Scales Dexterity by 3.8x
+            2.0                                       # prio2: Scales Stamina by 2x
+        ))
+
+        equipments.append(Equipment(
+            "Shroud of the Wraith",                   # Name
+            "A body armor that enhances evasion and allows the wearer to move through walls for short periods.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            4.5,                                      # prio1: Scales Dexterity by 4.5x
+            3.0                                       # prio2: Scales Stealth by 3x
+        ))
+
+        equipments.append(Equipment(
+            "Astral Helm",                            # Name
+            "A magical helm that boosts intelligence and grants resistance to all types of magical damage.",  # Description
+            "helmet",                                 # Type
+            "Magic",                                  # Class name
+            4.5,                                      # prio1: Scales Intelligence by 4.5x
+            2.8                                       # prio2: Scales Magic Resistance by 2.8x
+        ))
+
+        equipments.append(Equipment(
+            "Valkyrie Armor",                         # Name
+            "Armor made from the feathers of Valkyries, offering extreme agility and evasion.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            4.2,                                      # prio1: Scales Dexterity by 4.2x
+            3.2                                       # prio2: Scales Evasion by 3.2x
+        ))
+
+        equipments.append(Equipment(
+            "Astral Pants",                           # Name
+            "Pants imbued with cosmic energy, boosting critical hit chance and damage.",  # Description
+            "pants",                                  # Type
+            "Critical",                               # Class name
+            3.5,                                      # prio1: Scales Dexterity by 3.5x
+            3.0                                       # prio2: Scales Critical Hit Chance by 3x
+        ))
+
+        equipments.append(Equipment(
+            "Emberstorm Boots",                       # Name
+            "Boots made from the essence of a volcanic eruption, increasing fire resistance and speed.",  # Description
+            "boots",                                  # Type
+            "Tank",                                   # Class name
+            3.2,                                      # prio1: Scales Constitution by 3.2x
+            2.5                                       # prio2: Scales Fire Resistance by 2.5x
+        ))
+
+        equipments.append(Equipment(
+            "Hellfire Plate",                         # Name
+            "A chestplate crafted from molten lava, offering high defense and fire damage reflection.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            5.2,                                      # prio1: Scales Constitution by 5.2x
+            3.0                                       # prio2: Scales Fire Damage Reflection by 3x
+        ))
+
+        equipments.append(Equipment(
+            "Wraith's Garb",                          # Name
+            "A body armor made of spectral material, boosting evasion and reducing incoming damage.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            4.5,                                      # prio1: Scales Dexterity by 4.5x
+            2.8                                       # prio2: Scales Damage Reduction by 2.8x
+        ))
+
+        equipments.append(Equipment(
+            "Guardian's Helmet",                      # Name
+            "A helmet worn by ancient guardians, boosting vitality and providing a shield that absorbs damage.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            4.0,                                      # prio1: Scales Constitution by 4x
+            3.2                                       # prio2: Scales Shield Absorption by 3.2x
+        ))
+
+        # equipment
+        equipments.append(Equipment(
+            "Crown of the Eternal Emperor",           # Name
+            "A crown forged from the celestial essence of an eternal emperor, boosting strength, defense, and resilience.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            6.0,                                      # prio1: Scales Strength by 6x
+            4.5                                       # prio2: Scales Constitution by 4.5x
+        ))
+
+        equipments.append(Equipment(
+            "Abyssal Plate of Immortality",           # Name
+            "An ancient plate armor imbued with the power of the Abyss, granting unparalleled defense and regeneration.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            7.0,                                      # prio1: Scales Constitution by 7x
+            3.8                                       # prio2: Scales Regeneration by 3.8x
+        ))
+
+        equipments.append(Equipment(
+            "Hellstorm Boots",                        # Name
+            "Boots made from the essence of the underworld, providing immense movement speed and immunity to fire damage.",  # Description
+            "boots",                                  # Type
+            "Tank",                                   # Class name
+            4.8,                                      # prio1: Scales Dexterity by 4.8x
+            5.0                                       # prio2: Scales Fire Immunity by 5x
+        ))
+
+        equipments.append(Equipment(
+            "Warden's Shieldplate",                   # Name
+            "A body armor worn by the legendary wardens, providing nearly invincible defense and resistance to all elemental effects.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            6.5,                                      # prio1: Scales Constitution by 6.5x
+            4.0                                       # prio2: Scales Elemental Resistance by 4x
+        ))
+
+        equipments.append(Equipment(
+            "Celestial Crown",                        # Name
+            "A crown crafted by the gods, enhancing intelligence and providing divine protection against all types of damage.",  # Description
+            "helmet",                                 # Type
+            "Magic",                                  # Class name
+            5.5,                                      # prio1: Scales Intelligence by 5.5x
+            4.5                                       # prio2: Scales All Damage Resistance by 4.5x
+        ))
+
+        equipments.append(Equipment(
+            "Titanic Stompers",                       # Name
+            "Boots forged from the heart of a mountain, granting extraordinary strength and resistance to stun effects.",  # Description
+            "boots",                                  # Type
+            "Tank",                                   # Class name
+            5.0,                                      # prio1: Scales Strength by 5x
+            3.5                                       # prio2: Scales Stun Resistance by 3.5x
+        ))
+
+        equipments.append(Equipment(
+            "Veil of Shadows",                        # Name
+            "A cloak imbued with the powers of shadows, increasing stealth, evasion, and damage output in the dark.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            5.5,                                      # prio1: Scales Dexterity by 5.5x
+            4.5                                       # prio2: Scales Stealth Damage by 4.5x
+        ))
+
+        equipments.append(Equipment(
+            "Phoenix Helm of Rebirth",                # Name
+            "A helmet crafted from the ashes of a phoenix, granting rebirth upon death and regeneration over time.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            5.0,                                      # prio1: Scales Constitution by 5x
+            4.0                                       # prio2: Scales Rebirth Effect by 4x
+        ))
+
+        equipments.append(Equipment(
+            "Volcanic Vestments",                     # Name
+            "An armor that channels volcanic power, providing immense fire damage immunity and a lava burst counterattack.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            7.5,                                      # prio1: Scales Constitution by 7.5x
+            5.0                                       # prio2: Scales Fire Damage Reflection by 5x
+        ))
+
+        equipments.append(Equipment(
+            "Viperstrike Boots",                      # Name
+            "Boots that enhance poison resistance and grant an increased chance to poison enemies on hit.",  # Description
+            "boots",                                  # Type
+            "Critical",                               # Class name
+            5.0,                                      # prio1: Scales Dexterity by 5x
+            4.5                                       # prio2: Scales Poison Chance by 4.5x
+        ))
+
+        equipments.append(Equipment(
+            "Raven's Wings Armor",                    # Name
+            "An armor that enhances speed and evasion, allowing the wearer to glide short distances and take no fall damage.",  # Description
+            "body armor",                             # Type
+            "Evasion",                                # Class name
+            6.0,                                      # prio1: Scales Dexterity by 6x
+            3.8                                       # prio2: Scales Evasion by 3.8x
+        ))
+
+        equipments.append(Equipment(
+            "Cloak of the Abyss",                     # Name
+            "A dark cloak that greatly increases magical resistance and increases critical hit damage.",  # Description
+            "body armor",                             # Type
+            "Magic",                                  # Class name
+            5.5,                                      # prio1: Scales Intelligence by 5.5x
+            4.0                                       # prio2: Scales Critical Hit Damage by 4x
+        ))
+
+        equipments.append(Equipment(
+            "Unyielding Titan Plate",                 # Name
+            "A legendary plate armor worn by the gods of war, providing unparalleled physical defense and immunity to knockback.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            7.0,                                      # prio1: Scales Constitution by 7x
+            4.5                                       # prio2: Scales Knockback Resistance by 4.5x
+        ))
+
+        equipments.append(Equipment(
+            "King's Aegis Helmet",                    # Name
+            "A divine helmet that increases the wearer's health and grants a shield that absorbs damage each time they are hit.",  # Description
+            "helmet",                                 # Type
+            "Tank",                                   # Class name
+            6.2,                                      # prio1: Scales Constitution by 6.2x
+            4.5                                       # prio2: Scales Shield Absorption by 4.5x
+        ))
+
+        equipments.append(Equipment(
+            "Shadowborn Leggings",                    # Name
+            "Leggings imbued with the essence of darkness, enhancing movement speed and evasion.",  # Description
+            "pants",                                  # Type
+            "Evasion",                                # Class name
+            6.0,                                      # prio1: Scales Dexterity by 6x
+            4.0                                       # prio2: Scales Movement Speed by 4x
+        ))
+
+        equipments.append(Equipment(
+            "Wings of the Seraphim",                  # Name
+            "Boots with angelic wings, enabling flight for short distances and boosting evasion.",  # Description
+            "boots",                                  # Type
+            "Evasion",                                # Class name
+            5.5,                                      # prio1: Scales Dexterity by 5.5x
+            3.0                                       # prio2: Scales Evasion by 3x
+        ))
+
+        equipments.append(Equipment(
+            "Heart of the Storm",                     # Name
+            "A chestplate that channels the fury of a storm, granting lightning immunity and enhancing agility.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            6.8,                                      # prio1: Scales Constitution by 6.8x
+            4.0                                       # prio2: Scales Agility by 4x
+        ))
+
+        equipments.append(Equipment(
+            "Soulfire Boots",                         # Name
+            "Boots that ignite the ground beneath you with each step, dealing fire damage to nearby enemies.",  # Description
+            "boots",                                  # Type
+            "Tank",                                   # Class name
+            5.2,                                      # prio1: Scales Strength by 5.2x
+            3.5                                       # prio2: Scales Fire Damage Output by 3.5x
+        ))
+
+        equipments.append(Equipment(
+            "Divine Embrace Plate",                   # Name
+            "A chestplate imbued with divine energy, granting immunity to negative effects and increasing vitality.",  # Description
+            "body armor",                             # Type
+            "Tank",                                   # Class name
+            7.2,                                      # prio1: Scales Constitution by 7.2
+            5.2
+        ))
+
         return 

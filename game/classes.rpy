@@ -264,3 +264,14 @@ init python:
             self.type = weapon_type # the type (knife, sword, axe, lance, etc..)
             self.class_name = class_name # dexterity weapon / strength weapon / magic weapon
             self.base_damage = base_damage # damage
+
+    class Equipment:
+        _id_counter = 0
+        def __init__(self, name, description, equipment_type, class_name, prio1, prio2):
+            self.equipment_id = Equipment._id_counter
+            self.name = name # name of the weapon
+            self.description = description # a small description for the weapon, it also can have a story of the weapon
+            self.type = equipment_type # the type (helmet, pants, boots, body armour)
+            self.class_name = class_name # Dexterity / Strength / Magic / Tank / Shield / Evasion / Critical
+            self.prio1 = prio1 # prio1 improvement (str, dex, con, int, wis, cha, luc)
+            self.prio2 = prio2 # prio1 improvement (str, dex, con, int, wis, cha, luc)

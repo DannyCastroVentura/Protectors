@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1807: hbox expects a non-empty block.
-    hbox:
-         ^
+File "game/initializing_things.rpy", line 1282: '(' was never closed
+    equipments.append(Equipment(
+                               ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Aug 11 12:30:51 2025
+Mon Aug 11 15:07:46 2025

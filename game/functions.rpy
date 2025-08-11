@@ -4,6 +4,8 @@ default allMissions = []
 default bossMissions = []
 default weapons = []
 default myWeapons = []
+default equipments = []
+default myEquipments = []
 default initial_weapons_choice = []
 default missionsToDelete = []
 define config.console = True
@@ -31,6 +33,12 @@ init python:
 
     if 'myWeapons' not in globals():
         myWeapons = []
+
+    if 'equipments' not in globals():
+        equipments = []
+    
+    if 'myEquipments' not in globals():
+        myEquipments = []
 
     if 'initial_weapons_choice' not in globals():
         initial_weapons_choice = []
