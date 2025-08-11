@@ -1766,7 +1766,7 @@ screen protector_detail_screen(my_protector):
                     text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
                 # Text block - vertically centered on left side
                 vbox:
-                
+                    spacing 20
                     xalign 0.1
                     yalign 0.5
                     hbox:
@@ -1778,6 +1778,8 @@ screen protector_detail_screen(my_protector):
                         spacing 20
                         $ empty_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
                         if my_protector.equipedWeapon == None:
+                            $ weapon_img = "images/weapons/default_weapon.png"
+                            $ weapon_scaled = im.Scale(weapon_img, 200, 200)
                             button:
                                 action Function(show_weapons, my_protector)  # show possible weapons to use
                                 xpadding 4
@@ -1785,7 +1787,8 @@ screen protector_detail_screen(my_protector):
                                 frame:
                                     add im.Composite(
                                         (200, 200),
-                                        (0, 0), empty_scaled
+                                        (0, 0), empty_scaled,
+                                        (0, 0), weapon_scaled
                                     )
                         else:
                             $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
