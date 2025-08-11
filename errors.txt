@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1883: 'w' is not a keyword argument or valid child of the vbox statement.
-    w, h = weapon_img.get_size()
-     ^
+File "game/screens.rpy", line 1807: hbox expects a non-empty block.
+    hbox:
+         ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Aug 11 11:40:19 2025
+Mon Aug 11 12:30:51 2025

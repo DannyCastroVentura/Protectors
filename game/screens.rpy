@@ -1767,7 +1767,7 @@ screen protector_detail_screen(my_protector):
                 # Text block - vertically centered on left side
                 vbox:
                 
-                    xalign 0.125
+                    xalign 0.1
                     yalign 0.5
                     hbox:
                         xalign 0.5
@@ -1803,6 +1803,88 @@ screen protector_detail_screen(my_protector):
 
 
                         null height 10  # This adds 40 pixels of vertical space at the top
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Armour:" size 25 color "#DDD"
+                        
+                        $ helmet_img = "images/equipment/default_helmet.png"
+                        $ helmet_scaled = im.Scale(helmet_img, 200, 200)
+                        $ empty_helmet_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        
+                        $ body_armour_img = "images/equipment/default_body_armour.png"
+                        $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
+                        $ empty_body_armour_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        
+                        $ pants_img = "images/equipment/default_pants.png"
+                        $ pants_scaled = im.Scale(pants_img, 200, 200)
+                        $ empty_pants_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        
+                        $ boots_img = "images/equipment/default_boots.png"
+                        $ boots_scaled = im.Scale(boots_img, 200, 200)
+                        $ empty_boots_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                    vbox:
+                        xalign 0.5
+                        spacing 20
+                        
+                        hbox:
+                            xalign 0.5
+                            spacing 20
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_helmet_scaled,
+                                        (0, 0), helmet_scaled
+                                    )
+
+
+                            null height 10  # This adds 40 pixels of vertical space at the top
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_body_armour_scaled,
+                                        (0, 0), body_armour_scaled
+                                    )
+
+                        
+                        hbox:
+                            xalign 0.5
+                            spacing 20
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_pants_scaled,
+                                        (0, 0), pants_scaled
+                                    )
+
+
+                            null height 10  # This adds 40 pixels of vertical space at the top
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_boots_scaled,
+                                        (0, 0), boots_scaled,
+                                        
+                                    )
+
+
+                        null height 10  # This adds 40 pixels of vertical space at the top                        
                     
                 # Text block - vertically centered on left side
                 vbox:
@@ -1912,7 +1994,7 @@ screen protector_detail_screen(my_protector):
                 # Text block - vertically centered on left side
                 vbox:
                     spacing 20
-                    xalign 0.125
+                    xalign 0.1
                     yalign 0.5
                     hbox:
                         xalign 0.5
@@ -1923,6 +2005,8 @@ screen protector_detail_screen(my_protector):
                         spacing 20
                         $ empty_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
                         if my_protector.equipedWeapon == None:
+                            $ weapon_img = "images/weapons/default_weapon.png"
+                            $ weapon_scaled = im.Scale(weapon_img, 200, 200)
                             button:
                                 action Function(show_weapons, my_protector)  # show possible weapons to use
                                 xpadding 4
@@ -1930,7 +2014,8 @@ screen protector_detail_screen(my_protector):
                                 frame:
                                     add im.Composite(
                                         (200, 200),
-                                        (0, 0), empty_scaled
+                                        (0, 0), empty_scaled,
+                                        (0, 0), weapon_scaled
                                     )
                         else:
                             $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
@@ -1948,7 +2033,88 @@ screen protector_detail_screen(my_protector):
 
 
                         null height 10  # This adds 40 pixels of vertical space at the top
-                    
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Armour:" size 25 color "#DDD"
+                        
+                        $ helmet_img = "images/equipment/default_helmet.png"
+                        $ helmet_scaled = im.Scale(helmet_img, 200, 200)
+                        $ empty_helmet_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        
+                        $ body_armour_img = "images/equipment/default_body_armour.png"
+                        $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
+                        $ empty_body_armour_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        
+                        $ pants_img = "images/equipment/default_pants.png"
+                        $ pants_scaled = im.Scale(pants_img, 200, 200)
+                        $ empty_pants_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        
+                        $ boots_img = "images/equipment/default_boots.png"
+                        $ boots_scaled = im.Scale(boots_img, 200, 200)
+                        $ empty_boots_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                    vbox:
+                        xalign 0.5
+                        spacing 20
+                        
+                        hbox:
+                            xalign 0.5
+                            spacing 20
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_helmet_scaled,
+                                        (0, 0), helmet_scaled
+                                    )
+
+
+                            null height 10  # This adds 40 pixels of vertical space at the top
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_body_armour_scaled,
+                                        (0, 0), body_armour_scaled
+                                    )
+
+                        
+                        hbox:
+                            xalign 0.5
+                            spacing 20
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_pants_scaled,
+                                        (0, 0), pants_scaled
+                                    )
+
+
+                            null height 10  # This adds 40 pixels of vertical space at the top
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_boots_scaled,
+                                        (0, 0), boots_scaled,
+                                        
+                                    )
+
+
+                        null height 10  # This adds 40 pixels of vertical space at the top
                     
                 # Text block - vertically centered on left side
                 vbox:
