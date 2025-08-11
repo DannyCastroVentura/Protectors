@@ -42,6 +42,7 @@ init python:
             self.status = status
             self.xp = xp
             self.readyForPromotion = False
+            self.equipedWeapon = None
             self.basePoints = protectors_base_information[name]
             return
 
@@ -66,6 +67,22 @@ init python:
                             self.readyForPromotion = True
                 else:
                     break
+            return
+
+        def equip_weapon(self, weaponName):
+            global myWeapons
+            weapon = next(w for w in myWeapons if w.name == weaponName)
+            if self.equipedWeapon == None:
+                self.equipedWeapon = weapon
+            else:
+                return
+            myWeapons.remove(weapon)
+            return
+
+        def unequip_weapon(self):
+            global myWeapons
+            myWeapons.append(self.equipedWeapon)
+            self.equipedWeapon = None            
             return
 
         def get_amount_of_xp_needed_for_leveling_up(self):
@@ -119,11 +136,16 @@ init python:
         def get_mana_points(self):
             return int(20 + self.get_intelligence() * 5 + self.get_wisdom() * 3)
 
-        # TODO: complete these final stats
-        # Physical weapon: Damage = WeaponBaseDamage + Strength * 2 + Dexterity * 1
-        # Dexterity weapon: Damage = WeaponBaseDamage + Dexterity * 2 + Strength * 1
-        # Magic weapon: MagicDamage = WeaponBaseDamage + Intelligence * 2 + Wisdom * 1
+        # TODO: make the weapon to also scale, to have a multiplier
         def get_damage_points(self):
+            if self.equipedWeapon == None:
+                return 3 + self.get_strength() * 2 + self.get_dexterity()
+            elif self.equipedWeapon.class_name == "Strength weapon":
+                return self.equipedWeapon.base_damage + self.get_strength() * 2 + self.get_dexterity()
+            elif self.equipedWeapon.class_name == "Dexterity weapon":
+                return self.equipedWeapon.base_damage + self.get_dexterity() * 2 + self.get_strength()
+            elif self.equipedWeapon.class_name == "Magic weapon":
+                return self.equipedWeapon.base_damage + self.get_intelligence() * 2 + self.get_wisdom()
             return 0 
 
         def get_defense(self):

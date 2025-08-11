@@ -1745,104 +1745,13 @@ screen protector_detail_screen(my_protector):
                 xfill True
                 yfill True
 
-                # Close button - top right
-                textbutton "Close" action Hide("protector_detail_screen"):
-                    text_style "hover_white"
-                    xalign 1.0
-                    yalign 0.0
-                    padding (10, 5)
-
-                vbox:
-                    yalign 0.08
-                    xalign 0.5
-                    text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
-                # Text block - vertically centered on left side
-                vbox:
-                    spacing 20
-                    xalign 0.2
-                    yalign 0.5                
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        text "Level: [my_protector.level]" size 25 color "#DDD"
-                        text "Stage: [my_protector.stage]" size 25 color "#DDD"
-                    vbox:
-                        xalign 0.5
-                        spacing 20
-                        bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-                        text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
-                        bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
-                        text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
-                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
-                        text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
-                        null height 10  # This adds 40 pixels of vertical space at the top
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        vbox:
-                            xalign 0.5
-                            text "Strength:" size 22 color "#EEE"
-                            text "Constitution:" size 22 color "#EEE"
-                            text "Wisdom:" size 22 color "#EEE"
-                            text "Luck:" size 22 color "#EEE"
-                        vbox:
-                            xalign 0.5
-                            text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
-                        vbox:
-                            null width 40  # This adds 40 pixels of vertical space at the top
-                        vbox:
-                            xalign 0.5
-                            text "Dexterity:" size 22 color "#EEE"
-                            text "Intelligence:" size 22 color "#EEE"
-                            text "Charisma:" size 22 color "#EEE"
-                        vbox:
-                            xalign 0.5
-                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
-
                 # Image - mid right, just below the name
                 python:
                     image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage))
                     if image_path:
-                        ui.at(midRight)
+                        ui.at(right)
                         ui.at(fit_to_screen_height)
                         ui.add(image_path)
-
-                # Promotion prompt - bottom center
-                vbox:
-                    xalign 0.5
-                    yalign 0.85
-                    spacing 10
-
-                    text "Do you want to promote [my_protector.bigLetterName]?" size 30 color "#FFF" xalign 0.5
-
-                    hbox:
-                        spacing 40
-                        xalign 0.5
-
-                        textbutton "Yes" action Function(my_protector.promote):
-                            xminimum 150
-                            yminimum 50
-                            text_size 25
-
-                        textbutton "No" action Hide("protector_detail_screen"):
-                            xminimum 150
-                            yminimum 50
-                            text_size 25
-
-    else:
-        frame:
-            modal True
-            background Solid("#000000ea")
-            xysize (config.screen_width, config.screen_height)
-
-            fixed:
-                xfill True
-                yfill True
 
                 # Close button - top right
                 textbutton "Close" action Hide("protector_detail_screen"):
@@ -1852,14 +1761,54 @@ screen protector_detail_screen(my_protector):
                     padding (10, 5)
 
                 vbox:
-                    yalign 0.08
+                    yalign 0.1
                     xalign 0.5
                     text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
                 # Text block - vertically centered on left side
                 vbox:
+                
+                    xalign 0.125
+                    yalign 0.5
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Equipment:" size 25 color "#DDD"
+                    vbox:
+                        xalign 0.5
+                        spacing 20
+                        $ empty_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        if my_protector.equipedWeapon == None:
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_scaled
+                                    )
+                        else:
+                            $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
+                            $ weapon_scaled = im.Scale(weapon_img, 200, 200)
+                            button:
+                                action Function(my_protector.unequip_weapon)  # Replace with your actual function
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_scaled,
+                                        (0, 0), weapon_scaled
+                                    )
+
+
+                        null height 10  # This adds 40 pixels of vertical space at the top
+                    
+                # Text block - vertically centered on left side
+                vbox:
                     spacing 20
-                    xalign 0.2
-                    yalign 0.5                
+                    xalign 0.5
+                    yalign 0.56
                     hbox:
                         xalign 0.5
                         spacing 20
@@ -1903,14 +1852,167 @@ screen protector_detail_screen(my_protector):
                             text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
                     
+                    vbox:
+                        null width 30  # This adds 40 pixels of vertical space at the top
+                        spacing 50
+                        hbox:
+                            xalign 0.5
+                            spacing 25
+                            vbox:
+                                xalign 0.5
+                                text "Real damage:" size 30 color "#EEE"
+                            vbox:
+                                xalign 0.5
+                                text "[str(my_protector.get_damage_points())]" size 30 color "#EEE"
+                        vbox:
+                            text "Do you want to promote [my_protector.bigLetterName]?" size 30 color "#FFF" xalign 0.5
+
+                            hbox:
+                                xalign 0.5
+                                spacing 150
+                                vbox:
+                                    xalign 0.5
+                                    textbutton "Yes" action Function(my_protector.promote):
+                                        text_size 25
+
+                                vbox:
+                                    xalign 0.5
+                                    textbutton "No" action Hide("protector_detail_screen"):
+                                        text_size 25
+
+    else:
+        frame:
+            modal True
+            background Solid("#000000ea")
+            xysize (config.screen_width, config.screen_height)
+
+            fixed:
+                xfill True
+                yfill True
 
                 # Image - mid right, just below the name
                 python:
                     image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage))
                     if image_path:
-                        ui.at(midRight)
+                        ui.at(right)
                         ui.at(fit_to_screen_height)
                         ui.add(image_path)
+
+                # Close button - top right
+                textbutton "Close" action Hide("protector_detail_screen"):
+                    text_style "hover_white"
+                    xalign 1.0
+                    yalign 0.0
+                    padding (10, 5)
+
+                vbox:
+                    yalign 0.1
+                    xalign 0.5
+                    text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
+                # Text block - vertically centered on left side
+                vbox:
+                    spacing 20
+                    xalign 0.125
+                    yalign 0.5
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Equipment:" size 25 color "#DDD"
+                    vbox:
+                        xalign 0.5
+                        spacing 20
+                        $ empty_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        if my_protector.equipedWeapon == None:
+                            button:
+                                action Function(show_weapons, my_protector)  # show possible weapons to use
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_scaled
+                                    )
+                        else:
+                            $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
+                            $ weapon_scaled = im.Scale(weapon_img, 200, 200)
+                            button:
+                                action Function(my_protector.unequip_weapon)  # Replace with your actual function
+                                xpadding 4
+                                ypadding 4
+                                frame:
+                                    add im.Composite(
+                                        (200, 200),
+                                        (0, 0), empty_scaled,
+                                        (0, 0), weapon_scaled
+                                    )
+
+
+                        null height 10  # This adds 40 pixels of vertical space at the top
+                    
+                    
+                # Text block - vertically centered on left side
+                vbox:
+                    spacing 20
+                    xalign 0.5
+                    yalign 0.5
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Level: [my_protector.level]" size 25 color "#DDD"
+                        text "Stage: [my_protector.stage]" size 25 color "#DDD"
+                    vbox:
+                        xalign 0.5
+                        spacing 20
+                        bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+                        text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                        bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
+                        text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
+                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
+                        text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
+                        null height 10  # This adds 40 pixels of vertical space at the top
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        vbox:
+                            xalign 0.5
+                            text "Strength:" size 22 color "#EEE"
+                            text "Constitution:" size 22 color "#EEE"
+                            text "Wisdom:" size 22 color "#EEE"
+                            text "Luck:" size 22 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
+                        vbox:
+                            null width 40  # This adds 40 pixels of vertical space at the top
+                        vbox:
+                            xalign 0.5
+                            text "Dexterity:" size 22 color "#EEE"
+                            text "Intelligence:" size 22 color "#EEE"
+                            text "Charisma:" size 22 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
+                    
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    hbox:
+                        xalign 0.5
+                        spacing 25
+                        vbox:
+                            xalign 0.5
+                            text "Real damage:" size 30 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_damage_points())]" size 30 color "#EEE"
 
 screen protector_selection(isThisMission):
     if isThisMission:
@@ -2183,9 +2285,9 @@ screen base_stats(baseProtectorObject):
 screen weapon_base_stats(weaponObject):
     key config.keymap["hide_windows"] action None
     $ build = "Strength-focused protectors"
-    if weaponObject.type == "Dexterity weapon":
+    if weaponObject.class_name == "Dexterity weapon":
         $ build = "Dexterity-focused protectors"
-    if weaponObject.type == "Magic weapon":
+    if weaponObject.class_name == "Magic weapon":
         $ build = "Intelligence- and Wisdom-focused protectors"
 
     frame:
@@ -2218,3 +2320,31 @@ screen weapon_base_stats(weaponObject):
                     text "[str(weaponObject.type)]" size 25 color "#EEE"
                     text "[str(weaponObject.class_name)]" size 25 color "#EEE"
                     text "[str(build)]" size 25 color "#EEE"
+
+screen weapon_select(protector):
+
+    tag menu  # so the player can't open other menus while this is open
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 20
+        ypadding 20
+
+        vbox:
+            spacing 10
+
+            text "Select your weapon:" size 30
+
+            # For each available weapon, create a button
+            for weapon in myWeapons:
+
+                textbutton weapon.name:
+                    action [Function(protector.equip_weapon, weapon.name), Hide("weapon_select")]
+                    xminimum 200
+                    ypadding 10
+
+            textbutton "Cancel":
+                action Hide("weapon_select")
+                xminimum 200
+                ypadding 10

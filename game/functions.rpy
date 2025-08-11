@@ -3,6 +3,7 @@ default protectors_base_information = {}
 default allMissions = []
 default bossMissions = []
 default weapons = []
+default myWeapons = []
 default initial_weapons_choice = []
 default missionsToDelete = []
 define config.console = True
@@ -28,6 +29,9 @@ init python:
     if 'weapons' not in globals():
         weapons = []
 
+    if 'myWeapons' not in globals():
+        myWeapons = []
+
     if 'initial_weapons_choice' not in globals():
         initial_weapons_choice = []
 
@@ -47,6 +51,8 @@ init python:
     background_folder = "images/bg"
     valid_extensions = [".png", ".jpg", ".jpeg", ".webp"]
 
+    xp_starter_size = 10
+    xp_size = 20
     increasing_per_level_multiplier_xp = 2
     
     # showing disabled options
@@ -98,7 +104,7 @@ init python:
     def add_new_protector(protector_name, stage = 1, level = 1):
         global my_protectors_map
         my_protectors_map[protector_name] = Protector(protector_name, capitalize_first_letter(protector_name), stage, level, "Available")
-        return
+        return my_protectors_map[protector_name]
 
     def get_count_of_my_protectors():
         global my_protectors_map
@@ -194,4 +200,14 @@ init python:
             if mission.assignedProtectorName == protectorName and mission.status != "started":
                 mission.assignedProtectorName = None
                 mission.status = "not assigned"
+        return
+
+    def show_weapons(protector):
+        renpy.show_screen("weapon_select", protector)
+
+    def add_new_weapon_to_our_bag(weaponName):
+        global weapons
+        global myWeapons
+        weapon = next(w for w in weapons if w.name == weaponName)
+        myWeapons.append(weapon)
         return

@@ -354,13 +354,13 @@ init python:
 
         weapons.append(Weapon("Dragonlord's Fury", 
             "A lance wielded by the ancient dragon kings, burning with eternal flame.", 
-            "lance", 
+            "lance",
             "Strength weapon",
             540))
 
         weapons.append(Weapon("Nightmare Edge", 
             "A cursed blade that deals unimaginable pain to its victims.", 
-            "sword", 
+            "sword",
             "Magic weapon",
             510))
         

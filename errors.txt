@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2186: screen expects a non-empty block.
-    if weaponObject.type == "Strength weapon":
-                                              ^
+File "game/screens.rpy", line 1883: 'w' is not a keyword argument or valid child of the vbox statement.
+    w, h = weapon_img.get_size()
+     ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Aug  8 16:51:26 2025
+Mon Aug 11 11:40:19 2025

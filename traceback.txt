@@ -1,30 +1,133 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 205, in script
-    $ update_protector_weapon(first_protector_selected, "Thieves knife")
-  File "game/script.rpy", line 205, in <module>
-    $ update_protector_weapon(first_protector_selected, "Thieves knife")
-      ^^^^^^^^^^^^^^^^^^^^^^^                                           
-NameError: name 'update_protector_weapon' is not defined
+  File "game/script.rpy", line 256, in script call
+    call nova_explains_tutorial()
+  File "game/script.rpy", line 352, in script
+    nova "Training ground: \nBut as they become stronger - the training ground start to be less effective."
+  File "game/screens.rpy", line 1737, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 1737, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 1738, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 1839, in execute
+    frame:
+  File "game/screens.rpy", line 1844, in execute
+    fixed:
+  File "game/screens.rpy", line 1868, in execute
+    vbox:
+  File "game/screens.rpy", line 1876, in execute
+    vbox:
+  File "game/screens.rpy", line 1879, in execute
+    if my_protector.equipedWeapon == None:
+  File "game/screens.rpy", line 1880, in execute
+    button:
+  File "game/screens.rpy", line 1884, in execute
+    frame:
+  File "game/screens.rpy", line 1885, in execute
+    add im.Composite(
+  File "game/screens.rpy", line 1887, in <module>
+    (0, 0), empty_scaled
+            ^^^^^^^^^^^^
+NameError: name 'empty_scaled' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 205, in script
-    $ update_protector_weapon(first_protector_selected, "Thieves knife")
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1260, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 205, in <module>
-    $ update_protector_weapon(first_protector_selected, "Thieves knife")
-      ^^^^^^^^^^^^^^^^^^^^^^^                                           
-NameError: name 'update_protector_weapon' is not defined
+  File "game/script.rpy", line 256, in script call
+    call nova_explains_tutorial()
+  File "game/script.rpy", line 352, in script
+    nova "Training ground: \nBut as they become stronger - the training ground start to be less effective."
+  File "renpy/ast.py", line 2915, in execute
+    Say.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "renpy/ast.py", line 991, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/sayexports.py", line 129, in say
+    who(what, *args, **kwargs)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1543, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1198, in do_display
+    display_say(who, what, self.do_show, **display_args)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 888, in display_say
+    rv = renpy.ui.interact(mouse="say", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 1737, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 1737, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 1738, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 1839, in execute
+    frame:
+  File "game/screens.rpy", line 1844, in execute
+    fixed:
+  File "game/screens.rpy", line 1868, in execute
+    vbox:
+  File "game/screens.rpy", line 1876, in execute
+    vbox:
+  File "game/screens.rpy", line 1879, in execute
+    if my_protector.equipedWeapon == None:
+  File "game/screens.rpy", line 1880, in execute
+    button:
+  File "game/screens.rpy", line 1884, in execute
+    frame:
+  File "game/screens.rpy", line 1885, in execute
+    add im.Composite(
+  File "renpy/python.py", line 1292, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1285, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 1887, in <module>
+    (0, 0), empty_scaled
+            ^^^^^^^^^^^^
+NameError: name 'empty_scaled' is not defined
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Fri Aug  8 16:59:10 2025
+Mon Aug 11 11:55:27 2025

@@ -135,7 +135,7 @@ label start:
                         $ first_protector_selected = "ninja"
                         nova "Great!"
                         nova "I'm adding Ninja to your list of protectors!"
-                        $ add_new_protector("ninja")
+                        $ firstProtector = add_new_protector("ninja")
                         nova "Ninja added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -151,7 +151,7 @@ label start:
                         $ first_protector_selected = "templar"
                         nova "Great!"
                         nova "I'm adding Templar to your list of protectors!"
-                        $ add_new_protector("templar")
+                        $ firstProtector = add_new_protector("templar")
                         nova "Templar added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -167,7 +167,7 @@ label start:
                         $ first_protector_selected = "samurai"
                         nova "Great!"
                         nova "I'm adding Samurai to your list of protectors!"
-                        $ add_new_protector("samurai")
+                        $ firstProtector = add_new_protector("samurai")
                         nova "Samurai added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -201,8 +201,8 @@ label start:
                         $ while_aux = 1
                         nova "Great!"
                         nova "I'm adding Thieves knife to your protector!"
-                        # TODO: create this function
-                        $ update_protector_weapon(first_protector_selected, "Thieves knife")
+                        $ add_new_weapon_to_our_bag("Thieves knife")
+                        $ firstProtector.equip_weapon("Thieves knife")
                         nova "Thieves knife added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -218,8 +218,8 @@ label start:
                         $ while_aux = 1
                         nova "Great!"
                         nova "I'm adding Ironclad Mace to your protector!"
-                        # TODO: create this function
-                        $ update_protector_weapon(first_protector_selected, "Ironclad Mace")
+                        $ add_new_weapon_to_our_bag("Ironclad Mace")
+                        $ firstProtector.equip_weapon("Ironclad Mace")
                         nova "Ironclad Mace added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -235,13 +235,18 @@ label start:
                         $ while_aux = 1
                         nova "Great!"
                         nova "I'm adding Elderwood Staff to your protector!"
-                        # TODO: create this function
-                        $ update_protector_weapon(first_protector_selected, "Elderwood Staff")
+                        $ add_new_weapon_to_our_bag("Elderwood Staff")
+                        $ firstProtector.equip_weapon("Elderwood Staff")
                         nova "Elderwood Staff added!"
                     "What were the other ones?":
                         nova "Let's recap."
 
-    $ show_whole_functionality_for_seeing_my_protectors = True
+    $ show_whole_functionality_for_seeing_my_protectors = True    
+    hide ironcladMace_starting
+    hide screen weapon_base_stats
+    hide thievesKnife_starting
+    hide elderwoodStaff_starting
+    show nova at center, fit_to_screen_height
     nova "You can check your protectors by clicking in the button \"My Protectors\""
     nova "Once you click, you'll see all your protectors - for now, you have only one!"
     nova "If you click on your protector, you'll see more information about him."
@@ -285,7 +290,9 @@ label start:
     # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
     #   -   or if it was successful or not -> maybe also the reason?
     #   
-
+    # TODO: create a way to see the inventory, in this case, the weapons
+    # 
+    # TODO: also add helmet, body armour, trousers, and boots
     return
 
 
