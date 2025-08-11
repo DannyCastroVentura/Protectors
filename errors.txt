@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1836: Indentation mismatch.
-    if my_protector.equipedHelmet == None:
+File "game/classes.rpy", line 264: unexpected indent
+    if totalIncrement < 1:
+       ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Aug 11 17:02:18 2025
+Mon Aug 11 17:44:47 2025

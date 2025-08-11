@@ -559,7 +559,7 @@ init python:
             "Boots that increase your movement speed and dexterity.",  # Description
             "boots",                                 # Type
             "Evasion",                               # Class name
-            1.5,                                     # prio1: Scales Dexterity by 1.5x
+            2.5,                                     # prio1: Scales Dexterity by 1.5x
             1.8                                      # prio2: Scales Evasion by 1.8x
         ))
         
@@ -568,7 +568,7 @@ init python:
             "A lightweight hood for agility and quick movements.",  # Description
             "helmet",                                # Type
             "Evasion",                               # Class name
-            1,                                       # prio1: Scales Dexterity by 1x
+            2,                                       # prio1: Scales Dexterity by 1x
             1.2                                      # prio2: Scales Evasion by 1.2x
         ))
 
@@ -586,7 +586,7 @@ init python:
             "A robe that grants extra magical resistance and boosts mana regeneration.",  # Description
             "body armor",                            # Type
             "Magic",                                 # Class name
-            1.2,                                     # prio1: Scales Intelligence by 1.2x
+            2.2,                                     # prio1: Scales Intelligence by 1.2x
             1.6                                      # prio2: Scales Mana by 1.6x
         ))
 
@@ -622,7 +622,7 @@ init python:
             "A cloak that boosts agility and offers increased critical hit chance.",  # Description
             "body armor",                            # Type
             "Critical",                              # Class name
-            2,                                       # prio1: Scales Dexterity by 2x
+            3,                                       # prio1: Scales Dexterity by 2x
             2.5                                      # prio2: Scales Critical Chance by 2.5x
         ))
 
@@ -641,7 +641,7 @@ init python:
             "A delicate circlet that enhances magical defense and intelligence.",  # Description
             "helmet",                                 # Type
             "Magic",                                  # Class name
-            1.5,                                      # prio1: Scales Intelligence by 1.5x
+            2.5,                                      # prio1: Scales Intelligence by 1.5x
             1.8                                       # prio2: Scales Magical Defense by 1.8x
         ))
 
@@ -668,7 +668,7 @@ init python:
             "Boots blessed by the stars, increasing speed and mana regeneration.",  # Description
             "boots",                                  # Type
             "Magic",                                  # Class name
-            1.7,                                      # prio1: Scales Dexterity by 1.7x
+            2.7,                                      # prio1: Scales Dexterity by 1.7x
             1.8                                       # prio2: Scales Mana Regeneration by 1.8x
         ))
 
@@ -704,7 +704,7 @@ init python:
             "A cowl that boosts stealth, evasion, and critical hit chance.",  # Description
             "helmet",                                 # Type
             "Critical",                               # Class name
-            2.5,                                      # prio1: Scales Evasion by 2.5x
+            3.5,                                      # prio1: Scales Evasion by 2.5x
             2.8                                       # prio2: Scales Critical Hit Chance by 2.8x
         ))
 
@@ -733,7 +733,7 @@ init python:
             "boots",                                  # Type
             "Evasion",                                # Class name
             3.5,                                      # prio1: Scales Dexterity by 3.5x
-            4.0                                       # prio2: Scales Evasion by 4x
+            3.0                                       # prio2: Scales Evasion by 4x
         ))
 
             
@@ -824,7 +824,7 @@ init python:
             "Boots imbued with magic, increasing movement speed and resistance to magic attacks.",  # Description
             "boots",                                  # Type
             "Magic",                                  # Class name
-            2.0,                                      # prio1: Scales Dexterity by 2x
+            3.0,                                      # prio1: Scales Dexterity by 2x
             2.5                                       # prio2: Scales Magical Resistance by 2.5x
         ))
 
@@ -1140,7 +1140,7 @@ init python:
             "Boots made from the essence of the underworld, providing immense movement speed and immunity to fire damage.",  # Description
             "boots",                                  # Type
             "Tank",                                   # Class name
-            4.8,                                      # prio1: Scales Dexterity by 4.8x
+            5.8,                                      # prio1: Scales Dexterity by 4.8x
             5.0                                       # prio2: Scales Fire Immunity by 5x
         ))
 
@@ -1288,15 +1288,13 @@ init python:
             5.2
         ))
 
+        # TODO: add some other equipment for dexterity
+        # TODO: add some other equipment for shield
+        # TODO: add some other equipment for strength
+
         
         myEquipments.append(next(e for e in equipments if e.equipment_id == 0))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 1))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 2))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 3))
-
-        for equipment in myEquipments:
-            renpy.say(mc, str(equipment.equipment_id))
-            renpy.say(mc, equipment.name)
-            renpy.say(mc, equipment.type)
-
         return 

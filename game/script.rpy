@@ -295,7 +295,7 @@ label start:
     #   
     # TODO: create a way to see the inventory, in this case, the weapons
     # 
-    # TODO: make the equipment affect the stats
+    # TODO: add the rarity for the weapons and equipment
     # 
     return
 

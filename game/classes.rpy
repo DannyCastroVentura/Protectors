@@ -121,7 +121,7 @@ init python:
         def unequip_equipment(self, type_equipment):
             global myEquipments
             if type_equipment == "helmet":
-                myEquipments.append(self.equipedWeapon)
+                myEquipments.append(self.equipedHelmet)
                 self.equipedHelmet = None
             if type_equipment == "body armor":
                 myEquipments.append(self.equipedBodyArmour)
@@ -141,46 +141,42 @@ init python:
                 ), 2)
             )
 
-        # TODO: make the equipment affect the stats
+        # dexterity -> prio1 -> dexterity
+        #           -> prio2 -> strength
+        # Strength  -> prio1 -> strength
+        #           -> prio2 -> dexterity
+        # magic     -> prio1 -> intelligence
+        #           -> prio2 -> wisdom
+        # tank      -> prio1 -> constitution
+        #           -> prio2 -> strength
+        # shield    -> prio1 -> constitution
+        #           -> prio2 -> dexterity
+        # Evasion   -> prio1 -> dexterity
+        #           -> prio2 -> luck
+        # Critical  -> prio1 -> luck
+        #           -> prio2 -> dexterity
 
         def get_strength(self):
-            return int(self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength)))
+            return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_strength_increments())
         
         def get_dexterity(self):
-            return int(self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((self.stage - 1) * self.level * self.basePoints.incrementing_dexterity)))
+            return int((self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((self.stage - 1) * self.level * self.basePoints.incrementing_dexterity))) * self.get_dexterity_increments())
         
         def get_constitution(self):
-            return int(self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution)))
+            return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_constitution_increments())
         
         def get_intelligence(self):
-            return int(self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((self.stage - 1) * self.level * self.basePoints.incrementing_intelligence)))
+            return int((self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((self.stage - 1) * self.level * self.basePoints.incrementing_intelligence))) * self.get_intelligence_increments())
         
         def get_wisdom(self):
-            return int(self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((self.stage - 1) * self.level * self.basePoints.incrementing_wisdom)))
+            return int((self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((self.stage - 1) * self.level * self.basePoints.incrementing_wisdom))) * self.get_wisdom_increments())
         
         def get_charisma(self):
-            return int(self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((self.stage - 1) * self.level * self.basePoints.incrementing_charisma)))
+            return int((self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((self.stage - 1) * self.level * self.basePoints.incrementing_charisma))) * self.get_charisma_increments())
         
         def get_luck(self):
-            return int(self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((self.stage - 1) * self.level * self.basePoints.incrementing_luck)))
-
-        def get_current_stats(self):
-            return {
-                "strength": self.get_strength(),
-                "dexterity": self.get_dexterity(),
-                "constitution": self.get_constitution(),
-                "intelligence": self.get_intelligence(),
-                "wisdom": self.get_wisdom(),
-                "charisma": self.get_charisma(),
-                "luck": self.get_luck()
-            }
-    
-        def promote(self):
-            self.stage += 1
-            self.readyForPromotion = False
-            self.increasing_xp(0)
-            return
-
+            return int((self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((self.stage - 1) * self.level * self.basePoints.incrementing_luck))) * self.get_luck_increments())
+        
         def get_health_points(self):
             return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
 
@@ -210,6 +206,203 @@ init python:
 
         def cooldown_reduction(self):
             return int(self.get_wisdom() * 0.05)
+
+        def get_current_stats(self):
+            return {
+                "strength": self.get_strength(),
+                "dexterity": self.get_dexterity(),
+                "constitution": self.get_constitution(),
+                "intelligence": self.get_intelligence(),
+                "wisdom": self.get_wisdom(),
+                "charisma": self.get_charisma(),
+                "luck": self.get_luck()
+            }
+
+        def get_strength_increments(self):
+            totalIncrement = 0
+            if self.equipedHelmet != None:
+                if self.equipedHelmet.class_name == "Strength":
+                    totalIncrement += self.equipedHelmet.prio1
+                if self.equipedHelmet.class_name == "Dexterity":
+                    totalIncrement += self.equipedHelmet.prio2
+                if self.equipedHelmet.class_name == "Tank":
+                    totalIncrement += self.equipedHelmet.prio2
+            if self.equipedBodyArmour != None:
+                if self.equipedBodyArmour.class_name == "Strength":
+                    totalIncrement += self.equipedBodyArmour.prio1
+                if self.equipedBodyArmour.class_name == "Dexterity":
+                    totalIncrement += self.equipedBodyArmour.prio2
+                if self.equipedBodyArmour.class_name == "Tank":
+                    totalIncrement += self.equipedBodyArmour.prio2
+            if self.equipedPants != None:
+                if self.equipedPants.class_name == "Strength":
+                    totalIncrement += self.equipedPants.prio1
+                if self.equipedPants.class_name == "Dexterity":
+                    totalIncrement += self.equipedPants.prio2
+                if self.equipedPants.class_name == "Tank":
+                    totalIncrement += self.equipedPants.prio2
+            if self.equipedBoots != None:
+                if self.equipedBoots.class_name == "Strength":
+                    totalIncrement += self.equipedBoots.prio1
+                if self.equipedBoots.class_name == "Dexterity":
+                    totalIncrement += self.equipedBoots.prio2
+                if self.equipedBoots.class_name == "Tank":
+                    totalIncrement += self.equipedBoots.prio2
+            if totalIncrement < 1:
+                totalIncrement = 1
+            return totalIncrement
+        
+        def get_dexterity_increments(self):
+            totalIncrement = 0
+            if self.equipedHelmet != None:
+                if self.equipedHelmet.class_name == "Dexterity":
+                    totalIncrement += self.equipedHelmet.prio1
+                if self.equipedHelmet.class_name == "Strength":
+                    totalIncrement += self.equipedHelmet.prio2
+                if self.equipedHelmet.class_name == "Shield":
+                    totalIncrement += self.equipedHelmet.prio2
+                if self.equipedHelmet.class_name == "Evasion":
+                    totalIncrement += self.equipedHelmet.prio1
+                if self.equipedHelmet.class_name == "Critical":
+                    totalIncrement += self.equipedHelmet.prio1
+            if self.equipedBodyArmour != None:
+                if self.equipedBodyArmour.class_name == "Dexterity":
+                    totalIncrement += self.equipedBodyArmour.prio1
+                if self.equipedBodyArmour.class_name == "Strength":
+                    totalIncrement += self.equipedBodyArmour.prio2
+                if self.equipedBodyArmour.class_name == "Shield":
+                    totalIncrement += self.equipedBodyArmour.prio2
+                if self.equipedBodyArmour.class_name == "Evasion":
+                    totalIncrement += self.equipedBodyArmour.prio1
+                if self.equipedBodyArmour.class_name == "Critical":
+                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedPants != None:
+                if self.equipedPants.class_name == "Dexterity":
+                    totalIncrement += self.equipedPants.prio1
+                if self.equipedPants.class_name == "Strength":
+                    totalIncrement += self.equipedPants.prio2
+                if self.equipedPants.class_name == "Shield":
+                    totalIncrement += self.equipedPants.prio2
+                if self.equipedPants.class_name == "Evasion":
+                    totalIncrement += self.equipedPants.prio1
+                if self.equipedPants.class_name == "Critical":
+                    totalIncrement += self.equipedPants.prio1
+            if self.equipedBoots != None:
+                if self.equipedBoots.class_name == "Dexterity":
+                    totalIncrement += self.equipedBoots.prio1
+                if self.equipedBoots.class_name == "Strength":
+                    totalIncrement += self.equipedBoots.prio2
+                if self.equipedBoots.class_name == "Shield":
+                    totalIncrement += self.equipedBoots.prio2
+                if self.equipedBoots.class_name == "Evasion":
+                    totalIncrement += self.equipedBoots.prio1
+                if self.equipedBoots.class_name == "Critical":
+                    totalIncrement += self.equipedBoots.prio1
+            if totalIncrement < 1:
+                totalIncrement = 1
+            return totalIncrement
+
+        def get_constitution_increments(self):
+            totalIncrement = 0            
+            if self.equipedHelmet != None:
+                if self.equipedHelmet.class_name == "Tank":
+                    totalIncrement += self.equipedHelmet.prio1
+                if self.equipedHelmet.class_name == "Shield":
+                    totalIncrement += self.equipedHelmet.prio1
+            if self.equipedBodyArmour != None:
+                if self.equipedBodyArmour.class_name == "Tank":
+                    totalIncrement += self.equipedBodyArmour.prio1
+                if self.equipedBodyArmour.class_name == "Shield":
+                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedPants != None:
+                if self.equipedPants.class_name == "Tank":
+                    totalIncrement += self.equipedPants.prio1
+                if self.equipedPants.class_name == "Shield":
+                    totalIncrement += self.equipedPants.prio1
+            if self.equipedBoots != None:
+                if self.equipedBoots.class_name == "Tank":
+                    totalIncrement += self.equipedBoots.prio1
+                if self.equipedBoots.class_name == "Shield":
+                    totalIncrement += self.equipedBoots.prio1
+            if totalIncrement < 1:
+                totalIncrement = 1
+            return totalIncrement
+
+        def get_intelligence_increments(self):
+            totalIncrement = 0
+            if self.equipedHelmet != None:
+                if self.equipedHelmet.class_name == "Magic":
+                    totalIncrement += self.equipedHelmet.prio1
+            if self.equipedBodyArmour != None:
+                if self.equipedBodyArmour.class_name == "Magic":
+                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedPants != None:
+                if self.equipedPants.class_name == "Magic":
+                    totalIncrement += self.equipedPants.prio1
+            if self.equipedBoots != None:
+                if self.equipedBoots.class_name == "Magic":
+                    totalIncrement += self.equipedBoots.prio1
+            if totalIncrement < 1:
+                totalIncrement = 1
+            return totalIncrement
+
+        def get_wisdom_increments(self):
+            totalIncrement = 0
+            if self.equipedHelmet != None:
+                if self.equipedHelmet.class_name == "Magic":
+                    totalIncrement += self.equipedHelmet.prio2
+            if self.equipedBodyArmour != None:
+                if self.equipedBodyArmour.class_name == "Magic":
+                    totalIncrement += self.equipedBodyArmour.prio2
+            if self.equipedPants != None:
+                if self.equipedPants.class_name == "Magic":
+                    totalIncrement += self.equipedPants.prio2
+            if self.equipedBoots != None:
+                if self.equipedBoots.class_name == "Magic":
+                    totalIncrement += self.equipedBoots.prio2
+            if totalIncrement < 1:
+                totalIncrement = 1
+            return totalIncrement
+
+        # TODO: create a new class for charisma as well
+        def get_charisma_increments(self):
+            totalIncrement = 0
+            if totalIncrement < 1:
+                totalIncrement = 1
+            return totalIncrement
+
+        def get_luck_increments(self):
+            totalIncrement = 0
+            if self.equipedHelmet != None:
+                if self.equipedHelmet.class_name == "Evasion":
+                    totalIncrement += self.equipedHelmet.prio2
+                if self.equipedHelmet.class_name == "Critical":
+                    totalIncrement += self.equipedHelmet.prio1
+            if self.equipedBodyArmour != None:
+                if self.equipedBodyArmour.class_name == "Evasion":
+                    totalIncrement += self.equipedBodyArmour.prio2
+                if self.equipedBodyArmour.class_name == "Critical":
+                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedPants != None:
+                if self.equipedPants.class_name == "Evasion":
+                    totalIncrement += self.equipedPants.prio2
+                if self.equipedPants.class_name == "Critical":
+                    totalIncrement += self.equipedPants.prio1
+            if self.equipedBoots != None:
+                if self.equipedBoots.class_name == "Evasion":
+                    totalIncrement += self.equipedBoots.prio2
+                if self.equipedBoots.class_name == "Critical":
+                    totalIncrement += self.equipedBoots.prio1
+            if totalIncrement < 1:
+                totalIncrement = 1
+            return totalIncrement
+
+    
+        def promote(self):
+            self.stage += 1
+            self.readyForPromotion = False
+            self.increasing_xp(0)
+            return
 
     class Mission:
         _id_counter = 0
@@ -322,8 +515,8 @@ init python:
         def __init__(self, name, description, equipment_type, class_name, prio1, prio2):
             self.equipment_id = Equipment._id_counter
             Equipment._id_counter += 1
-            self.name = name # name of the weapon
-            self.description = description # a small description for the weapon, it also can have a story of the weapon
+            self.name = name # name of the equipment
+            self.description = description # a small description for the equipment, it also can have a story of the equipment
             self.type = equipment_type # the type (helmet, pants, boots, body armor)
             self.class_name = class_name # Dexterity / Strength / Magic / Tank / Shield / Evasion / Critical
             self.prio1 = prio1 # prio1 improvement (str, dex, con, int, wis, cha, luc)
