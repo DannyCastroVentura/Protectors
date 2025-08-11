@@ -292,9 +292,9 @@ label start:
     #   
     # TODO: create a way to see the inventory, in this case, the weapons
     # 
-    # TODO: also add helmet, body armour, trousers, and boots
+    # TODO: also add helmet, body armour, trousers, and boots - to the backend, and create the new class for this (equipments)
     # 
-    # TODO: add a grey image of a hemlet, body armour, leg armor, and boots in case it is empty -> even for the weapon
+    # TODO: update the images so they show "NO HELMET SELECTED" and so on
     return
 
 
