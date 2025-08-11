@@ -7,6 +7,7 @@ init python:
         global weapons
         global initial_weapons_choice
         global equipments
+        global myEquipments
 
 
         # creating protectors    
@@ -223,6 +224,18 @@ init python:
             "Dexterity weapon",
             30))
 
+        weapons.append(Weapon("Ironclad Mace",
+            "A sturdy mace used by city guards.",
+            "mace",
+            "Strength weapon",
+            32))
+        
+        weapons.append(Weapon("Elderwood Staff",
+            "A staff carved from ancient trees, buzzing with latent magic.",
+            "staff",
+            "Magic weapon",
+            25))
+
         weapons.append(Weapon("Whisperwind", 
             "A light lance favored by the swift riders of the northern plains.", 
             "lance", 
@@ -373,12 +386,6 @@ init python:
             "Dexterity weapon",
             35))
 
-        weapons.append(Weapon("Ironclad Mace",
-            "A sturdy mace used by city guards.",
-            "mace",
-            "Strength weapon",
-            32))
-
         weapons.append(Weapon("Moonlit Spear",
             "A spear that gleams under the moonlight, perfect for precise strikes.",
             "spear",
@@ -390,12 +397,6 @@ init python:
             "axe",
             "Strength weapon",
             38))
-
-        weapons.append(Weapon("Elderwood Staff",
-            "A staff carved from ancient trees, buzzing with latent magic.",
-            "staff",
-            "Magic weapon",
-            25))
 
         # Mid tier (100-300 damage)
         weapons.append(Weapon("Fang of the Wolf",
@@ -535,6 +536,32 @@ init python:
             1.5
         ))
 
+        equipments.append(Equipment(
+            "Windrunner Pants",                       # Name
+            "Pants designed for swift movement, they boost speed and critical hit chance.",  # Description
+            "pants",                                  # Type
+            "Critical",                               # Class name
+            2.5,                                      # prio1: Scales Dexterity by 2.5x
+            1.8                                       # prio2: Scales Critical Hit Chance by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Iron Chestplate",                       # Name
+            "A strong iron chestplate offering high defense.",  # Description
+            "body armor",                            # Type
+            "Tank",                                  # Class name
+            2.5,                                     # prio1: Scales Constitution by 2.5x
+            1.8                                      # prio2: Scales Strength by 1.8x
+        ))
+
+        equipments.append(Equipment(
+            "Boots of the Swift",                    # Name
+            "Boots that increase your movement speed and dexterity.",  # Description
+            "boots",                                 # Type
+            "Evasion",                               # Class name
+            1.5,                                     # prio1: Scales Dexterity by 1.5x
+            1.8                                      # prio2: Scales Evasion by 1.8x
+        ))
         
         equipments.append(Equipment(
             "Light Leather Hood",                    # Name
@@ -555,15 +582,6 @@ init python:
         ))
 
         equipments.append(Equipment(
-            "Iron Chestplate",                       # Name
-            "A strong iron chestplate offering high defense.",  # Description
-            "body armor",                            # Type
-            "Tank",                                  # Class name
-            2.5,                                     # prio1: Scales Constitution by 2.5x
-            1.8                                      # prio2: Scales Strength by 1.8x
-        ))
-
-        equipments.append(Equipment(
             "Mystic Robe",                           # Name
             "A robe that grants extra magical resistance and boosts mana regeneration.",  # Description
             "body armor",                            # Type
@@ -579,15 +597,6 @@ init python:
             "Tank",                                  # Class name
             3,                                       # prio1: Scales Constitution by 3x
             1.2                                      # prio2: Scales Strength by 1.2x
-        ))
-
-        equipments.append(Equipment(
-            "Boots of the Swift",                    # Name
-            "Boots that increase your movement speed and dexterity.",  # Description
-            "boots",                                 # Type
-            "Evasion",                               # Class name
-            1.5,                                     # prio1: Scales Dexterity by 1.5x
-            1.8                                      # prio2: Scales Evasion by 1.8x
         ))
 
         equipments.append(Equipment(
@@ -808,15 +817,6 @@ init python:
             "Tank",                                   # Class name
             3.0,                                      # prio1: Scales Constitution by 3x
             1.5                                       # prio2: Scales Physical Defense by 1.5x
-        ))
-
-        equipments.append(Equipment(
-            "Windrunner Pants",                       # Name
-            "Pants designed for swift movement, they boost speed and critical hit chance.",  # Description
-            "pants",                                  # Type
-            "Critical",                               # Class name
-            2.5,                                      # prio1: Scales Dexterity by 2.5x
-            1.8                                       # prio2: Scales Critical Hit Chance by 1.8x
         ))
 
         equipments.append(Equipment(
@@ -1287,5 +1287,16 @@ init python:
             7.2,                                      # prio1: Scales Constitution by 7.2
             5.2
         ))
+
+        
+        myEquipments.append(next(e for e in equipments if e.equipment_id == 0))
+        myEquipments.append(next(e for e in equipments if e.equipment_id == 1))
+        myEquipments.append(next(e for e in equipments if e.equipment_id == 2))
+        myEquipments.append(next(e for e in equipments if e.equipment_id == 3))
+
+        for equipment in myEquipments:
+            renpy.say(mc, str(equipment.equipment_id))
+            renpy.say(mc, equipment.name)
+            renpy.say(mc, equipment.type)
 
         return 

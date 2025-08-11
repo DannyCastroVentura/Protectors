@@ -1815,7 +1815,7 @@ screen protector_detail_screen(my_protector):
                         $ helmet_scaled = im.Scale(helmet_img, 200, 200)
                         $ empty_helmet_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
                         
-                        $ body_armour_img = "images/equipment/default_body_armour.png"
+                        $ body_armour_img = "images/equipment/default_body_armor.png"
                         $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
                         $ empty_body_armour_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
                         
@@ -1833,59 +1833,109 @@ screen protector_detail_screen(my_protector):
                         hbox:
                             xalign 0.5
                             spacing 20
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_helmet_scaled,
-                                        (0, 0), helmet_scaled
-                                    )
-
-
+                            if my_protector.equipedHelmet == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "helmet")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_helmet_scaled,
+                                            (0, 0), helmet_scaled
+                                        )
+                            else:
+                                $ helmet_img = "images/equipment/{}.png".format(my_protector.equipedHelmet.type)
+                                $ helmet_scaled = im.Scale(helmet_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "helmet")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_helmet_scaled,
+                                            (0, 0), helmet_scaled
+                                        )
                             null height 10  # This adds 40 pixels of vertical space at the top
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_body_armour_scaled,
-                                        (0, 0), body_armour_scaled
-                                    )
-
+                            if my_protector.equipedBodyArmour == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "body armor")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_body_armour_scaled,
+                                            (0, 0), body_armour_scaled
+                                        )
+                            else:
+                                $ body_armour_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmour.type)
+                                $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "body armor")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_body_armour_scaled,
+                                            (0, 0), body_armour_scaled
+                                        )
                         
                         hbox:
                             xalign 0.5
                             spacing 20
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_pants_scaled,
-                                        (0, 0), pants_scaled
-                                    )
-
+                            if my_protector.equipedPants == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "pants")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_pants_scaled,
+                                            (0, 0), pants_scaled
+                                        )
+                            else:
+                                $ pants_img = "images/equipment/{}.png".format(my_protector.equipedPants.type)
+                                $ pants_scaled = im.Scale(pants_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "pants")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_pants_scaled,
+                                            (0, 0), pants_scaled
+                                        )
 
                             null height 10  # This adds 40 pixels of vertical space at the top
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_boots_scaled,
-                                        (0, 0), boots_scaled,
-                                        
-                                    )
-
+                            if my_protector.equipedBoots == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "boots")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_boots_scaled,
+                                            (0, 0), boots_scaled
+                                        )
+                            else:
+                                $ boots_img = "images/equipment/{}.png".format(my_protector.equipedBoots.type)
+                                $ boots_scaled = im.Scale(boots_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "boots")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_boots_scaled,
+                                            (0, 0), boots_scaled
+                                        )
 
                         null height 10  # This adds 40 pixels of vertical space at the top                        
                     
@@ -2045,7 +2095,7 @@ screen protector_detail_screen(my_protector):
                         $ helmet_scaled = im.Scale(helmet_img, 200, 200)
                         $ empty_helmet_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
                         
-                        $ body_armour_img = "images/equipment/default_body_armour.png"
+                        $ body_armour_img = "images/equipment/default_body_armor.png"
                         $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
                         $ empty_body_armour_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
                         
@@ -2063,60 +2113,111 @@ screen protector_detail_screen(my_protector):
                         hbox:
                             xalign 0.5
                             spacing 20
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_helmet_scaled,
-                                        (0, 0), helmet_scaled
-                                    )
+                            
 
-
+                            if my_protector.equipedHelmet == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "helmet")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_helmet_scaled,
+                                            (0, 0), helmet_scaled
+                                        )
+                            else:
+                                $ helmet_img = "images/equipment/{}.png".format(my_protector.equipedHelmet.type)
+                                $ helmet_scaled = im.Scale(helmet_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "helmet")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_helmet_scaled,
+                                            (0, 0), helmet_scaled
+                                        )
                             null height 10  # This adds 40 pixels of vertical space at the top
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_body_armour_scaled,
-                                        (0, 0), body_armour_scaled
-                                    )
-
+                            if my_protector.equipedBodyArmour == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "body armor")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_body_armour_scaled,
+                                            (0, 0), body_armour_scaled
+                                        )
+                            else:
+                                $ body_armour_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmour.type)
+                                $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "body armor")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_body_armour_scaled,
+                                            (0, 0), body_armour_scaled
+                                        )
                         
                         hbox:
                             xalign 0.5
                             spacing 20
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_pants_scaled,
-                                        (0, 0), pants_scaled
-                                    )
-
+                            if my_protector.equipedPants == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "pants")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_pants_scaled,
+                                            (0, 0), pants_scaled
+                                        )
+                            else:
+                                $ pants_img = "images/equipment/{}.png".format(my_protector.equipedPants.type)
+                                $ pants_scaled = im.Scale(pants_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "pants")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_pants_scaled,
+                                            (0, 0), pants_scaled
+                                        )
 
                             null height 10  # This adds 40 pixels of vertical space at the top
-                            button:
-                                action Function(show_weapons, my_protector)  # show possible weapons to use
-                                xpadding 4
-                                ypadding 4
-                                frame:
-                                    add im.Composite(
-                                        (200, 200),
-                                        (0, 0), empty_boots_scaled,
-                                        (0, 0), boots_scaled,
-                                        
-                                    )
-
-
+                            if my_protector.equipedBoots == None:
+                                button:
+                                    action Function(show_equipments, my_protector, "boots")  # show possible equipments to use
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_boots_scaled,
+                                            (0, 0), boots_scaled
+                                        )
+                            else:
+                                $ boots_img = "images/equipment/{}.png".format(my_protector.equipedBoots.type)
+                                $ boots_scaled = im.Scale(boots_img, 200, 200)
+                                button:
+                                    action Function(my_protector.unequip_equipment, "boots")  # Replace with your actual function
+                                    xpadding 4
+                                    ypadding 4
+                                    frame:
+                                        add im.Composite(
+                                            (200, 200),
+                                            (0, 0), empty_boots_scaled,
+                                            (0, 0), boots_scaled
+                                        )
                         null height 10  # This adds 40 pixels of vertical space at the top
                     
                 # Text block - vertically centered on left side
@@ -2509,11 +2610,40 @@ screen weapon_select(protector):
             for weapon in myWeapons:
 
                 textbutton weapon.name:
-                    action [Function(protector.equip_weapon, weapon.name), Hide("weapon_select")]
+                    action [Function(protector.equip_weapon, weapon.weapon_id), Hide("weapon_select")]
                     xminimum 200
                     ypadding 10
 
             textbutton "Cancel":
                 action Hide("weapon_select")
+                xminimum 200
+                ypadding 10
+
+
+screen equipment_select(protector, equipment_type):
+
+    tag menu  # so the player can't open other menus while this is open
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 20
+        ypadding 20
+
+        vbox:
+            spacing 10
+
+            text "Select your Equipment:" size 30
+            $ filtered_equipments = [equipment for equipment in myEquipments if equipment.type == equipment_type]
+            # For each available equipment, create a button
+            for equipment in filtered_equipments:
+
+                textbutton equipment.name:
+                    action [Function(protector.equip_equipment, equipment.equipment_id), Hide("equipment_select")]
+                    xminimum 200
+                    ypadding 10
+
+            textbutton "Cancel":
+                action Hide("equipment_select")
                 xminimum 200
                 ypadding 10

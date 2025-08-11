@@ -213,9 +213,27 @@ init python:
     def show_weapons(protector):
         renpy.show_screen("weapon_select", protector)
 
-    def add_new_weapon_to_our_bag(weaponName):
+    def get_weapon_by_id(weapon_id):
+        global weapons
+        return next(w for w in weapons if w.weapon_id == weapon_id)
+
+    def add_new_weapon_to_our_bag(weapon_id):
         global weapons
         global myWeapons
-        weapon = next(w for w in weapons if w.name == weaponName)
+        weapon = get_weapon_by_id(weapon_id)
         myWeapons.append(weapon)
+        return
+
+    def show_equipments(protector, equipment_type):
+        renpy.show_screen("equipment_select", protector, equipment_type)
+        
+    def get_equipment_by_id(equipment_id):
+        global equipments
+        return next(e for e in equipments if e.equipment_id == equipment_id)
+
+    def add_new_equipment_to_our_bag(equipment_id):
+        global equipments
+        global myEquipments
+        equipment = next(e for e in equipments if e.equipment_id == equipment_id)
+        myEquipments.append(equipment)
         return

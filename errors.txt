@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/initializing_things.rpy", line 1282: '(' was never closed
-    equipments.append(Equipment(
-                               ^
+File "game/screens.rpy", line 1836: Indentation mismatch.
+    if my_protector.equipedHelmet == None:
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Aug 11 15:07:46 2025
+Mon Aug 11 17:02:18 2025

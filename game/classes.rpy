@@ -43,6 +43,10 @@ init python:
             self.xp = xp
             self.readyForPromotion = False
             self.equipedWeapon = None
+            self.equipedHelmet = None
+            self.equipedBodyArmour = None
+            self.equipedPants = None
+            self.equipedBoots = None
             self.basePoints = protectors_base_information[name]
             return
 
@@ -69,14 +73,43 @@ init python:
                     break
             return
 
-        def equip_weapon(self, weaponName):
+        def equip_weapon(self, weapon_id):
             global myWeapons
-            weapon = next(w for w in myWeapons if w.name == weaponName)
+            weapon = next(w for w in myWeapons if w.weapon_id == weapon_id)
             if self.equipedWeapon == None:
                 self.equipedWeapon = weapon
             else:
                 return
             myWeapons.remove(weapon)
+            return
+
+        def equip_equipment(self, equipment_id):
+            global myEquipments
+            equipment = next(e for e in myEquipments if e.equipment_id == equipment_id)
+            if equipment.type == "helmet":
+                if self.equipedHelmet == None:
+                    self.equipedHelmet = equipment
+                else:
+                    return
+                myEquipments.remove(equipment)
+            elif equipment.type == "body armor":
+                if self.equipedBodyArmour == None:
+                    self.equipedBodyArmour = equipment
+                else:
+                    return
+                myEquipments.remove(equipment)
+            elif equipment.type == "pants":
+                if self.equipedPants == None:
+                    self.equipedPants = equipment
+                else:
+                    return
+                myEquipments.remove(equipment)
+            elif equipment.type == "boots":
+                if self.equipedBoots == None:
+                    self.equipedBoots = equipment
+                else:
+                    return
+                myEquipments.remove(equipment)
             return
 
         def unequip_weapon(self):
@@ -85,12 +118,30 @@ init python:
             self.equipedWeapon = None            
             return
 
+        def unequip_equipment(self, type_equipment):
+            global myEquipments
+            if type_equipment == "helmet":
+                myEquipments.append(self.equipedWeapon)
+                self.equipedHelmet = None
+            if type_equipment == "body armor":
+                myEquipments.append(self.equipedBodyArmour)
+                self.equipedBodyArmour = None
+            if type_equipment == "pants":
+                myEquipments.append(self.equipedPants)
+                self.equipedPants = None
+            if type_equipment == "boots":
+                myEquipments.append(self.equipedBoots)
+                self.equipedBoots = None
+            return
+
         def get_amount_of_xp_needed_for_leveling_up(self):
             return ( 
                 round(( xp_starter_size + 
                     (xp_size * increasing_per_level_multiplier_xp * (self.level - 1))
                 ), 2)
             )
+
+        # TODO: make the equipment affect the stats
 
         def get_strength(self):
             return int(self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength)))
@@ -259,6 +310,7 @@ init python:
         _id_counter = 0
         def __init__(self, name, description, weapon_type, class_name, base_damage):
             self.weapon_id = Weapon._id_counter
+            Weapon._id_counter += 1
             self.name = name # name of the weapon
             self.description = description # a small description for the weapon, it also can have a story of the weapon
             self.type = weapon_type # the type (knife, sword, axe, lance, etc..)
@@ -269,9 +321,10 @@ init python:
         _id_counter = 0
         def __init__(self, name, description, equipment_type, class_name, prio1, prio2):
             self.equipment_id = Equipment._id_counter
+            Equipment._id_counter += 1
             self.name = name # name of the weapon
             self.description = description # a small description for the weapon, it also can have a story of the weapon
-            self.type = equipment_type # the type (helmet, pants, boots, body armour)
+            self.type = equipment_type # the type (helmet, pants, boots, body armor)
             self.class_name = class_name # Dexterity / Strength / Magic / Tank / Shield / Evasion / Critical
             self.prio1 = prio1 # prio1 improvement (str, dex, con, int, wis, cha, luc)
             self.prio2 = prio2 # prio1 improvement (str, dex, con, int, wis, cha, luc)

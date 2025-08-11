@@ -188,56 +188,59 @@ label start:
         nova "You can choose one of these weapons."
         nova "Maybe its a good thing you consider what might be better for your protector."
         nova "Which will you choose?"
+        $ firstWeaponName = get_weapon_by_id(0).name
+        $ secondWeaponName = get_weapon_by_id(1).name
+        $ thirdWeaponName = get_weapon_by_id(2).name
         menu:
-            "Thieves knife":
+            "[firstWeaponName]":
                 hide ironcladMace_starting
                 hide elderwoodStaff_starting
                 show thievesKnife_starting at fit_to_screen_height, farMidRight
-                $ weapon = next(w for w in weapons if w.name == "Thieves knife")
+                $ weapon = next(w for w in weapons if w.name == firstWeaponName)
                 show screen weapon_base_stats(weapon)
-                nova "Are you sure you want to choose the Thieves knife for your first protector to use?"
+                nova "Are you sure you want to choose the [firstWeaponName] for your first protector to use?"
                 menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
                         nova "Great!"
-                        nova "I'm adding Thieves knife to your protector!"
-                        $ add_new_weapon_to_our_bag("Thieves knife")
-                        $ firstProtector.equip_weapon("Thieves knife")
-                        nova "Thieves knife added!"
+                        nova "I'm adding [firstWeaponName] to your protector!"
+                        $ add_new_weapon_to_our_bag(0)
+                        $ firstProtector.equip_weapon(0)
+                        nova "[firstWeaponName] added!"
                     "What were the other ones?":
                         nova "Let's recap."
-            "Ironclad Mace":
+            "[secondWeaponName]":
                 hide elderwoodStaff_starting
                 hide thievesKnife_starting
                 show ironcladMace_starting at fit_to_screen_height, farMidRight
-                $ weapon = next(w for w in weapons if w.name == "Ironclad Mace")
+                $ weapon = next(w for w in weapons if w.name == secondWeaponName)
                 show screen weapon_base_stats(weapon)
-                nova "Are you sure you want to choose the Ironclad Mace for your first protector to use?"
+                nova "Are you sure you want to choose the [secondWeaponName] for your first protector to use?"
                 menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
                         nova "Great!"
-                        nova "I'm adding Ironclad Mace to your protector!"
-                        $ add_new_weapon_to_our_bag("Ironclad Mace")
-                        $ firstProtector.equip_weapon("Ironclad Mace")
-                        nova "Ironclad Mace added!"
+                        nova "I'm adding [secondWeaponName] to your protector!"
+                        $ add_new_weapon_to_our_bag(1)
+                        $ firstProtector.equip_weapon(1)
+                        nova "[secondWeaponName] added!"
                     "What were the other ones?":
                         nova "Let's recap."
-            "Elderwood Staff":
+            "[thirdWeaponName]":
                 hide ironcladMace_starting
                 hide thievesKnife_starting
                 show elderwoodStaff_starting at fit_to_screen_height, farMidRight
-                $ weapon = next(w for w in weapons if w.name == "Elderwood Staff")
+                $ weapon = next(w for w in weapons if w.name == thirdWeaponName)
                 show screen weapon_base_stats(weapon)
-                nova "Are you sure you want to choose the Elderwood Staff for your first protector to use?"
+                nova "Are you sure you want to choose the [thirdWeaponName] for your first protector to use?"
                 menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
                         nova "Great!"
-                        nova "I'm adding Elderwood Staff to your protector!"
-                        $ add_new_weapon_to_our_bag("Elderwood Staff")
-                        $ firstProtector.equip_weapon("Elderwood Staff")
-                        nova "Elderwood Staff added!"
+                        nova "I'm adding [thirdWeaponName] to your protector!"
+                        $ add_new_weapon_to_our_bag(2)
+                        $ firstProtector.equip_weapon(2)
+                        nova "[thirdWeaponName] added!"
                     "What were the other ones?":
                         nova "Let's recap."
 
@@ -292,7 +295,7 @@ label start:
     #   
     # TODO: create a way to see the inventory, in this case, the weapons
     # 
-    # TODO: also add helmet, body armour, trousers, and boots - to the backend, and create the new class for this (equipments) - work on this
+    # TODO: make the equipment affect the stats
     # 
     return
 
@@ -324,15 +327,15 @@ label showFirst3Weapons():
     hide ironcladMace_starting
     hide elderwoodStaff_starting
     
-    # showing ShadowFang
+    # showing [firstWeaponName]
     image thievesKnife_starting = getImage("images/weapons/knife")
     show thievesKnife_starting at fit_to_screen_height, farLeft
 
-    # showing Ironclad Mace
+    # showing [secondWeaponName]
     image ironcladMace_starting = getImage("images/weapons/mace")
     show ironcladMace_starting at fit_to_screen_height, center
     
-    # showing Elderwood Staff    
+    # showing [thirdWeaponName]
     image elderwoodStaff_starting = getImage("images/weapons/staff")
     show elderwoodStaff_starting at fit_to_screen_height, farRight
 
