@@ -8,7 +8,7 @@
             #   -   for this we would need to create a couple of items
             #   -   and think of what could these items do :\
             #   -   implement the logic
-            call check_my_missions()
+            call check_online_shop()
         "Go back":
             jump base_of_operations
     jump go_to_computer

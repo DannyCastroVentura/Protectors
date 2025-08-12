@@ -216,306 +216,428 @@ init python:
         bossMissions.append(BossMission(9, "The Shattered Queen", "In a realm of mirrors and illusions, an exiled queen of a fallen kingdom bends reality to her will. Break her illusions to reveal her true form — and end her madness.", 70))
         bossMissions.append(BossMission(10, "The Void-Touched Seraph", "Once a divine guardian, now corrupted by the void. This winged horror fights in aerial stages, using celestial and abyssal magic. Only a grounded will can reach the skies.", 90))
         
-        
-        # Normal weapons (~30 damage)
+        # WEAPONS
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
+        # E CLASS
         weapons.append(Weapon("Thieves knife", 
             "A sleek normal dagger normally used by thieves.", 
             "knife", 
             "Dexterity weapon",
-            30))
+            30,
+            'E'))
 
         weapons.append(Weapon("Ironclad Mace",
             "A sturdy mace used by city guards.",
             "mace",
             "Strength weapon",
-            32))
+            32,
+            'E'))
         
         weapons.append(Weapon("Elderwood Staff",
             "A staff carved from ancient trees, buzzing with latent magic.",
             "staff",
             "Magic weapon",
-            25))
+            25,
+            'E'))
 
         weapons.append(Weapon("Whisperwind", 
             "A light lance favored by the swift riders of the northern plains.", 
             "lance", 
             "Dexterity weapon",
-            28))
+            28,
+            'E'))
 
-        weapons.append(Weapon("Silent Thorn", 
-            "A small but deadly knife used by assassins to strike silently.", 
-            "knife", 
-            "Dexterity weapon",
-            25))
-
-        weapons.append(Weapon("Gale Lance", 
-            "A slender lance that strikes as swiftly as the wind.", 
-            "lance", 
-            "Dexterity weapon",
-            30))
-
-        weapons.append(Weapon("Shadow Lance", 
-            "A lance forged from shadows, almost invisible to the naked eye.", 
-            "lance", 
-            "Dexterity weapon",
-            33))
-
-
-        # Better weapons (~100-300 damage)
-        weapons.append(Weapon("Dragon's Breath", 
-            "A massive flaming sword said to be imbued with the power of an ancient dragon.", 
-            "sword", 
-            "Strength weapon",
-            150))
-
-        weapons.append(Weapon("Earthshaker", 
-            "A heavy axe that can split mountains with a single swing.", 
+        weapons.append(Weapon("Small Vikings Axe", 
+            "A small but deadly axe used by vikings to kill their enemies.", 
             "axe", 
             "Strength weapon",
-            180))
+            25,
+            'E'))
 
-        weapons.append(Weapon("Arcane Edge", 
-            "A magical sword glowing with blue runes, capable of slicing through spells.", 
-            "sword", 
-            "Magic weapon",
-            120))
-
-        weapons.append(Weapon("Frostbite", 
-            "An icy axe that chills the air with each hit.", 
-            "axe", 
-            "Strength weapon",
-            130))
-
-        weapons.append(Weapon("Stormpiercer", 
-            "A lance crackling with electricity, used by the storm riders.", 
-            "lance", 
-            "Magic weapon",
-            110))
-
-        weapons.append(Weapon("Venomfang", 
-            "A dagger coated with a potent poison that slowly saps life.", 
-            "knife", 
-            "Dexterity weapon",
-            115))
-
-        weapons.append(Weapon("Titan’s Wrath", 
-            "A colossal hammer that channels the fury of giants.", 
+        weapons.append(Weapon("Gale Hammer", 
+            "A slender hammer that strikes as hard as a rock.", 
             "hammer", 
             "Strength weapon",
-            300))
+            30,
+            'E'))
 
-        weapons.append(Weapon("Celestial Staff", 
-            "A staff pulsing with divine magic, guiding the wielder’s power.", 
-            "staff", 
-            "Magic weapon",
-            140))
-
-        weapons.append(Weapon("Bloodfang", 
-            "A serrated sword that grows sharper with every drop of blood spilled.", 
+        weapons.append(Weapon("Iron Sword", 
+            "A sword forged with iron stone.", 
             "sword", 
             "Strength weapon",
-            160))
+            33,
+            'E'))
 
-        weapons.append(Weapon("Emberclaw", 
-            "An axe glowing with smoldering embers, burning enemies on contact.", 
-            "axe", 
-            "Strength weapon",
-            170))
-
-        weapons.append(Weapon("Mystic Dagger", 
-            "A dagger that can pierce the veil between worlds.", 
-            "knife", 
-            "Magic weapon",
-            125))
-
-        weapons.append(Weapon("Silverlight", 
-            "A sword made from enchanted silver, effective against dark creatures.", 
-            "sword", 
-            "Magic weapon",
-            135))
-
-        weapons.append(Weapon("Warbreaker", 
-            "A massive axe that can shatter shields with ease.", 
-            "axe", 
-            "Strength weapon",
-            220))
-
-        weapons.append(Weapon("Soulpiercer", 
-            "A dagger that drains the soul of its victims, feeding the wielder.", 
-            "knife", 
-            "Magic weapon",
-            130))
-
-        weapons.append(Weapon("Dragonclaw", 
-            "A curved sword designed to mimic the claw of a dragon, swift and deadly.", 
+        weapons.append(Weapon("Shadow Sword", 
+            "A sword forged from shadows, almost invisible to the naked eye.", 
             "sword", 
             "Dexterity weapon",
-            140))
-
-
-        # Best weapons (500+ damage)
-        weapons.append(Weapon("Oblivion", 
-            "A legendary sword said to consume the souls of entire armies.", 
-            "sword", 
-            "Magic weapon",
-            520))
-
-        weapons.append(Weapon("Colossus Crusher", 
-            "A gargantuan hammer capable of leveling entire fortresses.", 
-            "hammer", 
-            "Strength weapon",
-            580))
-
-        weapons.append(Weapon("Dragonlord's Fury", 
-            "A lance wielded by the ancient dragon kings, burning with eternal flame.", 
-            "lance",
-            "Strength weapon",
-            540))
-
-        weapons.append(Weapon("Nightmare Edge", 
-            "A cursed blade that deals unimaginable pain to its victims.", 
-            "sword",
-            "Magic weapon",
-            510))
-        
-        
-        # Normal tier (20-40 damage)
+            29,
+            'E'))
+            
         weapons.append(Weapon("Swiftfang",
             "A quick dagger favored by thieves, light and deadly.",
             "knife",
             "Dexterity weapon",
-            35))
+            35,
+            'E'))
 
         weapons.append(Weapon("Moonlit Spear",
             "A spear that gleams under the moonlight, perfect for precise strikes.",
             "spear",
             "Dexterity weapon",
-            30))
+            30,
+            'E'))
 
         weapons.append(Weapon("Crimson Axe",
             "An axe stained red from countless battles.",
             "axe",
             "Strength weapon",
-            38))
+            38,
+            'E'))
+        
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
+        # D CLASS
+        weapons.append(Weapon("Nightfang Dagger", 
+            "A wicked, curved blade rumored to drink the strength of its victims.", 
+            "knife", 
+            "Dexterity weapon",
+            72,
+            'D'))
 
-        # Mid tier (100-300 damage)
+        weapons.append(Weapon("Sentinel’s War Mace",
+            "A heavy iron mace favored by royal guards to shatter armor and bone alike.",
+            "mace",
+            "Strength weapon",
+            85,
+            'D'))
+
+        weapons.append(Weapon("Runebark Staff",
+            "A mystical staff etched with ancient runes, channeling deep forest magic.",
+            "staff",
+            "Magic weapon",
+            78,
+            'D'))
+
+        weapons.append(Weapon("Stormpiercer Lance", 
+            "A long, gleaming lance said to cut through wind and flesh with equal ease.", 
+            "lance", 
+            "Dexterity weapon",
+            80,
+            'D'))
+
+        weapons.append(Weapon("Mage Lance", 
+            "A magic infused lance - which gives magic blows to the enemy.", 
+            "lance", 
+            "Magic weapon",
+            88,
+            'D'))
+
+        weapons.append(Weapon("Raven’s Bite Axe", 
+            "A brutal, blackened axe once wielded by northern raiders in the dead of winter.", 
+            "axe", 
+            "Strength weapon",
+            88,
+            'D'))
+
+        weapons.append(Weapon("Thunderstrike Hammer", 
+            "A massive hammer that crackles faintly with the sound of distant storms.", 
+            "hammer", 
+            "Strength weapon",
+            90,
+            'D'))
+
+        weapons.append(Weapon("Bloodforged Blade", 
+            "A broad sword quenched in the blood of its enemies, said to thirst for more.", 
+            "sword", 
+            "Strength weapon",
+            79,
+            'D'))
+
+        weapons.append(Weapon("Moonveil Saber", 
+            "A thin, silvery sword that glimmers faintly even in complete darkness.", 
+            "sword", 
+            "Dexterity weapon",
+            84,
+            'D'))
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
+        # C CLASS
+        weapons.append(Weapon("Dragon's Breath", 
+            "A massive flaming sword said to be imbued with the power of an ancient dragon.", 
+            "sword", 
+            "Strength weapon",
+            150,
+            "C"))
+
+        weapons.append(Weapon("Earthshaker", 
+            "A heavy axe that can split mountains with a single swing.", 
+            "axe", 
+            "Strength weapon",
+            180,
+            "C"))
+
+        weapons.append(Weapon("Arcane Edge", 
+            "A magical sword glowing with blue runes, capable of slicing through spells.", 
+            "sword", 
+            "Magic weapon",
+            120,
+            "C"))
+
+        weapons.append(Weapon("Frostbite", 
+            "An icy axe that chills the air with each hit.", 
+            "axe", 
+            "Strength weapon",
+            130,
+            "C"))
+
+        weapons.append(Weapon("Stormpiercer", 
+            "A lance crackling with electricity, used by the storm riders.", 
+            "lance", 
+            "Magic weapon",
+            110,
+            "C"))
+
+        weapons.append(Weapon("Venomfang", 
+            "A dagger coated with a potent poison that slowly saps life.", 
+            "knife", 
+            "Dexterity weapon",
+            115,
+            "C"))
+
+        weapons.append(Weapon("Celestial Staff", 
+            "A staff pulsing with divine magic, guiding the wielder’s power.", 
+            "staff", 
+            "Magic weapon",
+            140,
+            "C"))
+
+        weapons.append(Weapon("Bloodfang", 
+            "A serrated sword that grows sharper with every drop of blood spilled.", 
+            "sword", 
+            "Strength weapon",
+            160,
+            "C"))
+
+        weapons.append(Weapon("Emberclaw", 
+            "An axe glowing with smoldering embers, burning enemies on contact.", 
+            "axe", 
+            "Strength weapon",
+            170,
+            "C"))
+
+        weapons.append(Weapon("Mystic Dagger", 
+            "A dagger that can pierce the veil between worlds.", 
+            "knife", 
+            "Magic weapon",
+            125,
+            "C"))
+
+        weapons.append(Weapon("Silverlight", 
+            "A sword made from enchanted silver, effective against dark creatures.", 
+            "sword", 
+            "Magic weapon",
+            135,
+            "C"))
+
+        weapons.append(Weapon("Warbreaker", 
+            "A massive axe that can shatter shields with ease.", 
+            "axe", 
+            "Strength weapon",
+            220,
+            "C"))
+
+        weapons.append(Weapon("Soulpiercer", 
+            "A dagger that drains the soul of its victims, feeding the wielder.", 
+            "knife", 
+            "Magic weapon",
+            130,
+            "C"))
+
+        weapons.append(Weapon("Dragonclaw", 
+            "A curved sword designed to mimic the claw of a dragon, swift and deadly.", 
+            "sword", 
+            "Dexterity weapon",
+            140,
+            "C"))
+
+
+        weapons.append(Weapon("Titan’s Wrath", 
+            "A colossal hammer that channels the fury of giants.", 
+            "hammer", 
+            "Strength weapon",
+            300,
+            "C"))
+            
         weapons.append(Weapon("Fang of the Wolf",
             "A curved sword that bites as fiercely as a wolf.",
             "sword",
             "Dexterity weapon",
-            140))
+            140,
+            "C"))
 
         weapons.append(Weapon("Blazefury",
             "A flaming greatsword that ignites enemies on contact.",
             "sword",
             "Strength weapon",
-            220))
+            220,
+            "C"))
 
         weapons.append(Weapon("Thunderstrike Lance",
             "A lance crackling with lightning, it paralyzes foes.",
             "lance",
             "Magic weapon",
-            180))
+            180,
+            "C"))
 
         weapons.append(Weapon("Venomous Claw",
             "A claw-shaped dagger coated with deadly poison.",
             "knife",
             "Dexterity weapon",
-            130))
+            130,
+            "C"))
 
         weapons.append(Weapon("Stonebreaker",
             "A hammer capable of smashing stone walls.",
             "hammer",
             "Strength weapon",
-            210))
+            210,
+            "C"))
 
-        # High tier (500-900 damage)
+        
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
+        # B CLASS
+        weapons.append(Weapon("Oblivion", 
+            "A legendary sword said to consume the souls of entire armies.", 
+            "sword", 
+            "Magic weapon",
+            520,
+            "B"))
+
+        weapons.append(Weapon("Colossus Crusher", 
+            "A gargantuan hammer capable of leveling entire fortresses.", 
+            "hammer", 
+            "Strength weapon",
+            580,
+            "B"))
+
+        weapons.append(Weapon("Dragonlord's Fury", 
+            "A lance wielded by the ancient dragon kings, burning with eternal flame.", 
+            "lance",
+            "Strength weapon",
+            540,
+            "B"))
+
+        weapons.append(Weapon("Nightmare Edge", 
+            "A cursed blade that deals unimaginable pain to its victims.", 
+            "sword",
+            "Magic weapon",
+            510,
+            "B"))
+            
         weapons.append(Weapon("Obsidian Edge",
             "A sword made from volcanic glass, razor sharp and dark.",
             "sword",
             "Strength weapon",
-            580))
+            580,
+            "B"))
 
         weapons.append(Weapon("Celestial Wrath",
             "A staff channeling the fury of the stars.",
             "staff",
             "Magic weapon",
-            650))
+            650,
+            "B"))
 
         weapons.append(Weapon("Silent Gale",
             "A swift lance that can pierce through the thickest armor.",
             "lance",
             "Dexterity weapon",
-            510))
-
-        weapons.append(Weapon("Titan's Grasp",
-            "A massive axe wielded only by the strongest warriors.",
-            "axe",
-            "Strength weapon",
-            890))
+            510,
+            "B"))
 
         weapons.append(Weapon("Shadowfang Reaper",
             "An assassin's dagger with a deadly bite and unmatched speed.",
             "knife",
             "Dexterity weapon",
-            540))
+            540,
+            "B"))
 
-        # Ultra-powerful tier (1000+ damage)
-        weapons.append(Weapon("Dragonfire Greatsword",
-            "A legendary sword engulfed in eternal flames of a dragon.",
-            "sword",
-            "Strength weapon",
-            1250))
-
-        weapons.append(Weapon("Ethereal Lance",
-            "A lance that phases through solid matter, striking the spirit.",
-            "lance",
-            "Magic weapon",
-            1100))
-
-        weapons.append(Weapon("Soulrend Dagger",
-            "A dagger that tears the soul apart, feared by all.",
-            "knife",
-            "Dexterity weapon",
-            1020))
-
-        weapons.append(Weapon("Worldbreaker Hammer",
-            "A hammer said to have shattered mountains with a single blow.",
-            "hammer",
-            "Strength weapon",
-            1400))
-
-        weapons.append(Weapon("Archmage's Staff",
-            "A staff imbued with unimaginable arcane power.",
-            "staff",
-            "Magic weapon",
-            1350))
-
-            # New weapons in 700-900 damage range
+            
         weapons.append(Weapon("Stormbreaker Axe",
             "An axe that calls down thunder with every swing.",
             "axe",
             "Strength weapon",
-            720))
+            720,
+            "B"))
 
+        
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #  
+        # A CLASS
+        
         weapons.append(Weapon("Arcane Tempest Staff",
             "A staff swirling with violent magical storms.",
             "staff",
             "Magic weapon",
-            810))
+            810,
+            "A"))
 
         weapons.append(Weapon("Phantom Lance",
             "A lance that strikes from the shadows with unrelenting force.",
             "lance",
             "Dexterity weapon",
-            900))
+            900,
+            "A"))
 
-        # Dexterity weapon with 1400+ damage
+        weapons.append(Weapon("Titan's Grasp",
+            "A massive axe wielded only by the strongest warriors.",
+            "axe",
+            "Strength weapon",
+            890,
+            "A"))
+
+        weapons.append(Weapon("Ethereal Lance",
+            "A lance that phases through solid matter, striking the spirit.",
+            "lance",
+            "Magic weapon",
+            1100,
+            "A"))
+
+        weapons.append(Weapon("Soulrend Dagger",
+            "A dagger that tears the soul apart, feared by all.",
+            "knife",
+            "Dexterity weapon",
+            1020,
+            "A"))
+
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #  
+        # S CLASS
+        weapons.append(Weapon("Dragonfire Greatsword",
+            "A legendary sword engulfed in eternal flames of a dragon.",
+            "sword",
+            "Strength weapon",
+            1250,
+            "S"))
+
+        weapons.append(Weapon("Worldbreaker Hammer",
+            "A hammer said to have shattered mountains with a single blow.",
+            "hammer",
+            "Strength weapon",
+            1400,
+            "S"))
+
+        weapons.append(Weapon("Archmage's Staff",
+            "A staff imbued with unimaginable arcane power.",
+            "staff",
+            "Magic weapon",
+            1350,
+            "S"))
+
         weapons.append(Weapon("Venomstrike Razor",
             "A legendary dagger so fast and deadly it’s said to pierce the fabric of reality.",
             "knife",
             "Dexterity weapon",
-            1425))
+            1425,
+            "S"))
 
         weapon = next(w for w in weapons if w.name == "Thieves knife")
         initial_weapons_choice.append(weapon.weapon_id)
@@ -526,316 +648,818 @@ init python:
         weapon = next(w for w in weapons if w.name == "Elderwood Staff")
         initial_weapons_choice.append(weapon.weapon_id)
 
-        # equipment
+        
+        # EQUIPMENT
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
+        # E CLASS
+
+        ######## FULL GEAR ########
         equipments.append(Equipment(
-            "Reinforced Iron Helmet",
-            "A sturdy helmet made of reinforced iron. Offers excellent protection.",
+            "Reinforced Helmet",
+            "A sturdy helmet made of reinforced iron. Offers good protection.",
             "helmet",
             "Tank",
-            2,
-            1.5
-        ))
-
-        equipments.append(Equipment(
-            "Windrunner Pants",                       # Name
-            "Pants designed for swift movement, they boost speed and critical hit chance.",  # Description
-            "pants",                                  # Type
-            "Critical",                               # Class name
-            2.5,                                      # prio1: Scales Dexterity by 2.5x
-            1.8                                       # prio2: Scales Critical Hit Chance by 1.8x
-        ))
-
-        equipments.append(Equipment(
-            "Iron Chestplate",                       # Name
-            "A strong iron chestplate offering high defense.",  # Description
-            "body armor",                            # Type
-            "Tank",                                  # Class name
-            2.5,                                     # prio1: Scales Constitution by 2.5x
-            1.8                                      # prio2: Scales Strength by 1.8x
-        ))
-
-        equipments.append(Equipment(
-            "Boots of the Swift",                    # Name
-            "Boots that increase your movement speed and dexterity.",  # Description
-            "boots",                                 # Type
-            "Evasion",                               # Class name
-            2.5,                                     # prio1: Scales Dexterity by 1.5x
-            1.8                                      # prio2: Scales Evasion by 1.8x
+            1.25,
+            1.1,
+            "E"
         ))
         
         equipments.append(Equipment(
-            "Light Leather Hood",                    # Name
-            "A lightweight hood for agility and quick movements.",  # Description
-            "helmet",                                # Type
-            "Evasion",                               # Class name
-            2,                                       # prio1: Scales Dexterity by 1x
-            1.2                                      # prio2: Scales Evasion by 1.2x
+            "Reinforced Body Armor",
+            "A sturdy body armor made of reinforced iron. Offers good protection.",
+            "body armor",
+            "Tank",
+            1.25,
+            1.1,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Mystic Wizard's Hat",                   # Name
-            "A wizard’s hat, enhancing magical powers and intellect.",  # Description
-            "helmet",                                # Type
-            "Magic",                                 # Class name
-            1.8,                                     # prio1: Scales Intelligence by 1.8x
-            1.3                                      # prio2: Scales Mana by 1.3x
+            "Reinforced Pants",
+            "A sturdy pants made of reinforced iron. Offers good protection.",
+            "pants",
+            "Tank",
+            1.25,
+            1.1,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Mystic Robe",                           # Name
-            "A robe that grants extra magical resistance and boosts mana regeneration.",  # Description
-            "body armor",                            # Type
-            "Magic",                                 # Class name
-            2.2,                                     # prio1: Scales Intelligence by 1.2x
-            1.6                                      # prio2: Scales Mana by 1.6x
+            "Reinforced Boots",
+            "A sturdy boots made of reinforced iron. Offers good protection.",
+            "boots",
+            "Tank",
+            1.25,
+            1.1,
+            "E"
+        ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Windrunner Helmet",
+            "Helmet designed for swift movement, they boost speed and critical hit chance.",
+            "helmet",
+            "Critical",
+            1.2,
+            1.12,
+            "E"
+        ))
+        
+        equipments.append(Equipment(
+            "Windrunner Body Armor",
+            "Body armor designed for swift movement, they boost speed and critical hit chance.",
+            "body armor",
+            "Critical",
+            1.2,
+            1.12,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Golden Plate Mail",                     # Name
-            "A glorious plate mail forged from gold, offers supreme defense.",  # Description
-            "body armor",                            # Type
-            "Tank",                                  # Class name
-            3,                                       # prio1: Scales Constitution by 3x
-            1.2                                      # prio2: Scales Strength by 1.2x
+            "Windrunner Pants",
+            "Pants designed for swift movement, they boost speed and critical hit chance.",
+            "pants",
+            "Critical",
+            1.2,
+            1.12,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Feathered Boots",                       # Name
-            "Light as a feather, offering extreme agility and evasion.",  # Description
-            "boots",                                 # Type
-            "Evasion",                               # Class name
-            2,                                       # prio1: Scales Dexterity by 2x
-            2                                       # prio2: Scales Evasion by 2x
+            "Windrunner Boots",
+            "Boots designed for swift movement, they boost speed and critical hit chance.",
+            "boots",
+            "Critical",
+            1.2,
+            1.12,
+            "E"
+        ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Iron Helmet",
+            "A strong iron helmet offering high defense.",
+            "helmet",
+            "Shield",
+            1.3,
+            1.2,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Wraith Cloak",                          # Name
-            "A cloak made from the essence of wraiths, enhancing evasion and stealth.",  # Description
-            "body armor",                            # Type
-            "Evasion",                               # Class name
-            2.5,                                     # prio1: Scales Evasion by 2.5x
-            1.8                                      # prio2: Scales Stealth by 1.8x
+            "Iron Chestplate",
+            "A strong iron chestplate offering high defense.",
+            "body armor",
+            "Shield",
+            1.3,
+            1.2,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Elven Cloak",                           # Name
-            "A cloak that boosts agility and offers increased critical hit chance.",  # Description
-            "body armor",                            # Type
-            "Critical",                              # Class name
-            3,                                       # prio1: Scales Dexterity by 2x
-            2.5                                      # prio2: Scales Critical Chance by 2.5x
+            "Iron Trousers",
+            "A strong iron trousers offering high defense.",
+            "pants",
+            "Shield",
+            1.3,
+            1.2,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Crown of the Ancients",                 # Name
-            "A crown that increases wisdom and enhances magical abilities.",  # Description
-            "helmet",                                # Type
-            "Magic",                                 # Class name
-            2.2,                                     # prio1: Scales Intelligence by 2.2x
-            1.6                                      # prio2: Scales Mana Regeneration by 1.6x
+            "Iron Boots",
+            "A strong iron boots offering high defense.",
+            "boots",
+            "Shield",
+            1.3,
+            1.2,
+            "E"
         ))
 
-        # equipment
+        ######## FULL GEAR ########
         equipments.append(Equipment(
-            "Silver Circlet",                         # Name
-            "A delicate circlet that enhances magical defense and intelligence.",  # Description
-            "helmet",                                 # Type
-            "Magic",                                  # Class name
-            2.5,                                      # prio1: Scales Intelligence by 1.5x
-            1.8                                       # prio2: Scales Magical Defense by 1.8x
-        ))
-
-        equipments.append(Equipment(
-            "Titanium Chestplate",                    # Name
-            "A high-tech chestplate offering immense defense against all attacks.",  # Description
-            "body armor",                             # Type
-            "Tank",                                   # Class name
-            3.2,                                      # prio1: Scales Constitution by 3.2x
-            1.4                                       # prio2: Scales Physical Defense by 1.4x
+            "Helmet of the Swift",
+            "Helmet that increase your movement speed and dexterity.",
+            "helmet",
+            "Evasion",
+            1.3,
+            1.15,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Boots of the Abyss",                    # Name
-            "Boots that grant the wearer enhanced movement speed and dark resistance.",  # Description
-            "boots",                                  # Type
-            "Evasion",                                # Class name
-            2.2,                                      # prio1: Scales Dexterity by 2.2x
-            1.5                                       # prio2: Scales Dark Resistance by 1.5x
+            "Upper rags of the Swift",
+            "Body armor that increase your movement speed and dexterity.",
+            "body armor",
+            "Evasion",
+            1.3,
+            1.15,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Celestial Boots",                        # Name
-            "Boots blessed by the stars, increasing speed and mana regeneration.",  # Description
-            "boots",                                  # Type
-            "Magic",                                  # Class name
-            2.7,                                      # prio1: Scales Dexterity by 1.7x
-            1.8                                       # prio2: Scales Mana Regeneration by 1.8x
+            "Pants of the Swift",
+            "Pants that increase your movement speed and dexterity.",
+            "pants",
+            "Evasion",
+            1.3,
+            1.15,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Shadow Cloak",                           # Name
-            "A cloak that grants the wearer invisibility for short periods and boosts stealth.",  # Description
-            "body armor",                             # Type
-            "Evasion",                                # Class name
-            3.0,                                      # prio1: Scales Evasion by 3x
-            2.0                                       # prio2: Scales Stealth by 2x
+            "Boots of the Swift",
+            "Boots that increase your movement speed and dexterity.",
+            "boots",
+            "Evasion",
+            1.3,
+            1.15,
+            "E"
+        ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Mystic Wizard's Hat",
+            "A wizard’s hat, enhancing magical powers and intellect.",
+            "helmet",
+            "Magic",
+            1.4,
+            1.05,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Vampire's Mantle",                       # Name
-            "A dark mantle that increases strength and grants life steal on attacks.",  # Description
-            "body armor",                             # Type
-            "Strength",                               # Class name
-            2.5,                                      # prio1: Scales Strength by 2.5x
-            1.4                                       # prio2: Scales Life Steal by 1.4x
+            "Mystic Robe",
+            "A robe which grants magical powers and intellect.",
+            "body armor",
+            "Magic",
+            1.3,
+            1.2,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Titan's Helm",                           # Name
-            "A massive helmet that grants immense protection and boosts strength.",  # Description
-            "helmet",                                 # Type
-            "Tank",                                   # Class name
-            3.2,                                      # prio1: Scales Strength by 3.2x
-            2.0                                       # prio2: Scales Constitution by 2x
+            "Mystic Pants",
+            "A wizard’s pants, enhancing magical powers and intellect.",
+            "pants",
+            "Magic",
+            1.4,
+            1.05,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Assassin's Cowl",                        # Name
-            "A cowl that boosts stealth, evasion, and critical hit chance.",  # Description
-            "helmet",                                 # Type
-            "Critical",                               # Class name
-            3.5,                                      # prio1: Scales Evasion by 2.5x
-            2.8                                       # prio2: Scales Critical Hit Chance by 2.8x
+            "Mystic Boots",
+            "Boots which grants magical powers and intellect.",
+            "boots",
+            "Magic",
+            1.3,
+            1.2,
+            "E"
+        ))
+        
+        ######## OTHER ONES ########
+        equipments.append(Equipment(
+            "Light Leather Hood",
+            "A lightweight hood for agility and quick movements.",
+            "helmet",
+            "Evasion",
+            1.3,
+            1.3,
+            "E"
         ))
 
         equipments.append(Equipment(
-            "Phoenix Wings",                          # Name
-            "Wings of a fallen phoenix, offering extreme fire resistance and a chance to rise from the ashes.",  # Description
-            "body armor",                             # Type
-            "Tank",                                   # Class name
-            4.5,                                      # prio1: Scales Constitution by 4.5x
-            2.0                                       # prio2: Scales Fire Resistance by 2.0x
+            "Golden Plate Mail",
+            "A glorious plate mail forged from gold, offers supreme defense.",
+            "body armor",
+            "Tank",
+            1.3,
+            1.2,
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Feathered Boots",
+            "Light as a feather, offering extreme agility and evasion.",
+            "boots",
+            "Evasion",
+            1.35,
+            1.25,
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Wraith Cloak",
+            "A cloak made from the essence of wraiths, enhancing evasion and stealth.",
+            "body armor",
+            "Evasion",
+            1.3,
+            1.3,
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Elven Cloak",
+            "A cloak that boosts agility and offers increased critical hit chance.",
+            "body armor",
+            "Critical",
+            1.3,
+            1.25,
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Crown of the Ancients",
+            "A crown that increases wisdom and enhances magical abilities.",
+            "helmet",
+            "Magic",
+            1.4,
+            1.3,
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Silver Circlet",
+            "A delicate circlet that enhances magical defense and intelligence.",
+            "helmet",
+            "Magic",
+            1.45,
+            1.1,
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Titanium Chestplate",
+            "A high-tech chestplate offering immense defense against all attacks.",
+            "body armor",
+            "Tank",
+            1.3,
+            1.3,
+            "E"
+        ))
+
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
+        # D CLASS
+        
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Helm of the Abyss",
+            "A helm that shrouds the wearer’s mind from dark influence while enhancing awareness.",
+            "helmet",
+            "Evasion",
+            1.6,
+            1.5,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Chestplate of the Abyss",
+            "A chestplate forged in shadowsteel, offering strong protection against darkness.",
+            "body armor",
+            "Evasion",
+            1.6,
+            1.5,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Legguards of the Abyss",
+            "Armored pants infused with abyssal magic, granting resilience and agility.",
+            "pants",
+            "Evasion",
+            1.6,
+            1.5,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Boots of the Abyss",
+            "Boots that grant the wearer enhanced movement speed and dark resistance.",
+            "boots",
+            "Evasion",
+            1.6,
+            1.5,
+            "D"
+        ))
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Celestial Helm",
+            "A helm blessed by the stars, sharpening focus and magical control.",
+            "helmet",
+            "Magic",
+            1.9,
+            1.3,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Celestial Robe",
+            "A flowing robe woven with stardust, enhancing mana flow and spell potency.",
+            "body armor",
+            "Magic",
+            1.9,
+            1.3,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Celestial Legwraps",
+            "Light enchanted legwraps that improve mobility and channel magical energy.",
+            "pants",
+            "Magic",
+            1.9,
+            1.3,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Celestial Boots",
+            "Boots blessed by the stars, increasing speed and mana regeneration.",
+            "boots",
+            "Magic",
+            1.9,
+            1.3,
+            "D"
+        ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Vampire's Visage",
+            "A sinister helm that instills fear and strengthens the wearer’s resolve.",
+            "helmet",
+            "Strength",
+            1.7,
+            1.4,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Vampire's Mantle",
+            "A dark mantle that increases strength and grants life steal on attacks.",
+            "body armor",
+            "Strength",
+            1.7,
+            1.4,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Vampire's Greaves",
+            "Heavy pants reinforced with cursed metal, granting power with each strike.",
+            "pants",
+            "Strength",
+            1.7,
+            1.4,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Vampire's Treads",
+            "Boots infused with vampiric essence, allowing swift movement while draining foes.",
+            "boots",
+            "Strength",
+            1.7,
+            1.4,
+            "D"
+        ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Titan's Helm",
+            "A massive helmet that grants immense protection and boosts strength.",
+            "helmet",
+            "Tank",
+            1.7,
+            1.7,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Titan's Chestguard",
+            "An enormous chestpiece forged for warriors who stand like unyielding mountains.",
+            "body armor",
+            "Tank",
+            1.7,
+            1.7,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Titan's Legplates",
+            "Heavy armored greaves that root the wearer firmly in battle.",
+            "pants",
+            "Tank",
+            1.7,
+            1.7,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Titan's Boots",
+            "Boots as solid as the earth, making each step unshakable.",
+            "boots",
+            "Tank",
+            1.7,
+            1.7,
+            "D"
+        ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Assassin's Cowl",
+            "A cowl that boosts stealth, evasion, and critical hit chance.",
+            "helmet",
+            "Critical",
+            1.7,
+            1.5,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Assassin's Vest",
+            "A lightweight, reinforced vest designed for swift and lethal strikes.",
+            "body armor",
+            "Critical",
+            1.7,
+            1.5,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Assassin's Leggings",
+            "Flexible leggings that allow silent movement and deadly agility.",
+            "pants",
+            "Critical",
+            1.7,
+            1.5,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Assassin's Boots",
+            "Boots crafted for speed and silence, perfect for striking from the shadows.",
+            "boots",
+            "Critical",
+            1.7,
+            1.5,
+            "D"
+        ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Crown of the Immortal King",
+            "A crown that gives the wearer the power to revive once upon death and boosts all stats.",
+            "helmet",
+            "Shield",
+            1.75,
+            1.65,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Armor of the Immortal King",
+            "A regal chestplate that radiates divine protection, shielding its wearer from fatal blows.",
+            "body armor",
+            "Shield",
+            1.75,
+            1.65,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Greaves of the Immortal King",
+            "Sturdy leg armor that empowers each stride with the might of an eternal ruler.",
+            "pants",
+            "Shield",
+            1.75,
+            1.65,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Sabatons of the Immortal King",
+            "Boots that carry the weight of countless victories and unmatched resilience.",
+            "boots",
+            "Shield",
+            1.75,
+            1.65,
+            "D"
         ))
 
         
+        ######## OTHER ONES ########
         equipments.append(Equipment(
-            "Crown of the Immortal King",             # Name
-            "A crown that gives the wearer the power to revive once upon death and boosts all stats.",  # Description
-            "helmet",                                 # Type
-            "Tank",                                   # Class name
-            6.0,                                      # prio1: Scales Strength by 6x
-            4.0                                       # prio2: Scales Constitution by 4x
+            "Shadow Cloak",
+            "A cloak that grants the wearer invisibility for short periods and boosts stealth.",
+            "body armor",
+            "Evasion",
+            1.7,
+            1.6,
+            "D"
         ))
 
         equipments.append(Equipment(
-            "Wings of the Seraphim",                  # Name
-            "Wings that bestow divine power, granting increased movement and evasion.",  # Description
-            "boots",                                  # Type
-            "Evasion",                                # Class name
-            3.5,                                      # prio1: Scales Dexterity by 3.5x
-            3.0                                       # prio2: Scales Evasion by 4x
+            "Phoenix Wings",
+            "Wings of a fallen phoenix, offering extreme fire resistance and a chance to rise from the ashes.",
+            "body armor",
+            "Tank",
+            1.85,
+            1.5,
+            "D"
+        ))        
+
+        equipments.append(Equipment(
+            "Wings of the Seraphim",
+            "Wings that bestow divine power, granting increased movement and evasion.",
+            "boots",
+            "Evasion",
+            1.8,
+            1.55,
+            "D"
         ))
 
             
         equipments.append(Equipment(
-            "Elderwood Armor",                        # Name
-            "Armor crafted from the ancient trees of the elderwood. Increases defense and regeneration.",  # Description
-            "body armor",                             # Type
-            "Tank",                                   # Class name
-            4.0,                                      # prio1: Scales Constitution by 4x
-            2.5                                       # prio2: Scales Health Regeneration by 2.5x
+            "Elderwood Armor",
+            "Armor crafted from the ancient trees of the elderwood. Increases defense and regeneration.",
+            "body armor",
+            "Tank",
+            1.7,
+            1.7,
+            "D"
         ))
 
         equipments.append(Equipment(
-            "Cloak of the Revenant",                  # Name
-            "A cloak made from the shadows of the dead. It grants invisibility and an aura that weakens enemies.",  # Description
-            "body armor",                             # Type
-            "Evasion",                                # Class name
-            4.0,                                      # prio1: Scales Evasion by 4x
-            3.5                                       # prio2: Scales Stealth by 3.5x
+            "Cloak of the Revenant",
+            "A cloak made from the shadows of the dead. It grants invisibility and an aura that weakens enemies.",
+            "body armor",
+            "Evasion",
+            1.8,
+            1.75,
+            "D"
         ))
 
         equipments.append(Equipment(
-            "Cloak of the Phoenix",                   # Name
-            "A cloak that grants regeneration and the ability to rise from death once, like a phoenix.",  # Description
-            "body armor",                             # Type
-            "Tank",                                   # Class name
-            6.0,                                      # prio1: Scales Constitution by 6x
-            2.8                                       # prio2: Scales Health Regeneration by 2.8x
+            "Cloak of the Phoenix",
+            "A cloak that grants regeneration and the ability to rise from death once, like a phoenix.",
+            "body armor",
+            "Tank",
+            1.95,
+            1.3,
+            "D"
         ))
 
         equipments.append(Equipment(
-            "Crown of the Celestial Emperor",         # Name
-            "A crown that gives the wearer divine strength and resilience, making them nearly immortal.",  # Description
-            "helmet",                                 # Type
-            "Tank",                                   # Class name
-            7.0,                                      # prio1: Scales Constitution by 7x
-            3.0                                       # prio2: Scales Immortality Chance by 3x
+            "Crown of the Celestial Emperor",
+            "A crown that gives the wearer divine strength and resilience, making them nearly immortal.",
+            "helmet",
+            "Tank",
+            2,
+            1.05,
+            "D"
         ))
-
-        # equipment
+        
         equipments.append(Equipment(
-            "Titanium Helm",                          # Name
-            "A sturdy titanium helmet that grants extra defense and resistance.",  # Description
-            "helmet",                                 # Type
-            "Tank",                                   # Class name
-            2.5,                                      # prio1: Scales Constitution by 2.5x
-            1.8                                       # prio2: Scales Physical Resistance by 1.8x
-        ))
-
-        equipments.append(Equipment(
-            "Dragonscale Body Armor",                 # Name
-            "Armor crafted from dragon scales. Offers great defense and fire resistance.",  # Description
-            "body armor",                             # Type
-            "Tank",                                   # Class name
-            3.2,                                      # prio1: Scales Constitution by 3.2x
-            2.0                                       # prio2: Scales Fire Resistance by 2x
+            "Titanium Helm",
+            "A sturdy titanium helmet that grants extra defense and resistance.",
+            "helmet",
+            "Tank",
+            1.8,
+            1.5,
+            "D"
         ))
 
         equipments.append(Equipment(
-            "Shadowstrike Boots",                     # Name
-            "Boots made for stealth and speed. They increase dexterity and evasion.",  # Description
-            "boots",                                  # Type
-            "Evasion",                                # Class name
-            2.5,                                      # prio1: Scales Dexterity by 2.5x
-            2.0                                       # prio2: Scales Evasion by 2x
+            "Dragonscale Body Armor",
+            "Armor crafted from dragon scales. Offers great defense and fire resistance.",
+            "body armor",
+            "Tank",
+            1.7,
+            1.6,
+            "D"
         ))
 
         equipments.append(Equipment(
-            "Elven Armor",                            # Name
-            "Lightweight body armor favored by elves, increases dexterity and evasion.",  # Description
-            "body armor",                             # Type
-            "Evasion",                                # Class name
-            2.0,                                      # prio1: Scales Dexterity by 2x
-            1.7                                       # prio2: Scales Evasion by 1.7x
+            "Shadowstrike Boots",
+            "Boots made for stealth and speed. They increase dexterity and evasion.",
+            "boots",
+            "Evasion",
+            1.8,
+            1.8,
+            "D"
+        ))
+
+        ######## 
+        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
+        # C CLASS
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Elven Hood",
+            "A finely crafted hood that sharpens the senses and aids in swift movements.",
+            "helmet",
+            "Evasion",
+            2.3,
+            1.7,
+            "C"
         ))
 
         equipments.append(Equipment(
-            "Ironclad Helmet",                        # Name
-            "A helmet forged from iron, offers high physical defense and durability.",  # Description
-            "helmet",                                 # Type
-            "Tank",                                   # Class name
-            3.0,                                      # prio1: Scales Constitution by 3x
-            1.5                                       # prio2: Scales Physical Defense by 1.5x
+            "Elven Armor",
+            "Lightweight body armor favored by elves, increases dexterity and evasion.",
+            "body armor",
+            "Evasion",
+            2.3,
+            1.7,
+            "C"
         ))
 
         equipments.append(Equipment(
-            "Mystic Boots",                           # Name
-            "Boots imbued with magic, increasing movement speed and resistance to magic attacks.",  # Description
-            "boots",                                  # Type
-            "Magic",                                  # Class name
-            3.0,                                      # prio1: Scales Dexterity by 2x
-            2.5                                       # prio2: Scales Magical Resistance by 2.5x
+            "Elven Leggings",
+            "Slim, flexible leggings that allow for quiet steps and quick maneuvers.",
+            "pants",
+            "Evasion",
+            2.3,
+            1.7,
+            "C"
         ))
 
         equipments.append(Equipment(
-            "Darksteel Body Armor",                   # Name
-            "A body armor made from darksteel, offering immense protection but reducing speed.",  # Description
-            "body armor",                             # Type
-            "Tank",                                   # Class name
-            3.8,                                      # prio1: Scales Constitution by 3.8x
-            1.4                                       # prio2: Scales Physical Resistance by 1.4x
+            "Elven Boots",
+            "Boots designed for swiftness, perfect for traversing forests without a sound.",
+            "boots",
+            "Evasion",
+            2.3,
+            1.7,
+            "C"
         ))
+
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Ironclad Helmet",
+            "A helmet forged from iron, offers high physical defense and durability.",
+            "helmet",
+            "Tank",
+            2.4,
+            1.6,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Ironclad Chestplate",
+            "A solid iron chestplate built to withstand even the heaviest blows.",
+            "body armor",
+            "Tank",
+            2.4,
+            1.6,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Ironclad Legplates",
+            "Heavy iron greaves that protect the wearer’s legs while anchoring them in place.",
+            "pants",
+            "Tank",
+            2.4,
+            1.6,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Ironclad Boots",
+            "Boots of solid iron that make every step feel unshakable.",
+            "boots",
+            "Tank",
+            2.4,
+            1.6,
+            "C"
+        ))
+        
+
+        ######## FULL GEAR ########
+        
+        equipments.append(Equipment(
+            "Mercenary Helm",
+            "A sturdy helm favored by mercenaries, offering protection and enhancing focus.",
+            "helmet",
+            "Strength",
+            2.5,
+            1.5,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Mercenary Chestplate",
+            "A tough chestplate designed for battlefield endurance and strength.",
+            "body armor",
+            "Strength",
+            2.5,
+            1.5,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Mercenary Pants",
+            "Pants made for mercenaries, boosting strength and providing extra durability.",
+            "pants",
+            "Strength",
+            2.5,
+            1.5,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Mercenary Boots",
+            "Boots built for long campaigns, improving stamina and power.",
+            "boots",
+            "Strength",
+            2.5,
+            1.5,
+            "C"
+        ))
+
+        
+        ######## FULL GEAR ########
+        equipments.append(Equipment(
+            "Sorcery Hood",
+            "A hood woven with enchanted threads that amplify magical power.",
+            "helmet",
+            "Magic",
+            2.5,
+            1.7,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Sorcery Robe",
+            "A robe imbued with arcane energies, enhancing spellcasting abilities.",
+            "body armor",
+            "Magic",
+            2.5,
+            1.7,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Sorcery Pants",
+            "Pants made for sorcerers, boosting magic.",
+            "pants",
+            "Magic",
+            2.5,
+            1.7,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Sorcery Boots",
+            "Boots that increase mana flow and magical speed.",
+            "boots",
+            "Magic",
+            2.5,
+            1.7,
+            "C"
+        ))
+
 
         equipments.append(Equipment(
             "Flameguard Helm",                        # Name
@@ -891,13 +1515,15 @@ init python:
             1.8                                       # prio2: Scales Constitution by 1.8x
         ))
 
+        
         equipments.append(Equipment(
-            "Mercenary Pants",                        # Name
-            "Pants made for mercenaries, boosting strength and providing extra durability.",  # Description
-            "pants",                                  # Type
-            "Strength",                               # Class name
-            2.5,                                      # prio1: Scales Strength by 2.5x
-            1.5                                       # prio2: Scales Constitution by 1.5x
+            "Darksteel Body Armor",
+            "A body armor made from darksteel, offering immense protection but reducing speed.",
+            "body armor",
+            "Tank",
+            2.5,
+            1.4,
+            "C"
         ))
 
         equipments.append(Equipment(

@@ -297,6 +297,8 @@ label start:
     # 
     # TODO: add the rarity for the weapons and equipment
     # 
+    # TODO: add more weapons
+    # 
     return
 
 

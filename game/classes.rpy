@@ -501,7 +501,7 @@ init python:
 
     class Weapon:
         _id_counter = 0
-        def __init__(self, name, description, weapon_type, class_name, base_damage):
+        def __init__(self, name, description, weapon_type, class_name, base_damage, rarity):
             self.weapon_id = Weapon._id_counter
             Weapon._id_counter += 1
             self.name = name # name of the weapon
@@ -509,10 +509,11 @@ init python:
             self.type = weapon_type # the type (knife, sword, axe, lance, etc..)
             self.class_name = class_name # dexterity weapon / strength weapon / magic weapon
             self.base_damage = base_damage # damage
+            self.rarity = rarity
 
     class Equipment:
         _id_counter = 0
-        def __init__(self, name, description, equipment_type, class_name, prio1, prio2):
+        def __init__(self, name, description, equipment_type, class_name, prio1, prio2, rarity):
             self.equipment_id = Equipment._id_counter
             Equipment._id_counter += 1
             self.name = name # name of the equipment
@@ -521,3 +522,4 @@ init python:
             self.class_name = class_name # Dexterity / Strength / Magic / Tank / Shield / Evasion / Critical
             self.prio1 = prio1 # prio1 improvement (str, dex, con, int, wis, cha, luc)
             self.prio2 = prio2 # prio1 improvement (str, dex, con, int, wis, cha, luc)
+            self.rarity = rarity
