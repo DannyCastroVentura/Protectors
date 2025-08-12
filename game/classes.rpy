@@ -419,9 +419,8 @@ init python:
             self.status = status # possible values: not assigned / assigned / started # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
             self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
             if xp_received == None or gold_received == None:
-                randomNumber = renpy.random.randint(0, difficulty)
-                self.xp_received = (randomNumber) * 20
-                self.gold_received = (difficulty - randomNumber) * 10
+                self.xp_received = difficulty * 20
+                self.gold_received = difficulty * 10
             else:
                 self.xp_received = xp_received
                 self.gold_received = gold_received

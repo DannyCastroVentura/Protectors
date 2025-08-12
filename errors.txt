@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 264: unexpected indent
-    if totalIncrement < 1:
-       ^
+File "game/screens.rpy", line 2473: vbox expects a non-empty block.
+    if selected_mission.status != "started":
+                                            ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Aug 11 17:44:47 2025
+Tue Aug 12 16:57:36 2025

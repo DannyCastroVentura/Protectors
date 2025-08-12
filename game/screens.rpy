@@ -2355,129 +2355,183 @@ screen mission_screen(regionNumber):
         xalign 0.5
         yalign 0.5
         xsize 800
+        
         ysize 925
         padding (20, 20)
-
-        if mode == "list":
-            vbox:
-                spacing 10
-                xalign 0.5
-                yalign 0.0
+        vbox:
+            xsize 700
+            xalign 0.5  # center content inside the frame
+            if mode == "list":
                 vbox:
+                    spacing 10
                     xalign 0.5
-                    
+                    yalign 0.0
                     vbox:
                         xalign 0.5
-                        text "Missions" size 40
-                    
-                    vbox:
-                        xalign 0.5
-                        $ bossMission = next((m for m in bossMissions if m.regionNumber == regionNumber), None)
+                        
                         vbox:
                             xalign 0.5
-                            bar value bossMission.successfulMinorMissions range bossMission.successfulMinorMissionsRequired:
-                                xmaximum 400
-                                ymaximum 30
-
+                            text "Missions" size 40
+                        
+                        vbox:
+                            xalign 0.5
+                            $ bossMission = next((m for m in bossMissions if m.regionNumber == regionNumber), None)
                             vbox:
                                 xalign 0.5
-                                text "[bossMission.successfulMinorMissions] / [bossMission.successfulMinorMissionsRequired]" size 24
+                                bar value bossMission.successfulMinorMissions range bossMission.successfulMinorMissionsRequired:
+                                    xmaximum 400
+                                    ymaximum 30
 
-                for i in range(page * page_size, min((page + 1) * page_size, len(filtered_missions))):
-                    $ mission = filtered_missions[i]
-                    button:
-                        xfill True
-                        frame:
+                                vbox:
+                                    xalign 0.5
+                                    text "[bossMission.successfulMinorMissions] / [bossMission.successfulMinorMissionsRequired]" size 24
+
+                    for i in range(page * page_size, min((page + 1) * page_size, len(filtered_missions))):
+                        $ mission = filtered_missions[i]
+                        button:
                             xfill True
-                            background "#444"
-                            padding (10, 10)
-                            vbox:
-                                spacing 5
-                                text mission.title size 24 color "#fff"
-                                text mission.description size 16 color "#ccc"
-                                text "Difficulty: [mission.difficulty]" size 14 color "#aaa"
-                        action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_mission", mission)]
+                            frame:
+                                xfill True
+                                background "#444"
+                                padding (10, 10)
+                                vbox:
+                                    spacing 5
+                                    text mission.title size 24 color "#fff"
+                                    text mission.description size 16 color "#ccc"
+                                    text "Difficulty: [mission.difficulty]" size 14 color "#aaa"
+                            action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_mission", mission)]
 
-                hbox:
-                    spacing 20
-                    xalign 0.5
+                    hbox:
+                        spacing 20
+                        xalign 0.5
 
-                    if page > 0:
-                        textbutton "Previous" action SetScreenVariable("page", page - 1)
-                    else:
-                        textbutton "Previous" action NullAction() sensitive False
+                        if page > 0:
+                            textbutton "Previous" action SetScreenVariable("page", page - 1)
+                        else:
+                            textbutton "Previous" action NullAction() sensitive False
 
-                    if page < max_pages:
-                        textbutton "Next" action SetScreenVariable("page", page + 1)
-                    else:
-                        textbutton "Next" action NullAction() sensitive False
+                        if page < max_pages:
+                            textbutton "Next" action SetScreenVariable("page", page + 1)
+                        else:
+                            textbutton "Next" action NullAction() sensitive False
 
-                textbutton "Return" action Return() xalign 0.5
+                    textbutton "Return" action Return() xalign 0.5
 
-        elif mode == "detail" and selected_mission is not None:
-            vbox:
-                yalign 0.0
-                xalign 0.5
-                spacing 20
-                null height 40  # This adds 40 pixels of vertical space at the top
-                
+            elif mode == "detail" and selected_mission is not None:
                 vbox:
+                    yalign 0.0
                     xalign 0.5
-                    text "[selected_mission.title]" size 40 color "#000000"
+                    spacing 20
+                    xsize 700
+                    null height 40  # This adds 40 pixels of vertical space at the top
                     
                     vbox:
                         xalign 0.5
-                        spacing 20
-                        text "([selected_mission.mission_type])" size 30 color "#000000"
-                    
+                        text "[selected_mission.title]" size 40 color "#000000"
+                        
                         vbox:
                             xalign 0.5
-                            text "Difficulty: [selected_mission.difficulty]" size 20 color "#5a5a5a"
-                
-                text selected_mission.description size 18 color "#5a5a5a" xmaximum 640
-                $ neededDaysToFinish_day_name = "day"
-                $ disapearingInThisDays_day_name = "day"
-                if selected_mission.neededDaysToFinish > 1:
-                    $ neededDaysToFinish_day_name = "days"
-                if selected_mission.disapearingInThisDays > 1:
-                    $ disapearingInThisDays_day_name = "days"
-                text "Time it takes to complete: [selected_mission.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a" xmaximum 640
-                
-                if selected_mission.status == "assigned":
-                    text "Assigned protector: [my_protectors_map[selected_mission.assignedProtectorName].bigLetterName]" size 18 color "#5a5a5a" xmaximum 640
-                
-                if selected_mission.status != "started":
-                    text "Will disapear in [selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a" xmaximum 640
-            
-                # List of available protectors
-                $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
+                            spacing 20
+                            text "([selected_mission.mission_type])" size 30 color "#000000"
+                        
+                            vbox:
+                                xalign 0.5
+                                text "Difficulty: [selected_mission.difficulty]" size 20 color "#5a5a5a"
+                                
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                        
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
 
-                if selected_mission.status != "started":
-                    text "Assign a protector:" size 18 color "#5a5a5a"
+                    text selected_mission.description size 20 color "#5a5a5a"
+
+                    $ neededDaysToFinish_day_name = "day"
+                    $ disapearingInThisDays_day_name = "day"
+                    if selected_mission.neededDaysToFinish > 1:
+                        $ neededDaysToFinish_day_name = "days"
+                    if selected_mission.disapearingInThisDays > 1:
+                        $ disapearingInThisDays_day_name = "days"
+                        
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                        
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    hbox:
+                        xsize 700
+                        spacing 20
+
+                        vbox:
+                            xalign 0.0  # force to left
+                            spacing 20
+
+                            hbox:
+                                text "Payment:" size 18 color "#5a5a5a"
+                            hbox:
+                                text "Time it takes to complete:" size 18 color "#5a5a5a"
+                            if selected_mission.status != "started":
+                                hbox:
+                                    text "Will disappear in:" size 18 color "#5a5a5a"
+                            if selected_mission.status == "assigned":
+                                hbox:
+                                    text "Assigned protector:" size 18 color "#5a5a5a"
+
+                        vbox:
+                            xalign 1.0  # force to right
+                            spacing 20
+
+                            hbox:
+                                xalign 1.0  # force to right
+                                text "[selected_mission.gold_received] $" size 18 color "#5a5a5a"
+                            hbox:
+                                xalign 1.0  # force to right
+                                text "[selected_mission.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a"
+                            if selected_mission.status != "started":
+                                hbox:
+                                    xalign 1.0  # force to right
+                                    text "[selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a"
+                            if selected_mission.status == "assigned":
+                                hbox:
+                                    xalign 1.0  # force to right
+                                    text "[my_protectors_map[selected_mission.assignedProtectorName].bigLetterName]" size 18 color "#5a5a5a"
+
+                
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    # List of available protectors
+                    $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
+
+                    if selected_mission.status != "started":                    
+                        hbox:
+                            xalign 0.5
+                            spacing 10
+                            for protector in available_protectors:
+                                $ select_protector_button_style = "button_small_text"
+                                if protector.name == selected_mission.assignedProtectorName:
+                                    $ select_protector_button_style = "button_small_text_selected"
+                                textbutton protector.bigLetterName style str(select_protector_button_style) action Function(assign_protector, selected_mission.mission_id, protector.name)
+
+                            
+                            if len(available_protectors) == 0:
+                                text "There are no available protectors." size 15 color "#5a5a5a" xmaximum 640
+
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+
+                    
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    null ysize 1  # This adds 40 pixels of vertical space at the top
                     
                     hbox:
                         xalign 0.5
-                        spacing 10
-                        for protector in available_protectors:
-                            $ select_protector_button_style = "button_small_text"
-                            if protector.name == selected_mission.assignedProtectorName:
-                                $ select_protector_button_style = "button_small_text_selected"
-                            textbutton protector.bigLetterName style str(select_protector_button_style) action Function(assign_protector, selected_mission.mission_id, protector.name)
-
-                        
-                        if len(available_protectors) == 0:
-                            text "There are no available protectors." size 15 color "#5a5a5a" xmaximum 640
-
-
-                
-                null ysize 1  # This adds 40 pixels of vertical space at the top
-                
-                hbox:
-                    xalign 0.5
-                    spacing 20
-                    if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
-                        textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name)
-                    textbutton "Back" action SetScreenVariable("mode", "list")
+                        spacing 20
+                        if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
+                            textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name)
+                        textbutton "Back" action SetScreenVariable("mode", "list")
 
 
 
@@ -2609,7 +2663,7 @@ screen weapon_select(protector):
             # For each available weapon, create a button
             for weapon in myWeapons:
 
-                textbutton weapon.name:
+                textbutton "[weapon.name] ([weapon.rarity])":
                     action [Function(protector.equip_weapon, weapon.weapon_id), Hide("weapon_select")]
                     xminimum 200
                     ypadding 10
@@ -2637,8 +2691,7 @@ screen equipment_select(protector, equipment_type):
             $ filtered_equipments = [equipment for equipment in myEquipments if equipment.type == equipment_type]
             # For each available equipment, create a button
             for equipment in filtered_equipments:
-
-                textbutton equipment.name:
+                textbutton "[equipment.name] ([equipment.rarity])":
                     action [Function(protector.equip_equipment, equipment.equipment_id), Hide("equipment_select")]
                     xminimum 200
                     ypadding 10

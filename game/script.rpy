@@ -109,7 +109,8 @@ label start:
     mc "Alright. Let’s see who they are."
 
     hide nova
-    # TODO: change the first 3 protectors, so we remove the samurai, and add the recruit
+    # TODO: add a magic protector
+    # TODO: change the first 3 protectors, so we remove the samurai, and add a sorcerer
     call showFirst3Protectors()
 
     nova "These are the candidates.."
