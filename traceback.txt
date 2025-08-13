@@ -1,63 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/places.rpy", line 13, in script
-    "Base of Operations"
-  File "game/screens.rpy", line 2042, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2042, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2043, in execute
-    if my_protector.readyForPromotion == True:
-  File "game/screens.rpy", line 2389, in execute
+While loading <renpy.display.im.Scale object at 0x000000001cc3a330>:
+  File "game/places.rpy", line 14, in script
+    menu:
+  File "game/screens.rpy", line 1962, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/screens.rpy", line 1962, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/screens.rpy", line 1963, in execute
     frame:
-  File "game/screens.rpy", line 2394, in execute
+  File "game/screens.rpy", line 1969, in execute
     fixed:
-  File "game/screens.rpy", line 2659, in execute
+  File "game/screens.rpy", line 2003, in execute
     vbox:
-  File "game/screens.rpy", line 2668, in execute
+  File "game/screens.rpy", line 2008, in execute
+    hbox:
+  File "game/screens.rpy", line 2025, in execute
     vbox:
-  File "game/screens.rpy", line 2671, in execute
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 2671, in keywords
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 2671, in <module>
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~                                                     
-  File "game/classes.rpy", line 180, in get_health_points
-    return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
-                                                   ~~~~~~~~~~~~~~~~~^^     
-  File "game/classes.rpy", line 159, in get_strength
-    return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_strength_increments())
-                                                                                                                                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^ 
-  File "game/classes.rpy", line 244, in get_strength_increments
-    if prios["prio1"] == searchingClassName:
-       ~~~~~^^^^^^^^^                       
-KeyError: 'prio1'
+  File "game/screens.rpy", line 2030, in execute
+    if weaponOrEquipment_type == "w":
+  File "game/screens.rpy", line 2033, in execute
+    text "[equip_equipment.class_name]"
+NameError: name 'equip_equipment' is not defined. Did you mean: 'show_equipment'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 13, in script
-    "Base of Operations"
-  File "renpy/ast.py", line 2915, in execute
-    Say.execute(self)
-    ~~~~~~~~~~~^^^^^^
-  File "renpy/ast.py", line 991, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/sayexports.py", line 129, in say
-    who(what, *args, **kwargs)
-    ~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/character.py", line 1543, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/character.py", line 1198, in do_display
-    display_say(who, what, self.do_show, **display_args)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/character.py", line 888, in display_say
-    rv = renpy.ui.interact(mouse="say", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/places.rpy", line 14, in script
+    menu:
+  File "renpy/ast.py", line 1815, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 135, in menu
+    rv = renpy.store.menu(new_items)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 418, in display_menu
+    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,45 +74,48 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2042, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2042, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2043, in execute
-    if my_protector.readyForPromotion == True:
-  File "game/screens.rpy", line 2389, in execute
+  File "game/screens.rpy", line 1962, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/screens.rpy", line 1962, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/screens.rpy", line 1963, in execute
     frame:
-  File "game/screens.rpy", line 2394, in execute
+  File "game/screens.rpy", line 1969, in execute
     fixed:
-  File "game/screens.rpy", line 2659, in execute
+  File "game/screens.rpy", line 2003, in execute
     vbox:
-  File "game/screens.rpy", line 2668, in execute
+  File "game/screens.rpy", line 2008, in execute
+    hbox:
+  File "game/screens.rpy", line 2025, in execute
     vbox:
-  File "game/screens.rpy", line 2671, in execute
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 2671, in keywords
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+  File "game/screens.rpy", line 2030, in execute
+    if weaponOrEquipment_type == "w":
+  File "game/screens.rpy", line 2033, in execute
+    text "[equip_equipment.class_name]"
+  File "renpy/text/text.py", line 2292, in _scope
+    return self.set_text(self.text_parameter, scope, self.substitute, update)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/text/text.py", line 2329, in set_text
+    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)  # type: ignore
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^                
+  File "renpy/substitutions.py", line 355, in substitute
+    s = interpolate(s, variables)  # type: ignore
+        ~~~~~~~~~~~^^^^^^^^^^^^^^                
+  File "renpy/substitutions.py", line 89, in interpolate
+    raise e
+  File "renpy/substitutions.py", line 81, in interpolate
+    value = renpy.python.py_eval(code, {}, scope)
+            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1292, in py_eval
     return py_eval_bytecode(code, globals, locals)
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1285, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2671, in <module>
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~                                                     
-  File "game/classes.rpy", line 180, in get_health_points
-    return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
-                                                   ~~~~~~~~~~~~~~~~~^^     
-  File "game/classes.rpy", line 159, in get_strength
-    return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_strength_increments())
-                                                                                                                                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^ 
-  File "game/classes.rpy", line 244, in get_strength_increments
-    if prios["prio1"] == searchingClassName:
-       ~~~~~^^^^^^^^^                       
-KeyError: 'prio1'
+  File "<none>", line 1, in <module>
+NameError: name 'equip_equipment' is not defined. Did you mean: 'show_equipment'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Wed Aug 13 17:44:26 2025
+Wed Aug 13 17:56:18 2025

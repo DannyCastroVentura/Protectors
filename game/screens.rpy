@@ -2017,11 +2017,12 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                             text "Base damage:" size 22 color "#EEE"
 
                         elif weaponOrEquipment_type == "e":
-                            text "Prio1:" size 22 color "#EEE"
-                            text "Prio2:" size 22 color "#EEE"
+                            text "Improved attribute 1:" size 22 color "#EEE"
+                            text "Improved attribute 2:" size 22 color "#EEE"
 
                         text "Rarity:" size 22 color "#EEE"
                         
+                    # TODO: add the description to be out of this.
                     vbox:
                         xalign 0.5
                         text "[str(equipment_or_weapon.description)]" size 22 color "#EEE"
@@ -2030,8 +2031,8 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         if weaponOrEquipment_type == "w":
                             text "[str(equipment_or_weapon.base_damage)]" size 22 color "#EEE"
                         elif weaponOrEquipment_type == "e":
-                            text "[str(equipment_or_weapon.prio1)]" size 22 color "#EEE"
-                            text "[str(equipment_or_weapon.prio2)]" size 22 color "#EEE"
+                            text "[str(equipment_stats_increments[equipment_or_weapon.class_name]['prio1'])] (x[str(equipment_or_weapon.prio1 + 1)])" size 22 color "#EEE"
+                            text "[str(equipment_stats_increments[equipment_or_weapon.class_name]['prio2'])] (x[str(equipment_or_weapon.prio2 + 1)])" size 22 color "#EEE"
                         
                         text "[str(equipment_or_weapon.rarity)]" size 22 color "#EEE"
                             
