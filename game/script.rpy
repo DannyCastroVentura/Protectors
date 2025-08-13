@@ -117,7 +117,7 @@ label start:
 
     hide nova
     # TODO: add a magic protector
-    # TODO: change the first 3 protectors, so we remove the samurai, and add a sorcerer
+    # TODO: change the first 3 protectors, so we remove the Samurai, and add a sorcerer
     call showFirst3Protectors()
 
     nova "These are the candidates.."
@@ -135,15 +135,15 @@ label start:
                 hide templar_starting
                 hide samurai_starting
                 show ninja_starting at fit_to_screen_height, farMidRight
-                show screen base_stats(protectors_base_information['ninja'])
+                show screen base_stats(protectors_base_information['Ninja'])
                 nova "Are you sure you want to choose the Ninja for your first protector?"
                 menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
-                        $ first_protector_selected = "ninja"
+                        $ first_protector_selected = "Ninja"
                         nova "Great!"
                         nova "I'm adding Ninja to your list of protectors!"
-                        $ firstProtector = add_new_protector("ninja")
+                        $ firstProtector = add_new_protector("Ninja")
                         nova "Ninja added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -151,15 +151,15 @@ label start:
                 hide ninja_starting
                 hide samurai_starting
                 show templar_starting at fit_to_screen_height, farMidRight
-                show screen base_stats(protectors_base_information['templar'])
+                show screen base_stats(protectors_base_information['Templar'])
                 nova "Are you sure you want to choose the Templar for your first protector?"
                 menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
-                        $ first_protector_selected = "templar"
+                        $ first_protector_selected = "Templar"
                         nova "Great!"
                         nova "I'm adding Templar to your list of protectors!"
-                        $ firstProtector = add_new_protector("templar")
+                        $ firstProtector = add_new_protector("Templar")
                         nova "Templar added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -167,15 +167,15 @@ label start:
                 hide ninja_starting
                 hide templar_starting
                 show samurai_starting at fit_to_screen_height, farMidRight
-                show screen base_stats(protectors_base_information['samurai'])
+                show screen base_stats(protectors_base_information['Samurai'])
                 nova "Are you sure you want to choose the Samurai for your first protector?"
                 menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
-                        $ first_protector_selected = "samurai"
+                        $ first_protector_selected = "Samurai"
                         nova "Great!"
                         nova "I'm adding Samurai to your list of protectors!"
-                        $ firstProtector = add_new_protector("samurai")
+                        $ firstProtector = add_new_protector("Samurai")
                         nova "Samurai added!"
                     "What were the other ones?":
                         nova "Let's recap."
@@ -314,17 +314,17 @@ label showFirst3Protectors():
     hide samurai_starting
     hide ninja_starting
 
-    # showing ninja
-    image ninja_starting = getImage(f"{get_folder_from_map("ninja")}/1")
+    # showing Ninja
+    image ninja_starting = getImage(f"{get_folder_from_map("Ninja")}/1")
     show ninja_starting at fit_to_screen_height, farLeft
     
-    # showing templar
+    # showing Templar
     
-    image templar_starting = getImage(f"{get_folder_from_map("templar")}/1")
+    image templar_starting = getImage(f"{get_folder_from_map("Templar")}/1")
     show templar_starting at fit_to_screen_height, center
 
-    # showing samurai
-    image samurai_starting = getImage(f"{get_folder_from_map("samurai")}/1")
+    # showing Samurai
+    image samurai_starting = getImage(f"{get_folder_from_map("Samurai")}/1")
     show samurai_starting at fit_to_screen_height, farRight
 
     return

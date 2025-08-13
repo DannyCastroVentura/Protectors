@@ -1707,6 +1707,7 @@ screen my_equipment_screen():
                     vbox:
                         spacing 20  # Reduced space between quests
                         text "Weapons:"
+                        $ weaponOrEquipment_type = "w"
                         for my_protector in my_protectors_map.values():
                             if my_protector.equipedWeapon != None:
                                 $ weapon = my_protector.equipedWeapon
@@ -1722,19 +1723,17 @@ screen my_equipment_screen():
                                     $ my_color = AClassColor
                                 if weapon.rarity == "S":
                                     $ my_color = SClassColor
-                                # TODO: check also if its possible to change the color of the text between them
-                                $ weapon_name = "{{size=30}}{} ({}){{/size}}".format(weapon.name, rarity)
-                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                $ weapon_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, weapon.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                 button:
                                     background "#00000020"
                                     padding (5, 5)
                                     xfill True
-                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    action Show("equipment_detail_screen", None, weaponOrEquipment_type, weapon, my_protector)
                                     text "[weapon_name]\n[protector_name]":
                                         xalign 0.5 
                                         text_align 0.5
-                                        line_spacing 0 
-                                        color my_color
+                                        line_spacing 0
 
                         for weapon in myWeapons:
                             $ my_color = EClassColor
@@ -1753,8 +1752,7 @@ screen my_equipment_screen():
                                 background "#00000020"
                                 padding (5, 5)
                                 xfill True
-                                # TODO: need to update this
-                                action Show("protector_detail_screen", my_protector=weapon)
+                                action Show("equipment_detail_screen", None, weaponOrEquipment_type, weapon)
 
                                 text "{} ({})".format(weapon.name, rarity):
                                     size 30
@@ -1763,6 +1761,7 @@ screen my_equipment_screen():
                                     line_spacing 0
                         
                         text "Equipment:"
+                        $ weaponOrEquipment_type = "e"
                         for my_protector in my_protectors_map.values():
                             if my_protector.equipedHelmet != None:
                                 $ equipment = my_protector.equipedHelmet
@@ -1778,18 +1777,17 @@ screen my_equipment_screen():
                                     $ my_color = AClassColor
                                 if equipment.rarity == "S":
                                     $ my_color = SClassColor
-                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
-                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                 button:
                                     background "#00000020"
                                     padding (5, 5)
                                     xfill True
-                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    action Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
                                     text "[equipment_name]\n[protector_name]":
                                         xalign 0.5 
                                         text_align 0.5
-                                        line_spacing 0 
-                                        color my_color
+                                        line_spacing 0
                             if my_protector.equipedBodyArmor != None:
                                 $ equipment = my_protector.equipedBodyArmor
                                 $ my_color = EClassColor
@@ -1804,18 +1802,17 @@ screen my_equipment_screen():
                                     $ my_color = AClassColor
                                 if equipment.rarity == "S":
                                     $ my_color = SClassColor
-                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
-                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                 button:
                                     background "#00000020"
                                     padding (5, 5)
                                     xfill True
-                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    action Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
                                     text "[equipment_name]\n[protector_name]":
                                         xalign 0.5 
                                         text_align 0.5
-                                        line_spacing 0 
-                                        color my_color
+                                        line_spacing 0
                             if my_protector.equipedPants != None:
                                 $ equipment = my_protector.equipedPants
                                 $ my_color = EClassColor
@@ -1830,18 +1827,17 @@ screen my_equipment_screen():
                                     $ my_color = AClassColor
                                 if equipment.rarity == "S":
                                     $ my_color = SClassColor
-                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
-                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                 button:
                                     background "#00000020"
                                     padding (5, 5)
                                     xfill True
-                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    action Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
                                     text "[equipment_name]\n[protector_name]":
                                         xalign 0.5 
                                         text_align 0.5
-                                        line_spacing 0 
-                                        color my_color
+                                        line_spacing 0
                             if my_protector.equipedBoots != None:
                                 $ equipment = my_protector.equipedBoots
                                 $ my_color = EClassColor
@@ -1856,18 +1852,17 @@ screen my_equipment_screen():
                                     $ my_color = AClassColor
                                 if equipment.rarity == "S":
                                     $ my_color = SClassColor
-                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
-                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                 button:
                                     background "#00000020"
                                     padding (5, 5)
                                     xfill True
-                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    action Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
                                     text "[equipment_name]\n[protector_name]":
                                         xalign 0.5 
                                         text_align 0.5
-                                        line_spacing 0 
-                                        color my_color
+                                        line_spacing 0
                         for equipment in myEquipments:
                             $ my_color = EClassColor
                             $ rarity = equipment.rarity
@@ -1885,8 +1880,7 @@ screen my_equipment_screen():
                                 background "#00000020"
                                 padding (5, 5)
                                 xfill True
-                                # TODO: need to update this
-                                action Show("protector_detail_screen", my_protector=equipment)
+                                action Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment)
 
                                 text "{} ({})".format(equipment.name, rarity):
                                     size 30
@@ -1950,7 +1944,7 @@ screen my_protectors_screen():
                                 xfill True
                                 action Show("protector_detail_screen", my_protector=my_protector)
 
-                                text "{} ({})".format(my_protector.bigLetterName, message):
+                                text "{} ({})".format(my_protector.name, message):
                                     size 30
                                     xalign 0.5 
                                     color my_color
@@ -1964,6 +1958,86 @@ screen current_day_screen():
             background "#4448"
             text_color "b3b3b3"
             text_size 40
+
+screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+    frame:
+        modal True
+        background Solid("#000000ea")
+        xysize (config.screen_width, config.screen_height)
+        $ scale = 600
+
+        fixed:
+            xfill True
+            yfill True
+
+            # Close button - top right
+            textbutton "Close" action Hide("equipment_detail_screen"):
+                text_style "hover_white"
+                xalign 1.0
+                yalign 0.0
+                padding (10, 5)
+            vbox:
+                yalign 0.1
+                xalign 0.5
+                text "[equipment_or_weapon.name] ([equipment_or_weapon.rarity])" size 50 color "#FFF" xalign 0.5
+            vbox:
+                spacing 20
+                xalign 0.9
+                yalign 0.5
+                $ background = im.Scale("images/weapons/background_item.png", scale, scale)
+
+                
+                if weaponOrEquipment_type == "w":
+                    $ e_or_w_image = "images/weapons/{}.png".format(equipment_or_weapon.type)
+                    $ e_or_w_scaled = im.Scale(e_or_w_image, scale, scale)
+                elif weaponOrEquipment_type == "e":
+                    $ e_or_w_image = "images/equipment/{}.png".format(equipment_or_weapon.type)
+                    $ e_or_w_scaled = im.Scale(e_or_w_image, scale, scale)
+                    
+                frame:
+                    add im.Composite(
+                        (scale, scale),
+                        (0, 0), background,
+                        (0, 0), e_or_w_scaled
+                    )
+            vbox:
+                spacing 20
+                xalign 0.1
+                yalign 0.5
+                
+                hbox:
+                    xalign 0.5
+                    spacing 20
+                    vbox:
+                        xalign 0.5
+                        text "Description:" size 22 color "#EEE"
+                        text "Type:" size 22 color "#EEE"
+                        text "Class:" size 22 color "#EEE"
+                        if weaponOrEquipment_type == "w":
+                            text "Base damage:" size 22 color "#EEE"
+
+                        elif weaponOrEquipment_type == "e":
+                            text "Prio1:" size 22 color "#EEE"
+                            text "Prio2:" size 22 color "#EEE"
+
+                        text "Rarity:" size 22 color "#EEE"
+                        
+                    vbox:
+                        xalign 0.5
+                        text "[str(equipment_or_weapon.description)]" size 22 color "#EEE"
+                        text "[str(equipment_or_weapon.type)]" size 22 color "#EEE"
+                        text "[str(equipment_or_weapon.class_name)]" size 22 color "#EEE"
+                        if weaponOrEquipment_type == "w":
+                            text "[str(equipment_or_weapon.base_damage)]" size 22 color "#EEE"
+                        elif weaponOrEquipment_type == "e":
+                            text "[str(equipment_or_weapon.prio1)]" size 22 color "#EEE"
+                            text "[str(equipment_or_weapon.prio2)]" size 22 color "#EEE"
+                        
+                        text "[str(equipment_or_weapon.rarity)]" size 22 color "#EEE"
+                            
+                        
+                
+                                    
 
 screen protector_detail_screen(my_protector):
     if my_protector.readyForPromotion == True:
@@ -1994,7 +2068,7 @@ screen protector_detail_screen(my_protector):
                 vbox:
                     yalign 0.1
                     xalign 0.5
-                    text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
+                    text "[my_protector.name] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
                 vbox:
                     spacing 20
                     xalign 0.1
@@ -2006,7 +2080,7 @@ screen protector_detail_screen(my_protector):
                     vbox:
                         xalign 0.5
                         spacing 20
-                        $ empty_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         if my_protector.equipedWeapon == None:
                             $ weapon_img = "images/weapons/default_weapon.png"
                             $ weapon_scaled = im.Scale(weapon_img, 200, 200)
@@ -2056,19 +2130,19 @@ screen protector_detail_screen(my_protector):
                         
                         $ helmet_img = "images/equipment/default_helmet.png"
                         $ helmet_scaled = im.Scale(helmet_img, 200, 200)
-                        $ empty_helmet_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_helmet_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         
                         $ body_armour_img = "images/equipment/default_body_armor.png"
                         $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
-                        $ empty_body_armour_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_body_armour_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         
                         $ pants_img = "images/equipment/default_pants.png"
                         $ pants_scaled = im.Scale(pants_img, 200, 200)
-                        $ empty_pants_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_pants_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         
                         $ boots_img = "images/equipment/default_boots.png"
                         $ boots_scaled = im.Scale(boots_img, 200, 200)
-                        $ empty_boots_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_boots_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                     vbox:
                         xalign 0.5
                         spacing 20
@@ -2296,7 +2370,7 @@ screen protector_detail_screen(my_protector):
                                 xalign 0.5
                                 text "[str(my_protector.get_damage_points())]" size 30 color "#EEE"
                         vbox:
-                            text "Do you want to promote [my_protector.bigLetterName]?" size 30 color "#FFF" xalign 0.5
+                            text "Do you want to promote [my_protector.name]?" size 30 color "#FFF" xalign 0.5
 
                             hbox:
                                 xalign 0.5
@@ -2339,7 +2413,7 @@ screen protector_detail_screen(my_protector):
                 vbox:
                     yalign 0.1
                     xalign 0.5
-                    text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
+                    text "[my_protector.name] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
                 # Text block - vertically centered on left side
                 vbox:
                     spacing 20
@@ -2352,7 +2426,7 @@ screen protector_detail_screen(my_protector):
                     vbox:
                         xalign 0.5
                         spacing 20
-                        $ empty_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         if my_protector.equipedWeapon == None:
                             $ weapon_img = "images/weapons/default_weapon.png"
                             $ weapon_scaled = im.Scale(weapon_img, 200, 200)
@@ -2402,19 +2476,19 @@ screen protector_detail_screen(my_protector):
                         
                         $ helmet_img = "images/equipment/default_helmet.png"
                         $ helmet_scaled = im.Scale(helmet_img, 200, 200)
-                        $ empty_helmet_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_helmet_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         
                         $ body_armour_img = "images/equipment/default_body_armor.png"
                         $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
-                        $ empty_body_armour_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_body_armour_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         
                         $ pants_img = "images/equipment/default_pants.png"
                         $ pants_scaled = im.Scale(pants_img, 200, 200)
-                        $ empty_pants_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_pants_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                         
                         $ boots_img = "images/equipment/default_boots.png"
                         $ boots_scaled = im.Scale(boots_img, 200, 200)
-                        $ empty_boots_scaled = im.Scale("images/weapons/background_weapon.png", 200, 200)
+                        $ empty_boots_scaled = im.Scale("images/weapons/background_item.png", 200, 200)
                     vbox:
                         xalign 0.5
                         spacing 20
@@ -2669,12 +2743,12 @@ screen protector_selection(isThisMission):
                 for key, protector in my_protectors_map.items():
                     if protector.status == "Available":
                         $ has_available = True
-                        textbutton protector.bigLetterName + ' (' + str(protector.status) + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump(where_to)]
+                        textbutton protector.name + ' (' + str(protector.status) + ')' xalign 0.5 action [SetVariable("selected_protector", protector), Jump(where_to)]
 
                 if not has_available:
                     text "No protectors are currently available." xalign 0.5
             else: 
-                text "Training facility already occupied with: [my_protectors_map[allMissions[0].assignedProtectorName].bigLetterName] " xalign 0.5
+                text "Training facility already occupied with: [my_protectors_map[allMissions[0].assignedProtectorName].name] " xalign 0.5
             textbutton "Back" action Return():
                 text_style "hover_black"
                 xalign 0.5
@@ -2833,7 +2907,7 @@ screen mission_screen(regionNumber):
                             if selected_mission.status == "assigned":
                                 hbox:
                                     xalign 1.0  # force to right
-                                    text "[my_protectors_map[selected_mission.assignedProtectorName].bigLetterName]" size 18 color "#5a5a5a"
+                                    text "[my_protectors_map[selected_mission.assignedProtectorName].name]" size 18 color "#5a5a5a"
 
                 
                     vbox:
@@ -2851,7 +2925,7 @@ screen mission_screen(regionNumber):
                                 $ select_protector_button_style = "button_small_text"
                                 if protector.name == selected_mission.assignedProtectorName:
                                     $ select_protector_button_style = "button_small_text_selected"
-                                textbutton protector.bigLetterName style str(select_protector_button_style) action Function(assign_protector, selected_mission.mission_id, protector.name)
+                                textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.mission_id, protector.name)
 
                             
                             if len(available_protectors) == 0:
@@ -2948,9 +3022,9 @@ screen base_stats(baseProtectorObject):
 screen weapon_base_stats(weaponObject):
     key config.keymap["hide_windows"] action None
     $ build = "Strength-focused protectors"
-    if weaponObject.class_name == "Dexterity weapon":
+    if weaponObject.class_name == "Dexterity":
         $ build = "Dexterity-focused protectors"
-    if weaponObject.class_name == "Magic weapon":
+    if weaponObject.class_name == "Magic":
         $ build = "Intelligence- and Wisdom-focused protectors"
 
     frame:

@@ -11,6 +11,36 @@ default missionsToDelete = []
 define config.console = True
 # define config.keymap["hide_windows"] = []
 default allMissionTemplates = []
+default equipment_stats_increments = {
+    "Dexterity": {
+        "prio1": "Dexterity",
+        "prio2": "Strength"
+    },
+    "Strength": {
+        "prio1": "Strength",
+        "prio2": "Dexterity"
+    },
+    "Magic": {
+        "prio1": "Intelligence",
+        "prio2": "Wisdom"
+    },
+    "Tank": {
+        "prio1": "Constitution",
+        "prio2": "Strength"
+    },
+    "Shield": {
+        "prio1": "Constitution",
+        "prio2": "Dexterity"
+    },
+    "Evasion": {
+        "prio1": "Dexterity",
+        "prio2": "Luck"
+    },
+    "Critical": {
+        "prio1": "Luck",
+        "prio2": "Dexterity"
+    }
+}
 
 init python:
     import os
@@ -48,6 +78,38 @@ init python:
 
     if 'allMissionTemplates' not in globals():
         allMissionTemplates = []
+
+    if 'equipment_stats_increments' not in globals():
+        equipment_stats_increments = {
+            "Dexterity": {
+                "prio1": "Dexterity",
+                "prio2": "Strength"
+            },
+            "Strength": {
+                "prio1": "Strength",
+                "prio2": "Dexterity"
+            },
+            "Magic": {
+                "prio1": "Intelligence",
+                "prio2": "Wisdom"
+            },
+            "Tank": {
+                "prio1": "Constitution",
+                "prio2": "Strength"
+            },
+            "Shield": {
+                "prio1": "Constitution",
+                "prio2": "Dexterity"
+            },
+            "Evasion": {
+                "prio1": "Dexterity",
+                "prio2": "Luck"
+            },
+            "Critical": {
+                "prio1": "Luck",
+                "prio2": "Dexterity"
+            }
+        }
     
     dynamic_backgrounds = {}
 
@@ -111,7 +173,7 @@ init python:
 
     def add_new_protector(protector_name, stage = 1, level = 1):
         global my_protectors_map
-        my_protectors_map[protector_name] = Protector(protector_name, capitalize_first_letter(protector_name), stage, level, "Available")
+        my_protectors_map[protector_name] = Protector(protector_name, stage, level, "Available")
         return my_protectors_map[protector_name]
 
     def get_count_of_my_protectors():

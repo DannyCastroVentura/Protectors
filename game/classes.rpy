@@ -34,9 +34,8 @@ init python:
             }
 
     class Protector:
-        def __init__(self, name, bigLetterName, stage, level, status, xp = 0):
+        def __init__(self, name, stage, level, status, xp = 0):
             self.name = name
-            self.bigLetterName = bigLetterName
             self.stage = stage
             self.level = level
             self.status = status
@@ -187,11 +186,11 @@ init python:
         def get_damage_points(self):
             if self.equipedWeapon == None:
                 return 3 + self.get_strength() * 2 + self.get_dexterity()
-            elif self.equipedWeapon.class_name == "Strength weapon":
+            elif self.equipedWeapon.class_name == "Strength":
                 return self.equipedWeapon.base_damage + self.get_strength() * 2 + self.get_dexterity()
-            elif self.equipedWeapon.class_name == "Dexterity weapon":
+            elif self.equipedWeapon.class_name == "Dexterity":
                 return self.equipedWeapon.base_damage + self.get_dexterity() * 2 + self.get_strength()
-            elif self.equipedWeapon.class_name == "Magic weapon":
+            elif self.equipedWeapon.class_name == "Magic":
                 return self.equipedWeapon.base_damage + self.get_intelligence() * 2 + self.get_wisdom()
             return 0 
 
@@ -218,36 +217,56 @@ init python:
                 "luck": self.get_luck()
             }
 
+
+
+        # dexterity -> prio1 -> dexterity
+        #           -> prio2 -> strength
+        # Strength  -> prio1 -> strength
+        #           -> prio2 -> dexterity
+        # magic     -> prio1 -> intelligence
+        #           -> prio2 -> wisdom
+        # tank      -> prio1 -> constitution
+        #           -> prio2 -> strength
+        # shield    -> prio1 -> constitution
+        #           -> prio2 -> dexterity
+        # Evasion   -> prio1 -> dexterity
+        #           -> prio2 -> luck
+        # Critical  -> prio1 -> luck
+        #           -> prio2 -> dexterity
+        
+        # TODO: do this way for the others as well
         def get_strength_increments(self):
             totalIncrement = 1
-            if self.equipedHelmet != None:
-                if self.equipedHelmet.class_name == "Strength":
-                    totalIncrement += self.equipedHelmet.prio1
-                if self.equipedHelmet.class_name == "Dexterity":
-                    totalIncrement += self.equipedHelmet.prio2
-                if self.equipedHelmet.class_name == "Tank":
-                    totalIncrement += self.equipedHelmet.prio2
-            if self.equipedBodyArmor != None:
-                if self.equipedBodyArmor.class_name == "Strength":
-                    totalIncrement += self.equipedBodyArmor.prio1
-                if self.equipedBodyArmor.class_name == "Dexterity":
-                    totalIncrement += self.equipedBodyArmor.prio2
-                if self.equipedBodyArmor.class_name == "Tank":
-                    totalIncrement += self.equipedBodyArmor.prio2
-            if self.equipedPants != None:
-                if self.equipedPants.class_name == "Strength":
-                    totalIncrement += self.equipedPants.prio1
-                if self.equipedPants.class_name == "Dexterity":
-                    totalIncrement += self.equipedPants.prio2
-                if self.equipedPants.class_name == "Tank":
-                    totalIncrement += self.equipedPants.prio2
-            if self.equipedBoots != None:
-                if self.equipedBoots.class_name == "Strength":
-                    totalIncrement += self.equipedBoots.prio1
-                if self.equipedBoots.class_name == "Dexterity":
-                    totalIncrement += self.equipedBoots.prio2
-                if self.equipedBoots.class_name == "Tank":
-                    totalIncrement += self.equipedBoots.prio2
+            searchingClassName = "Strength"
+            for className, prios in equipment_stats_increments.items():
+                # helmet
+                if self.equipedHelmet is not None:
+                    if self.equipedHelmet.class_name == className:
+                        if prios["prio1"] == searchingClassName:
+                            totalIncrement += self.equipedHelmet.prio1
+                        if prios["prio2"] == searchingClassName:
+                            totalIncrement += self.equipedHelmet.prio2
+                # body armor
+                if self.equipedBodyArmor is not None:
+                    if self.equipedBodyArmor.class_name == className:
+                        if prios["prio1"] == searchingClassName:
+                            totalIncrement += self.equipedBodyArmor.prio1
+                        if prios["prio2"] == searchingClassName:
+                            totalIncrement += self.equipedBodyArmor.prio2
+                # pants
+                if self.equipedPants is not None:
+                    if self.equipedPants.class_name == className:
+                        if prios["prio1"] == searchingClassName:
+                            totalIncrement += self.equipedPants.prio1
+                        if prios["prio2"] == searchingClassName:
+                            totalIncrement += self.equipedPants.prio2
+                # boots
+                if self.equipedBoots is not None:
+                    if self.equipedBoots.class_name == className:
+                        if prios["prio1"] == searchingClassName:
+                            totalIncrement += self.equipedBoots.prio1
+                        if prios["prio2"] == searchingClassName:
+                            totalIncrement += self.equipedBoots.prio2
             return totalIncrement
         
         def get_dexterity_increments(self):
@@ -441,10 +460,10 @@ init python:
             #   -   depending on the type of the mission, different things on the protector would be evaluated
 
             # getting the show off name for the protector
-            bigLetterName = my_protectors_map[self.assignedProtectorName].bigLetterName
+            name = my_protectors_map[self.assignedProtectorName].name
 
             # notifying that the mission was completed
-            renpy.notify(f"{bigLetterName} has successfully completed {self.title}.")
+            renpy.notify(f"{name} has successfully completed {self.title}.")
 
             # updating the protector status and xp
             my_protectors_map[self.assignedProtectorName].status = "Available"
@@ -501,7 +520,7 @@ init python:
             self.name = name # name of the weapon
             self.description = description # a small description for the weapon, it also can have a story of the weapon
             self.type = weapon_type # the type (knife, sword, axe, lance, etc..)
-            self.class_name = class_name # dexterity weapon / strength weapon / magic weapon
+            self.class_name = class_name # dexterity / strength / magic
             self.base_damage = base_damage # damage
             self.rarity = rarity
 
