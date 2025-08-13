@@ -44,7 +44,7 @@ init python:
             self.readyForPromotion = False
             self.equipedWeapon = None
             self.equipedHelmet = None
-            self.equipedBodyArmour = None
+            self.equipedBodyArmor = None
             self.equipedPants = None
             self.equipedBoots = None
             self.basePoints = protectors_base_information[name]
@@ -93,8 +93,8 @@ init python:
                     return
                 myEquipments.remove(equipment)
             elif equipment.type == "body armor":
-                if self.equipedBodyArmour == None:
-                    self.equipedBodyArmour = equipment
+                if self.equipedBodyArmor == None:
+                    self.equipedBodyArmor = equipment
                 else:
                     return
                 myEquipments.remove(equipment)
@@ -124,8 +124,8 @@ init python:
                 myEquipments.append(self.equipedHelmet)
                 self.equipedHelmet = None
             if type_equipment == "body armor":
-                myEquipments.append(self.equipedBodyArmour)
-                self.equipedBodyArmour = None
+                myEquipments.append(self.equipedBodyArmor)
+                self.equipedBodyArmor = None
             if type_equipment == "pants":
                 myEquipments.append(self.equipedPants)
                 self.equipedPants = None
@@ -156,8 +156,6 @@ init python:
         # Critical  -> prio1 -> luck
         #           -> prio2 -> dexterity
 
-        # TODO: think of a way to make the equipment incrementing better
-        #   -   as I want this to improve it in a way that each armor to multiply the real stats, and not to multiply with each other - I'm not sure if this is already done or not, I need to check this better
         def get_strength(self):
             return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_strength_increments())
         
@@ -229,13 +227,13 @@ init python:
                     totalIncrement += self.equipedHelmet.prio2
                 if self.equipedHelmet.class_name == "Tank":
                     totalIncrement += self.equipedHelmet.prio2
-            if self.equipedBodyArmour != None:
-                if self.equipedBodyArmour.class_name == "Strength":
-                    totalIncrement += self.equipedBodyArmour.prio1
-                if self.equipedBodyArmour.class_name == "Dexterity":
-                    totalIncrement += self.equipedBodyArmour.prio2
-                if self.equipedBodyArmour.class_name == "Tank":
-                    totalIncrement += self.equipedBodyArmour.prio2
+            if self.equipedBodyArmor != None:
+                if self.equipedBodyArmor.class_name == "Strength":
+                    totalIncrement += self.equipedBodyArmor.prio1
+                if self.equipedBodyArmor.class_name == "Dexterity":
+                    totalIncrement += self.equipedBodyArmor.prio2
+                if self.equipedBodyArmor.class_name == "Tank":
+                    totalIncrement += self.equipedBodyArmor.prio2
             if self.equipedPants != None:
                 if self.equipedPants.class_name == "Strength":
                     totalIncrement += self.equipedPants.prio1
@@ -265,17 +263,17 @@ init python:
                     totalIncrement += self.equipedHelmet.prio1
                 if self.equipedHelmet.class_name == "Critical":
                     totalIncrement += self.equipedHelmet.prio1
-            if self.equipedBodyArmour != None:
-                if self.equipedBodyArmour.class_name == "Dexterity":
-                    totalIncrement += self.equipedBodyArmour.prio1
-                if self.equipedBodyArmour.class_name == "Strength":
-                    totalIncrement += self.equipedBodyArmour.prio2
-                if self.equipedBodyArmour.class_name == "Shield":
-                    totalIncrement += self.equipedBodyArmour.prio2
-                if self.equipedBodyArmour.class_name == "Evasion":
-                    totalIncrement += self.equipedBodyArmour.prio1
-                if self.equipedBodyArmour.class_name == "Critical":
-                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedBodyArmor != None:
+                if self.equipedBodyArmor.class_name == "Dexterity":
+                    totalIncrement += self.equipedBodyArmor.prio1
+                if self.equipedBodyArmor.class_name == "Strength":
+                    totalIncrement += self.equipedBodyArmor.prio2
+                if self.equipedBodyArmor.class_name == "Shield":
+                    totalIncrement += self.equipedBodyArmor.prio2
+                if self.equipedBodyArmor.class_name == "Evasion":
+                    totalIncrement += self.equipedBodyArmor.prio1
+                if self.equipedBodyArmor.class_name == "Critical":
+                    totalIncrement += self.equipedBodyArmor.prio1
             if self.equipedPants != None:
                 if self.equipedPants.class_name == "Dexterity":
                     totalIncrement += self.equipedPants.prio1
@@ -307,11 +305,11 @@ init python:
                     totalIncrement += self.equipedHelmet.prio1
                 if self.equipedHelmet.class_name == "Shield":
                     totalIncrement += self.equipedHelmet.prio1
-            if self.equipedBodyArmour != None:
-                if self.equipedBodyArmour.class_name == "Tank":
-                    totalIncrement += self.equipedBodyArmour.prio1
-                if self.equipedBodyArmour.class_name == "Shield":
-                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedBodyArmor != None:
+                if self.equipedBodyArmor.class_name == "Tank":
+                    totalIncrement += self.equipedBodyArmor.prio1
+                if self.equipedBodyArmor.class_name == "Shield":
+                    totalIncrement += self.equipedBodyArmor.prio1
             if self.equipedPants != None:
                 if self.equipedPants.class_name == "Tank":
                     totalIncrement += self.equipedPants.prio1
@@ -329,9 +327,9 @@ init python:
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Magic":
                     totalIncrement += self.equipedHelmet.prio1
-            if self.equipedBodyArmour != None:
-                if self.equipedBodyArmour.class_name == "Magic":
-                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedBodyArmor != None:
+                if self.equipedBodyArmor.class_name == "Magic":
+                    totalIncrement += self.equipedBodyArmor.prio1
             if self.equipedPants != None:
                 if self.equipedPants.class_name == "Magic":
                     totalIncrement += self.equipedPants.prio1
@@ -345,9 +343,9 @@ init python:
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Magic":
                     totalIncrement += self.equipedHelmet.prio2
-            if self.equipedBodyArmour != None:
-                if self.equipedBodyArmour.class_name == "Magic":
-                    totalIncrement += self.equipedBodyArmour.prio2
+            if self.equipedBodyArmor != None:
+                if self.equipedBodyArmor.class_name == "Magic":
+                    totalIncrement += self.equipedBodyArmor.prio2
             if self.equipedPants != None:
                 if self.equipedPants.class_name == "Magic":
                     totalIncrement += self.equipedPants.prio2
@@ -369,11 +367,11 @@ init python:
                     totalIncrement += self.equipedHelmet.prio2
                 if self.equipedHelmet.class_name == "Critical":
                     totalIncrement += self.equipedHelmet.prio1
-            if self.equipedBodyArmour != None:
-                if self.equipedBodyArmour.class_name == "Evasion":
-                    totalIncrement += self.equipedBodyArmour.prio2
-                if self.equipedBodyArmour.class_name == "Critical":
-                    totalIncrement += self.equipedBodyArmour.prio1
+            if self.equipedBodyArmor != None:
+                if self.equipedBodyArmor.class_name == "Evasion":
+                    totalIncrement += self.equipedBodyArmor.prio2
+                if self.equipedBodyArmor.class_name == "Critical":
+                    totalIncrement += self.equipedBodyArmor.prio1
             if self.equipedPants != None:
                 if self.equipedPants.class_name == "Evasion":
                     totalIncrement += self.equipedPants.prio2

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2080: reached end of line when expecting ':'.
-    if my_protector.equipedWeapon.rarity == "C:
-                                                                                                            ^
+File "game/screens.rpy", line 1733: Line is indented, but the preceding text statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    xalign 0.5
+    ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Aug 13 10:28:02 2025
+Wed Aug 13 13:38:14 2025

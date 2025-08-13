@@ -2,8 +2,9 @@
 default show_my_protectors = False
 default show_my_protector_specific_info = False
 default show_whole_functionality_for_seeing_my_protectors = False
+default show_bag = False
 default show_current_day = False
-default show_wallet = False
+default show_equipment = False
 default current_day = 1
 default money = 0
 default SClassColor = "#DC143C"
@@ -19,7 +20,7 @@ init python:
     mc = Character([mc_name])
     config.overlay_screens.append("my_protectors_screen")
     config.overlay_screens.append("current_day_screen")
-    config.overlay_screens.append("wallet_screen")
+    config.overlay_screens.append("my_equipment_screen")
 
     # button_small_text
     # Button box styling (background, padding, etc.)
@@ -251,7 +252,7 @@ label start:
                     "What were the other ones?":
                         nova "Let's recap."
 
-    $ show_whole_functionality_for_seeing_my_protectors = True    
+    $ show_whole_functionality_for_seeing_my_protectors = True
     hide ironcladMace_starting
     hide screen weapon_base_stats
     hide thievesKnife_starting
@@ -277,15 +278,19 @@ label start:
                 mc "I'm not sure if I understood.."
                 mc "Could you repeat please?"
                 nova "Sure!"
-    $ show_wallet = True
+    $ show_equipment = True
+    $ show_bag = True
     $ show_current_day = True
     jump base_of_operations
-
-    # TODO: missions
-    #   normal missions sould be always possible to send our protectors, at the end, it will say if it was successful or not.
-    #   for the normal missions, or protector is not in life danger
-    #   for the stage missions, our protector can be killed, we need to be careful
-    #   once stage mission is completed, we can go to the next region - and everything should be the same
+    
+    #
+    # TODOS:
+    # 
+    # TODO:
+    #   -   normal missions sould be always possible to send our protectors, at the end, it will say if it was successful or not.
+    #   -   for the normal missions, or protector is not in life danger
+    #   -   for the stage missions, our protector can be killed, we need to be careful
+    #   -   once stage mission is completed, we can go to the next region - and everything should be the same
     # 
     # TODO: make it possible to call nova
     #
@@ -295,16 +300,10 @@ label start:
     # 
     # TODO: while we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
     # 
-    # TODO: I should work on the missions, I have a lot of todos to do.
-    # 
     # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
     #   -   or if it was successful or not -> maybe also the reason?
     #   
-    # TODO: create a way to see the inventory, in this case, the weapons
-    # 
-    # TODO: add the rarity for the weapons and equipment
-    # 
-    # TODO: add more weapons
+    # TODO: create the item detail, for weapons and equipment
     # 
     return
 

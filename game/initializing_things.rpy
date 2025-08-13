@@ -671,7 +671,7 @@ init python:
             "Tank",
             0.25,
             0.1,
-            "E"
+            "D"
         ))
 
         equipments.append(Equipment(
@@ -681,7 +681,7 @@ init python:
             "Tank",
             0.25,
             0.1,
-            "E"
+            "C"
         ))
 
         equipments.append(Equipment(
@@ -691,7 +691,7 @@ init python:
             "Tank",
             0.25,
             0.1,
-            "E"
+            "S"
         ))
 
         ######## FULL GEAR ########

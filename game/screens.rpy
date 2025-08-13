@@ -1670,6 +1670,230 @@ style slider_slider:
     variant "small"
     xsize 900
 
+screen my_equipment_screen():
+    if show_bag:
+        if show_equipment:
+            textbutton "Weapons / Equipment".format(money):
+                xalign 0.0
+                yalign 0.0
+                padding (20, 10)
+                text_style "hover_white"
+                background "#4448"
+                text_size 40
+                action SetVariable("show_equipment", False)
+        else:
+            # Quest log overlay panel
+            frame:
+                xalign 0.0
+                yalign 0.0
+                padding (10, 10)
+                background Solid("#000000cc")
+                xmaximum 525
+                ymaximum 400
+
+                has vbox
+                # Close button
+                textbutton "Close":
+                    text_style "hover_white"
+                    xalign 1.0
+                    action SetVariable("show_equipment", True)
+
+                # Scrollable quest list
+                viewport:
+                    scrollbars "vertical"
+                    mousewheel True
+                    draggable True
+
+                    vbox:
+                        spacing 20  # Reduced space between quests
+                        text "Weapons:"
+                        for my_protector in my_protectors_map.values():
+                            if my_protector.equipedWeapon != None:
+                                $ weapon = my_protector.equipedWeapon
+                                $ my_color = EClassColor
+                                $ rarity = weapon.rarity
+                                if weapon.rarity == "D":
+                                    $ my_color = DClassColor
+                                if weapon.rarity == "C":
+                                    $ my_color = CClassColor
+                                if weapon.rarity == "B":
+                                    $ my_color = BClassColor
+                                if weapon.rarity == "A":
+                                    $ my_color = AClassColor
+                                if weapon.rarity == "S":
+                                    $ my_color = SClassColor
+                                # TODO: check also if its possible to change the color of the text between them
+                                $ weapon_name = "{{size=30}}{} ({}){{/size}}".format(weapon.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                button:
+                                    background "#00000020"
+                                    padding (5, 5)
+                                    xfill True
+                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    text "[weapon_name]\n[protector_name]":
+                                        xalign 0.5 
+                                        text_align 0.5
+                                        line_spacing 0 
+                                        color my_color
+
+                        for weapon in myWeapons:
+                            $ my_color = EClassColor
+                            $ rarity = weapon.rarity
+                            if weapon.rarity == "D":
+                                $ my_color = DClassColor
+                            if weapon.rarity == "C":
+                                $ my_color = CClassColor
+                            if weapon.rarity == "B":
+                                $ my_color = BClassColor
+                            if weapon.rarity == "A":
+                                $ my_color = AClassColor
+                            if weapon.rarity == "S":
+                                $ my_color = SClassColor
+                            button:
+                                background "#00000020"
+                                padding (5, 5)
+                                xfill True
+                                # TODO: need to update this
+                                action Show("protector_detail_screen", my_protector=weapon)
+
+                                text "{} ({})".format(weapon.name, rarity):
+                                    size 30
+                                    xalign 0.5 
+                                    color my_color
+                                    line_spacing 0
+                        
+                        text "Equipment:"
+                        for my_protector in my_protectors_map.values():
+                            if my_protector.equipedHelmet != None:
+                                $ equipment = my_protector.equipedHelmet
+                                $ my_color = EClassColor
+                                $ rarity = equipment.rarity
+                                if equipment.rarity == "D":
+                                    $ my_color = DClassColor
+                                if equipment.rarity == "C":
+                                    $ my_color = CClassColor
+                                if equipment.rarity == "B":
+                                    $ my_color = BClassColor
+                                if equipment.rarity == "A":
+                                    $ my_color = AClassColor
+                                if equipment.rarity == "S":
+                                    $ my_color = SClassColor
+                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                button:
+                                    background "#00000020"
+                                    padding (5, 5)
+                                    xfill True
+                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    text "[equipment_name]\n[protector_name]":
+                                        xalign 0.5 
+                                        text_align 0.5
+                                        line_spacing 0 
+                                        color my_color
+                            if my_protector.equipedBodyArmor != None:
+                                $ equipment = my_protector.equipedBodyArmor
+                                $ my_color = EClassColor
+                                $ rarity = equipment.rarity
+                                if equipment.rarity == "D":
+                                    $ my_color = DClassColor
+                                if equipment.rarity == "C":
+                                    $ my_color = CClassColor
+                                if equipment.rarity == "B":
+                                    $ my_color = BClassColor
+                                if equipment.rarity == "A":
+                                    $ my_color = AClassColor
+                                if equipment.rarity == "S":
+                                    $ my_color = SClassColor
+                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                button:
+                                    background "#00000020"
+                                    padding (5, 5)
+                                    xfill True
+                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    text "[equipment_name]\n[protector_name]":
+                                        xalign 0.5 
+                                        text_align 0.5
+                                        line_spacing 0 
+                                        color my_color
+                            if my_protector.equipedPants != None:
+                                $ equipment = my_protector.equipedPants
+                                $ my_color = EClassColor
+                                $ rarity = equipment.rarity
+                                if equipment.rarity == "D":
+                                    $ my_color = DClassColor
+                                if equipment.rarity == "C":
+                                    $ my_color = CClassColor
+                                if equipment.rarity == "B":
+                                    $ my_color = BClassColor
+                                if equipment.rarity == "A":
+                                    $ my_color = AClassColor
+                                if equipment.rarity == "S":
+                                    $ my_color = SClassColor
+                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                button:
+                                    background "#00000020"
+                                    padding (5, 5)
+                                    xfill True
+                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    text "[equipment_name]\n[protector_name]":
+                                        xalign 0.5 
+                                        text_align 0.5
+                                        line_spacing 0 
+                                        color my_color
+                            if my_protector.equipedBoots != None:
+                                $ equipment = my_protector.equipedBoots
+                                $ my_color = EClassColor
+                                $ rarity = equipment.rarity
+                                if equipment.rarity == "D":
+                                    $ my_color = DClassColor
+                                if equipment.rarity == "C":
+                                    $ my_color = CClassColor
+                                if equipment.rarity == "B":
+                                    $ my_color = BClassColor
+                                if equipment.rarity == "A":
+                                    $ my_color = AClassColor
+                                if equipment.rarity == "S":
+                                    $ my_color = SClassColor
+                                $ equipment_name = "{{size=30}}{} ({}){{/size}}".format(equipment.name, rarity)
+                                $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.bigLetterName)
+                                button:
+                                    background "#00000020"
+                                    padding (5, 5)
+                                    xfill True
+                                    action Show("protector_detail_screen", my_protector=weapon)
+                                    text "[equipment_name]\n[protector_name]":
+                                        xalign 0.5 
+                                        text_align 0.5
+                                        line_spacing 0 
+                                        color my_color
+                        for equipment in myEquipments:
+                            $ my_color = EClassColor
+                            $ rarity = equipment.rarity
+                            if equipment.rarity == "D":
+                                $ my_color = DClassColor
+                            if equipment.rarity == "C":
+                                $ my_color = CClassColor
+                            if equipment.rarity == "B":
+                                $ my_color = BClassColor
+                            if equipment.rarity == "A":
+                                $ my_color = AClassColor
+                            if equipment.rarity == "S":
+                                $ my_color = SClassColor
+                            button:
+                                background "#00000020"
+                                padding (5, 5)
+                                xfill True
+                                # TODO: need to update this
+                                action Show("protector_detail_screen", my_protector=equipment)
+
+                                text "{} ({})".format(equipment.name, rarity):
+                                    size 30
+                                    xalign 0.5 
+                                    color my_color
+                                    line_spacing 0
+
 screen my_protectors_screen():
     if show_whole_functionality_for_seeing_my_protectors:
         if not show_my_protectors:
@@ -1680,7 +1904,7 @@ screen my_protectors_screen():
             textbutton "My protectors ({})".format(get_count_of_my_protectors()):
                 text_style button_style
                 background "#4448"
-                xalign 0.0
+                xalign 0.5
                 yalign 0.0
                 padding (20, 10)
                 text_size 40
@@ -1688,12 +1912,12 @@ screen my_protectors_screen():
         else:
             # Quest log overlay panel
             frame:
-                xalign 0.0
+                xalign 0.5
                 yalign 0.0
                 padding (10, 10)
                 background Solid("#000000cc")
                 xmaximum 525
-                ymaximum 500
+                ymaximum 400
 
                 has vbox
                 # Close button
@@ -1710,7 +1934,6 @@ screen my_protectors_screen():
 
                     vbox:
                         spacing 20  # Reduced space between quests
-
                         for my_protector in my_protectors_map.values():
                             $ my_color = "#FFFFFF"
                             $ message = my_protector.status
@@ -1732,7 +1955,15 @@ screen my_protectors_screen():
                                     xalign 0.5 
                                     color my_color
                                     line_spacing 0
-
+screen current_day_screen():
+    if show_current_day:
+        textbutton "{} $ / Day: {}".format(money, current_day):
+            xalign 1.0
+            yalign 0.0
+            padding (20, 10)
+            background "#4448"
+            text_color "b3b3b3"
+            text_size 40
 
 screen protector_detail_screen(my_protector):
     if my_protector.readyForPromotion == True:
@@ -1764,7 +1995,6 @@ screen protector_detail_screen(my_protector):
                     yalign 0.1
                     xalign 0.5
                     text "[my_protector.bigLetterName] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
-                # Text block - vertically centered on left side
                 vbox:
                     spacing 20
                     xalign 0.1
@@ -1784,6 +2014,7 @@ screen protector_detail_screen(my_protector):
                                 action Function(show_weapons, my_protector)  # show possible weapons to use
                                 xpadding 4
                                 ypadding 4
+                                background "#ffffff"
                                 frame:
                                     add im.Composite(
                                         (200, 200),
@@ -1793,10 +2024,22 @@ screen protector_detail_screen(my_protector):
                         else:
                             $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
                             $ weapon_scaled = im.Scale(weapon_img, 200, 200)
+                            $ background_color_style = EClassColor
+                            if my_protector.equipedWeapon.rarity == "D":
+                                $ background_color_style = DClassColor
+                            if my_protector.equipedWeapon.rarity == "C":
+                                $ background_color_style = CClassColor
+                            if my_protector.equipedWeapon.rarity == "B":
+                                $ background_color_style = BClassColor
+                            if my_protector.equipedWeapon.rarity == "A":
+                                $ background_color_style = AClassColor
+                            if my_protector.equipedWeapon.rarity == "S":
+                                $ background_color_style = SClassColor
                             button:
                                 action Function(my_protector.unequip_weapon)  # Replace with your actual function
                                 xpadding 4
                                 ypadding 4
+                                background background_color_style
                                 frame:
                                     add im.Composite(
                                         (200, 200),
@@ -1833,11 +2076,14 @@ screen protector_detail_screen(my_protector):
                         hbox:
                             xalign 0.5
                             spacing 20
+                            
+
                             if my_protector.equipedHelmet == None:
                                 button:
                                     action Function(show_equipments, my_protector, "helmet")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -1847,10 +2093,22 @@ screen protector_detail_screen(my_protector):
                             else:
                                 $ helmet_img = "images/equipment/{}.png".format(my_protector.equipedHelmet.type)
                                 $ helmet_scaled = im.Scale(helmet_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedHelmet.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                elif my_protector.equipedHelmet.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                elif my_protector.equipedHelmet.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                elif my_protector.equipedHelmet.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                elif my_protector.equipedHelmet.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "helmet")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -1858,11 +2116,12 @@ screen protector_detail_screen(my_protector):
                                             (0, 0), helmet_scaled
                                         )
                             null height 10  # This adds 40 pixels of vertical space at the top
-                            if my_protector.equipedBodyArmour == None:
+                            if my_protector.equipedBodyArmor == None:
                                 button:
                                     action Function(show_equipments, my_protector, "body armor")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -1870,12 +2129,24 @@ screen protector_detail_screen(my_protector):
                                             (0, 0), body_armour_scaled
                                         )
                             else:
-                                $ body_armour_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmour.type)
+                                $ body_armour_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmor.type)
                                 $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedBodyArmor.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                if my_protector.equipedBodyArmor.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                if my_protector.equipedBodyArmor.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                if my_protector.equipedBodyArmor.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                if my_protector.equipedBodyArmor.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "body armor")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -1891,6 +2162,7 @@ screen protector_detail_screen(my_protector):
                                     action Function(show_equipments, my_protector, "pants")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -1900,10 +2172,22 @@ screen protector_detail_screen(my_protector):
                             else:
                                 $ pants_img = "images/equipment/{}.png".format(my_protector.equipedPants.type)
                                 $ pants_scaled = im.Scale(pants_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedPants.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                if my_protector.equipedPants.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                if my_protector.equipedPants.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                if my_protector.equipedPants.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                if my_protector.equipedPants.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "pants")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -1917,6 +2201,7 @@ screen protector_detail_screen(my_protector):
                                     action Function(show_equipments, my_protector, "boots")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -1926,18 +2211,29 @@ screen protector_detail_screen(my_protector):
                             else:
                                 $ boots_img = "images/equipment/{}.png".format(my_protector.equipedBoots.type)
                                 $ boots_scaled = im.Scale(boots_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedBoots.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                if my_protector.equipedBoots.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                if my_protector.equipedBoots.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                if my_protector.equipedBoots.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                if my_protector.equipedBoots.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "boots")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
                                             (0, 0), empty_boots_scaled,
                                             (0, 0), boots_scaled
                                         )
-
-                        null height 10  # This adds 40 pixels of vertical space at the top                        
+                        null height 10  # This adds 40 pixels of vertical space at the top
                     
                 # Text block - vertically centered on left side
                 vbox:
@@ -2166,7 +2462,7 @@ screen protector_detail_screen(my_protector):
                                             (0, 0), helmet_scaled
                                         )
                             null height 10  # This adds 40 pixels of vertical space at the top
-                            if my_protector.equipedBodyArmour == None:
+                            if my_protector.equipedBodyArmor == None:
                                 button:
                                     action Function(show_equipments, my_protector, "body armor")  # show possible equipments to use
                                     xpadding 4
@@ -2179,18 +2475,18 @@ screen protector_detail_screen(my_protector):
                                             (0, 0), body_armour_scaled
                                         )
                             else:
-                                $ body_armour_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmour.type)
+                                $ body_armour_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmor.type)
                                 $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
                                 $ background_color_style = EClassColor
-                                if my_protector.equipedBodyArmour.rarity == "D":
+                                if my_protector.equipedBodyArmor.rarity == "D":
                                     $ background_color_style = DClassColor
-                                if my_protector.equipedBodyArmour.rarity == "C":
+                                if my_protector.equipedBodyArmor.rarity == "C":
                                     $ background_color_style = CClassColor
-                                if my_protector.equipedBodyArmour.rarity == "B":
+                                if my_protector.equipedBodyArmor.rarity == "B":
                                     $ background_color_style = BClassColor
-                                if my_protector.equipedBodyArmour.rarity == "A":
+                                if my_protector.equipedBodyArmor.rarity == "A":
                                     $ background_color_style = AClassColor
-                                if my_protector.equipedBodyArmour.rarity == "S":
+                                if my_protector.equipedBodyArmor.rarity == "S":
                                     $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "body armor")  # Replace with your actual function
@@ -2382,28 +2678,6 @@ screen protector_selection(isThisMission):
             textbutton "Back" action Return():
                 text_style "hover_black"
                 xalign 0.5
-
-
-screen current_day_screen():
-    if show_current_day:
-        textbutton "Day: {}".format(current_day):
-            xalign 1.0
-            yalign 0.0
-            padding (20, 10)
-            background "#4448"
-            text_color "b3b3b3"
-            text_size 40
-
-            
-screen wallet_screen():
-    if show_wallet:
-        textbutton "{} $".format(money):
-            xalign 0.5
-            yalign 0.0
-            padding (20, 10)
-            background "#4448"
-            text_color "b3b3b3"
-            text_size 40
 
 screen mission_screen(regionNumber):    
     $ min_level = (regionNumber - 1) * 20
