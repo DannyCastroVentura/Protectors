@@ -6,6 +6,12 @@ default show_current_day = False
 default show_wallet = False
 default current_day = 1
 default money = 0
+default SClassColor = "#DC143C"
+default AClassColor = "#FFD700"
+default BClassColor = "#9370DB"
+default CClassColor = "#1E90FF"
+default DClassColor = "#32CD32"
+default EClassColor = "#A9A9A9"
 
 init python:
     if 'mc_name' not in globals():

@@ -156,6 +156,8 @@ init python:
         # Critical  -> prio1 -> luck
         #           -> prio2 -> dexterity
 
+        # TODO: think of a way to make the equipment incrementing better
+        #   -   as I want this to improve it in a way that each armor to multiply the real stats, and not to multiply with each other - I'm not sure if this is already done or not, I need to check this better
         def get_strength(self):
             return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_strength_increments())
         
@@ -219,7 +221,7 @@ init python:
             }
 
         def get_strength_increments(self):
-            totalIncrement = 0
+            totalIncrement = 1
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Strength":
                     totalIncrement += self.equipedHelmet.prio1
@@ -248,12 +250,10 @@ init python:
                     totalIncrement += self.equipedBoots.prio2
                 if self.equipedBoots.class_name == "Tank":
                     totalIncrement += self.equipedBoots.prio2
-            if totalIncrement < 1:
-                totalIncrement = 1
             return totalIncrement
         
         def get_dexterity_increments(self):
-            totalIncrement = 0
+            totalIncrement = 1
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Dexterity":
                     totalIncrement += self.equipedHelmet.prio1
@@ -298,12 +298,10 @@ init python:
                     totalIncrement += self.equipedBoots.prio1
                 if self.equipedBoots.class_name == "Critical":
                     totalIncrement += self.equipedBoots.prio1
-            if totalIncrement < 1:
-                totalIncrement = 1
             return totalIncrement
 
         def get_constitution_increments(self):
-            totalIncrement = 0            
+            totalIncrement = 1
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Tank":
                     totalIncrement += self.equipedHelmet.prio1
@@ -324,12 +322,10 @@ init python:
                     totalIncrement += self.equipedBoots.prio1
                 if self.equipedBoots.class_name == "Shield":
                     totalIncrement += self.equipedBoots.prio1
-            if totalIncrement < 1:
-                totalIncrement = 1
             return totalIncrement
 
         def get_intelligence_increments(self):
-            totalIncrement = 0
+            totalIncrement = 1
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Magic":
                     totalIncrement += self.equipedHelmet.prio1
@@ -342,12 +338,10 @@ init python:
             if self.equipedBoots != None:
                 if self.equipedBoots.class_name == "Magic":
                     totalIncrement += self.equipedBoots.prio1
-            if totalIncrement < 1:
-                totalIncrement = 1
             return totalIncrement
 
         def get_wisdom_increments(self):
-            totalIncrement = 0
+            totalIncrement = 1
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Magic":
                     totalIncrement += self.equipedHelmet.prio2
@@ -360,19 +354,16 @@ init python:
             if self.equipedBoots != None:
                 if self.equipedBoots.class_name == "Magic":
                     totalIncrement += self.equipedBoots.prio2
-            if totalIncrement < 1:
-                totalIncrement = 1
             return totalIncrement
 
         # TODO: create a new class for charisma as well
         def get_charisma_increments(self):
-            totalIncrement = 0
-            if totalIncrement < 1:
-                totalIncrement = 1
+            totalIncrement = 1
+            # TODO: add here the increments
             return totalIncrement
 
         def get_luck_increments(self):
-            totalIncrement = 0
+            totalIncrement = 1
             if self.equipedHelmet != None:
                 if self.equipedHelmet.class_name == "Evasion":
                     totalIncrement += self.equipedHelmet.prio2
@@ -393,8 +384,6 @@ init python:
                     totalIncrement += self.equipedBoots.prio2
                 if self.equipedBoots.class_name == "Critical":
                     totalIncrement += self.equipedBoots.prio1
-            if totalIncrement < 1:
-                totalIncrement = 1
             return totalIncrement
 
     
@@ -498,6 +487,14 @@ init python:
             self.successfulMinorMissions = 0
             return
 
+
+    # RARITY COLORS:
+    #   S   Crimson Red #DC143C
+    #   A   Gold        #FFD700
+    #   B   Purple      #9370DB
+    #   C   Blue        #1E90FF
+    #   D   Green       #32CD32
+    #   E   Gray        #A9A9A9
     class Weapon:
         _id_counter = 0
         def __init__(self, name, description, weapon_type, class_name, base_damage, rarity):

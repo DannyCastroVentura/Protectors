@@ -2064,6 +2064,7 @@ screen protector_detail_screen(my_protector):
                                 action Function(show_weapons, my_protector)  # show possible weapons to use
                                 xpadding 4
                                 ypadding 4
+                                background "#ffffff"
                                 frame:
                                     add im.Composite(
                                         (200, 200),
@@ -2073,10 +2074,22 @@ screen protector_detail_screen(my_protector):
                         else:
                             $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
                             $ weapon_scaled = im.Scale(weapon_img, 200, 200)
+                            $ background_color_style = EClassColor
+                            if my_protector.equipedWeapon.rarity == "D":
+                                $ background_color_style = DClassColor
+                            if my_protector.equipedWeapon.rarity == "C":
+                                $ background_color_style = CClassColor
+                            if my_protector.equipedWeapon.rarity == "B":
+                                $ background_color_style = BClassColor
+                            if my_protector.equipedWeapon.rarity == "A":
+                                $ background_color_style = AClassColor
+                            if my_protector.equipedWeapon.rarity == "S":
+                                $ background_color_style = SClassColor
                             button:
                                 action Function(my_protector.unequip_weapon)  # Replace with your actual function
                                 xpadding 4
                                 ypadding 4
+                                background background_color_style
                                 frame:
                                     add im.Composite(
                                         (200, 200),

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2473: vbox expects a non-empty block.
-    if selected_mission.status != "started":
-                                            ^
+File "game/screens.rpy", line 2080: reached end of line when expecting ':'.
+    if my_protector.equipedWeapon.rarity == "C:
+                                                                                                            ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Aug 12 16:57:36 2025
+Wed Aug 13 10:28:02 2025
