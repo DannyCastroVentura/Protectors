@@ -2133,6 +2133,7 @@ screen protector_detail_screen(my_protector):
                                     action Function(show_equipments, my_protector, "helmet")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -2142,10 +2143,22 @@ screen protector_detail_screen(my_protector):
                             else:
                                 $ helmet_img = "images/equipment/{}.png".format(my_protector.equipedHelmet.type)
                                 $ helmet_scaled = im.Scale(helmet_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedHelmet.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                elif my_protector.equipedHelmet.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                elif my_protector.equipedHelmet.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                elif my_protector.equipedHelmet.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                elif my_protector.equipedHelmet.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "helmet")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -2158,6 +2171,7 @@ screen protector_detail_screen(my_protector):
                                     action Function(show_equipments, my_protector, "body armor")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -2167,10 +2181,22 @@ screen protector_detail_screen(my_protector):
                             else:
                                 $ body_armour_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmour.type)
                                 $ body_armour_scaled = im.Scale(body_armour_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedBodyArmour.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                if my_protector.equipedBodyArmour.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                if my_protector.equipedBodyArmour.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                if my_protector.equipedBodyArmour.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                if my_protector.equipedBodyArmour.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "body armor")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -2186,6 +2212,7 @@ screen protector_detail_screen(my_protector):
                                     action Function(show_equipments, my_protector, "pants")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -2195,10 +2222,22 @@ screen protector_detail_screen(my_protector):
                             else:
                                 $ pants_img = "images/equipment/{}.png".format(my_protector.equipedPants.type)
                                 $ pants_scaled = im.Scale(pants_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedPants.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                if my_protector.equipedPants.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                if my_protector.equipedPants.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                if my_protector.equipedPants.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                if my_protector.equipedPants.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "pants")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -2212,6 +2251,7 @@ screen protector_detail_screen(my_protector):
                                     action Function(show_equipments, my_protector, "boots")  # show possible equipments to use
                                     xpadding 4
                                     ypadding 4
+                                    background "#ffffff"
                                     frame:
                                         add im.Composite(
                                             (200, 200),
@@ -2221,10 +2261,22 @@ screen protector_detail_screen(my_protector):
                             else:
                                 $ boots_img = "images/equipment/{}.png".format(my_protector.equipedBoots.type)
                                 $ boots_scaled = im.Scale(boots_img, 200, 200)
+                                $ background_color_style = EClassColor
+                                if my_protector.equipedBoots.rarity == "D":
+                                    $ background_color_style = DClassColor
+                                if my_protector.equipedBoots.rarity == "C":
+                                    $ background_color_style = CClassColor
+                                if my_protector.equipedBoots.rarity == "B":
+                                    $ background_color_style = BClassColor
+                                if my_protector.equipedBoots.rarity == "A":
+                                    $ background_color_style = AClassColor
+                                if my_protector.equipedBoots.rarity == "S":
+                                    $ background_color_style = SClassColor
                                 button:
                                     action Function(my_protector.unequip_equipment, "boots")  # Replace with your actual function
                                     xpadding 4
                                     ypadding 4
+                                    background background_color_style
                                     frame:
                                         add im.Composite(
                                             (200, 200),
