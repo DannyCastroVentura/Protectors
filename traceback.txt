@@ -1,42 +1,65 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Scale object at 0x000000001cc3a330>:
-  File "game/places.rpy", line 14, in script
-    menu:
-  File "game/screens.rpy", line 1962, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 1962, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 1963, in execute
-    frame:
-  File "game/screens.rpy", line 1969, in execute
-    fixed:
-  File "game/screens.rpy", line 2003, in execute
-    vbox:
-  File "game/screens.rpy", line 2008, in execute
-    hbox:
-  File "game/screens.rpy", line 2025, in execute
-    vbox:
-  File "game/screens.rpy", line 2030, in execute
-    if weaponOrEquipment_type == "w":
-  File "game/screens.rpy", line 2033, in execute
-    text "[equip_equipment.class_name]"
-NameError: name 'equip_equipment' is not defined. Did you mean: 'show_equipment'?
+While running game code:
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+[Previous line repeated 3 more times]
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "game/screens.rpy", line 2757, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 2757, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 2758, in execute
+    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
+  File "game/screens.rpy", line 2758, in <module>
+    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
+                                                        ^^^^^^^^^                   
+NameError: name 'my_weapon' is not defined. Did you mean: 'myWeapons'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 14, in script
-    menu:
-  File "renpy/ast.py", line 1815, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 135, in menu
-    rv = renpy.store.menu(new_items)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 418, in display_menu
-    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+[Previous line repeated 3 more times]
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,48 +97,18 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 1962, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 1962, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 1963, in execute
-    frame:
-  File "game/screens.rpy", line 1969, in execute
-    fixed:
-  File "game/screens.rpy", line 2003, in execute
-    vbox:
-  File "game/screens.rpy", line 2008, in execute
-    hbox:
-  File "game/screens.rpy", line 2025, in execute
-    vbox:
-  File "game/screens.rpy", line 2030, in execute
-    if weaponOrEquipment_type == "w":
-  File "game/screens.rpy", line 2033, in execute
-    text "[equip_equipment.class_name]"
-  File "renpy/text/text.py", line 2292, in _scope
-    return self.set_text(self.text_parameter, scope, self.substitute, update)
-           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/text/text.py", line 2329, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)  # type: ignore
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 355, in substitute
-    s = interpolate(s, variables)  # type: ignore
-        ~~~~~~~~~~~^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 89, in interpolate
-    raise e
-  File "renpy/substitutions.py", line 81, in interpolate
-    value = renpy.python.py_eval(code, {}, scope)
-            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<none>", line 1, in <module>
-NameError: name 'equip_equipment' is not defined. Did you mean: 'show_equipment'?
+  File "game/screens.rpy", line 2757, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 2757, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 2758, in execute
+    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
+  File "game/screens.rpy", line 2758, in <module>
+    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
+                                                        ^^^^^^^^^                   
+NameError: name 'my_weapon' is not defined. Did you mean: 'myWeapons'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Wed Aug 13 17:56:18 2025
+Wed Aug 13 22:51:37 2025

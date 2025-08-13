@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 246: invalid syntax
-    if prios.["prio2"] == searchingClassName:
-                 ^
+File "game/screens.rpy", line 1962: 'onlayer' is not a keyword argument or valid child of the screen statement.
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None) onlayer "overlay":
+                                                                                                         ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Aug 13 17:44:12 2025
+Wed Aug 13 22:39:53 2025

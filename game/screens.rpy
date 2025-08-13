@@ -1673,6 +1673,7 @@ style slider_slider:
 screen my_equipment_screen():
     if show_bag:
         if show_equipment:
+            # TODO: add the number of weapons and equipment available
             textbutton "Weapons / Equipment".format(money):
                 xalign 0.0
                 yalign 0.0
@@ -1687,7 +1688,7 @@ screen my_equipment_screen():
                 xalign 0.0
                 yalign 0.0
                 padding (10, 10)
-                background Solid("#000000cc")
+                background Solid("#000000f1")
                 xmaximum 525
                 ymaximum 400
 
@@ -1909,7 +1910,7 @@ screen my_protectors_screen():
                 xalign 0.5
                 yalign 0.0
                 padding (10, 10)
-                background Solid("#000000cc")
+                background Solid("#000000f1")
                 xmaximum 525
                 ymaximum 400
 
@@ -2039,7 +2040,7 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         
                 
                                     
-
+# TODO: make the buttons for change the equipment not available in case of the protector is busy
 screen protector_detail_screen(my_protector):
     if my_protector.readyForPromotion == True:
         frame:
@@ -2754,7 +2755,9 @@ screen protector_selection(isThisMission):
                 text_style "hover_black"
                 xalign 0.5
 
-screen mission_screen(regionNumber):    
+screen mission_screen(regionNumber):
+    $ renpy.hide_screen("my_protectors_screen")
+    $ renpy.show_screen("my_protectors_screen")
     $ min_level = (regionNumber - 1) * 20
     $ max_level = regionNumber * 20
     default page = 0
@@ -2763,9 +2766,7 @@ screen mission_screen(regionNumber):
     default max_pages = max((len(filtered_missions) - 1) // page_size, 0)
     default mode = "list"
     default selected_mission = None
-
     frame:
-        style "menu_frame"
         xalign 0.5
         yalign 0.5
         xsize 800
@@ -2946,37 +2947,6 @@ screen mission_screen(regionNumber):
                         if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
                             textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name)
                         textbutton "Back" action SetScreenVariable("mode", "list")
-
-
-
-screen mission_detail_screen(mission):
-    modal True
-
-    frame:
-        style "menu_frame"
-        xalign 0.5
-        yalign 0.5
-        xsize 700
-        ysize 500
-        padding (10, 10)
-
-        vbox:
-            spacing 20
-
-            text mission.title size 40 color "#fff"
-            text "Difficulty: [mission.difficulty]" size 20 color "#aaa"
-
-            text mission.description size 18 color "#ccc" xmaximum 640
-
-            # Optional: Add more info fields here
-            # text "Reward: [mission.reward]" size 18 color "#ccf"
-
-            hbox:
-                spacing 20
-                xalign 0.5
-                textbutton "Start Mission" action Return("start")
-                textbutton "Back" action Return("back")
-
 
 screen base_stats(baseProtectorObject):
     key config.keymap["hide_windows"] action None
