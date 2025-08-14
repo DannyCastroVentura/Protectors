@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2517: 'Function' is not a keyword argument or valid child of the button statement.
-    action action Function(show_equipments, my_protector, "pants")
-                          ^
+File "game/screens.rpy", line 2024: for expects a non-empty block.
+    for my_protector in my_protectors_map.values():
+                                                   ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Thu Aug 14 17:27:10 2025
+Thu Aug 14 17:44:19 2025

@@ -1676,7 +1676,6 @@ screen my_weapons_screen():
         background Solid("#000000ff")
         xysize (config.screen_width, config.screen_height)
         $ scale = 300
-        # TODO: update to use this background
         $ buttons_background = im.Scale("images/background_item.png", scale, scale)
 
         # Close button - top right
@@ -1689,8 +1688,7 @@ screen my_weapons_screen():
             spacing 50
             xalign 0.5
             yalign 0.1
-
-            # TODO: make this have a small space from the top
+            null height 10
             text "Weapons" size 50 color "#FFF" xalign 0.5
 
             viewport:
@@ -1776,7 +1774,6 @@ screen my_equipments_screen():
         background Solid("#000000ff")
         xysize (config.screen_width, config.screen_height)
         $ scale = 300
-        # TODO: update to use this background
         $ buttons_background = im.Scale("images/background_item.png", scale, scale)
 
         # Close button - top right
@@ -1790,7 +1787,7 @@ screen my_equipments_screen():
             xalign 0.5
             yalign 0.1
             
-            # TODO: make this have a small space from the top
+            null height 10
             text "Equipments" size 50 color "#FFF" xalign 0.5
 
             viewport:
@@ -1961,10 +1958,7 @@ screen my_protectors_screen():
             padding (10, 5)
         vbox:
             spacing 50
-            xalign 0.5
-            yalign 0.1
-
-            # TODO: make this have a small space from the top
+            null height 10
             text "Protectors" size 50 color "#FFF" xalign 0.5
 
             viewport:
@@ -2202,7 +2196,6 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
 
                         text "Rarity:" size 22 color "#EEE"
                         
-                    # TODO: add the description to be out of this.
                     vbox:
                         xalign 0.5
                         text "[str(equipment_or_weapon.description)]" size 22 color "#EEE"
@@ -2668,7 +2661,6 @@ screen protector_detail_screen(my_protector):
                                     xalign 0.5
                                     textbutton "No" action Hide("protector_detail_screen"):
                                         text_size 25
-
             else:
 
                 vbox:

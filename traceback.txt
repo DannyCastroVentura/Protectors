@@ -1,55 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
+While processing the align property of anonymous style:
+  File "game/places.rpy", line 14, in script
     menu:
-  File "game/screens.rpy", line 2220, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2220, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2222, in execute
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1948, in execute
     frame:
-  File "game/screens.rpy", line 2227, in execute
-    fixed:
-  File "game/screens.rpy", line 2246, in execute
-    if my_protector.readyForPromotion == True:
-  File "game/screens.rpy", line 2251, in execute
+  File "game/screens.rpy", line 1962, in execute
     vbox:
-  File "game/screens.rpy", line 2259, in execute
-    vbox:
-  File "game/screens.rpy", line 2263, in execute
-    if my_protector.equipedWeapon == None:
-  File "game/screens.rpy", line 2275, in execute
-    button:
-  File "game/screens.rpy", line 2281, in execute
-    frame:
-  File "game/screens.rpy", line 2283, in execute
-    add im.Composite(
-  File "game/screens.rpy", line 2285, in <module>
-    (0, 0), buttons_background,
-            ^^^^^^^^^^^^^^^^^^ 
-NameError: name 'buttons_background' is not defined
+  File "tmp/gen3-static/styleclass.pxi", line 197, in renpy.styledata.styleclass.Style.clipping.__get__
+  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 1946, in style_functions.align_property
+  File "src/style_common.pxi", line 30, in style_functions.index_0
+TypeError: 'float' object is not subscriptable
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
+  File "game/places.rpy", line 14, in script
     menu:
   File "renpy/ast.py", line 1815, in execute
     choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
@@ -97,40 +70,26 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2220, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2220, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2222, in execute
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1948, in execute
     frame:
-  File "game/screens.rpy", line 2227, in execute
-    fixed:
-  File "game/screens.rpy", line 2246, in execute
-    if my_protector.readyForPromotion == True:
-  File "game/screens.rpy", line 2251, in execute
+  File "game/screens.rpy", line 1962, in execute
     vbox:
-  File "game/screens.rpy", line 2259, in execute
-    vbox:
-  File "game/screens.rpy", line 2263, in execute
-    if my_protector.equipedWeapon == None:
-  File "game/screens.rpy", line 2275, in execute
-    button:
-  File "game/screens.rpy", line 2281, in execute
-    frame:
-  File "game/screens.rpy", line 2283, in execute
-    add im.Composite(
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2285, in <module>
-    (0, 0), buttons_background,
-            ^^^^^^^^^^^^^^^^^^ 
-NameError: name 'buttons_background' is not defined
+  File "renpy/display/layout.py", line 650, in __init__
+    self._clipping = self.style.clipping
+                     ^^^^^^^^^^^^^^^^^^^
+  File "tmp/gen3-static/styleclass.pxi", line 197, in renpy.styledata.styleclass.Style.clipping.__get__
+  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 1946, in style_functions.align_property
+  File "src/style_common.pxi", line 30, in style_functions.index_0
+TypeError: 'float' object is not subscriptable
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Thu Aug 14 17:16:25 2025
+Thu Aug 14 17:42:23 2025

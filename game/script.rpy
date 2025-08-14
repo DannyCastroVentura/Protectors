@@ -292,22 +292,24 @@ label start:
     # 
     # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
     #   -   or if it was successful or not -> maybe also the reason?
-    #   
-    # TODO: create the item detail, for weapons and equipment
     # 
     # TODO: in case the user is clicking the armor or weapon and protector is not available, we should send a notification saying "cannot change the equipment because protector is [status]"
     #
-    # TODO: update the whole frontend system
-    #   -   Left corner -> money
-    #   -   Right corner -> Day
-    #   -   I want to have only one buttom at the top saying "Menu"
-    #       -   In the menu I should see the button to see Protectors
-    #       -   In the menu I should see the button to see Weapons
-    #       -   In the menu I should see the button to see Equipments
+    # TODO: update the weapons and equipments list as I did for the protectors, so it shows the pictures
     #
+    # TODO: add the description on the equipments and weapons to be out of the box.
     #
-    #
-    #
+    # TODO: drops!
+    #   -   Region 10 - 2 A Equipment or Weapon
+    #   -   Region 9 - 1 A Equipment or Weapon
+    #   -   Region 8 - 2 B Equipment or Weapon
+    #   -   Region 7 - 1 B Equipment or Weapon
+    #   -   Region 6 - 2 C Equipment or Weapon
+    #   -   Region 5 - 1 C Equipment or Weapon
+    #   -   Region 4 - 2 D Equipment or Weapon
+    #   -   Region 3 - 1 D Equipment or Weapon
+    #   -   Region 2 - 2 E Equipment or Weapon
+    #   -   Region 1 - 1 E Equipment or Weapon
     #
     #
     return
