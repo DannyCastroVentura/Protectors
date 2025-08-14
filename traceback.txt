@@ -1,65 +1,63 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-[Previous line repeated 3 more times]
-  File "game/base_of_operations.rpy", line 23, in script call
-    call see_missions_for_region(1)
-  File "game/base_of_operations.rpy", line 68, in script
-    call screen mission_screen(regionNumber)
-  File "game/screens.rpy", line 2757, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 2757, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 2758, in execute
-    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
-  File "game/screens.rpy", line 2758, in <module>
-    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
-                                                        ^^^^^^^^^                   
-NameError: name 'my_weapon' is not defined. Did you mean: 'myWeapons'?
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 2, in script
+    menu:
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1948, in execute
+    frame:
+  File "game/screens.rpy", line 1963, in execute
+    vbox:
+  File "game/screens.rpy", line 1970, in execute
+    viewport:
+  File "game/screens.rpy", line 1975, in execute
+    vbox:
+  File "game/screens.rpy", line 1977, in execute
+    for my_protector in my_protectors_map.values():
+  File "game/screens.rpy", line 1992, in execute
+    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
+  File "game/screens.rpy", line 1992, in <module>
+    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
+                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exception: Could not construct image from argument.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-[Previous line repeated 3 more times]
-  File "game/base_of_operations.rpy", line 23, in script call
-    call see_missions_for_region(1)
-  File "game/base_of_operations.rpy", line 68, in script
-    call screen mission_screen(regionNumber)
-  File "renpy/ast.py", line 2231, in execute
-    self.call("execute")
-    ~~~~~~~~~^^^^^^^^^^^
-  File "renpy/ast.py", line 2195, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/statements.py", line 379, in call
-    return method(parsed, *args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 348, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 2, in script
+    menu:
+  File "renpy/ast.py", line 1815, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 135, in menu
+    rv = renpy.store.menu(new_items)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 418, in display_menu
+    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,18 +95,33 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2757, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 2757, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 2758, in execute
-    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
-  File "game/screens.rpy", line 2758, in <module>
-    $ renpy.show_screen("equipment_detail_screen", "w", my_weapon, _layer="overlay")
-                                                        ^^^^^^^^^                   
-NameError: name 'my_weapon' is not defined. Did you mean: 'myWeapons'?
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1947, in execute
+    screen my_protectors_screen():
+  File "game/screens.rpy", line 1948, in execute
+    frame:
+  File "game/screens.rpy", line 1963, in execute
+    vbox:
+  File "game/screens.rpy", line 1970, in execute
+    viewport:
+  File "game/screens.rpy", line 1975, in execute
+    vbox:
+  File "game/screens.rpy", line 1977, in execute
+    for my_protector in my_protectors_map.values():
+  File "game/screens.rpy", line 1992, in execute
+    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
+  File "game/screens.rpy", line 1992, in <module>
+    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
+                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/im.py", line 1001, in __init__
+    im = image(im)
+         ~~~~~^^^^
+  File "renpy/display/im.py", line 2158, in image
+    raise Exception("Could not construct image from argument.")
+Exception: Could not construct image from argument.
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Wed Aug 13 22:51:37 2025
+Thu Aug 14 14:16:18 2025

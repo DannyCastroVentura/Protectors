@@ -1,7 +1,5 @@
 ﻿default mc_name = "Daniel"
-default show_my_protectors = False
-default show_my_protector_specific_info = False
-default show_whole_functionality_for_seeing_my_protectors = False
+default show_menu_for_protectors_game = False
 default show_bag = False
 default show_current_day = False
 default show_equipment = False
@@ -18,9 +16,8 @@ init python:
     if 'mc_name' not in globals():
         mc_name = "Daniel"
     mc = Character([mc_name])
-    config.overlay_screens.append("my_protectors_screen")
+    config.overlay_screens.append("menu_button_for_protectors_game")
     config.overlay_screens.append("current_day_screen")
-    config.overlay_screens.append("my_equipment_screen")
 
     # button_small_text
     # Button box styling (background, padding, etc.)
@@ -252,7 +249,7 @@ label start:
                     "What were the other ones?":
                         nova "Let's recap."
 
-    $ show_whole_functionality_for_seeing_my_protectors = True
+    $ show_menu_for_protectors_game = True
     hide ironcladMace_starting
     hide screen weapon_base_stats
     hide thievesKnife_starting
@@ -305,6 +302,21 @@ label start:
     #   
     # TODO: create the item detail, for weapons and equipment
     # 
+    # TODO: in case the user is clicking the armor or weapon and protector is not available, we should send a notification saying "cannot change the equipment because protector is [status]"
+    #
+    # TODO: update the whole frontend system
+    #   -   Left corner -> money
+    #   -   Right corner -> Day
+    #   -   I want to have only one buttom at the top saying "Menu"
+    #       -   In the menu I should see the button to see Protectors
+    #       -   In the menu I should see the button to see Weapons
+    #       -   In the menu I should see the button to see Equipments
+    #
+    #
+    #
+    #
+    #
+    #
     return
 
 

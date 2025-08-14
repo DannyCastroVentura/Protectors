@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1962: 'onlayer' is not a keyword argument or valid child of the screen statement.
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None) onlayer "overlay":
-                                                                                                         ^
+File "game/screens.rpy", line 2018: for expects a non-empty block.
+    for my_protector in my_protectors_map.values():
+                                                   ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Aug 13 22:39:53 2025
+Thu Aug 14 14:34:24 2025
