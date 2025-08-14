@@ -311,6 +311,9 @@ label start:
     #   -   Region 2 - 2 E Equipment or Weapon
     #   -   Region 1 - 1 E Equipment or Weapon
     #
+    # TODO: [BUG] if ready for promotion, it allows us to change the equipment, fix it
+    # 
+    # TODO: make the listing, not a column only - protectors, equipments, weapons
     #
     return
 
