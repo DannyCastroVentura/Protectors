@@ -1714,7 +1714,8 @@ screen my_weapons_screen():
 
                             vbox:
                                 spacing 20
-                                $ weaponOrEquipment_type = "w"
+                                $ weaponOrEquipment_type = "w"                                
+                                $ empty_scaled = im.Scale("images/background_item.png", scale, scale)
                                 for my_protector in my_protectors_map.values():
                                     if my_protector.equipedWeapon != None:
                                         $ weapon = my_protector.equipedWeapon
@@ -1730,13 +1731,39 @@ screen my_weapons_screen():
                                             $ my_color = AClassColor
                                         if weapon.rarity == "S":
                                             $ my_color = SClassColor
+                                        $ weapon_img = "images/weapons/{}.png".format(weapon.type)
+
+                                        # Get original image size
+                                        $ orig_width, orig_height = renpy.image_size(weapon_img)
+
+                                        # Calculate proportional width
+                                        $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                                        # Scale the image
+                                        $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
+
+                                        $ button_action = Show("equipment_detail_screen", None, weaponOrEquipment_type, weapon, my_protector)
+                                        button:
+                                            xfill True
+                                            action button_action
+                                            xpadding 4
+                                            ypadding 4
+                                            frame:                                            
+                                                background my_color
+                                                xalign 0.5 
+                                                add im.Composite(
+                                                    (scale, scale),
+                                                    (0, 0), empty_scaled,
+                                                    ((scale - new_width) // 2, 0), weapon_scaled   
+                                                )
+                                        
                                         $ weapon_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, weapon.name, rarity)
                                         $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                         button:
                                             background "#00000020"
                                             padding (5, 5)
                                             xfill True
-                                            action Show("equipment_detail_screen", None, weaponOrEquipment_type, weapon, my_protector)
+                                            action button_action
                                             text "[weapon_name]\n[protector_name]":
                                                 xalign 0.5 
                                                 text_align 0.5
@@ -1755,11 +1782,36 @@ screen my_weapons_screen():
                                         $ my_color = AClassColor
                                     if weapon.rarity == "S":
                                         $ my_color = SClassColor
+                                        
+                                    $ weapon_img = "images/weapons/{}.png".format(weapon.type)
+                                    # Get original image size
+                                    $ orig_width, orig_height = renpy.image_size(weapon_img)
+
+                                    # Calculate proportional width
+                                    $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                                    # Scale the image
+                                    $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
+                                    $ button_action = Show("equipment_detail_screen", None, weaponOrEquipment_type, weapon)
+                                    button:
+                                        xfill True
+                                        action button_action
+                                        xpadding 4
+                                        ypadding 4
+                                        frame:                                            
+                                            background my_color
+                                            xalign 0.5 
+                                            add im.Composite(
+                                                (scale, scale),
+                                                (0, 0), empty_scaled,
+                                                ((scale - new_width) // 2, 0), weapon_scaled   
+                                            )
+
                                     button:
                                         background "#00000020"
                                         padding (5, 5)
                                         xfill True
-                                        action Show("equipment_detail_screen", None, weaponOrEquipment_type, weapon)
+                                        action button_action
 
                                         text "{} ({})".format(weapon.name, rarity):
                                             size 30
@@ -1813,6 +1865,7 @@ screen my_equipments_screen():
 
                             vbox:
                                 spacing 20 
+                                $ empty_scaled = im.Scale("images/background_item.png", scale, scale)
                                 $ weaponOrEquipment_type = "e"
                                 for my_protector in my_protectors_map.values():
                                     if my_protector.equipedHelmet != None:
@@ -1829,17 +1882,44 @@ screen my_equipments_screen():
                                             $ my_color = AClassColor
                                         if equipment.rarity == "S":
                                             $ my_color = SClassColor
+
+                                        $ equipment_img = "images/equipment/{}.png".format(equipment.type)
+
+                                        # Get original image size
+                                        $ orig_width, orig_height = renpy.image_size(equipment_img)
+
+                                        # Calculate proportional width
+                                        $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                                        # Scale the image
+                                        $ equipment_scaled = im.Scale(equipment_img, new_width, scale)
+
+                                        $ button_action = Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
+                                        button:
+                                            xfill True
+                                            action button_action
+                                            xpadding 4
+                                            ypadding 4
+                                            frame:                                            
+                                                background my_color
+                                                xalign 0.5 
+                                                add im.Composite(
+                                                    (scale, scale),
+                                                    (0, 0), empty_scaled,
+                                                    ((scale - new_width) // 2, 0), equipment_scaled   
+                                                )
                                         $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
                                         $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                         button:
                                             background "#00000020"
                                             padding (5, 5)
                                             xfill True
-                                            action Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
+                                            action button_action
                                             text "[equipment_name]\n[protector_name]":
                                                 xalign 0.5 
                                                 text_align 0.5
                                                 line_spacing 0
+                                                
                                     if my_protector.equipedBodyArmor != None:
                                         $ equipment = my_protector.equipedBodyArmor
                                         $ my_color = EClassColor
@@ -1854,13 +1934,40 @@ screen my_equipments_screen():
                                             $ my_color = AClassColor
                                         if equipment.rarity == "S":
                                             $ my_color = SClassColor
+
+
+                                        $ equipment_img = "images/equipment/{}.png".format(equipment.type)
+
+                                        # Get original image size
+                                        $ orig_width, orig_height = renpy.image_size(equipment_img)
+
+                                        # Calculate proportional width
+                                        $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                                        # Scale the image
+                                        $ equipment_scaled = im.Scale(equipment_img, new_width, scale)
+
+                                        $ button_action = Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
+                                        button:
+                                            xfill True
+                                            action button_action
+                                            xpadding 4
+                                            ypadding 4
+                                            frame:                                            
+                                                background my_color
+                                                xalign 0.5 
+                                                add im.Composite(
+                                                    (scale, scale),
+                                                    (0, 0), empty_scaled,
+                                                    ((scale - new_width) // 2, 0), equipment_scaled   
+                                                )
                                         $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
                                         $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                         button:
                                             background "#00000020"
                                             padding (5, 5)
                                             xfill True
-                                            action Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
+                                            action button_action
                                             text "[equipment_name]\n[protector_name]":
                                                 xalign 0.5 
                                                 text_align 0.5
@@ -1879,6 +1986,32 @@ screen my_equipments_screen():
                                             $ my_color = AClassColor
                                         if equipment.rarity == "S":
                                             $ my_color = SClassColor
+
+                                        $ equipment_img = "images/equipment/{}.png".format(equipment.type)
+
+                                        # Get original image size
+                                        $ orig_width, orig_height = renpy.image_size(equipment_img)
+
+                                        # Calculate proportional width
+                                        $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                                        # Scale the image
+                                        $ equipment_scaled = im.Scale(equipment_img, new_width, scale)
+
+                                        $ button_action = Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
+                                        button:
+                                            xfill True
+                                            action button_action
+                                            xpadding 4
+                                            ypadding 4
+                                            frame:                                            
+                                                background my_color
+                                                xalign 0.5 
+                                                add im.Composite(
+                                                    (scale, scale),
+                                                    (0, 0), empty_scaled,
+                                                    ((scale - new_width) // 2, 0), equipment_scaled   
+                                                )
                                         $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
                                         $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                         button:
@@ -1904,6 +2037,32 @@ screen my_equipments_screen():
                                             $ my_color = AClassColor
                                         if equipment.rarity == "S":
                                             $ my_color = SClassColor
+
+                                        $ equipment_img = "images/equipment/{}.png".format(equipment.type)
+
+                                        # Get original image size
+                                        $ orig_width, orig_height = renpy.image_size(equipment_img)
+
+                                        # Calculate proportional width
+                                        $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                                        # Scale the image
+                                        $ equipment_scaled = im.Scale(equipment_img, new_width, scale)
+
+                                        $ button_action = Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment, my_protector)
+                                        button:
+                                            xfill True
+                                            action button_action
+                                            xpadding 4
+                                            ypadding 4
+                                            frame:                                            
+                                                background my_color
+                                                xalign 0.5 
+                                                add im.Composite(
+                                                    (scale, scale),
+                                                    (0, 0), empty_scaled,
+                                                    ((scale - new_width) // 2, 0), equipment_scaled   
+                                                )
                                         $ equipment_name = "{{size=30}}{{color={}}}{} ({}){{/color}}{{/size}}".format(my_color, equipment.name, rarity)
                                         $ protector_name = "{{size=23}}Equiped by {}{{/size}}".format(my_protector.name)
                                         button:
@@ -1928,6 +2087,32 @@ screen my_equipments_screen():
                                         $ my_color = AClassColor
                                     if equipment.rarity == "S":
                                         $ my_color = SClassColor
+
+                                    $ equipment_img = "images/equipment/{}.png".format(equipment.type)
+
+                                    # Get original image size
+                                    $ orig_width, orig_height = renpy.image_size(equipment_img)
+
+                                    # Calculate proportional width
+                                    $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                                    # Scale the image
+                                    $ equipment_scaled = im.Scale(equipment_img, new_width, scale)
+
+                                    $ button_action = Show("equipment_detail_screen", None, weaponOrEquipment_type, equipment)
+                                    button:
+                                        xfill True
+                                        action button_action
+                                        xpadding 4
+                                        ypadding 4
+                                        frame:                                            
+                                            background my_color
+                                            xalign 0.5 
+                                            add im.Composite(
+                                                (scale, scale),
+                                                (0, 0), empty_scaled,
+                                                ((scale - new_width) // 2, 0), equipment_scaled   
+                                            )
                                     button:
                                         background "#00000020"
                                         padding (5, 5)
