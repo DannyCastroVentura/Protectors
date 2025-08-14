@@ -1,7 +1,5 @@
 ﻿default mc_name = "Daniel"
-default show_menu_for_protectors_game = False
-default show_bag = False
-default show_current_day = False
+default show_things = False
 default show_equipment = False
 default current_day = 1
 default money = 0
@@ -18,6 +16,7 @@ init python:
     mc = Character([mc_name])
     config.overlay_screens.append("menu_button_for_protectors_game")
     config.overlay_screens.append("current_day_screen")
+    config.overlay_screens.append("money_screen")
 
     # button_small_text
     # Button box styling (background, padding, etc.)
@@ -249,15 +248,11 @@ label start:
                     "What were the other ones?":
                         nova "Let's recap."
 
-    $ show_menu_for_protectors_game = True
     hide ironcladMace_starting
     hide screen weapon_base_stats
     hide thievesKnife_starting
     hide elderwoodStaff_starting
     show nova at center, fit_to_screen_height
-    nova "You can check your protectors by clicking in the button \"My Protectors\""
-    nova "Once you click, you'll see all your protectors - for now, you have only one!"
-    nova "If you click on your protector, you'll see more information about him."
     nova "Great! Now let's continue!"    
     $ while_aux = 0
     while while_aux == 0:        
@@ -275,9 +270,7 @@ label start:
                 mc "I'm not sure if I understood.."
                 mc "Could you repeat please?"
                 nova "Sure!"
-    $ show_equipment = True
-    $ show_bag = True
-    $ show_current_day = True
+    $ show_things = True
     jump base_of_operations
     
     #

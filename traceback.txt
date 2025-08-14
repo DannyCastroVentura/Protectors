@@ -9,30 +9,34 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 36, in script call
     call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 2, in script
+  File "game/places.rpy", line 34, in script
     menu:
-  File "game/screens.rpy", line 1947, in execute
-    screen my_protectors_screen():
-  File "game/screens.rpy", line 1947, in execute
-    screen my_protectors_screen():
-  File "game/screens.rpy", line 1948, in execute
+  File "game/screens.rpy", line 2220, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2220, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2222, in execute
     frame:
-  File "game/screens.rpy", line 1963, in execute
+  File "game/screens.rpy", line 2227, in execute
+    fixed:
+  File "game/screens.rpy", line 2246, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 2251, in execute
     vbox:
-  File "game/screens.rpy", line 1970, in execute
-    viewport:
-  File "game/screens.rpy", line 1975, in execute
+  File "game/screens.rpy", line 2259, in execute
     vbox:
-  File "game/screens.rpy", line 1977, in execute
-    for my_protector in my_protectors_map.values():
-  File "game/screens.rpy", line 1992, in execute
-    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
-  File "game/screens.rpy", line 1992, in <module>
-    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
-                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Exception: Could not construct image from argument.
+  File "game/screens.rpy", line 2263, in execute
+    if my_protector.equipedWeapon == None:
+  File "game/screens.rpy", line 2275, in execute
+    button:
+  File "game/screens.rpy", line 2281, in execute
+    frame:
+  File "game/screens.rpy", line 2283, in execute
+    add im.Composite(
+  File "game/screens.rpy", line 2285, in <module>
+    (0, 0), buttons_background,
+            ^^^^^^^^^^^^^^^^^^ 
+NameError: name 'buttons_background' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -45,9 +49,7 @@ Traceback (most recent call last):
     call base_travel_menu()
   File "game/places.rpy", line 36, in script call
     call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 2, in script
+  File "game/places.rpy", line 34, in script
     menu:
   File "renpy/ast.py", line 1815, in execute
     choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
@@ -95,33 +97,40 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 1947, in execute
-    screen my_protectors_screen():
-  File "game/screens.rpy", line 1947, in execute
-    screen my_protectors_screen():
-  File "game/screens.rpy", line 1948, in execute
+  File "game/screens.rpy", line 2220, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2220, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2222, in execute
     frame:
-  File "game/screens.rpy", line 1963, in execute
+  File "game/screens.rpy", line 2227, in execute
+    fixed:
+  File "game/screens.rpy", line 2246, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 2251, in execute
     vbox:
-  File "game/screens.rpy", line 1970, in execute
-    viewport:
-  File "game/screens.rpy", line 1975, in execute
+  File "game/screens.rpy", line 2259, in execute
     vbox:
-  File "game/screens.rpy", line 1977, in execute
-    for my_protector in my_protectors_map.values():
-  File "game/screens.rpy", line 1992, in execute
-    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
-  File "game/screens.rpy", line 1992, in <module>
-    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
-                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/im.py", line 1001, in __init__
-    im = image(im)
-         ~~~~~^^^^
-  File "renpy/display/im.py", line 2158, in image
-    raise Exception("Could not construct image from argument.")
-Exception: Could not construct image from argument.
+  File "game/screens.rpy", line 2263, in execute
+    if my_protector.equipedWeapon == None:
+  File "game/screens.rpy", line 2275, in execute
+    button:
+  File "game/screens.rpy", line 2281, in execute
+    frame:
+  File "game/screens.rpy", line 2283, in execute
+    add im.Composite(
+  File "renpy/python.py", line 1292, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1285, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 2285, in <module>
+    (0, 0), buttons_background,
+            ^^^^^^^^^^^^^^^^^^ 
+NameError: name 'buttons_background' is not defined
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Thu Aug 14 14:16:18 2025
+Thu Aug 14 17:16:25 2025
