@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2024: for expects a non-empty block.
-    for my_protector in my_protectors_map.values():
-                                                   ^
+File "game/screens.rpy", line 2095: 'count' is not a keyword argument or valid child of the for statement.
+    count = 1
+         ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Thu Aug 14 17:44:19 2025
+Fri Aug 15 18:14:30 2025

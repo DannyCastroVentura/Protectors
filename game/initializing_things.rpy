@@ -650,6 +650,58 @@ init python:
 
         
         # EQUIPMENT
+        # ADDING TEST EQUIPMENTS
+
+        equipments.append(Equipment(
+            "Light Leather Hood",
+            "A lightweight hood for agility and quick movements.",
+            "helmet",
+            "Evasion",
+            0.3,
+            0.3,
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Phoenix Wings",
+            "Wings of a fallen phoenix, offering extreme fire resistance and a chance to rise from the ashes.",
+            "body armor",
+            "Tank",
+            0.85,
+            0.5,
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Vanguard Pants",
+            "Pants worn by the vanguard, enhancing defense and fortitude.",
+            "pants",
+            "Tank",
+            1.5,
+            0.9,
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Gladiator's Boots",
+            "Boots that provide incredible movement speed and stamina, perfect for relentless combat.",
+            "boots",
+            "Tank",
+            2.8,
+            1.9,
+            "B"
+        ))
+        
+        equipments.append(Equipment(
+            "Stormbreak Helm",
+            "A helmet that sharpens reflexes and boosts critical hit chance.",
+            "helmet",
+            "Critical",
+            4.8,
+            2.7,
+            "A"
+        ))
+
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # E CLASS
 
@@ -859,16 +911,6 @@ init python:
         ))
         
         ######## OTHER ONES ########
-        equipments.append(Equipment(
-            "Light Leather Hood",
-            "A lightweight hood for agility and quick movements.",
-            "helmet",
-            "Evasion",
-            0.3,
-            0.3,
-            "E"
-        ))
-
         equipments.append(Equipment(
             "Golden Plate Mail",
             "A glorious plate mail forged from gold, offers supreme defense.",
@@ -1198,16 +1240,6 @@ init python:
             0.6,
             "D"
         ))
-
-        equipments.append(Equipment(
-            "Phoenix Wings",
-            "Wings of a fallen phoenix, offering extreme fire resistance and a chance to rise from the ashes.",
-            "body armor",
-            "Tank",
-            0.85,
-            0.5,
-            "D"
-        ))        
 
         equipments.append(Equipment(
             "Wings of the Seraphim",
@@ -1683,16 +1715,6 @@ init python:
             "C"
         ))
 
-        equipments.append(Equipment(
-            "Vanguard Pants",
-            "Pants worn by the vanguard, enhancing defense and fortitude.",
-            "pants",
-            "Tank",
-            1.5,
-            0.9,
-            "C"
-        ))
-
         ########
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # B CLASS
@@ -2052,16 +2074,6 @@ init python:
         ))
 
         equipments.append(Equipment(
-            "Gladiator's Boots",
-            "Boots that provide incredible movement speed and stamina, perfect for relentless combat.",
-            "boots",
-            "Tank",
-            2.8,
-            1.9,
-            "B"
-        ))
-
-        equipments.append(Equipment(
             "Shroud of the Wraith",
             "A body armor that enhances evasion and allows the wearer to move through walls for short periods.",
             "body armor",
@@ -2369,15 +2381,6 @@ init python:
 
 
         ######## Other ########
-        equipments.append(Equipment(
-            "Stormbreak Helm",
-            "A helmet that sharpens reflexes and boosts critical hit chance.",
-            "helmet",
-            "Critical",
-            4.8,
-            2.7,
-            "A"
-        ))
 
         equipments.append(Equipment(
             "Shadowstep Pants",
@@ -2928,4 +2931,5 @@ init python:
         myEquipments.append(next(e for e in equipments if e.equipment_id == 1))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 2))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 3))
+        myEquipments.append(next(e for e in equipments if e.equipment_id == 4))
         return 

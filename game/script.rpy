@@ -314,6 +314,14 @@ label start:
     # TODO: [BUG] if ready for promotion, it allows us to change the equipment, fix it
     # 
     # TODO: make the listing, not a column only - protectors, equipments, weapons
+    #   -   vbox
+    #   -   -   hbox
+    #   -   -   count = 1, per item, we add 1
+    #   -   -   if count = 5 -> we close the hbox, and add a new hbox -> and count = 1
+    #   -   -   -    I nneed to check this better, as I'm not sure how can I close hbox and open other in code..
+    #
+    # TODO: have images for each type of equipment
+    #   -   ex:     helmet for tank, helmet for evasion, and so on
     #
     return
 
