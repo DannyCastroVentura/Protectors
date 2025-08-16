@@ -1,42 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
+While processing the align property of anonymous style:
   File "game/places.rpy", line 14, in script
     menu:
-  File "game/screens.rpy", line 1673, in execute
-    screen my_weapons_screen():
-  File "game/screens.rpy", line 1673, in execute
-    screen my_weapons_screen():
-  File "game/screens.rpy", line 1674, in execute
-    frame:
-  File "game/screens.rpy", line 1687, in execute
-    vbox:
-  File "game/screens.rpy", line 1694, in execute
-    viewport:
-  File "game/screens.rpy", line 1699, in execute
-    vbox:
-  File "game/screens.rpy", line 1702, in execute
-    frame:
-  File "game/screens.rpy", line 1707, in execute
-    has vbox
-  File "game/screens.rpy", line 1710, in execute
-    viewport:
-  File "game/screens.rpy", line 1715, in execute
-    vbox:
-  File "game/screens.rpy", line 1718, in execute
-    for my_protector in my_protectors_map.values():
-  File "game/screens.rpy", line 1719, in execute
-    if my_protector.equipedWeapon != None:
-  File "game/screens.rpy", line 1744, in execute
-    button:
-  File "game/screens.rpy", line 1749, in execute
-    frame:
-  File "game/screens.rpy", line 1751, in execute
-    add im.Composite(
-  File "game/screens.rpy", line 1753, in <module>
-    (0, 0), empty_scaled,
-            ^^^^^^^^^^^^ 
-NameError: name 'empty_scaled' is not defined. Did you mean: 'weapon_scaled'?
+  File "tmp/gen3-static/styleclass.pxi", line 621, in renpy.styledata.styleclass.Style.slow_abortable.__get__
+  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 1946, in style_functions.align_property
+  File "src/style_common.pxi", line 30, in style_functions.index_0
+TypeError: 'float' object is not subscriptable
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -77,60 +50,37 @@ Traceback (most recent call last):
   File "renpy/display/displayable.py", line 432, in visit_all
     d.visit_all(callback, seen)
     ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
+  File "renpy/display/screen.py", line 508, in visit_all
+    self.child.visit_all(callback, seen=None)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+[Previous line repeated 3 more times]
+  File "renpy/display/displayable.py", line 434, in visit_all
     callback(self)
     ~~~~~~~~^^^^^^
   File "renpy/display/core.py", line 2757, in <lambda>
     root_widget.visit_all(lambda d: d.per_interact())
                                     ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 1673, in execute
-    screen my_weapons_screen():
-  File "game/screens.rpy", line 1673, in execute
-    screen my_weapons_screen():
-  File "game/screens.rpy", line 1674, in execute
-    frame:
-  File "game/screens.rpy", line 1687, in execute
-    vbox:
-  File "game/screens.rpy", line 1694, in execute
-    viewport:
-  File "game/screens.rpy", line 1699, in execute
-    vbox:
-  File "game/screens.rpy", line 1702, in execute
-    frame:
-  File "game/screens.rpy", line 1707, in execute
-    has vbox
-  File "game/screens.rpy", line 1710, in execute
-    viewport:
-  File "game/screens.rpy", line 1715, in execute
-    vbox:
-  File "game/screens.rpy", line 1718, in execute
-    for my_protector in my_protectors_map.values():
-  File "game/screens.rpy", line 1719, in execute
-    if my_protector.equipedWeapon != None:
-  File "game/screens.rpy", line 1744, in execute
-    button:
-  File "game/screens.rpy", line 1749, in execute
-    frame:
-  File "game/screens.rpy", line 1751, in execute
-    add im.Composite(
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 1753, in <module>
-    (0, 0), empty_scaled,
-            ^^^^^^^^^^^^ 
-NameError: name 'empty_scaled' is not defined. Did you mean: 'weapon_scaled'?
+  File "renpy/text/text.py", line 2354, in per_interact
+    if self.style.slow_abortable:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  File "tmp/gen3-static/styleclass.pxi", line 621, in renpy.styledata.styleclass.Style.slow_abortable.__get__
+  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 1946, in style_functions.align_property
+  File "src/style_common.pxi", line 30, in style_functions.index_0
+TypeError: 'float' object is not subscriptable
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Thu Aug 14 20:42:35 2025
+Sat Aug 16 01:57:29 2025

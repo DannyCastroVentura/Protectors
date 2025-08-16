@@ -323,6 +323,7 @@ label start:
     # TODO: have images for each type of equipment
     #   -   ex:     helmet for tank, helmet for evasion, and so on
     #
+    # TODO: I want to show a percentage of successfully the mission will be, and this should depend on the attributes, I can also ask chatgpt for help
     return
 
 
