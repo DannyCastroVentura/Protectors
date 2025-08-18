@@ -2378,16 +2378,16 @@ screen protector_detail_screen(my_protector):
                         spacing 20
                         text "Armour:" size 25 color "#DDD"
                         
-                        $ helmet_img = "images/equipment/default_helmet.png"
+                        $ helmet_img = "images/equipment/no_helmet.png"
                         $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ body_armor_img = "images/equipment/default_body_armor.png"
+                        $ body_armor_img = "images/equipment/no_body_armor.png"
                         $ empty_body_armor_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ pants_img = "images/equipment/default_pants.png"
+                        $ pants_img = "images/equipment/no_pants.png"
                         $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ boots_img = "images/equipment/default_boots.png"
+                        $ boots_img = "images/equipment/no_boots.png"
                         $ empty_boots_scaled = im.Scale("images/background_item.png", scale, scale)
                     vbox:
                         xalign 0.5
@@ -2399,7 +2399,7 @@ screen protector_detail_screen(my_protector):
                             
 
                             if my_protector.equipedHelmet == None:
-                                $ helmet_img = "images/equipment/default_helmet.png"
+                                $ helmet_img = "images/equipment/no_helmet.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(helmet_img)
@@ -2460,7 +2460,7 @@ screen protector_detail_screen(my_protector):
                                         )
                             null height 10  # This adds 40 pixels of vertical space at the top
                             if my_protector.equipedBodyArmor == None:
-                                $ body_armor_img = "images/equipment/default_body_armor.png"
+                                $ body_armor_img = "images/equipment/no_body_armor.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(body_armor_img)
@@ -2523,7 +2523,7 @@ screen protector_detail_screen(my_protector):
                             xalign 0.5
                             spacing 20
                             if my_protector.equipedPants == None:
-                                $ pants_img = "images/equipment/default_pants.png"
+                                $ pants_img = "images/equipment/no_pants.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(pants_img)
@@ -2584,7 +2584,7 @@ screen protector_detail_screen(my_protector):
 
                             null height 10  # This adds 40 pixels of vertical space at the top
                             if my_protector.equipedBoots == None:
-                                $ boots_img = "images/equipment/default_boots.png"
+                                $ boots_img = "images/equipment/no_boots.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(boots_img)
@@ -2805,16 +2805,16 @@ screen protector_detail_screen(my_protector):
                         spacing 20
                         text "Armour:" size 25 color "#DDD"
                         
-                        $ helmet_img = "images/equipment/default_helmet.png"
+                        $ helmet_img = "images/equipment/no_helmet.png"
                         $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ body_armor_img = "images/equipment/default_body_armor.png"
+                        $ body_armor_img = "images/equipment/no_body_armor.png"
                         $ empty_body_armor_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ pants_img = "images/equipment/default_pants.png"
+                        $ pants_img = "images/equipment/no_pants.png"
                         $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ boots_img = "images/equipment/default_boots.png"
+                        $ boots_img = "images/equipment/no_boots.png"
                         $ empty_boots_scaled = im.Scale("images/background_item.png", scale, scale)
                     vbox:
                         xalign 0.5
@@ -2826,7 +2826,7 @@ screen protector_detail_screen(my_protector):
                             
 
                             if my_protector.equipedHelmet == None:
-                                $ helmet_img = "images/equipment/default_helmet.png"
+                                $ helmet_img = "images/equipment/no_helmet.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(helmet_img)
@@ -2887,7 +2887,7 @@ screen protector_detail_screen(my_protector):
                                         )
                             null height 10  # This adds 40 pixels of vertical space at the top
                             if my_protector.equipedBodyArmor == None:
-                                $ body_armor_img = "images/equipment/default_body_armor.png"
+                                $ body_armor_img = "images/equipment/no_body_armor.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(body_armor_img)
@@ -2950,7 +2950,7 @@ screen protector_detail_screen(my_protector):
                             xalign 0.5
                             spacing 20
                             if my_protector.equipedPants == None:
-                                $ pants_img = "images/equipment/default_pants.png"
+                                $ pants_img = "images/equipment/no_pants.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(pants_img)
@@ -3011,7 +3011,7 @@ screen protector_detail_screen(my_protector):
 
                             null height 10  # This adds 40 pixels of vertical space at the top
                             if my_protector.equipedBoots == None:
-                                $ boots_img = "images/equipment/default_boots.png"
+                                $ boots_img = "images/equipment/no_boots.png"
 
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(boots_img)
