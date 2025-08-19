@@ -1,47 +1,102 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 14, in script
-    menu:
-  File "game/screens.rpy", line 2271, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2271, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2273, in execute
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "game/screens.rpy", line 3232, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3232, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3241, in execute
     frame:
-  File "game/screens.rpy", line 2278, in execute
-    fixed:
-  File "game/screens.rpy", line 2297, in execute
-    if my_protector.readyForPromotion == True:
-  File "game/screens.rpy", line 2729, in execute
+  File "game/screens.rpy", line 3248, in execute
     vbox:
-  File "game/screens.rpy", line 2819, in execute
+  File "game/screens.rpy", line 3251, in execute
+    if mode == "list":
+  File "game/screens.rpy", line 3308, in execute
     vbox:
-  File "game/screens.rpy", line 2823, in execute
-    hbox:
-  File "game/screens.rpy", line 2889, in execute
-    if my_protector.equipedBodyArmor == None:
-  File "game/screens.rpy", line 2893, in execute
-    $ orig_width, orig_height = renpy.image_size(body_img)
-  File "game/screens.rpy", line 2893, in <module>
-    $ orig_width, orig_height = renpy.image_size(body_img)
-                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-FileNotFoundError: Couldn't find file 'images/equipment/no_body.png'.
+  File "game/screens.rpy", line 3387, in execute
+    if selected_mission.status == "assigned":
+  File "game/screens.rpy", line 3389, in execute
+    text successful_percentage
+Exception: Cannot display 100 as text.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 14, in script
-    menu:
-  File "renpy/ast.py", line 1815, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 135, in menu
-    rv = renpy.store.menu(new_items)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 418, in display_menu
-    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -79,42 +134,27 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2271, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2271, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2273, in execute
+  File "game/screens.rpy", line 3232, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3232, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3241, in execute
     frame:
-  File "game/screens.rpy", line 2278, in execute
-    fixed:
-  File "game/screens.rpy", line 2297, in execute
-    if my_protector.readyForPromotion == True:
-  File "game/screens.rpy", line 2729, in execute
+  File "game/screens.rpy", line 3248, in execute
     vbox:
-  File "game/screens.rpy", line 2819, in execute
+  File "game/screens.rpy", line 3251, in execute
+    if mode == "list":
+  File "game/screens.rpy", line 3308, in execute
     vbox:
-  File "game/screens.rpy", line 2823, in execute
-    hbox:
-  File "game/screens.rpy", line 2889, in execute
-    if my_protector.equipedBodyArmor == None:
-  File "game/screens.rpy", line 2893, in execute
-    $ orig_width, orig_height = renpy.image_size(body_img)
-  File "game/screens.rpy", line 2893, in <module>
-    $ orig_width, orig_height = renpy.image_size(body_img)
-                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/exports/displayexports.py", line 771, in image_size
-    surf = im.load()
-           ~~~~~~~^^
-  File "renpy/display/im.py", line 838, in load
-    raise e
-  File "renpy/display/im.py", line 792, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
-               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/loader.py", line 698, in load
-    raise FileNotFoundError("Couldn't find file '%s'." % name)
-FileNotFoundError: Couldn't find file 'images/equipment/no_body.png'.
+  File "game/screens.rpy", line 3387, in execute
+    if selected_mission.status == "assigned":
+  File "game/screens.rpy", line 3389, in execute
+    text successful_percentage
+  File "renpy/text/text.py", line 2174, in __init__
+    raise Exception("Cannot display {0!r} as text.".format(i))
+Exception: Cannot display 100 as text.
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Aug 19 13:31:19 2025
+Tue Aug 19 14:23:25 2025

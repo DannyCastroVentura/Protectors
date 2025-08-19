@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2259: 'text_align' is not a keyword argument or valid child of the vbox statement.
-    text_align 0.0
-              ^
+File "game/screens.rpy", line 3389: text statement expects 1 positional arguments, got 0.
+    text
+         ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sat Aug 16 01:57:06 2025
+Tue Aug 19 14:23:10 2025

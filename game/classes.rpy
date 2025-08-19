@@ -1,4 +1,5 @@
 init python:
+    import random
     # CLASSES
     class BaseProtectorData:
         def __init__(self, strength, dexterity, constitution, 
@@ -181,8 +182,7 @@ init python:
 
         def get_mana_points(self):
             return int(20 + self.get_intelligence() * 5 + self.get_wisdom() * 3)
-
-        # TODO: make the weapon to also scale, to have a multiplier
+        
         def get_damage_points(self):
             if self.equipedWeapon == None:
                 return 3 + self.get_strength() * 2 + self.get_dexterity()
@@ -267,6 +267,7 @@ init python:
             self.neededDaysToFinish = neededDaysToFinish 
             self.disapearingInThisDays = disapearingInThisDays # this will going to be updated every time a day passes and this mission is assigned #if this reaches 0 and mission title is not "training", then the mission is deleted
             self.mission_type = mission_type
+            self.success_rate = None # This will have a value once the mission starts
             self.daysPassed = 0 # days passed since the mission started, this will be updated every day passed while the mission is running -> we should multiple the xp received per day worked.
             self.status = status # possible values: not assigned / assigned / started # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
             self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
@@ -278,9 +279,10 @@ init python:
                 self.gold_received = gold_received
             return
         
-        def startMission(self, protectorName):
+        def startMission(self, protectorName, success_rate):
             self.assignedProtectorName = protectorName
             self.status = "started"
+            self.success_rate = success_rate
             resetAssignmentsForThisProtectorName(protectorName)
             return
 
@@ -301,28 +303,36 @@ init python:
         def finishMission(self):
             global my_protectors_map
             global bossMissions
+
+            # Evaluate if the mission was a success
+            success_rate = self.success_rate  # already in percentage (0–100)
+
+            roll = random.uniform(0, 100)  # get a random float between 0 and 100
+
+            if success_rate >= roll:
+                mission_success = True
+                renpy.notify(f"Mission success ✅ (rolled {roll:.2f} vs rate {success_rate}%)")
+
+                # updating xp
+                my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
+
+                # Updating wallet
+                updating_wallet(self.gold_received)
+                
+                # updating the boss mission for this stage
+                mission_stage = min(((self.difficulty - 1) // 20) + 1, 10)
+
+                # if not training, update the bossMission
+                if self.mission_id != 0:
+                    bossMission = next((m for m in bossMissions if m.regionNumber == mission_stage), None)
+                    bossMission.successfulMinorMissions += 1
+            else:
+                mission_success = False
+                renpy.notify(f"Mission failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
+
             
-            # TODO: Evaluate if the mission is going to pass or not
-            #   -   depending on the type of the mission, different things on the protector would be evaluated
-
-            # getting the show off name for the protector
-            name = my_protectors_map[self.assignedProtectorName].name
-
-            # notifying that the mission was completed
-            renpy.notify(f"{name} has successfully completed {self.title}.")
-
             # updating the protector status and xp
             my_protectors_map[self.assignedProtectorName].status = "Available"
-            my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
-
-            # Updating wallet
-            updating_wallet(self.gold_received)
-            
-            # updating the boss mission for this stage
-            mission_stage = min(((self.difficulty - 1) // 20) + 1, 10)
-            if self.mission_id != 0:
-                bossMission = next((m for m in bossMissions if m.regionNumber == mission_stage), None)
-                bossMission.successfulMinorMissions += 1
 
             # deleting the mission if not training
             if self.mission_id != 0:

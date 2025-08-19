@@ -3382,10 +3382,18 @@ screen mission_screen(regionNumber):
                                 hbox:
                                     xalign 1.0  # force to right
                                     text "[my_protectors_map[selected_mission.assignedProtectorName].name]" size 18 color "#5a5a5a"
-
                 
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
+
+                    if selected_mission.status == "assigned":
+                        # TODO: update the success rate to make it depending on stats
+                        $ success_rate = 100
+                        vbox: 
+                            xalign 0.5
+                            spacing 10
+                            bar value success_rate range 100 style "success_rate_bar"
+                            text "Success rate: [success_rate] %" size 20 xalign 0.5
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
                     # List of available protectors
@@ -3417,7 +3425,7 @@ screen mission_screen(regionNumber):
                         xalign 0.5
                         spacing 20
                         if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
-                            textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name)
+                            textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
                         textbutton "Back" action SetScreenVariable("mode", "list")
 
 screen base_stats(baseProtectorObject):

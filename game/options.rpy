@@ -226,3 +226,10 @@ style xp_bar:
     ymaximum 40
     left_bar Solid("#ffcc33")
     right_bar Solid("#666633")
+
+
+style success_rate_bar:
+    xmaximum 500
+    ymaximum 40
+    left_bar Solid("#4CAF50")
+    right_bar Solid("#E0E0E0")

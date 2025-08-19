@@ -253,13 +253,13 @@ init python:
         
         return
 
-    def start_mission(mission, protectorName):
+    def start_mission(mission, protectorName, success_rate):
         global allMissions
         
         target_mission_id = mission.mission_id
         mission = next(m for m in allMissions if m.mission_id == target_mission_id)
         
-        mission.startMission(protectorName)
+        mission.startMission(protectorName, success_rate)
 
         my_protectors_map[protectorName].status = "In a mission"
         return
