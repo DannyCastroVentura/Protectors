@@ -45,6 +45,7 @@ default equipment_stats_increments = {
 init python:
     import os
     import json
+    import random
 
     if 'my_protectors_map' not in globals():
         my_protectors_map = {}
@@ -203,10 +204,10 @@ init python:
         global allMissionTemplates
 
         for missionNumber in range(len(allMissions), missionsListSize):
-            randomNumber = renpy.random.randint(1, maxDifficulty)
-            neededDaysToFinish = renpy.random.randint(1, maxNeededDaysToFinish)
-            disapearingInThisDays = renpy.random.randint(1, maxDisapearingInThisDays)
-            randomMission = renpy.random.randint(1, len(allMissionTemplates) - 1)
+            randomNumber = int(random.uniform(1, maxDifficulty))
+            neededDaysToFinish = int(random.uniform(1, maxNeededDaysToFinish))
+            disapearingInThisDays = int(random.uniform(1, maxDisapearingInThisDays))
+            randomMission = int(random.uniform(1, len(allMissionTemplates) - 1))
             mission = allMissionTemplates[randomMission]
 
             allMissions.append(

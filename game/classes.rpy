@@ -50,6 +50,9 @@ init python:
             self.equipedPants = None
             self.equipedBoots = None
             self.basePoints = protectors_base_information[name]
+            self.missions_succeeded = 0
+            self.missions_failed = 0
+            self.missions_went = 0
             return
 
         def increasing_xp(self, incoming_xp):
@@ -316,11 +319,11 @@ init python:
             if mission_type == "Moral":
                 protector_stat = protector.get_morality()
             if mission_type == "Combat":
-                protector_stat = protector.get_damage_points()
+                protector_stat = protector.get_damage_points() * 0.2
             difficulty = self.difficulty
-            needed_stat_value = 10 + difficulty * 1.2
+            needed_stat_value = 10 + difficulty * 3
 
-            return int(protector_stat * 100 / needed_stat_value)
+            return int((protector_stat * 100 / needed_stat_value) + protector.get_luck() * 0.15)
 
         def finishMission(self):
             global my_protectors_map
@@ -329,7 +332,7 @@ init python:
             # Evaluate if the mission was a success
             success_rate = self.success_rate  # already in percentage (0–100)
 
-            roll = random.uniform(0, 100)  # get a random float between 0 and 100
+            roll = int(random.uniform(0, 100))  # get a random float between 0 and 100
 
             if success_rate >= roll:
                 mission_success = True
@@ -337,6 +340,9 @@ init python:
 
                 # updating xp
                 my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
+
+                # updating the missions succeeded on this protector
+                my_protectors_map[self.assignedProtectorName].missions_succeeded += 1
 
                 # Updating wallet
                 updating_wallet(self.gold_received)
@@ -351,10 +357,17 @@ init python:
             else:
                 mission_success = False
                 renpy.notify(f"Mission failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
+                
+                # updating the missions failed on this protector
+                my_protectors_map[self.assignedProtectorName].missions_failed += 1
 
             
             # updating the protector status and xp
             my_protectors_map[self.assignedProtectorName].status = "Available"
+            
+            # updating the missions went on this protector
+            my_protectors_map[self.assignedProtectorName].missions_went += 1
+
 
             # deleting the mission if not training
             if self.mission_id != 0:

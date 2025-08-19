@@ -326,6 +326,17 @@ label start:
     #   -   Moral - Charisma + Intelligence + Wisdom
     #   -   Combat - damage?
     #   -   -   in all of them, we can add the number of luck at the end of the percentage, as the luck can add the probability to success right?
+    # 
+    # TODO: also have the possibility to unequip and equip an equipment / weapon by the equipment and weapon detail
+    # 
+    # TODO: add the equiped by protector on the equipment list (this is already working on the weapon list)
+    # 
+    # TODO: add a way to see the statistics for this protector
+    #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
+    # 
+    # TODO: make the protector detail when we chose a weapon, it should show the different options by rarity
+    # 
+    # 
     return
 
 

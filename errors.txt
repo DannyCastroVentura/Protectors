@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3394: 'success_rate' is not a keyword argument or valid child of the vbox statement.
-    success_rate = 100
-                ^
+File "game/screens.rpy", line 1722: invalid syntax
+    [weapon for weapon in ],
+                                                            ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Aug 19 15:25:28 2025
+Tue Aug 19 16:21:52 2025

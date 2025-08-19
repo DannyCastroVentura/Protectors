@@ -1725,7 +1725,11 @@ screen my_weapons_screen():
                                             "protector": my_protector
                                         }
                                         $ array_of_my_weapons.append(equipedProtectorWeapon)
-                                for  weapon in myWeapons:
+                                $ filtered_weapons = sorted(
+                                    [weapon for weapon in myWeapons],
+                                    key=lambda weapon: weapon.rarity
+                                )
+                                for weapon in filtered_weapons:
                                     $ unequipedWeapon = {
                                         "weapon": weapon
                                     }
@@ -1886,8 +1890,11 @@ screen my_equipments_screen():
                                             "protector": my_protector
                                         }
                                         $ array_of_my_equipments.append(equipedEquipment)
-
-                                for  equipment in myEquipments:
+                                $ filtered_equipments = sorted(
+                                    [equipment for equipment in myEquipments],
+                                    key=lambda equipment: equipment.rarity
+                                )
+                                for equipment in filtered_equipments:
                                     $ unequipedEquipment = {
                                         "equipment": equipment
                                     }
@@ -3392,7 +3399,6 @@ screen mission_screen(regionNumber):
 
                     if selected_mission.status == "assigned":
                         $ success_rate = selected_mission.get_success_rate(my_protectors_map[selected_mission.assignedProtectorName])
-                        $ success_rate = success_rate + int(my_protectors_map[selected_mission.assignedProtectorName].get_luck() * 0.2)
                         if success_rate > 100:
                             $ success_rate = 100
                         vbox: 
