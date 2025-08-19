@@ -91,7 +91,7 @@ init python:
                 else:
                     return
                 myEquipments.remove(equipment)
-            elif equipment.type == "body armor":
+            elif equipment.type == "body":
                 if self.equipedBodyArmor == None:
                     self.equipedBodyArmor = equipment
                 else:
@@ -122,7 +122,7 @@ init python:
             if type_equipment == "helmet":
                 myEquipments.append(self.equipedHelmet)
                 self.equipedHelmet = None
-            if type_equipment == "body armor":
+            if type_equipment == "body":
                 myEquipments.append(self.equipedBodyArmor)
                 self.equipedBodyArmor = None
             if type_equipment == "pants":
@@ -227,7 +227,7 @@ init python:
                             totalIncrement += self.equipedHelmet.prio1
                         if prios["prio2"] == searchingClassName:
                             totalIncrement += self.equipedHelmet.prio2
-                # body armor
+                # body
                 if self.equipedBodyArmor is not None:
                     if self.equipedBodyArmor.class_name == className:
                         if prios["prio1"] == searchingClassName:
@@ -377,7 +377,7 @@ init python:
             Equipment._id_counter += 1
             self.name = name # name of the equipment
             self.description = description # a small description for the equipment, it also can have a story of the equipment
-            self.type = equipment_type # the type (helmet, pants, boots, body armor)
+            self.type = equipment_type # the type (helmet, pants, boots, body)
             self.class_name = class_name # Dexterity / Strength / Magic / Tank / Shield / Evasion / Critical
             self.prio1 = prio1 # prio1 improvement (str, dex, con, int, wis, cha, luc)
             self.prio2 = prio2 # prio1 improvement (str, dex, con, int, wis, cha, luc)

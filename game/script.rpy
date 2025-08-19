@@ -320,15 +320,6 @@ label start:
     #   -   -   if count = 5 -> we close the hbox, and add a new hbox -> and count = 1
     #   -   -   -    I nneed to check this better, as I'm not sure how can I close hbox and open other in code..
     #
-    # TODO: have images for each type of equipment
-    #   -   ex:     tank - done
-    #   -   ex:     shield - done
-    #   -   ex:     critical - done
-    #   -   ex:     dexterity - done
-    #   -   ex:     strength - to be done
-    #   -   ex:     Magic - to be done
-    #   -   ex:     Evasion - to be done
-    #
     # TODO: I want to show a percentage of successfully the mission will be, and this should depend on the attributes, I can also ask chatgpt for help
     return
 

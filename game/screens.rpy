@@ -1913,7 +1913,7 @@ screen my_equipments_screen():
                                             if equipment.rarity == "S":
                                                 $ my_color = SClassColor
 
-                                            $ equipment_img = "images/equipment/{}.png".format(equipment.type)
+                                            $ equipment_img = "images/equipment/{}_{}.png".format(equipment.class_name, equipment.type)
 
                                             # Get original image size
                                             $ orig_width, orig_height = renpy.image_size(equipment_img)
@@ -2204,7 +2204,7 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                 if weaponOrEquipment_type == "w":
                     $ e_or_w_image = "images/weapons/{}.png".format(equipment_or_weapon.type)
                 elif weaponOrEquipment_type == "e":
-                    $ e_or_w_image = "images/equipment/{}.png".format(equipment_or_weapon.type)
+                    $ e_or_w_image = "images/equipment/{}_{}.png".format(equipment_or_weapon.class_name, equipment_or_weapon.type)
 
                 # Get original image size
                 $ orig_width, orig_height = renpy.image_size(e_or_w_image)
@@ -2381,8 +2381,8 @@ screen protector_detail_screen(my_protector):
                         $ helmet_img = "images/equipment/no_helmet.png"
                         $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ body_armor_img = "images/equipment/no_body_armor.png"
-                        $ empty_body_armor_scaled = im.Scale("images/background_item.png", scale, scale)
+                        $ body_img = "images/equipment/no_body.png"
+                        $ empty_body_scaled = im.Scale("images/background_item.png", scale, scale)
                         
                         $ pants_img = "images/equipment/no_pants.png"
                         $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
@@ -2423,7 +2423,7 @@ screen protector_detail_screen(my_protector):
                                             ((scale - new_width) // 2, 0), helmet_scaled
                                         )
                             else:
-                                $ helmet_img = "images/equipment/{}.png".format(my_protector.equipedHelmet.type)
+                                $ helmet_img = "images/equipment/{}_{}.png".format(my_protector.equipedHelmet.class_name, my_protector.equipedHelmet.type)
                                 $ helmet_scaled = im.Scale(helmet_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedHelmet.rarity == "D":
@@ -2460,19 +2460,19 @@ screen protector_detail_screen(my_protector):
                                         )
                             null height 10  # This adds 40 pixels of vertical space at the top
                             if my_protector.equipedBodyArmor == None:
-                                $ body_armor_img = "images/equipment/no_body_armor.png"
+                                $ body_img = "images/equipment/no_body.png"
 
                                 # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_armor_img)
+                                $ orig_width, orig_height = renpy.image_size(body_img)
 
                                 # Calculate proportional width
                                 $ new_width = int(orig_width * (scale / float(orig_height)))
 
                                 # Scale the image
-                                $ body_armor_scaled = im.Scale(body_armor_img, new_width, scale)
+                                $ body_scaled = im.Scale(body_img, new_width, scale)
 
                                 button:
-                                    action Function(show_equipments, my_protector, "body armor")
+                                    action Function(show_equipments, my_protector, "body")
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2480,12 +2480,12 @@ screen protector_detail_screen(my_protector):
                                         xalign 0.5 
                                         add im.Composite(
                                             (scale, scale),
-                                            (0, 0), empty_body_armor_scaled,
-                                            ((scale - new_width) // 2, 0), body_armor_scaled
+                                            (0, 0), empty_body_scaled,
+                                            ((scale - new_width) // 2, 0), body_scaled
                                         )
                             else:
-                                $ body_armor_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmor.type)
-                                $ body_armor_scaled = im.Scale(body_armor_img, 200, 200)
+                                $ body_img = "images/equipment/{}_{}.png".format(my_protector.equipedBodyArmor.class_name, my_protector.equipedBodyArmor.type)
+                                $ body_scaled = im.Scale(body_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedBodyArmor.rarity == "D":
                                     $ background_color_style = DClassColor
@@ -2498,16 +2498,16 @@ screen protector_detail_screen(my_protector):
                                 if my_protector.equipedBodyArmor.rarity == "S":
                                     $ background_color_style = SClassColor
                                 # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_armor_img)
+                                $ orig_width, orig_height = renpy.image_size(body_img)
 
                                 # Calculate proportional width
                                 $ new_width = int(orig_width * (scale / float(orig_height)))
 
                                 # Scale the image
-                                $ body_armor_scaled = im.Scale(body_armor_img, new_width, scale)
+                                $ body_scaled = im.Scale(body_img, new_width, scale)
 
                                 button:
-                                    action Function(my_protector.unequip_equipment, "body armor")
+                                    action Function(my_protector.unequip_equipment, "body")
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2515,8 +2515,8 @@ screen protector_detail_screen(my_protector):
                                         xalign 0.5 
                                         add im.Composite(
                                             (scale, scale),
-                                            (0, 0), empty_body_armor_scaled,
-                                            ((scale - new_width) // 2, 0), body_armor_scaled
+                                            (0, 0), empty_body_scaled,
+                                            ((scale - new_width) // 2, 0), body_scaled
                                         )
                         
                         hbox:
@@ -2547,7 +2547,7 @@ screen protector_detail_screen(my_protector):
                                             ((scale - new_width) // 2, 0), pants_scaled
                                         )
                             else:
-                                $ pants_img = "images/equipment/{}.png".format(my_protector.equipedPants.type)
+                                $ pants_img = "images/equipment/{}_{}.png".format(my_protector.equipedPants.class_name, my_protector.equipedPants.type)
                                 $ pants_scaled = im.Scale(pants_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedPants.rarity == "D":
@@ -2608,7 +2608,7 @@ screen protector_detail_screen(my_protector):
                                             ((scale - new_width) // 2, 0), boots_scaled
                                         )
                             else:
-                                $ boots_img = "images/equipment/{}.png".format(my_protector.equipedBoots.type)
+                                $ boots_img = "images/equipment/{}_{}.png".format(my_protector.equipedBoots.class_name, my_protector.equipedBoots.type)
                                 $ boots_scaled = im.Scale(boots_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedBoots.rarity == "D":
@@ -2808,8 +2808,8 @@ screen protector_detail_screen(my_protector):
                         $ helmet_img = "images/equipment/no_helmet.png"
                         $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
                         
-                        $ body_armor_img = "images/equipment/no_body_armor.png"
-                        $ empty_body_armor_scaled = im.Scale("images/background_item.png", scale, scale)
+                        $ body_img = "images/equipment/no_body.png"
+                        $ empty_body_scaled = im.Scale("images/background_item.png", scale, scale)
                         
                         $ pants_img = "images/equipment/no_pants.png"
                         $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
@@ -2850,7 +2850,7 @@ screen protector_detail_screen(my_protector):
                                             ((scale - new_width) // 2, 0), helmet_scaled
                                         )
                             else:
-                                $ helmet_img = "images/equipment/{}.png".format(my_protector.equipedHelmet.type)
+                                $ helmet_img = "images/equipment/{}_{}.png".format(my_protector.equipedHelmet.class_name, my_protector.equipedHelmet.type)
                                 $ helmet_scaled = im.Scale(helmet_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedHelmet.rarity == "D":
@@ -2887,19 +2887,19 @@ screen protector_detail_screen(my_protector):
                                         )
                             null height 10  # This adds 40 pixels of vertical space at the top
                             if my_protector.equipedBodyArmor == None:
-                                $ body_armor_img = "images/equipment/no_body_armor.png"
+                                $ body_img = "images/equipment/no_body.png"
 
                                 # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_armor_img)
+                                $ orig_width, orig_height = renpy.image_size(body_img)
 
                                 # Calculate proportional width
                                 $ new_width = int(orig_width * (scale / float(orig_height)))
 
                                 # Scale the image
-                                $ body_armor_scaled = im.Scale(body_armor_img, new_width, scale)
+                                $ body_scaled = im.Scale(body_img, new_width, scale)
 
                                 button:
-                                    action Function(show_equipments, my_protector, "body armor")
+                                    action Function(show_equipments, my_protector, "body")
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2907,12 +2907,12 @@ screen protector_detail_screen(my_protector):
                                         xalign 0.5 
                                         add im.Composite(
                                             (scale, scale),
-                                            (0, 0), empty_body_armor_scaled,
-                                            ((scale - new_width) // 2, 0), body_armor_scaled
+                                            (0, 0), empty_body_scaled,
+                                            ((scale - new_width) // 2, 0), body_scaled
                                         )
                             else:
-                                $ body_armor_img = "images/equipment/{}.png".format(my_protector.equipedBodyArmor.type)
-                                $ body_armor_scaled = im.Scale(body_armor_img, 200, 200)
+                                $ body_img = "images/equipment/{}_{}.png".format(my_protector.equipedBodyArmor.class_name, my_protector.equipedBodyArmor.type)
+                                $ body_scaled = im.Scale(body_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedBodyArmor.rarity == "D":
                                     $ background_color_style = DClassColor
@@ -2925,16 +2925,16 @@ screen protector_detail_screen(my_protector):
                                 if my_protector.equipedBodyArmor.rarity == "S":
                                     $ background_color_style = SClassColor
                                 # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_armor_img)
+                                $ orig_width, orig_height = renpy.image_size(body_img)
 
                                 # Calculate proportional width
                                 $ new_width = int(orig_width * (scale / float(orig_height)))
 
                                 # Scale the image
-                                $ body_armor_scaled = im.Scale(body_armor_img, new_width, scale)
+                                $ body_scaled = im.Scale(body_img, new_width, scale)
 
                                 button:
-                                    action Function(my_protector.unequip_equipment, "body armor")
+                                    action Function(my_protector.unequip_equipment, "body")
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2942,8 +2942,8 @@ screen protector_detail_screen(my_protector):
                                         xalign 0.5 
                                         add im.Composite(
                                             (scale, scale),
-                                            (0, 0), empty_body_armor_scaled,
-                                            ((scale - new_width) // 2, 0), body_armor_scaled
+                                            (0, 0), empty_body_scaled,
+                                            ((scale - new_width) // 2, 0), body_scaled
                                         )
                         
                         hbox:
@@ -2974,7 +2974,7 @@ screen protector_detail_screen(my_protector):
                                             ((scale - new_width) // 2, 0), pants_scaled
                                         )
                             else:
-                                $ pants_img = "images/equipment/{}.png".format(my_protector.equipedPants.type)
+                                $ pants_img = "images/equipment/{}_{}.png".format(my_protector.equipedPants.class_name, my_protector.equipedPants.type)
                                 $ pants_scaled = im.Scale(pants_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedPants.rarity == "D":
@@ -3035,7 +3035,7 @@ screen protector_detail_screen(my_protector):
                                             ((scale - new_width) // 2, 0), boots_scaled
                                         )
                             else:
-                                $ boots_img = "images/equipment/{}.png".format(my_protector.equipedBoots.type)
+                                $ boots_img = "images/equipment/{}_{}.png".format(my_protector.equipedBoots.class_name, my_protector.equipedBoots.type)
                                 $ boots_scaled = im.Scale(boots_img, 200, 200)
                                 $ background_color_style = EClassColor
                                 if my_protector.equipedBoots.rarity == "D":
@@ -3484,7 +3484,10 @@ screen equipment_select(protector, equipment_type):
             spacing 10
 
             text "Select your Equipment:" size 30
-            $ filtered_equipments = [equipment for equipment in myEquipments if equipment.type == equipment_type]
+            $ filtered_equipments = sorted(
+                [equipment for equipment in myEquipments if equipment.type == equipment_type],
+                key=lambda equipment: equipment.rarity
+            )
             # For each available equipment, create a button
             for equipment in filtered_equipments:
                 textbutton "[equipment.name] ([equipment.rarity])":

@@ -1,15 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing the align property of anonymous style:
+While running game code:
   File "game/places.rpy", line 14, in script
     menu:
-  File "tmp/gen3-static/styleclass.pxi", line 621, in renpy.styledata.styleclass.Style.slow_abortable.__get__
-  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
-  File "renpy/style.pyx", line 717, in renpy.style.build_style
-  File "renpy/style.pyx", line 714, in renpy.style.build_style
-  File "tmp/gen3-static/style_functions.pyx", line 1946, in style_functions.align_property
-  File "src/style_common.pxi", line 30, in style_functions.index_0
-TypeError: 'float' object is not subscriptable
+  File "game/screens.rpy", line 2271, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2271, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2273, in execute
+    frame:
+  File "game/screens.rpy", line 2278, in execute
+    fixed:
+  File "game/screens.rpy", line 2297, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 2729, in execute
+    vbox:
+  File "game/screens.rpy", line 2819, in execute
+    vbox:
+  File "game/screens.rpy", line 2823, in execute
+    hbox:
+  File "game/screens.rpy", line 2889, in execute
+    if my_protector.equipedBodyArmor == None:
+  File "game/screens.rpy", line 2893, in execute
+    $ orig_width, orig_height = renpy.image_size(body_img)
+  File "game/screens.rpy", line 2893, in <module>
+    $ orig_width, orig_height = renpy.image_size(body_img)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+FileNotFoundError: Couldn't find file 'images/equipment/no_body.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -50,37 +67,54 @@ Traceback (most recent call last):
   File "renpy/display/displayable.py", line 432, in visit_all
     d.visit_all(callback, seen)
     ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 508, in visit_all
-    self.child.visit_all(callback, seen=None)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-[Previous line repeated 3 more times]
-  File "renpy/display/displayable.py", line 434, in visit_all
+  File "renpy/display/screen.py", line 503, in visit_all
     callback(self)
     ~~~~~~~~^^^^^^
   File "renpy/display/core.py", line 2757, in <lambda>
     root_widget.visit_all(lambda d: d.per_interact())
                                     ~~~~~~~~~~~~~~^^ 
-  File "renpy/text/text.py", line 2354, in per_interact
-    if self.style.slow_abortable:
-       ^^^^^^^^^^^^^^^^^^^^^^^^^ 
-  File "tmp/gen3-static/styleclass.pxi", line 621, in renpy.styledata.styleclass.Style.slow_abortable.__get__
-  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
-  File "renpy/style.pyx", line 717, in renpy.style.build_style
-  File "renpy/style.pyx", line 714, in renpy.style.build_style
-  File "tmp/gen3-static/style_functions.pyx", line 1946, in style_functions.align_property
-  File "src/style_common.pxi", line 30, in style_functions.index_0
-TypeError: 'float' object is not subscriptable
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 2271, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2271, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2273, in execute
+    frame:
+  File "game/screens.rpy", line 2278, in execute
+    fixed:
+  File "game/screens.rpy", line 2297, in execute
+    if my_protector.readyForPromotion == True:
+  File "game/screens.rpy", line 2729, in execute
+    vbox:
+  File "game/screens.rpy", line 2819, in execute
+    vbox:
+  File "game/screens.rpy", line 2823, in execute
+    hbox:
+  File "game/screens.rpy", line 2889, in execute
+    if my_protector.equipedBodyArmor == None:
+  File "game/screens.rpy", line 2893, in execute
+    $ orig_width, orig_height = renpy.image_size(body_img)
+  File "game/screens.rpy", line 2893, in <module>
+    $ orig_width, orig_height = renpy.image_size(body_img)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/exports/displayexports.py", line 771, in image_size
+    surf = im.load()
+           ~~~~~~~^^
+  File "renpy/display/im.py", line 838, in load
+    raise e
+  File "renpy/display/im.py", line 792, in load
+    filelike = renpy.loader.load(self.filename, directory="images")
+               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/loader.py", line 698, in load
+    raise FileNotFoundError("Couldn't find file '%s'." % name)
+FileNotFoundError: Couldn't find file 'images/equipment/no_body.png'.
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Sat Aug 16 01:57:29 2025
+Tue Aug 19 13:31:19 2025

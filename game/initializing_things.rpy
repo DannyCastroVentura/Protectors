@@ -665,7 +665,7 @@ init python:
         equipments.append(Equipment(
             "Phoenix Wings",
             "Wings of a fallen phoenix, offering extreme fire resistance and a chance to rise from the ashes.",
-            "body armor",
+            "body",
             "Tank",
             0.85,
             0.5,
@@ -719,7 +719,7 @@ init python:
         equipments.append(Equipment(
             "Reinforced Body Armor",
             "A sturdy body armor made of reinforced iron. Offers good protection.",
-            "body armor",
+            "body",
             "Tank",
             0.25,
             0.1,
@@ -760,7 +760,7 @@ init python:
         equipments.append(Equipment(
             "Windrunner Body Armor",
             "Body armor designed for swift movement, they boost speed and critical hit chance.",
-            "body armor",
+            "body",
             "Critical",
             0.2,
             0.12,
@@ -801,7 +801,7 @@ init python:
         equipments.append(Equipment(
             "Iron Chestplate",
             "A strong iron chestplate offering high defense.",
-            "body armor",
+            "body",
             "Shield",
             0.3,
             0.2,
@@ -842,7 +842,7 @@ init python:
         equipments.append(Equipment(
             "Upper rags of the Swift",
             "Body armor that increase your movement speed and dexterity.",
-            "body armor",
+            "body",
             "Evasion",
             0.3,
             0.15,
@@ -883,7 +883,7 @@ init python:
         equipments.append(Equipment(
             "Mystic Robe",
             "A robe which grants magical powers and intellect.",
-            "body armor",
+            "body",
             "Magic",
             0.3,
             0.2,
@@ -914,7 +914,7 @@ init python:
         equipments.append(Equipment(
             "Golden Plate Mail",
             "A glorious plate mail forged from gold, offers supreme defense.",
-            "body armor",
+            "body",
             "Tank",
             0.3,
             0.2,
@@ -934,7 +934,7 @@ init python:
         equipments.append(Equipment(
             "Wraith Cloak",
             "A cloak made from the essence of wraiths, enhancing evasion and stealth.",
-            "body armor",
+            "body",
             "Evasion",
             0.3,
             0.3,
@@ -944,7 +944,7 @@ init python:
         equipments.append(Equipment(
             "Elven Cloak",
             "A cloak that boosts agility and offers increased critical hit chance.",
-            "body armor",
+            "body",
             "Critical",
             0.3,
             0.25,
@@ -974,7 +974,7 @@ init python:
         equipments.append(Equipment(
             "Titanium Chestplate",
             "A high-tech chestplate offering immense defense against all attacks.",
-            "body armor",
+            "body",
             "Tank",
             0.3,
             0.3,
@@ -998,7 +998,7 @@ init python:
         equipments.append(Equipment(
             "Chestplate of the Abyss",
             "A chestplate forged in shadowsteel, offering strong protection against darkness.",
-            "body armor",
+            "body",
             "Evasion",
             0.6,
             0.5,
@@ -1038,7 +1038,7 @@ init python:
         equipments.append(Equipment(
             "Celestial Robe",
             "A flowing robe woven with stardust, enhancing mana flow and spell potency.",
-            "body armor",
+            "body",
             "Magic",
             0.9,
             0.3,
@@ -1079,7 +1079,7 @@ init python:
         equipments.append(Equipment(
             "Vampire's Mantle",
             "A dark mantle that increases strength and grants life steal on attacks.",
-            "body armor",
+            "body",
             "Strength",
             0.7,
             0.4,
@@ -1120,7 +1120,7 @@ init python:
         equipments.append(Equipment(
             "Titan's Chestguard",
             "An enormous chestpiece forged for warriors who stand like unyielding mountains.",
-            "body armor",
+            "body",
             "Tank",
             0.7,
             0.7,
@@ -1161,7 +1161,7 @@ init python:
         equipments.append(Equipment(
             "Assassin's Vest",
             "A lightweight, reinforced vest designed for swift and lethal strikes.",
-            "body armor",
+            "body",
             "Critical",
             0.7,
             0.5,
@@ -1202,7 +1202,7 @@ init python:
         equipments.append(Equipment(
             "Armor of the Immortal King",
             "A regal chestplate that radiates divine protection, shielding its wearer from fatal blows.",
-            "body armor",
+            "body",
             "Shield",
             0.75,
             0.65,
@@ -1234,7 +1234,7 @@ init python:
         equipments.append(Equipment(
             "Shadow Cloak",
             "A cloak that grants the wearer invisibility for short periods and boosts stealth.",
-            "body armor",
+            "body",
             "Evasion",
             0.7,
             0.6,
@@ -1255,7 +1255,7 @@ init python:
         equipments.append(Equipment(
             "Elderwood Armor",
             "Armor crafted from the ancient trees of the elderwood. Increases defense and regeneration.",
-            "body armor",
+            "body",
             "Tank",
             0.7,
             0.7,
@@ -1265,7 +1265,7 @@ init python:
         equipments.append(Equipment(
             "Cloak of the Revenant",
             "A cloak made from the shadows of the dead. It grants invisibility and an aura that weakens enemies.",
-            "body armor",
+            "body",
             "Evasion",
             0.8,
             0.75,
@@ -1275,7 +1275,7 @@ init python:
         equipments.append(Equipment(
             "Cloak of the Phoenix",
             "A cloak that grants regeneration and the ability to rise from death once, like a phoenix.",
-            "body armor",
+            "body",
             "Tank",
             0.95,
             0.3,
@@ -1305,7 +1305,7 @@ init python:
         equipments.append(Equipment(
             "Dragonscale Body Armor",
             "Armor crafted from dragon scales. Offers great defense and fire resistance.",
-            "body armor",
+            "body",
             "Tank",
             0.7,
             0.6,
@@ -1339,7 +1339,7 @@ init python:
         equipments.append(Equipment(
             "Elven Armor",
             "Lightweight body armor favored by elves, increases dexterity and evasion.",
-            "body armor",
+            "body",
             "Evasion",
             1.3,
             0.7,
@@ -1380,7 +1380,7 @@ init python:
         equipments.append(Equipment(
             "Ironclad Chestplate",
             "A solid iron chestplate built to withstand even the heaviest blows.",
-            "body armor",
+            "body",
             "Tank",
             1.4,
             0.6,
@@ -1423,7 +1423,7 @@ init python:
         equipments.append(Equipment(
             "Mercenary Chestplate",
             "A tough chestplate designed for battlefield endurance and strength.",
-            "body armor",
+            "body",
             "Strength",
             1.5,
             0.5,
@@ -1465,7 +1465,7 @@ init python:
         equipments.append(Equipment(
             "Sorcery Robe",
             "A robe imbued with arcane energies, enhancing spellcasting abilities.",
-            "body armor",
+            "body",
             "Magic",
             1.5,
             0.7,
@@ -1507,7 +1507,7 @@ init python:
         equipments.append(Equipment(
             "Flameguard Chestplate",
             "A chestplate forged in dragon fire, enhancing resistance and durability.",
-            "body armor",
+            "body",
             "Shield",
             1.3,
             1,
@@ -1549,7 +1549,7 @@ init python:
         equipments.append(Equipment(
             "Demonhunter Vest",
             "Light armor that balances protection and agility for demon slayers.",
-            "body armor",
+            "body",
             "Critical",
             1.5,
             1.0,
@@ -1593,7 +1593,7 @@ init python:
         equipments.append(Equipment(
             "Berserker Plate",
             "A heavy armor that increases dexterity and grants a temporary rage buff after being hit.",
-            "body armor",
+            "body",
             "Dexterity",
             1.3,
             1.1,
@@ -1627,7 +1627,7 @@ init python:
         equipments.append(Equipment(
             "Knight's Armor",
             "Heavy armor worn by knights, offering high defense and stability.",
-            "body armor", 
+            "body", 
             "Tank",
             1.5,
             0.7,
@@ -1657,7 +1657,7 @@ init python:
         equipments.append(Equipment(
             "Windward Body Armor",
             "A body armor that boosts evasion and agility, perfect for swift fighters.",
-            "body armor",
+            "body",
             "Evasion",
             1.7,
             0.7,
@@ -1678,7 +1678,7 @@ init python:
         equipments.append(Equipment(
             "Darksteel Body Armor",
             "A body armor made from darksteel, offering immense protection but reducing speed.",
-            "body armor",
+            "body",
             "Tank",
             1.4,
             1.2,
@@ -1698,7 +1698,7 @@ init python:
         equipments.append(Equipment(
             "Hardened Leather Body Armor",
             "Light armor made from hardened leather, boosting evasion and critical hit chance.",
-            "body armor",
+            "body",
             "Evasion",
             1.4,
             1.3,
@@ -1733,7 +1733,7 @@ init python:
         equipments.append(Equipment(
             "Swiftstride Armor",
             "Armor designed for speed, granting increased evasion and movement.",
-            "body armor",
+            "body",
             "Evasion",
             2.5,
             1.5,
@@ -1774,7 +1774,7 @@ init python:
         equipments.append(Equipment(
             "Armor of the Fallen King",
             "A chestplate that embodies the resilience and might of a fallen monarch.",
-            "body armor",
+            "body",
             "Tank",
             2.7,
             1.4,
@@ -1816,7 +1816,7 @@ init python:
         equipments.append(Equipment(
             "Dragonbone Armor",
             "A body armor crafted from the bones of ancient dragons, offering massive defense and fire resistance.",
-            "body armor",
+            "body",
             "Shield",
             4.0,
             0,
@@ -1858,7 +1858,7 @@ init python:
         equipments.append(Equipment(
             "Celestial Mantle",
             "A radiant mantle woven from stardust, increasing critical damage and mana regeneration.",
-            "body armor",
+            "body",
             "Magic",
             3,
             1.5,
@@ -1899,7 +1899,7 @@ init python:
         equipments.append(Equipment(
             "Valkyrie Armor",
             "Armor made from the feathers of Valkyries, offering extreme agility and dexterity.",
-            "body armor",
+            "body",
             "Dexterity",
             2.2,
             2.2,
@@ -1941,7 +1941,7 @@ init python:
         equipments.append(Equipment(
             "Astral Robe",
             "A flowing robe charged with cosmic energy, increasing critical damage.",
-            "body armor",
+            "body",
             "Critical",
             2.5,
             2.0,
@@ -1983,7 +1983,7 @@ init python:
         equipments.append(Equipment(
             "Viperstrike Chestplate",
             "A chestplate that boosts raw power and deadly precision.",
-            "body armor",
+            "body",
             "Strength",
             2.4,
             2.2,
@@ -2016,7 +2016,7 @@ init python:
         equipments.append(Equipment(
             "Celestial Chestplate",
             "A chestplate blessed by the gods, offering extraordinary defense and holy resistance.",
-            "body armor",
+            "body",
             "Tank",
             2.7,
             2.5,
@@ -2066,7 +2066,7 @@ init python:
         equipments.append(Equipment(
             "Frostguard Armor",
             "An icy armor that greatly boosts defense against frost and grants immunity to freezing effects.",
-            "body armor",
+            "body",
             "Tank",
             2.8,
             2.3,
@@ -2076,7 +2076,7 @@ init python:
         equipments.append(Equipment(
             "Shroud of the Wraith",
             "A body armor that enhances evasion and allows the wearer to move through walls for short periods.",
-            "body armor",
+            "body",
             "Evasion",
             2.7,
             2.0,
@@ -2102,7 +2102,7 @@ init python:
         equipments.append(Equipment(
             "Emberstorm Chestplate",
             "Chest armor imbued with molten power, granting supreme fire resistance.",
-            "body armor",
+            "body",
             "Tank",
             4.2,
             2.2,
@@ -2143,7 +2143,7 @@ init python:
         equipments.append(Equipment(
             "Hellfire Plate",
             "A chestplate crafted from molten lava, offering high defense and fire damage reflection.",
-            "body armor",
+            "body",
             "Shield",
             4.4,
             2.0,
@@ -2185,7 +2185,7 @@ init python:
         equipments.append(Equipment(
             "Wraith's Garb",
             "A body armor made of spectral material, boosting evasion and reducing incoming damage.",
-            "body armor",
+            "body",
             "Evasion",
             3.5,
             3.0,
@@ -2227,7 +2227,7 @@ init python:
         equipments.append(Equipment(
             "Cloak of the Abyss",
             "A dark cloak that greatly increases magical resistance and increases critical hit damage.",
-            "body armor",
+            "body",
             "Magic",
             3.3,
             3.3,
@@ -2269,7 +2269,7 @@ init python:
         equipments.append(Equipment(
             "Shadowveil Mantle",
             "A mysterious mantle that channels dark power to greatly increase your strength, bolster magical resistance, and amplify critical hit damage.",
-            "body armor",
+            "body",
             "Strength",
             4.5,
             2.8,
@@ -2311,7 +2311,7 @@ init python:
         equipments.append(Equipment(
             "Swiftstrike Raiment",
             "A dark cloak that enhances your agility and precision, greatly increasing dexterity, while also boosting magical resistance and critical hit damage.",
-            "body armor",
+            "body",
             "Dexterity",
             3.5,
             3.3,
@@ -2352,7 +2352,7 @@ init python:
         equipments.append(Equipment(
             "Razorwind Shroud",
             "A dark cloak that sharpens your instincts and amplifies your critical strike power, greatly increasing critical damage while providing strong magical resistance.",
-            "body armor",
+            "body",
             "Critical",
             4.0,
             3.2,
@@ -2405,7 +2405,7 @@ init python:
         equipments.append(Equipment(
             "Phantom Cloak",
             "A body armor that increases critical damage and magical resistance.",
-            "body armor",
+            "body",
             "Critical",
             4.2,
             2.3,
@@ -2455,7 +2455,7 @@ init python:
         equipments.append(Equipment(
             "Ghostwalker Body Armor",
             "Body armor that improves dexterity and grants enhanced agility.",
-            "body armor",
+            "body",
             "Dexterity",
             3.7,
             3.4,
@@ -2485,7 +2485,7 @@ init python:
         equipments.append(Equipment(
             "Mystic Wardrobe",
             "Body armor that enhances magical power and boosts mana regeneration.",
-            "body armor",
+            "body",
             "Magic",
             3.5,
             4.0,
@@ -2525,7 +2525,7 @@ init python:
         equipments.append(Equipment(
             "Enchanter’s Robes",
             "Body armor that greatly enhances spell power and magical resistance.",
-            "body armor",
+            "body",
             "Magic",
             4.0,
             2.0,
@@ -2581,7 +2581,7 @@ init python:
         equipments.append(Equipment(
             "Guardian's Armor",
             "Body armor of ancient guardians, offering unmatched protection and vitality.",
-            "body armor",
+            "body",
             "Tank",
             6.5,
             6.2,
@@ -2624,7 +2624,7 @@ init python:
         equipments.append(Equipment(
             "Armor of the Eternal Emperor",
             "Armor blessed by the eternal emperor, offering unparalleled protection and resilience.",
-            "body armor",
+            "body",
             "Shield",
             8.0,
             4.5,
@@ -2666,7 +2666,7 @@ init python:
         equipments.append(Equipment(
             "Veil of Shadows",
             "A cloak imbued with the powers of shadows, increasing stealth, evasion, and damage output in the dark.",
-            "body armor",
+            "body",
             "Evasion",
             7.5,
             5.5,
@@ -2708,7 +2708,7 @@ init python:
         equipments.append(Equipment(
             "Vortex Armor",
             "Body armor designed for masters of precision, greatly enhancing critical strike damage and speed.",
-            "body armor",
+            "body",
             "Critical",
             8.5,
             4.5,
@@ -2750,7 +2750,7 @@ init python:
         equipments.append(Equipment(
             "Arcane Sovereign Robe",
             "Body armor pulsing with pure magic, vastly increasing spell power and mana regeneration.",
-            "body armor",
+            "body",
             "Magic",
             7.8,
             5.8,
@@ -2792,7 +2792,7 @@ init python:
         equipments.append(Equipment(
             "Titan’s Plate",
             "Body armor forged for unmatched warriors, greatly boosting strength and physical power.",
-            "body armor",
+            "body",
             "Strength",
             6.5,
             6.5,
@@ -2834,7 +2834,7 @@ init python:
         equipments.append(Equipment(
             "Shadowstrike Armor",
             "Body armor designed to heighten dexterity and precision, granting swift and deadly attacks.",
-            "body armor",
+            "body",
             "Dexterity",
             7.4,
             5.1,
