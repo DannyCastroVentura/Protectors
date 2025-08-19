@@ -7,20 +7,8 @@ While running game code:
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 64, in script call
     call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 38, in script call
-    call see_all_missions(2)
-  File "game/base_of_operations.rpy", line 61, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
   File "game/places.rpy", line 36, in script call
     call rest()
   File "game/places.rpy", line 38, in script call
@@ -32,6 +20,26 @@ While running game code:
   File "game/base_of_operations.rpy", line 64, in script call
     call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 38, in script call
     call base_travel_menu()
   File "game/places.rpy", line 36, in script call
     call rest()
@@ -50,17 +58,6 @@ While running game code:
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 64, in script call
     call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
   File "game/places.rpy", line 16, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
@@ -69,73 +66,14 @@ While running game code:
     call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 2 more times]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/resting.rpy", line 4, in script
-    python:
-  File "game/resting.rpy", line 7, in <module>
-    mission.updateDaysPassed()
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 303, in updateDaysPassed
-    self.finishMission()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 362, in finishMission
-    my_protectors_map[self.assignedProtectorName].missions_failed += 1
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     
-AttributeError: 'Protector' object has no attribute 'missions_failed'
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/training.rpy", line 4, in script
+    $ allMissions[0].startMission(selected_protector.name)
+  File "game/training.rpy", line 4, in <module>
+    $ allMissions[0].startMission(selected_protector.name)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Mission.startMission() missing 1 required positional argument: 'success_rate'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -146,20 +84,8 @@ Traceback (most recent call last):
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 64, in script call
     call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 38, in script call
-    call see_all_missions(2)
-  File "game/base_of_operations.rpy", line 61, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
   File "game/places.rpy", line 36, in script call
     call rest()
   File "game/places.rpy", line 38, in script call
@@ -171,6 +97,26 @@ Traceback (most recent call last):
   File "game/base_of_operations.rpy", line 64, in script call
     call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 64, in script call
+    call see_all_missions(1)
+  File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 38, in script call
     call base_travel_menu()
   File "game/places.rpy", line 36, in script call
     call rest()
@@ -189,17 +135,6 @@ Traceback (most recent call last):
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 64, in script call
     call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
   File "game/places.rpy", line 16, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
@@ -208,81 +143,22 @@ Traceback (most recent call last):
     call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 2 more times]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/resting.rpy", line 4, in script
-    python:
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/training.rpy", line 4, in script
+    $ allMissions[0].startMission(selected_protector.name)
   File "renpy/ast.py", line 1187, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1260, in py_exec_bytecode
     exec(bytecode, globals, locals)
     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/resting.rpy", line 7, in <module>
-    mission.updateDaysPassed()
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 303, in updateDaysPassed
-    self.finishMission()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 362, in finishMission
-    my_protectors_map[self.assignedProtectorName].missions_failed += 1
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     
-AttributeError: 'Protector' object has no attribute 'missions_failed'
+  File "game/training.rpy", line 4, in <module>
+    $ allMissions[0].startMission(selected_protector.name)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Mission.startMission() missing 1 required positional argument: 'success_rate'
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Aug 19 16:43:32 2025
+Tue Aug 19 17:13:18 2025

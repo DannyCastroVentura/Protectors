@@ -288,7 +288,7 @@ init python:
                 self.gold_received = gold_received
             return
         
-        def startMission(self, protectorName, success_rate):
+        def startMission(self, protectorName, success_rate = 100):
             self.assignedProtectorName = protectorName
             self.status = "started"
             self.success_rate = success_rate
