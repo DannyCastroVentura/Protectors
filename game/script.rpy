@@ -310,8 +310,6 @@ label start:
     #   -   Region 3 - 1 D Equipment or Weapon
     #   -   Region 2 - 2 E Equipment or Weapon
     #   -   Region 1 - 1 E Equipment or Weapon
-    #
-    # TODO: [BUG] if ready for promotion, it allows us to change the equipment, fix it
     # 
     # TODO: make the listing, not a column only - protectors, equipments, weapons
     #   -   vbox
@@ -321,6 +319,8 @@ label start:
     #   -   -   -    I nneed to check this better, as I'm not sure how can I close hbox and open other in code..
     #
     # TODO: I want to show a percentage of successfully the mission will be, and this should depend on the attributes, I can also ask chatgpt for help
+    #   -   firstly I should show every mission as 100% of succesfful rate and make the logic work with it
+    #   -   only then I can start to think on different ways to change this 100% change
     return
 
 
