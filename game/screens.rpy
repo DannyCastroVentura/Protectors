@@ -3539,8 +3539,11 @@ screen weapon_select(protector):
             text "Select your weapon:" size 30
 
             # For each available weapon, create a button
-            for weapon in myWeapons:
-
+            $ filtered_weapons = sorted(
+                [weapon for weapon in myWeapons],
+                key=lambda weapon: weapon.rarity
+            )
+            for weapon in filtered_weapons:
                 textbutton "[weapon.name] ([weapon.rarity])":
                     action [Function(protector.equip_weapon, weapon.weapon_id), Hide("weapon_select")]
                     xminimum 200

@@ -277,8 +277,6 @@ label start:
     # TODOS:
     # 
     # TODO:
-    #   -   normal missions sould be always possible to send our protectors, at the end, it will say if it was successful or not.
-    #   -   for the normal missions, or protector is not in life danger
     #   -   for the stage missions, our protector can be killed, we need to be careful
     #   -   once stage mission is completed, we can go to the next region - and everything should be the same
     # 
@@ -295,11 +293,7 @@ label start:
     # 
     # TODO: in case the user is clicking the armor or weapon and protector is not available, we should send a notification saying "cannot change the equipment because protector is [status]"
     #
-    # TODO: update the weapons and equipments list as I did for the protectors, so it shows the pictures
-    #
-    # TODO: add the description on the equipments and weapons to be out of the box.
-    #
-    # TODO: drops!
+    # TODO: final boss drops!
     #   -   Region 10 - 2 A Equipment or Weapon
     #   -   Region 9 - 1 A Equipment or Weapon
     #   -   Region 8 - 2 B Equipment or Weapon
@@ -311,30 +305,12 @@ label start:
     #   -   Region 2 - 2 E Equipment or Weapon
     #   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: make the listing, not a column only - protectors, equipments, weapons
-    #   -   vbox
-    #   -   -   hbox
-    #   -   -   count = 1, per item, we add 1
-    #   -   -   if count = 5 -> we close the hbox, and add a new hbox -> and count = 1
-    #   -   -   -    I nneed to check this better, as I'm not sure how can I close hbox and open other in code..
-    #
-    # TODO: I want to show a percentage of successfully the mission will be, and this should depend on the attributes, I can also ask chatgpt for help
-    #   -   start to think on different ways to change this 100% change with regards to the different attributes
-    #   -   Rescue - defense
-    #   -   Recon - evasion
-    #   -   Political - Charisma
-    #   -   Moral - Charisma + Intelligence + Wisdom
-    #   -   Combat - damage?
-    #   -   -   in all of them, we can add the number of luck at the end of the percentage, as the luck can add the probability to success right?
-    # 
     # TODO: also have the possibility to unequip and equip an equipment / weapon by the equipment and weapon detail
     # 
     # TODO: add the equiped by protector on the equipment list (this is already working on the weapon list)
     # 
     # TODO: add a way to see the statistics for this protector
     #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
-    # 
-    # TODO: make the protector detail when we chose a weapon, it should show the different options by rarity
     # 
     # 
     return
