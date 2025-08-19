@@ -2268,8 +2268,9 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         text "[str(equipment_or_weapon.rarity)]" size 22 color "#EEE" xalign 0.99999999999
                             
                         
-screen protector_detail_screen(my_protector):    
+screen protector_detail_screen(my_protector):
     $ scale = 200
+    $ action_button = None
     frame:
         modal True
         background Solid("#000000ff")
@@ -2323,8 +2324,11 @@ screen protector_detail_screen(my_protector):
                             # Scale the image
                             $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
+                            if my_protector.status == "Available":
+                                $ action_button = Function(show_weapons, my_protector)
+
                             button:
-                                action Function(show_weapons, my_protector)
+                                action action_button
                                 xpadding 4
                                 ypadding 4
                                 background "#ffffff"
@@ -2358,8 +2362,11 @@ screen protector_detail_screen(my_protector):
                             # Scale the image
                             $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
+                            if my_protector.status == "Available":
+                                $ action_button = Function(my_protector.unequip_weapon)
+
                             button:
-                                action Function(my_protector.unequip_weapon)
+                                action action_button
                                 xpadding 4
                                 ypadding 4
                                 background background_color_style
@@ -2410,8 +2417,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "helmet")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "helmet")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2445,9 +2455,12 @@ screen protector_detail_screen(my_protector):
 
                                 # Scale the image
                                 $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
+                                
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "helmet")
 
                                 button:
-                                    action Function(my_protector.unequip_equipment, "helmet")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2471,8 +2484,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ body_scaled = im.Scale(body_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "body")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "body")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2506,8 +2522,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ body_scaled = im.Scale(body_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "body")
+
                                 button:
-                                    action Function(my_protector.unequip_equipment, "body")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2534,8 +2553,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ pants_scaled = im.Scale(pants_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "pants")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "pants")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2569,8 +2591,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ pants_scaled = im.Scale(pants_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "pants")
+
                                 button:
-                                    action Function(my_protector.unequip_equipment, "pants")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2595,8 +2620,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ boots_scaled = im.Scale(boots_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "boots")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "boots")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2630,8 +2658,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ boots_scaled = im.Scale(boots_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "boots")
+
                                 button:
-                                    action Function(my_protector.unequip_equipment, "boots")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2720,7 +2751,6 @@ screen protector_detail_screen(my_protector):
                                     textbutton "No" action Hide("protector_detail_screen"):
                                         text_size 25
             else:
-
                 vbox:
                     yalign 0.1
                     xalign 0.5
@@ -2750,8 +2780,11 @@ screen protector_detail_screen(my_protector):
                             # Scale the image
                             $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
+                            if my_protector.status == "Available":
+                                $ action_button = Function(show_weapons, my_protector)
+
                             button:
-                                action Function(show_weapons, my_protector)
+                                action action_button
                                 xpadding 4
                                 ypadding 4
                                 background "#ffffff"
@@ -2785,8 +2818,11 @@ screen protector_detail_screen(my_protector):
                             # Scale the image
                             $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
+                            if my_protector.status == "Available":
+                                $ action_button = Function(my_protector.unequip_weapon)
+
                             button:
-                                action Function(my_protector.unequip_weapon)
+                                action action_button
                                 xpadding 4
                                 ypadding 4
                                 background background_color_style
@@ -2837,8 +2873,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "helmet")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "helmet")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2873,8 +2912,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "helmet")
+
                                 button:
-                                    action Function(my_protector.unequip_equipment, "helmet")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2898,8 +2940,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ body_scaled = im.Scale(body_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "body")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "body")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2933,8 +2978,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ body_scaled = im.Scale(body_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "body")
+
                                 button:
-                                    action Function(my_protector.unequip_equipment, "body")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -2961,8 +3009,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ pants_scaled = im.Scale(pants_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "pants")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "pants")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -2996,8 +3047,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ pants_scaled = im.Scale(pants_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "pants")
+
                                 button:
-                                    action Function(my_protector.unequip_equipment, "pants")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
@@ -3022,8 +3076,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ boots_scaled = im.Scale(boots_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(show_equipments, my_protector, "boots")
+
                                 button:
-                                    action Function(show_equipments, my_protector, "boots")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background "#ffffff"
@@ -3057,8 +3114,11 @@ screen protector_detail_screen(my_protector):
                                 # Scale the image
                                 $ boots_scaled = im.Scale(boots_img, new_width, scale)
 
+                                if my_protector.status == "Available":
+                                    $ action_button = Function(my_protector.unequip_equipment, "boots")
+
                                 button:
-                                    action Function(my_protector.unequip_equipment, "boots")
+                                    action action_button
                                     xpadding 4
                                     ypadding 4
                                     background background_color_style
