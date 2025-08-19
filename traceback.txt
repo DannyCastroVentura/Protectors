@@ -1,82 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
   File "game/places.rpy", line 16, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 23, in script call
     call see_missions_for_region(1)
   File "game/base_of_operations.rpy", line 68, in script
     call screen mission_screen(regionNumber)
-  File "game/screens.rpy", line 3232, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3232, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3241, in execute
-    frame:
-  File "game/screens.rpy", line 3248, in execute
-    vbox:
-  File "game/screens.rpy", line 3251, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3308, in execute
-    vbox:
-  File "game/screens.rpy", line 3387, in execute
-    if selected_mission.status == "assigned":
-  File "game/screens.rpy", line 3389, in execute
-    text successful_percentage
-Exception: Cannot display 100 as text.
+Exception: renpy.restart_interaction() was called 100 times without processing any input.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
   File "game/places.rpy", line 16, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
     call see_all_missions(1)
   File "game/base_of_operations.rpy", line 23, in script call
     call see_missions_for_region(1)
@@ -100,61 +44,11 @@ Traceback (most recent call last):
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2219, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )  # type: ignore
-    ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3232, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3232, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3241, in execute
-    frame:
-  File "game/screens.rpy", line 3248, in execute
-    vbox:
-  File "game/screens.rpy", line 3251, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3308, in execute
-    vbox:
-  File "game/screens.rpy", line 3387, in execute
-    if selected_mission.status == "assigned":
-  File "game/screens.rpy", line 3389, in execute
-    text successful_percentage
-  File "renpy/text/text.py", line 2174, in __init__
-    raise Exception("Cannot display {0!r} as text.".format(i))
-Exception: Cannot display 100 as text.
+  File "renpy/display/core.py", line 2217, in interact
+    raise Exception("renpy.restart_interaction() was called 100 times without processing any input.")
+Exception: renpy.restart_interaction() was called 100 times without processing any input.
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Aug 19 14:23:25 2025
+Tue Aug 19 16:10:20 2025

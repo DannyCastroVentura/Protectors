@@ -13,6 +13,7 @@ init python:
             self.intelligence = intelligence
             self.wisdom = wisdom
             self.charisma = charisma
+            self.morality = int(charisma * 0.6 + wisdom * 0.4)
             self.luck = luck
             self.incrementing_strength = incrementing_strength
             self.incrementing_dexterity = incrementing_dexterity
@@ -31,6 +32,7 @@ init python:
                 "intelligence": self.intelligence,
                 "wisdom": self.wisdom,
                 "charisma": self.charisma,
+                "morality": self.morality,
                 "luck": self.luck
             }
 
@@ -182,7 +184,7 @@ init python:
 
         def get_mana_points(self):
             return int(20 + self.get_intelligence() * 5 + self.get_wisdom() * 3)
-        
+
         def get_damage_points(self):
             if self.equipedWeapon == None:
                 return 3 + self.get_strength() * 2 + self.get_dexterity()
@@ -194,14 +196,17 @@ init python:
                 return self.equipedWeapon.base_damage + self.get_intelligence() * 2 + self.get_wisdom()
             return 0 
 
-        def get_defense(self):
-            return int(self.get_constitution() * 1.5 + self.get_dexterity() * 0.5)
-        
         def get_critical_change(self):
-            return int(5 + self.get_luck() * 0.5 + self.get_dexterity() * 0.2)
+            return int(5 + self.get_luck() * 0.5 + self.get_dexterity() * 0.5)
 
         def get_evasion(self):
-            return inf(self.get_dexterity() * 0.4 + self.get_luck() * 0.2)
+            return int(self.get_dexterity() * 0.5 + self.get_luck() * 0.5)
+        
+        def get_defense(self):
+            return int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5)
+        
+        def get_morality(self):
+            return int(self.get_charisma() * 0.6 + self.get_wisdom() * 0.4)
 
         def cooldown_reduction(self):
             return int(self.get_wisdom() * 0.05)
@@ -214,6 +219,7 @@ init python:
                 "intelligence": self.get_intelligence(),
                 "wisdom": self.get_wisdom(),
                 "charisma": self.get_charisma(),
+                "morality": self.get_morality(),
                 "luck": self.get_luck()
             }
         
@@ -296,10 +302,26 @@ init python:
                 self.disapearingInThisDays -= 1
                 if self.disapearingInThisDays <= 0:
                     marking_missions_to_be_deleted(self.mission_id)
-            
-
             return
         
+        def get_success_rate(self, protector):
+            mission_type = self.mission_type
+            protector_stat = 0
+            if mission_type == "Rescue":
+                protector_stat = protector.get_defense()
+            if mission_type == "Recon":
+                protector_stat = protector.get_evasion()
+            if mission_type == "Political":
+                protector_stat = protector.get_charisma()
+            if mission_type == "Moral":
+                protector_stat = protector.get_morality()
+            if mission_type == "Combat":
+                protector_stat = protector.get_damage_points()
+            difficulty = self.difficulty
+            needed_stat_value = 10 + difficulty * 1.2
+
+            return int(protector_stat * 100 / needed_stat_value)
+
         def finishMission(self):
             global my_protectors_map
             global bossMissions

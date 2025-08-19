@@ -2703,13 +2703,13 @@ screen protector_detail_screen(my_protector):
                             text "Strength:" size 22 color "#EEE"
                             text "Constitution:" size 22 color "#EEE"
                             text "Wisdom:" size 22 color "#EEE"
-                            text "Luck:" size 22 color "#EEE"
+                            text "Morality:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
                             text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['morality'])]" size 22 color "#EEE"
                         vbox:
                             null width 40  # This adds 40 pixels of vertical space at the top
                         vbox:
@@ -2717,11 +2717,13 @@ screen protector_detail_screen(my_protector):
                             text "Dexterity:" size 22 color "#EEE"
                             text "Intelligence:" size 22 color "#EEE"
                             text "Charisma:" size 22 color "#EEE"
+                            text "Luck:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
                             text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
                     
                     vbox:
                         null width 30  # This adds 40 pixels of vertical space at the top
@@ -3159,13 +3161,13 @@ screen protector_detail_screen(my_protector):
                             text "Strength:" size 22 color "#EEE"
                             text "Constitution:" size 22 color "#EEE"
                             text "Wisdom:" size 22 color "#EEE"
-                            text "Luck:" size 22 color "#EEE"
+                            text "Morality:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
                             text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['morality'])]" size 22 color "#EEE"
                         vbox:
                             null width 40  # This adds 40 pixels of vertical space at the top
                         vbox:
@@ -3173,11 +3175,13 @@ screen protector_detail_screen(my_protector):
                             text "Dexterity:" size 22 color "#EEE"
                             text "Intelligence:" size 22 color "#EEE"
                             text "Charisma:" size 22 color "#EEE"
+                            text "Luck:" size 22 color "#EEE"
                         vbox:
                             xalign 0.5
                             text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
                             text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
+                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
                     
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
@@ -3283,7 +3287,7 @@ screen mission_screen(regionNumber):
                                 padding (10, 10)
                                 vbox:
                                     spacing 5
-                                    text mission.title size 24 color "#fff"
+                                    text "[mission.title] ([mission.mission_type])" size 24 color "#fff"
                                     text mission.description size 16 color "#ccc"
                                     text "Difficulty: [mission.difficulty]" size 14 color "#aaa"
                             action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_mission", mission)]
@@ -3381,14 +3385,16 @@ screen mission_screen(regionNumber):
                             if selected_mission.status == "assigned":
                                 hbox:
                                     xalign 1.0  # force to right
-                                    text "[my_protectors_map[selected_mission.assignedProtectorName].name]" size 18 color "#5a5a5a"
+                                    text "[selected_mission.assignedProtectorName]" size 18 color "#5a5a5a"
                 
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
 
                     if selected_mission.status == "assigned":
-                        # TODO: update the success rate to make it depending on stats
-                        $ success_rate = 100
+                        $ success_rate = selected_mission.get_success_rate(my_protectors_map[selected_mission.assignedProtectorName])
+                        $ success_rate = success_rate + int(my_protectors_map[selected_mission.assignedProtectorName].get_luck() * 0.2)
+                        if success_rate > 100:
+                            $ success_rate = 100
                         vbox: 
                             xalign 0.5
                             spacing 10
@@ -3448,26 +3454,28 @@ screen base_stats(baseProtectorObject):
                     text "Strength:" size 25 color "#EEE"
                     text "Constitution:" size 25 color "#EEE"
                     text "Wisdom:" size 25 color "#EEE"
-                    text "Luck:" size 25 color "#EEE"
+                    text "Morality:" size 25 color "#EEE"
                 vbox:
                     spacing 30
                     xalign 0.5
                     text "[str(baseProtectorObject.get_base_information()['strength'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['constitution'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['wisdom'])]" size 25 color "#EEE"
-                    text "[str(baseProtectorObject.get_base_information()['luck'])]" size 25 color "#EEE"
+                    text "[str(baseProtectorObject.get_base_information()['morality'])]" size 25 color "#EEE"
                 vbox:
                     spacing 30
                     xalign 0.5
                     text "Dexterity:" size 25 color "#EEE"
                     text "Intelligence:" size 25 color "#EEE"
                     text "Charisma:" size 25 color "#EEE"
+                    text "Luck:" size 25 color "#EEE"
                 vbox:
                     spacing 30
                     xalign 0.5
                     text "[str(baseProtectorObject.get_base_information()['dexterity'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['intelligence'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['charisma'])]" size 25 color "#EEE"
+                    text "[str(baseProtectorObject.get_base_information()['luck'])]" size 25 color "#EEE"
 
 
 screen weapon_base_stats(weaponObject):

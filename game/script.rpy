@@ -323,7 +323,7 @@ label start:
     #   -   Rescue - defense
     #   -   Recon - evasion
     #   -   Political - Charisma
-    #   -   Moral - Intelligence + wisdom? # for this I would also need to add a "get_moraility" function for the protectors
+    #   -   Moral - Charisma + Intelligence + Wisdom
     #   -   Combat - damage?
     #   -   -   in all of them, we can add the number of luck at the end of the percentage, as the luck can add the probability to success right?
     return
