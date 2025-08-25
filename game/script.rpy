@@ -282,7 +282,12 @@ label start:
     # 
     # TODO: make it possible to call nova
     #
-    # TODO: create the new frame for the stage 5 - as he should choose which one should he get, and depending on the one he chose, he will get some advantages
+    # TODO: create the new frame for the stage 5:
+    #   -   firstly I would need to think on different boosts that for the 2 options
+    #   -   should we only update stats?
+    #   -   we can create a new object, which would have the 2 possibilities and then the percentage it would add
+    #   -   -   ex: -   ninja cinza would have more for evasion
+    #   -   -   ex: -   ninja army would have more hp, defence, and atack
     # 
     # TODO: create a way to buy items or item drop chang? Still need to think about it
     # 
@@ -290,8 +295,6 @@ label start:
     # 
     # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
     #   -   or if it was successful or not -> maybe also the reason?
-    # 
-    # TODO: in case the user is clicking the armor or weapon and protector is not available, we should send a notification saying "cannot change the equipment because protector is [status]"
     #
     # TODO: final boss drops!
     #   -   Region 10 - 2 A Equipment or Weapon
@@ -307,9 +310,7 @@ label start:
     # 
     # TODO: also have the possibility to unequip and equip an equipment / weapon by the equipment and weapon detail
     # 
-    # TODO: add the equiped by protector on the equipment list (this is already working on the weapon list)
-    # 
-    # TODO: add a way to see the statistics for this protector
+    # TODO: add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
     # 
     # 

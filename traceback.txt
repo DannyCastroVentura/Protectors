@@ -3,162 +3,156 @@
 While running game code:
   File "game/places.rpy", line 16, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
   File "game/places.rpy", line 26, in script call
     call show_my_available_protectors(False)
-  File "game/training.rpy", line 4, in script
-    $ allMissions[0].startMission(selected_protector.name)
-  File "game/training.rpy", line 4, in <module>
-    $ allMissions[0].startMission(selected_protector.name)
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: Mission.startMission() missing 1 required positional argument: 'success_rate'
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "game/screens.rpy", line 3283, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3283, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3292, in execute
+    frame:
+  File "game/screens.rpy", line 3299, in execute
+    vbox:
+  File "game/screens.rpy", line 3302, in execute
+    if mode == "list":
+  File "game/screens.rpy", line 3359, in execute
+    vbox:
+  File "game/screens.rpy", line 3476, in execute
+    hbox:
+  File "game/screens.rpy", line 3479, in execute
+    if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
+  File "game/screens.rpy", line 3480, in execute
+    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+  File "game/screens.rpy", line 3480, in keywords
+    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+  File "game/screens.rpy", line 3480, in <module>
+    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+                                               ^^^^^^^^^^^^^                                                 
+NameError: name 'start_mission' is not defined. Did you mean: 'delete_mission'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
   File "game/places.rpy", line 16, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 64, in script call
-    call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
   File "game/places.rpy", line 26, in script call
     call show_my_available_protectors(False)
-  File "game/training.rpy", line 4, in script
-    $ allMissions[0].startMission(selected_protector.name)
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1260, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/training.rpy", line 4, in <module>
-    $ allMissions[0].startMission(selected_protector.name)
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: Mission.startMission() missing 1 required positional argument: 'success_rate'
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
+  File "game/base_of_operations.rpy", line 23, in script call
+    call see_missions_for_region(1)
+  File "game/base_of_operations.rpy", line 68, in script
+    call screen mission_screen(regionNumber)
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 3283, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3283, in execute
+    screen mission_screen(regionNumber):
+  File "game/screens.rpy", line 3292, in execute
+    frame:
+  File "game/screens.rpy", line 3299, in execute
+    vbox:
+  File "game/screens.rpy", line 3302, in execute
+    if mode == "list":
+  File "game/screens.rpy", line 3359, in execute
+    vbox:
+  File "game/screens.rpy", line 3476, in execute
+    hbox:
+  File "game/screens.rpy", line 3479, in execute
+    if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
+  File "game/screens.rpy", line 3480, in execute
+    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+  File "game/screens.rpy", line 3480, in keywords
+    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+  File "renpy/python.py", line 1292, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1285, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 3480, in <module>
+    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+                                               ^^^^^^^^^^^^^                                                 
+NameError: name 'start_mission' is not defined. Did you mean: 'delete_mission'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Aug 19 17:13:18 2025
+Mon Aug 25 13:08:29 2025

@@ -2029,10 +2029,12 @@ screen my_protectors_screen():
                                         if my_protector.readyForPromotion:
                                             $ my_color = "#ff0000"
                                             $ message = "Ready for promotion"
-                                        elif my_protector.status == "In a mission":
+                                        if my_protector.status == "In a mission":
                                             $ my_color = "#1E3A8A"
-                                        elif my_protector.status == "Training":
+                                            $ message = my_protector.status
+                                        if my_protector.status == "Training":
                                             $ my_color = "#FACC15"
+                                            $ message = my_protector.status
 
                                         # Path to the image
                                         $ show_protectors_image = "images/protectors/{}/{}.png".format(my_protector.name, my_protector.stage)
@@ -2269,8 +2271,8 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         if weaponOrEquipment_type == "w":
                             text "[str(equipment_or_weapon.base_damage)]" size 22 color "#EEE" xalign 0.99999999999
                         elif weaponOrEquipment_type == "e":
-                            text "[str(equipment_stats_increments[equipment_or_weapon.class_name]['prio1'])] (x[str(equipment_or_weapon.prio1 + 1)])" size 22 color "#EEE" xalign 0.99999999999
-                            text "[str(equipment_stats_increments[equipment_or_weapon.class_name]['prio2'])] (x[str(equipment_or_weapon.prio2 + 1)])" size 22 color "#EEE" xalign 0.99999999999
+                            text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio1'])] (x[str(equipment_or_weapon.prio1 + 1)])" size 22 color "#EEE" xalign 0.99999999999
+                            text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio2'])] (x[str(equipment_or_weapon.prio2 + 1)])" size 22 color "#EEE" xalign 0.99999999999
                         
                         text "[str(equipment_or_weapon.rarity)]" size 22 color "#EEE" xalign 0.99999999999
                             
@@ -2302,7 +2304,7 @@ screen protector_detail_screen(my_protector):
                 yalign 0.0
                 padding (10, 5)
             
-            if my_protector.readyForPromotion == True:
+            if my_protector.readyForPromotion == True and my_protector.status == "Available":
                 vbox:
                     yalign 0.1
                     xalign 0.5
@@ -2332,7 +2334,9 @@ screen protector_detail_screen(my_protector):
                             $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
                             if my_protector.status == "Available":
-                                $ action_button = Function(show_weapons, my_protector)
+                                $ action_button = Function(show_weapons, my_protector)                                
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                             button:
                                 action action_button
@@ -2371,6 +2375,8 @@ screen protector_detail_screen(my_protector):
 
                             if my_protector.status == "Available":
                                 $ action_button = Function(my_protector.unequip_weapon)
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                             button:
                                 action action_button
@@ -2426,6 +2432,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "helmet")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2465,6 +2473,8 @@ screen protector_detail_screen(my_protector):
                                 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "helmet")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2493,6 +2503,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "body")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2531,6 +2543,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "body")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2562,6 +2576,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "pants")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2600,6 +2616,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "pants")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2629,6 +2647,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "boots")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2667,6 +2687,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "boots")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2791,6 +2813,8 @@ screen protector_detail_screen(my_protector):
 
                             if my_protector.status == "Available":
                                 $ action_button = Function(show_weapons, my_protector)
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                             button:
                                 action action_button
@@ -2829,6 +2853,8 @@ screen protector_detail_screen(my_protector):
 
                             if my_protector.status == "Available":
                                 $ action_button = Function(my_protector.unequip_weapon)
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                             button:
                                 action action_button
@@ -2884,6 +2910,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "helmet")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2923,6 +2951,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "helmet")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2951,6 +2981,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "body")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -2989,6 +3021,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "body")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -3020,6 +3054,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "pants")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -3058,6 +3094,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "pants")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -3087,6 +3125,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(show_equipments, my_protector, "boots")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button
@@ -3125,6 +3165,8 @@ screen protector_detail_screen(my_protector):
 
                                 if my_protector.status == "Available":
                                     $ action_button = Function(my_protector.unequip_equipment, "boots")
+                                else: 
+                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
                                 button:
                                     action action_button

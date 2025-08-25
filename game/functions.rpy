@@ -11,7 +11,7 @@ default missionsToDelete = []
 define config.console = True
 # define config.keymap["hide_windows"] = []
 default allMissionTemplates = []
-default equipment_stats_increments = {
+default stats_increment_map = {
     "Dexterity": {
         "prio1": "Dexterity",
         "prio2": "Strength"
@@ -80,8 +80,8 @@ init python:
     if 'allMissionTemplates' not in globals():
         allMissionTemplates = []
 
-    if 'equipment_stats_increments' not in globals():
-        equipment_stats_increments = {
+    if 'stats_increment_map' not in globals():
+        stats_increment_map = {
             "Dexterity": {
                 "prio1": "Dexterity",
                 "prio2": "Strength"
@@ -289,6 +289,14 @@ init python:
 
     def show_equipments(protector, equipment_type):
         renpy.show_screen("equipment_select", protector, equipment_type)
+        return
+
+    def send_not_available_notification(protector, additional_message = None):
+        if additional_message == None:
+            renpy.notify(f"Protector unavailable: {protector.name}")
+        else:
+            renpy.notify(f"Protector unavailable: {protector.name} - {additional_message}")
+        return
         
     def get_equipment_by_id(equipment_id):
         global equipments

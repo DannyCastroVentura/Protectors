@@ -2,6 +2,9 @@ init python:
     import random
     # CLASSES
     class BaseProtectorData:
+        # TODO: add here the possibilities -> ex: evolution_1 and evolution_2
+        #   -   they should have a name, and this name should be inside the stats_increment_map
+        #   -   the number of percentage which should always be improved should be a constant - I still need to think about the best percentage for this, but maybe 30% / 40% or 50%?
         def __init__(self, strength, dexterity, constitution, 
             intelligence, wisdom, charisma, luck, incrementing_strength, 
             incrementing_dexterity, incrementing_constitution, 
@@ -37,12 +40,12 @@ init python:
             }
 
     class Protector:
-        def __init__(self, name, stage, level, status, xp = 0):
+        def __init__(self, name, stage, level, status):
             self.name = name
             self.stage = stage
             self.level = level
             self.status = status
-            self.xp = xp
+            self.xp = 0
             self.readyForPromotion = False
             self.equipedWeapon = None
             self.equipedHelmet = None
@@ -228,7 +231,7 @@ init python:
         
         def get_increments(self, searchingClassName):
             totalIncrement = 1
-            for className, prios in equipment_stats_increments.items():
+            for className, prios in stats_increment_map.items():
                 # helmet
                 if self.equipedHelmet is not None:
                     if self.equipedHelmet.class_name == className:
