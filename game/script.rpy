@@ -283,11 +283,12 @@ label start:
     # TODO: make it possible to call nova
     #
     # TODO: create the new frame for the stage 5:
-    #   -   firstly I would need to think on different boosts that for the 2 options
-    #   -   should we only update stats?
-    #   -   we can create a new object, which would have the 2 possibilities and then the percentage it would add
-    #   -   -   ex: -   ninja cinza would have more for evasion
-    #   -   -   ex: -   ninja army would have more hp, defence, and atack
+    #   -   we need to make the logic to handle the evolution benefits
+    #   -   -   depending on the evolution name we get, we will always improve 50 per cent of the stats
+    #   -   -   now those 50% are going to be distributed on the different stats
+    #   -   -   -   ex: evo1 = CRI and evo2 = INT_EVA
+    #   -   -   -   -   evo1 improve dex and luck 25% each
+    #   -   -   -   -   evo2 improve Intelligence, Wisdom, Constitution, Luck and Dexterity 10% each
     # 
     # TODO: create a way to buy items or item drop chang? Still need to think about it
     # 
@@ -313,6 +314,7 @@ label start:
     # TODO: add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
     # 
+    # TODO: update the map functionality, as I want to have a map showing 
     # 
     return
 

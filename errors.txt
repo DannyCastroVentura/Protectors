@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1722: invalid syntax
-    [weapon for weapon in ],
-                                                            ^
+File "game/functions.rpy", line 138: invalid syntax. Perhaps you forgot a comma?
+    "HP": [ "Constitution" ]
+              ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Aug 19 16:21:52 2025
+Mon Aug 25 16:19:55 2025

@@ -2,14 +2,12 @@ init python:
     import random
     # CLASSES
     class BaseProtectorData:
-        # TODO: add here the possibilities -> ex: evolution_1 and evolution_2
-        #   -   they should have a name, and this name should be inside the stats_increment_map
-        #   -   the number of percentage which should always be improved should be a constant - I still need to think about the best percentage for this, but maybe 30% / 40% or 50%?
         def __init__(self, strength, dexterity, constitution, 
             intelligence, wisdom, charisma, luck, incrementing_strength, 
             incrementing_dexterity, incrementing_constitution, 
             incrementing_intelligence, incrementing_wisdom, 
-            incrementing_charisma, incrementing_luck):
+            incrementing_charisma, incrementing_luck, evolution_1, 
+            evolution_2):
             self.strength = strength
             self.dexterity = dexterity
             self.constitution = constitution
@@ -18,6 +16,8 @@ init python:
             self.charisma = charisma
             self.morality = int(charisma * 0.6 + wisdom * 0.4)
             self.luck = luck
+            self.evolution_1 = evolution_1
+            self.evolution_2 = evolution_2
             self.incrementing_strength = incrementing_strength
             self.incrementing_dexterity = incrementing_dexterity
             self.incrementing_constitution = incrementing_constitution

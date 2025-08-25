@@ -42,6 +42,19 @@ default stats_increment_map = {
     }
 }
 
+default evolution_increment_map = {
+    "DAM": [ "Dexterity", "Strength" ],
+    "DEX": [ "Dexterity", "Strength", "Luck" ],
+    "STR": [ "Strength", "Dexterity", "Constitution" ],
+    "INT": [ "Intelligence", "Wisdom" ],
+    "INT_TAN": [ "Intelligence", "Wisdom", "Constitution" ],
+    "INT_EVA": [ "Intelligence", "Wisdom", "Constitution", "Luck", "Dexterity" ],
+    "TAN": [ "Constitution", "Strength" ],
+    "SHI": [ "Constitution", "Dexterity" ],
+    "EVA": [ "Dexterity", "Luck", "Constitution" ],
+    "CRI": [ "Dexterity", "Luck" ]
+}
+
 init python:
     import os
     import json
@@ -111,6 +124,22 @@ init python:
                 "prio2": "Dexterity"
             }
         }
+
+    if 'evolution_increment_map' not in globals():
+        evolution_increment_map = {
+            "DAM": [ "Dexterity", "Strength" ],
+            "DEX": [ "Dexterity", "Strength", "Luck" ],
+            "STR": [ "Strength", "Dexterity", "Constitution" ],
+            "INT": [ "Intelligence", "Wisdom" ],
+            "INT_TAN": [ "Intelligence", "Wisdom", "Constitution" ],
+            "INT_EVA": [ "Intelligence", "Wisdom", "Constitution", "Luck", "Dexterity" ],
+            "TAN": [ "Constitution", "Strength" ],
+            "SHI": [ "Constitution", "Dexterity" ],
+            "HP": [ "Constitution" ],
+            "EVA": [ "Dexterity", "Luck", "Constitution" ],
+            "CRI": [ "Dexterity", "Luck" ]
+        }
+
     
     dynamic_backgrounds = {}
 
