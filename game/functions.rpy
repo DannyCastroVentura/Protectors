@@ -340,7 +340,6 @@ init python:
         return
 
     def update_evolution_for_protector(protector, option):
-        renpy.notify(f"option {option}")
         protector.choose_evolution(option)
         protector.promote()
         return

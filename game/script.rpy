@@ -282,11 +282,7 @@ label start:
     # 
     # TODO: make it possible to call nova
     #
-    # TODO: update the protector_evolution_choosing_screen
-    #   -   work on this:
-    #   -   -   show the 2 different pictures
-    #   -   -   explain what will be increased on each of them
-    #   -   -   show the differences in terms of attributes
+    # TODO: update the names for evolutions and descriptions for the other characters (even create the other characters)
     # 
     # TODO: create a way to buy items or item drop chang? Still need to think about it
     # 
@@ -313,6 +309,8 @@ label start:
     #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
     # 
     # TODO: update the map functionality, as I want to have a map showing 
+    # 
+    # TODO: update the "close buttons", to show "back" in some of them
     # 
     return
 

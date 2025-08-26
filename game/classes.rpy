@@ -7,7 +7,8 @@ init python:
             incrementing_dexterity, incrementing_constitution, 
             incrementing_intelligence, incrementing_wisdom, 
             incrementing_charisma, incrementing_luck, evolution_1, 
-            evolution_2):
+            evolution_2, evolution_name_1, evolution_description_1,
+            evolution_name_2, evolution_description_2):
             self.strength = strength
             self.dexterity = dexterity
             self.constitution = constitution
@@ -18,6 +19,10 @@ init python:
             self.luck = luck
             self.evolution_1 = evolution_1
             self.evolution_2 = evolution_2
+            self.evolution_name_1 = evolution_name_1
+            self.evolution_description_1 = evolution_description_1
+            self.evolution_name_2 = evolution_name_2
+            self.evolution_description_2 = evolution_description_2
             self.incrementing_strength = incrementing_strength
             self.incrementing_dexterity = incrementing_dexterity
             self.incrementing_constitution = incrementing_constitution
@@ -165,27 +170,48 @@ init python:
         # Critical  -> prio1 -> luck
         #           -> prio2 -> dexterity
 
-        def get_strength(self):
-            return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_increments("Strength") * self.get_evolution_increments("Strength"))
+        def get_strength(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((used_stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_increments("Strength") * self.get_evolution_increments("Strength", fake_evolution))
         
-        def get_dexterity(self):
-            return int((self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((self.stage - 1) * self.level * self.basePoints.incrementing_dexterity))) * self.get_increments("Dexterity") * self.get_evolution_increments("Dexterity"))
+        def get_dexterity(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int((self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((used_stage - 1) * self.level * self.basePoints.incrementing_dexterity))) * self.get_increments("Dexterity") * self.get_evolution_increments("Dexterity", fake_evolution))
         
-        def get_constitution(self):
-            return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution"))
+        def get_constitution(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((used_stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution", fake_evolution))
         
-        def get_intelligence(self):
-            return int((self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((self.stage - 1) * self.level * self.basePoints.incrementing_intelligence))) * self.get_increments("Intelligence") * self.get_evolution_increments("Intelligence"))
+        def get_intelligence(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int((self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((used_stage - 1) * self.level * self.basePoints.incrementing_intelligence))) * self.get_increments("Intelligence") * self.get_evolution_increments("Intelligence", fake_evolution))
         
-        def get_wisdom(self):
-            return int((self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((self.stage - 1) * self.level * self.basePoints.incrementing_wisdom))) * self.get_increments("Wisdom") * self.get_evolution_increments("Wisdom"))
+        def get_wisdom(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int((self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((used_stage - 1) * self.level * self.basePoints.incrementing_wisdom))) * self.get_increments("Wisdom") * self.get_evolution_increments("Wisdom", fake_evolution))
         
         # TODO: add things to increment charisma attribute
-        def get_charisma(self):
-            return int((self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((self.stage - 1) * self.level * self.basePoints.incrementing_charisma))) * self.get_increments("Charisma") * self.get_evolution_increments("Charisma"))
+        def get_charisma(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int((self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((used_stage - 1) * self.level * self.basePoints.incrementing_charisma))) * self.get_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
         
-        def get_luck(self):
-            return int((self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((self.stage - 1) * self.level * self.basePoints.incrementing_luck))) * self.get_increments("Luck") * self.get_evolution_increments("Luck"))
+        def get_luck(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int((self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((used_stage - 1) * self.level * self.basePoints.incrementing_luck))) * self.get_increments("Luck") * self.get_evolution_increments("Luck", fake_evolution))
         
         def get_health_points(self):
             return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
@@ -213,22 +239,22 @@ init python:
         def get_defense(self):
             return int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5)
         
-        def get_morality(self):
-            return int(self.get_charisma() * 0.6 + self.get_wisdom() * 0.4)
+        def get_morality(self, fake_stage = None, fake_evolution = None):
+            return int(self.get_charisma(fake_stage, fake_evolution) * 0.6 + self.get_wisdom(fake_stage, fake_evolution) * 0.4)
 
         def cooldown_reduction(self):
             return int(self.get_wisdom() * 0.05)
 
-        def get_current_stats(self):
+        def get_current_stats(self, fake_stage = None, fake_evolution = None):
             return {
-                "strength": self.get_strength(),
-                "dexterity": self.get_dexterity(),
-                "constitution": self.get_constitution(),
-                "intelligence": self.get_intelligence(),
-                "wisdom": self.get_wisdom(),
-                "charisma": self.get_charisma(),
-                "morality": self.get_morality(),
-                "luck": self.get_luck()
+                "strength": self.get_strength(fake_stage, fake_evolution),
+                "dexterity": self.get_dexterity(fake_stage, fake_evolution),
+                "constitution": self.get_constitution(fake_stage, fake_evolution),
+                "intelligence": self.get_intelligence(fake_stage, fake_evolution),
+                "wisdom": self.get_wisdom(fake_stage, fake_evolution),
+                "charisma": self.get_charisma(fake_stage, fake_evolution),
+                "morality": self.get_morality(fake_stage, fake_evolution),
+                "luck": self.get_luck(fake_stage, fake_evolution)
             }
         
         def get_increments(self, searchingClassName):
@@ -264,13 +290,16 @@ init python:
                             totalIncrement += self.equipedBoots.prio2
             return totalIncrement
 
-        def get_evolution_increments(self, searchingClassName):
+        def get_evolution_increments(self, searchingClassName, fake_evolution = None):
+            used_chosen_evolution = self.chosen_evolution
+            if fake_evolution != None:
+                used_chosen_evolution = fake_evolution
             totalIncrement = 1
 
             # get what incrementation are we going to add
-            if self.chosen_evolution != 0:
+            if used_chosen_evolution != 0:
                 choose_evolution = self.basePoints.evolution_1
-                if self.chosen_evolution == 2:
+                if used_chosen_evolution == 2:
                     choose_evolution = self.basePoints.evolution_2
                 # check if this attribute is one of the attributes which will get that incrementation
                 if searchingClassName in evolution_increment_map[choose_evolution]:

@@ -1991,6 +1991,7 @@ screen my_protectors_screen():
         background Solid("#000000ff")
         xysize (config.screen_width, config.screen_height)
         $ scale = 300
+
         $ buttons_background = im.Scale("images/background_item.png", scale, scale)
         
 
@@ -2287,14 +2288,13 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         
                         text "[str(equipment_or_weapon.rarity)]" size 22 color "#EEE" xalign 0.99999999999
                             
-# TODO: work on this, as we need to show the 2 pictures, and also explain what will be increased on each of them, and also show what it means in terms of attributes
 screen protector_evolution_choosing_screen(my_protector):
     frame:
         modal True
         background Solid("#000000ff")
         xysize (config.screen_width, config.screen_height)
-        $ scale = 600
-
+        $ scale = 500
+        $ buttons_background = im.Scale("images/background_item.png", scale, scale)
         fixed:
             xfill True
             yfill True
@@ -2316,23 +2316,168 @@ screen protector_evolution_choosing_screen(my_protector):
                 vbox:
                     spacing 20
                     xalign 0.5
-                    text "First option"
-                    textbutton "Chose protector 1":
-                        action [Function(update_evolution_for_protector, my_protector, 1), 
-                                Hide("protector_evolution_choosing_screen")]
+                    text str(my_protector.basePoints.evolution_name_1):
+                        xalign 0.5
+                    $ image_name = "5_1"
+
+                    # Path to the image
+                    $ show_protectors_image = "images/protectors/{}/{}.png".format(my_protector.name, image_name)
+
+                    # Get original image size
+                    $ orig_width, orig_height = renpy.image_size(show_protectors_image)
+
+                    # Calculate proportional width
+                    $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                    # Scale the image
+                    $ show_protectors_scaled = im.Scale(show_protectors_image, new_width, scale)
+                    button:
+                        frame:
+                            xalign 0.5 
+                            add im.Composite(
+                                (scale, scale),
+                                (0, 0), buttons_background,
+                                ((scale - new_width) // 2, 0), show_protectors_scaled
+                                
+                            )
+                    text str(my_protector.basePoints.evolution_description_1) xmaximum scale size 25
+                    textbutton str(my_protector.basePoints.evolution_name_1):
+                        action Show("protector_evolution_detail_screen", None, my_protector, 1) 
                         text_style "button_in_black_background"
                         padding (10, 5)
+                        xalign 0.5
                 vbox:
                     spacing 20
                     xalign 0.5
-                    text "Second option"
-                    textbutton "Chose protector 2":
-                        action [Function(update_evolution_for_protector, my_protector, 2), 
-                                Hide("protector_evolution_choosing_screen")] 
+                    yalign 0.5
+                    text "Choose wisely!":
+                        color "#FFF"
+                        size 30
+                        xalign 0.5
+                    text "You may only choose one":
+                        color "#FFF"
+                        size 25
+                        xalign 0.5
+                vbox:
+                    spacing 20
+                    xalign 0.5
+                    text str(my_protector.basePoints.evolution_name_2):
+                        xalign 0.5
+                    $ image_name = "5_2"
+
+                    # Path to the image
+                    $ show_protectors_image = "images/protectors/{}/{}.png".format(my_protector.name, image_name)
+
+                    # Get original image size
+                    $ orig_width, orig_height = renpy.image_size(show_protectors_image)
+
+                    # Calculate proportional width
+                    $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                    # Scale the image
+                    $ show_protectors_scaled = im.Scale(show_protectors_image, new_width, scale)
+                    button:
+                        frame:
+                            xalign 0.5 
+                            add im.Composite(
+                                (scale, scale),
+                                (0, 0), buttons_background,
+                                ((scale - new_width) // 2, 0), show_protectors_scaled
+                                
+                            )
+                    text str(my_protector.basePoints.evolution_description_2) xmaximum scale size 25
+                    textbutton str(my_protector.basePoints.evolution_name_2):
+                        action Show("protector_evolution_detail_screen", None, my_protector, 2) 
                         text_style "button_in_black_background"
                         padding (10, 5)
+                        xalign 0.5
 
+screen protector_evolution_detail_screen(my_protector, evolution):
+    $ protector_evolution_name = my_protector.basePoints.evolution_name_1
+    if evolution == 2:
+        $ protector_evolution_name = my_protector.basePoints.evolution_name_2
+    frame:
+        modal True
+        background Solid("#000000ff")
+        xysize (config.screen_width, config.screen_height)
+        $ scale = 500
+        fixed:
+            xfill True
+            yfill True
+
+            # Close button - top right
+            textbutton "Back" action Hide("protector_evolution_detail_screen"):
+                text_style "hover_white"
+                xalign 1.0
+                yalign 0.0
+                padding (10, 5)
+            vbox:
+                yalign 0.1
+                xalign 0.5
+                text "[my_protector.name]" size 50 color "#FFF" xalign 0.5
+            hbox:
+                xfill True
+                xalign 0.5
+                yalign 0.5
+                vbox:
+                    xalign 0.2
+                    yalign 0.5
+                    spacing 20
+                    text str(protector_evolution_name):
+                        xalign 0.5
+                    vbox:
+                        spacing 20
+                        xalign 0.5
+                        $ current_stats = my_protector.get_current_stats(5, evolution)
+                        hbox:
+                            xalign 0.5
+                            spacing 20
+                            vbox:
+                                xalign 0.5
+                                text "Strength:" size 22 color "#EEE"
+                                text "Constitution:" size 22 color "#EEE"
+                                text "Wisdom:" size 22 color "#EEE"
+                                text "Morality:" size 22 color "#EEE"
+                            vbox:
+                                xalign 0.5
+                                text "[str(current_stats['strength'])]" size 22 color "#EEE"
+                                text "[str(current_stats['constitution'])]" size 22 color "#EEE"
+                                text "[str(current_stats['wisdom'])]" size 22 color "#EEE"
+                                text "[str(current_stats['morality'])]" size 22 color "#EEE"
+                            vbox:
+                                null width 40  # This adds 40 pixels of vertical space at the top
+                            vbox:
+                                xalign 0.5
+                                text "Dexterity:" size 22 color "#EEE"
+                                text "Intelligence:" size 22 color "#EEE"
+                                text "Charisma:" size 22 color "#EEE"
+                                text "Luck:" size 22 color "#EEE"
+                            vbox:
+                                xalign 0.5
+                                text "[str(current_stats['dexterity'])]" size 22 color "#EEE"
+                                text "[str(current_stats['intelligence'])]" size 22 color "#EEE"
+                                text "[str(current_stats['charisma'])]" size 22 color "#EEE"
+                                text "[str(current_stats['luck'])]" size 22 color "#EEE"
+            $ image_name = "5_" + str(evolution)
+
+            python:
+                image_name = "5_" + str(evolution)
+                image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
+                if image_path:
+                    ui.at(right)
+                    ui.at(fit_to_screen_height)
+                    ui.add(image_path)
                             
+            vbox:
+                yalign 0.9
+                xalign 0.5
+                textbutton "Choose: " + str(protector_evolution_name):
+                    action [Function(update_evolution_for_protector, my_protector, evolution), 
+                            Hide("protector_evolution_detail_screen"), Hide("protector_evolution_choosing_screen")] 
+                    text_style "button_in_black_background"
+                    padding (10, 5)
+                    xalign 0.5
+
                         
 screen protector_detail_screen(my_protector):
     $ scale = 200

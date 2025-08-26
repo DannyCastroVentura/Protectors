@@ -11,7 +11,13 @@ init python:
 
 
         # creating protectors    
-        protectors_base_information["Ninja"] = BaseProtectorData(10, 17, 12, 14, 13, 8, 11, 0.15, 0.5, 0.2, 0.34, 0.25, 0.125, 0.16, "CRI", "SHI")
+        protectors_base_information["Ninja"] = BaseProtectorData(10, 17, 12, 14, 13, 8, 11, 0.15, 0.5, 0.2, 0.34, 0.25, 0.125, 0.16, 
+        "CRI", "SHI", 
+        "Ash Ninja", 
+        "While exploring a forgotten cave, he touched a cursed relic that bound dark magic to his body. From that moment, he gained the power to transform into ash, disappearing into smoke to strike unseen.",
+        "Tech Ninja", 
+        "He wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield."
+        )
         # it gains:
         # 1 dex per 2 levels
         # 1 intelligence wisdom per 3 levels
@@ -21,7 +27,13 @@ init python:
         # 1 strenght per 7 levels
         # 1 charisma per 8 levels
 
-        protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.15, 0.34, 0.25, 0.2, 0.16, 0.2, "TAN", "STR")
+        protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.15, 0.34, 0.25, 0.2, 0.16, 0.2, 
+        "TAN", "STR",
+        "Name 1",
+        "Description 1",
+        "Name 2",
+        "Description 2"
+        )
         # it gains:
         # 1 strength per 2 levels
         # 1 constitution per 3 levels
@@ -31,7 +43,13 @@ init python:
         # 1 dexterity per 7 levels
         # 1 luck per 8 levels
 
-        protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, "HP", "INT_TAN")
+        protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, 
+        "HP", "INT_TAN",
+        "Name 1",
+        "Description 1",
+        "Name 2",
+        "Description 2"
+        )
         # it gains:
         # 1 intelligence per 2 levels
         # 1 dexterity per 3 levels
@@ -41,7 +59,13 @@ init python:
         # 1 charisma per 8 levels
         # 1 luck per 10 levels
 
-        protectors_base_information["Samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.5, 0.25, 0.2, 0.34, 0.16, 0.125, "SHI", "CRI")
+        protectors_base_information["Samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.5, 0.25, 0.2, 0.34, 0.16, 0.125, 
+        "SHI", "CRI",
+        "Name 1",
+        "Description 1",
+        "Name 2",
+        "Description 2"
+        )
         # it gains:
         # 1 strenght per 2 levels
         # 1 dexterity per 2 levels
@@ -51,7 +75,13 @@ init python:
         # 1 charisma per 6 levels
         # 1 luck per 8 levels
 
-        protectors_base_information["Skeleton"] = BaseProtectorData(17, 18, 10, 6, 8, 6, 20, 0.34, 0.5, 0.25, 0.2, 0.125, 0, 0, "EVA", "DAM")
+        protectors_base_information["Skeleton"] = BaseProtectorData(17, 18, 10, 6, 8, 6, 20, 0.34, 0.5, 0.25, 0.2, 0.125, 0, 0, 
+        "EVA", "DAM",
+        "Name 1",
+        "Description 1",
+        "Name 2",
+        "Description 2"
+        )
         # it gains:
         # 1 dexterity per 2 levels
         # 1 strenght per 3 levels
@@ -59,7 +89,13 @@ init python:
         # 1 intelligence per 5 levels
         # 1 wisdom per 6 levels
         
-        protectors_base_information["Templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125, "TAN", "STR")
+        protectors_base_information["Templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125, 
+        "TAN", "STR",
+        "Name 1",
+        "Description 1",
+        "Name 2",
+        "Description 2"
+        )
         # it gains:
         # 1 strenght per 2 levels
         # 1 constitution per 2 levels
