@@ -284,6 +284,10 @@ label start:
     #
     # TODO: update the names for evolutions and descriptions for the other characters (even create the other characters)
     # 
+    # TODO: I still need to add a text to the protector_evolution_detail_screen saying what are the benefits of this evolution
+    # 
+    # TODO: make all images beeing looking to the left (as they are going to be in the right of the screen, they should be looking to the left)
+    # 
     # TODO: create a way to buy items or item drop chang? Still need to think about it
     # 
     # TODO: while we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
