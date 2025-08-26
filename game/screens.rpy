@@ -1670,6 +1670,13 @@ style slider_slider:
     variant "small"
     xsize 900
 
+style button_in_black_background:
+    color "#9b9999"
+    hover_color "#ffffff"
+    padding (10, 5)
+    xminimum 200                    # ensures consistent width
+    yminimum 50
+
 screen my_weapons_screen():
     frame:
         modal True
@@ -2038,7 +2045,7 @@ screen my_protectors_screen():
 
                                         $ image_name = my_protector.stage
                                         if my_protector.stage >= 5:
-                                            $ image_name = my_protector.stage + "_" + my_protector.chosen_evolution
+                                            $ image_name = str(my_protector.stage) + "_" + str(my_protector.chosen_evolution)
 
                                         # Path to the image
                                         $ show_protectors_image = "images/protectors/{}/{}.png".format(my_protector.name, image_name)
@@ -2280,6 +2287,52 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         
                         text "[str(equipment_or_weapon.rarity)]" size 22 color "#EEE" xalign 0.99999999999
                             
+# TODO: work on this, as we need to show the 2 pictures, and also explain what will be increased on each of them, and also show what it means in terms of attributes
+screen protector_evolution_choosing_screen(my_protector):
+    frame:
+        modal True
+        background Solid("#000000ff")
+        xysize (config.screen_width, config.screen_height)
+        $ scale = 600
+
+        fixed:
+            xfill True
+            yfill True
+
+            # Close button - top right
+            textbutton "Close" action Hide("protector_evolution_choosing_screen"):
+                text_style "hover_white"
+                xalign 1.0
+                yalign 0.0
+                padding (10, 5)
+            vbox:
+                yalign 0.1
+                xalign 0.5
+                text "[my_protector.name]" size 50 color "#FFF" xalign 0.5
+            hbox:
+                xfill True
+                xalign 0.5
+                yalign 0.5
+                vbox:
+                    spacing 20
+                    xalign 0.5
+                    text "First option"
+                    textbutton "Chose protector 1":
+                        action [Function(update_evolution_for_protector, my_protector, 1), 
+                                Hide("protector_evolution_choosing_screen")]
+                        text_style "button_in_black_background"
+                        padding (10, 5)
+                vbox:
+                    spacing 20
+                    xalign 0.5
+                    text "Second option"
+                    textbutton "Chose protector 2":
+                        action [Function(update_evolution_for_protector, my_protector, 2), 
+                                Hide("protector_evolution_choosing_screen")] 
+                        text_style "button_in_black_background"
+                        padding (10, 5)
+
+                            
                         
 screen protector_detail_screen(my_protector):
     $ scale = 200
@@ -2297,7 +2350,7 @@ screen protector_detail_screen(my_protector):
             python:
                 image_name = my_protector.stage
                 if my_protector.stage >= 5:
-                    image_name = my_protector.stage + "_" + my_protector.chosen_evolution
+                    image_name = str(my_protector.stage) + "_" + str(my_protector.chosen_evolution)
                 image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
                 if image_path:
                     ui.at(right)
@@ -2778,13 +2831,18 @@ screen protector_detail_screen(my_protector):
                                 spacing 150
                                 vbox:
                                     xalign 0.5
-                                    textbutton "Yes" action Function(my_protector.promote):
+                                    $ action_button = Function(my_protector.promote)
+                                    if my_protector.stage == 4:
+                                        $ action_button = Show("protector_evolution_choosing_screen", None, my_protector) 
+                                    textbutton "Yes" action action_button:
                                         text_size 25
+                                        text_style "button_in_black_background"
 
                                 vbox:
                                     xalign 0.5
                                     textbutton "No" action Hide("protector_detail_screen"):
                                         text_size 25
+                                        text_style "button_in_black_background"
             else:
                 vbox:
                     yalign 0.1

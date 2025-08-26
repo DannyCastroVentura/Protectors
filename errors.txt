@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 278: expected an indented block after 'if' statement on line 275
-    return totalIncrement
-       ^
+File "game/screens.rpy", line 1676: style property idle_text_color is not known.
+    idle_text_color "#FFFFFF"
+                   ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Aug 26 09:34:26 2025
+Tue Aug 26 12:02:08 2025

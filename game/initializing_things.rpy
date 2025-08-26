@@ -201,7 +201,7 @@ init python:
 
 
         # Recreate missions
-        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 9000, 0))
+        allMissions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 99000, 0))
 
         creating_new_missions()
 

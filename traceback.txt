@@ -1,70 +1,88 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
-    menu:
-  File "game/screens.rpy", line 2284, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2284, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2287, in execute
-    frame:
-  File "game/screens.rpy", line 2292, in execute
-    fixed:
-  File "game/screens.rpy", line 2314, in execute
-    if my_protector.readyForPromotion == True and my_protector.status == "Available":
-  File "game/screens.rpy", line 2712, in execute
-    vbox:
-  File "game/screens.rpy", line 2721, in execute
-    vbox:
-  File "game/screens.rpy", line 2724, in execute
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 2724, in keywords
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 2724, in <module>
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~                                                     
-  File "game/classes.rpy", line 191, in get_health_points
-    return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
-                    ~~~~~~~~~~~~~~~~~~~~~^^                                
-  File "game/classes.rpy", line 175, in get_constitution
-    return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution"))
-                                                                                                                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^ 
-  File "game/classes.rpy", line 276, in get_evolution_increments
-    if evolution_increment_map[choose_evolution].includes(searchingClassName):
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                     
-AttributeError: 'RevertableList' object has no attribute 'includes'
+While processing the color property of style button_in_black_background:
+  File "renpy/style.pyx", line 803, in renpy.style.rebuild
+  File "renpy/style.pyx", line 796, in renpy.style.build_styles
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 336, in style_functions.color_property
+TypeError: 'Solid' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "renpy/style.pyx", line 803, in renpy.style.rebuild
+  File "renpy/style.pyx", line 796, in renpy.style.build_styles
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 336, in style_functions.color_property
+TypeError: 'Solid' object is not iterable
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
-    menu:
-  File "renpy/ast.py", line 1815, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 135, in menu
-    rv = renpy.store.menu(new_items)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 418, in display_menu
-    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/00start.rpy", line 201, in script
+    python:
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/00start.rpy", line 202, in <module>
+    _init_language()
+    ~~~~~~~~~~~~~~^^
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language, force=True)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/translation/__init__.py", line 841, in change_language
+    renpy.style.rebuild()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "renpy/style.pyx", line 803, in renpy.style.rebuild
+  File "renpy/style.pyx", line 796, in renpy.style.build_styles
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 336, in style_functions.color_property
+  File "renpy/color.py", line 169, in __new__
+    c = tuple(c)
+        ~~~~~^^^
+TypeError: 'Solid' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "renpy/bootstrap.py", line 376, in bootstrap
+    renpy.main.main()
+    ~~~~~~~~~~~~~~~^^
+  File "renpy/main.py", line 614, in main
+    run(restart)
+    ~~~^^^^^^^^^
+  File "renpy/main.py", line 137, in run
+    renpy.execution.run_context(True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "renpy/execution.py", line 1022, in run_context
+    context.run()
+    ~~~~~~~~~~~^^
+  File "renpy/common/00start.rpy", line 201, in script
+    python:
+  File "renpy/common/00start.rpy", line 201, in script
+    python:
+  File "renpy/display/error.py", line 135, in report_exception
+    renpy.game.invoke_in_new_context(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        call_exception_screen,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        ignore_action=ignore_action,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/game.py", line 301, in invoke_in_new_context
+    return callable(*args, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "renpy/display/error.py", line 44, in call_exception_screen
+    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,69 +96,23 @@ Traceback (most recent call last):
         ^^^^^^^^^
     )  # type: ignore
     ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2284, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2284, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2287, in execute
-    frame:
-  File "game/screens.rpy", line 2292, in execute
-    fixed:
-  File "game/screens.rpy", line 2314, in execute
-    if my_protector.readyForPromotion == True and my_protector.status == "Available":
-  File "game/screens.rpy", line 2712, in execute
-    vbox:
-  File "game/screens.rpy", line 2721, in execute
-    vbox:
-  File "game/screens.rpy", line 2724, in execute
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 2724, in keywords
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2724, in <module>
-    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~                                                     
-  File "game/classes.rpy", line 191, in get_health_points
-    return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
-                    ~~~~~~~~~~~~~~~~~~~~~^^                                
-  File "game/classes.rpy", line 175, in get_constitution
-    return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution"))
-                                                                                                                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^ 
-  File "game/classes.rpy", line 276, in get_evolution_increments
-    if evolution_increment_map[choose_evolution].includes(searchingClassName):
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                     
-AttributeError: 'RevertableList' object has no attribute 'includes'
+  File "renpy/display/core.py", line 2502, in interact_core
+    i()
+    ~^^
+  File "renpy/common/00stylepreferences.rpy", line 99, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "renpy/style.pyx", line 803, in renpy.style.rebuild
+  File "renpy/style.pyx", line 796, in renpy.style.build_styles
+  File "renpy/style.pyx", line 717, in renpy.style.build_style
+  File "renpy/style.pyx", line 714, in renpy.style.build_style
+  File "tmp/gen3-static/style_functions.pyx", line 336, in style_functions.color_property
+  File "renpy/color.py", line 169, in __new__
+    c = tuple(c)
+        ~~~~~^^^
+TypeError: 'Solid' object is not iterable
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Aug 26 09:39:48 2025
+Tue Aug 26 12:01:34 2025

@@ -282,13 +282,11 @@ label start:
     # 
     # TODO: make it possible to call nova
     #
-    # TODO: create the new frame for the stage 5:
-    #   -   we need to make the logic to handle the evolution benefits
-    #   -   -   depending on the evolution name we get, we will always improve 50 per cent of the stats
-    #   -   -   now those 50% are going to be distributed on the different stats
-    #   -   -   -   ex: evo1 = CRI and evo2 = INT_EVA
-    #   -   -   -   -   evo1 improve dex and luck 25% each
-    #   -   -   -   -   evo2 improve Intelligence, Wisdom, Constitution, Luck and Dexterity 10% each
+    # TODO: update the protector_evolution_choosing_screen
+    #   -   work on this:
+    #   -   -   show the 2 different pictures
+    #   -   -   explain what will be increased on each of them
+    #   -   -   show the differences in terms of attributes
     # 
     # TODO: create a way to buy items or item drop chang? Still need to think about it
     # 

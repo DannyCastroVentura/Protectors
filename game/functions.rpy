@@ -338,3 +338,9 @@ init python:
         equipment = next(e for e in equipments if e.equipment_id == equipment_id)
         myEquipments.append(equipment)
         return
+
+    def update_evolution_for_protector(protector, option):
+        renpy.notify(f"option {option}")
+        protector.choose_evolution(option)
+        protector.promote()
+        return
