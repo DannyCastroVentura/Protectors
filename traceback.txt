@@ -1,8 +1,6 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
   File "game/places.rpy", line 26, in script call
@@ -11,46 +9,43 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 36, in script call
     call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 23, in script call
-    call see_missions_for_region(1)
-  File "game/base_of_operations.rpy", line 68, in script
-    call screen mission_screen(regionNumber)
-  File "game/screens.rpy", line 3283, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3283, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3292, in execute
+  File "game/places.rpy", line 34, in script
+    menu:
+  File "game/screens.rpy", line 2284, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2284, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2287, in execute
     frame:
-  File "game/screens.rpy", line 3299, in execute
+  File "game/screens.rpy", line 2292, in execute
+    fixed:
+  File "game/screens.rpy", line 2314, in execute
+    if my_protector.readyForPromotion == True and my_protector.status == "Available":
+  File "game/screens.rpy", line 2712, in execute
     vbox:
-  File "game/screens.rpy", line 3302, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3359, in execute
+  File "game/screens.rpy", line 2721, in execute
     vbox:
-  File "game/screens.rpy", line 3476, in execute
-    hbox:
-  File "game/screens.rpy", line 3479, in execute
-    if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
-  File "game/screens.rpy", line 3480, in execute
-    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
-  File "game/screens.rpy", line 3480, in keywords
-    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
-  File "game/screens.rpy", line 3480, in <module>
-    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
-                                               ^^^^^^^^^^^^^                                                 
-NameError: name 'start_mission' is not defined. Did you mean: 'delete_mission'?
+  File "game/screens.rpy", line 2724, in execute
+    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+  File "game/screens.rpy", line 2724, in keywords
+    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+  File "game/screens.rpy", line 2724, in <module>
+    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~                                                     
+  File "game/classes.rpy", line 191, in get_health_points
+    return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
+                    ~~~~~~~~~~~~~~~~~~~~~^^                                
+  File "game/classes.rpy", line 175, in get_constitution
+    return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution"))
+                                                                                                                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^ 
+  File "game/classes.rpy", line 276, in get_evolution_increments
+    if evolution_increment_map[choose_evolution].includes(searchingClassName):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                     
+AttributeError: 'RevertableList' object has no attribute 'includes'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
   File "game/places.rpy", line 26, in script call
@@ -59,31 +54,17 @@ Traceback (most recent call last):
     call base_travel_menu()
   File "game/places.rpy", line 36, in script call
     call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 16, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_all_missions(1)
-  File "game/base_of_operations.rpy", line 23, in script call
-    call see_missions_for_region(1)
-  File "game/base_of_operations.rpy", line 68, in script
-    call screen mission_screen(regionNumber)
-  File "renpy/ast.py", line 2231, in execute
-    self.call("execute")
-    ~~~~~~~~~^^^^^^^^^^^
-  File "renpy/ast.py", line 2195, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/statements.py", line 379, in call
-    return method(parsed, *args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 348, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/places.rpy", line 34, in script
+    menu:
+  File "renpy/ast.py", line 1815, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 135, in menu
+    rv = renpy.store.menu(new_items)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 418, in display_menu
+    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -121,38 +102,45 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3283, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3283, in execute
-    screen mission_screen(regionNumber):
-  File "game/screens.rpy", line 3292, in execute
+  File "game/screens.rpy", line 2284, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2284, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2287, in execute
     frame:
-  File "game/screens.rpy", line 3299, in execute
+  File "game/screens.rpy", line 2292, in execute
+    fixed:
+  File "game/screens.rpy", line 2314, in execute
+    if my_protector.readyForPromotion == True and my_protector.status == "Available":
+  File "game/screens.rpy", line 2712, in execute
     vbox:
-  File "game/screens.rpy", line 3302, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3359, in execute
+  File "game/screens.rpy", line 2721, in execute
     vbox:
-  File "game/screens.rpy", line 3476, in execute
-    hbox:
-  File "game/screens.rpy", line 3479, in execute
-    if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
-  File "game/screens.rpy", line 3480, in execute
-    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
-  File "game/screens.rpy", line 3480, in keywords
-    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+  File "game/screens.rpy", line 2724, in execute
+    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+  File "game/screens.rpy", line 2724, in keywords
+    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
   File "renpy/python.py", line 1292, in py_eval
     return py_eval_bytecode(code, globals, locals)
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1285, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3480, in <module>
-    textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
-                                               ^^^^^^^^^^^^^                                                 
-NameError: name 'start_mission' is not defined. Did you mean: 'delete_mission'?
+  File "game/screens.rpy", line 2724, in <module>
+    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~                                                     
+  File "game/classes.rpy", line 191, in get_health_points
+    return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
+                    ~~~~~~~~~~~~~~~~~~~~~^^                                
+  File "game/classes.rpy", line 175, in get_constitution
+    return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution"))
+                                                                                                                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^ 
+  File "game/classes.rpy", line 276, in get_evolution_increments
+    if evolution_increment_map[choose_evolution].includes(searchingClassName):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                     
+AttributeError: 'RevertableList' object has no attribute 'includes'
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Mon Aug 25 13:08:29 2025
+Tue Aug 26 09:39:48 2025

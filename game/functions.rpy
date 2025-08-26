@@ -147,6 +147,7 @@ init python:
     maxDifficulty = 200
     maxNeededDaysToFinish = 5
     maxDisapearingInThisDays = 10
+    total_evolution_increment = 0.75
 
     background_folder = "images/bg"
     valid_extensions = [".png", ".jpg", ".jpeg", ".webp"]

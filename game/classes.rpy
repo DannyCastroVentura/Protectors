@@ -56,6 +56,7 @@ init python:
             self.missions_succeeded = 0
             self.missions_failed = 0
             self.missions_went = 0
+            self.chosen_evolution = 0
             return
 
         def increasing_xp(self, incoming_xp):
@@ -165,25 +166,26 @@ init python:
         #           -> prio2 -> dexterity
 
         def get_strength(self):
-            return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_increments("Strength"))
+            return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((self.stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_increments("Strength") * self.get_evolution_increments("Strength"))
         
         def get_dexterity(self):
-            return int((self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((self.stage - 1) * self.level * self.basePoints.incrementing_dexterity))) * self.get_increments("Dexterity"))
+            return int((self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((self.stage - 1) * self.level * self.basePoints.incrementing_dexterity))) * self.get_increments("Dexterity") * self.get_evolution_increments("Dexterity"))
         
         def get_constitution(self):
-            return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution"))
+            return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((self.stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution"))
         
         def get_intelligence(self):
-            return int((self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((self.stage - 1) * self.level * self.basePoints.incrementing_intelligence))) * self.get_increments("Intelligence"))
+            return int((self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((self.stage - 1) * self.level * self.basePoints.incrementing_intelligence))) * self.get_increments("Intelligence") * self.get_evolution_increments("Intelligence"))
         
         def get_wisdom(self):
-            return int((self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((self.stage - 1) * self.level * self.basePoints.incrementing_wisdom))) * self.get_increments("Wisdom"))
+            return int((self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((self.stage - 1) * self.level * self.basePoints.incrementing_wisdom))) * self.get_increments("Wisdom") * self.get_evolution_increments("Wisdom"))
         
+        # TODO: add things to increment charisma attribute
         def get_charisma(self):
-            return int((self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((self.stage - 1) * self.level * self.basePoints.incrementing_charisma))) * self.get_increments("Charisma"))
+            return int((self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((self.stage - 1) * self.level * self.basePoints.incrementing_charisma))) * self.get_increments("Charisma") * self.get_evolution_increments("Charisma"))
         
         def get_luck(self):
-            return int((self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((self.stage - 1) * self.level * self.basePoints.incrementing_luck))) * self.get_increments("Luck"))
+            return int((self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((self.stage - 1) * self.level * self.basePoints.incrementing_luck))) * self.get_increments("Luck") * self.get_evolution_increments("Luck"))
         
         def get_health_points(self):
             return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
@@ -261,11 +263,30 @@ init python:
                         if prios["prio2"] == searchingClassName:
                             totalIncrement += self.equipedBoots.prio2
             return totalIncrement
+
+        def get_evolution_increments(self, searchingClassName):
+            totalIncrement = 1
+
+            # get what incrementation are we going to add
+            if self.chosen_evolution != 0:
+                choose_evolution = self.basePoints.evolution_1
+                if self.chosen_evolution == 2:
+                    choose_evolution = self.basePoints.evolution_2
+                # check if this attribute is one of the attributes which will get that incrementation
+                if searchingClassName in evolution_increment_map[choose_evolution]:
+                    # check how much increment are we going to add to this attribute
+                    totalIncrement += total_evolution_increment / len(evolution_increment_map[choose_evolution])
+            
+            return totalIncrement
     
         def promote(self):
             self.stage += 1
             self.readyForPromotion = False
             self.increasing_xp(0)
+            return
+
+        def choose_evolution(self, evolution):
+            self.chosen_evolution = evolution
             return
 
     class Mission:

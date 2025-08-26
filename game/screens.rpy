@@ -2036,8 +2036,12 @@ screen my_protectors_screen():
                                             $ my_color = "#FACC15"
                                             $ message = my_protector.status
 
+                                        $ image_name = my_protector.stage
+                                        if my_protector.stage >= 5:
+                                            $ image_name = my_protector.stage + "_" + my_protector.chosen_evolution
+
                                         # Path to the image
-                                        $ show_protectors_image = "images/protectors/{}/{}.png".format(my_protector.name, my_protector.stage)
+                                        $ show_protectors_image = "images/protectors/{}/{}.png".format(my_protector.name, image_name)
 
                                         # Get original image size
                                         $ orig_width, orig_height = renpy.image_size(show_protectors_image)
@@ -2291,7 +2295,10 @@ screen protector_detail_screen(my_protector):
 
             # Image - mid right, just below the name
             python:
-                image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(my_protector.stage))
+                image_name = my_protector.stage
+                if my_protector.stage >= 5:
+                    image_name = my_protector.stage + "_" + my_protector.chosen_evolution
+                image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
                 if image_path:
                     ui.at(right)
                     ui.at(fit_to_screen_height)
@@ -2391,12 +2398,9 @@ screen protector_detail_screen(my_protector):
                                         ((scale - new_width) // 2, 0), weapon_scaled   
                                     )
 
-
-                        null height 10  # This adds 40 pixels of vertical space at the top
                     hbox:
                         xalign 0.5
                         spacing 20
-                        text "Armour:" size 25 color "#DDD"
                         
                         $ helmet_img = "images/equipment/no_helmet.png"
                         $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
@@ -2870,11 +2874,9 @@ screen protector_detail_screen(my_protector):
                                     )
 
 
-                        null height 10  # This adds 40 pixels of vertical space at the top
                     hbox:
                         xalign 0.5
                         spacing 20
-                        text "Armour:" size 25 color "#DDD"
                         
                         $ helmet_img = "images/equipment/no_helmet.png"
                         $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)

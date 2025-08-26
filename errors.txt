@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 138: invalid syntax. Perhaps you forgot a comma?
-    "HP": [ "Constitution" ]
-              ^
+File "game/classes.rpy", line 278: expected an indented block after 'if' statement on line 275
+    return totalIncrement
+       ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Aug 25 16:19:55 2025
+Tue Aug 26 09:34:26 2025
