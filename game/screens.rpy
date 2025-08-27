@@ -1686,7 +1686,7 @@ screen my_weapons_screen():
         $ buttons_background = im.Scale("images/background_item.png", scale, scale)
 
         # Close button - top right
-        textbutton "Close" action Hide("my_weapons_screen"):
+        textbutton "Back" action Hide("my_weapons_screen"):
             text_style "hover_white"
             xalign 1.0
             yalign 0.0
@@ -1829,7 +1829,7 @@ screen my_equipments_screen():
         $ buttons_background = im.Scale("images/background_item.png", scale, scale)
 
         # Close button - top right
-        textbutton "Close" action Hide("my_equipments_screen"):
+        textbutton "Back" action Hide("my_equipments_screen"):
             text_style "hover_white"
             xalign 1.0
             yalign 0.0
@@ -1996,7 +1996,7 @@ screen my_protectors_screen():
         
 
         # Close button - top right
-        textbutton "Close" action Hide("my_protectors_screen"):
+        textbutton "Back" action Hide("my_protectors_screen"):
             text_style "hover_white"
             xalign 1.0
             yalign 0.0
@@ -2206,7 +2206,7 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
             yfill True
 
             # Close button - top right
-            textbutton "Close" action Hide("equipment_detail_screen"):
+            textbutton "Back" action Hide("equipment_detail_screen"):
                 text_style "hover_white"
                 xalign 1.0
                 yalign 0.0
@@ -2300,7 +2300,7 @@ screen protector_evolution_choosing_screen(my_protector):
             yfill True
 
             # Close button - top right
-            textbutton "Close" action Hide("protector_evolution_choosing_screen"):
+            textbutton "Back" action Hide("protector_evolution_choosing_screen"):
                 text_style "hover_white"
                 xalign 1.0
                 yalign 0.0
@@ -2337,8 +2337,7 @@ screen protector_evolution_choosing_screen(my_protector):
                             add im.Composite(
                                 (scale, scale),
                                 (0, 0), buttons_background,
-                                ((scale - new_width) // 2, 0), show_protectors_scaled
-                                
+                                ((scale - new_width) // 2, 0), im.Flip(show_protectors_scaled, horizontal=True)
                             )
                     text str(my_protector.basePoints.evolution_description_1) xmaximum scale size 25
                     textbutton str(my_protector.basePoints.evolution_name_1):
@@ -2419,45 +2418,103 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                 xfill True
                 xalign 0.5
                 yalign 0.5
+
+                # getting the improvements array
+                $ evolution_parameter_key = "evolution_1"
+                if evolution == 2:
+                    $ evolution_parameter_key = "evolution_2"
+                $ evolution_parameter = getattr(my_protector.basePoints, evolution_parameter_key)
+                $ improvements_array = evolution_increment_map[evolution_parameter]
+                
+                # getting the number of improvements and percentages increasing
+                $ number_of_improvements = len(improvements_array)
+                $ percentage = int(50 / number_of_improvements)
+
+                $ str_t_color = "#EEE"
+                $ con_t_color = "#EEE"
+                $ wis_t_color = "#EEE"
+                $ mor_t_color = "#EEE"
+                $ dex_t_color = "#EEE"
+                $ int_t_color = "#EEE"
+                $ cha_t_color = "#EEE"
+                $ luc_t_color = "#EEE"
+
+                if "Strength" in improvements_array:
+                    $ str_t_color = "#4CAF50"
+                if "Constitution" in improvements_array:
+                    $ con_t_color = "#4CAF50"
+                if "Wisdom" in improvements_array:
+                    $ wis_t_color = "#4CAF50"
+                if "Morality" in improvements_array:
+                    $ mor_t_color = "#4CAF50"
+                if "Dexterity" in improvements_array:
+                    $ dex_t_color = "#4CAF50"
+                if "Intelligence" in improvements_array:
+                    $ int_t_color = "#4CAF50"
+                if "Charisma" in improvements_array:
+                    $ cha_t_color = "#4CAF50"
+                if "Luck" in improvements_array:
+                    $   luc_t_color = "#4CAF50"
+
                 vbox:
                     xalign 0.2
                     yalign 0.5
-                    spacing 20
+                    spacing 75
                     text str(protector_evolution_name):
                         xalign 0.5
+                        size 40
+                        color "#EEE"
                     vbox:
                         spacing 20
                         xalign 0.5
+                        text "Final attributes:":
+                            xalign 0.5
                         $ current_stats = my_protector.get_current_stats(5, evolution)
                         hbox:
                             xalign 0.5
                             spacing 20
+                            $ size_letter = 25
                             vbox:
                                 xalign 0.5
-                                text "Strength:" size 22 color "#EEE"
-                                text "Constitution:" size 22 color "#EEE"
-                                text "Wisdom:" size 22 color "#EEE"
-                                text "Morality:" size 22 color "#EEE"
+                                text "Strength:" size size_letter color str_t_color
+                                text "Constitution:" size size_letter color con_t_color
+                                text "Wisdom:" size size_letter color wis_t_color
+                                text "Morality:" size size_letter color mor_t_color
                             vbox:
                                 xalign 0.5
-                                text "[str(current_stats['strength'])]" size 22 color "#EEE"
-                                text "[str(current_stats['constitution'])]" size 22 color "#EEE"
-                                text "[str(current_stats['wisdom'])]" size 22 color "#EEE"
-                                text "[str(current_stats['morality'])]" size 22 color "#EEE"
+                                text "[str(current_stats['strength'])]" size size_letter color str_t_color
+                                text "[str(current_stats['constitution'])]" size size_letter color con_t_color
+                                text "[str(current_stats['wisdom'])]" size size_letter color wis_t_color
+                                text "[str(current_stats['morality'])]" size size_letter color mor_t_color
                             vbox:
                                 null width 40  # This adds 40 pixels of vertical space at the top
                             vbox:
                                 xalign 0.5
-                                text "Dexterity:" size 22 color "#EEE"
-                                text "Intelligence:" size 22 color "#EEE"
-                                text "Charisma:" size 22 color "#EEE"
-                                text "Luck:" size 22 color "#EEE"
+                                text "Dexterity:" size size_letter color dex_t_color
+                                text "Intelligence:" size size_letter color int_t_color
+                                text "Charisma:" size size_letter color cha_t_color
+                                text "Luck:" size size_letter color luc_t_color
                             vbox:
                                 xalign 0.5
-                                text "[str(current_stats['dexterity'])]" size 22 color "#EEE"
-                                text "[str(current_stats['intelligence'])]" size 22 color "#EEE"
-                                text "[str(current_stats['charisma'])]" size 22 color "#EEE"
-                                text "[str(current_stats['luck'])]" size 22 color "#EEE"
+                                text "[str(current_stats['dexterity'])]" size size_letter color dex_t_color
+                                text "[str(current_stats['intelligence'])]" size size_letter color int_t_color
+                                text "[str(current_stats['charisma'])]" size size_letter color cha_t_color
+                                text "[str(current_stats['luck'])]" size size_letter color luc_t_color
+                    vbox:
+                        spacing 20
+                        xalign 0.5
+                        text "Improvements:":
+                            xalign 0.5
+                        vbox:
+                            xalign 0.5
+                            spacing 20
+                            hbox:
+                                xalign 0.5
+                                spacing 20
+                                for attr_improvement in improvements_array:
+                                    text [attr_improvement] size 35 color "#EEE" xalign 0.5
+                            text "Improved by " + str(percentage) + "%" size 22 color "#EEE" xalign 0.5
+
             $ image_name = "5_" + str(evolution)
 
             python:
@@ -2503,17 +2560,25 @@ screen protector_detail_screen(my_protector):
                     ui.add(image_path)
 
             # Close button - top right
-            textbutton "Close" action Hide("protector_detail_screen"):
+            textbutton "Back" action Hide("protector_detail_screen"):
                 text_style "hover_white"
                 xalign 1.0
                 yalign 0.0
                 padding (10, 5)
             
-            if my_protector.readyForPromotion == True and my_protector.status == "Available":
-                vbox:
-                    yalign 0.1
-                    xalign 0.5
+            vbox:
+                yalign 0.1
+                xalign 0.5
+                
+                if my_protector.chosen_evolution != 0:
+                    $ evolution_name = my_protector.basePoints.evolution_name_1
+                    if my_protector.chosen_evolution == 2:
+                        $ evolution_name = my_protector.basePoints.evolution_name_2
+                    text "[evolution_name] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
+                else:
                     text "[my_protector.name] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
+
+            if my_protector.readyForPromotion == True and my_protector.status == "Available":
                 vbox:
                     spacing 20
                     xalign 0.1
@@ -2989,10 +3054,6 @@ screen protector_detail_screen(my_protector):
                                         text_size 25
                                         text_style "button_in_black_background"
             else:
-                vbox:
-                    yalign 0.1
-                    xalign 0.5
-                    text "[my_protector.name] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
                 # Text block - vertically centered on left side
                 vbox:
                     spacing 20

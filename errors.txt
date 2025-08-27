@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2433: 'padding' is not a keyword argument or valid child of the text statement.
-    padding (10, 5)
-           ^
+File "game/screens.rpy", line 2337: expected a keyword argument, colon, or end of line.
+    add im.Composite(
+                                                                                                                                                                                                                                                     ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Aug 26 17:06:17 2025
+Wed Aug 27 18:42:06 2025

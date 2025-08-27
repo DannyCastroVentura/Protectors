@@ -1,14 +1,12 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
   File "game/places.rpy", line 36, in script call
     call rest()
   File "game/places.rpy", line 38, in script call
@@ -21,42 +19,46 @@ While running game code:
     call rest()
   File "game/places.rpy", line 38, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 2, in script
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 34, in script
     menu:
-  File "game/screens.rpy", line 2505, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2505, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2508, in execute
+  File "game/screens.rpy", line 2291, in execute
+    screen protector_evolution_choosing_screen(my_protector):
+  File "game/screens.rpy", line 2291, in execute
+    screen protector_evolution_choosing_screen(my_protector):
+  File "game/screens.rpy", line 2292, in execute
     frame:
-  File "game/screens.rpy", line 2513, in execute
+  File "game/screens.rpy", line 2298, in execute
     fixed:
-  File "game/screens.rpy", line 2535, in execute
-    if my_protector.readyForPromotion == True and my_protector.status == "Available":
-  File "game/screens.rpy", line 2933, in execute
-    vbox:
-  File "game/screens.rpy", line 2952, in execute
+  File "game/screens.rpy", line 2312, in execute
     hbox:
-  File "game/screens.rpy", line 2961, in execute
+  File "game/screens.rpy", line 2316, in execute
     vbox:
-  File "game/screens.rpy", line 2963, in execute
-    text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
-  File "game/classes.rpy", line 256, in get_current_stats
-    "morality": self.get_morality(fake_stage, fake_evolution),
-                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-TypeError: Protector.get_morality() takes 1 positional argument but 3 were given
+  File "game/screens.rpy", line 2334, in execute
+    button:
+  File "game/screens.rpy", line 2335, in execute
+    frame:
+  File "game/screens.rpy", line 2337, in execute
+    add im.Composite(
+  File "game/screens.rpy", line 2340, in <module>
+    ((scale - new_width) // 2, 0), im.Image(Transform(show_protectors_scaled, xzoom=-1))
+                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'Transform' is not iterable
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
+  File "game/places.rpy", line 16, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_all_missions(1)
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
   File "game/places.rpy", line 36, in script call
     call rest()
   File "game/places.rpy", line 38, in script call
@@ -69,7 +71,13 @@ Traceback (most recent call last):
     call rest()
   File "game/places.rpy", line 38, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 2, in script
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 34, in script
     menu:
   File "renpy/ast.py", line 1815, in execute
     choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
@@ -117,51 +125,39 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2505, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2505, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2508, in execute
+  File "game/screens.rpy", line 2291, in execute
+    screen protector_evolution_choosing_screen(my_protector):
+  File "game/screens.rpy", line 2291, in execute
+    screen protector_evolution_choosing_screen(my_protector):
+  File "game/screens.rpy", line 2292, in execute
     frame:
-  File "game/screens.rpy", line 2513, in execute
+  File "game/screens.rpy", line 2298, in execute
     fixed:
-  File "game/screens.rpy", line 2535, in execute
-    if my_protector.readyForPromotion == True and my_protector.status == "Available":
-  File "game/screens.rpy", line 2933, in execute
-    vbox:
-  File "game/screens.rpy", line 2952, in execute
+  File "game/screens.rpy", line 2312, in execute
     hbox:
-  File "game/screens.rpy", line 2961, in execute
+  File "game/screens.rpy", line 2316, in execute
     vbox:
-  File "game/screens.rpy", line 2963, in execute
-    text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
-  File "renpy/text/text.py", line 2292, in _scope
-    return self.set_text(self.text_parameter, scope, self.substitute, update)
-           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/text/text.py", line 2329, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)  # type: ignore
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 355, in substitute
-    s = interpolate(s, variables)  # type: ignore
-        ~~~~~~~~~~~^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 89, in interpolate
-    raise e
-  File "renpy/substitutions.py", line 81, in interpolate
-    value = renpy.python.py_eval(code, {}, scope)
-            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 2334, in execute
+    button:
+  File "game/screens.rpy", line 2335, in execute
+    frame:
+  File "game/screens.rpy", line 2337, in execute
+    add im.Composite(
   File "renpy/python.py", line 1292, in py_eval
     return py_eval_bytecode(code, globals, locals)
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1285, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<none>", line 1, in <module>
-  File "game/classes.rpy", line 256, in get_current_stats
-    "morality": self.get_morality(fake_stage, fake_evolution),
-                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-TypeError: Protector.get_morality() takes 1 positional argument but 3 were given
+  File "game/screens.rpy", line 2340, in <module>
+    ((scale - new_width) // 2, 0), im.Image(Transform(show_protectors_scaled, xzoom=-1))
+                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/im.py", line 719, in __init__
+    if "@" in filename:
+       ^^^^^^^^^^^^^^^ 
+TypeError: argument of type 'Transform' is not iterable
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Aug 26 16:53:39 2025
+Wed Aug 27 18:40:58 2025

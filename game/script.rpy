@@ -275,46 +275,51 @@ label start:
     
     #
     # TODOS:
-    # 
-    # TODO:
+    #
+    # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
+    #
+    # TODO: [ PRIO 2 ] start to work on the stage missions
     #   -   for the stage missions, our protector can be killed, we need to be careful
     #   -   once stage mission is completed, we can go to the next region - and everything should be the same
+    #   -   final boss drops!
+    #   -   -   Region 10 - 2 A Equipment or Weapon
+    #   -   -   Region 9 - 1 A Equipment or Weapon
+    #   -   -   Region 8 - 2 B Equipment or Weapon
+    #   -   -   Region 7 - 1 B Equipment or Weapon
+    #   -   -   Region 6 - 2 C Equipment or Weapon
+    #   -   -   Region 5 - 1 C Equipment or Weapon
+    #   -   -   Region 4 - 2 D Equipment or Weapon
+    #   -   -   Region 3 - 1 D Equipment or Weapon
+    #   -   -   Region 2 - 2 E Equipment or Weapon
+    #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: make it possible to call nova
-    #
-    # TODO: update the names for evolutions and descriptions for the other characters (even create the other characters)
+    # TODO: [ PRIO 2 ] make each protector, being able to use only a specific weapons
     # 
-    # TODO: I still need to add a text to the protector_evolution_detail_screen saying what are the benefits of this evolution
+    # TODO: [ PRIO 2 ] add the melee or ranged information on protectors - and make it change things
     # 
-    # TODO: make all images beeing looking to the left (as they are going to be in the right of the screen, they should be looking to the left)
+    # TODO: [ PRIO 3 ] create a way to buy items or item drop chance? Still need to think about it
     # 
-    # TODO: create a way to buy items or item drop chang? Still need to think about it
-    # 
-    # TODO: while we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
-    # 
-    # TODO: once the mission is finished we should show a report? saying "This missions was completed, the protector got this xp and this money"
+    # TODO: [ PRIO 3 ] once a mission is finished should we show a report? saying "This missions was completed, the protector got this xp and this money"
     #   -   or if it was successful or not -> maybe also the reason?
-    #
-    # TODO: final boss drops!
-    #   -   Region 10 - 2 A Equipment or Weapon
-    #   -   Region 9 - 1 A Equipment or Weapon
-    #   -   Region 8 - 2 B Equipment or Weapon
-    #   -   Region 7 - 1 B Equipment or Weapon
-    #   -   Region 6 - 2 C Equipment or Weapon
-    #   -   Region 5 - 1 C Equipment or Weapon
-    #   -   Region 4 - 2 D Equipment or Weapon
-    #   -   Region 3 - 1 D Equipment or Weapon
-    #   -   Region 2 - 2 E Equipment or Weapon
-    #   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: also have the possibility to unequip and equip an equipment / weapon by the equipment and weapon detail
-    # 
-    # TODO: add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
+    # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
+    #   -   in case a evolution was already specified, we can also show the description once again
+    #
+    # TODO: [ PRIO 3 ] add equipment and things to improve charisma
     # 
-    # TODO: update the map functionality, as I want to have a map showing 
+    # TODO: [ PRIO 4 ] make it possible to call nova
     # 
-    # TODO: update the "close buttons", to show "back" in some of them
+    # TODO: [ PRIO 4 ] as we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
+    # 
+    # TODO: [ PRIO 4 ] also have the possibility to unequip and equip an equipment / weapon in the equipment and weapon detail
+    # 
+    # TODO: [ PRIO 4 ] update the map functionality, as I want to have a map showing - so I can change location easier
+    # 
+    # TODO: [ IDEA ] another idea, maybe we could even get other forces, not protectors, but some army guys, which we could send on different missions?
+    # 
+    # TODO: [ IDEA ] add a way to use mana
+    # 
     # 
     return
 
