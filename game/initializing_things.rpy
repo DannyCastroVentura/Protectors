@@ -27,9 +27,24 @@ init python:
         # 1 strenght per 7 levels
         # 1 charisma per 8 levels
 
-        # TODO: make this have magic and dexterity at the same time
-        protectors_base_information["Cardmaster"] = BaseProtectorData(
-            8, 12, 10, 18, 14, 9, 11, 0.12, 0.45, 0.25, 0.30, 0.20, 0.15, 0.18,
+        protectors_base_information["Wizard"] = BaseProtectorData(7, 10, 11, 18, 18, 9, 12, 0.12, 0.25, 0.20, 0.5, 0.33, 0.14, 0.16,
+            "INT", "INT_TAN",
+            "Arcane Scholar",
+            "Through years of study in forgotten libraries, he unlocked the secrets of the arcane. Spells of fire, frost, and lightning bend to his will, making him a master of battlefield control.",
+            "Battle Wizard",
+            "Clad in enchanted robes, he wields spells with precision and strategy. Every incantation is deliberate, every maneuver calculated, making him a devastating force of magical might."
+        )
+        # it gains:
+        # 1 intelligence per 2 levels
+        # 1 wisdom per 3 levels
+        # 1 dexterity per 4 levels
+        # 1 constitution per 5 levels
+        # 1 luck per 6 levels
+        # 1 charisma per 7 levels
+        # 1 strength per 8 levels
+
+
+        protectors_base_information["Cardmaster"] = BaseProtectorData(8, 15, 10, 18, 14, 9, 11, 0.12, 0.5, 0.16, 0.5, 0.16, 0.14, 0.5,
             "INT_TAN", "CRI",
             "Arcane Cardmaster",
             "During his studies at a forgotten arcane library, he discovered a deck of enchanted cards, each imbued with a fragment of magical essence. Now, he commands these cards to summon elemental forces, cast spells, and manipulate fate itself.",
@@ -38,7 +53,7 @@ init python:
         )
         # it gains:
         # 1 intelligence per 2 levels
-        # 1 dexterity per 2 levels        
+        # 1 dexterity per 2 levels
         # 1 luck per 2 levels
         # 1 wisdom per 6 levels
         # 1 constitution per 6 levels

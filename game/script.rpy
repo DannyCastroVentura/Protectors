@@ -320,6 +320,8 @@ label start:
     # 
     # TODO: [ IDEA ] add a way to use mana
     # 
+    # TODO: [ IDEA ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
+    # 
     # 
     return
 
