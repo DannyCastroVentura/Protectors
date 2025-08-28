@@ -65,11 +65,11 @@ init python:
         # 1 charisma per 7 levels
         # 1 strength per 8 levels
 
-        protectors_base_information["Cardmaster"] = BaseProtectorData(8, 15, 10, 18, 14, 9, 11, 0.12, 0.5, 0.16, 0.5, 0.16, 0.14, 0.5,
+        protectors_base_information["Joker"] = BaseProtectorData(8, 15, 10, 18, 14, 9, 11, 0.12, 0.5, 0.16, 0.5, 0.16, 0.14, 0.5,
             "INT_TAN", "CRI",
-            "Arcane Cardmaster",
+            "Demonic Joker",
             "In a forgotten arcane library, he found a deck of dark enchanted cards, each holding demonic essence. Now, whispers from the cards slowly turn him into a demon with every throw.",
-            "Sharpen Cardmaster",
+            "Sharpen Joker",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
             "Cards,Hands",
             "Melee"
