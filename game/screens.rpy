@@ -3892,17 +3892,14 @@ screen lucky_box_screen(box_type):
                 yalign 0.1
                 xalign 0.5
                 $ name = "Protector"
-                $ lucky_box = "protector_lucky_box"
+                $ lucky_box = "lucky_box_protector"
                 
-                if box_type == "armor":
-                    $ name = "Armor"
-                    $ lucky_box = "armor_lucky_box"
-                if box_type == "weapon":
-                    $ name = "Weapon"
-                    $ lucky_box = "weapon_lucky_box"
-                if box_type == "equipment":
+                if box_type == "Equipment":
                     $ name = "Equipment"
-                    $ lucky_box = "equipment_lucky_box"
+                    $ lucky_box = "lucky_box_equipment"
+                elif box_type == "weapon":
+                    $ name = "Weapon"
+                    $ lucky_box = "lucky_box_weapon"
                 text "[name] Lucky Box" size 50 color "#FFF" xalign 0.5
             vbox:
                 yalign 0.5

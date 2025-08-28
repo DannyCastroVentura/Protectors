@@ -142,18 +142,11 @@ label start:
     # 
     # TODO: [ PRIO 1 ] make the weapon slot being possible to change only if the protector can equip weapons
     # 
-    # TODO: [ PRIO 1 ] make each protector, have a prefered weapon these should be the only weapons they can use
-    # 
     # TODO: [ PRIO 1 ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
     #
     # TODO: [ PRIO 1 ] make the pictures of the protectors not to be much larger -> if needed, we need to make them taller
     # 
     # TODO: [ PRIO 1 ] make unarmed damage also use int and wisdom
-    # 
-    # TODO: [ PRIO 1 ] add the image for the other lucky boxes:
-    #   -   armor
-    #   -   weapon
-    #   -   equipment (both armor and weapon)
     # 
     # TODO: [ PRIO 1 ] make each weapon have the field "range" so it has melee or ranged
     # 
