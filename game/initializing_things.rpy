@@ -29,9 +29,9 @@ init python:
 
         protectors_base_information["Wizard"] = BaseProtectorData(7, 10, 11, 18, 18, 9, 12, 0.12, 0.25, 0.20, 0.5, 0.33, 0.14, 0.16,
             "INT", "INT_EVA",
-            "Arcane Scholar",
+            "Thunder Wizard",
             "Through years of study in forgotten libraries, he unlocked the secrets of the arcane. Spells of thunder and lightning bend to his will, making him a master of battlefield control.",
-            "Battle Wizard",
+            "Nature Wizard",
             "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him."
         )
         # it gains:

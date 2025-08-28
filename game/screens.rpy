@@ -2339,7 +2339,11 @@ screen protector_evolution_choosing_screen(my_protector):
                                 (0, 0), buttons_background,
                                 ((scale - new_width) // 2, 0), im.Flip(show_protectors_scaled, horizontal=True)
                             )
-                    text str(my_protector.basePoints.evolution_description_1) xmaximum scale size 25
+                    text str(my_protector.basePoints.evolution_description_1):
+                        xmaximum scale
+                        size 25
+                        xalign 0.5
+                        text_align 0.5
                     textbutton str(my_protector.basePoints.evolution_name_1):
                         action Show("protector_evolution_detail_screen", None, my_protector, 1) 
                         text_style "button_in_black_background"
@@ -2384,7 +2388,11 @@ screen protector_evolution_choosing_screen(my_protector):
                                 ((scale - new_width) // 2, 0), show_protectors_scaled
                                 
                             )
-                    text str(my_protector.basePoints.evolution_description_2) xmaximum scale size 25
+                    text str(my_protector.basePoints.evolution_description_2):
+                        xmaximum scale
+                        size 25
+                        xalign 0.5
+                        text_align 0.5
                     textbutton str(my_protector.basePoints.evolution_name_2):
                         action Show("protector_evolution_detail_screen", None, my_protector, 2) 
                         text_style "button_in_black_background"
@@ -2513,7 +2521,11 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                                 spacing 20
                                 for attr_improvement in improvements_array:
                                     text [attr_improvement] size 35 color "#EEE" xalign 0.5
-                            text "Improved by " + str(percentage) + "%" size 22 color "#EEE" xalign 0.5
+                            if len(improvements_array) == 1:
+                                text "Increase the specified attributes by " + str(percentage) + "%" size 22 color "#EEE" xalign 0.5
+                            else:
+                                text "Increase each specified attributes by " + str(percentage) + "%" size 22 color "#EEE" xalign 0.5
+                            
 
             $ image_name = "5_" + str(evolution)
 

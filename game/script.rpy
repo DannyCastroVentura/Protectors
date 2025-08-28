@@ -112,8 +112,6 @@ label start:
     mc "Alright. Let’s see who they are."
 
     hide nova
-    # TODO: add a magic protector
-    # TODO: change the first 3 protectors, so we remove the Samurai, and add a sorcerer
     call showFirst3Protectors()
 
     nova "These are the candidates.."
@@ -122,14 +120,14 @@ label start:
     while while_aux == 0:
         call showFirst3Protectors()
         hide screen base_stats
-        nova "You have the Ninja, the Templar and the Samurai."
+        nova "You have the Ninja, the Templar and the Wizard."
 
         nova "You can choose only one.."
         nova "Who will that be?"
         menu:
             "Ninja":
                 hide templar_starting
-                hide samurai_starting
+                hide wizard_starting
                 show ninja_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['Ninja'])
                 nova "Are you sure you want to choose the Ninja for your first protector?"
@@ -145,7 +143,7 @@ label start:
                         nova "Let's recap."
             "Templar":
                 hide ninja_starting
-                hide samurai_starting
+                hide wizard_starting
                 show templar_starting at fit_to_screen_height, farMidRight
                 show screen base_stats(protectors_base_information['Templar'])
                 nova "Are you sure you want to choose the Templar for your first protector?"
@@ -159,26 +157,26 @@ label start:
                         nova "Templar added!"
                     "What were the other ones?":
                         nova "Let's recap."
-            "Samurai":
+            "Wizard":
                 hide ninja_starting
                 hide templar_starting
-                show samurai_starting at fit_to_screen_height, farMidRight
-                show screen base_stats(protectors_base_information['Samurai'])
-                nova "Are you sure you want to choose the Samurai for your first protector?"
+                show wizard_starting at fit_to_screen_height, farMidRight
+                show screen base_stats(protectors_base_information['Wizard'])
+                nova "Are you sure you want to choose the Wizard for your first protector?"
                 menu(screen="custom_menu"):
                     "Yes!":
                         $ while_aux = 1
-                        $ first_protector_selected = "Samurai"
+                        $ first_protector_selected = "Wizard"
                         nova "Great!"
-                        nova "I'm adding Samurai to your list of protectors!"
-                        $ firstProtector = add_new_protector("Samurai")
-                        nova "Samurai added!"
+                        nova "I'm adding Wizard to your list of protectors!"
+                        $ firstProtector = add_new_protector("Wizard")
+                        nova "Wizard added!"
                     "What were the other ones?":
                         nova "Let's recap."
 
     hide templar_starting
     hide screen base_stats
-    hide samurai_starting
+    hide wizard_starting
     hide ninja_starting
     show nova at center, fit_to_screen_height
     nova "Great! Now you have your first protector!"
@@ -293,9 +291,15 @@ label start:
     #   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: [ PRIO 2 ] make each protector, being able to use only a specific weapons
+    # TODO: [ PRIO 2 ] make each protector, have a prefered weapon - as if the weapon is one of the prefered weapons, it could do extra damage
+    # 
+    # TODO: [ PRIO 2 ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
     # 
     # TODO: [ PRIO 2 ] add the melee or ranged information on protectors - and make it change things
+    # 
+    # TODO: [ PRIO 2 ] make the armor also to add some stats to the defense - independent on stats (like what we do with the weapons)
+    # 
+    # TODO: [ PRIO 2 ] we should not choose the weapon, as we choose the protector, a specific weapon should also be added - automatically
     # 
     # TODO: [ PRIO 3 ] create a way to buy items or item drop chance? Still need to think about it
     # 
@@ -320,16 +324,13 @@ label start:
     # 
     # TODO: [ IDEA ] add a way to use mana
     # 
-    # TODO: [ IDEA ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
-    # 
-    # 
     return
 
 
 label showFirst3Protectors(): 
     # hiding the 3 protectors before showing
     hide templar_starting
-    hide samurai_starting
+    hide wizard_starting
     hide ninja_starting
 
     # showing Ninja
@@ -341,9 +342,9 @@ label showFirst3Protectors():
     image templar_starting = getImage(f"{get_folder_from_map("Templar")}/1")
     show templar_starting at fit_to_screen_height, center
 
-    # showing Samurai
-    image samurai_starting = getImage(f"{get_folder_from_map("Samurai")}/1")
-    show samurai_starting at fit_to_screen_height, farRight
+    # showing wizard
+    image wizard_starting = getImage(f"{get_folder_from_map("Wizard")}/1")
+    show wizard_starting at fit_to_screen_height, farRight
 
     return
 
