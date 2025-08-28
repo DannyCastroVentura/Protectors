@@ -204,8 +204,19 @@ init python:
 
     def add_new_protector(protector_name, stage = 1, level = 1):
         global my_protectors_map
-        my_protectors_map[protector_name] = Protector(protector_name, stage, level, "Available")
-        return my_protectors_map[protector_name]
+        new_protector = Protector(protector_name, stage, level, "Available")
+        default_weapon_name = new_protector.basePoints.default_weapon
+        if default_weapon_name != None:
+            # get the weapon id
+            default_weapon_id = get_weapon_by_name(default_weapon_name).weapon_id
+
+            # add the weapon to our bag
+            add_new_weapon_to_our_bag(default_weapon_id)
+
+            # add the weapon to the protector
+            new_protector.equip_weapon(default_weapon_id)
+        my_protectors_map[protector_name] = new_protector
+        return
 
     def get_count_of_my_protectors():
         global my_protectors_map
@@ -310,6 +321,10 @@ init python:
         global weapons
         return next(w for w in weapons if w.weapon_id == weapon_id)
 
+    def get_weapon_by_name(weapon_name):
+        global weapons
+        return next(w for w in weapons if w.name == weapon_name)
+
     def add_new_weapon_to_our_bag(weapon_id):
         global weapons
         global myWeapons
@@ -343,3 +358,20 @@ init python:
         protector.choose_evolution(option)
         protector.promote()
         return
+
+    def open_protectors_box():
+        global my_protectors_map
+        global protectors_base_information
+
+        all_protectors_array = list(protectors_base_information.keys())
+        my_protectors_array = list(my_protectors_map.keys())
+
+        # remove the options on the new array for the protectors we have
+        all_protectors_array = [p for p in all_protectors_array if p not in my_protectors_array]
+
+        # randomly get a protector name
+        randomProtectorName = all_protectors_array[int(random.uniform(0, len(all_protectors_array)))]
+
+        # and get the protector
+        add_new_protector(randomProtectorName)
+        return randomProtectorName

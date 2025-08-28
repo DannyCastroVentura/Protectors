@@ -3875,32 +3875,52 @@ screen weapon_select(protector):
                 ypadding 10
 
 
-screen equipment_select(protector, equipment_type):
-
-    tag menu  # so the player can't open other menus while this is open
-
+screen lucky_box_screen(box_type):
     frame:
-        xalign 0.5
-        yalign 0.5
-        xpadding 20
-        ypadding 20
+        modal True
+        background Solid("#000000ea")
+        xysize (config.screen_width, config.screen_height)
+        $ scale = 650
 
-        vbox:
-            spacing 10
+        $ buttons_background = im.Scale("images/background_item.png", scale, scale)
 
-            text "Select your Equipment:" size 30
-            $ filtered_equipments = sorted(
-                [equipment for equipment in myEquipments if equipment.type == equipment_type],
-                key=lambda equipment: equipment.rarity
-            )
-            # For each available equipment, create a button
-            for equipment in filtered_equipments:
-                textbutton "[equipment.name] ([equipment.rarity])":
-                    action [Function(protector.equip_equipment, equipment.equipment_id), Hide("equipment_select")]
-                    xminimum 200
-                    ypadding 10
+        fixed:
+            xfill True
+            yfill True
 
-            textbutton "Cancel":
-                action Hide("equipment_select")
-                xminimum 200
-                ypadding 10
+            vbox:
+                yalign 0.1
+                xalign 0.5
+                $ name = "Protector"
+                $ lucky_box = "protector_lucky_box"
+                
+                if box_type == "armor":
+                    $ name = "Armor"
+                    $ lucky_box = "armor_lucky_box"
+                if box_type == "weapon":
+                    $ name = "Weapon"
+                    $ lucky_box = "weapon_lucky_box"
+                if box_type == "equipment":
+                    $ name = "Equipment"
+                    $ lucky_box = "equipment_lucky_box"
+                text "[name] Lucky Box" size 50 color "#FFF" xalign 0.5
+            vbox:
+                yalign 0.5
+                xalign 0.5
+                spacing 50
+                hbox:
+                    yalign 0.5
+                    xalign 0.5
+                    spacing 100
+                    $ show_protectors_image = "images/protector_lucky_box.png"
+                    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
+                        
+                    button:
+                        action Function(lambda: open_protectors_box())
+                        background "#ffffff"
+                        frame:
+                            add im.Composite(
+                                (scale, scale),
+                                (0, 0), buttons_background,
+                                (0, 0), show_protectors_scaled
+                            )

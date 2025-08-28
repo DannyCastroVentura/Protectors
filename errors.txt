@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2337: expected a keyword argument, colon, or end of line.
-    add im.Composite(
-                                                                                                                                                                                                                                                     ^
+File "game/screens.rpy", line 3894: 'name' is not a keyword argument or valid child of the vbox statement.
+    name = "Protector"
+        ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Aug 27 18:42:06 2025
+Thu Aug 28 21:48:56 2025

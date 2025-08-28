@@ -18,7 +18,8 @@ init python:
             "Tech Ninja", 
             "Recruited by the army, he wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield.",
             "Knife,Sword,Hands",
-            "Melee"
+            "Melee",
+            "Thieves knife"
         )
         # it gains:
         # 1 dex per 2 levels
@@ -36,7 +37,8 @@ init python:
             "Demonic Templar",
             "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
             "Sword,Spear,Greatsword,Hands",
-            "Melee"
+            "Melee",
+            "Templar Greatsword"
         )
         # it gains:
         # 1 strenght per 2 levels
@@ -54,7 +56,8 @@ init python:
             "Nature Wizard",
             "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him.",
             "Wand,Staff,Hands",
-            "Ranged"
+            "Ranged",
+            "Elderwood Staff"
         )
         # it gains:
         # 1 intelligence per 2 levels
@@ -72,7 +75,8 @@ init python:
             "Sharpen Joker",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
             "Cards,Hands",
-            "Melee"
+            "Melee",
+            "Gambling Cards"
         )
         # it gains:
         # 1 intelligence per 2 levels
@@ -83,14 +87,15 @@ init python:
         # 1 charisma per 7 levels
         # 1 strength per 8 levels
 
-        protectors_base_information["Samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.5, 0.25, 0.2, 0.34, 0.16, 0.125, 
+        protectors_base_information["Samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.35, 0.25, 0.2, 0.34, 0.16, 0.125, 
             "STR", "DAM",
             "Tech Samurai",
             "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
             "Wolf Samurai",
             "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
-            "Sword,Hands",
-            "Melee"
+            "Sword,Hands,Katana",
+            "Melee",
+            "Samurai Rusty Katana"
         )
         # it gains:
         # 1 strenght per 2 levels
@@ -101,14 +106,15 @@ init python:
         # 1 charisma per 6 levels
         # 1 luck per 8 levels
 
-        protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.15, 0.34, 0.25, 0.2, 0.16, 0.2, 
+        protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.45, 0.34, 0.25, 0.2, 0.16, 0.2, 
             "EVA", "DAM",
             "Special forces Agent",
             "Determined to become one of the best, he enlisted in the Special Forces intense training. After proving his skill, he earned his place and now strikes with unmatched precision, agility, and tactical mastery on every mission.",
             "Berserker",
             "Trapped in fear during a mission, the recruit’s mind finally snapped, and that terror erupted into uncontrollable, burning rage. Now he fights with pure instinct as he charges into battle with relentless ferocity.",
             "Knife,Gun,Hands,Spear,Greatsword,Axe,Mace,Hammer,Sword",
-            "Melee"
+            "Melee",
+            "Combat knife"
         )
         # it gains:
         # 1 strength per 2 levels
@@ -119,39 +125,39 @@ init python:
         # 1 dexterity per 7 levels
         # 1 luck per 8 levels
 
-        protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, 
-            "HP", "INT_TAN",
-            "Name 1",
-            "Description 1",
-            "Name 2",
-            "Description 2",
-            "",
-            "Ranged"
-        )
-        # it gains:
-        # 1 intelligence per 2 levels
-        # 1 dexterity per 3 levels
-        # 1 strenght per 4 levels
-        # 1 constitution per 5 levels
-        # 1 wisdom per 6 levels
-        # 1 charisma per 8 levels
-        # 1 luck per 10 levels
+        # protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, 
+        #     "HP", "INT_TAN",
+        #     "Name 1",
+        #     "Description 1",
+        #     "Name 2",
+        #     "Description 2",
+        #     "",
+        #     "Ranged"
+        # )
+        # # it gains:
+        # # 1 intelligence per 2 levels
+        # # 1 dexterity per 3 levels
+        # # 1 strenght per 4 levels
+        # # 1 constitution per 5 levels
+        # # 1 wisdom per 6 levels
+        # # 1 charisma per 8 levels
+        # # 1 luck per 10 levels
 
-        protectors_base_information["Skeleton"] = BaseProtectorData(17, 18, 10, 6, 8, 6, 20, 0.34, 0.5, 0.25, 0.2, 0.125, 0, 0, 
-            "EVA", "DAM",
-            "Name 1",
-            "Description 1",
-            "Name 2",
-            "Description 2",
-            "Knife,Sword,Hands",
-            "Melee"
-        )
-        # it gains:
-        # 1 dexterity per 2 levels
-        # 1 strenght per 3 levels
-        # 1 constitution per 4 levels
-        # 1 intelligence per 5 levels
-        # 1 wisdom per 6 levels
+        # protectors_base_information["Skeleton"] = BaseProtectorData(17, 18, 10, 6, 8, 6, 20, 0.34, 0.5, 0.25, 0.2, 0.125, 0, 0, 
+        #     "EVA", "DAM",
+        #     "Name 1",
+        #     "Description 1",
+        #     "Name 2",
+        #     "Description 2",
+        #     "Knife,Sword,Hands",
+        #     "Melee"
+        # )
+        # # it gains:
+        # # 1 dexterity per 2 levels
+        # # 1 strenght per 3 levels
+        # # 1 constitution per 4 levels
+        # # 1 intelligence per 5 levels
+        # # 1 wisdom per 6 levels
 
         # Recreate Possible Missions # Tittle / description
         # 🔥 23 - Combat - damage?
@@ -309,12 +315,12 @@ init python:
             "Dexterity",
             30,
             'E'))
-
-        weapons.append(Weapon("Ironclad Mace",
-            "A sturdy mace used by city guards.",
-            "Mace",
+        
+        weapons.append(Weapon("Templar Greatsword", 
+            "A rusty giant sword used in the crusades.", 
+            "Greatsword", 
             "Strength",
-            32,
+            35,
             'E'))
         
         weapons.append(Weapon("Elderwood Staff",
@@ -322,6 +328,34 @@ init python:
             "Staff",
             "Magic",
             25,
+            'E'))
+        
+        weapons.append(Weapon("Gambling Cards",
+            "Normal cards, used for gamling.",
+            "Cards",
+            "Dexterity",
+            27,
+            'E'))
+        
+        weapons.append(Weapon("Samurai Rusty Katana", 
+            "A rusty katana used by Samurais for training.", 
+            "Katana", 
+            "Strength",
+            28,
+            'E'))
+        
+        weapons.append(Weapon("Combat knife", 
+            "A rusty knife used by the army.",
+            "Knife", 
+            "Strength",
+            26,
+            'E'))
+
+        weapons.append(Weapon("Ironclad Mace",
+            "A sturdy mace used by city guards.",
+            "Mace",
+            "Strength",
+            32,
             'E'))
 
         weapons.append(Weapon("Whisperwind", 

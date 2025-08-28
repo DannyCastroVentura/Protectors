@@ -107,151 +107,13 @@ label start:
     nova "I understand it’s overwhelming."
     mc "It is. But... I don’t want to walk away, either. If I can help, I want to try."
     nova "Good. You’ll need that spirit where you’re going."
-    nova "Let’s begin by finding your first ally. The Alliance is offering you three Protector candidates."
-    nova "Each brings something unique to your team."
-    mc "Alright. Let’s see who they are."
-
-    hide nova
-    call showFirst3Protectors()
-
-    nova "These are the candidates.."
-    $ first_protector_selected = ""
-    $ while_aux = 0
-    while while_aux == 0:
-        call showFirst3Protectors()
-        hide screen base_stats
-        nova "You have the Ninja, the Templar and the Wizard."
-
-        nova "You can choose only one.."
-        nova "Who will that be?"
-        menu:
-            "Ninja":
-                hide templar_starting
-                hide wizard_starting
-                show ninja_starting at fit_to_screen_height, farMidRight
-                show screen base_stats(protectors_base_information['Ninja'])
-                nova "Are you sure you want to choose the Ninja for your first protector?"
-                menu(screen="custom_menu"):
-                    "Yes!":
-                        $ while_aux = 1
-                        $ first_protector_selected = "Ninja"
-                        nova "Great!"
-                        nova "I'm adding Ninja to your list of protectors!"
-                        $ firstProtector = add_new_protector("Ninja")
-                        nova "Ninja added!"
-                    "What were the other ones?":
-                        nova "Let's recap."
-            "Templar":
-                hide ninja_starting
-                hide wizard_starting
-                show templar_starting at fit_to_screen_height, farMidRight
-                show screen base_stats(protectors_base_information['Templar'])
-                nova "Are you sure you want to choose the Templar for your first protector?"
-                menu(screen="custom_menu"):
-                    "Yes!":
-                        $ while_aux = 1
-                        $ first_protector_selected = "Templar"
-                        nova "Great!"
-                        nova "I'm adding Templar to your list of protectors!"
-                        $ firstProtector = add_new_protector("Templar")
-                        nova "Templar added!"
-                    "What were the other ones?":
-                        nova "Let's recap."
-            "Wizard":
-                hide ninja_starting
-                hide templar_starting
-                show wizard_starting at fit_to_screen_height, farMidRight
-                show screen base_stats(protectors_base_information['Wizard'])
-                nova "Are you sure you want to choose the Wizard for your first protector?"
-                menu(screen="custom_menu"):
-                    "Yes!":
-                        $ while_aux = 1
-                        $ first_protector_selected = "Wizard"
-                        nova "Great!"
-                        nova "I'm adding Wizard to your list of protectors!"
-                        $ firstProtector = add_new_protector("Wizard")
-                        nova "Wizard added!"
-                    "What were the other ones?":
-                        nova "Let's recap."
-
-    hide templar_starting
-    hide screen base_stats
-    hide wizard_starting
-    hide ninja_starting
+    nova "Let’s begin by finding your first ally. The Alliance is offering you a Protectors Box."
+    nova "Open it!"
+    window hide
+    $ protector_name = renpy.call_screen("lucky_box_screen", "protector")
     show nova at center, fit_to_screen_height
-    nova "Great! Now you have your first protector!"
-    nova "Now let's choose the weapon you want him to start with!"
-    
-    hide nova
-    $ while_aux = 0
-    while while_aux == 0:
-        call showFirst3Weapons()
-        hide screen weapon_base_stats
-        nova "You can choose one of these weapons."
-        nova "Maybe its a good thing you consider what might be better for your protector."
-        nova "Which will you choose?"
-        $ firstWeaponName = get_weapon_by_id(0).name
-        $ secondWeaponName = get_weapon_by_id(1).name
-        $ thirdWeaponName = get_weapon_by_id(2).name
-        menu:
-            "[firstWeaponName]":
-                hide ironcladMace_starting
-                hide elderwoodStaff_starting
-                show thievesKnife_starting at fit_to_screen_height, farMidRight
-                $ weapon = next(w for w in weapons if w.name == firstWeaponName)
-                show screen weapon_base_stats(weapon)
-                nova "Are you sure you want to choose the [firstWeaponName] for your first protector to use?"
-                menu(screen="custom_menu"):
-                    "Yes!":
-                        $ while_aux = 1
-                        nova "Great!"
-                        nova "I'm adding [firstWeaponName] to your protector!"
-                        $ add_new_weapon_to_our_bag(0)
-                        $ firstProtector.equip_weapon(0)
-                        nova "[firstWeaponName] added!"
-                    "What were the other ones?":
-                        nova "Let's recap."
-            "[secondWeaponName]":
-                hide elderwoodStaff_starting
-                hide thievesKnife_starting
-                show ironcladMace_starting at fit_to_screen_height, farMidRight
-                $ weapon = next(w for w in weapons if w.name == secondWeaponName)
-                show screen weapon_base_stats(weapon)
-                nova "Are you sure you want to choose the [secondWeaponName] for your first protector to use?"
-                menu(screen="custom_menu"):
-                    "Yes!":
-                        $ while_aux = 1
-                        nova "Great!"
-                        nova "I'm adding [secondWeaponName] to your protector!"
-                        $ add_new_weapon_to_our_bag(1)
-                        $ firstProtector.equip_weapon(1)
-                        nova "[secondWeaponName] added!"
-                    "What were the other ones?":
-                        nova "Let's recap."
-            "[thirdWeaponName]":
-                hide ironcladMace_starting
-                hide thievesKnife_starting
-                show elderwoodStaff_starting at fit_to_screen_height, farMidRight
-                $ weapon = next(w for w in weapons if w.name == thirdWeaponName)
-                show screen weapon_base_stats(weapon)
-                nova "Are you sure you want to choose the [thirdWeaponName] for your first protector to use?"
-                menu(screen="custom_menu"):
-                    "Yes!":
-                        $ while_aux = 1
-                        nova "Great!"
-                        nova "I'm adding [thirdWeaponName] to your protector!"
-                        $ add_new_weapon_to_our_bag(2)
-                        $ firstProtector.equip_weapon(2)
-                        nova "[thirdWeaponName] added!"
-                    "What were the other ones?":
-                        nova "Let's recap."
-
-    hide ironcladMace_starting
-    hide screen weapon_base_stats
-    hide thievesKnife_starting
-    hide elderwoodStaff_starting
-    show nova at center, fit_to_screen_height
-    nova "Great! Now let's continue!"    
+    nova "Great! You have your first protector!"
+    nova "Your first protector is: [protector_name]"
     $ while_aux = 0
     while while_aux == 0:        
         call nova_explains_tutorial()
@@ -273,33 +135,44 @@ label start:
     
     #
     # TODOS:
+    # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
     #   -   robot
     #   -   skeleton
-    #
-    # TODO: [ PRIO 1 ] make all protectors to be inside my protectors map - as I want to test them individually
+    # 
+    # TODO: [ PRIO 1 ] make the weapon slot being possible to change only if the protector can equip weapons
+    # 
+    # TODO: [ PRIO 1 ] make each protector, have a prefered weapon these should be the only weapons they can use
+    # 
+    # TODO: [ PRIO 1 ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
     #
     # TODO: [ PRIO 1 ] make the pictures of the protectors not to be much larger -> if needed, we need to make them taller
     # 
-    # TODO: [ PRIO 1 ] update the protector detail to:
-    #   -   have in left top - equipment
-    #   -   have in left bottom - attributes
-    #   -   middle - image of the protector
-    #   -   left side - damage / defense / evasion / and so on
-    # 
     # TODO: [ PRIO 1 ] make unarmed damage also use int and wisdom
     # 
+    # TODO: [ PRIO 1 ] add the image for the other lucky boxes:
+    #   -   armor
+    #   -   weapon
+    #   -   equipment (both armor and weapon)
+    # 
     # TODO: [ PRIO 1 ] make each weapon have the field "range" so it has melee or ranged
+    # 
+    # TODO: [ PRIO 1 ] make the armor also to add some stats to the defense - independent on stats (like what we do with the weapons)
     # 
     # TODO: [ PRIO 1 ] add at least 5 weapons of each in initializing_things: 
     #   -   wand
     #   -   gun
     #   -   greatsword
     #   -   cards
+    #   -   katana
     # 
-    # TODO: [ PRIO 1 ] make the weapon slot being possible to change only if the protector can equip weapons
-    # 
-    # TODO: [ PRIO 1 ] make each protector, have a prefered weapon these should be the only weapons they can use
+    # TODO: [ PRIO 1 ] update the protector detail to:
+    #   -   have in left top - equipment
+    #   -   have in left bottom - attributes
+    #   -   middle - image of the protector
+    #   -   left side - damage / defense / evasion / and so on
+    #
+    # TODO: [ PRIO 1 ] test all the protectors 
     #
     # TODO: [ PRIO 2 ] start to work on the stage missions
     #   -   for the stage missions, our protector can be killed, we need to be careful
@@ -316,13 +189,7 @@ label start:
     #   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: [ PRIO 2 ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
-    # 
     # TODO: [ PRIO 2 ] add the melee or ranged information on protectors - and make it change things
-    # 
-    # TODO: [ PRIO 2 ] make the armor also to add some stats to the defense - independent on stats (like what we do with the weapons)
-    # 
-    # TODO: [ PRIO 2 ] we should not choose the weapon, as we choose the protector, a specific weapon should also be added - automatically
     # 
     # TODO: [ PRIO 3 ] create a way to buy items or item drop chance? Still need to think about it
     # 
