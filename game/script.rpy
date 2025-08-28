@@ -273,8 +273,13 @@ label start:
     
     #
     # TODOS:
-    #
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
+    #   -   robot
+    #   -   skeleton
+    #
+    # TODO: [ PRIO 1 ] make all protectors to be inside my protectors map - as I want to test them individually
+    #
+    # TODO: [ PRIO 1 ] make the pictures of the protectors not to be much larger -> if needed, we need to make them taller
     # 
     # TODO: [ PRIO 1 ] update the protector detail to:
     #   -   have in left top - equipment
@@ -283,6 +288,8 @@ label start:
     #   -   left side - damage / defense / evasion / and so on
     # 
     # TODO: [ PRIO 1 ] make unarmed damage also use int and wisdom
+    # 
+    # TODO: [ PRIO 1 ] make each weapon have the field "range" so it has melee or ranged
     # 
     # TODO: [ PRIO 1 ] add at least 5 weapons of each in initializing_things: 
     #   -   wand

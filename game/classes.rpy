@@ -8,7 +8,7 @@ init python:
             incrementing_intelligence, incrementing_wisdom, 
             incrementing_charisma, incrementing_luck, evolution_1, 
             evolution_2, evolution_name_1, evolution_description_1,
-            evolution_name_2, evolution_description_2, prefered_weapon_types, no_weapon_range):
+            evolution_name_2, evolution_description_2, prefered_weapon_types, unarmed_range):
             self.strength = strength
             self.dexterity = dexterity
             self.constitution = constitution
@@ -31,7 +31,7 @@ init python:
             self.incrementing_charisma = incrementing_charisma
             self.incrementing_luck = incrementing_luck
             self.prefered_weapon_types = prefered_weapon_types.split(",")
-            self.no_weapon_range = no_weapon_range
+            self.unarmed_range = unarmed_range
             self.can_it_use_weapons = True
             if prefered_weapon_types == "":
                 self.can_it_use_weapons = False

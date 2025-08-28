@@ -28,6 +28,24 @@ init python:
         # 1 luck per 6 levels
         # 1 strenght per 7 levels
         # 1 charisma per 8 levels
+        
+        protectors_base_information["Templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125, 
+            "TAN", "DAM",
+            "Saint Templar",
+            "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
+            "Demonic Templar",
+            "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
+            "Sword,Spear,Greatsword,Hands",
+            "Melee"
+        )
+        # it gains:
+        # 1 strenght per 2 levels
+        # 1 constitution per 2 levels
+        # 1 wisdom per 3 levels
+        # 1 charisma per 4 levels
+        # 1 intelligence per 5 levels
+        # 1 dexterity per 6 levels
+        # 1 luck per 8 levels
 
         protectors_base_information["Wizard"] = BaseProtectorData(7, 10, 11, 18, 18, 9, 12, 0.12, 0.25, 0.20, 0.5, 0.33, 0.14, 0.16,
             "INT", "INT_EVA",
@@ -47,11 +65,10 @@ init python:
         # 1 charisma per 7 levels
         # 1 strength per 8 levels
 
-
         protectors_base_information["Cardmaster"] = BaseProtectorData(8, 15, 10, 18, 14, 9, 11, 0.12, 0.5, 0.16, 0.5, 0.16, 0.14, 0.5,
             "INT_TAN", "CRI",
             "Arcane Cardmaster",
-            "During his studies at a forgotten arcane library, he discovered a deck of enchanted cards, each imbued with a fragment of magical essence. Now, he commands these cards to summon elemental forces, cast spells, and manipulate fate itself.",
+            "In a forgotten arcane library, he found a deck of dark enchanted cards, each holding demonic essence. Now, whispers from the cards slowly turn him into a demon with every throw.",
             "Sharpen Cardmaster",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
             "Cards,Hands",
@@ -83,32 +100,14 @@ init python:
         # 1 inteligence per 5 levels
         # 1 charisma per 6 levels
         # 1 luck per 8 levels
-        
-        protectors_base_information["Templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125, 
-            "TAN", "DAM",
-            "Saint Templar",
-            "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
-            "Demonic Templar",
-            "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
-            "Sword,Spear,Greatsword,Hands",
-            "Melee"
-        )
-        # it gains:
-        # 1 strenght per 2 levels
-        # 1 constitution per 2 levels
-        # 1 wisdom per 3 levels
-        # 1 charisma per 4 levels
-        # 1 intelligence per 5 levels
-        # 1 dexterity per 6 levels
-        # 1 luck per 8 levels
 
         protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.15, 0.34, 0.25, 0.2, 0.16, 0.2, 
-            "TAN", "STR",
-            "Name 1",
-            "Description 1",
-            "Name 2",
-            "Description 2",
-            "Knife,Gun,Hands",
+            "EVA", "DAM",
+            "Special forces Agent",
+            "Determined to become one of the best, he enlisted in the Special Forces intense training. After proving his skill, he earned his place and now strikes with unmatched precision, agility, and tactical mastery on every mission.",
+            "Berserker",
+            "Trapped in fear during a mission, the recruit’s mind finally snapped, and that terror erupted into uncontrollable, burning rage. Now he fights with pure instinct as he charges into battle with relentless ferocity.",
+            "Knife,Gun,Hands,Spear,Greatsword,Axe,Mace,Hammer,Sword",
             "Melee"
         )
         # it gains:
