@@ -12,11 +12,13 @@ init python:
 
         # creating protectors    
         protectors_base_information["Ninja"] = BaseProtectorData(10, 17, 12, 14, 13, 8, 11, 0.15, 0.5, 0.2, 0.34, 0.25, 0.125, 0.16, 
-        "CRI", "SHI", 
-        "Ash Ninja", 
-        "While exploring a forgotten cave, he touched a cursed relic that bound dark magic to his body. From that moment, he gained the power to transform into ash, disappearing into smoke to strike unseen.",
-        "Tech Ninja", 
-        "Recruited by the army, he wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield."
+            "CRI", "SHI", 
+            "Ash Ninja", 
+            "While exploring a forgotten cave, he touched a cursed relic that bound dark magic to his body. From that moment, he gained the power to transform into ash, disappearing into smoke to strike unseen.",
+            "Tech Ninja", 
+            "Recruited by the army, he wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield.",
+            "Knife,Sword,Hands",
+            "Melee"
         )
         # it gains:
         # 1 dex per 2 levels
@@ -32,7 +34,9 @@ init python:
             "Thunder Wizard",
             "Through years of study in forgotten libraries, he unlocked the secrets of the arcane. Spells of thunder and lightning bend to his will, making him a master of battlefield control.",
             "Nature Wizard",
-            "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him."
+            "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him.",
+            "Wand,Staff,Hands",
+            "Ranged"
         )
         # it gains:
         # 1 intelligence per 2 levels
@@ -49,7 +53,9 @@ init python:
             "Arcane Cardmaster",
             "During his studies at a forgotten arcane library, he discovered a deck of enchanted cards, each imbued with a fragment of magical essence. Now, he commands these cards to summon elemental forces, cast spells, and manipulate fate itself.",
             "Sharpen Cardmaster",
-            "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar."
+            "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
+            "Cards,Hands",
+            "Melee"
         )
         # it gains:
         # 1 intelligence per 2 levels
@@ -61,11 +67,13 @@ init python:
         # 1 strength per 8 levels
 
         protectors_base_information["Samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.5, 0.25, 0.2, 0.34, 0.16, 0.125, 
-        "STR", "DAM",
-        "Tech Samurai",
-        "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
-        "Wolf Samurai",
-        "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield."
+            "STR", "DAM",
+            "Tech Samurai",
+            "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
+            "Wolf Samurai",
+            "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
+            "Sword,Hands",
+            "Melee"
         )
         # it gains:
         # 1 strenght per 2 levels
@@ -77,11 +85,13 @@ init python:
         # 1 luck per 8 levels
         
         protectors_base_information["Templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125, 
-        "TAN", "DAM",
-        "Saint Templar",
-        "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
-        "Demonic Templar",
-        "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption."
+            "TAN", "DAM",
+            "Saint Templar",
+            "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
+            "Demonic Templar",
+            "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
+            "Sword,Spear,Greatsword,Hands",
+            "Melee"
         )
         # it gains:
         # 1 strenght per 2 levels
@@ -93,11 +103,13 @@ init python:
         # 1 luck per 8 levels
 
         protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.15, 0.34, 0.25, 0.2, 0.16, 0.2, 
-        "TAN", "STR",
-        "Name 1",
-        "Description 1",
-        "Name 2",
-        "Description 2"
+            "TAN", "STR",
+            "Name 1",
+            "Description 1",
+            "Name 2",
+            "Description 2",
+            "Knife,Gun,Hands",
+            "Melee"
         )
         # it gains:
         # 1 strength per 2 levels
@@ -109,11 +121,13 @@ init python:
         # 1 luck per 8 levels
 
         protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, 
-        "HP", "INT_TAN",
-        "Name 1",
-        "Description 1",
-        "Name 2",
-        "Description 2"
+            "HP", "INT_TAN",
+            "Name 1",
+            "Description 1",
+            "Name 2",
+            "Description 2",
+            "",
+            "Ranged"
         )
         # it gains:
         # 1 intelligence per 2 levels
@@ -125,11 +139,13 @@ init python:
         # 1 luck per 10 levels
 
         protectors_base_information["Skeleton"] = BaseProtectorData(17, 18, 10, 6, 8, 6, 20, 0.34, 0.5, 0.25, 0.2, 0.125, 0, 0, 
-        "EVA", "DAM",
-        "Name 1",
-        "Description 1",
-        "Name 2",
-        "Description 2"
+            "EVA", "DAM",
+            "Name 1",
+            "Description 1",
+            "Name 2",
+            "Description 2",
+            "Knife,Sword,Hands",
+            "Melee"
         )
         # it gains:
         # 1 dexterity per 2 levels
@@ -290,77 +306,77 @@ init python:
         # E CLASS
         weapons.append(Weapon("Thieves knife", 
             "A sleek normal dagger normally used by thieves.", 
-            "knife", 
+            "Knife", 
             "Dexterity",
             30,
             'E'))
 
         weapons.append(Weapon("Ironclad Mace",
             "A sturdy mace used by city guards.",
-            "mace",
+            "Mace",
             "Strength",
             32,
             'E'))
         
         weapons.append(Weapon("Elderwood Staff",
             "A staff carved from ancient trees, buzzing with latent magic.",
-            "staff",
+            "Staff",
             "Magic",
             25,
             'E'))
 
         weapons.append(Weapon("Whisperwind", 
             "A light lance favored by the swift riders of the northern plains.", 
-            "lance", 
+            "Spear", 
             "Dexterity",
             28,
             'E'))
 
         weapons.append(Weapon("Small Vikings Axe", 
             "A small but deadly axe used by vikings to kill their enemies.", 
-            "axe", 
+            "Axe", 
             "Strength",
             25,
             'E'))
 
         weapons.append(Weapon("Gale Hammer", 
             "A slender hammer that strikes as hard as a rock.", 
-            "hammer", 
+            "Hammer", 
             "Strength",
             30,
             'E'))
 
         weapons.append(Weapon("Iron Sword", 
             "A sword forged with iron stone.", 
-            "sword", 
+            "Sword", 
             "Strength",
             33,
             'E'))
 
         weapons.append(Weapon("Shadow Sword", 
             "A sword forged from shadows, almost invisible to the naked eye.", 
-            "sword", 
+            "Sword", 
             "Dexterity",
             29,
             'E'))
             
         weapons.append(Weapon("Swiftfang",
             "A quick dagger favored by thieves, light and deadly.",
-            "knife",
+            "Knife",
             "Dexterity",
             35,
             'E'))
 
         weapons.append(Weapon("Moonlit Spear",
             "A spear that gleams under the moonlight, perfect for precise strikes.",
-            "spear",
+            "Spear",
             "Dexterity",
             30,
             'E'))
 
         weapons.append(Weapon("Crimson Axe",
             "An axe stained red from countless battles.",
-            "axe",
+            "Axe",
             "Strength",
             38,
             'E'))
@@ -369,63 +385,63 @@ init python:
         # D CLASS
         weapons.append(Weapon("Nightfang Dagger", 
             "A wicked, curved blade rumored to drink the strength of its victims.", 
-            "knife", 
+            "Knife", 
             "Dexterity",
             72,
             'D'))
 
         weapons.append(Weapon("Sentinel’s War Mace",
             "A heavy iron mace favored by royal guards to shatter armor and bone alike.",
-            "mace",
+            "Mace",
             "Strength",
             85,
             'D'))
 
         weapons.append(Weapon("Runebark Staff",
             "A mystical staff etched with ancient runes, channeling deep forest magic.",
-            "staff",
+            "Staff",
             "Magic",
             78,
             'D'))
 
         weapons.append(Weapon("Stormpiercer Lance", 
             "A long, gleaming lance said to cut through wind and flesh with equal ease.", 
-            "lance", 
+            "Spear", 
             "Dexterity",
             80,
             'D'))
 
         weapons.append(Weapon("Mage Lance", 
             "A magic infused lance - which gives magic blows to the enemy.", 
-            "lance", 
+            "Spear", 
             "Magic",
             88,
             'D'))
 
         weapons.append(Weapon("Raven’s Bite Axe", 
             "A brutal, blackened axe once wielded by northern raiders in the dead of winter.", 
-            "axe", 
+            "Axe", 
             "Strength",
             88,
             'D'))
 
         weapons.append(Weapon("Thunderstrike Hammer", 
             "A massive hammer that crackles faintly with the sound of distant storms.", 
-            "hammer", 
+            "Hammer", 
             "Strength",
             90,
             'D'))
 
         weapons.append(Weapon("Bloodforged Blade", 
             "A broad sword quenched in the blood of its enemies, said to thirst for more.", 
-            "sword", 
+            "Sword", 
             "Strength",
             79,
             'D'))
 
         weapons.append(Weapon("Moonveil Saber", 
             "A thin, silvery sword that glimmers faintly even in complete darkness.", 
-            "sword", 
+            "Sword", 
             "Dexterity",
             84,
             'D'))
@@ -433,98 +449,98 @@ init python:
         # C CLASS
         weapons.append(Weapon("Dragon's Breath", 
             "A massive flaming sword said to be imbued with the power of an ancient dragon.", 
-            "sword", 
+            "Sword", 
             "Strength",
             150,
             "C"))
 
         weapons.append(Weapon("Earthshaker", 
             "A heavy axe that can split mountains with a single swing.", 
-            "axe", 
+            "Axe", 
             "Strength",
             180,
             "C"))
 
         weapons.append(Weapon("Arcane Edge", 
             "A magical sword glowing with blue runes, capable of slicing through spells.", 
-            "sword", 
+            "Sword", 
             "Magic",
             120,
             "C"))
 
         weapons.append(Weapon("Frostbite", 
             "An icy axe that chills the air with each hit.", 
-            "axe", 
+            "Axe", 
             "Strength",
             130,
             "C"))
 
         weapons.append(Weapon("Stormpiercer", 
             "A lance crackling with electricity, used by the storm riders.", 
-            "lance", 
+            "Spear", 
             "Magic",
             110,
             "C"))
 
         weapons.append(Weapon("Venomfang", 
             "A dagger coated with a potent poison that slowly saps life.", 
-            "knife", 
+            "Knife", 
             "Dexterity",
             115,
             "C"))
 
         weapons.append(Weapon("Celestial Staff", 
             "A staff pulsing with divine magic, guiding the wielder’s power.", 
-            "staff", 
+            "Staff", 
             "Magic",
             140,
             "C"))
 
         weapons.append(Weapon("Bloodfang", 
             "A serrated sword that grows sharper with every drop of blood spilled.", 
-            "sword", 
+            "Sword", 
             "Strength",
             160,
             "C"))
 
         weapons.append(Weapon("Emberclaw", 
             "An axe glowing with smoldering embers, burning enemies on contact.", 
-            "axe", 
+            "Axe", 
             "Strength",
             170,
             "C"))
 
         weapons.append(Weapon("Mystic Dagger", 
             "A dagger that can pierce the veil between worlds.", 
-            "knife", 
+            "Knife", 
             "Magic",
             125,
             "C"))
 
         weapons.append(Weapon("Silverlight", 
             "A sword made from enchanted silver, effective against dark creatures.", 
-            "sword", 
+            "Sword", 
             "Magic",
             135,
             "C"))
 
         weapons.append(Weapon("Warbreaker", 
             "A massive axe that can shatter shields with ease.", 
-            "axe", 
+            "Axe", 
             "Strength",
             220,
             "C"))
 
         weapons.append(Weapon("Soulpiercer", 
             "A dagger that drains the soul of its victims, feeding the wielder.", 
-            "knife", 
+            "Knife", 
             "Magic",
             130,
             "C"))
 
         weapons.append(Weapon("Dragonclaw", 
             "A curved sword designed to mimic the claw of a dragon, swift and deadly.", 
-            "sword", 
+            "Sword", 
             "Dexterity",
             140,
             "C"))
@@ -532,42 +548,42 @@ init python:
 
         weapons.append(Weapon("Titan’s Wrath", 
             "A colossal hammer that channels the fury of giants.", 
-            "hammer", 
+            "Hammer", 
             "Strength",
             300,
             "C"))
             
         weapons.append(Weapon("Fang of the Wolf",
             "A curved sword that bites as fiercely as a wolf.",
-            "sword",
+            "Sword",
             "Dexterity",
             140,
             "C"))
 
         weapons.append(Weapon("Blazefury",
             "A flaming greatsword that ignites enemies on contact.",
-            "sword",
+            "Sword",
             "Strength",
             220,
             "C"))
 
         weapons.append(Weapon("Thunderstrike Lance",
             "A lance crackling with lightning, it paralyzes foes.",
-            "lance",
+            "Spear",
             "Magic",
             180,
             "C"))
 
         weapons.append(Weapon("Venomous Claw",
             "A claw-shaped dagger coated with deadly poison.",
-            "knife",
+            "Knife",
             "Dexterity",
             130,
             "C"))
 
         weapons.append(Weapon("Stonebreaker",
             "A hammer capable of smashing stone walls.",
-            "hammer",
+            "Hammer",
             "Strength",
             210,
             "C"))
@@ -577,56 +593,56 @@ init python:
         # B CLASS
         weapons.append(Weapon("Oblivion", 
             "A legendary sword said to consume the souls of entire armies.", 
-            "sword", 
+            "Sword", 
             "Magic",
             520,
             "B"))
 
         weapons.append(Weapon("Colossus Crusher", 
             "A gargantuan hammer capable of leveling entire fortresses.", 
-            "hammer", 
+            "Hammer", 
             "Strength",
             580,
             "B"))
 
         weapons.append(Weapon("Dragonlord's Fury", 
             "A lance wielded by the ancient dragon kings, burning with eternal flame.", 
-            "lance",
+            "Spear",
             "Strength",
             540,
             "B"))
 
         weapons.append(Weapon("Nightmare Edge", 
             "A cursed blade that deals unimaginable pain to its victims.", 
-            "sword",
+            "Sword",
             "Magic",
             510,
             "B"))
             
         weapons.append(Weapon("Obsidian Edge",
             "A sword made from volcanic glass, razor sharp and dark.",
-            "sword",
+            "Sword",
             "Strength",
             580,
             "B"))
 
         weapons.append(Weapon("Celestial Wrath",
             "A staff channeling the fury of the stars.",
-            "staff",
+            "Staff",
             "Magic",
             650,
             "B"))
 
         weapons.append(Weapon("Silent Gale",
             "A swift lance that can pierce through the thickest armor.",
-            "lance",
+            "Spear",
             "Dexterity",
             510,
             "B"))
 
         weapons.append(Weapon("Shadowfang Reaper",
             "An assassin's dagger with a deadly bite and unmatched speed.",
-            "knife",
+            "Knife",
             "Dexterity",
             540,
             "B"))
@@ -634,7 +650,7 @@ init python:
             
         weapons.append(Weapon("Stormbreaker Axe",
             "An axe that calls down thunder with every swing.",
-            "axe",
+            "Axe",
             "Strength",
             720,
             "B"))
@@ -645,35 +661,35 @@ init python:
         
         weapons.append(Weapon("Arcane Tempest Staff",
             "A staff swirling with violent magical storms.",
-            "staff",
+            "Staff",
             "Magic",
             810,
             "A"))
 
         weapons.append(Weapon("Phantom Lance",
             "A lance that strikes from the shadows with unrelenting force.",
-            "lance",
+            "Spear",
             "Dexterity",
             900,
             "A"))
 
         weapons.append(Weapon("Titan's Grasp",
             "A massive axe wielded only by the strongest warriors.",
-            "axe",
+            "Axe",
             "Strength",
             890,
             "A"))
 
         weapons.append(Weapon("Ethereal Lance",
             "A lance that phases through solid matter, striking the spirit.",
-            "lance",
+            "Spear",
             "Magic",
             1100,
             "A"))
 
         weapons.append(Weapon("Soulrend Dagger",
             "A dagger that tears the soul apart, feared by all.",
-            "knife",
+            "Knife",
             "Dexterity",
             1020,
             "A"))
@@ -682,28 +698,28 @@ init python:
         # S CLASS
         weapons.append(Weapon("Dragonfire Greatsword",
             "A legendary sword engulfed in eternal flames of a dragon.",
-            "sword",
+            "Sword",
             "Strength",
             1250,
             "S"))
 
         weapons.append(Weapon("Worldbreaker Hammer",
             "A hammer said to have shattered mountains with a single blow.",
-            "hammer",
+            "Hammer",
             "Strength",
             1400,
             "S"))
 
         weapons.append(Weapon("Archmage's Staff",
             "A staff imbued with unimaginable arcane power.",
-            "staff",
+            "Staff",
             "Magic",
             1350,
             "S"))
 
         weapons.append(Weapon("Venomstrike Razor",
             "A legendary dagger so fast and deadly it’s said to pierce the fabric of reality.",
-            "knife",
+            "Knife",
             "Dexterity",
             1425,
             "S"))

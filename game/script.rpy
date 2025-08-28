@@ -275,6 +275,24 @@ label start:
     # TODOS:
     #
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
+    # 
+    # TODO: [ PRIO 1 ] update the protector detail to:
+    #   -   have in left top - equipment
+    #   -   have in left bottom - attributes
+    #   -   middle - image of the protector
+    #   -   left side - damage / defense / evasion / and so on
+    # 
+    # TODO: [ PRIO 1 ] make unarmed damage also use int and wisdom
+    # 
+    # TODO: [ PRIO 1 ] add at least 5 weapons of each in initializing_things: 
+    #   -   wand
+    #   -   gun
+    #   -   greatsword
+    #   -   cards
+    # 
+    # TODO: [ PRIO 1 ] make the weapon slot being possible to change only if the protector can equip weapons
+    # 
+    # TODO: [ PRIO 1 ] make each protector, have a prefered weapon these should be the only weapons they can use
     #
     # TODO: [ PRIO 2 ] start to work on the stage missions
     #   -   for the stage missions, our protector can be killed, we need to be careful
@@ -290,8 +308,6 @@ label start:
     #   -   -   Region 3 - 1 D Equipment or Weapon
     #   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   Region 1 - 1 E Equipment or Weapon
-    # 
-    # TODO: [ PRIO 2 ] make each protector, have a prefered weapon - as if the weapon is one of the prefered weapons, it could do extra damage
     # 
     # TODO: [ PRIO 2 ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
     # 
