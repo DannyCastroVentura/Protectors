@@ -11,119 +11,169 @@ init python:
 
 
         # creating protectors    
-        protectors_base_information["Ninja"] = BaseProtectorData(10, 17, 12, 14, 13, 8, 11, 0.15, 0.5, 0.2, 0.34, 0.25, 0.125, 0.16, 
+        protectors_base_information["Ninja"] = BaseProtectorData(
+            {
+                "strength": 10,
+                "dexterity": 17,
+                "constitution": 12,
+                "intelligence": 14,
+                "wisdom": 13,
+                "charisma": 8,
+                "luck": 11
+            }, 
+            [
+                "dexterity", "luck", "constitution", "dexterity", "intelligence", 
+                "constitution", "dexterity", "strength", "dexterity", "charisma", 
+                "dexterity", "intelligence", "strength", "constitution", "wisdom", 
+                "dexterity", "luck", "dexterity", "strength", "dexterity", 
+                "wisdom", "constitution", "dexterity", "luck", "dexterity"
+            ], 
             "EVA", "DEX_TAN", 
             "Ash Ninja", 
             "While exploring a forgotten cave, he touched a cursed relic that bound dark magic to his body. From that moment, he gained the power to transform into ash, disappearing into smoke to strike unseen.",
             "Tech Ninja", 
             "Recruited by the army, he wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield.",
-            "Knife,Sword,Hands", None, None,
+            ["Knife", "Sword", "Hands"], None, None,
             "Melee",
+            "Regular",
             "Thieves knife"
         )
-        # it gains:
-        # 1 dex per 2 levels
-        # 1 intelligence wisdom per 3 levels
-        # 1 wisdom per 4 levels
-        # 1 constitution per 5 levels
-        # 1 luck per 6 levels
-        # 1 strenght per 7 levels
-        # 1 charisma per 8 levels
         
-        protectors_base_information["Templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125, 
-            "TAN", "STR",
+        protectors_base_information["Templar"] = BaseProtectorData(
+            {
+                "strength": 15,
+                "dexterity": 10,
+                "constitution": 14,
+                "intelligence": 11,
+                "wisdom": 15,
+                "charisma": 12,
+                "luck": 8
+            }, 
+            [
+                "strength", "wisdom", "constitution", "strength", "charisma", 
+                "strength", "wisdom", "constitution", "strength", "intelligence", 
+                "strength", "wisdom", "strength", "charisma", "constitution", 
+                "strength", "wisdom", "strength", "luck", "strength"
+            ], 
+            "MIR_TAN", "MIR_STR_STR",
             "Saint Templar",
             "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
             "Demonic Templar",
             "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
-            "Sword,Spear,Greatsword,Hands", None, None,
+            ["Sword", "Spear", "Greatsword", "Hands"], None, None,
             "Melee",
+            "Divine",
             "Templar Greatsword"
         )
-        # it gains:
-        # 1 strenght per 2 levels
-        # 1 constitution per 2 levels
-        # 1 wisdom per 3 levels
-        # 1 charisma per 4 levels
-        # 1 intelligence per 5 levels
-        # 1 dexterity per 6 levels
-        # 1 luck per 8 levels
 
-        protectors_base_information["Wizard"] = BaseProtectorData(7, 10, 11, 18, 18, 9, 12, 0.12, 0.25, 0.20, 0.5, 0.33, 0.14, 0.16,
-            "INT", "INT_EVA",
+        protectors_base_information["Wizard"] = BaseProtectorData(
+            {
+                "strength": 7,
+                "dexterity": 10,
+                "constitution": 11,
+                "intelligence": 18,
+                "wisdom": 18,
+                "charisma": 9,
+                "luck": 12
+            }, 
+            [
+                "intelligence", "wisdom", "constitution", "intelligence", "intelligence", 
+                "wisdom", "intelligence", "constitution", "wisdom", "dexterity", 
+                "intelligence", "wisdom", "constitution", "luck", "intelligence", 
+                "wisdom", "charisma", "intelligence", "wisdom", "constitution"
+            ], 
+            "MIR_CON", "INT",
             "Thunder Wizard",
             "Through years of study in forgotten libraries, he unlocked the secrets of the arcane. Spells of thunder and lightning bend to his will, making him a master of battlefield control.",
             "Nature Wizard",
             "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him.",
-            "Wand,Staff,Hands", None, None,
+            ["Wand", "Staff", "Hands"], None, None,
             "Ranged",
+            "Magic",
             "Principiant Wand"
         )
-        # it gains:
-        # 1 intelligence per 2 levels
-        # 1 wisdom per 3 levels
-        # 1 dexterity per 4 levels
-        # 1 constitution per 5 levels
-        # 1 luck per 6 levels
-        # 1 charisma per 7 levels
-        # 1 strength per 8 levels
 
-        protectors_base_information["Joker"] = BaseProtectorData(8, 15, 10, 18, 14, 9, 11, 0.12, 0.5, 0.16, 0.5, 0.16, 0.14, 0.5,
-            "INT_TAN", "CRI",
+        protectors_base_information["Joker"] = BaseProtectorData(
+            {
+                "strength": 8,
+                "dexterity": 14,
+                "constitution": 10,
+                "intelligence": 14,
+                "wisdom": 14,
+                "charisma": 9,
+                "luck": 16
+            }, 
+            [
+                "dexterity", "wisdom", "luck", "dexterity", "wisdom", 
+                "constitution", "dexterity", "wisdom", "luck", "luck", 
+                "dexterity", "wisdom", "luck", "luck", "dexterity", 
+                "wisdom", "luck", "dexterity", "wisdom", "constitution",
+                "constitution", "luck", "wisdom", "dexterity", "constitution"
+            ], 
+            "MIR_MIR_DEX", "CRI",
             "Demonic Joker",
             "In a forgotten arcane library, he found a deck of dark enchanted cards, each holding demonic essence. Now, whispers from the cards slowly turn him into a demon with every throw.",
             "Sharpen Joker",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
-            "Cards,Hands", None, None,
+            ["Cards", "Hands"], None, None,
             "Melee",
-            "Gambling Cards"
+            "Regular",
+            "Deadman Cards"
         )
-        # it gains:
-        # 1 intelligence per 2 levels
-        # 1 dexterity per 2 levels
-        # 1 luck per 2 levels
-        # 1 wisdom per 6 levels
-        # 1 constitution per 6 levels
-        # 1 charisma per 7 levels
-        # 1 strength per 8 levels
 
-        protectors_base_information["Samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.35, 0.25, 0.2, 0.34, 0.16, 0.125, 
+        protectors_base_information["Samurai"] = BaseProtectorData(
+            {
+                "strength": 14,
+                "dexterity": 13,
+                "constitution": 13,
+                "intelligence": 12,
+                "wisdom": 14,
+                "charisma": 10,
+                "luck": 9
+            },
+            [
+                "strength", "dexterity", "strength", "constitution", "strength", 
+                "wisdom", "dexterity", "dexterity", "constitution", "strength", 
+                "dexterity", "wisdom", "strength", "dexterity", "strength", 
+                "intelligence", "strength", "dexterity", "constitution", "charisma"
+            ], 
             "TAN", "DAM",
             "Tech Samurai",
             "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
             "Wolf Samurai",
             "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
-            "Hands,Katana", None, None,
+            ["Hands", "Katana"], None, None,
             "Melee",
+            "Regular",
             "Samurai Rusty Katana"
         )
-        # it gains:
-        # 1 strenght per 2 levels
-        # 1 dexterity per 2 levels
-        # 1 wisdom per 3 levels
-        # 1 constitution per 4 levels
-        # 1 inteligence per 5 levels
-        # 1 charisma per 6 levels
-        # 1 luck per 8 levels
 
-        protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.45, 0.34, 0.25, 0.2, 0.16, 0.2, 
-            "EVA", "STR_TAN",
-            "Special forces Agent",
+        protectors_base_information["Recruit"] = BaseProtectorData(
+            {
+                "strength": 14,
+                "dexterity": 13,
+                "constitution": 15,
+                "intelligence": 10,
+                "wisdom": 9,
+                "charisma": 12,
+                "luck": 11
+            },
+            [
+                "dexterity", "strength", "dexterity", "constitution", "dexterity", 
+                "strength", "dexterity", "constitution", "dexterity", "strength", 
+                "dexterity", "constitution", "dexterity", "strength", "charisma", 
+                "strength", "luck", "strength", "constitution", "charisma"
+            ], 
+            "EVA", "STR_STR_STR_CON",
+            "Special Forces Agent",
             "Determined to become one of the best, he enlisted in the Special Forces intense training. After proving his skill, he earned his place and now strikes with unmatched precision, agility, and tactical mastery on every mission.",
             "Berserker",
             "Trapped in fear during a mission, the recruit’s mind finally snapped, and that terror erupted into uncontrollable, burning rage. Now he fights with pure instinct as he charges into battle with relentless ferocity.",
-            "Knife,Gun,Hands,Machine gun,Sniper", "Knife,Gun,Machine gun,Sniper,Hands", "Hands,Knife,Sword,Greatsword,Greataxe,Spear,Axe,Hammer,Great Hammer,Mace",
+            ["Knife", "Gun", "Hands", "Machine gun", "Sniper"], ["Knife", "Gun", "Machine gun", "Sniper", "Hands"], ["Hands", "Knife", "Sword", "Greatsword", "Greataxe", "Spear", "Axe", "Hammer", "Great Hammer", "Mace"],
             "Melee",
-            "Combat knife"
+            "Regular",
+            "Combat Pistol"
         )
-        # it gains:
-        # 1 strength per 2 levels
-        # 1 constitution per 3 levels
-        # 1 int per 4 levels
-        # 1 wisdom per 5 levels
-        # 1 charisma per 6 levels
-        # 1 dexterity per 7 levels
-        # 1 luck per 8 levels
 
         # protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, 
         #     "HP", "INT_TAN",
@@ -333,6 +383,13 @@ init python:
             "Normal cards, used for gamling.",
             "Cards",
             "Dexterity",
+            27,
+            'E'))
+        
+        weapons.append(Weapon("Deadman Cards",
+            "Pack of cards gotten from a dead man.",
+            "Cards",
+            "Divine",
             27,
             'E'))
         

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/initializing_things.rpy", line 39: invalid syntax. Perhaps you forgot a comma?
-    "Sword,Spear,Greatsword,Hands", None, None
-                                              ^
+File "game/classes.rpy", line 250: invalid syntax
+    elif: self.basePoints.unarmed_damage_type == "Magic":
+            ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Aug 29 09:44:56 2025
+Fri Aug 29 18:04:33 2025

@@ -1,76 +1,79 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
-    menu:
-  File "game/screens.rpy", line 2402, in execute
-    screen protector_evolution_detail_screen(my_protector, evolution):
-  File "game/screens.rpy", line 2402, in execute
-    screen protector_evolution_detail_screen(my_protector, evolution):
-  File "game/screens.rpy", line 2406, in execute
-    frame:
-  File "game/screens.rpy", line 2411, in execute
-    fixed:
-  File "game/screens.rpy", line 2425, in execute
-    hbox:
-  File "game/screens.rpy", line 2489, in execute
-    vbox:
-  File "game/screens.rpy", line 2497, in execute
-    vbox:
-  File "game/screens.rpy", line 2502, in execute
-    hbox:
-  File "game/screens.rpy", line 2526, in execute
-    vbox:
-  File "game/screens.rpy", line 2531, in execute
-    text "[luck_text]" size size_letter color luc_t_color
-NameError: name 'luck_text' is not defined. Did you mean: 'luc_text'?
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+  File "game/script.rpy", line 60, in <module>
+    $ initializing_things()
+      ~~~~~~~~~~~~~~~~~~~^^
+  File "game/initializing_things.rpy", line 3117, in initializing_things
+    myWeapons.append(next(w for w in weapons if w.weapon_id == 15))
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 38, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
-    menu:
-  File "renpy/ast.py", line 1815, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 135, in menu
-    rv = renpy.store.menu(new_items)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 418, in display_menu
-    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/script.rpy", line 60, in <module>
+    $ initializing_things()
+      ~~~~~~~~~~~~~~~~~~~^^
+  File "game/initializing_things.rpy", line 3117, in initializing_things
+    myWeapons.append(next(w for w in weapons if w.weapon_id == 15))
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "renpy/bootstrap.py", line 376, in bootstrap
+    renpy.main.main()
+    ~~~~~~~~~~~~~~~^^
+  File "renpy/main.py", line 614, in main
+    run(restart)
+    ~~~^^^^^^^^^
+  File "renpy/main.py", line 137, in run
+    renpy.execution.run_context(True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "renpy/execution.py", line 1022, in run_context
+    context.run()
+    ~~~~~~~~~~~^^
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+  File "renpy/display/error.py", line 135, in report_exception
+    renpy.game.invoke_in_new_context(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        call_exception_screen,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        ignore_action=ignore_action,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/game.py", line 301, in invoke_in_new_context
+    return callable(*args, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "renpy/display/error.py", line 44, in call_exception_screen
+    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,74 +87,71 @@ Traceback (most recent call last):
         ^^^^^^^^^
     )  # type: ignore
     ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2402, in execute
-    screen protector_evolution_detail_screen(my_protector, evolution):
-  File "game/screens.rpy", line 2402, in execute
-    screen protector_evolution_detail_screen(my_protector, evolution):
-  File "game/screens.rpy", line 2406, in execute
-    frame:
-  File "game/screens.rpy", line 2411, in execute
-    fixed:
-  File "game/screens.rpy", line 2425, in execute
-    hbox:
-  File "game/screens.rpy", line 2489, in execute
-    vbox:
-  File "game/screens.rpy", line 2497, in execute
-    vbox:
-  File "game/screens.rpy", line 2502, in execute
-    hbox:
-  File "game/screens.rpy", line 2526, in execute
-    vbox:
-  File "game/screens.rpy", line 2531, in execute
-    text "[luck_text]" size size_letter color luc_t_color
-  File "renpy/text/text.py", line 2195, in __init__
-    self.set_text(text, scope, substitute)  # type: ignore
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^                
-  File "renpy/text/text.py", line 2329, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)  # type: ignore
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 355, in substitute
-    s = interpolate(s, variables)  # type: ignore
-        ~~~~~~~~~~~^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 89, in interpolate
-    raise e
-  File "renpy/substitutions.py", line 81, in interpolate
-    value = renpy.python.py_eval(code, {}, scope)
-            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<none>", line 1, in <module>
-NameError: name 'luck_text' is not defined. Did you mean: 'luc_text'?
+  File "renpy/display/core.py", line 3302, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 805, in event
+    rv = self.child.event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1508, in event
+    rv = super(Window, self).event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 273, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 273, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1184, in event
+    return handle_click(self.clicked)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1107, in handle_click
+    rv = run(action)
+         ~~~^^^^^^^^
+  File "renpy/display/behavior.py", line 411, in run
+    return action(*args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^
+  File "renpy/display/error.py", line 51, in rollback_action
+    renpy.exports.rollback(force=True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "renpy/exports/rollbackexports.py", line 233, in rollback
+    renpy.game.log.rollback(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        checkpoints, greedy=greedy, label=label, force=(force is True), abnormal=abnormal, current_label=current_label
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/rollback.py", line 950, in rollback
+    self.load_failed()
+    ~~~~~~~~~~~~~~~~^^
+  File "renpy/rollback.py", line 864, in load_failed
+    raise Exception(
+        "Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?"
+    )
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Fri Aug 29 10:50:13 2025
+Fri Aug 29 18:48:20 2025

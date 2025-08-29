@@ -1,47 +1,43 @@
 init python:
     import random
+
+    levelAttributeIncrements = 1
+    
+    total_evolution_increment = 0.50
+
     # CLASSES
     class BaseProtectorData:
-        def __init__(self, strength, dexterity, constitution, 
-            intelligence, wisdom, charisma, luck, incrementing_strength, 
-            incrementing_dexterity, incrementing_constitution, 
-            incrementing_intelligence, incrementing_wisdom, 
-            incrementing_charisma, incrementing_luck, evolution_1, 
+        def __init__(self, stats, increasing_list, evolution_1, 
             evolution_2, evolution_name_1, evolution_description_1,
             evolution_name_2, evolution_description_2, usable_weapon_types, 
             usable_weapon_types_evolution_1, usable_weapon_types_evolution_2,
-            unarmed_range, default_weapon):
-            self.strength = strength
-            self.dexterity = dexterity
-            self.constitution = constitution
-            self.intelligence = intelligence
-            self.wisdom = wisdom
-            self.charisma = charisma
-            self.morality = int(charisma * 0.6 + wisdom * 0.4)
-            self.luck = luck
+            unarmed_range, unarmed_damage_type, default_weapon):
+            self.strength = stats["strength"]
+            self.dexterity = stats["dexterity"]
+            self.constitution = stats["constitution"]
+            self.intelligence = stats["intelligence"]
+            self.wisdom = stats["wisdom"]
+            self.charisma = stats["charisma"]
+            self.morality = int(self.charisma * 0.6 + self.wisdom * 0.4)
+            self.luck = stats["luck"]
+            self.increasing_list = increasing_list
             self.evolution_1 = evolution_1
             self.evolution_2 = evolution_2
             self.evolution_name_1 = evolution_name_1
             self.evolution_description_1 = evolution_description_1
             self.evolution_name_2 = evolution_name_2
             self.evolution_description_2 = evolution_description_2
-            self.incrementing_strength = incrementing_strength
-            self.incrementing_dexterity = incrementing_dexterity
-            self.incrementing_constitution = incrementing_constitution
-            self.incrementing_intelligence = incrementing_intelligence
-            self.incrementing_wisdom = incrementing_wisdom
-            self.incrementing_charisma = incrementing_charisma
-            self.incrementing_luck = incrementing_luck
-            self.usable_weapon_types = usable_weapon_types.split(",")
+            self.usable_weapon_types = usable_weapon_types
             if usable_weapon_types_evolution_1 == None:
                 self.usable_weapon_types_evolution_1 = self.usable_weapon_types
             else:
-                self.usable_weapon_types_evolution_1 = usable_weapon_types_evolution_1.split(",")                
+                self.usable_weapon_types_evolution_1 = usable_weapon_types_evolution_1
             if usable_weapon_types_evolution_2 == None:
                 self.usable_weapon_types_evolution_2 = self.usable_weapon_types
             else:
-                self.usable_weapon_types_evolution_2 = usable_weapon_types_evolution_2.split(",")
+                self.usable_weapon_types_evolution_2 = usable_weapon_types_evolution_2
             self.unarmed_range = unarmed_range
+            self.unarmed_damage_type = unarmed_damage_type
             self.can_it_use_weapons = True
             if usable_weapon_types == "":
                 self.can_it_use_weapons = False
@@ -59,6 +55,10 @@ init python:
                 "morality": self.morality,
                 "luck": self.luck
             }
+        
+        def increase_attribute(self, att, value = 1):
+            setattr(self, att, getattr(self, att) + value)
+            return
 
     class Protector:
         def __init__(self, name, stage, level, status):
@@ -82,8 +82,8 @@ init python:
 
         def increasing_xp(self, incoming_xp):
             if self.level / 20 > (self.stage):
-                self.readyForPromotion = True
-            # renpy.say(mc, f"the incoming_xp is: {incoming_xp}")
+                if self.stage != 10:
+                    self.readyForPromotion = True
 
             self.xp += incoming_xp
 
@@ -93,6 +93,13 @@ init python:
                     # Then we are going to level up!
                     self.xp -= xp_needed
                     self.level += 1
+
+                    # Add the needed attributes to the base stats variable accordingly
+                    for i in range(levelAttributeIncrements):
+                        attribute = self.basePoints.increasing_list.pop(0)
+                        self.basePoints.increase_attribute(attribute)
+                        self.basePoints.increasing_list.append(attribute)
+
                     # check if level is ready for promotion
                     if self.level / 20 > (self.stage):
                         # we need to increase the stage
@@ -190,44 +197,44 @@ init python:
             used_stage = self.stage
             if fake_stage != None:
                 used_stage = fake_stage
-            return int((self.basePoints.strength + (self.level * self.basePoints.incrementing_strength + ((used_stage - 1) * self.level * self.basePoints.incrementing_strength))) * self.get_increments("Strength") * self.get_evolution_increments("Strength", fake_evolution))
+            return int(self.basePoints.strength * used_stage * self.get_increments("Strength") * self.get_evolution_increments("Strength", fake_evolution))
         
         def get_dexterity(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
                 used_stage = fake_stage
-            return int((self.basePoints.dexterity + (self.level * self.basePoints.incrementing_dexterity + ((used_stage - 1) * self.level * self.basePoints.incrementing_dexterity))) * self.get_increments("Dexterity") * self.get_evolution_increments("Dexterity", fake_evolution))
+            return int(self.basePoints.dexterity * used_stage * self.get_increments("Dexterity") * self.get_evolution_increments("Dexterity", fake_evolution))
         
         def get_constitution(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
                 used_stage = fake_stage
-            return int((self.basePoints.constitution + (self.level * self.basePoints.incrementing_constitution + ((used_stage - 1) * self.level * self.basePoints.incrementing_constitution))) * self.get_increments("Constitution") * self.get_evolution_increments("Constitution", fake_evolution))
+            return int(self.basePoints.constitution * used_stage * self.get_increments("Constitution") * self.get_evolution_increments("Constitution", fake_evolution))
         
         def get_intelligence(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
                 used_stage = fake_stage
-            return int((self.basePoints.intelligence + (self.level * self.basePoints.incrementing_intelligence + ((used_stage - 1) * self.level * self.basePoints.incrementing_intelligence))) * self.get_increments("Intelligence") * self.get_evolution_increments("Intelligence", fake_evolution))
+            return int(self.basePoints.intelligence * used_stage * self.get_increments("Intelligence") * self.get_evolution_increments("Intelligence", fake_evolution))
         
         def get_wisdom(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
                 used_stage = fake_stage
-            return int((self.basePoints.wisdom + (self.level * self.basePoints.incrementing_wisdom + ((used_stage - 1) * self.level * self.basePoints.incrementing_wisdom))) * self.get_increments("Wisdom") * self.get_evolution_increments("Wisdom", fake_evolution))
+            return int(self.basePoints.wisdom * used_stage * self.get_increments("Wisdom") * self.get_evolution_increments("Wisdom", fake_evolution))
         
         # TODO: add things to increment charisma attribute
         def get_charisma(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
                 used_stage = fake_stage
-            return int((self.basePoints.charisma + (self.level * self.basePoints.incrementing_charisma + ((used_stage - 1) * self.level * self.basePoints.incrementing_charisma))) * self.get_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
+            return int(self.basePoints.charisma * used_stage * self.get_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
         
         def get_luck(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
                 used_stage = fake_stage
-            return int((self.basePoints.luck + (self.level * self.basePoints.incrementing_luck + ((used_stage - 1) * self.level * self.basePoints.incrementing_luck))) * self.get_increments("Luck") * self.get_evolution_increments("Luck", fake_evolution))
+            return int(self.basePoints.luck * used_stage * self.get_increments("Luck") * self.get_evolution_increments("Luck", fake_evolution))
         
         def get_health_points(self):
             return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
@@ -236,15 +243,37 @@ init python:
             return int(20 + self.get_intelligence() * 5 + self.get_wisdom() * 3)
 
         def get_damage_points(self):
+            value = 0
             if self.equipedWeapon == None:
-                return 3 + self.get_strength() * 2 + self.get_dexterity()
+                if self.basePoints.unarmed_damage_type == "Regular":
+                    value = 3 + self.get_strength() + self.get_dexterity() * 0.5
+                elif self.basePoints.unarmed_damage_type == "Magic":
+                    value = 3 + self.get_intelligence() + self.get_wisdom() * 0.5
+                elif self.basePoints.unarmed_damage_type == "Divine":
+                    value = 3 + self.get_wisdom() * 1.5
             elif self.equipedWeapon.class_name == "Strength":
-                return self.equipedWeapon.base_damage + self.get_strength() * 2 + self.get_dexterity()
+                value = self.equipedWeapon.base_damage + (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * 0.5
             elif self.equipedWeapon.class_name == "Dexterity":
-                return self.equipedWeapon.base_damage + self.get_dexterity() * 2 + self.get_strength()
+                value = self.equipedWeapon.base_damage + (self.get_dexterity() * 2 + self.get_strength() + self.get_luck()) * 0.5
             elif self.equipedWeapon.class_name == "Magic":
-                return self.equipedWeapon.base_damage + self.get_intelligence() * 2 + self.get_wisdom()
-            return 0 
+                value = self.equipedWeapon.base_damage + (self.get_intelligence() * 2 + self.get_wisdom() + self.get_luck()) * 0.5
+            elif self.equipedWeapon.class_name == "Divine":
+                value = self.equipedWeapon.base_damage + (self.get_wisdom() * 3 + self.get_luck()) * 0.5
+
+            if self.equipedWeapon != None:
+                if self.equipedWeapon.type == "Axe" or self.equipedWeapon.type == "Hammer" or self.equipedWeapon.type == "Mace":
+                    value += (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * 0.5
+                elif self.equipedWeapon.type == "Cards" or self.equipedWeapon.type == "Gun" or self.equipedWeapon.type == "Machine gun" or self.equipedWeapon.type == "Sniper":
+                    value += (self.get_dexterity() * 3 + self.get_luck()) * 0.5
+                elif self.equipedWeapon.type == "Great Hammer" or self.equipedWeapon.type == "Greataxe" or self.equipedWeapon.type == "Greatsword":
+                    value += (self.get_strength() * 2.7 + self.get_dexterity() * 0.3 + self.get_luck()) * 0.5
+                elif self.equipedWeapon.type == "Katana":
+                    value += (self.get_strength() * 1.5 + self.get_dexterity() * 1.5 + self.get_luck()) * 0.5
+                elif self.equipedWeapon.type == "Knife":
+                    value += (self.get_dexterity() * 2 + self.get_strength() * 1 + self.get_luck()) * 0.5
+                elif self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
+                    value += (self.get_intelligence() * 1.5 + self.get_wisdom() * 1.5 + self.get_luck()) * 0.5
+            return int(value)
 
         def get_critical_change(self):
             return int(5 + self.get_luck() * 0.5 + self.get_dexterity() * 0.5)
@@ -314,15 +343,23 @@ init python:
 
             # get what incrementation are we going to add
             if used_chosen_evolution != 0:
-                choose_evolution = self.basePoints.evolution_1
+                choosed_evolution = self.basePoints.evolution_1
                 if used_chosen_evolution == 2:
-                    choose_evolution = self.basePoints.evolution_2
+                    choosed_evolution = self.basePoints.evolution_2
+
                 # check if this attribute is one of the attributes which will get that incrementation
-                if searchingAttributeName in evolution_increment_map[choose_evolution]:
-                    count_times_there = evolution_increment_map[choose_evolution].count(searchingAttributeName)
+                increment_array = evolution_increment_map[choosed_evolution]["increase"]
+                if searchingAttributeName in increment_array:
+                    count_times_there = increment_array.count(searchingAttributeName)
                     # check how much increment are we going to add to this attribute
-                    totalIncrement += total_evolution_increment / len(evolution_increment_map[choose_evolution]) * count_times_there
-            
+                    totalIncrement += total_evolution_increment / len(increment_array) * count_times_there
+                    
+                # check if this attribute is one of the attributes which will get that decrementation
+                decrement_array = evolution_increment_map[choosed_evolution]["decrease"]
+                if searchingAttributeName in decrement_array:
+                    count_times_there = decrement_array.count(searchingAttributeName)
+                    # check how much increment are we going to add to this attribute
+                    totalIncrement -= total_evolution_increment / len(decrement_array) * count_times_there
             return totalIncrement
     
         def promote(self):
@@ -336,8 +373,9 @@ init python:
             self.basePoints.usable_weapon_types = self.basePoints.usable_weapon_types_evolution_1
             if evolution == 2:
                 self.basePoints.usable_weapon_types = self.basePoints.usable_weapon_types_evolution_2
-            if self.equipedWeapon.type not in self.basePoints.usable_weapon_types:
-                self.unequip_weapon()
+            if self.equipedWeapon != None:
+                if self.equipedWeapon.type not in self.basePoints.usable_weapon_types:
+                    self.unequip_weapon()
             return
 
     class Mission:

@@ -84,20 +84,78 @@ init python:
 
     if 'evolution_increment_map' not in globals():
         evolution_increment_map = {
-            "DAM": [ "Dexterity", "Strength" ],
-            "DEX": [ "Dexterity", "Dexterity", "Strength", "Luck" ],
-            "DEX_TAN": [ "Dexterity", "Dexterity", "Strength", "Constitution" ],
-            "STR": [ "Strength", "Strength", "Dexterity", "Constitution" ],
-            "STR_ONLY": [ "Strength" ],
-            "STR_TAN": [ "Strength", "Strength", "Constitution" ],
-            "INT": [ "Intelligence", "Intelligence", "Wisdom" ],
-            "INT_TAN": [ "Intelligence", "Intelligence", "Constitution", "Constitution", "Wisdom" ],
-            "INT_EVA": [ "Intelligence", "Intelligence", "Dexterity", "Dexterity", "Wisdom", "Luck"],
-            "TAN": [ "Constitution", "Constitution", "Strength" ],
-            "SHI": [ "Constitution", "Constitution", "Dexterity" ],
-            "HP": [ "Constitution" ],
-            "EVA": [ "Dexterity", "Dexterity", "Luck", "Constitution" ],
-            "CRI": [ "Dexterity", "Dexterity", "Luck" ]
+            "DAM": {
+                "increase": [ "Dexterity", "Strength" ],
+                "decrease": [ "Constitution" ]
+            },
+            "DEX": {
+                "increase": [ "Dexterity", "Dexterity", "Strength", "Luck" ],
+                "decrease": []
+            },
+            "DEX_TAN": {
+                "increase": [ "Dexterity", "Dexterity", "Strength", "Constitution" ],
+                "decrease": []
+            },
+            "STR": {
+                "increase": [ "Strength", "Strength", "Dexterity", "Constitution" ],
+                "decrease": []
+            },
+            "STR_ONLY": {
+                "increase": [ "Strength" ],
+                "decrease": []
+            },
+            "STR_STR_STR_CON": {
+                "increase": [ "Strength", "Strength", "Strength", "Constitution" ],
+                "decrease": []
+            },
+            "INT": {
+                "increase": [ "Intelligence", "Intelligence", "Wisdom" ],
+                "decrease": []
+            },
+            "INT_TAN": {
+                "increase": [ "Intelligence", "Intelligence", "Constitution", "Constitution", "Wisdom" ],
+                "decrease": []
+            },
+            "INT_EVA": {
+                "increase": [ "Intelligence", "Intelligence", "Dexterity", "Dexterity", "Wisdom", "Luck"],
+                "decrease": []
+            },
+            "TAN": {
+                "increase": [ "Constitution", "Constitution", "Strength" ],
+                "decrease": []
+            },
+            "MIR_CON": {
+                "increase": [ "Wisdom", "Wisdom", "Constitution" ],
+                "decrease": []
+            },
+            "MIR_TAN": {
+                "increase": [ "Wisdom", "Wisdom", "Strength", "Constitution" ],
+                "decrease": []
+            },
+            "MIR_STR_STR": {
+                "increase": [ "Wisdom", "Strength", "Strength", "Constitution"],
+                "decrease": []
+            },
+            "MIR_MIR_DEX": {
+                "increase": [ "Wisdom", "Wisdom", "Dexterity"],
+                "decrease": []
+            },
+            "SHI": {
+                "increase": [ "Constitution", "Constitution", "Dexterity" ],
+                "decrease": []
+            },
+            "HP": {
+                "increase": [ "Constitution" ],
+                "decrease": []
+            },
+            "EVA": {
+                "increase": [ "Dexterity", "Dexterity", "Luck", "Constitution" ],
+                "decrease": []
+            },
+            "CRI": {
+                "increase": [ "Dexterity", "Dexterity", "Luck" ],
+                "decrease": []
+            }
         }
 
     
@@ -107,7 +165,6 @@ init python:
     maxDifficulty = 200
     maxNeededDaysToFinish = 5
     maxDisapearingInThisDays = 10
-    total_evolution_increment = 0.75
 
     background_folder = "images/bg"
     valid_extensions = [".png", ".jpg", ".jpeg", ".webp"]

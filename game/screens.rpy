@@ -2434,11 +2434,18 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                     $ evolution_parameter_key = "evolution_2"
                     $ possible_future_weapons_array = my_protector.basePoints.usable_weapon_types_evolution_2
                 $ evolution_parameter = getattr(my_protector.basePoints, evolution_parameter_key)
-                $ improvements_array = evolution_increment_map[evolution_parameter]
+                $ increase_array = evolution_increment_map[evolution_parameter]["increase"]
+                $ decrease_array = evolution_increment_map[evolution_parameter]["decrease"]
                 
-                # getting the number of improvements and percentages increasing
-                $ number_of_improvements = len(improvements_array)
-                $ percentage = int(50 / number_of_improvements)
+                # getting the number of increasing att we are going to get
+                $ number_of_improvements = len(increase_array)
+                $ increasing_percentage = int(50 / number_of_improvements)
+
+                # getting the number of decreasing att we are going to get
+                $ number_of_improvements = len(decrease_array)
+                $ decreasing_percentage = 0
+                if number_of_improvements != 0:
+                    $ decreasing_percentage = int(50 / number_of_improvements)
 
                 $ str_t_color = "#EEE"
                 $ con_t_color = "#EEE"
@@ -2461,38 +2468,70 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                 $ cha_text = str(current_stats['charisma'])
                 $ luc_text = str(current_stats['luck'])
 
-                if "Strength" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Strength")
+                if "Strength" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Strength")
                     $ str_t_color = "#4CAF50"
-                    $ str_text = str(current_stats['strength']) + " → " + str(evolution_stats['strength']) + " (+" + str(percentage_improved) + "%)"
-                if "Constitution" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Constitution")
+                    $ str_text = str(current_stats['strength']) + " → " + str(evolution_stats['strength']) + " (+" + str(percentage_change) + "%)"
+                elif "Strength" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Strength")
+                    $ str_t_color = "#F44336"
+                    $ str_text = str(current_stats['strength']) + " → " + str(evolution_stats['strength']) + " (-" + str(percentage_change) + "%)"
+                if "Constitution" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Constitution")
                     $ con_t_color = "#4CAF50"
-                    $ con_text = str(current_stats['constitution']) + " → " + str(evolution_stats['constitution']) + " (+" + str(percentage_improved) + "%)"
-                if "Wisdom" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Wisdom")
+                    $ con_text = str(current_stats['constitution']) + " → " + str(evolution_stats['constitution']) + " (+" + str(percentage_change) + "%)"
+                elif "Constitution" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Constitution")
+                    $ con_t_color = "#F44336"
+                    $ con_text = str(current_stats['constitution']) + " → " + str(evolution_stats['constitution']) + " (-" + str(percentage_change) + "%)"
+                if "Wisdom" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Wisdom")
                     $ wis_t_color = "#4CAF50"
-                    $ wis_text = str(current_stats['wisdom']) + " → " + str(evolution_stats['wisdom']) + " (+" + str(percentage_improved) + "%)"
-                if "Morality" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Morality")
+                    $ wis_text = str(current_stats['wisdom']) + " → " + str(evolution_stats['wisdom']) + " (+" + str(percentage_change) + "%)"
+                elif "Wisdom" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Wisdom")
+                    $ wis_t_color = "#F44336"
+                    $ wis_text = str(current_stats['wisdom']) + " → " + str(evolution_stats['wisdom']) + " (-" + str(percentage_change) + "%)"
+                if "Morality" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Morality")
                     $ mor_t_color = "#4CAF50"
-                    $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality']) + " (+" + str(percentage_improved) + "%)"
-                if "Dexterity" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Dexterity")
+                    $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality']) + " (+" + str(percentage_change) + "%)"
+                elif "Morality" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Morality")
+                    $ mor_t_color = "#F44336"
+                    $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality']) + " (-" + str(percentage_change) + "%)"
+                if "Dexterity" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Dexterity")
                     $ dex_t_color = "#4CAF50"
-                    $ dex_text = str(current_stats['dexterity']) + " → " + str(evolution_stats['dexterity']) + " (+" + str(percentage_improved) + "%)"
-                if "Intelligence" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Intelligence")
+                    $ dex_text = str(current_stats['dexterity']) + " → " + str(evolution_stats['dexterity']) + " (+" + str(percentage_change) + "%)"
+                elif "Dexterity" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Dexterity")
+                    $ dex_t_color = "#F44336"
+                    $ dex_text = str(current_stats['dexterity']) + " → " + str(evolution_stats['dexterity']) + " (-" + str(percentage_change) + "%)"
+                if "Intelligence" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Intelligence")
                     $ int_t_color = "#4CAF50"
-                    $ int_text = str(current_stats['intelligence']) + " → " + str(evolution_stats['intelligence']) + " (+" + str(percentage_improved) + "%)"
-                if "Charisma" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Charisma")
+                    $ int_text = str(current_stats['intelligence']) + " → " + str(evolution_stats['intelligence']) + " (+" + str(percentage_change) + "%)"
+                elif "Intelligence" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Intelligence")
+                    $ int_t_color = "#F44336"
+                    $ int_text = str(current_stats['intelligence']) + " → " + str(evolution_stats['intelligence']) + " (-" + str(percentage_change) + "%)"
+                if "Charisma" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Charisma")
                     $ cha_t_color = "#4CAF50"
-                    $ cha_text = str(current_stats['charisma']) + " → " + str(evolution_stats['charisma']) + " (+" + str(percentage_improved) + "%)"
-                if "Luck" in improvements_array:
-                    $ percentage_improved = percentage * improvements_array.count("Luck")
+                    $ cha_text = str(current_stats['charisma']) + " → " + str(evolution_stats['charisma']) + " (+" + str(percentage_change) + "%)"
+                elif "Charisma" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Charisma")
+                    $ cha_t_color = "#F44336"
+                    $ cha_text = str(current_stats['charisma']) + " → " + str(evolution_stats['charisma']) + " (-" + str(percentage_change) + "%)"
+                if "Luck" in increase_array:
+                    $ percentage_change = increasing_percentage * increase_array.count("Luck")
                     $ luc_t_color = "#4CAF50"
-                    $ luc_text = str(current_stats['luck']) + " → " + str(evolution_stats['luck']) + " (+" + str(percentage_improved) + "%)"
+                    $ luc_text = str(current_stats['luck']) + " → " + str(evolution_stats['luck']) + " (+" + str(percentage_change) + "%)"
+                elif "Luck" in decrease_array:
+                    $ percentage_change = decreasing_percentage * decrease_array.count("Luck")
+                    $ luc_t_color = "#F44336"
+                    $ luc_text = str(current_stats['luck']) + " → " + str(evolution_stats['luck']) + " (-" + str(percentage_change) + "%)"
 
                 vbox:
                     xalign 0.2
@@ -2551,8 +2590,9 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                                     spacing 20
                                     for weapon_type in possible_future_weapons_array[i:i+6]:
                                         text [weapon_type] size 25 color "#EEE" xalign 0.5
-                            if my_protector.equipedWeapon.type not in possible_future_weapons_array:
-                                text "Warning: Current weapon will be removed from the protector.\n It will be stored in your inventory." size 22 color "#FFD700" xalign 0.5 text_align 0.5
+                            if my_protector.equipedWeapon != None:                                        
+                                if my_protector.equipedWeapon.type not in possible_future_weapons_array:
+                                    text "Warning: Current weapon will be removed from the protector.\n It will be stored in your inventory." size 22 color "#FFD700" xalign 0.5 text_align 0.5
                             
 
             $ image_name = "5_" + str(evolution)
@@ -2643,7 +2683,7 @@ screen protector_detail_screen(my_protector):
                             # Scale the image
                             $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
-                            if my_protector.status == "Available":
+                            if my_protector.status == "Available" and my_protector.basePoints.can_it_use_weapons == True:
                                 $ action_button = Function(show_weapons, my_protector)                                
                             else: 
                                 $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
@@ -3119,7 +3159,7 @@ screen protector_detail_screen(my_protector):
                             # Scale the image
                             $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
-                            if my_protector.status == "Available":
+                            if my_protector.status == "Available" and my_protector.basePoints.can_it_use_weapons == True:
                                 $ action_button = Function(show_weapons, my_protector)
                             else: 
                                 $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
@@ -3888,8 +3928,8 @@ screen weapon_select(protector):
 
             # For each available weapon, create a button
             $ filtered_weapons = sorted(
-                [weapon for weapon in myWeapons],
-                key=lambda weapon: weapon.rarity
+                [weapon for weapon in myWeapons if weapon.type in protector.basePoints.usable_weapon_types],
+                key=lambda weapon: (weapon.rarity, weapon.name.lower())
             )
             for weapon in filtered_weapons:
                 textbutton "[weapon.name] ([weapon.rarity])":
@@ -3899,6 +3939,37 @@ screen weapon_select(protector):
 
             textbutton "Cancel":
                 action Hide("weapon_select")
+                xminimum 200
+                ypadding 10
+
+screen equipment_select(protector, equipment_type):
+
+    tag menu  # so the player can't open other menus while this is open
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 20
+        ypadding 20
+
+        vbox:
+            spacing 10
+
+            text "Select your equipment:" size 30
+
+            # For each available weapon, create a button
+            $ filtered_equipments = sorted(
+                [equipment for equipment in myEquipments if equipment.type == equipment_type],
+                key=lambda equipment: (equipment.rarity, equipment.name.lower())
+            )
+            for equipment in filtered_equipments:
+                textbutton "[equipment.name] ([equipment.rarity])":
+                    action [Function(protector.equip_equipment, equipment.equipment_id), Hide("equipment_select")]
+                    xminimum 200
+                    ypadding 10
+
+            textbutton "Cancel":
+                action Hide("equipment_select")
                 xminimum 200
                 ypadding 10
 

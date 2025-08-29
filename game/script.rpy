@@ -137,21 +137,13 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: [ PRIO 1 ] add another type for the weapons: Divine (increase damage with wisdom)
+    # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
-    #   -   robot
+    #   -   robot - this will be the tanky one (lets try it :) )
     #   -   skeleton
-    # 
-    # TODO: [ PRIO 1 ] add different images for the recruit, as it seems he is changing stage but looking the same on some ocasions (or even look different persons)
-    # 
-    # TODO: [ PRIO 1 ] make the sorting for choosing weapons and equipment to be also sorted by name after the rarity
-    # 
-    # TODO: [ PRIO 1 ] make the weapon slot being possible to change only if the protector can equip weapons
-    # 
-    # TODO: [ PRIO 1 ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
     #
     # TODO: [ PRIO 1 ] make the pictures of the protectors not to be much larger -> if needed, we need to make them taller
-    # 
-    # TODO: [ PRIO 1 ] make unarmed damage also use int and wisdom
     # 
     # TODO: [ PRIO 1 ] make each weapon have the field "range" so it has melee or ranged
     # 
@@ -191,8 +183,6 @@ label start:
     #   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: [ PRIO 2 ] add the melee or ranged information on protectors - and make it change things
-    # 
     # TODO: [ PRIO 3 ] create a way to buy items or item drop chance? Still need to think about it
     # 
     # TODO: [ PRIO 3 ] once a mission is finished should we show a report? saying "This missions was completed, the protector got this xp and this money"
@@ -215,6 +205,14 @@ label start:
     # TODO: [ IDEA ] another idea, maybe we could even get other forces, not protectors, but some army guys, which we could send on different missions?
     # 
     # TODO: [ IDEA ] add a way to use mana
+    # 
+    # TODO: [ IDEA ] each one of the protectors should have a unique passive
+    #   -   ideas:
+    #   -   -   increase 10% gold from missions
+    #   -   -   increase 10% luck on missions
+    #   -   -   increase 10% xp
+    #   -   -   increase 10% more damage
+    #   -   -   and so on and so forth
     # 
     return
 
