@@ -12,7 +12,7 @@ init python:
 
         # creating protectors    
         protectors_base_information["Ninja"] = BaseProtectorData(10, 17, 12, 14, 13, 8, 11, 0.15, 0.5, 0.2, 0.34, 0.25, 0.125, 0.16, 
-            "CRI", "SHI", 
+            "EVA", "DEX_TAN", 
             "Ash Ninja", 
             "While exploring a forgotten cave, he touched a cursed relic that bound dark magic to his body. From that moment, he gained the power to transform into ash, disappearing into smoke to strike unseen.",
             "Tech Ninja", 
@@ -31,7 +31,7 @@ init python:
         # 1 charisma per 8 levels
         
         protectors_base_information["Templar"] = BaseProtectorData(15, 10, 14, 11, 15, 12, 8, 0.5, 0.16, 0.5, 0.2, 0.34, 0.2, 0.125, 
-            "TAN", "DAM",
+            "TAN", "STR",
             "Saint Templar",
             "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
             "Demonic Templar",
@@ -88,12 +88,12 @@ init python:
         # 1 strength per 8 levels
 
         protectors_base_information["Samurai"] = BaseProtectorData(14, 13, 13, 12, 14, 10, 9, 0.5, 0.35, 0.25, 0.2, 0.34, 0.16, 0.125, 
-            "STR", "DAM",
+            "TAN", "DAM",
             "Tech Samurai",
             "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
             "Wolf Samurai",
             "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
-            "Sword,Hands,Katana", None, None,
+            "Hands,Katana", None, None,
             "Melee",
             "Samurai Rusty Katana"
         )
@@ -107,14 +107,14 @@ init python:
         # 1 luck per 8 levels
 
         protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.45, 0.34, 0.25, 0.2, 0.16, 0.2, 
-            "EVA", "STR_ONLY",
+            "EVA", "STR_TAN",
             "Special forces Agent",
             "Determined to become one of the best, he enlisted in the Special Forces intense training. After proving his skill, he earned his place and now strikes with unmatched precision, agility, and tactical mastery on every mission.",
             "Berserker",
             "Trapped in fear during a mission, the recruit’s mind finally snapped, and that terror erupted into uncontrollable, burning rage. Now he fights with pure instinct as he charges into battle with relentless ferocity.",
             "Knife,Gun,Hands,Machine gun,Sniper", "Knife,Gun,Machine gun,Sniper,Hands", "Hands,Knife,Sword,Greatsword,Greataxe,Spear,Axe,Hammer,Great Hammer,Mace",
             "Melee",
-            "Combat Pistol"
+            "Combat knife"
         )
         # it gains:
         # 1 strength per 2 levels

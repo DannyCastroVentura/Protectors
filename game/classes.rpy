@@ -306,7 +306,7 @@ init python:
                             totalIncrement += self.equipedBoots.prio2
             return totalIncrement
 
-        def get_evolution_increments(self, searchingClassName, fake_evolution = None):
+        def get_evolution_increments(self, searchingAttributeName, fake_evolution = None):
             used_chosen_evolution = self.chosen_evolution
             if fake_evolution != None:
                 used_chosen_evolution = fake_evolution
@@ -318,9 +318,10 @@ init python:
                 if used_chosen_evolution == 2:
                     choose_evolution = self.basePoints.evolution_2
                 # check if this attribute is one of the attributes which will get that incrementation
-                if searchingClassName in evolution_increment_map[choose_evolution]:
+                if searchingAttributeName in evolution_increment_map[choose_evolution]:
+                    count_times_there = evolution_increment_map[choose_evolution].count(searchingAttributeName)
                     # check how much increment are we going to add to this attribute
-                    totalIncrement += total_evolution_increment / len(evolution_increment_map[choose_evolution])
+                    totalIncrement += total_evolution_increment / len(evolution_increment_map[choose_evolution]) * count_times_there
             
             return totalIncrement
     

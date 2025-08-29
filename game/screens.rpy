@@ -2462,29 +2462,37 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                 $ luc_text = str(current_stats['luck'])
 
                 if "Strength" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Strength")
                     $ str_t_color = "#4CAF50"
-                    $ str_text = str(current_stats['strength']) + " → " + str(evolution_stats['strength'])
+                    $ str_text = str(current_stats['strength']) + " → " + str(evolution_stats['strength']) + " (+" + str(percentage_improved) + "%)"
                 if "Constitution" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Constitution")
                     $ con_t_color = "#4CAF50"
-                    $ con_text = str(current_stats['constitution']) + " → " + str(evolution_stats['constitution'])
+                    $ con_text = str(current_stats['constitution']) + " → " + str(evolution_stats['constitution']) + " (+" + str(percentage_improved) + "%)"
                 if "Wisdom" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Wisdom")
                     $ wis_t_color = "#4CAF50"
-                    $ wis_text = str(current_stats['wisdom']) + " → " + str(evolution_stats['wisdom'])
+                    $ wis_text = str(current_stats['wisdom']) + " → " + str(evolution_stats['wisdom']) + " (+" + str(percentage_improved) + "%)"
                 if "Morality" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Morality")
                     $ mor_t_color = "#4CAF50"
-                    $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality'])
+                    $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality']) + " (+" + str(percentage_improved) + "%)"
                 if "Dexterity" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Dexterity")
                     $ dex_t_color = "#4CAF50"
-                    $ dex_text = str(current_stats['dexterity']) + " → " + str(evolution_stats['dexterity'])
+                    $ dex_text = str(current_stats['dexterity']) + " → " + str(evolution_stats['dexterity']) + " (+" + str(percentage_improved) + "%)"
                 if "Intelligence" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Intelligence")
                     $ int_t_color = "#4CAF50"
-                    $ int_text = str(current_stats['intelligence']) + " → " + str(evolution_stats['intelligence'])
+                    $ int_text = str(current_stats['intelligence']) + " → " + str(evolution_stats['intelligence']) + " (+" + str(percentage_improved) + "%)"
                 if "Charisma" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Charisma")
                     $ cha_t_color = "#4CAF50"
-                    $ cha_text = str(current_stats['charisma']) + " → " + str(evolution_stats['charisma'])
+                    $ cha_text = str(current_stats['charisma']) + " → " + str(evolution_stats['charisma']) + " (+" + str(percentage_improved) + "%)"
                 if "Luck" in improvements_array:
+                    $ percentage_improved = percentage * improvements_array.count("Luck")
                     $ luc_t_color = "#4CAF50"
-                    $ luc_text = str(current_stats['luck']) + " → " + str(evolution_stats['luck'])
+                    $ luc_text = str(current_stats['luck']) + " → " + str(evolution_stats['luck']) + " (+" + str(percentage_improved) + "%)"
 
                 vbox:
                     xalign 0.2
@@ -2529,23 +2537,6 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                                 text "[int_text]" size size_letter color int_t_color
                                 text "[cha_text]" size size_letter color cha_t_color
                                 text "[luc_text]" size size_letter color luc_t_color
-                    vbox:
-                        spacing 20
-                        xalign 0.5
-                        text "Improvements:":
-                            xalign 0.5
-                        vbox:
-                            xalign 0.5
-                            spacing 20
-                            hbox:
-                                xalign 0.5
-                                spacing 20
-                                for attr_improvement in improvements_array:
-                                    text [attr_improvement] size 25 color "#EEE" xalign 0.5
-                            if len(improvements_array) == 1:
-                                text "Increase the specified attribute by " + str(percentage) + "%" size 22 color "#EEE" xalign 0.5
-                            else:
-                                text "Increase each specified attributes by " + str(percentage) + "%" size 22 color "#EEE" xalign 0.5
                     vbox:
                         spacing 20
                         xalign 0.5

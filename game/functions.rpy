@@ -85,17 +85,19 @@ init python:
     if 'evolution_increment_map' not in globals():
         evolution_increment_map = {
             "DAM": [ "Dexterity", "Strength" ],
-            "DEX": [ "Dexterity", "Strength", "Luck" ],
-            "STR": [ "Strength", "Dexterity", "Constitution" ],
+            "DEX": [ "Dexterity", "Dexterity", "Strength", "Luck" ],
+            "DEX_TAN": [ "Dexterity", "Dexterity", "Strength", "Constitution" ],
+            "STR": [ "Strength", "Strength", "Dexterity", "Constitution" ],
             "STR_ONLY": [ "Strength" ],
-            "INT": [ "Intelligence", "Wisdom" ],
-            "INT_TAN": [ "Intelligence", "Wisdom", "Constitution" ],
-            "INT_EVA": [ "Intelligence", "Wisdom", "Constitution", "Luck", "Dexterity" ],
-            "TAN": [ "Constitution", "Strength" ],
-            "SHI": [ "Constitution", "Dexterity" ],
+            "STR_TAN": [ "Strength", "Strength", "Constitution" ],
+            "INT": [ "Intelligence", "Intelligence", "Wisdom" ],
+            "INT_TAN": [ "Intelligence", "Intelligence", "Constitution", "Constitution", "Wisdom" ],
+            "INT_EVA": [ "Intelligence", "Intelligence", "Dexterity", "Dexterity", "Wisdom", "Luck"],
+            "TAN": [ "Constitution", "Constitution", "Strength" ],
+            "SHI": [ "Constitution", "Constitution", "Dexterity" ],
             "HP": [ "Constitution" ],
-            "EVA": [ "Dexterity", "Luck", "Constitution" ],
-            "CRI": [ "Dexterity", "Luck" ]
+            "EVA": [ "Dexterity", "Dexterity", "Luck", "Constitution" ],
+            "CRI": [ "Dexterity", "Dexterity", "Luck" ]
         }
 
     
