@@ -8,7 +8,9 @@ init python:
             incrementing_intelligence, incrementing_wisdom, 
             incrementing_charisma, incrementing_luck, evolution_1, 
             evolution_2, evolution_name_1, evolution_description_1,
-            evolution_name_2, evolution_description_2, prefered_weapon_types, unarmed_range, default_weapon):
+            evolution_name_2, evolution_description_2, usable_weapon_types, 
+            usable_weapon_types_evolution_1, usable_weapon_types_evolution_2,
+            unarmed_range, default_weapon):
             self.strength = strength
             self.dexterity = dexterity
             self.constitution = constitution
@@ -30,10 +32,18 @@ init python:
             self.incrementing_wisdom = incrementing_wisdom
             self.incrementing_charisma = incrementing_charisma
             self.incrementing_luck = incrementing_luck
-            self.prefered_weapon_types = prefered_weapon_types.split(",")
+            self.usable_weapon_types = usable_weapon_types.split(",")
+            if usable_weapon_types_evolution_1 == None:
+                self.usable_weapon_types_evolution_1 = self.usable_weapon_types
+            else:
+                self.usable_weapon_types_evolution_1 = usable_weapon_types_evolution_1.split(",")                
+            if usable_weapon_types_evolution_2 == None:
+                self.usable_weapon_types_evolution_2 = self.usable_weapon_types
+            else:
+                self.usable_weapon_types_evolution_2 = usable_weapon_types_evolution_2.split(",")
             self.unarmed_range = unarmed_range
             self.can_it_use_weapons = True
-            if prefered_weapon_types == "":
+            if usable_weapon_types == "":
                 self.can_it_use_weapons = False
             self.default_weapon = default_weapon
             return
@@ -322,6 +332,11 @@ init python:
 
         def choose_evolution(self, evolution):
             self.chosen_evolution = evolution
+            self.basePoints.usable_weapon_types = self.basePoints.usable_weapon_types_evolution_1
+            if evolution == 2:
+                self.basePoints.usable_weapon_types = self.basePoints.usable_weapon_types_evolution_2
+            if self.equipedWeapon.type not in self.basePoints.usable_weapon_types:
+                self.unequip_weapon()
             return
 
     class Mission:

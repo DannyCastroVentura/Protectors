@@ -17,7 +17,7 @@ init python:
             "While exploring a forgotten cave, he touched a cursed relic that bound dark magic to his body. From that moment, he gained the power to transform into ash, disappearing into smoke to strike unseen.",
             "Tech Ninja", 
             "Recruited by the army, he wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield.",
-            "Knife,Sword,Hands",
+            "Knife,Sword,Hands", None, None,
             "Melee",
             "Thieves knife"
         )
@@ -36,7 +36,7 @@ init python:
             "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
             "Demonic Templar",
             "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
-            "Sword,Spear,Greatsword,Hands",
+            "Sword,Spear,Greatsword,Hands", None, None,
             "Melee",
             "Templar Greatsword"
         )
@@ -55,9 +55,9 @@ init python:
             "Through years of study in forgotten libraries, he unlocked the secrets of the arcane. Spells of thunder and lightning bend to his will, making him a master of battlefield control.",
             "Nature Wizard",
             "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him.",
-            "Wand,Staff,Hands",
+            "Wand,Staff,Hands", None, None,
             "Ranged",
-            "Elderwood Staff"
+            "Principiant Wand"
         )
         # it gains:
         # 1 intelligence per 2 levels
@@ -74,7 +74,7 @@ init python:
             "In a forgotten arcane library, he found a deck of dark enchanted cards, each holding demonic essence. Now, whispers from the cards slowly turn him into a demon with every throw.",
             "Sharpen Joker",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
-            "Cards,Hands",
+            "Cards,Hands", None, None,
             "Melee",
             "Gambling Cards"
         )
@@ -93,7 +93,7 @@ init python:
             "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
             "Wolf Samurai",
             "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
-            "Sword,Hands,Katana",
+            "Sword,Hands,Katana", None, None,
             "Melee",
             "Samurai Rusty Katana"
         )
@@ -107,14 +107,14 @@ init python:
         # 1 luck per 8 levels
 
         protectors_base_information["Recruit"] = BaseProtectorData(14, 13, 15, 10, 9, 13, 11, 0.5, 0.45, 0.34, 0.25, 0.2, 0.16, 0.2, 
-            "EVA", "DAM",
+            "EVA", "STR_ONLY",
             "Special forces Agent",
             "Determined to become one of the best, he enlisted in the Special Forces intense training. After proving his skill, he earned his place and now strikes with unmatched precision, agility, and tactical mastery on every mission.",
             "Berserker",
             "Trapped in fear during a mission, the recruit’s mind finally snapped, and that terror erupted into uncontrollable, burning rage. Now he fights with pure instinct as he charges into battle with relentless ferocity.",
-            "Knife,Gun,Hands,Spear,Greatsword,Axe,Mace,Hammer,Sword",
+            "Knife,Gun,Hands,Machine gun,Sniper", "Knife,Gun,Machine gun,Sniper,Hands", "Hands,Knife,Sword,Greatsword,Greataxe,Spear,Axe,Hammer,Great Hammer,Mace",
             "Melee",
-            "Combat knife"
+            "Combat Pistol"
         )
         # it gains:
         # 1 strength per 2 levels
@@ -322,10 +322,9 @@ init python:
             "Strength",
             35,
             'E'))
-        
-        weapons.append(Weapon("Elderwood Staff",
-            "A staff carved from ancient trees, buzzing with latent magic.",
-            "Staff",
+        weapons.append(Weapon("Principiant Wand",
+            "A wand used by the iniciants on magic training.",
+            "Wand",
             "Magic",
             25,
             'E'))
@@ -350,12 +349,26 @@ init python:
             "Strength",
             26,
             'E'))
+        
+        weapons.append(Weapon("Combat Pistol", 
+            "A rusty pistol used by the army on its intensive training.",
+            "Gun", 
+            "Dexterity",
+            26,
+            'E'))
 
         weapons.append(Weapon("Ironclad Mace",
             "A sturdy mace used by city guards.",
             "Mace",
             "Strength",
             32,
+            'E'))
+        
+        weapons.append(Weapon("Elderwood Staff",
+            "A staff carved from ancient trees, buzzing with latent magic.",
+            "Staff",
+            "Magic",
+            25,
             'E'))
 
         weapons.append(Weapon("Whisperwind", 
@@ -403,7 +416,7 @@ init python:
         weapons.append(Weapon("Moonlit Spear",
             "A spear that gleams under the moonlight, perfect for precise strikes.",
             "Spear",
-            "Dexterity",
+            "Magic",
             30,
             'E'))
 

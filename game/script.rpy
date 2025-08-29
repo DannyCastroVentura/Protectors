@@ -107,7 +107,8 @@ label start:
     nova "I understand it’s overwhelming."
     mc "It is. But... I don’t want to walk away, either. If I can help, I want to try."
     nova "Good. You’ll need that spirit where you’re going."
-    nova "Let’s begin by finding your first ally. The Alliance is offering you a Protectors Box."
+    nova "Let’s begin by finding your first ally."
+    nova "The Alliance is offering you a Protectors Lucky Box!"
     nova "Open it!"
     window hide
     $ protector_name = renpy.call_screen("lucky_box_screen", "protector")
@@ -140,6 +141,10 @@ label start:
     #   -   robot
     #   -   skeleton
     # 
+    # TODO: [ PRIO 1 ] add different images for the recruit, as it seems he is changing stage but looking the same on some ocasions (or even look different persons)
+    # 
+    # TODO: [ PRIO 1 ] make the sorting for choosing weapons and equipment to be also sorted by name after the rarity
+    # 
     # TODO: [ PRIO 1 ] make the weapon slot being possible to change only if the protector can equip weapons
     # 
     # TODO: [ PRIO 1 ] change the weapon damage, to make it pe dependent on the type of weapon - if sword ex: deals some damage due to strength and dexterity, and then the other part is regarding the type of it, so if its magic, then it deals also some part of magic damage
@@ -155,7 +160,11 @@ label start:
     # TODO: [ PRIO 1 ] add at least 5 weapons of each in initializing_things: 
     #   -   wand
     #   -   gun
+    #   -   machine gun
+    #   -   sniper
     #   -   greatsword
+    #   -   greataxe
+    #   -   great hammer
     #   -   cards
     #   -   katana
     # 

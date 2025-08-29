@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3894: 'name' is not a keyword argument or valid child of the vbox statement.
-    name = "Protector"
-        ^
+File "game/initializing_things.rpy", line 39: invalid syntax. Perhaps you forgot a comma?
+    "Sword,Spear,Greatsword,Hands", None, None
+                                              ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Thu Aug 28 21:48:56 2025
+Fri Aug 29 09:44:56 2025

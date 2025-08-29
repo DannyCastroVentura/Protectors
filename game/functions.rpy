@@ -11,49 +11,6 @@ default missionsToDelete = []
 define config.console = True
 # define config.keymap["hide_windows"] = []
 default allMissionTemplates = []
-default stats_increment_map = {
-    "Dexterity": {
-        "prio1": "Dexterity",
-        "prio2": "Strength"
-    },
-    "Strength": {
-        "prio1": "Strength",
-        "prio2": "Dexterity"
-    },
-    "Magic": {
-        "prio1": "Intelligence",
-        "prio2": "Wisdom"
-    },
-    "Tank": {
-        "prio1": "Constitution",
-        "prio2": "Strength"
-    },
-    "Shield": {
-        "prio1": "Constitution",
-        "prio2": "Dexterity"
-    },
-    "Evasion": {
-        "prio1": "Dexterity",
-        "prio2": "Luck"
-    },
-    "Critical": {
-        "prio1": "Luck",
-        "prio2": "Dexterity"
-    }
-}
-
-default evolution_increment_map = {
-    "DAM": [ "Dexterity", "Strength" ],
-    "DEX": [ "Dexterity", "Strength", "Luck" ],
-    "STR": [ "Strength", "Dexterity", "Constitution" ],
-    "INT": [ "Intelligence", "Wisdom" ],
-    "INT_TAN": [ "Intelligence", "Wisdom", "Constitution" ],
-    "INT_EVA": [ "Intelligence", "Wisdom", "Constitution", "Luck", "Dexterity" ],
-    "TAN": [ "Constitution", "Strength" ],
-    "SHI": [ "Constitution", "Dexterity" ],
-    "EVA": [ "Dexterity", "Luck", "Constitution" ],
-    "CRI": [ "Dexterity", "Luck" ]
-}
 
 init python:
     import os
@@ -130,6 +87,7 @@ init python:
             "DAM": [ "Dexterity", "Strength" ],
             "DEX": [ "Dexterity", "Strength", "Luck" ],
             "STR": [ "Strength", "Dexterity", "Constitution" ],
+            "STR_ONLY": [ "Strength" ],
             "INT": [ "Intelligence", "Wisdom" ],
             "INT_TAN": [ "Intelligence", "Wisdom", "Constitution" ],
             "INT_EVA": [ "Intelligence", "Wisdom", "Constitution", "Luck", "Dexterity" ],
