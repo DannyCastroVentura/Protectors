@@ -195,6 +195,7 @@ label start:
     # TODO: [ PRIO 3 ] add equipment and things to improve charisma
     # 
     # TODO: [ PRIO 4 ] make it possible to call nova
+    #   -   make her also explain the things regarding the calculations for the different things (but this would need to be done only at the end of the game, as I'll be changing this pretty often - I assume)
     # 
     # TODO: [ PRIO 4 ] as we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
     # 
