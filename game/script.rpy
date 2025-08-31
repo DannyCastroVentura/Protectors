@@ -137,12 +137,13 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] work on a priest protector
+    # TODO: [ PRIO 1 ] update the protector detail to:
+    #   -   have in left top - equipment
+    #   -   have in left bottom - attributes
+    #   -   middle - image of the protector
+    #   -   left side - damage / defense / evasion / and so on
     # 
-    # TODO: [ PRIO 1 ] show the new information:
-    #   -   weapon -> show the new information on its detail
-    #   -   equipment -> show the new information on its detail
-    #   -   protector -> show the new information on its detail
+    # TODO: [ PRIO 1 ] work on a priest protector
     # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
     #   -   robot - this will be the tanky one (lets try it :) )
@@ -158,12 +159,6 @@ label start:
     #   -   great hammer
     #   -   cards
     #   -   katana
-    # 
-    # TODO: [ PRIO 1 ] update the protector detail to:
-    #   -   have in left top - equipment
-    #   -   have in left bottom - attributes
-    #   -   middle - image of the protector
-    #   -   left side - damage / defense / evasion / and so on
     #
     # TODO: [ PRIO 1 ] test all the protectors 
     #

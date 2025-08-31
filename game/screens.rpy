@@ -2266,8 +2266,10 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         text "Class:" size 22 color "#EEE"
                         if weaponOrEquipment_type == "w":
                             text "Base damage:" size 22 color "#EEE"
+                            text "Range type:" size 22 color "#EEE"
 
                         elif weaponOrEquipment_type == "e":
+                            text "Defense value:" size 22 color "#EEE"
                             text "Improved attribute 1:" size 22 color "#EEE"
                             text "Improved attribute 2:" size 22 color "#EEE"
 
@@ -2282,7 +2284,9 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         text "[str(equipment_or_weapon.class_name)]" size 22 color "#EEE" xalign 0.99999999999
                         if weaponOrEquipment_type == "w":
                             text "[str(equipment_or_weapon.base_damage)]" size 22 color "#EEE" xalign 0.99999999999
+                            text "[str(equipment_or_weapon.range)]" size 22 color "#EEE" xalign 0.99999999999
                         elif weaponOrEquipment_type == "e":
+                            text "[str(equipment_or_weapon.defense)]" size 22 color "#EEE" xalign 0.99999999999
                             text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio1'])] (x[str(equipment_or_weapon.prio1 + 1)])" size 22 color "#EEE" xalign 0.99999999999
                             text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio2'])] (x[str(equipment_or_weapon.prio2 + 1)])" size 22 color "#EEE" xalign 0.99999999999
                         
@@ -2658,33 +2662,129 @@ screen protector_detail_screen(my_protector):
                 else:
                     text "[my_protector.name] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
 
-            if my_protector.readyForPromotion == True and my_protector.status == "Available":
-                vbox:
+                    
+            # Text block - vertically centered on left side
+            vbox:
+                spacing 20
+                xalign 0.1
+                yalign 0.5
+                hbox:
+                    xalign 0.5
                     spacing 20
-                    xalign 0.1
-                    yalign 0.5
+                    text "Equipment:" size 25 color "#DDD"
+                vbox:
+                    xalign 0.5
+                    spacing 20
+                    $ empty_scaled = im.Scale("images/background_item.png", scale, scale)
+                    if my_protector.equipedWeapon == None:
+                        $ weapon_img = "images/weapons/default_weapon.png"
+
+                        # Get original image size
+                        $ orig_width, orig_height = renpy.image_size(weapon_img)
+
+                        # Calculate proportional width
+                        $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                        # Scale the image
+                        $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
+
+                        if my_protector.status == "Available" and my_protector.basePoints.can_it_use_weapons == True:
+                            $ action_button = Function(show_weapons, my_protector)
+                        else: 
+                            $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                        button:
+                            action action_button
+                            xpadding 4
+                            ypadding 4
+                            background "#ffffff"
+                            frame:
+                                xalign 0.5 
+                                add im.Composite(
+                                    (scale, scale),
+                                    (0, 0), empty_scaled,
+                                    ((scale - new_width) // 2, 0), weapon_scaled   
+                                )
+                    else:
+                        $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
+                        $ background_color_style = EClassColor
+                        if my_protector.equipedWeapon.rarity == "D":
+                            $ background_color_style = DClassColor
+                        if my_protector.equipedWeapon.rarity == "C":
+                            $ background_color_style = CClassColor
+                        if my_protector.equipedWeapon.rarity == "B":
+                            $ background_color_style = BClassColor
+                        if my_protector.equipedWeapon.rarity == "A":
+                            $ background_color_style = AClassColor
+                        if my_protector.equipedWeapon.rarity == "S":
+                            $ background_color_style = SClassColor
+                            
+                        # Get original image size
+                        $ orig_width, orig_height = renpy.image_size(weapon_img)
+
+                        # Calculate proportional width
+                        $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                        # Scale the image
+                        $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
+
+                        if my_protector.status == "Available":
+                            $ action_button = Function(my_protector.unequip_weapon)
+                        else: 
+                            $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                        button:
+                            action action_button
+                            xpadding 4
+                            ypadding 4
+                            background background_color_style
+                            frame:
+                                xalign 0.5 
+                                add im.Composite(
+                                    (scale, scale),
+                                    (0, 0), empty_scaled,
+                                    ((scale - new_width) // 2, 0), weapon_scaled   
+                                )
+
+
+                hbox:
+                    xalign 0.5
+                    spacing 20
+                    
+                    $ helmet_img = "images/equipment/no_helmet.png"
+                    $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
+                    
+                    $ body_img = "images/equipment/no_body.png"
+                    $ empty_body_scaled = im.Scale("images/background_item.png", scale, scale)
+                    
+                    $ pants_img = "images/equipment/no_pants.png"
+                    $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
+                    
+                    $ boots_img = "images/equipment/no_boots.png"
+                    $ empty_boots_scaled = im.Scale("images/background_item.png", scale, scale)
+                vbox:
+                    xalign 0.5
+                    spacing 20
+                    
                     hbox:
                         xalign 0.5
                         spacing 20
-                        text "Equipment:" size 25 color "#DDD"
-                    vbox:
-                        xalign 0.5
-                        spacing 20
-                        $ empty_scaled = im.Scale("images/background_item.png", scale, scale)
-                        if my_protector.equipedWeapon == None:
-                            $ weapon_img = "images/weapons/default_weapon.png"
+                        
+
+                        if my_protector.equipedHelmet == None:
+                            $ helmet_img = "images/equipment/no_helmet.png"
 
                             # Get original image size
-                            $ orig_width, orig_height = renpy.image_size(weapon_img)
+                            $ orig_width, orig_height = renpy.image_size(helmet_img)
 
                             # Calculate proportional width
                             $ new_width = int(orig_width * (scale / float(orig_height)))
 
                             # Scale the image
-                            $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
+                            $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
 
-                            if my_protector.status == "Available" and my_protector.basePoints.can_it_use_weapons == True:
-                                $ action_button = Function(show_weapons, my_protector)                                
+                            if my_protector.status == "Available":
+                                $ action_button = Function(show_equipments, my_protector, "helmet")
                             else: 
                                 $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -2698,33 +2798,34 @@ screen protector_detail_screen(my_protector):
                                     add im.Composite(
                                         (scale, scale),
                                         (0, 0), empty_scaled,
-                                        ((scale - new_width) // 2, 0), weapon_scaled   
+                                        ((scale - new_width) // 2, 0), helmet_scaled
                                     )
                         else:
-                            $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
+                            $ helmet_img = "images/equipment/{}_{}.png".format(my_protector.equipedHelmet.class_name, my_protector.equipedHelmet.type)
+                            $ helmet_scaled = im.Scale(helmet_img, 200, 200)
                             $ background_color_style = EClassColor
-                            if my_protector.equipedWeapon.rarity == "D":
+                            if my_protector.equipedHelmet.rarity == "D":
                                 $ background_color_style = DClassColor
-                            if my_protector.equipedWeapon.rarity == "C":
+                            elif my_protector.equipedHelmet.rarity == "C":
                                 $ background_color_style = CClassColor
-                            if my_protector.equipedWeapon.rarity == "B":
+                            elif my_protector.equipedHelmet.rarity == "B":
                                 $ background_color_style = BClassColor
-                            if my_protector.equipedWeapon.rarity == "A":
+                            elif my_protector.equipedHelmet.rarity == "A":
                                 $ background_color_style = AClassColor
-                            if my_protector.equipedWeapon.rarity == "S":
+                            elif my_protector.equipedHelmet.rarity == "S":
                                 $ background_color_style = SClassColor
-                                
+                            
                             # Get original image size
-                            $ orig_width, orig_height = renpy.image_size(weapon_img)
+                            $ orig_width, orig_height = renpy.image_size(helmet_img)
 
                             # Calculate proportional width
                             $ new_width = int(orig_width * (scale / float(orig_height)))
 
                             # Scale the image
-                            $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
+                            $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
 
                             if my_protector.status == "Available":
-                                $ action_button = Function(my_protector.unequip_weapon)
+                                $ action_button = Function(my_protector.unequip_equipment, "helmet")
                             else: 
                                 $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -2738,381 +2839,295 @@ screen protector_detail_screen(my_protector):
                                     add im.Composite(
                                         (scale, scale),
                                         (0, 0), empty_scaled,
-                                        ((scale - new_width) // 2, 0), weapon_scaled   
+                                        ((scale - new_width) // 2, 0), helmet_scaled
+                                    )
+                        null height 10  # This adds 40 pixels of vertical space at the top
+                        if my_protector.equipedBodyArmor == None:
+                            $ body_img = "images/equipment/no_body.png"
+
+                            # Get original image size
+                            $ orig_width, orig_height = renpy.image_size(body_img)
+
+                            # Calculate proportional width
+                            $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                            # Scale the image
+                            $ body_scaled = im.Scale(body_img, new_width, scale)
+
+                            if my_protector.status == "Available":
+                                $ action_button = Function(show_equipments, my_protector, "body")
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                            button:
+                                action action_button
+                                xpadding 4
+                                ypadding 4
+                                background "#ffffff"
+                                frame:
+                                    xalign 0.5 
+                                    add im.Composite(
+                                        (scale, scale),
+                                        (0, 0), empty_body_scaled,
+                                        ((scale - new_width) // 2, 0), body_scaled
+                                    )
+                        else:
+                            $ body_img = "images/equipment/{}_{}.png".format(my_protector.equipedBodyArmor.class_name, my_protector.equipedBodyArmor.type)
+                            $ body_scaled = im.Scale(body_img, 200, 200)
+                            $ background_color_style = EClassColor
+                            if my_protector.equipedBodyArmor.rarity == "D":
+                                $ background_color_style = DClassColor
+                            if my_protector.equipedBodyArmor.rarity == "C":
+                                $ background_color_style = CClassColor
+                            if my_protector.equipedBodyArmor.rarity == "B":
+                                $ background_color_style = BClassColor
+                            if my_protector.equipedBodyArmor.rarity == "A":
+                                $ background_color_style = AClassColor
+                            if my_protector.equipedBodyArmor.rarity == "S":
+                                $ background_color_style = SClassColor
+                            # Get original image size
+                            $ orig_width, orig_height = renpy.image_size(body_img)
+
+                            # Calculate proportional width
+                            $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                            # Scale the image
+                            $ body_scaled = im.Scale(body_img, new_width, scale)
+
+                            if my_protector.status == "Available":
+                                $ action_button = Function(my_protector.unequip_equipment, "body")
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                            button:
+                                action action_button
+                                xpadding 4
+                                ypadding 4
+                                background background_color_style
+                                frame:
+                                    xalign 0.5 
+                                    add im.Composite(
+                                        (scale, scale),
+                                        (0, 0), empty_body_scaled,
+                                        ((scale - new_width) // 2, 0), body_scaled
+                                    )
+                    
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        if my_protector.equipedPants == None:
+                            $ pants_img = "images/equipment/no_pants.png"
+
+                            # Get original image size
+                            $ orig_width, orig_height = renpy.image_size(pants_img)
+
+                            # Calculate proportional width
+                            $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                            # Scale the image
+                            $ pants_scaled = im.Scale(pants_img, new_width, scale)
+
+                            if my_protector.status == "Available":
+                                $ action_button = Function(show_equipments, my_protector, "pants")
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                            button:
+                                action action_button
+                                xpadding 4
+                                ypadding 4
+                                background "#ffffff"
+                                frame:
+                                    xalign 0.5 
+                                    add im.Composite(
+                                        (scale, scale),
+                                        (0, 0), empty_pants_scaled,
+                                        ((scale - new_width) // 2, 0), pants_scaled
+                                    )
+                        else:
+                            $ pants_img = "images/equipment/{}_{}.png".format(my_protector.equipedPants.class_name, my_protector.equipedPants.type)
+                            $ pants_scaled = im.Scale(pants_img, 200, 200)
+                            $ background_color_style = EClassColor
+                            if my_protector.equipedPants.rarity == "D":
+                                $ background_color_style = DClassColor
+                            if my_protector.equipedPants.rarity == "C":
+                                $ background_color_style = CClassColor
+                            if my_protector.equipedPants.rarity == "B":
+                                $ background_color_style = BClassColor
+                            if my_protector.equipedPants.rarity == "A":
+                                $ background_color_style = AClassColor
+                            if my_protector.equipedPants.rarity == "S":
+                                $ background_color_style = SClassColor
+                            # Get original image size
+                            $ orig_width, orig_height = renpy.image_size(pants_img)
+
+                            # Calculate proportional width
+                            $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                            # Scale the image
+                            $ pants_scaled = im.Scale(pants_img, new_width, scale)
+
+                            if my_protector.status == "Available":
+                                $ action_button = Function(my_protector.unequip_equipment, "pants")
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                            button:
+                                action action_button
+                                xpadding 4
+                                ypadding 4
+                                background background_color_style
+                                frame:
+                                    xalign 0.5 
+                                    add im.Composite(
+                                        (scale, scale),
+                                        (0, 0), empty_pants_scaled,
+                                        ((scale - new_width) // 2, 0), pants_scaled
                                     )
 
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        
-                        $ helmet_img = "images/equipment/no_helmet.png"
-                        $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
-                        
-                        $ body_img = "images/equipment/no_body.png"
-                        $ empty_body_scaled = im.Scale("images/background_item.png", scale, scale)
-                        
-                        $ pants_img = "images/equipment/no_pants.png"
-                        $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
-                        
-                        $ boots_img = "images/equipment/no_boots.png"
-                        $ empty_boots_scaled = im.Scale("images/background_item.png", scale, scale)
-                    vbox:
-                        xalign 0.5
-                        spacing 20
-                        
-                        hbox:
-                            xalign 0.5
-                            spacing 20
-                            
-
-                            if my_protector.equipedHelmet == None:
-                                $ helmet_img = "images/equipment/no_helmet.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(helmet_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "helmet")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_scaled,
-                                            ((scale - new_width) // 2, 0), helmet_scaled
-                                        )
-                            else:
-                                $ helmet_img = "images/equipment/{}_{}.png".format(my_protector.equipedHelmet.class_name, my_protector.equipedHelmet.type)
-                                $ helmet_scaled = im.Scale(helmet_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedHelmet.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                elif my_protector.equipedHelmet.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                elif my_protector.equipedHelmet.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                elif my_protector.equipedHelmet.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                elif my_protector.equipedHelmet.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(helmet_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
-                                
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "helmet")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_scaled,
-                                            ((scale - new_width) // 2, 0), helmet_scaled
-                                        )
-                            null height 10  # This adds 40 pixels of vertical space at the top
-                            if my_protector.equipedBodyArmor == None:
-                                $ body_img = "images/equipment/no_body.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ body_scaled = im.Scale(body_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "body")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_body_scaled,
-                                            ((scale - new_width) // 2, 0), body_scaled
-                                        )
-                            else:
-                                $ body_img = "images/equipment/{}_{}.png".format(my_protector.equipedBodyArmor.class_name, my_protector.equipedBodyArmor.type)
-                                $ body_scaled = im.Scale(body_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedBodyArmor.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                if my_protector.equipedBodyArmor.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                if my_protector.equipedBodyArmor.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                if my_protector.equipedBodyArmor.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                if my_protector.equipedBodyArmor.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ body_scaled = im.Scale(body_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "body")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_body_scaled,
-                                            ((scale - new_width) // 2, 0), body_scaled
-                                        )
-                        
-                        hbox:
-                            xalign 0.5
-                            spacing 20
-                            if my_protector.equipedPants == None:
-                                $ pants_img = "images/equipment/no_pants.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(pants_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ pants_scaled = im.Scale(pants_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "pants")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_pants_scaled,
-                                            ((scale - new_width) // 2, 0), pants_scaled
-                                        )
-                            else:
-                                $ pants_img = "images/equipment/{}_{}.png".format(my_protector.equipedPants.class_name, my_protector.equipedPants.type)
-                                $ pants_scaled = im.Scale(pants_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedPants.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                if my_protector.equipedPants.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                if my_protector.equipedPants.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                if my_protector.equipedPants.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                if my_protector.equipedPants.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(pants_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ pants_scaled = im.Scale(pants_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "pants")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_pants_scaled,
-                                            ((scale - new_width) // 2, 0), pants_scaled
-                                        )
-
-                            null height 10  # This adds 40 pixels of vertical space at the top
-                            if my_protector.equipedBoots == None:
-                                $ boots_img = "images/equipment/no_boots.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(boots_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ boots_scaled = im.Scale(boots_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "boots")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_boots_scaled,
-                                            ((scale - new_width) // 2, 0), boots_scaled
-                                        )
-                            else:
-                                $ boots_img = "images/equipment/{}_{}.png".format(my_protector.equipedBoots.class_name, my_protector.equipedBoots.type)
-                                $ boots_scaled = im.Scale(boots_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedBoots.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                if my_protector.equipedBoots.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                if my_protector.equipedBoots.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                if my_protector.equipedBoots.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                if my_protector.equipedBoots.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(boots_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ boots_scaled = im.Scale(boots_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "boots")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_boots_scaled,
-                                            ((scale - new_width) // 2, 0), boots_scaled
-                                        )
                         null height 10  # This adds 40 pixels of vertical space at the top
-                    
-                # Text block - vertically centered on left side
-                vbox:
-                    spacing 20
+                        if my_protector.equipedBoots == None:
+                            $ boots_img = "images/equipment/no_boots.png"
+
+                            # Get original image size
+                            $ orig_width, orig_height = renpy.image_size(boots_img)
+
+                            # Calculate proportional width
+                            $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                            # Scale the image
+                            $ boots_scaled = im.Scale(boots_img, new_width, scale)
+
+                            if my_protector.status == "Available":
+                                $ action_button = Function(show_equipments, my_protector, "boots")
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                            button:
+                                action action_button
+                                xpadding 4
+                                ypadding 4
+                                background "#ffffff"
+                                frame:
+                                    xalign 0.5 
+                                    add im.Composite(
+                                        (scale, scale),
+                                        (0, 0), empty_boots_scaled,
+                                        ((scale - new_width) // 2, 0), boots_scaled
+                                    )
+                        else:
+                            $ boots_img = "images/equipment/{}_{}.png".format(my_protector.equipedBoots.class_name, my_protector.equipedBoots.type)
+                            $ boots_scaled = im.Scale(boots_img, 200, 200)
+                            $ background_color_style = EClassColor
+                            if my_protector.equipedBoots.rarity == "D":
+                                $ background_color_style = DClassColor
+                            if my_protector.equipedBoots.rarity == "C":
+                                $ background_color_style = CClassColor
+                            if my_protector.equipedBoots.rarity == "B":
+                                $ background_color_style = BClassColor
+                            if my_protector.equipedBoots.rarity == "A":
+                                $ background_color_style = AClassColor
+                            if my_protector.equipedBoots.rarity == "S":
+                                $ background_color_style = SClassColor
+                            # Get original image size
+                            $ orig_width, orig_height = renpy.image_size(boots_img)
+
+                            # Calculate proportional width
+                            $ new_width = int(orig_width * (scale / float(orig_height)))
+
+                            # Scale the image
+                            $ boots_scaled = im.Scale(boots_img, new_width, scale)
+
+                            if my_protector.status == "Available":
+                                $ action_button = Function(my_protector.unequip_equipment, "boots")
+                            else: 
+                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+
+                            button:
+                                action action_button
+                                xpadding 4
+                                ypadding 4
+                                background background_color_style
+                                frame:
+                                    xalign 0.5 
+                                    add im.Composite(
+                                        (scale, scale),
+                                        (0, 0), empty_boots_scaled,
+                                        ((scale - new_width) // 2, 0), boots_scaled
+                                    )
+                    null height 10  # This adds 40 pixels of vertical space at the top
+                
+            # Text block - vertically centered on left side
+            vbox:
+                spacing 20
+                xalign 0.5
+                yalign 0.5
+                hbox:
                     xalign 0.5
-                    yalign 0.56
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        text "Level: [my_protector.level]" size 25 color "#DDD"
-                        text "Stage: [my_protector.stage]" size 25 color "#DDD"
+                    spacing 20
+                    text "Level: [my_protector.level]" size 25 color "#DDD"
+                    text "Stage: [my_protector.stage]" size 25 color "#DDD"
+                vbox:
+                    xalign 0.5
+                    spacing 20
+                    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
+                    text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                    bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
+                    text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
+                    bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
+                    text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
+                    null height 10  # This adds 40 pixels of vertical space at the top
+                hbox:
+                    xalign 0.5
+                    spacing 20
                     vbox:
                         xalign 0.5
-                        spacing 20
-                        bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-                        text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
-                        bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
-                        text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
-                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
-                        text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
-                        null height 10  # This adds 40 pixels of vertical space at the top
+                        text "Strength:" size 22 color "#EEE"
+                        text "Constitution:" size 22 color "#EEE"
+                        text "Wisdom:" size 22 color "#EEE"
+                        text "Morality:" size 22 color "#EEE"
+                    vbox:
+                        xalign 0.5
+                        text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
+                        text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
+                        text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
+                        text "[str(my_protector.get_current_stats()['morality'])]" size 22 color "#EEE"
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+                    vbox:
+                        xalign 0.5
+                        text "Dexterity:" size 22 color "#EEE"
+                        text "Intelligence:" size 22 color "#EEE"
+                        text "Charisma:" size 22 color "#EEE"
+                        text "Luck:" size 22 color "#EEE"
+                    vbox:
+                        xalign 0.5
+                        text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
+                        text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
+                        text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
+                        text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
+                
+                vbox:
+                    null width 40  # This adds 40 pixels of vertical space at the top
+                vbox:
+                    null width 40  # This adds 40 pixels of vertical space at the top
+                vbox:
+                    null width 40  # This adds 40 pixels of vertical space at the top
+                vbox:
+                    xalign 0.5
+                    spacing 70
                     hbox:
                         xalign 0.5
-                        spacing 20
+                        spacing 25
                         vbox:
                             xalign 0.5
-                            text "Strength:" size 22 color "#EEE"
-                            text "Constitution:" size 22 color "#EEE"
-                            text "Wisdom:" size 22 color "#EEE"
-                            text "Morality:" size 22 color "#EEE"
+                            text "Real damage:" size 30 color "#EEE"
                         vbox:
                             xalign 0.5
-                            text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['morality'])]" size 22 color "#EEE"
-                        vbox:
-                            null width 40  # This adds 40 pixels of vertical space at the top
-                        vbox:
-                            xalign 0.5
-                            text "Dexterity:" size 22 color "#EEE"
-                            text "Intelligence:" size 22 color "#EEE"
-                            text "Charisma:" size 22 color "#EEE"
-                            text "Luck:" size 22 color "#EEE"
-                        vbox:
-                            xalign 0.5
-                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
-                    
-                    vbox:
-                        null width 30  # This adds 40 pixels of vertical space at the top
-                        spacing 50
-                        hbox:
-                            xalign 0.5
-                            spacing 25
-                            vbox:
-                                xalign 0.5
-                                text "Real damage:" size 30 color "#EEE"
-                            vbox:
-                                xalign 0.5
-                                text "[str(my_protector.get_damage_points())]" size 30 color "#EEE"
+                            text "[str(my_protector.get_damage_points())]" size 30 color "#EEE"
+
+                    if my_protector.readyForPromotion == True and my_protector.status == "Available":
+        
                         vbox:
                             text "Do you want to promote [my_protector.name]?" size 30 color "#FFF" xalign 0.5
 
@@ -3133,466 +3148,6 @@ screen protector_detail_screen(my_protector):
                                     textbutton "No" action Hide("protector_detail_screen"):
                                         text_size 25
                                         text_style "button_in_black_background"
-            else:
-                # Text block - vertically centered on left side
-                vbox:
-                    spacing 20
-                    xalign 0.1
-                    yalign 0.5
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        text "Equipment:" size 25 color "#DDD"
-                    vbox:
-                        xalign 0.5
-                        spacing 20
-                        $ empty_scaled = im.Scale("images/background_item.png", scale, scale)
-                        if my_protector.equipedWeapon == None:
-                            $ weapon_img = "images/weapons/default_weapon.png"
-
-                            # Get original image size
-                            $ orig_width, orig_height = renpy.image_size(weapon_img)
-
-                            # Calculate proportional width
-                            $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                            # Scale the image
-                            $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
-
-                            if my_protector.status == "Available" and my_protector.basePoints.can_it_use_weapons == True:
-                                $ action_button = Function(show_weapons, my_protector)
-                            else: 
-                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                            button:
-                                action action_button
-                                xpadding 4
-                                ypadding 4
-                                background "#ffffff"
-                                frame:
-                                    xalign 0.5 
-                                    add im.Composite(
-                                        (scale, scale),
-                                        (0, 0), empty_scaled,
-                                        ((scale - new_width) // 2, 0), weapon_scaled   
-                                    )
-                        else:
-                            $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
-                            $ background_color_style = EClassColor
-                            if my_protector.equipedWeapon.rarity == "D":
-                                $ background_color_style = DClassColor
-                            if my_protector.equipedWeapon.rarity == "C":
-                                $ background_color_style = CClassColor
-                            if my_protector.equipedWeapon.rarity == "B":
-                                $ background_color_style = BClassColor
-                            if my_protector.equipedWeapon.rarity == "A":
-                                $ background_color_style = AClassColor
-                            if my_protector.equipedWeapon.rarity == "S":
-                                $ background_color_style = SClassColor
-                                
-                            # Get original image size
-                            $ orig_width, orig_height = renpy.image_size(weapon_img)
-
-                            # Calculate proportional width
-                            $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                            # Scale the image
-                            $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
-
-                            if my_protector.status == "Available":
-                                $ action_button = Function(my_protector.unequip_weapon)
-                            else: 
-                                $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                            button:
-                                action action_button
-                                xpadding 4
-                                ypadding 4
-                                background background_color_style
-                                frame:
-                                    xalign 0.5 
-                                    add im.Composite(
-                                        (scale, scale),
-                                        (0, 0), empty_scaled,
-                                        ((scale - new_width) // 2, 0), weapon_scaled   
-                                    )
-
-
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        
-                        $ helmet_img = "images/equipment/no_helmet.png"
-                        $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
-                        
-                        $ body_img = "images/equipment/no_body.png"
-                        $ empty_body_scaled = im.Scale("images/background_item.png", scale, scale)
-                        
-                        $ pants_img = "images/equipment/no_pants.png"
-                        $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
-                        
-                        $ boots_img = "images/equipment/no_boots.png"
-                        $ empty_boots_scaled = im.Scale("images/background_item.png", scale, scale)
-                    vbox:
-                        xalign 0.5
-                        spacing 20
-                        
-                        hbox:
-                            xalign 0.5
-                            spacing 20
-                            
-
-                            if my_protector.equipedHelmet == None:
-                                $ helmet_img = "images/equipment/no_helmet.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(helmet_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "helmet")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_scaled,
-                                            ((scale - new_width) // 2, 0), helmet_scaled
-                                        )
-                            else:
-                                $ helmet_img = "images/equipment/{}_{}.png".format(my_protector.equipedHelmet.class_name, my_protector.equipedHelmet.type)
-                                $ helmet_scaled = im.Scale(helmet_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedHelmet.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                elif my_protector.equipedHelmet.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                elif my_protector.equipedHelmet.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                elif my_protector.equipedHelmet.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                elif my_protector.equipedHelmet.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(helmet_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "helmet")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_scaled,
-                                            ((scale - new_width) // 2, 0), helmet_scaled
-                                        )
-                            null height 10  # This adds 40 pixels of vertical space at the top
-                            if my_protector.equipedBodyArmor == None:
-                                $ body_img = "images/equipment/no_body.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ body_scaled = im.Scale(body_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "body")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_body_scaled,
-                                            ((scale - new_width) // 2, 0), body_scaled
-                                        )
-                            else:
-                                $ body_img = "images/equipment/{}_{}.png".format(my_protector.equipedBodyArmor.class_name, my_protector.equipedBodyArmor.type)
-                                $ body_scaled = im.Scale(body_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedBodyArmor.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                if my_protector.equipedBodyArmor.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                if my_protector.equipedBodyArmor.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                if my_protector.equipedBodyArmor.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                if my_protector.equipedBodyArmor.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(body_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ body_scaled = im.Scale(body_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "body")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_body_scaled,
-                                            ((scale - new_width) // 2, 0), body_scaled
-                                        )
-                        
-                        hbox:
-                            xalign 0.5
-                            spacing 20
-                            if my_protector.equipedPants == None:
-                                $ pants_img = "images/equipment/no_pants.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(pants_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ pants_scaled = im.Scale(pants_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "pants")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_pants_scaled,
-                                            ((scale - new_width) // 2, 0), pants_scaled
-                                        )
-                            else:
-                                $ pants_img = "images/equipment/{}_{}.png".format(my_protector.equipedPants.class_name, my_protector.equipedPants.type)
-                                $ pants_scaled = im.Scale(pants_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedPants.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                if my_protector.equipedPants.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                if my_protector.equipedPants.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                if my_protector.equipedPants.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                if my_protector.equipedPants.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(pants_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ pants_scaled = im.Scale(pants_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "pants")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_pants_scaled,
-                                            ((scale - new_width) // 2, 0), pants_scaled
-                                        )
-
-                            null height 10  # This adds 40 pixels of vertical space at the top
-                            if my_protector.equipedBoots == None:
-                                $ boots_img = "images/equipment/no_boots.png"
-
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(boots_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ boots_scaled = im.Scale(boots_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(show_equipments, my_protector, "boots")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background "#ffffff"
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_boots_scaled,
-                                            ((scale - new_width) // 2, 0), boots_scaled
-                                        )
-                            else:
-                                $ boots_img = "images/equipment/{}_{}.png".format(my_protector.equipedBoots.class_name, my_protector.equipedBoots.type)
-                                $ boots_scaled = im.Scale(boots_img, 200, 200)
-                                $ background_color_style = EClassColor
-                                if my_protector.equipedBoots.rarity == "D":
-                                    $ background_color_style = DClassColor
-                                if my_protector.equipedBoots.rarity == "C":
-                                    $ background_color_style = CClassColor
-                                if my_protector.equipedBoots.rarity == "B":
-                                    $ background_color_style = BClassColor
-                                if my_protector.equipedBoots.rarity == "A":
-                                    $ background_color_style = AClassColor
-                                if my_protector.equipedBoots.rarity == "S":
-                                    $ background_color_style = SClassColor
-                                # Get original image size
-                                $ orig_width, orig_height = renpy.image_size(boots_img)
-
-                                # Calculate proportional width
-                                $ new_width = int(orig_width * (scale / float(orig_height)))
-
-                                # Scale the image
-                                $ boots_scaled = im.Scale(boots_img, new_width, scale)
-
-                                if my_protector.status == "Available":
-                                    $ action_button = Function(my_protector.unequip_equipment, "boots")
-                                else: 
-                                    $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
-
-                                button:
-                                    action action_button
-                                    xpadding 4
-                                    ypadding 4
-                                    background background_color_style
-                                    frame:
-                                        xalign 0.5 
-                                        add im.Composite(
-                                            (scale, scale),
-                                            (0, 0), empty_boots_scaled,
-                                            ((scale - new_width) // 2, 0), boots_scaled
-                                        )
-                        null height 10  # This adds 40 pixels of vertical space at the top
-                    
-                # Text block - vertically centered on left side
-                vbox:
-                    spacing 20
-                    xalign 0.5
-                    yalign 0.5
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        text "Level: [my_protector.level]" size 25 color "#DDD"
-                        text "Stage: [my_protector.stage]" size 25 color "#DDD"
-                    vbox:
-                        xalign 0.5
-                        spacing 20
-                        bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-                        text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
-                        bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
-                        text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
-                        bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
-                        text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
-                        null height 10  # This adds 40 pixels of vertical space at the top
-                    hbox:
-                        xalign 0.5
-                        spacing 20
-                        vbox:
-                            xalign 0.5
-                            text "Strength:" size 22 color "#EEE"
-                            text "Constitution:" size 22 color "#EEE"
-                            text "Wisdom:" size 22 color "#EEE"
-                            text "Morality:" size 22 color "#EEE"
-                        vbox:
-                            xalign 0.5
-                            text "[str(my_protector.get_current_stats()['strength'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['constitution'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['wisdom'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['morality'])]" size 22 color "#EEE"
-                        vbox:
-                            null width 40  # This adds 40 pixels of vertical space at the top
-                        vbox:
-                            xalign 0.5
-                            text "Dexterity:" size 22 color "#EEE"
-                            text "Intelligence:" size 22 color "#EEE"
-                            text "Charisma:" size 22 color "#EEE"
-                            text "Luck:" size 22 color "#EEE"
-                        vbox:
-                            xalign 0.5
-                            text "[str(my_protector.get_current_stats()['dexterity'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['intelligence'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['charisma'])]" size 22 color "#EEE"
-                            text "[str(my_protector.get_current_stats()['luck'])]" size 22 color "#EEE"
-                    
-                    vbox:
-                        null width 40  # This adds 40 pixels of vertical space at the top
-                    vbox:
-                        null width 40  # This adds 40 pixels of vertical space at the top
-                    vbox:
-                        null width 40  # This adds 40 pixels of vertical space at the top
-                    hbox:
-                        xalign 0.5
-                        spacing 25
-                        vbox:
-                            xalign 0.5
-                            text "Real damage:" size 30 color "#EEE"
-                        vbox:
-                            xalign 0.5
-                            text "[str(my_protector.get_damage_points())]" size 30 color "#EEE"
 
 screen protector_selection(isThisMission):
     if isThisMission:

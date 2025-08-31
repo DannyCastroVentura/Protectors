@@ -567,13 +567,13 @@ init python:
 
             # get the defense depending on the type
             if self.type == "helmet":
-                base_defense = 1
+                base_defense = 8
             elif self.type == "body":
-                base_defense = 5
+                base_defense = 25
             elif self.type == "pants":
-                base_defense = 4
+                base_defense = 17
             elif self.type == "boots":
-                base_defense = 2
+                base_defense = 12
             
             # get the defense depending on the class_name
             if self.class_name == "Dexterity":
@@ -597,13 +597,13 @@ init python:
             elif self.rarity == "D":
                 base_defense = base_defense * 2
             elif self.rarity == "C":
-                base_defense = base_defense * 3
-            elif self.rarity == "B":
                 base_defense = base_defense * 4
-            elif self.rarity == "A":
-                base_defense = base_defense * 5
-            elif self.rarity == "S":
+            elif self.rarity == "B":
                 base_defense = base_defense * 7
+            elif self.rarity == "A":
+                base_defense = base_defense * 11
+            elif self.rarity == "S":
+                base_defense = base_defense * 16
 
             self.defense = int(base_defense)
             
