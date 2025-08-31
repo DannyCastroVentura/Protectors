@@ -2,8 +2,6 @@ init python:
     import random
 
     levelAttributeIncrements = 1
-    
-    total_evolution_increment = 0.50
             
     # define the base multiplier per rank
     rank_multipliers = {
@@ -389,14 +387,14 @@ init python:
                 if searchingAttributeName in increment_array:
                     count_times_there = increment_array.count(searchingAttributeName)
                     # check how much increment are we going to add to this attribute
-                    totalIncrement += total_evolution_increment / len(increment_array) * count_times_there
+                    totalIncrement += percentage_for_increasing_on_evolutions / len(increment_array) * count_times_there
                     
                 # check if this attribute is one of the attributes which will get that decrementation
                 decrement_array = evolution_increment_map[choosed_evolution]["decrease"]
                 if searchingAttributeName in decrement_array:
                     count_times_there = decrement_array.count(searchingAttributeName)
                     # check how much increment are we going to add to this attribute
-                    totalIncrement -= total_evolution_increment / len(decrement_array) * count_times_there
+                    totalIncrement -= percentage_for_decreasing_on_evolutions / len(decrement_array) * count_times_there
             return totalIncrement
     
         def promote(self):

@@ -136,14 +136,14 @@ label start:
     
     #
     # TODOS:
-    #
-    # TODO: [ PRIO 1 ] update the decrease attributes for the evolutions
     # 
     # TODO: [ PRIO 1 ] update the protector detail to:
     #   -   have in left top - equipment
     #   -   have in left bottom - attributes
     #   -   middle - image of the protector
-    #   -   left side - damage / defense / evasion / and so on
+    #   -   left side - damage / defense / evasion / morality and so on - delete the morality from the status, as this is not on of them -> instead add Speed attribute - which will update atack speed also, and attack speed we can also add there.
+    # 
+    # TODO: [ PRIO 1 ] ONCE I UPDATE THE PROTECTOR DETAIL - I ALSO NEED TO UPDATE THE EVOLUTION screen (delete the morality from the status)
     # 
     # TODO: [ PRIO 1 ] work on a priest protector
     # 

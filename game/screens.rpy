@@ -2443,13 +2443,13 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                 
                 # getting the number of increasing att we are going to get
                 $ number_of_improvements = len(increase_array)
-                $ increasing_percentage = int(50 / number_of_improvements)
+                $ increasing_percentage = int(percentage_for_increasing_on_evolutions * 100 / number_of_improvements)
 
                 # getting the number of decreasing att we are going to get
                 $ number_of_improvements = len(decrease_array)
                 $ decreasing_percentage = 0
                 if number_of_improvements != 0:
-                    $ decreasing_percentage = int(50 / number_of_improvements)
+                    $ decreasing_percentage = int(percentage_for_decreasing_on_evolutions * 100 / number_of_improvements)
 
                 $ str_t_color = "#EEE"
                 $ con_t_color = "#EEE"
@@ -2496,12 +2496,14 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                     $ percentage_change = decreasing_percentage * decrease_array.count("Wisdom")
                     $ wis_t_color = "#F44336"
                     $ wis_text = str(current_stats['wisdom']) + " → " + str(evolution_stats['wisdom']) + " (-" + str(percentage_change) + "%)"
-                if "Morality" in increase_array:
-                    $ percentage_change = increasing_percentage * increase_array.count("Morality")
+                if current_stats['morality'] < evolution_stats['morality']:
+                    $ difference = evolution_stats['morality'] - current_stats['morality']
+                    $ percentage_change = difference * 100 / current_stats['morality']
                     $ mor_t_color = "#4CAF50"
-                    $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality']) + " (+" + str(percentage_change) + "%)"
-                elif "Morality" in decrease_array:
-                    $ percentage_change = decreasing_percentage * decrease_array.count("Morality")
+                    $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality']) + " (+" + str(int(percentage_change)) + "%)"
+                elif current_stats['morality'] > evolution_stats['morality']:
+                    $ difference =  current_stats['morality'] - evolution_stats['morality']
+                    $ percentage_change = difference * 100 / current_stats['morality']
                     $ mor_t_color = "#F44336"
                     $ mor_text = str(current_stats['morality']) + " → " + str(evolution_stats['morality']) + " (-" + str(percentage_change) + "%)"
                 if "Dexterity" in increase_array:

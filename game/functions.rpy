@@ -82,82 +82,85 @@ init python:
             }
         }
 
+    # TODO: Once I have the speed attribute, I should update them to also add, or lose some speed
     if 'evolution_increment_map' not in globals():
         evolution_increment_map = {
             "DAM": {
                 "increase": [ "Dexterity", "Strength" ],
-                "decrease": [ "Constitution" ]
+                "decrease": [ "Intelligence", "Wisdom" ]
             },
             "DEX": {
                 "increase": [ "Dexterity", "Dexterity", "Strength", "Luck" ],
-                "decrease": []
+                "decrease": [ "Intelligence", "Wisdom" ]
             },
             "DEX_TAN": {
                 "increase": [ "Dexterity", "Dexterity", "Strength", "Constitution" ],
-                "decrease": []
+                "decrease": [ "Intelligence", "Wisdom" ]
             },
             "STR": {
                 "increase": [ "Strength", "Strength", "Dexterity", "Constitution" ],
-                "decrease": []
+                "decrease": [ "Intelligence", "Wisdom" ]
             },
             "STR_ONLY": {
                 "increase": [ "Strength" ],
-                "decrease": []
+                "decrease": [ "Intelligence", "Wisdom", "Luck" ]
             },
             "STR_STR_STR_CON": {
                 "increase": [ "Strength", "Strength", "Strength", "Constitution" ],
-                "decrease": []
+                "decrease": [ "Intelligence", "Wisdom", "Luck" ]
             },
             "INT": {
                 "increase": [ "Intelligence", "Intelligence", "Wisdom" ],
-                "decrease": []
+                "decrease": [ "Strength", "Dexterity", "Luck" ]
             },
             "INT_TAN": {
                 "increase": [ "Intelligence", "Intelligence", "Constitution", "Constitution", "Wisdom" ],
-                "decrease": []
+                "decrease": [ "Strength", "Dexterity", "Luck" ]
             },
             "INT_EVA": {
                 "increase": [ "Intelligence", "Intelligence", "Dexterity", "Dexterity", "Wisdom", "Luck"],
-                "decrease": []
+                "decrease": [ "Strength", "Dexterity" ]
             },
             "TAN": {
                 "increase": [ "Constitution", "Constitution", "Strength" ],
-                "decrease": []
+                "decrease": [ "Intelligence" ]
             },
             "MIR_CON": {
                 "increase": [ "Wisdom", "Wisdom", "Constitution" ],
-                "decrease": []
+                "decrease": [ "Dexterity", "Luck"]
             },
             "MIR_TAN": {
                 "increase": [ "Wisdom", "Wisdom", "Strength", "Constitution" ],
-                "decrease": []
+                "decrease": [ "Intelligence" ]
             },
             "MIR_STR_STR": {
                 "increase": [ "Wisdom", "Strength", "Strength", "Constitution"],
-                "decrease": []
+                "decrease": [ "Intelligence", "Luck"]
             },
             "MIR_MIR_DEX": {
                 "increase": [ "Wisdom", "Wisdom", "Dexterity"],
-                "decrease": []
+                "decrease": [ "Intelligence", "Strength"]
             },
             "SHI": {
                 "increase": [ "Constitution", "Constitution", "Dexterity" ],
-                "decrease": []
+                "decrease": [ "Luck", "Strength" ]
             },
             "HP": {
                 "increase": [ "Constitution" ],
-                "decrease": []
+                "decrease": [ "Dexterity", "Strength", "Wisdom", "Luck", "Intelligence" ]
             },
             "EVA": {
                 "increase": [ "Dexterity", "Dexterity", "Luck", "Constitution" ],
-                "decrease": []
+                "decrease": [ "Strength", "Intelligence", "Wisdom" ]
             },
             "CRI": {
                 "increase": [ "Dexterity", "Dexterity", "Luck" ],
-                "decrease": []
+                "decrease": [ "Strength", "Constitution", "Intelligence", "Wisdom" ]
             }
         }
 
+    percentage_for_increasing_on_evolutions = 0.50
+    percentage_for_decreasing_on_evolutions = 0.25
     
     dynamic_backgrounds = {}
 
