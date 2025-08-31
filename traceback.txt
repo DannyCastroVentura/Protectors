@@ -11,15 +11,6 @@ While running game code:
                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 StopIteration
 
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "game/script.rpy", line 60, in script
-    $ initializing_things()
-  File "game/script.rpy", line 60, in script
-    $ initializing_things()
-Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
-
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
@@ -39,119 +30,7 @@ Traceback (most recent call last):
                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 StopIteration
 
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "renpy/bootstrap.py", line 376, in bootstrap
-    renpy.main.main()
-    ~~~~~~~~~~~~~~~^^
-  File "renpy/main.py", line 614, in main
-    run(restart)
-    ~~~^^^^^^^^^
-  File "renpy/main.py", line 137, in run
-    renpy.execution.run_context(True)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "renpy/execution.py", line 1022, in run_context
-    context.run()
-    ~~~~~~~~~~~^^
-  File "game/script.rpy", line 60, in script
-    $ initializing_things()
-  File "game/script.rpy", line 60, in script
-    $ initializing_things()
-  File "renpy/display/error.py", line 135, in report_exception
-    renpy.game.invoke_in_new_context(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        call_exception_screen,
-        ^^^^^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        ignore_action=ignore_action,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "renpy/game.py", line 301, in invoke_in_new_context
-    return callable(*args, **kwargs)
-           ~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "renpy/display/error.py", line 44, in call_exception_screen
-    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
-           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ui.py", line 304, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2219, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )  # type: ignore
-    ^                
-  File "renpy/display/core.py", line 3302, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 805, in event
-    rv = self.child.event(ev, x, y, st)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1508, in event
-    rv = super(Window, self).event(ev, x, y, st)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 273, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 273, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/behavior.py", line 1184, in event
-    return handle_click(self.clicked)
-           ~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/behavior.py", line 1107, in handle_click
-    rv = run(action)
-         ~~~^^^^^^^^
-  File "renpy/display/behavior.py", line 411, in run
-    return action(*args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^
-  File "renpy/display/error.py", line 51, in rollback_action
-    renpy.exports.rollback(force=True)
-    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
-  File "renpy/exports/rollbackexports.py", line 233, in rollback
-    renpy.game.log.rollback(
-    ~~~~~~~~~~~~~~~~~~~~~~~^
-        checkpoints, greedy=greedy, label=label, force=(force is True), abnormal=abnormal, current_label=current_label
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "renpy/rollback.py", line 950, in rollback
-    self.load_failed()
-    ~~~~~~~~~~~~~~~~^^
-  File "renpy/rollback.py", line 864, in load_failed
-    raise Exception(
-        "Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?"
-    )
-Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
-
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Fri Aug 29 18:48:20 2025
+Sun Aug 31 14:00:31 2025

@@ -528,6 +528,7 @@ init python:
             self.base_damage = base_damage # damage
             self.rarity = rarity
 
+
     class Equipment:
         _id_counter = 0
         def __init__(self, name, description, equipment_type, class_name, prio1, prio2, rarity):

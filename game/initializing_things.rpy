@@ -9,6 +9,9 @@ init python:
         global equipments
         global myEquipments
 
+        Equipment._id_counter = 0   # Reset the counter
+        Weapon._id_counter = 0   # Reset the counter
+        Mission._id_counter = 0   # Reset the counter
 
         # creating protectors    
         protectors_base_information["Ninja"] = BaseProtectorData(

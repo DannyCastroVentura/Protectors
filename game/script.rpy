@@ -137,6 +137,8 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: [ PRIO 1 ] fix the error: when I start, if I go to the main menu and start again - I get an error
+    # 
     # TODO: [ PRIO 1 ] add another type for the weapons: Divine (increase damage with wisdom)
     # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
