@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 250: invalid syntax
-    elif: self.basePoints.unarmed_damage_type == "Magic":
-            ^
+File "game/classes.rpy", line 317: expected an indented block after 'if' statement on line 315
+    if self.equipedBodyArmor != None:
+        ^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Aug 29 18:04:33 2025
+Sun Aug 31 17:28:47 2025

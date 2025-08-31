@@ -137,21 +137,18 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] fix the error: when I start, if I go to the main menu and start again - I get an error
+    # TODO: [ PRIO 1 ] work on a priest protector
     # 
-    # TODO: [ PRIO 1 ] add another type for the weapons: Divine (increase damage with wisdom)
+    # TODO: [ PRIO 1 ] show the new information:
+    #   -   weapon -> show the new information on its detail
+    #   -   equipment -> show the new information on its detail
+    #   -   protector -> show the new information on its detail
     # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
     #   -   robot - this will be the tanky one (lets try it :) )
     #   -   skeleton
-    #
-    # TODO: [ PRIO 1 ] make the pictures of the protectors not to be much larger -> if needed, we need to make them taller
     # 
-    # TODO: [ PRIO 1 ] make each weapon have the field "range" so it has melee or ranged
-    # 
-    # TODO: [ PRIO 1 ] make the armor also to add some stats to the defense - independent on stats (like what we do with the weapons)
-    # 
-    # TODO: [ PRIO 1 ] add at least 5 weapons of each in initializing_things: 
+    # TODO: [ PRIO 1 ] add at least 1 weapons of each in initializing_things per rarity: 
     #   -   wand
     #   -   gun
     #   -   machine gun

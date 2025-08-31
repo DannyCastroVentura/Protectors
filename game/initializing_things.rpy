@@ -367,6 +367,7 @@ init python:
             "Knife", 
             "Dexterity",
             30,
+            "Melee",
             'E'))
         
         weapons.append(Weapon("Templar Greatsword", 
@@ -374,12 +375,14 @@ init python:
             "Greatsword", 
             "Strength",
             35,
+            "Melee",
             'E'))
         weapons.append(Weapon("Principiant Wand",
             "A wand used by the iniciants on magic training.",
             "Wand",
             "Magic",
             25,
+            "Ranged",
             'E'))
         
         weapons.append(Weapon("Gambling Cards",
@@ -387,6 +390,7 @@ init python:
             "Cards",
             "Dexterity",
             27,
+            "Ranged",
             'E'))
         
         weapons.append(Weapon("Deadman Cards",
@@ -394,6 +398,7 @@ init python:
             "Cards",
             "Divine",
             27,
+            "Ranged",
             'E'))
         
         weapons.append(Weapon("Samurai Rusty Katana", 
@@ -401,6 +406,7 @@ init python:
             "Katana", 
             "Strength",
             28,
+            "Melee",
             'E'))
         
         weapons.append(Weapon("Combat knife", 
@@ -408,6 +414,7 @@ init python:
             "Knife", 
             "Strength",
             26,
+            "Melee",
             'E'))
         
         weapons.append(Weapon("Combat Pistol", 
@@ -415,6 +422,7 @@ init python:
             "Gun", 
             "Dexterity",
             26,
+            "Ranged",
             'E'))
 
         weapons.append(Weapon("Ironclad Mace",
@@ -422,6 +430,7 @@ init python:
             "Mace",
             "Strength",
             32,
+            "Melee",
             'E'))
         
         weapons.append(Weapon("Elderwood Staff",
@@ -429,6 +438,7 @@ init python:
             "Staff",
             "Magic",
             25,
+            "Ranged",
             'E'))
 
         weapons.append(Weapon("Whisperwind", 
@@ -436,6 +446,7 @@ init python:
             "Spear", 
             "Dexterity",
             28,
+            "Melee",
             'E'))
 
         weapons.append(Weapon("Small Vikings Axe", 
@@ -443,6 +454,7 @@ init python:
             "Axe", 
             "Strength",
             25,
+            "Melee",
             'E'))
 
         weapons.append(Weapon("Gale Hammer", 
@@ -450,6 +462,7 @@ init python:
             "Hammer", 
             "Strength",
             30,
+            "Melee",
             'E'))
 
         weapons.append(Weapon("Iron Sword", 
@@ -457,6 +470,7 @@ init python:
             "Sword", 
             "Strength",
             33,
+            "Melee",
             'E'))
 
         weapons.append(Weapon("Shadow Sword", 
@@ -464,6 +478,7 @@ init python:
             "Sword", 
             "Dexterity",
             29,
+            "Melee",
             'E'))
             
         weapons.append(Weapon("Swiftfang",
@@ -471,6 +486,7 @@ init python:
             "Knife",
             "Dexterity",
             35,
+            "Melee",
             'E'))
 
         weapons.append(Weapon("Moonlit Spear",
@@ -478,6 +494,7 @@ init python:
             "Spear",
             "Magic",
             30,
+            "Melee",
             'E'))
 
         weapons.append(Weapon("Crimson Axe",
@@ -485,7 +502,114 @@ init python:
             "Axe",
             "Strength",
             38,
+            "Melee",
             'E'))
+
+        weapons.append(Weapon("Greatsword of Absolution", 
+            "A radiant blade said to carry the judgment of the heavens.", 
+            "Greatsword", 
+            "Divine",
+            42,
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Novice’s Prayer Wand",
+            "A simple wand blessed with light, used in the first rites of priests.",
+            "Wand",
+            "Divine",
+            31,
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Saint’s Last Gamble",
+            "Cards left behind by a martyr, glowing with celestial power.",
+            "Cards",
+            "Divine",
+            39,
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Katana of Serenity", 
+            "A blessed blade said to bring peace to both wielder and foe.", 
+            "Katana", 
+            "Divine",
+            37,
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Sacred Pistol", 
+            "A relic sidearm consecrated in holy fire, its shots pierce evil itself.",
+            "Gun", 
+            "Divine",
+            34,
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Mace of Benediction",
+            "A heavy mace engraved with prayers, crushing enemies with divine weight.",
+            "Mace",
+            "Divine",
+            41,
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Staff of Revelation",
+            "A sacred staff said to connect its wielder directly to the divine.",
+            "Staff",
+            "Divine",
+            33,
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Hammer of Virtue", 
+            "A massive hammer that resonates with holy hymns when swung.", 
+            "Hammer", 
+            "Divine",
+            40,
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Sword of Radiance", 
+            "A shining blade that blinds foes with its heavenly brilliance.", 
+            "Sword", 
+            "Divine",
+            38,
+            "Melee",
+            'E'))
+                    
+        weapons.append(Weapon("Sanctified Fang",
+            "A consecrated dagger, small but deadly against creatures of darkness.",
+            "Knife",
+            "Divine",
+            37,
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Spear of Dawn",
+            "A long spear blessed by the morning sun, piercing shadows with light.",
+            "Spear",
+            "Divine",
+            39,
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Axe of the Martyr",
+            "An enormous axe wielded by fallen saints, still carrying their devotion.",
+            "Axe",
+            "Divine",
+            44,
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Rusty Bible",
+            "An old, worn bible with faded pages; its holy words still carry a faint power.",
+            "Book",
+            "Divine",
+            29,
+            "Ranged",
+            "E"))
+
+
         
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # D CLASS
@@ -494,6 +618,7 @@ init python:
             "Knife", 
             "Dexterity",
             72,
+            "Melee",
             'D'))
 
         weapons.append(Weapon("Sentinel’s War Mace",
@@ -501,6 +626,7 @@ init python:
             "Mace",
             "Strength",
             85,
+            "Melee",
             'D'))
 
         weapons.append(Weapon("Runebark Staff",
@@ -508,6 +634,7 @@ init python:
             "Staff",
             "Magic",
             78,
+            "Ranged",
             'D'))
 
         weapons.append(Weapon("Stormpiercer Lance", 
@@ -515,6 +642,7 @@ init python:
             "Spear", 
             "Dexterity",
             80,
+            "Melee",
             'D'))
 
         weapons.append(Weapon("Mage Lance", 
@@ -522,6 +650,7 @@ init python:
             "Spear", 
             "Magic",
             88,
+            "Melee",
             'D'))
 
         weapons.append(Weapon("Raven’s Bite Axe", 
@@ -529,6 +658,7 @@ init python:
             "Axe", 
             "Strength",
             88,
+            "Melee",
             'D'))
 
         weapons.append(Weapon("Thunderstrike Hammer", 
@@ -536,6 +666,7 @@ init python:
             "Hammer", 
             "Strength",
             90,
+            "Melee",
             'D'))
 
         weapons.append(Weapon("Bloodforged Blade", 
@@ -543,6 +674,7 @@ init python:
             "Sword", 
             "Strength",
             79,
+            "Melee",
             'D'))
 
         weapons.append(Weapon("Moonveil Saber", 
@@ -550,7 +682,122 @@ init python:
             "Sword", 
             "Dexterity",
             84,
+            "Melee",
             'D'))
+
+        weapons.append(Weapon("Greatsword of Eternal Judgment", 
+            "A colossal blade forged in celestial flames, delivering divine verdicts with every strike.", 
+            "Greatsword", 
+            "Divine",
+            95,
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Wand of Ascension",
+            "A radiant wand said to channel the whispers of the heavens themselves.",
+            "Wand",
+            "Divine",
+            72,
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Deck of Prophecy",
+            "Golden cards that reveal fate’s deepest secrets and smite the unworthy.",
+            "Cards",
+            "Divine",
+            84,
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Gambit of Eternity",
+            "A saint’s final relic, each card a fragment of divine destiny.",
+            "Cards",
+            "Divine",
+            88,
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Katana of Transcendence", 
+            "A flawless blade that glows with divine serenity, cleaving both body and spirit.", 
+            "Katana", 
+            "Divine",
+            91,
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Pistol of the Seraphim", 
+            "A consecrated firearm that fires bullets of pure light, burning through evil.", 
+            "Gun", 
+            "Divine",
+            82,
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Mace of Eternal Light",
+            "An immense mace infused with celestial hymns, its blows echo with divine wrath.",
+            "Mace",
+            "Divine",
+            90,
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Staff of the High Oracle",
+            "A legendary staff pulsing with the raw essence of divinity, guiding its wielder to enlightenment.",
+            "Staff",
+            "Divine",
+            85,
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Hammer of Sacred Wrath", 
+            "A titanic hammer that carries the unshakable fury of the heavens.", 
+            "Hammer", 
+            "Divine",
+            94,
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Blade of Divine Glory", 
+            "A sword so radiant it blinds enemies with holy brilliance before the killing blow.", 
+            "Sword", 
+            "Divine",
+            89,
+            "Melee",
+            'D'))
+                            
+        weapons.append(Weapon("Fang of the Seraph",
+            "A dagger blessed by the angels, swift as light and lethal to all darkness.",
+            "Knife",
+            "Divine",
+            87,
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Spear of the Sun’s Wrath",
+            "A blazing spear infused with the eternal fire of the morning star.", 
+            "Spear",
+            "Divine",
+            92,
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Axe of Divine Retribution",
+            "A monstrous axe wielded by celestial champions, sundering foes with one strike.", 
+            "Axe",
+            "Divine",
+            98,
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Blessed Tome",
+            "A well-kept holy book, its pages imbued with divine energy that can strike the wicked.",
+            "Book",
+            "Divine",
+            95,
+            "Ranged",
+            "D"))
+
+
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # C CLASS
         weapons.append(Weapon("Dragon's Breath", 
@@ -558,6 +805,7 @@ init python:
             "Sword", 
             "Strength",
             150,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Earthshaker", 
@@ -565,6 +813,7 @@ init python:
             "Axe", 
             "Strength",
             180,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Arcane Edge", 
@@ -572,6 +821,7 @@ init python:
             "Sword", 
             "Magic",
             120,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Frostbite", 
@@ -579,6 +829,7 @@ init python:
             "Axe", 
             "Strength",
             130,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Stormpiercer", 
@@ -586,6 +837,7 @@ init python:
             "Spear", 
             "Magic",
             110,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Venomfang", 
@@ -593,6 +845,7 @@ init python:
             "Knife", 
             "Dexterity",
             115,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Celestial Staff", 
@@ -600,6 +853,7 @@ init python:
             "Staff", 
             "Magic",
             140,
+            "Ranged",
             "C"))
 
         weapons.append(Weapon("Bloodfang", 
@@ -607,6 +861,7 @@ init python:
             "Sword", 
             "Strength",
             160,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Emberclaw", 
@@ -614,6 +869,7 @@ init python:
             "Axe", 
             "Strength",
             170,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Mystic Dagger", 
@@ -621,6 +877,7 @@ init python:
             "Knife", 
             "Magic",
             125,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Silverlight", 
@@ -628,6 +885,7 @@ init python:
             "Sword", 
             "Magic",
             135,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Warbreaker", 
@@ -635,6 +893,7 @@ init python:
             "Axe", 
             "Strength",
             220,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Soulpiercer", 
@@ -642,6 +901,7 @@ init python:
             "Knife", 
             "Magic",
             130,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Dragonclaw", 
@@ -649,6 +909,7 @@ init python:
             "Sword", 
             "Dexterity",
             140,
+            "Melee",
             "C"))
 
 
@@ -657,6 +918,7 @@ init python:
             "Hammer", 
             "Strength",
             300,
+            "Melee",
             "C"))
             
         weapons.append(Weapon("Fang of the Wolf",
@@ -664,6 +926,7 @@ init python:
             "Sword",
             "Dexterity",
             140,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Blazefury",
@@ -671,6 +934,7 @@ init python:
             "Sword",
             "Strength",
             220,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Thunderstrike Lance",
@@ -678,6 +942,7 @@ init python:
             "Spear",
             "Magic",
             180,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Venomous Claw",
@@ -685,6 +950,7 @@ init python:
             "Knife",
             "Dexterity",
             130,
+            "Melee",
             "C"))
 
         weapons.append(Weapon("Stonebreaker",
@@ -692,6 +958,119 @@ init python:
             "Hammer",
             "Strength",
             210,
+            "Melee",
+            "C"))
+
+        weapons.append(Weapon("Greatsword of Final Dawn", 
+            "A massive blade said to split the heavens themselves, ending darkness forever.", 
+            "Greatsword", 
+            "Divine",
+            172,
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Wand of Eternal Grace",
+            "A sacred wand that channels the pure light of eternity, burning away corruption.",
+            "Wand",
+            "Divine",
+            138,
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Deck of the Archangel",
+            "A divine deck of golden cards said to carry the will of celestial hosts.",
+            "Cards",
+            "Divine",
+            145,
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Gambit of Salvation",
+            "A relic deck, each card a fragment of divine law, reshaping fate itself.",
+            "Cards",
+            "Divine",
+            159,
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Katana of Eternal Purity", 
+            "A flawless white blade forged in divine starlight, cleaving shadow from existence.", 
+            "Katana", 
+            "Divine",
+            166,
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Pistol of Heaven’s Oath", 
+            "A radiant pistol firing bolts of consecrated flame that pierce all defenses.", 
+            "Gun", 
+            "Divine",
+            141,
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Mace of Sacred Dominion",
+            "A colossal mace whose strikes echo like thunder, shaking even the heavens.",
+            "Mace",
+            "Divine",
+            175,
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Staff of Divine Eternity",
+            "A legendary staff that channels the endless song of the heavens into raw power.",
+            "Staff",
+            "Divine",
+            152,
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Hammer of the Archons", 
+            "A god-forged hammer capable of shattering mountains with a single blow.", 
+            "Hammer", 
+            "Divine",
+            188,
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Blade of Holy Cataclysm", 
+            "A shining sword that releases blinding waves of celestial fire with each strike.", 
+            "Sword", 
+            "Divine",
+            161,
+            "Melee",
+            'C'))
+                            
+        weapons.append(Weapon("Fang of Eternal Light",
+            "A sanctified dagger imbued with pure radiance, swift as thought, fatal as judgment.",
+            "Knife",
+            "Divine",
+            143,
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Spear of the Dawnbringer",
+            "A divine spear said to channel the first light of creation itself.", 
+            "Spear",
+            "Divine",
+            177,
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Axe of Celestial Wrath",
+            "An axe wielded only by divine champions, splitting earth and sky alike.", 
+            "Axe",
+            "Divine",
+            194,
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sacred Codex",
+            "A revered tome glowing with divine light, capable of delivering powerful holy strikes.",
+            "Book",
+            "Divine",
+            189,
+            "Ranged",
             "C"))
 
         
@@ -702,6 +1081,7 @@ init python:
             "Sword", 
             "Magic",
             520,
+            "Melee",
             "B"))
 
         weapons.append(Weapon("Colossus Crusher", 
@@ -709,6 +1089,7 @@ init python:
             "Hammer", 
             "Strength",
             580,
+            "Melee",
             "B"))
 
         weapons.append(Weapon("Dragonlord's Fury", 
@@ -716,6 +1097,7 @@ init python:
             "Spear",
             "Strength",
             540,
+            "Melee",
             "B"))
 
         weapons.append(Weapon("Nightmare Edge", 
@@ -723,6 +1105,7 @@ init python:
             "Sword",
             "Magic",
             510,
+            "Melee",
             "B"))
             
         weapons.append(Weapon("Obsidian Edge",
@@ -730,6 +1113,7 @@ init python:
             "Sword",
             "Strength",
             580,
+            "Melee",
             "B"))
 
         weapons.append(Weapon("Celestial Wrath",
@@ -737,6 +1121,7 @@ init python:
             "Staff",
             "Magic",
             650,
+            "Ranged",
             "B"))
 
         weapons.append(Weapon("Silent Gale",
@@ -744,6 +1129,7 @@ init python:
             "Spear",
             "Dexterity",
             510,
+            "Melee",
             "B"))
 
         weapons.append(Weapon("Shadowfang Reaper",
@@ -751,6 +1137,7 @@ init python:
             "Knife",
             "Dexterity",
             540,
+            "Melee",
             "B"))
 
             
@@ -759,7 +1146,113 @@ init python:
             "Axe",
             "Strength",
             720,
+            "Melee",
             "B"))
+
+        weapons.append(Weapon("Greatsword of the Seraphim", 
+            "A colossal blade wreathed in celestial fire, each swing unleashing holy cataclysms.", 
+            "Greatsword", 
+            "Divine",
+            712,
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Wand of the Eternal Choir",
+            "A crystalline wand that sings with the voices of angels, channeling infinite light.",
+            "Wand",
+            "Divine",
+            498,
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Gambit of Infinity",
+            "A legendary relic deck, its cards contain fragments of eternity itself.",
+            "Cards",
+            "Divine",
+            621,
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Katana of Celestial Harmony", 
+            "A perfect blade that balances the cosmos, severing shadow and chaos alike.", 
+            "Katana", 
+            "Divine",
+            689,
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Pistol of Eternal Flame", 
+            "A divine firearm that fires burning stars, consuming both flesh and spirit.", 
+            "Gun", 
+            "Divine",
+            542,
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Mace of the Archangel",
+            "An immense weapon that carries the wrath of heaven, shaking the world upon impact.",
+            "Mace",
+            "Divine",
+            533,
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Staff of the Infinite Light",
+            "A radiant staff overflowing with endless divine energy, burning with creation’s first spark.",
+            "Staff",
+            "Divine",
+            607,
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Hammer of the Pantheon", 
+            "A god-forged relic that channels the fury of countless divine beings.", 
+            "Hammer", 
+            "Divine",
+            546,
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Sword of the Dawn Eternal", 
+            "A blade so radiant it blinds even gods, cutting through time and destiny.", 
+            "Sword", 
+            "Divine",
+            558,
+            "Melee",
+            'B'))
+                            
+        weapons.append(Weapon("Fang of the Archseraph",
+            "A dagger that strikes with blinding light, faster than mortal eyes can follow.",
+            "Knife",
+            "Divine",
+            493,
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Spear of the First Light",
+            "A spear that channels the dawn of creation, shattering all darkness.", 
+            "Spear",
+            "Divine",
+            701,
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Axe of the Divine Tempest",
+            "An enormous axe that calls down storms of holy fire with every strike.", 
+            "Axe",
+            "Divine",
+            539,
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Grimoire of Celestial Wrath",
+            "An enormous tome radiating divine power, capable of unleashing devastating holy judgment upon all who oppose it.",
+            "Book",
+            "Divine",
+            630,
+            "Ranged",
+            "B"))
+
 
         
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #  
@@ -770,6 +1263,7 @@ init python:
             "Staff",
             "Magic",
             810,
+            "Ranged",
             "A"))
 
         weapons.append(Weapon("Phantom Lance",
@@ -777,6 +1271,7 @@ init python:
             "Spear",
             "Dexterity",
             900,
+            "Melee",
             "A"))
 
         weapons.append(Weapon("Titan's Grasp",
@@ -784,6 +1279,7 @@ init python:
             "Axe",
             "Strength",
             890,
+            "Melee",
             "A"))
 
         weapons.append(Weapon("Ethereal Lance",
@@ -791,6 +1287,7 @@ init python:
             "Spear",
             "Magic",
             1100,
+            "Melee",
             "A"))
 
         weapons.append(Weapon("Soulrend Dagger",
@@ -798,15 +1295,26 @@ init python:
             "Knife",
             "Dexterity",
             1020,
+            "Melee",
             "A"))
+
+        weapons.append(Weapon("Codex of the Eternal Light",
+            "An ancient tome radiating divine power, capable of striking the souls of the wicked with celestial fury.",
+            "Book",
+            "Divine",
+            1045,
+            "Ranged",
+            "A"))
+
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #  
         # S CLASS
         weapons.append(Weapon("Dragonfire Greatsword",
             "A legendary sword engulfed in eternal flames of a dragon.",
-            "Sword",
-            "Strength",
-            1250,
+            "Greatsword",
+            "Divine",
+            1650,
+            "Ranged",
             "S"))
 
         weapons.append(Weapon("Worldbreaker Hammer",
@@ -814,6 +1322,7 @@ init python:
             "Hammer",
             "Strength",
             1400,
+            "Melee",
             "S"))
 
         weapons.append(Weapon("Archmage's Staff",
@@ -821,6 +1330,7 @@ init python:
             "Staff",
             "Magic",
             1350,
+            "Ranged",
             "S"))
 
         weapons.append(Weapon("Venomstrike Razor",
@@ -828,7 +1338,18 @@ init python:
             "Knife",
             "Dexterity",
             1425,
+            "Melee",
             "S"))
+            
+
+        weapons.append(Weapon("Grimoire of Celestial Judgment",
+            "A legendary tome imbued with the wrath of the heavens, each word capable of obliterating the soul of any mortal or demon.",
+            "Book",
+            "Divine",
+            1420,
+            "Ranged",
+            "S"))
+
 
         weapon = next(w for w in weapons if w.name == "Thieves knife")
         initial_weapons_choice.append(weapon.weapon_id)
