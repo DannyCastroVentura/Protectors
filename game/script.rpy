@@ -137,6 +137,10 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: [ PRIO 1 ] follow the same logic I'm doing for the defense on equipments on:
+    #   -   percentages of increasing attributes on equipments
+    #   -   damage on weapons
+    # 
     # TODO: [ PRIO 1 ] update the protector detail to:
     #   -   have in left top - equipment
     #   -   have in left bottom - attributes
