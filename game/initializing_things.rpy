@@ -1248,8 +1248,6 @@ init python:
             "A lightweight hood for agility and quick movements.",
             "helmet",
             "Evasion",
-            0.3,
-            0.3,
             "E"
         ))
 
@@ -1258,8 +1256,6 @@ init python:
             "Wings of a fallen phoenix, offering extreme fire resistance and a chance to rise from the ashes.",
             "body",
             "Tank",
-            0.85,
-            0.5,
             "D"
         ))
 
@@ -1268,8 +1264,6 @@ init python:
             "Pants worn by the vanguard, enhancing defense and fortitude.",
             "pants",
             "Tank",
-            1.5,
-            0.9,
             "C"
         ))
 
@@ -1278,8 +1272,6 @@ init python:
             "Boots that provide incredible movement speed and stamina, perfect for relentless combat.",
             "boots",
             "Tank",
-            2.8,
-            1.9,
             "B"
         ))
         
@@ -1288,8 +1280,6 @@ init python:
             "A helmet that sharpens reflexes and boosts critical hit chance.",
             "helmet",
             "Critical",
-            4.8,
-            2.7,
             "A"
         ))
 
@@ -1302,8 +1292,6 @@ init python:
             "A sturdy helmet made of reinforced iron. Offers good protection.",
             "helmet",
             "Tank",
-            0.25,
-            0.1,
             "E"
         ))
         
@@ -1312,8 +1300,6 @@ init python:
             "A sturdy body armor made of reinforced iron. Offers good protection.",
             "body",
             "Tank",
-            0.25,
-            0.1,
             "D"
         ))
 
@@ -1322,8 +1308,6 @@ init python:
             "A sturdy pants made of reinforced iron. Offers good protection.",
             "pants",
             "Tank",
-            0.25,
-            0.1,
             "C"
         ))
 
@@ -1332,8 +1316,6 @@ init python:
             "A sturdy boots made of reinforced iron. Offers good protection.",
             "boots",
             "Tank",
-            0.25,
-            0.1,
             "S"
         ))
 
@@ -1343,8 +1325,6 @@ init python:
             "Helmet designed for swift movement, they boost speed and critical hit chance.",
             "helmet",
             "Critical",
-            0.2,
-            0.12,
             "E"
         ))
         
@@ -1353,8 +1333,6 @@ init python:
             "Body armor designed for swift movement, they boost speed and critical hit chance.",
             "body",
             "Critical",
-            0.2,
-            0.12,
             "E"
         ))
 
@@ -1363,8 +1341,6 @@ init python:
             "Pants designed for swift movement, they boost speed and critical hit chance.",
             "pants",
             "Critical",
-            0.2,
-            0.12,
             "E"
         ))
 
@@ -1373,8 +1349,6 @@ init python:
             "Boots designed for swift movement, they boost speed and critical hit chance.",
             "boots",
             "Critical",
-            0.2,
-            0.12,
             "E"
         ))
 
@@ -1384,8 +1358,6 @@ init python:
             "A strong iron helmet offering high defense.",
             "helmet",
             "Shield",
-            0.3,
-            0.2,
             "E"
         ))
 
@@ -1394,8 +1366,6 @@ init python:
             "A strong iron chestplate offering high defense.",
             "body",
             "Shield",
-            0.3,
-            0.2,
             "E"
         ))
 
@@ -1404,8 +1374,6 @@ init python:
             "A strong iron trousers offering high defense.",
             "pants",
             "Shield",
-            0.3,
-            0.2,
             "E"
         ))
 
@@ -1414,8 +1382,6 @@ init python:
             "A strong iron boots offering high defense.",
             "boots",
             "Shield",
-            0.3,
-            0.2,
             "E"
         ))
 
@@ -1425,8 +1391,6 @@ init python:
             "Helmet that increase your movement speed and dexterity.",
             "helmet",
             "Evasion",
-            0.3,
-            0.15,
             "E"
         ))
 
@@ -1435,8 +1399,6 @@ init python:
             "Body armor that increase your movement speed and dexterity.",
             "body",
             "Evasion",
-            0.3,
-            0.15,
             "E"
         ))
 
@@ -1445,8 +1407,6 @@ init python:
             "Pants that increase your movement speed and dexterity.",
             "pants",
             "Evasion",
-            0.3,
-            0.15,
             "E"
         ))
 
@@ -1455,8 +1415,6 @@ init python:
             "Boots that increase your movement speed and dexterity.",
             "boots",
             "Evasion",
-            0.3,
-            0.15,
             "E"
         ))
 
@@ -1466,8 +1424,6 @@ init python:
             "A wizard’s hat, enhancing magical powers and intellect.",
             "helmet",
             "Magic",
-            0.4,
-            0.05,
             "E"
         ))
 
@@ -1476,8 +1432,6 @@ init python:
             "A robe which grants magical powers and intellect.",
             "body",
             "Magic",
-            0.3,
-            0.2,
             "E"
         ))
 
@@ -1486,8 +1440,6 @@ init python:
             "A wizard’s pants, enhancing magical powers and intellect.",
             "pants",
             "Magic",
-            0.4,
-            0.05,
             "E"
         ))
 
@@ -1496,8 +1448,6 @@ init python:
             "Boots which grants magical powers and intellect.",
             "boots",
             "Magic",
-            0.3,
-            0.2,
             "E"
         ))
         
@@ -1507,8 +1457,6 @@ init python:
             "A glorious plate mail forged from gold, offers supreme defense.",
             "body",
             "Tank",
-            0.3,
-            0.2,
             "E"
         ))
 
@@ -1517,8 +1465,6 @@ init python:
             "Light as a feather, offering extreme agility and evasion.",
             "boots",
             "Evasion",
-            0.35,
-            0.25,
             "E"
         ))
 
@@ -1527,8 +1473,6 @@ init python:
             "A cloak made from the essence of wraiths, enhancing evasion and stealth.",
             "body",
             "Evasion",
-            0.3,
-            0.3,
             "E"
         ))
 
@@ -1537,8 +1481,6 @@ init python:
             "A cloak that boosts agility and offers increased critical hit chance.",
             "body",
             "Critical",
-            0.3,
-            0.25,
             "E"
         ))
 
@@ -1547,8 +1489,6 @@ init python:
             "A crown that increases wisdom and enhances magical abilities.",
             "helmet",
             "Magic",
-            0.4,
-            0.3,
             "E"
         ))
 
@@ -1557,8 +1497,6 @@ init python:
             "A delicate circlet that enhances magical defense and intelligence.",
             "helmet",
             "Magic",
-            0.45,
-            0.1,
             "E"
         ))
 
@@ -1567,8 +1505,6 @@ init python:
             "A high-tech chestplate offering immense defense against all attacks.",
             "body",
             "Tank",
-            0.3,
-            0.3,
             "E"
         ))
 
@@ -1581,8 +1517,6 @@ init python:
             "A helm that shrouds the wearer’s mind from dark influence while enhancing awareness.",
             "helmet",
             "Evasion",
-            0.6,
-            0.5,
             "D"
         ))
 
@@ -1591,8 +1525,6 @@ init python:
             "A chestplate forged in shadowsteel, offering strong protection against darkness.",
             "body",
             "Evasion",
-            0.6,
-            0.5,
             "D"
         ))
 
@@ -1601,8 +1533,6 @@ init python:
             "Armored pants infused with abyssal magic, granting resilience and agility.",
             "pants",
             "Evasion",
-            0.6,
-            0.5,
             "D"
         ))
 
@@ -1611,8 +1541,6 @@ init python:
             "Boots that grant the wearer enhanced movement speed and dark resistance.",
             "boots",
             "Evasion",
-            0.6,
-            0.5,
             "D"
         ))
         ######## FULL GEAR ########
@@ -1621,8 +1549,6 @@ init python:
             "A helm blessed by the stars, sharpening focus and magical control.",
             "helmet",
             "Magic",
-            0.9,
-            0.3,
             "D"
         ))
 
@@ -1631,8 +1557,6 @@ init python:
             "A flowing robe woven with stardust, enhancing mana flow and spell potency.",
             "body",
             "Magic",
-            0.9,
-            0.3,
             "D"
         ))
 
@@ -1641,8 +1565,6 @@ init python:
             "Light enchanted legwraps that improve mobility and channel magical energy.",
             "pants",
             "Magic",
-            0.9,
-            0.3,
             "D"
         ))
 
@@ -1651,8 +1573,6 @@ init python:
             "Boots blessed by the stars, increasing speed and mana regeneration.",
             "boots",
             "Magic",
-            0.9,
-            0.3,
             "D"
         ))
 
@@ -1662,8 +1582,6 @@ init python:
             "A sinister helm that instills fear and strengthens the wearer’s resolve.",
             "helmet",
             "Strength",
-            0.7,
-            0.4,
             "D"
         ))
 
@@ -1672,8 +1590,6 @@ init python:
             "A dark mantle that increases strength and grants life steal on attacks.",
             "body",
             "Strength",
-            0.7,
-            0.4,
             "D"
         ))
 
@@ -1682,8 +1598,6 @@ init python:
             "Heavy pants reinforced with cursed metal, granting power with each strike.",
             "pants",
             "Strength",
-            0.7,
-            0.4,
             "D"
         ))
 
@@ -1692,8 +1606,6 @@ init python:
             "Boots infused with vampiric essence, allowing swift movement while draining foes.",
             "boots",
             "Strength",
-            0.7,
-            0.4,
             "D"
         ))
 
@@ -1703,8 +1615,6 @@ init python:
             "A massive helmet that grants immense protection and boosts strength.",
             "helmet",
             "Tank",
-            0.7,
-            0.7,
             "D"
         ))
 
@@ -1713,8 +1623,6 @@ init python:
             "An enormous chestpiece forged for warriors who stand like unyielding mountains.",
             "body",
             "Tank",
-            0.7,
-            0.7,
             "D"
         ))
 
@@ -1723,8 +1631,6 @@ init python:
             "Heavy armored greaves that root the wearer firmly in battle.",
             "pants",
             "Tank",
-            0.7,
-            0.7,
             "D"
         ))
 
@@ -1733,8 +1639,6 @@ init python:
             "Boots as solid as the earth, making each step unshakable.",
             "boots",
             "Tank",
-            0.7,
-            0.7,
             "D"
         ))
 
@@ -1744,8 +1648,6 @@ init python:
             "A cowl that boosts stealth, evasion, and critical hit chance.",
             "helmet",
             "Critical",
-            0.7,
-            0.5,
             "D"
         ))
 
@@ -1754,8 +1656,6 @@ init python:
             "A lightweight, reinforced vest designed for swift and lethal strikes.",
             "body",
             "Critical",
-            0.7,
-            0.5,
             "D"
         ))
 
@@ -1764,8 +1664,6 @@ init python:
             "Flexible leggings that allow silent movement and deadly agility.",
             "pants",
             "Critical",
-            0.7,
-            0.5,
             "D"
         ))
 
@@ -1774,8 +1672,6 @@ init python:
             "Boots crafted for speed and silence, perfect for striking from the shadows.",
             "boots",
             "Critical",
-            0.7,
-            0.5,
             "D"
         ))
 
@@ -1785,8 +1681,6 @@ init python:
             "A crown that gives the wearer the power to revive once upon death and boosts all stats.",
             "helmet",
             "Shield",
-            0.75,
-            0.65,
             "D"
         ))
 
@@ -1795,8 +1689,6 @@ init python:
             "A regal chestplate that radiates divine protection, shielding its wearer from fatal blows.",
             "body",
             "Shield",
-            0.75,
-            0.65,
             "D"
         ))
 
@@ -1805,8 +1697,6 @@ init python:
             "Sturdy leg armor that empowers each stride with the might of an eternal ruler.",
             "pants",
             "Shield",
-            0.75,
-            0.65,
             "D"
         ))
 
@@ -1815,8 +1705,6 @@ init python:
             "Boots that carry the weight of countless victories and unmatched resilience.",
             "boots",
             "Shield",
-            0.75,
-            0.65,
             "D"
         ))
 
@@ -1827,8 +1715,6 @@ init python:
             "A cloak that grants the wearer invisibility for short periods and boosts stealth.",
             "body",
             "Evasion",
-            0.7,
-            0.6,
             "D"
         ))
 
@@ -1837,8 +1723,6 @@ init python:
             "Wings that bestow divine power, granting increased movement and evasion.",
             "boots",
             "Evasion",
-            0.8,
-            0.55,
             "D"
         ))
 
@@ -1848,8 +1732,6 @@ init python:
             "Armor crafted from the ancient trees of the elderwood. Increases defense and regeneration.",
             "body",
             "Tank",
-            0.7,
-            0.7,
             "D"
         ))
 
@@ -1858,8 +1740,6 @@ init python:
             "A cloak made from the shadows of the dead. It grants invisibility and an aura that weakens enemies.",
             "body",
             "Evasion",
-            0.8,
-            0.75,
             "D"
         ))
 
@@ -1868,8 +1748,6 @@ init python:
             "A cloak that grants regeneration and the ability to rise from death once, like a phoenix.",
             "body",
             "Tank",
-            0.95,
-            0.3,
             "D"
         ))
 
@@ -1878,8 +1756,6 @@ init python:
             "A crown that gives the wearer divine strength and resilience, making them nearly immortal.",
             "helmet",
             "Tank",
-            1,
-            0.05,
             "D"
         ))
         
@@ -1888,8 +1764,6 @@ init python:
             "A sturdy titanium helmet that grants extra defense and resistance.",
             "helmet",
             "Tank",
-            0.8,
-            0.5,
             "D"
         ))
 
@@ -1898,8 +1772,6 @@ init python:
             "Armor crafted from dragon scales. Offers great defense and fire resistance.",
             "body",
             "Tank",
-            0.7,
-            0.6,
             "D"
         ))
 
@@ -1908,8 +1780,6 @@ init python:
             "Boots made for stealth and speed. They increase dexterity and evasion.",
             "boots",
             "Evasion",
-            0.8,
-            0.8,
             "D"
         ))
 
@@ -1922,8 +1792,6 @@ init python:
             "A finely crafted hood that sharpens the senses and aids in swift movements.",
             "helmet",
             "Evasion",
-            1.3,
-            0.7,
             "C"
         ))
 
@@ -1932,8 +1800,6 @@ init python:
             "Lightweight body armor favored by elves, increases dexterity and evasion.",
             "body",
             "Evasion",
-            1.3,
-            0.7,
             "C"
         ))
 
@@ -1942,8 +1808,6 @@ init python:
             "Slim, flexible leggings that allow for quiet steps and quick maneuvers.",
             "pants",
             "Evasion",
-            1.3,
-            0.7,
             "C"
         ))
 
@@ -1952,8 +1816,6 @@ init python:
             "Boots designed for swiftness, perfect for traversing forests without a sound.",
             "boots",
             "Evasion",
-            1.3,
-            0.7,
             "C"
         ))
 
@@ -1963,8 +1825,6 @@ init python:
             "A helmet forged from iron, offers high physical defense and durability.",
             "helmet",
             "Tank",
-            1.4,
-            0.6,
             "C"
         ))
 
@@ -1973,8 +1833,6 @@ init python:
             "A solid iron chestplate built to withstand even the heaviest blows.",
             "body",
             "Tank",
-            1.4,
-            0.6,
             "C"
         ))
 
@@ -1983,8 +1841,6 @@ init python:
             "Heavy iron greaves that protect the wearer’s legs while anchoring them in place.",
             "pants",
             "Tank",
-            1.4,
-            0.6,
             "C"
         ))
 
@@ -1993,8 +1849,6 @@ init python:
             "Boots of solid iron that make every step feel unshakable.",
             "boots",
             "Tank",
-            1.4,
-            0.6,
             "C"
         ))
         
@@ -2006,8 +1860,6 @@ init python:
             "A sturdy helm favored by mercenaries, offering protection and enhancing focus.",
             "helmet",
             "Strength",
-            1.5,
-            0.5,
             "C"
         ))
 
@@ -2016,8 +1868,6 @@ init python:
             "A tough chestplate designed for battlefield endurance and strength.",
             "body",
             "Strength",
-            1.5,
-            0.5,
             "C"
         ))
 
@@ -2026,8 +1876,6 @@ init python:
             "Pants made for mercenaries, boosting strength and providing extra durability.",
             "pants",
             "Strength",
-            1.5,
-            0.5,
             "C"
         ))
 
@@ -2036,8 +1884,6 @@ init python:
             "Boots built for long campaigns, improving stamina and power.",
             "boots",
             "Strength",
-            1.5,
-            0.5,
             "C"
         ))
 
@@ -2048,8 +1894,6 @@ init python:
             "A hood woven with enchanted threads that amplify magical power.",
             "helmet",
             "Magic",
-            1.5,
-            0.7,
             "C"
         ))
 
@@ -2058,8 +1902,6 @@ init python:
             "A robe imbued with arcane energies, enhancing spellcasting abilities.",
             "body",
             "Magic",
-            1.5,
-            0.7,
             "C"
         ))
 
@@ -2068,8 +1910,6 @@ init python:
             "Pants made for sorcerers, boosting magic.",
             "pants",
             "Magic",
-            1.5,
-            0.7,
             "C"
         ))
 
@@ -2078,8 +1918,6 @@ init python:
             "Boots that increase mana flow and magical speed.",
             "boots",
             "Magic",
-            1.5,
-            0.7,
             "C"
         ))
 
@@ -2090,8 +1928,6 @@ init python:
             "A helmet that provides increased fire resistance and boosts physical defense.",
             "helmet",
             "Shield",
-            1.3,
-            1,
             "C"
         ))
 
@@ -2100,8 +1936,6 @@ init python:
             "A chestplate forged in dragon fire, enhancing resistance and durability.",
             "body",
             "Shield",
-            1.3,
-            1,
             "C"
         ))
 
@@ -2110,8 +1944,6 @@ init python:
             "Legplates that protect against flames and physical attacks alike.",
             "pants",
             "Shield",
-            1.3,
-            1,
             "C"
         ))
 
@@ -2120,8 +1952,6 @@ init python:
             "Boots that help the wearer withstand intense heat and harsh impacts.",
             "boots",
             "Shield",
-            1.3,
-            1,
             "C"
         ))
 
@@ -2132,8 +1962,6 @@ init python:
             "A hood that sharpens senses and grants enhanced stealth for hunting fiends.",
             "helmet",
             "Critical",
-            1.5,
-            1.0,
             "C"
         ))
 
@@ -2142,8 +1970,6 @@ init python:
             "Light armor that balances protection and agility for demon slayers.",
             "body",
             "Critical",
-            1.5,
-            1.0,
             "C"
         ))
 
@@ -2152,8 +1978,6 @@ init python:
             "Flexible leggings that increase evasion and critical strike potential.",
             "pants",
             "Critical",
-            1.5,
-            1.0,
             "C"
         ))
 
@@ -2162,8 +1986,6 @@ init python:
             "Boots designed for elite demon hunters, offering speed, evasion, and increased critical damage.",
             "boots",
             "Critical",
-            1.5,
-            1.0,
             "C"
         ))
         
@@ -2176,8 +1998,6 @@ init python:
             "A rugged helm that sharpens reflexes and fuels the wearer’s fury.",
             "helmet",
             "Dexterity",
-            1.3,
-            1.1,
             "C"
         ))
 
@@ -2186,8 +2006,6 @@ init python:
             "A heavy armor that increases dexterity and grants a temporary rage buff after being hit.",
             "body",
             "Dexterity",
-            1.3,
-            1.1,
             "C"
         ))
 
@@ -2196,8 +2014,6 @@ init python:
             "Armored pants that enhance movement speed and provoke berserk fury.",
             "pants",
             "Dexterity",
-            1.3,
-            1.1,
             "C"
         ))
 
@@ -2206,8 +2022,6 @@ init python:
             "Boots that increase agility and feed the wearer’s rage on impact.",
             "boots",
             "Dexterity",
-            1.3,
-            1.1,
             "C"
         ))
 
@@ -2220,8 +2034,6 @@ init python:
             "Heavy armor worn by knights, offering high defense and stability.",
             "body", 
             "Tank",
-            1.5,
-            0.7,
             "C"
         ))
 
@@ -2230,8 +2042,6 @@ init python:
             "Boots crafted from the essence of shadows. They grant enhanced evasion and a bonus to stealth.",
             "boots",
             "Evasion",
-            1.3,
-            1.3,
             "C"
         ))
 
@@ -2240,8 +2050,6 @@ init python:
             "Heavy pants made from steel that increase physical defense and movement speed.",
             "pants",
             "Tank",
-            3.0,
-            0,
             "C"
         ))
 
@@ -2250,8 +2058,6 @@ init python:
             "A body armor that boosts evasion and agility, perfect for swift fighters.",
             "body",
             "Evasion",
-            1.7,
-            0.7,
             "C"
         ))
 
@@ -2260,8 +2066,6 @@ init python:
             "A massive helmet that greatly increases strength and durability.",
             "helmet",
             "Tank",
-            1.5,
-            0.8,
             "C"
         ))
 
@@ -2271,8 +2075,6 @@ init python:
             "A body armor made from darksteel, offering immense protection but reducing speed.",
             "body",
             "Tank",
-            1.4,
-            1.2,
             "C"
         ))
 
@@ -2281,8 +2083,6 @@ init python:
             "Boots made from iron, providing solid defense and increased resistance to damage.",
             "boots",
             "Tank",
-            2,
-            0.8,
             "C"
         ))
 
@@ -2291,8 +2091,6 @@ init python:
             "Light armor made from hardened leather, boosting evasion and critical hit chance.",
             "body",
             "Evasion",
-            1.4,
-            1.3,
             "C"
         ))
 
@@ -2301,8 +2099,6 @@ init python:
             "An ancient helmet that grants wisdom and protects against magical attacks.",
             "helmet",
             "Magic",
-            1.7,
-            0.8,
             "C"
         ))
 
@@ -2316,8 +2112,6 @@ init python:
             "A lightweight hood that enhances agility and sharpens reflexes.",
             "helmet",
             "Evasion",
-            2.5,
-            1.5,
             "B"
         ))
 
@@ -2326,8 +2120,6 @@ init python:
             "Armor designed for speed, granting increased evasion and movement.",
             "body",
             "Evasion",
-            2.5,
-            1.5,
             "B"
         ))
 
@@ -2336,8 +2128,6 @@ init python:
             "Flexible leggings that improve quickness and dodge capabilities.",
             "pants",
             "Evasion",
-            2.5,
-            1.5,
             "B"
         ))
 
@@ -2346,8 +2136,6 @@ init python:
             "Boots that increase movement speed and evasion, perfect for agile warriors.",
             "boots",
             "Evasion",
-            2.5,
-            1.5,
             "B"
         ))
 
@@ -2357,8 +2145,6 @@ init python:
             "A regal helmet that enhances strength and grants resistance to critical hits.",
             "helmet",
             "Tank",
-            2.7,
-            1.4,
             "B"
         ))
 
@@ -2367,8 +2153,6 @@ init python:
             "A chestplate that embodies the resilience and might of a fallen monarch.",
             "body",
             "Tank",
-            2.7,
-            1.4,
             "B"
         ))
 
@@ -2377,8 +2161,6 @@ init python:
             "Leg armor that fortifies and empowers the wearer with royal strength.",
             "pants",
             "Tank",
-            2.7,
-            1.4,
             "B"
         ))
 
@@ -2387,8 +2169,6 @@ init python:
             "Boots that ground the wearer with unmatched stability and endurance.",
             "boots",
             "Tank",
-            2.7,
-            1.4,
             "B"
         ))
 
@@ -2399,8 +2179,6 @@ init python:
             "A helm forged from ancient dragon bones, providing exceptional defense and fire resistance.",
             "helmet",
             "Shield",
-            4.0,
-            0,
             "B"
         ))
 
@@ -2409,8 +2187,6 @@ init python:
             "A body armor crafted from the bones of ancient dragons, offering massive defense and fire resistance.",
             "body",
             "Shield",
-            4.0,
-            0,
             "B"
         ))
 
@@ -2419,8 +2195,6 @@ init python:
             "Leg armor that protects with the strength and heat resistance of dragon bones.",
             "pants",
             "Shield",
-            4.0,
-            0,
             "B"
         ))
 
@@ -2429,8 +2203,6 @@ init python:
             "Boots that shield the wearer from intense heat while providing sturdy footing.",
             "boots",
             "Shield",
-            4.0,
-            0,
             "B"
         ))
 
@@ -2441,8 +2213,6 @@ init python:
             "An ethereal crown that enhances wisdom and provides protection against elemental magic.",
             "helmet",
             "Magic",
-            3,
-            1.5,
             "B"
         ))
 
@@ -2451,8 +2221,6 @@ init python:
             "A radiant mantle woven from stardust, increasing critical damage and mana regeneration.",
             "body",
             "Magic",
-            3,
-            1.5,
             "B"
         ))
 
@@ -2461,8 +2229,6 @@ init python:
             "Leggings that shimmer with astral light, boosting critical hit chance and damage.",
             "pants",
             "Magic",
-            3,
-            1.5,
             "B"
         ))
 
@@ -2471,8 +2237,6 @@ init python:
             "Greaves that grant swift movement and enhance critical strike efficiency.",
             "boots",
             "Magic",
-            3,
-            1.5,
             "B"
         ))
 
@@ -2482,8 +2246,6 @@ init python:
             "A lightweight helm adorned with feathers, boosting agility and reflexes.",
             "helmet",
             "Dexterity",
-            2.2,
-            2.2,
             "B"
         ))
 
@@ -2492,8 +2254,6 @@ init python:
             "Armor made from the feathers of Valkyries, offering extreme agility and dexterity.",
             "body",
             "Dexterity",
-            2.2,
-            2.2,
             "B"
         ))
 
@@ -2502,8 +2262,6 @@ init python:
             "Flexible leggings that enhance movement speed and nimbleness.",
             "pants",
             "Dexterity",
-            2.2,
-            2.2,
             "B"
         ))
 
@@ -2512,8 +2270,6 @@ init python:
             "Boots designed for swift movement and graceful agility.",
             "boots",
             "Dexterity",
-            2.2,
-            2.2,
             "B"
         ))
 
@@ -2524,8 +2280,6 @@ init python:
             "A hood infused with starlight, enhancing critical precision and focus.",
             "helmet",
             "Critical",
-            2.5,
-            2.0,
             "B"
         ))
 
@@ -2534,8 +2288,6 @@ init python:
             "A flowing robe charged with cosmic energy, increasing critical damage.",
             "body",
             "Critical",
-            2.5,
-            2.0,
             "B"
         ))
 
@@ -2544,8 +2296,6 @@ init python:
             "Pants imbued with cosmic energy, boosting critical hit chance and damage.",
             "pants",
             "Critical",
-            2.5,
-            2.0,
             "B"
         ))
 
@@ -2554,8 +2304,6 @@ init python:
             "Boots that enhance movement and critical strike capabilities.",
             "boots",
             "Critical",
-            2.5,
-            2.0,
             "B"
         ))
 
@@ -2566,8 +2314,6 @@ init python:
             "A helmet that sharpens the wearer’s strikes and fortifies their resolve.",
             "helmet",
             "Strength",
-            2.4,
-            2.2,
             "B"
         ))
 
@@ -2576,8 +2322,6 @@ init python:
             "A chestplate that boosts raw power and deadly precision.",
             "body",
             "Strength",
-            2.4,
-            2.2,
             "B"
         ))
 
@@ -2586,8 +2330,6 @@ init python:
             "Leg armor that enhances movement strength and lethal force.",
             "pants",
             "Strength",
-            2.4,
-            2.2,
             "B"
         ))
 
@@ -2596,8 +2338,6 @@ init python:
             "Boots that enhance strength and damage.",
             "boots",
             "Strength",
-            2.4,
-            2.2,
             "B"
         ))
 
@@ -2609,8 +2349,6 @@ init python:
             "A chestplate blessed by the gods, offering extraordinary defense and holy resistance.",
             "body",
             "Tank",
-            2.7,
-            2.5,
             "B"
         ))
 
@@ -2619,8 +2357,6 @@ init python:
             "A helmet that grants enhanced agility and grants a chance to dodge attacks.",
             "helmet",
             "Evasion",
-            2.5,
-            2.5,
             "B"
         ))
 
@@ -2629,8 +2365,6 @@ init python:
             "Boots that imbue the wearer with fiery speed, boosting movement speed and fire resistance.",
             "boots",
             "Tank",
-            2.8,
-            1.9,
             "B"
         ))
 
@@ -2639,8 +2373,6 @@ init python:
             "Pants woven from the fabric of shadows, increasing evasion and granting stealth.",
             "pants",
             "Evasion",
-            2.9,
-            1.8,
             "B"
         ))
 
@@ -2649,8 +2381,6 @@ init python:
             "A helm forged from the remains of a powerful revenant. It increases health and provides a shield upon death.",
             "helmet",
             "Tank",
-            3.0,
-            2.0,
             "B"
         ))
 
@@ -2659,8 +2389,6 @@ init python:
             "An icy armor that greatly boosts defense against frost and grants immunity to freezing effects.",
             "body",
             "Tank",
-            2.8,
-            2.3,
             "B"
         ))
 
@@ -2669,8 +2397,6 @@ init python:
             "A body armor that enhances evasion and allows the wearer to move through walls for short periods.",
             "body",
             "Evasion",
-            2.7,
-            2.0,
             "B"
         ))
 
@@ -2685,8 +2411,6 @@ init python:
             "A helm forged in volcanic flames, boosting fire resistance and endurance.",
             "helmet",
             "Tank",
-            4.2,
-            2.2,
             "A"
         ))
 
@@ -2695,8 +2419,6 @@ init python:
             "Chest armor imbued with molten power, granting supreme fire resistance.",
             "body",
             "Tank",
-            4.2,
-            2.2,
             "A"
         ))
 
@@ -2705,8 +2427,6 @@ init python:
             "Leg armor that protects against extreme heat and enhances durability.",
             "pants",
             "Tank",
-            4.2,
-            2.2,
             "A"
         ))
 
@@ -2715,8 +2435,6 @@ init python:
             "Boots made from the essence of a volcanic eruption, increasing fire resistance and speed.",
             "boots",
             "Tank",
-            4.2,
-            2.2,
             "A"
         ))
         
@@ -2726,8 +2444,6 @@ init python:
             "A helm infused with molten lava, providing strong defense and fire damage reflection.",
             "helmet",
             "Shield",
-            4.4,
-            2.0,
             "A"
         ))
 
@@ -2736,8 +2452,6 @@ init python:
             "A chestplate crafted from molten lava, offering high defense and fire damage reflection.",
             "body",
             "Shield",
-            4.4,
-            2.0,
             "A"
         ))
 
@@ -2746,8 +2460,6 @@ init python:
             "Leg armor that reflects heat and shields against physical attacks.",
             "pants",
             "Shield",
-            4.4,
-            2.0,
             "A"
         ))
 
@@ -2756,8 +2468,6 @@ init python:
             "Boots that provide solid footing and reflect fiery damage back at attackers.",
             "boots",
             "Shield",
-            4.4,
-            2.0,
             "A"
         ))
 
@@ -2768,8 +2478,6 @@ init python:
             "A hood woven from spectral threads, enhancing evasion and ghostly agility.",
             "helmet",
             "Evasion",
-            3.5,
-            3.0,
             "A"
         ))
 
@@ -2778,8 +2486,6 @@ init python:
             "A body armor made of spectral material, boosting evasion and reducing incoming damage.",
             "body",
             "Evasion",
-            3.5,
-            3.0,
             "A"
         ))
 
@@ -2788,8 +2494,6 @@ init python:
             "Leggings that grant swift, ghost-like movements and damage mitigation.",
             "pants",
             "Evasion",
-            3.5,
-            3.0,
             "A"
         ))
 
@@ -2798,8 +2502,6 @@ init python:
             "Boots that let the wearer slip through danger with ease and resilience.",
             "boots",
             "Evasion",
-            3.5,
-            3.0,
             "A"
         ))
 
@@ -2810,8 +2512,6 @@ init python:
             "A dark hood that enhances magical resistance and critical strike potency.",
             "helmet",
             "Magic",
-            3.3,
-            3.3,
             "A"
         ))
 
@@ -2820,8 +2520,6 @@ init python:
             "A dark cloak that greatly increases magical resistance and increases critical hit damage.",
             "body",
             "Magic",
-            3.3,
-            3.3,
             "A"
         ))
 
@@ -2830,8 +2528,6 @@ init python:
             "Legwear imbued with abyssal magic, boosting magic defense and critical power.",
             "pants",
             "Magic",
-            3.3,
-            3.3,
             "A"
         ))
 
@@ -2840,8 +2536,6 @@ init python:
             "Boots that grant swift movement and enhanced magical resistance.",
             "boots",
             "Magic",
-            3.3,
-            3.3,
             "A"
         ))
 
@@ -2852,8 +2546,6 @@ init python:
             "A mysterious hood that channels dark power to boost strength and magical resistance.",
             "helmet",
             "Strength",
-            4.5,
-            2.8,
             "A"
         ))
 
@@ -2862,8 +2554,6 @@ init python:
             "A mysterious mantle that channels dark power to greatly increase your strength, bolster magical resistance, and amplify critical hit damage.",
             "body",
             "Strength",
-            4.5,
-            2.8,
             "A"
         ))
 
@@ -2872,8 +2562,6 @@ init python:
             "Legguards that enhance strength and protect against magical attacks.",
             "pants",
             "Strength",
-            4.5,
-            2.8,
             "A"
         ))
 
@@ -2882,8 +2570,6 @@ init python:
             "Boots that empower strength and provide magical resistance.",
             "boots",
             "Strength",
-            4.5,
-            2.8,
             "A"
         ))
 
@@ -2894,8 +2580,6 @@ init python:
             "A dark hood that sharpens agility and precision, boosting dexterity and magical resistance.",
             "helmet",
             "Dexterity",
-            3.5,
-            3.3,
             "A"
         ))
         
@@ -2904,8 +2588,6 @@ init python:
             "A dark cloak that enhances your agility and precision, greatly increasing dexterity, while also boosting magical resistance and critical hit damage.",
             "body",
             "Dexterity",
-            3.5,
-            3.3,
             "A"
         ))
 
@@ -2914,8 +2596,6 @@ init python:
             "Leggings that increase dexterity and protect against magical assaults.",
             "pants",
             "Dexterity",
-            3.5,
-            3.3,
             "A"
         ))
 
@@ -2924,8 +2604,6 @@ init python:
             "Boots designed for swift movement and enhanced precision.",
             "boots",
             "Dexterity",
-            3.5,
-            3.3,
             "A"
         ))
 
@@ -2935,8 +2613,6 @@ init python:
             "A dark hood that sharpens instincts and boosts critical strike power with magical resistance.",
             "helmet",
             "Critical",
-            4.0,
-            3.2,
             "A"
         ))
 
@@ -2945,8 +2621,6 @@ init python:
             "A dark cloak that sharpens your instincts and amplifies your critical strike power, greatly increasing critical damage while providing strong magical resistance.",
             "body",
             "Critical",
-            4.0,
-            3.2,
             "A"
         ))
 
@@ -2955,8 +2629,6 @@ init python:
             "Leggings that amplify critical damage and offer magical defense.",
             "pants",
             "Critical",
-            4.0,
-            3.2,
             "A"
         ))
 
@@ -2965,8 +2637,6 @@ init python:
             "Boots designed to increase agility and critical strike damage.",
             "boots",
             "Critical",
-            4.0,
-            3.2,
             "A"
         ))
 
@@ -2978,8 +2648,6 @@ init python:
             "Pants that enhance dexterity and improve evasive maneuvers.",
             "pants",
             "Dexterity",
-            3.5,
-            3.0,
             "A"
         ))
 
@@ -2988,8 +2656,6 @@ init python:
             "Light boots that increase movement speed and dexterity.",
             "boots",
             "Dexterity",
-            3.7,
-            3.2,
             "A"
         ))
 
@@ -2998,8 +2664,6 @@ init python:
             "A body armor that increases critical damage and magical resistance.",
             "body",
             "Critical",
-            4.2,
-            2.3,
             "A"
         ))
 
@@ -3008,8 +2672,6 @@ init python:
             "Helmet that enhances dexterity and precision in battle.",
             "helmet",
             "Dexterity",
-            3.6,
-            3.1,
             "A"
         ))
 
@@ -3018,8 +2680,6 @@ init python:
             "Pants that boost critical hit chance and speed.",
             "pants",
             "Critical",
-            3.9,
-            2.8,
             "A"
         ))
 
@@ -3028,8 +2688,6 @@ init python:
             "Boots that enhance dexterity and allow for swift, silent movement.",
             "boots",
             "Dexterity",
-            3.5,
-            3.3,
             "A"
         ))
 
@@ -3038,8 +2696,6 @@ init python:
             "Helmet that increases critical damage and sharpens focus.",
             "helmet",
             "Critical",
-            4.1,
-            2.6,
             "A"
         ))
 
@@ -3048,8 +2704,6 @@ init python:
             "Body armor that improves dexterity and grants enhanced agility.",
             "body",
             "Dexterity",
-            3.7,
-            3.4,
             "A"
         ))
 
@@ -3058,8 +2712,6 @@ init python:
             "A sturdy helmet that greatly increases defense and magical resistance.",
             "helmet",
             "Tank",
-            5.0,
-            1.0,
             "A"
         ))
 
@@ -3068,8 +2720,6 @@ init python:
             "Heavy boots that improve endurance and reduce damage taken.",
             "boots",
             "Tank",
-            4.8,
-            1.3,
             "A"
         ))
 
@@ -3078,8 +2728,6 @@ init python:
             "Body armor that enhances magical power and boosts mana regeneration.",
             "body",
             "Magic",
-            3.5,
-            4.0,
             "A"
         ))
 
@@ -3088,8 +2736,6 @@ init python:
             "Pants that increase magic defense and spellcasting speed.",
             "pants",
             "Magic",
-            3.2,
-            3.8,
             "A"
         ))
 
@@ -3098,8 +2744,6 @@ init python:
             "Helmet that improves physical defense and grants shield bonuses.",
             "helmet",
             "Shield",
-            4.5,
-            1.5,
             "A"
         ))
 
@@ -3108,8 +2752,6 @@ init python:
             "Boots that increase resistance to knockback and boost stamina.",
             "boots",
             "Shield",
-            4.9,
-            1.1,
             "A"
         ))
 
@@ -3118,8 +2760,6 @@ init python:
             "Body armor that greatly enhances spell power and magical resistance.",
             "body",
             "Magic",
-            4.0,
-            2.0,
             "A"
         ))
 
@@ -3128,8 +2768,6 @@ init python:
             "Durable pants that boost physical defense and health regeneration.",
             "pants",
             "Tank",
-            4.9,
-            1.4,
             "A"
         ))
 
@@ -3138,8 +2776,6 @@ init python:
             "Helmet that improves shield durability and grants increased block chance.",
             "helmet",
             "Shield",
-            4.6,
-            1.6,
             "A"
         ))
 
@@ -3148,8 +2784,6 @@ init python:
             "Boots that enhance magic speed and increase mana regeneration.",
             "boots",
             "Magic",
-            3.3,
-            3.1,
             "A"
         ))
 
@@ -3164,8 +2798,6 @@ init python:
             "A helmet worn by ancient guardians, boosting vitality and providing a shield that absorbs damage.",
             "helmet",
             "Tank",
-            6.5,
-            6.2,
             "S"
         ))
 
@@ -3174,8 +2806,6 @@ init python:
             "Body armor of ancient guardians, offering unmatched protection and vitality.",
             "body",
             "Tank",
-            6.5,
-            6.2,
             "S"
         ))
 
@@ -3184,8 +2814,6 @@ init python:
             "Pants forged for ancient guardians, providing resilience and damage absorption.",
             "pants",
             "Tank",
-            6.5,
-            6.2,
             "S"
         ))
 
@@ -3194,8 +2822,6 @@ init python:
             "Boots worn by ancient guardians, offering stability, durability, and defense.",
             "boots",
             "Tank",
-            6.5,
-            6.2,
             "S"
         ))
 
@@ -3207,8 +2833,6 @@ init python:
             "A crown forged from the celestial essence of an eternal emperor, boosting strength, defense, and resilience.",
             "helmet",
             "Shield",
-            8.0,
-            4.5,
             "S"
         ))
 
@@ -3217,8 +2841,6 @@ init python:
             "Armor blessed by the eternal emperor, offering unparalleled protection and resilience.",
             "body",
             "Shield",
-            8.0,
-            4.5,
             "S"
         ))
 
@@ -3227,8 +2849,6 @@ init python:
             "Greaves forged from celestial essence, providing unmatched defense and stamina.",
             "pants",
             "Shield",
-            8.0,
-            4.5,
             "S"
         ))
 
@@ -3237,8 +2857,6 @@ init python:
             "Boots that grant steadfast strength and resilience, worthy of an eternal ruler.",
             "boots",
             "Shield",
-            8.0,
-            4.5,
             "S"
         ))
 
@@ -3249,8 +2867,6 @@ init python:
             "A hood imbued with the powers of shadows, enhancing stealth, evasion, and awareness in the dark.",
             "helmet",
             "Evasion",
-            7.5,
-            5.5,
             "S"
         ))
 
@@ -3259,8 +2875,6 @@ init python:
             "A cloak imbued with the powers of shadows, increasing stealth, evasion, and damage output in the dark.",
             "body",
             "Evasion",
-            7.5,
-            5.5,
             "S"
         ))
 
@@ -3269,8 +2883,6 @@ init python:
             "Leg armor infused with shadow magic, granting swift movements and evasive maneuvers.",
             "pants",
             "Evasion",
-            7.5,
-            5.5,
             "S"
         ))
 
@@ -3279,8 +2891,6 @@ init python:
             "Boots that allow the wearer to move silently and dodge with ease in darkness.",
             "boots",
             "Evasion",
-            7.5,
-            5.5,
             "S"
         ))
 
@@ -3291,8 +2901,6 @@ init python:
             "A legendary helmet that maximizes critical strike damage and sharpens reflexes.",
             "helmet",
             "Critical",
-            8.5,
-            4.5,
             "S"
         ))
 
@@ -3301,8 +2909,6 @@ init python:
             "Body armor designed for masters of precision, greatly enhancing critical strike damage and speed.",
             "body",
             "Critical",
-            8.5,
-            4.5,
             "S"
         ))
 
@@ -3311,8 +2917,6 @@ init python:
             "Pants forged for deadly marksmen, increasing agility, precision, and critical damage.",
             "pants",
             "Critical",
-            8.5,
-            4.5,
             "S"
         ))
 
@@ -3321,8 +2925,6 @@ init python:
             "Boots that boost movement speed and reflexes, enabling devastating critical strikes.",
             "boots",
             "Critical",
-            8.5,
-            4.5,
             "S"
         ))
 
@@ -3333,8 +2935,6 @@ init python:
             "A crown infused with pure arcane power, enhancing magical strength and focus.",
             "helmet",
             "Magic",
-            7.8,
-            5.8,
             "S"
         ))
 
@@ -3343,8 +2943,6 @@ init python:
             "Body armor pulsing with pure magic, vastly increasing spell power and mana regeneration.",
             "body",
             "Magic",
-            7.8,
-            5.8,
             "S"
         ))
 
@@ -3353,8 +2951,6 @@ init python:
             "Pants woven with threads of raw magic, improving mana flow and magical potency.",
             "pants",
             "Magic",
-            7.8,
-            5.8,
             "S"
         ))
 
@@ -3363,8 +2959,6 @@ init python:
             "Boots that increase movement speed and channel magical energy with each step.",
             "boots",
             "Magic",
-            7.8,
-            5.8,
             "S"
         ))
 
@@ -3375,8 +2969,6 @@ init python:
             "A massive helm that significantly boosts strength and physical damage output.",
             "helmet",
             "Strength",
-            6.5,
-            6.5,
             "S"
         ))
 
@@ -3385,8 +2977,6 @@ init python:
             "Body armor forged for unmatched warriors, greatly boosting strength and physical power.",
             "body",
             "Strength",
-            6.5,
-            6.5,
             "S"
         ))
 
@@ -3395,8 +2985,6 @@ init python:
             "Heavy pants built for unstoppable fighters, increasing strength and endurance.",
             "pants",
             "Strength",
-            6.5,
-            6.5,
             "S"
         ))
 
@@ -3405,8 +2993,6 @@ init python:
             "Boots that grant unshakable stability and power, enhancing strength and striking force.",
             "boots",
             "Strength",
-            6.5,
-            6.5,
             "S"
         ))
 
@@ -3417,8 +3003,6 @@ init python:
             "A helm crafted for swift warriors, boosting dexterity, reaction speed, and precision.",
             "helmet",
             "Dexterity",
-            7.4,
-            5.1,
             "S"
         ))
 
@@ -3427,8 +3011,6 @@ init python:
             "Body armor designed to heighten dexterity and precision, granting swift and deadly attacks.",
             "body",
             "Dexterity",
-            7.4,
-            5.1,
             "S"
         ))
 
@@ -3437,8 +3019,6 @@ init python:
             "Lightweight pants enhancing agility, precision, and flawless movement.",
             "pants",
             "Dexterity",
-            7.4,
-            5.1,
             "S"
         ))
 
@@ -3447,8 +3027,6 @@ init python:
             "Boots built for lightning-fast movement, boosting dexterity and precision with every step.",
             "boots",
             "Dexterity",
-            7.4,
-            5.1,
             "S"
         ))
 
@@ -3461,8 +3039,6 @@ init python:
             "Boots imbued with shadow energy that greatly boost critical hit chance and movement speed.",
             "boots",
             "Critical",
-            7.2,
-            5.3,
             "S"
         ))
 
@@ -3471,8 +3047,6 @@ init python:
             "Pants woven from starlight that enhance magical defense and casting speed.",
             "pants",
             "Magic",
-            6.5,
-            6.2,
             "S"
         ))
 
@@ -3481,8 +3055,6 @@ init python:
             "Boots that grant unmatched power and increase critical hit damage for strength-based warriors.",
             "boots",
             "Strength",
-            7.3,
-            5.2,
             "S"
         ))
 
@@ -3492,8 +3064,6 @@ init python:
             "Light pants that increase dexterity and critical hit chance with unparalleled agility.",
             "pants",
             "Dexterity",
-            6.5,
-            6.0,
             "S"
         ))
 
@@ -3502,8 +3072,6 @@ init python:
             "A helmet that blends magic and critical precision, amplifying spell crit damage significantly.",
             "helmet",
             "Critical",
-            10,
-            4.1,
             "S"
         ))
 
@@ -3512,8 +3080,6 @@ init python:
             "Boots that boost magical speed and critical damage, favored by the most skilled mages.",
             "boots",
             "Magic",
-            10,
-            8,
             "S"
         ))
         

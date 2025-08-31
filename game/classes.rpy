@@ -598,18 +598,18 @@ init python:
 
     class Equipment:
         _id_counter = 0
-        def __init__(self, name, description, equipment_type, class_name, prio1, prio2, rarity):
+        def __init__(self, name, description, equipment_type, class_name, rarity):
             self.equipment_id = Equipment._id_counter
             Equipment._id_counter += 1
             self.name = name # name of the equipment
             self.description = description # a small description for the equipment, it also can have a story of the equipment
             self.type = equipment_type # the type (helmet, pants, boots, body)
             self.class_name = class_name # Dexterity / Strength / Magic / Tank / Shield / Evasion / Critical
-            self.prio1 = prio1 # prio1 improvement (str, dex, con, int, wis, cha, luc)
-            self.prio2 = prio2 # prio1 improvement (str, dex, con, int, wis, cha, luc)
             self.rarity = rarity
             
             base_defense = 0
+            prio1 = 1
+            prio2 = 1
 
             # get the defense depending on the type
             if self.type == "helmet":
@@ -640,16 +640,30 @@ init python:
             # get the defense depending on the rarity
             if self.rarity == "E":
                 base_defense = base_defense * 1
+                prio1 = 1.05
+                prio2 = 1
             elif self.rarity == "D":
                 base_defense = base_defense * 2
+                prio1 = 1.1
+                prio2 = 1.05
             elif self.rarity == "C":
                 base_defense = base_defense * 4
+                prio1 = 1.2
+                prio2 = 1.1
             elif self.rarity == "B":
                 base_defense = base_defense * 7
+                prio1 = 1.5
+                prio2 = 1.2
             elif self.rarity == "A":
                 base_defense = base_defense * 11
+                prio1 = 2
+                prio2 = 1.5
             elif self.rarity == "S":
                 base_defense = base_defense * 16
+                prio1 = 3
+                prio2 = 2
 
             self.base_defense = int(base_defense)
+            self.prio1 = prio1
+            self.prio2 = prio2
             

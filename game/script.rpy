@@ -136,9 +136,8 @@ label start:
     
     #
     # TODOS:
-    # 
-    # TODO: [ PRIO 1 ] follow the same logic I'm doing for the defense on equipments on:
-    #   -   percentages of increasing attributes on equipments
+    #
+    # TODO: [ PRIO 1 ] update the decrease attributes for the evolutions
     # 
     # TODO: [ PRIO 1 ] update the protector detail to:
     #   -   have in left top - equipment
