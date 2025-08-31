@@ -366,7 +366,6 @@ init python:
             "A sleek normal dagger normally used by thieves.", 
             "Knife", 
             "Dexterity",
-            30,
             "Melee",
             'E'))
         
@@ -374,14 +373,12 @@ init python:
             "A rusty giant sword used in the crusades.", 
             "Greatsword", 
             "Strength",
-            35,
             "Melee",
             'E'))
         weapons.append(Weapon("Principiant Wand",
             "A wand used by the iniciants on magic training.",
             "Wand",
             "Magic",
-            25,
             "Ranged",
             'E'))
         
@@ -389,7 +386,6 @@ init python:
             "Normal cards, used for gamling.",
             "Cards",
             "Dexterity",
-            27,
             "Ranged",
             'E'))
         
@@ -397,7 +393,6 @@ init python:
             "Pack of cards gotten from a dead man.",
             "Cards",
             "Divine",
-            27,
             "Ranged",
             'E'))
         
@@ -405,7 +400,6 @@ init python:
             "A rusty katana used by Samurais for training.", 
             "Katana", 
             "Strength",
-            28,
             "Melee",
             'E'))
         
@@ -413,7 +407,6 @@ init python:
             "A rusty knife used by the army.",
             "Knife", 
             "Strength",
-            26,
             "Melee",
             'E'))
         
@@ -421,7 +414,6 @@ init python:
             "A rusty pistol used by the army on its intensive training.",
             "Gun", 
             "Dexterity",
-            26,
             "Ranged",
             'E'))
 
@@ -429,7 +421,6 @@ init python:
             "A sturdy mace used by city guards.",
             "Mace",
             "Strength",
-            32,
             "Melee",
             'E'))
         
@@ -437,7 +428,6 @@ init python:
             "A staff carved from ancient trees, buzzing with latent magic.",
             "Staff",
             "Magic",
-            25,
             "Ranged",
             'E'))
 
@@ -445,7 +435,6 @@ init python:
             "A light lance favored by the swift riders of the northern plains.", 
             "Spear", 
             "Dexterity",
-            28,
             "Melee",
             'E'))
 
@@ -453,7 +442,6 @@ init python:
             "A small but deadly axe used by vikings to kill their enemies.", 
             "Axe", 
             "Strength",
-            25,
             "Melee",
             'E'))
 
@@ -461,7 +449,6 @@ init python:
             "A slender hammer that strikes as hard as a rock.", 
             "Hammer", 
             "Strength",
-            30,
             "Melee",
             'E'))
 
@@ -469,7 +456,6 @@ init python:
             "A sword forged with iron stone.", 
             "Sword", 
             "Strength",
-            33,
             "Melee",
             'E'))
 
@@ -477,7 +463,6 @@ init python:
             "A sword forged from shadows, almost invisible to the naked eye.", 
             "Sword", 
             "Dexterity",
-            29,
             "Melee",
             'E'))
             
@@ -485,7 +470,6 @@ init python:
             "A quick dagger favored by thieves, light and deadly.",
             "Knife",
             "Dexterity",
-            35,
             "Melee",
             'E'))
 
@@ -493,7 +477,6 @@ init python:
             "A spear that gleams under the moonlight, perfect for precise strikes.",
             "Spear",
             "Magic",
-            30,
             "Melee",
             'E'))
 
@@ -501,7 +484,6 @@ init python:
             "An axe stained red from countless battles.",
             "Axe",
             "Strength",
-            38,
             "Melee",
             'E'))
 
@@ -509,7 +491,6 @@ init python:
             "A radiant blade said to carry the judgment of the heavens.", 
             "Greatsword", 
             "Divine",
-            42,
             "Melee",
             'E'))
 
@@ -517,7 +498,6 @@ init python:
             "A simple wand blessed with light, used in the first rites of priests.",
             "Wand",
             "Divine",
-            31,
             "Ranged",
             'E'))
 
@@ -525,7 +505,6 @@ init python:
             "Cards left behind by a martyr, glowing with celestial power.",
             "Cards",
             "Divine",
-            39,
             "Ranged",
             'E'))
 
@@ -533,7 +512,6 @@ init python:
             "A blessed blade said to bring peace to both wielder and foe.", 
             "Katana", 
             "Divine",
-            37,
             "Melee",
             'E'))
 
@@ -541,7 +519,6 @@ init python:
             "A relic sidearm consecrated in holy fire, its shots pierce evil itself.",
             "Gun", 
             "Divine",
-            34,
             "Ranged",
             'E'))
 
@@ -549,7 +526,6 @@ init python:
             "A heavy mace engraved with prayers, crushing enemies with divine weight.",
             "Mace",
             "Divine",
-            41,
             "Melee",
             'E'))
 
@@ -557,7 +533,6 @@ init python:
             "A sacred staff said to connect its wielder directly to the divine.",
             "Staff",
             "Divine",
-            33,
             "Ranged",
             'E'))
 
@@ -565,7 +540,6 @@ init python:
             "A massive hammer that resonates with holy hymns when swung.", 
             "Hammer", 
             "Divine",
-            40,
             "Melee",
             'E'))
 
@@ -573,7 +547,6 @@ init python:
             "A shining blade that blinds foes with its heavenly brilliance.", 
             "Sword", 
             "Divine",
-            38,
             "Melee",
             'E'))
                     
@@ -581,7 +554,6 @@ init python:
             "A consecrated dagger, small but deadly against creatures of darkness.",
             "Knife",
             "Divine",
-            37,
             "Melee",
             'E'))
 
@@ -589,7 +561,6 @@ init python:
             "A long spear blessed by the morning sun, piercing shadows with light.",
             "Spear",
             "Divine",
-            39,
             "Melee",
             'E'))
 
@@ -597,7 +568,6 @@ init python:
             "An enormous axe wielded by fallen saints, still carrying their devotion.",
             "Axe",
             "Divine",
-            44,
             "Melee",
             'E'))
 
@@ -605,7 +575,6 @@ init python:
             "An old, worn bible with faded pages; its holy words still carry a faint power.",
             "Book",
             "Divine",
-            29,
             "Ranged",
             "E"))
 
@@ -617,7 +586,6 @@ init python:
             "A wicked, curved blade rumored to drink the strength of its victims.", 
             "Knife", 
             "Dexterity",
-            72,
             "Melee",
             'D'))
 
@@ -625,7 +593,6 @@ init python:
             "A heavy iron mace favored by royal guards to shatter armor and bone alike.",
             "Mace",
             "Strength",
-            85,
             "Melee",
             'D'))
 
@@ -633,7 +600,6 @@ init python:
             "A mystical staff etched with ancient runes, channeling deep forest magic.",
             "Staff",
             "Magic",
-            78,
             "Ranged",
             'D'))
 
@@ -641,7 +607,6 @@ init python:
             "A long, gleaming lance said to cut through wind and flesh with equal ease.", 
             "Spear", 
             "Dexterity",
-            80,
             "Melee",
             'D'))
 
@@ -649,7 +614,6 @@ init python:
             "A magic infused lance - which gives magic blows to the enemy.", 
             "Spear", 
             "Magic",
-            88,
             "Melee",
             'D'))
 
@@ -657,7 +621,6 @@ init python:
             "A brutal, blackened axe once wielded by northern raiders in the dead of winter.", 
             "Axe", 
             "Strength",
-            88,
             "Melee",
             'D'))
 
@@ -665,7 +628,6 @@ init python:
             "A massive hammer that crackles faintly with the sound of distant storms.", 
             "Hammer", 
             "Strength",
-            90,
             "Melee",
             'D'))
 
@@ -673,7 +635,6 @@ init python:
             "A broad sword quenched in the blood of its enemies, said to thirst for more.", 
             "Sword", 
             "Strength",
-            79,
             "Melee",
             'D'))
 
@@ -681,7 +642,6 @@ init python:
             "A thin, silvery sword that glimmers faintly even in complete darkness.", 
             "Sword", 
             "Dexterity",
-            84,
             "Melee",
             'D'))
 
@@ -689,7 +649,6 @@ init python:
             "A colossal blade forged in celestial flames, delivering divine verdicts with every strike.", 
             "Greatsword", 
             "Divine",
-            95,
             "Melee",
             'D'))
 
@@ -697,7 +656,6 @@ init python:
             "A radiant wand said to channel the whispers of the heavens themselves.",
             "Wand",
             "Divine",
-            72,
             "Ranged",
             'D'))
 
@@ -705,7 +663,6 @@ init python:
             "Golden cards that reveal fate’s deepest secrets and smite the unworthy.",
             "Cards",
             "Divine",
-            84,
             "Ranged",
             'D'))
 
@@ -713,7 +670,6 @@ init python:
             "A saint’s final relic, each card a fragment of divine destiny.",
             "Cards",
             "Divine",
-            88,
             "Ranged",
             'D'))
 
@@ -721,7 +677,6 @@ init python:
             "A flawless blade that glows with divine serenity, cleaving both body and spirit.", 
             "Katana", 
             "Divine",
-            91,
             "Melee",
             'D'))
 
@@ -729,7 +684,6 @@ init python:
             "A consecrated firearm that fires bullets of pure light, burning through evil.", 
             "Gun", 
             "Divine",
-            82,
             "Ranged",
             'D'))
 
@@ -737,7 +691,6 @@ init python:
             "An immense mace infused with celestial hymns, its blows echo with divine wrath.",
             "Mace",
             "Divine",
-            90,
             "Melee",
             'D'))
 
@@ -745,7 +698,6 @@ init python:
             "A legendary staff pulsing with the raw essence of divinity, guiding its wielder to enlightenment.",
             "Staff",
             "Divine",
-            85,
             "Ranged",
             'D'))
 
@@ -753,7 +705,6 @@ init python:
             "A titanic hammer that carries the unshakable fury of the heavens.", 
             "Hammer", 
             "Divine",
-            94,
             "Melee",
             'D'))
 
@@ -761,7 +712,6 @@ init python:
             "A sword so radiant it blinds enemies with holy brilliance before the killing blow.", 
             "Sword", 
             "Divine",
-            89,
             "Melee",
             'D'))
                             
@@ -769,7 +719,6 @@ init python:
             "A dagger blessed by the angels, swift as light and lethal to all darkness.",
             "Knife",
             "Divine",
-            87,
             "Melee",
             'D'))
 
@@ -777,7 +726,6 @@ init python:
             "A blazing spear infused with the eternal fire of the morning star.", 
             "Spear",
             "Divine",
-            92,
             "Melee",
             'D'))
 
@@ -785,7 +733,6 @@ init python:
             "A monstrous axe wielded by celestial champions, sundering foes with one strike.", 
             "Axe",
             "Divine",
-            98,
             "Melee",
             'D'))
 
@@ -793,7 +740,6 @@ init python:
             "A well-kept holy book, its pages imbued with divine energy that can strike the wicked.",
             "Book",
             "Divine",
-            95,
             "Ranged",
             "D"))
 
@@ -804,7 +750,6 @@ init python:
             "A massive flaming sword said to be imbued with the power of an ancient dragon.", 
             "Sword", 
             "Strength",
-            150,
             "Melee",
             "C"))
 
@@ -812,7 +757,6 @@ init python:
             "A heavy axe that can split mountains with a single swing.", 
             "Axe", 
             "Strength",
-            180,
             "Melee",
             "C"))
 
@@ -820,7 +764,6 @@ init python:
             "A magical sword glowing with blue runes, capable of slicing through spells.", 
             "Sword", 
             "Magic",
-            120,
             "Melee",
             "C"))
 
@@ -828,7 +771,6 @@ init python:
             "An icy axe that chills the air with each hit.", 
             "Axe", 
             "Strength",
-            130,
             "Melee",
             "C"))
 
@@ -836,7 +778,6 @@ init python:
             "A lance crackling with electricity, used by the storm riders.", 
             "Spear", 
             "Magic",
-            110,
             "Melee",
             "C"))
 
@@ -844,7 +785,6 @@ init python:
             "A dagger coated with a potent poison that slowly saps life.", 
             "Knife", 
             "Dexterity",
-            115,
             "Melee",
             "C"))
 
@@ -852,7 +792,6 @@ init python:
             "A staff pulsing with divine magic, guiding the wielder’s power.", 
             "Staff", 
             "Magic",
-            140,
             "Ranged",
             "C"))
 
@@ -860,7 +799,6 @@ init python:
             "A serrated sword that grows sharper with every drop of blood spilled.", 
             "Sword", 
             "Strength",
-            160,
             "Melee",
             "C"))
 
@@ -868,7 +806,6 @@ init python:
             "An axe glowing with smoldering embers, burning enemies on contact.", 
             "Axe", 
             "Strength",
-            170,
             "Melee",
             "C"))
 
@@ -876,7 +813,6 @@ init python:
             "A dagger that can pierce the veil between worlds.", 
             "Knife", 
             "Magic",
-            125,
             "Melee",
             "C"))
 
@@ -884,7 +820,6 @@ init python:
             "A sword made from enchanted silver, effective against dark creatures.", 
             "Sword", 
             "Magic",
-            135,
             "Melee",
             "C"))
 
@@ -892,7 +827,6 @@ init python:
             "A massive axe that can shatter shields with ease.", 
             "Axe", 
             "Strength",
-            220,
             "Melee",
             "C"))
 
@@ -900,7 +834,6 @@ init python:
             "A dagger that drains the soul of its victims, feeding the wielder.", 
             "Knife", 
             "Magic",
-            130,
             "Melee",
             "C"))
 
@@ -908,7 +841,6 @@ init python:
             "A curved sword designed to mimic the claw of a dragon, swift and deadly.", 
             "Sword", 
             "Dexterity",
-            140,
             "Melee",
             "C"))
 
@@ -917,7 +849,6 @@ init python:
             "A colossal hammer that channels the fury of giants.", 
             "Hammer", 
             "Strength",
-            300,
             "Melee",
             "C"))
             
@@ -925,7 +856,6 @@ init python:
             "A curved sword that bites as fiercely as a wolf.",
             "Sword",
             "Dexterity",
-            140,
             "Melee",
             "C"))
 
@@ -933,7 +863,6 @@ init python:
             "A flaming greatsword that ignites enemies on contact.",
             "Sword",
             "Strength",
-            220,
             "Melee",
             "C"))
 
@@ -941,7 +870,6 @@ init python:
             "A lance crackling with lightning, it paralyzes foes.",
             "Spear",
             "Magic",
-            180,
             "Melee",
             "C"))
 
@@ -949,7 +877,6 @@ init python:
             "A claw-shaped dagger coated with deadly poison.",
             "Knife",
             "Dexterity",
-            130,
             "Melee",
             "C"))
 
@@ -957,7 +884,6 @@ init python:
             "A hammer capable of smashing stone walls.",
             "Hammer",
             "Strength",
-            210,
             "Melee",
             "C"))
 
@@ -965,7 +891,6 @@ init python:
             "A massive blade said to split the heavens themselves, ending darkness forever.", 
             "Greatsword", 
             "Divine",
-            172,
             "Melee",
             'C'))
 
@@ -973,7 +898,6 @@ init python:
             "A sacred wand that channels the pure light of eternity, burning away corruption.",
             "Wand",
             "Divine",
-            138,
             "Ranged",
             'C'))
 
@@ -981,7 +905,6 @@ init python:
             "A divine deck of golden cards said to carry the will of celestial hosts.",
             "Cards",
             "Divine",
-            145,
             "Ranged",
             'C'))
 
@@ -989,7 +912,6 @@ init python:
             "A relic deck, each card a fragment of divine law, reshaping fate itself.",
             "Cards",
             "Divine",
-            159,
             "Ranged",
             'C'))
 
@@ -997,7 +919,6 @@ init python:
             "A flawless white blade forged in divine starlight, cleaving shadow from existence.", 
             "Katana", 
             "Divine",
-            166,
             "Melee",
             'C'))
 
@@ -1005,7 +926,6 @@ init python:
             "A radiant pistol firing bolts of consecrated flame that pierce all defenses.", 
             "Gun", 
             "Divine",
-            141,
             "Ranged",
             'C'))
 
@@ -1013,7 +933,6 @@ init python:
             "A colossal mace whose strikes echo like thunder, shaking even the heavens.",
             "Mace",
             "Divine",
-            175,
             "Melee",
             'C'))
 
@@ -1021,7 +940,6 @@ init python:
             "A legendary staff that channels the endless song of the heavens into raw power.",
             "Staff",
             "Divine",
-            152,
             "Ranged",
             'C'))
 
@@ -1029,7 +947,6 @@ init python:
             "A god-forged hammer capable of shattering mountains with a single blow.", 
             "Hammer", 
             "Divine",
-            188,
             "Melee",
             'C'))
 
@@ -1037,7 +954,6 @@ init python:
             "A shining sword that releases blinding waves of celestial fire with each strike.", 
             "Sword", 
             "Divine",
-            161,
             "Melee",
             'C'))
                             
@@ -1045,7 +961,6 @@ init python:
             "A sanctified dagger imbued with pure radiance, swift as thought, fatal as judgment.",
             "Knife",
             "Divine",
-            143,
             "Melee",
             'C'))
 
@@ -1053,7 +968,6 @@ init python:
             "A divine spear said to channel the first light of creation itself.", 
             "Spear",
             "Divine",
-            177,
             "Melee",
             'C'))
 
@@ -1061,7 +975,6 @@ init python:
             "An axe wielded only by divine champions, splitting earth and sky alike.", 
             "Axe",
             "Divine",
-            194,
             "Melee",
             'C'))
 
@@ -1069,7 +982,6 @@ init python:
             "A revered tome glowing with divine light, capable of delivering powerful holy strikes.",
             "Book",
             "Divine",
-            189,
             "Ranged",
             "C"))
 
@@ -1080,7 +992,6 @@ init python:
             "A legendary sword said to consume the souls of entire armies.", 
             "Sword", 
             "Magic",
-            520,
             "Melee",
             "B"))
 
@@ -1088,7 +999,6 @@ init python:
             "A gargantuan hammer capable of leveling entire fortresses.", 
             "Hammer", 
             "Strength",
-            580,
             "Melee",
             "B"))
 
@@ -1096,7 +1006,6 @@ init python:
             "A lance wielded by the ancient dragon kings, burning with eternal flame.", 
             "Spear",
             "Strength",
-            540,
             "Melee",
             "B"))
 
@@ -1104,7 +1013,6 @@ init python:
             "A cursed blade that deals unimaginable pain to its victims.", 
             "Sword",
             "Magic",
-            510,
             "Melee",
             "B"))
             
@@ -1112,7 +1020,6 @@ init python:
             "A sword made from volcanic glass, razor sharp and dark.",
             "Sword",
             "Strength",
-            580,
             "Melee",
             "B"))
 
@@ -1120,7 +1027,6 @@ init python:
             "A staff channeling the fury of the stars.",
             "Staff",
             "Magic",
-            650,
             "Ranged",
             "B"))
 
@@ -1128,7 +1034,6 @@ init python:
             "A swift lance that can pierce through the thickest armor.",
             "Spear",
             "Dexterity",
-            510,
             "Melee",
             "B"))
 
@@ -1136,7 +1041,6 @@ init python:
             "An assassin's dagger with a deadly bite and unmatched speed.",
             "Knife",
             "Dexterity",
-            540,
             "Melee",
             "B"))
 
@@ -1145,7 +1049,6 @@ init python:
             "An axe that calls down thunder with every swing.",
             "Axe",
             "Strength",
-            720,
             "Melee",
             "B"))
 
@@ -1153,7 +1056,6 @@ init python:
             "A colossal blade wreathed in celestial fire, each swing unleashing holy cataclysms.", 
             "Greatsword", 
             "Divine",
-            712,
             "Melee",
             'B'))
 
@@ -1161,7 +1063,6 @@ init python:
             "A crystalline wand that sings with the voices of angels, channeling infinite light.",
             "Wand",
             "Divine",
-            498,
             "Ranged",
             'B'))
 
@@ -1169,7 +1070,6 @@ init python:
             "A legendary relic deck, its cards contain fragments of eternity itself.",
             "Cards",
             "Divine",
-            621,
             "Ranged",
             'B'))
 
@@ -1177,7 +1077,6 @@ init python:
             "A perfect blade that balances the cosmos, severing shadow and chaos alike.", 
             "Katana", 
             "Divine",
-            689,
             "Melee",
             'B'))
 
@@ -1185,7 +1084,6 @@ init python:
             "A divine firearm that fires burning stars, consuming both flesh and spirit.", 
             "Gun", 
             "Divine",
-            542,
             "Ranged",
             'B'))
 
@@ -1193,7 +1091,6 @@ init python:
             "An immense weapon that carries the wrath of heaven, shaking the world upon impact.",
             "Mace",
             "Divine",
-            533,
             "Melee",
             'B'))
 
@@ -1201,7 +1098,6 @@ init python:
             "A radiant staff overflowing with endless divine energy, burning with creation’s first spark.",
             "Staff",
             "Divine",
-            607,
             "Ranged",
             'B'))
 
@@ -1209,7 +1105,6 @@ init python:
             "A god-forged relic that channels the fury of countless divine beings.", 
             "Hammer", 
             "Divine",
-            546,
             "Melee",
             'B'))
 
@@ -1217,7 +1112,6 @@ init python:
             "A blade so radiant it blinds even gods, cutting through time and destiny.", 
             "Sword", 
             "Divine",
-            558,
             "Melee",
             'B'))
                             
@@ -1225,7 +1119,6 @@ init python:
             "A dagger that strikes with blinding light, faster than mortal eyes can follow.",
             "Knife",
             "Divine",
-            493,
             "Melee",
             'B'))
 
@@ -1233,7 +1126,6 @@ init python:
             "A spear that channels the dawn of creation, shattering all darkness.", 
             "Spear",
             "Divine",
-            701,
             "Melee",
             'B'))
 
@@ -1241,7 +1133,6 @@ init python:
             "An enormous axe that calls down storms of holy fire with every strike.", 
             "Axe",
             "Divine",
-            539,
             "Melee",
             'B'))
 
@@ -1249,7 +1140,6 @@ init python:
             "An enormous tome radiating divine power, capable of unleashing devastating holy judgment upon all who oppose it.",
             "Book",
             "Divine",
-            630,
             "Ranged",
             "B"))
 
@@ -1262,7 +1152,6 @@ init python:
             "A staff swirling with violent magical storms.",
             "Staff",
             "Magic",
-            810,
             "Ranged",
             "A"))
 
@@ -1270,7 +1159,6 @@ init python:
             "A lance that strikes from the shadows with unrelenting force.",
             "Spear",
             "Dexterity",
-            900,
             "Melee",
             "A"))
 
@@ -1278,7 +1166,6 @@ init python:
             "A massive axe wielded only by the strongest warriors.",
             "Axe",
             "Strength",
-            890,
             "Melee",
             "A"))
 
@@ -1286,7 +1173,6 @@ init python:
             "A lance that phases through solid matter, striking the spirit.",
             "Spear",
             "Magic",
-            1100,
             "Melee",
             "A"))
 
@@ -1294,7 +1180,6 @@ init python:
             "A dagger that tears the soul apart, feared by all.",
             "Knife",
             "Dexterity",
-            1020,
             "Melee",
             "A"))
 
@@ -1302,7 +1187,6 @@ init python:
             "An ancient tome radiating divine power, capable of striking the souls of the wicked with celestial fury.",
             "Book",
             "Divine",
-            1045,
             "Ranged",
             "A"))
 
@@ -1313,7 +1197,6 @@ init python:
             "A legendary sword engulfed in eternal flames of a dragon.",
             "Greatsword",
             "Divine",
-            1650,
             "Ranged",
             "S"))
 
@@ -1321,7 +1204,6 @@ init python:
             "A hammer said to have shattered mountains with a single blow.",
             "Hammer",
             "Strength",
-            1400,
             "Melee",
             "S"))
 
@@ -1329,7 +1211,6 @@ init python:
             "A staff imbued with unimaginable arcane power.",
             "Staff",
             "Magic",
-            1350,
             "Ranged",
             "S"))
 
@@ -1337,7 +1218,6 @@ init python:
             "A legendary dagger so fast and deadly it’s said to pierce the fabric of reality.",
             "Knife",
             "Dexterity",
-            1425,
             "Melee",
             "S"))
             
@@ -1346,7 +1226,6 @@ init python:
             "A legendary tome imbued with the wrath of the heavens, each word capable of obliterating the soul of any mortal or demon.",
             "Book",
             "Divine",
-            1420,
             "Ranged",
             "S"))
 
@@ -3637,8 +3516,11 @@ init python:
             8,
             "S"
         ))
-
+        
         myWeapons.append(next(w for w in weapons if w.weapon_id == 15))
+
+        adding_weapon = get_weapon_by_name("Archmage's Staff")
+        myWeapons.append(adding_weapon)
         myEquipments.append(next(e for e in equipments if e.equipment_id == 0))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 1))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 2))

@@ -1,48 +1,31 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
+  File "game/places.rpy", line 14, in script
     menu:
-  File "game/screens.rpy", line 2197, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 2197, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 2198, in execute
+  File "game/screens.rpy", line 2623, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2623, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2626, in execute
     frame:
-  File "game/screens.rpy", line 2204, in execute
+  File "game/screens.rpy", line 2631, in execute
     fixed:
-  File "game/screens.rpy", line 2247, in execute
+  File "game/screens.rpy", line 3061, in execute
     vbox:
-  File "game/screens.rpy", line 2255, in execute
+  File "game/screens.rpy", line 3116, in execute
+    vbox:
+  File "game/screens.rpy", line 3119, in execute
     hbox:
-  File "game/screens.rpy", line 2277, in execute
-    vbox:
-  File "game/screens.rpy", line 2284, in execute
-    if weaponOrEquipment_type == "w":
-  File "game/screens.rpy", line 2287, in execute
-    text "[str(weaponOrEquipment_type.defense)]" size 22 color "#EEE" xalign 0.99999999999
-AttributeError: 'str' object has no attribute 'defense'
+  File "game/classes.rpy", line 305, in get_damage_points
+    return int(self.equipedWeapon.base_damage)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+AttributeError: 'NoneType' object has no attribute 'base_damage'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 18, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 28, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 36, in script call
-    call rest()
-  File "game/places.rpy", line 34, in script
+  File "game/places.rpy", line 14, in script
     menu:
   File "renpy/ast.py", line 1815, in execute
     choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
@@ -90,24 +73,20 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2197, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 2197, in execute
-    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
-  File "game/screens.rpy", line 2198, in execute
+  File "game/screens.rpy", line 2623, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2623, in execute
+    screen protector_detail_screen(my_protector):
+  File "game/screens.rpy", line 2626, in execute
     frame:
-  File "game/screens.rpy", line 2204, in execute
+  File "game/screens.rpy", line 2631, in execute
     fixed:
-  File "game/screens.rpy", line 2247, in execute
+  File "game/screens.rpy", line 3061, in execute
     vbox:
-  File "game/screens.rpy", line 2255, in execute
+  File "game/screens.rpy", line 3116, in execute
+    vbox:
+  File "game/screens.rpy", line 3119, in execute
     hbox:
-  File "game/screens.rpy", line 2277, in execute
-    vbox:
-  File "game/screens.rpy", line 2284, in execute
-    if weaponOrEquipment_type == "w":
-  File "game/screens.rpy", line 2287, in execute
-    text "[str(weaponOrEquipment_type.defense)]" size 22 color "#EEE" xalign 0.99999999999
   File "renpy/text/text.py", line 2292, in _scope
     return self.set_text(self.text_parameter, scope, self.substitute, update)
            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,9 +108,12 @@ Traceback (most recent call last):
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "<none>", line 1, in <module>
-AttributeError: 'str' object has no attribute 'defense'
+  File "game/classes.rpy", line 305, in get_damage_points
+    return int(self.equipedWeapon.base_damage)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+AttributeError: 'NoneType' object has no attribute 'base_damage'
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Sun Aug 31 17:41:48 2025
+Sun Aug 31 20:13:57 2025

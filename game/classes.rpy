@@ -4,6 +4,16 @@ init python:
     levelAttributeIncrements = 1
     
     total_evolution_increment = 0.50
+            
+    # define the base multiplier per rank
+    rank_multipliers = {
+        "E": 0,  # exponent 0 → base_damage * (ratio^0) = base_damage
+        "D": 1,
+        "C": 2,
+        "B": 3,
+        "A": 4,
+        "S": 5
+    }
 
     # CLASSES
     class BaseProtectorData:
@@ -244,44 +254,51 @@ init python:
 
         def get_damage_points(self):
             value = 0
-            type_damage = 0.7
-            weapon_damage = 0.3
+            type_damage = 0.5
+            class_damage = 0.5
 
             if self.basePoints.can_it_use_weapons == False:
                 type_damage = 1.2
 
+            weapon_base_damage = 3
             if self.equipedWeapon == None:
                 if self.basePoints.unarmed_damage_type == "Regular":
-                    value = 3 + self.get_strength() + self.get_dexterity() * type_damage
+                    value = (self.get_strength() + self.get_dexterity()) * type_damage
                 elif self.basePoints.unarmed_damage_type == "Magic":
-                    value = 3 + self.get_intelligence() + self.get_wisdom() * type_damage
+                    value = (self.get_intelligence() + self.get_wisdom()) * type_damage
                 elif self.basePoints.unarmed_damage_type == "Divine":
-                    value = 3 + self.get_wisdom() * 1.5
+                    value = (self.get_wisdom()) * 1.5
             else:
                 if self.equipedWeapon.class_name == "Strength":
-                    value = self.equipedWeapon.base_damage + (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * type_damage
+                    value = (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * type_damage
                 elif self.equipedWeapon.class_name == "Dexterity":
-                    value = self.equipedWeapon.base_damage + (self.get_dexterity() * 2 + self.get_strength() + self.get_luck()) * type_damage
+                    value = (self.get_dexterity() * 2 + self.get_strength() + self.get_luck()) * type_damage
                 elif self.equipedWeapon.class_name == "Magic":
-                    value = self.equipedWeapon.base_damage + (self.get_intelligence() * 2 + self.get_wisdom() + self.get_luck()) * type_damage
+                    value = (self.get_intelligence() * 2 + self.get_wisdom() + self.get_luck()) * type_damage
                 elif self.equipedWeapon.class_name == "Divine":
-                    value = self.equipedWeapon.base_damage + (self.get_wisdom() * 3 + self.get_luck()) * type_damage
+                    value = (self.get_wisdom() * 3 + self.get_luck()) * type_damage
 
                 if self.equipedWeapon.type == "Axe" or self.equipedWeapon.type == "Hammer" or self.equipedWeapon.type == "Mace":
-                    value += (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * weapon_damage
+                    value += (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Cards" or self.equipedWeapon.type == "Gun" or self.equipedWeapon.type == "Machine gun" or self.equipedWeapon.type == "Sniper":
-                    value += (self.get_dexterity() * 3 + self.get_luck()) * weapon_damage
+                    value += (self.get_dexterity() * 3 + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Great Hammer" or self.equipedWeapon.type == "Greataxe" or self.equipedWeapon.type == "Greatsword":
-                    value += (self.get_strength() * 2.7 + self.get_dexterity() * 0.3 + self.get_luck()) * weapon_damage
+                    value += (self.get_strength() * 2.7 + self.get_dexterity() * 0.3 + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Katana":
-                    value += (self.get_strength() * 1.5 + self.get_dexterity() * 1.5 + self.get_luck()) * weapon_damage
+                    value += (self.get_strength() * 1.5 + self.get_dexterity() * 1.5 + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Knife":
-                    value += (self.get_dexterity() * 2 + self.get_strength() * 1 + self.get_luck()) * weapon_damage
+                    value += (self.get_dexterity() * 2 + self.get_strength() * 1 + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
-                    value += (self.get_intelligence() * 2 + self.get_wisdom() * 1 + self.get_luck()) * weapon_damage
+                    value += (self.get_intelligence() * 2 + self.get_wisdom() * 1 + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Book":
-                    value += (self.get_wisdom() * 3 + self.get_luck()) * weapon_damage
-            return int(value)
+                    value += (self.get_wisdom() * 3 + self.get_luck()) * class_damage
+                
+                weapon_base_damage = self.equipedWeapon.base_damage
+                if self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
+                    weapon_base_damage += (self.get_intelligence() * (1/3) + self.get_wisdom() * (1/6)) * (rank_multipliers.get(self.equipedWeapon.rarity, 0) + 1)
+                elif self.equipedWeapon.type == "Book":
+                    weapon_base_damage += (self.get_wisdom()) * (1/2) * (rank_multipliers.get(self.equipedWeapon.rarity, 0) + 1)
+            return int(value + weapon_base_damage)
 
         def get_critical_change(self):
             return int(5 + self.get_luck() * 0.5 + self.get_dexterity() * 0.5)
@@ -313,13 +330,13 @@ init python:
         def get_defense_from_equipment(self):
             total_defense = 0
             if self.equipedHelmet != None:
-                total_defense = total_defense + self.equipedHelmet.defense
+                total_defense = total_defense + self.equipedHelmet.base_defense
             if self.equipedBodyArmor != None:
-                total_defense = total_defense + self.equipedBodyArmor.defense
+                total_defense = total_defense + self.equipedBodyArmor.base_defense
             if self.equipedPants != None:
-                total_defense = total_defense + self.equipedPants.defense
+                total_defense = total_defense + self.equipedPants.base_defense
             if self.equipedBoots != None:
-                total_defense = total_defense + self.equipedBoots.defense
+                total_defense = total_defense + self.equipedBoots.base_defense
             return total_defense
         
         def get_increments(self, searchingClassName):
@@ -538,16 +555,45 @@ init python:
     #   E   Gray        #A9A9A9
     class Weapon:
         _id_counter = 0
-        def __init__(self, name, description, weapon_type, class_name, base_damage, _range, rarity):
+        def __init__(self, name, description, weapon_type, class_name, _range, rarity):
             self.weapon_id = Weapon._id_counter
             Weapon._id_counter += 1
             self.name = name # name of the weapon
             self.description = description # a small description for the weapon, it also can have a story of the weapon
             self.type = weapon_type # the type (knife, sword, axe, lance, etc..)
-            self.class_name = class_name # dexterity / strength / magic
-            self.base_damage = base_damage # damage
+            self.class_name = class_name # Dexterity / Strength / Magic / Divine
             self.range = _range
             self.rarity = rarity
+
+            if self.type == "Wand" or self.type == "Book":
+                # defining base damage
+                base_damage = 5
+                
+            elif self.type == "Staff":
+                # defining base damage
+                base_damage = 10
+
+            else:
+                # defining base damage
+                base_damage = 30
+
+                # update the damage type if its a great (big and heavy) weapon, or a knife
+                if self.type == "Great Hammer" or self.type == "Greataxe" or self.type == "Greatsword":
+                    base_damage *=  1.5 # TODO: BUT ATACK SPEED DECREASE
+                elif self.type == "Knife":
+                    base_damage *= 0.7 # TODO: BUT CRITICAL DAMAGE DEALS MORE DAMAGE
+
+                if self.range == "Ranged":
+                    base_damage *= 0.8
+
+                # ratio between ranks (from previous calculation)
+                ratio = 2.512  # each rank multiplies damage by ~2.5
+
+                # compute final damage
+                exponent = rank_multipliers.get(self.rarity, 0)  # default 0 if unknown
+                base_damage = base_damage * (ratio ** exponent)
+            
+            self.base_damage = base_damage
 
 
     class Equipment:
@@ -605,5 +651,5 @@ init python:
             elif self.rarity == "S":
                 base_defense = base_defense * 16
 
-            self.defense = int(base_defense)
+            self.base_defense = int(base_defense)
             

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 317: expected an indented block after 'if' statement on line 315
-    if self.equipedBodyArmor != None:
-        ^^
+File "game/classes.rpy", line 304: invalid syntax. Perhaps you forgot a comma?
+    return int(weapon_base_d(rank_multipliers.get(self.equipedWeapon.rarity, 0) + 1)amage)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sun Aug 31 17:28:47 2025
+Sun Aug 31 20:10:56 2025

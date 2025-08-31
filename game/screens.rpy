@@ -2286,7 +2286,7 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                             text "[str(equipment_or_weapon.base_damage)]" size 22 color "#EEE" xalign 0.99999999999
                             text "[str(equipment_or_weapon.range)]" size 22 color "#EEE" xalign 0.99999999999
                         elif weaponOrEquipment_type == "e":
-                            text "[str(equipment_or_weapon.defense)]" size 22 color "#EEE" xalign 0.99999999999
+                            text "[str(equipment_or_weapon.base_defense)]" size 22 color "#EEE" xalign 0.99999999999
                             text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio1'])] (x[str(equipment_or_weapon.prio1 + 1)])" size 22 color "#EEE" xalign 0.99999999999
                             text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio2'])] (x[str(equipment_or_weapon.prio2 + 1)])" size 22 color "#EEE" xalign 0.99999999999
                         
