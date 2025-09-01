@@ -2,6 +2,7 @@ init python:
     import random
 
     levelAttributeIncrements = 1
+    stage_attribute_inc = 1.3
             
     # define the base multiplier per rank
     rank_multipliers = {
@@ -26,7 +27,7 @@ init python:
             self.intelligence = stats["intelligence"]
             self.wisdom = stats["wisdom"]
             self.charisma = stats["charisma"]
-            self.morality = int(self.charisma * 0.6 + self.wisdom * 0.4)
+            self.speed = stats["speed"]
             self.luck = stats["luck"]
             self.increasing_list = increasing_list
             self.evolution_1 = evolution_1
@@ -60,7 +61,7 @@ init python:
                 "intelligence": self.intelligence,
                 "wisdom": self.wisdom,
                 "charisma": self.charisma,
-                "morality": self.morality,
+                "speed": self.speed,
                 "luck": self.luck
             }
         
@@ -237,6 +238,13 @@ init python:
             if fake_stage != None:
                 used_stage = fake_stage
             return int(self.basePoints.charisma * used_stage * self.get_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
+
+        # TODO: add things to increment speed attribute
+        def get_speed(self, fake_stage = None, fake_evolution = None):
+            used_stage = self.stage
+            if fake_stage != None:
+                used_stage = fake_stage
+            return int(self.basePoints.speed * used_stage * self.get_increments("Speed") * self.get_evolution_increments("Speed", fake_evolution))
         
         def get_luck(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
@@ -298,20 +306,30 @@ init python:
                     weapon_base_damage += (self.get_wisdom()) * (1/2) * (rank_multipliers.get(self.equipedWeapon.rarity, 0) + 1)
             return int(value + weapon_base_damage)
 
-        def get_critical_change(self):
-            return int(5 + self.get_luck() * 0.5 + self.get_dexterity() * 0.5)
+        def get_critical_chance(self):
+            critical_chance = round(0.05 + self.get_luck() * 0.001 + self.get_dexterity() * 0.0005, 4)
+            if critical_chance > 1:
+                critical_chance = 1
+            return critical_chance
+        
+        # TODO: decrease the numbers, as its to much
+        def get_critical_damage(self):
+            return round(1.5 + self.get_dexterity() * 0.001 + self.get_luck() * 0.0005 + self.get_strength() * 0.0005, 2)
 
         def get_evasion(self):
-            return int(self.get_dexterity() * 0.5 + self.get_luck() * 0.5)
+            return round(self.get_dexterity() * 0.005 + self.get_luck() * 0.005, 2)
         
         def get_defense(self):
-            return self.get_defense_from_equipment() + int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5)
+            return round(self.get_defense_from_equipment() + int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5), 2)
         
         def get_morality(self, fake_stage = None, fake_evolution = None):
-            return int(self.get_charisma(fake_stage, fake_evolution) * 0.6 + self.get_wisdom(fake_stage, fake_evolution) * 0.4)
+            return round(self.get_charisma(fake_stage, fake_evolution) * 0.6 + self.get_wisdom(fake_stage, fake_evolution) * 0.4, 2)
 
-        def cooldown_reduction(self):
-            return int(self.get_wisdom() * 0.05)
+        def get_cooldown_reduction(self):
+            return round(self.get_wisdom() * 0.05, 2)
+
+        def get_attack_speed(self):
+            return round(0.7 + self.get_dexterity() * 0.01 + self.get_speed() * 0.005, 2)
 
         def get_current_stats(self, fake_stage = None, fake_evolution = None):
             return {
@@ -321,8 +339,15 @@ init python:
                 "intelligence": self.get_intelligence(fake_stage, fake_evolution),
                 "wisdom": self.get_wisdom(fake_stage, fake_evolution),
                 "charisma": self.get_charisma(fake_stage, fake_evolution),
-                "morality": self.get_morality(fake_stage, fake_evolution),
-                "luck": self.get_luck(fake_stage, fake_evolution)
+                "speed": self.get_speed(fake_stage, fake_evolution),
+                "luck": self.get_luck(fake_stage, fake_evolution),                
+                "attack_speed": self.get_attack_speed(),
+                "defense": self.get_defense(),
+                "evasion": self.get_evasion(),
+                "morality": self.get_morality(),
+                "cooldown_reduction": self.get_cooldown_reduction(),
+                "critical_chance": self.get_critical_chance(),
+                "critical_damage": self.get_critical_damage()
             }
 
         def get_defense_from_equipment(self):
@@ -338,7 +363,7 @@ init python:
             return total_defense
         
         def get_increments(self, searchingClassName):
-            totalIncrement = 1
+            totalIncrement = 0
             for className, prios in stats_increment_map.items():
                 # helmet
                 if self.equipedHelmet is not None:
@@ -368,6 +393,8 @@ init python:
                             totalIncrement += self.equipedBoots.prio1
                         if prios["prio2"] == searchingClassName:
                             totalIncrement += self.equipedBoots.prio2
+            if totalIncrement == 0:
+                totalIncrement = 1
             return totalIncrement
 
         def get_evolution_increments(self, searchingAttributeName, fake_evolution = None):
@@ -638,28 +665,28 @@ init python:
             # get the defense depending on the rarity
             if self.rarity == "E":
                 base_defense = base_defense * 1
-                prio1 = 1.05
-                prio2 = 1
-            elif self.rarity == "D":
-                base_defense = base_defense * 2
                 prio1 = 1.1
                 prio2 = 1.05
-            elif self.rarity == "C":
-                base_defense = base_defense * 4
+            elif self.rarity == "D":
+                base_defense = base_defense * 2
                 prio1 = 1.2
                 prio2 = 1.1
+            elif self.rarity == "C":
+                base_defense = base_defense * 4
+                prio1 = 1.3
+                prio2 = 1.2
             elif self.rarity == "B":
                 base_defense = base_defense * 7
                 prio1 = 1.5
-                prio2 = 1.2
+                prio2 = 1.3
             elif self.rarity == "A":
                 base_defense = base_defense * 11
-                prio1 = 2
+                prio1 = 1.8
                 prio2 = 1.5
             elif self.rarity == "S":
                 base_defense = base_defense * 16
-                prio1 = 3
-                prio2 = 2
+                prio1 = 2.2
+                prio2 = 1.8
 
             self.base_defense = int(base_defense)
             self.prio1 = prio1

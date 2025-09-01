@@ -137,13 +137,11 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] update the protector detail to:
-    #   -   have in left top - equipment
-    #   -   have in left bottom - attributes
-    #   -   middle - image of the protector
-    #   -   left side - damage / defense / evasion / morality and so on - delete the morality from the status, as this is not on of them -> instead add Speed attribute - which will update atack speed also, and attack speed we can also add there.
-    # 
-    # TODO: [ PRIO 1 ] ONCE I UPDATE THE PROTECTOR DETAIL - I ALSO NEED TO UPDATE THE EVOLUTION screen (delete the morality from the status)
+    # TODO: [ PRIO 1 ] attack speed & speed
+    #   -   make the attack speed base parameter to be dependent on the protector
+    #   -   make the percentage improvements being not as much as we are seeing 
+    #   -   add some equipments which improve speed (also some evolutions which improves or decreases speed value)
+    #   -   update the evolutions to also add or remove speed
     # 
     # TODO: [ PRIO 1 ] work on a priest protector
     # 

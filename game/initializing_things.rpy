@@ -22,14 +22,15 @@ init python:
                 "intelligence": 14,
                 "wisdom": 13,
                 "charisma": 8,
+                "speed": 15,
                 "luck": 11
-            }, 
+            },
             [
-                "dexterity", "luck", "constitution", "dexterity", "intelligence", 
+                "dexterity", "luck", "constitution", "dexterity", "speed",
                 "constitution", "dexterity", "strength", "dexterity", "charisma", 
                 "dexterity", "intelligence", "strength", "constitution", "wisdom", 
                 "dexterity", "luck", "dexterity", "strength", "dexterity", 
-                "wisdom", "constitution", "dexterity", "luck", "dexterity"
+                "wisdom", "constitution", "dexterity", "speed", "dexterity"
             ], 
             "EVA", "DEX_TAN", 
             "Ash Ninja", 
@@ -46,17 +47,18 @@ init python:
             {
                 "strength": 15,
                 "dexterity": 10,
-                "constitution": 14,
+                "constitution": 18,
                 "intelligence": 11,
-                "wisdom": 15,
-                "charisma": 12,
+                "wisdom": 16,
+                "charisma": 15,
+                "speed": 7,
                 "luck": 8
             }, 
             [
                 "strength", "wisdom", "constitution", "strength", "charisma", 
                 "strength", "wisdom", "constitution", "strength", "intelligence", 
                 "strength", "wisdom", "strength", "charisma", "constitution", 
-                "strength", "wisdom", "strength", "luck", "strength"
+                "strength", "wisdom", "strength", "luck", "strength", "speed"
             ], 
             "MIR_TAN", "MIR_STR_STR",
             "Saint Templar",
@@ -72,18 +74,19 @@ init python:
         protectors_base_information["Wizard"] = BaseProtectorData(
             {
                 "strength": 7,
-                "dexterity": 10,
+                "dexterity": 12,
                 "constitution": 11,
-                "intelligence": 18,
+                "intelligence": 21,
                 "wisdom": 18,
                 "charisma": 9,
+                "speed": 10,
                 "luck": 12
             }, 
             [
                 "intelligence", "wisdom", "constitution", "intelligence", "intelligence", 
                 "wisdom", "intelligence", "constitution", "wisdom", "dexterity", 
                 "intelligence", "wisdom", "constitution", "luck", "intelligence", 
-                "wisdom", "charisma", "intelligence", "wisdom", "constitution"
+                "wisdom", "charisma", "intelligence", "wisdom", "constitution", "speed"
             ], 
             "MIR_CON", "INT",
             "Thunder Wizard",
@@ -96,27 +99,28 @@ init python:
             "Principiant Wand"
         )
 
-        protectors_base_information["Joker"] = BaseProtectorData(
+        protectors_base_information["Ace"] = BaseProtectorData(
             {
                 "strength": 8,
-                "dexterity": 14,
+                "dexterity": 15,
                 "constitution": 10,
-                "intelligence": 14,
-                "wisdom": 14,
+                "intelligence": 15,
+                "wisdom": 15,
                 "charisma": 9,
+                "speed": 12,
                 "luck": 16
             }, 
             [
                 "dexterity", "wisdom", "luck", "dexterity", "wisdom", 
-                "constitution", "dexterity", "wisdom", "luck", "luck", 
+                "constitution", "dexterity", "wisdom", "speed", "luck", 
                 "dexterity", "wisdom", "luck", "luck", "dexterity", 
                 "wisdom", "luck", "dexterity", "wisdom", "constitution",
                 "constitution", "luck", "wisdom", "dexterity", "constitution"
             ], 
             "MIR_MIR_DEX", "CRI",
-            "Demonic Joker",
+            "Demonic Dealer",
             "In a forgotten arcane library, he found a deck of dark enchanted cards, each holding demonic essence. Now, whispers from the cards slowly turn him into a demon with every throw.",
-            "Sharpen Joker",
+            "Ace of Fates",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
             ["Cards", "Hands"], None, None,
             "Melee",
@@ -126,17 +130,18 @@ init python:
 
         protectors_base_information["Samurai"] = BaseProtectorData(
             {
-                "strength": 14,
-                "dexterity": 13,
-                "constitution": 13,
+                "strength": 16,
+                "dexterity": 14,
+                "constitution": 15,
                 "intelligence": 12,
                 "wisdom": 14,
                 "charisma": 10,
+                "speed": 10,
                 "luck": 9
             },
             [
-                "strength", "dexterity", "strength", "constitution", "strength", 
-                "wisdom", "dexterity", "dexterity", "constitution", "strength", 
+                "strength", "dexterity", "strength", "constitution", "speed", 
+                "wisdom", "dexterity", "speed", "constitution", "strength", 
                 "dexterity", "wisdom", "strength", "dexterity", "strength", 
                 "intelligence", "strength", "dexterity", "constitution", "charisma"
             ], 
@@ -153,19 +158,20 @@ init python:
 
         protectors_base_information["Recruit"] = BaseProtectorData(
             {
-                "strength": 14,
-                "dexterity": 13,
-                "constitution": 15,
+                "strength": 15,
+                "dexterity": 15,
+                "constitution": 17,
                 "intelligence": 10,
                 "wisdom": 9,
-                "charisma": 12,
+                "charisma": 13,
+                "speed": 9,
                 "luck": 11
             },
             [
                 "dexterity", "strength", "dexterity", "constitution", "dexterity", 
                 "strength", "dexterity", "constitution", "dexterity", "strength", 
                 "dexterity", "constitution", "dexterity", "strength", "charisma", 
-                "strength", "luck", "strength", "constitution", "charisma"
+                "strength", "luck", "strength", "constitution", "charisma", "speed"
             ], 
             "EVA", "STR_STR_STR_CON",
             "Special Forces Agent",

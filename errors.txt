@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2500: 'difference' is not a keyword argument or valid child of the hbox statement.
-    difference = evolution_stats['morality'] - current_stats['morality']
-              ^
+File "game/screens.rpy", line 2769: Line is indented, but the preceding one-line python statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    if my_protector.equipedHelmet == None:
+    ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sun Aug 31 21:40:08 2025
+Mon Sep  1 11:07:50 2025
