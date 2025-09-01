@@ -29,6 +29,7 @@ init python:
             self.charisma = stats["charisma"]
             self.speed = stats["speed"]
             self.luck = stats["luck"]
+            self.attack_speed = stats["attack_speed"]
             self.increasing_list = increasing_list
             self.evolution_1 = evolution_1
             self.evolution_2 = evolution_2
@@ -273,7 +274,7 @@ init python:
                 elif self.basePoints.unarmed_damage_type == "Magic":
                     value = (self.get_intelligence() + self.get_wisdom()) * type_damage
                 elif self.basePoints.unarmed_damage_type == "Divine":
-                    value = (self.get_wisdom()) * 1.5
+                    value = (self.get_wisdom()) * 1.2
             else:
                 if self.equipedWeapon.class_name == "Strength":
                     value = (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * type_damage
@@ -290,7 +291,7 @@ init python:
                     value += (self.get_dexterity() * 3 + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Great Hammer" or self.equipedWeapon.type == "Greataxe" or self.equipedWeapon.type == "Greatsword":
                     value += (self.get_strength() * 2.7 + self.get_dexterity() * 0.3 + self.get_luck()) * class_damage
-                elif self.equipedWeapon.type == "Katana":
+                elif self.equipedWeapon.type == "Katana" or self.equipedWeapon.type == "Spear" or self.equipedWeapon.type == "Sword":
                     value += (self.get_strength() * 1.5 + self.get_dexterity() * 1.5 + self.get_luck()) * class_damage
                 elif self.equipedWeapon.type == "Knife":
                     value += (self.get_dexterity() * 2 + self.get_strength() * 1 + self.get_luck()) * class_damage
@@ -312,12 +313,17 @@ init python:
                 critical_chance = 1
             return critical_chance
         
-        # TODO: decrease the numbers, as its to much
         def get_critical_damage(self):
-            return round(1.5 + self.get_dexterity() * 0.001 + self.get_luck() * 0.0005 + self.get_strength() * 0.0005, 2)
+            critical_damage = round(1.5 + self.get_dexterity() * 0.001 + self.get_luck() * 0.0005 + self.get_strength() * 0.0005, 2)
+
+            # Get the critical boost from the weapon
+            if self.equipedWeapon != None:
+                critical_damage *= self.equipedWeapon.crit_damage
+
+            return critical_damage
 
         def get_evasion(self):
-            return round(self.get_dexterity() * 0.005 + self.get_luck() * 0.005, 2)
+            return round(self.get_dexterity() * 0.03 + self.get_luck() * 0.003, 2)
         
         def get_defense(self):
             return round(self.get_defense_from_equipment() + int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5), 2)
@@ -329,7 +335,12 @@ init python:
             return round(self.get_wisdom() * 0.05, 2)
 
         def get_attack_speed(self):
-            return round(0.7 + self.get_dexterity() * 0.01 + self.get_speed() * 0.005, 2)
+            atack_speed = round(self.basePoints.attack_speed + self.get_dexterity() * 0.001 + self.get_speed() * 0.0005, 2)
+            
+            # Get the attack speed boost from the weapon
+            if self.equipedWeapon != None:
+                atack_speed *= self.equipedWeapon.attack_speed_boost
+            return atack_speed
 
         def get_current_stats(self, fake_stage = None, fake_evolution = None):
             return {
@@ -363,38 +374,36 @@ init python:
             return total_defense
         
         def get_increments(self, searchingClassName):
-            totalIncrement = 0
+            totalIncrement = 1
             for className, prios in stats_increment_map.items():
                 # helmet
                 if self.equipedHelmet is not None:
                     if self.equipedHelmet.class_name == className:
                         if prios["prio1"] == searchingClassName:
-                            totalIncrement += self.equipedHelmet.prio1
+                            totalIncrement += (self.equipedHelmet.prio1 / 100)
                         if prios["prio2"] == searchingClassName:
-                            totalIncrement += self.equipedHelmet.prio2
+                            totalIncrement += (self.equipedHelmet.prio2 / 100)
                 # body
                 if self.equipedBodyArmor is not None:
                     if self.equipedBodyArmor.class_name == className:
                         if prios["prio1"] == searchingClassName:
-                            totalIncrement += self.equipedBodyArmor.prio1
+                            totalIncrement += (self.equipedHelmet.prio1 / 100)
                         if prios["prio2"] == searchingClassName:
-                            totalIncrement += self.equipedBodyArmor.prio2
+                            totalIncrement += (self.equipedHelmet.prio2 / 100)
                 # pants
                 if self.equipedPants is not None:
                     if self.equipedPants.class_name == className:
                         if prios["prio1"] == searchingClassName:
-                            totalIncrement += self.equipedPants.prio1
+                            totalIncrement += (self.equipedHelmet.prio1 / 100)
                         if prios["prio2"] == searchingClassName:
-                            totalIncrement += self.equipedPants.prio2
+                            totalIncrement += (self.equipedHelmet.prio2 / 100)
                 # boots
                 if self.equipedBoots is not None:
                     if self.equipedBoots.class_name == className:
                         if prios["prio1"] == searchingClassName:
-                            totalIncrement += self.equipedBoots.prio1
+                            totalIncrement += (self.equipedHelmet.prio1 / 100)
                         if prios["prio2"] == searchingClassName:
-                            totalIncrement += self.equipedBoots.prio2
-            if totalIncrement == 0:
-                totalIncrement = 1
+                            totalIncrement += (self.equipedHelmet.prio2 / 100)
             return totalIncrement
 
         def get_evolution_increments(self, searchingAttributeName, fake_evolution = None):
@@ -589,6 +598,8 @@ init python:
             self.class_name = class_name # Dexterity / Strength / Magic / Divine
             self.range = _range
             self.rarity = rarity
+            self.crit_damage = 1
+            self.attack_speed_boost = 1
 
             if self.type == "Wand" or self.type == "Book":
                 # defining base damage
@@ -604,12 +615,15 @@ init python:
 
                 # update the damage type if its a great (big and heavy) weapon, or a knife
                 if self.type == "Great Hammer" or self.type == "Greataxe" or self.type == "Greatsword":
-                    base_damage *=  1.5 # TODO: BUT ATACK SPEED DECREASE x 0.67
+                    base_damage *=  1.5
+                    self.attack_speed_boost = 0.67
                 elif self.type == "Katana" or self.type == "Spear":
-                    base_damage *=  1.2 # TODO: BUT ATACK SPEED DECREASE x 0.83
+                    base_damage *=  1.2
+                    self.attack_speed_boost = 0.83
                 elif self.type == "Knife":
-                    base_damage *= 0.7 # TODO: BUT CRITICAL DAMAGE DEALS MORE DAMAGE
-
+                    base_damage *= 0.67
+                    self.crit_damage = 1.5                    
+                    self.attack_speed_boost = 1.1
                 if self.range == "Ranged":
                     base_damage *= 0.8
 
@@ -667,28 +681,28 @@ init python:
             # get the defense depending on the rarity
             if self.rarity == "E":
                 base_defense = base_defense * 1
-                prio1 = 1.1
-                prio2 = 1.05
+                prio1 = 5
+                prio2 = 5
             elif self.rarity == "D":
                 base_defense = base_defense * 2
-                prio1 = 1.2
-                prio2 = 1.1
+                prio1 = 10
+                prio2 = 5
             elif self.rarity == "C":
                 base_defense = base_defense * 4
-                prio1 = 1.3
-                prio2 = 1.2
+                prio1 = 15
+                prio2 = 10
             elif self.rarity == "B":
                 base_defense = base_defense * 7
-                prio1 = 1.5
-                prio2 = 1.3
+                prio1 = 25
+                prio2 = 15
             elif self.rarity == "A":
                 base_defense = base_defense * 11
-                prio1 = 1.8
-                prio2 = 1.5
+                prio1 = 35
+                prio2 = 25
             elif self.rarity == "S":
                 base_defense = base_defense * 16
-                prio1 = 2.2
-                prio2 = 1.8
+                prio1 = 50
+                prio2 = 35
 
             self.base_defense = int(base_defense)
             self.prio1 = prio1

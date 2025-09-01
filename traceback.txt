@@ -3,6 +3,26 @@
 While running game code:
   File "game/places.rpy", line 18, in script call
     call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
   File "game/places.rpy", line 26, in script call
     call show_my_available_protectors(False)
   File "game/places.rpy", line 28, in script call
@@ -29,27 +49,39 @@ While running game code:
     fixed:
   File "game/screens.rpy", line 2429, in execute
     hbox:
-  File "game/screens.rpy", line 2540, in execute
-    vbox:
-  File "game/screens.rpy", line 2548, in execute
-    vbox:
-  File "game/screens.rpy", line 2553, in execute
-    hbox:
-  File "game/screens.rpy", line 2557, in execute
-    vbox:
-  File "game/screens.rpy", line 2562, in execute
-    text "Speed:" size size_letter color mor_t_color
-  File "game/screens.rpy", line 2562, in keywords
-    text "Speed:" size size_letter color mor_t_color
-  File "game/screens.rpy", line 2562, in <module>
-    text "Speed:" size size_letter color mor_t_color
-                                         ^^^^^^^^^^^
-NameError: name 'mor_t_color' is not defined. Did you mean: 'str_t_color'?
+  File "game/screens.rpy", line 2499, in execute
+    if "Speed" in increase_array:
+  File "game/screens.rpy", line 2502, in execute
+    $ spe_text = str(current_stats['speed']) + " → " + str(evolution_stats['Speed']) + " (+" + str(percentage_change) + "%)"
+  File "game/screens.rpy", line 2502, in <module>
+    $ spe_text = str(current_stats['speed']) + " → " + str(evolution_stats['Speed']) + " (+" + str(percentage_change) + "%)"
+                                                           ~~~~~~~~~~~~~~~^^^^^^^^^                                         
+KeyError: 'Speed'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
   File "game/places.rpy", line 18, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 28, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 36, in script call
+    call rest()
+  File "game/places.rpy", line 38, in script call
     call base_travel_menu()
   File "game/places.rpy", line 26, in script call
     call show_my_available_protectors(False)
@@ -123,30 +155,16 @@ Traceback (most recent call last):
     fixed:
   File "game/screens.rpy", line 2429, in execute
     hbox:
-  File "game/screens.rpy", line 2540, in execute
-    vbox:
-  File "game/screens.rpy", line 2548, in execute
-    vbox:
-  File "game/screens.rpy", line 2553, in execute
-    hbox:
-  File "game/screens.rpy", line 2557, in execute
-    vbox:
-  File "game/screens.rpy", line 2562, in execute
-    text "Speed:" size size_letter color mor_t_color
-  File "game/screens.rpy", line 2562, in keywords
-    text "Speed:" size size_letter color mor_t_color
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2562, in <module>
-    text "Speed:" size size_letter color mor_t_color
-                                         ^^^^^^^^^^^
-NameError: name 'mor_t_color' is not defined. Did you mean: 'str_t_color'?
+  File "game/screens.rpy", line 2499, in execute
+    if "Speed" in increase_array:
+  File "game/screens.rpy", line 2502, in execute
+    $ spe_text = str(current_stats['speed']) + " → " + str(evolution_stats['Speed']) + " (+" + str(percentage_change) + "%)"
+  File "game/screens.rpy", line 2502, in <module>
+    $ spe_text = str(current_stats['speed']) + " → " + str(evolution_stats['Speed']) + " (+" + str(percentage_change) + "%)"
+                                                           ~~~~~~~~~~~~~~~^^^^^^^^^                                         
+KeyError: 'Speed'
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Mon Sep  1 13:58:08 2025
+Mon Sep  1 17:48:16 2025

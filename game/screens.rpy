@@ -2270,8 +2270,8 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
 
                         elif weaponOrEquipment_type == "e":
                             text "Defense value:" size 22 color "#EEE"
-                            text "Improved attribute 1:" size 22 color "#EEE"
-                            text "Improved attribute 2:" size 22 color "#EEE"
+                            text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio1'])]:" size 22 color "#EEE"
+                            text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio2'])]:" size 22 color "#EEE"
 
                         text "Rarity:" size 22 color "#EEE"
                         
@@ -2287,8 +2287,8 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                             text "[str(equipment_or_weapon.range)]" size 22 color "#EEE" xalign 0.99999999999
                         elif weaponOrEquipment_type == "e":
                             text "[str(equipment_or_weapon.base_defense)]" size 22 color "#EEE" xalign 0.99999999999
-                            text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio1'])] (x[str(equipment_or_weapon.prio1 + 1)])" size 22 color "#EEE" xalign 0.99999999999
-                            text "[str(stats_increment_map[equipment_or_weapon.class_name]['prio2'])] (x[str(equipment_or_weapon.prio2 + 1)])" size 22 color "#EEE" xalign 0.99999999999
+                            text "+[str(equipment_or_weapon.prio1)]%" size 22 color "#EEE" xalign 0.99999999999
+                            text "+[str(equipment_or_weapon.prio2)]%" size 22 color "#EEE" xalign 0.99999999999
                         
                         text "[str(equipment_or_weapon.rarity)]" size 22 color "#EEE" xalign 0.99999999999
                             
@@ -2499,11 +2499,11 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                 if "Speed" in increase_array:
                     $ percentage_change = increasing_percentage * increase_array.count("Speed")
                     $ spe_t_color = "#4CAF50"
-                    $ spe_text = str(current_stats['Speed']) + " → " + str(evolution_stats['Speed']) + " (+" + str(percentage_change) + "%)"
+                    $ spe_text = str(current_stats['speed']) + " → " + str(evolution_stats['speed']) + " (+" + str(percentage_change) + "%)"
                 elif "Speed" in decrease_array:
                     $ percentage_change = decreasing_percentage * decrease_array.count("Speed")
                     $ spe_t_color = "#F44336"
-                    $ spe_text = str(current_stats['Speed']) + " → " + str(evolution_stats['Speed']) + " (-" + str(percentage_change) + "%)"
+                    $ spe_text = str(current_stats['speed']) + " → " + str(evolution_stats['speed']) + " (-" + str(percentage_change) + "%)"
                 if "Dexterity" in increase_array:
                     $ percentage_change = increasing_percentage * increase_array.count("Dexterity")
                     $ dex_t_color = "#4CAF50"
@@ -3119,13 +3119,13 @@ screen protector_detail_screen(my_protector):
                             text "Critical chance:" size 22 color "#EEE" xalign 0.0000001
                         vbox:
                             xalign 0.7
-                            text "[str(current_status['attack_speed'])]" size 22 color "#EEE" xalign 0.9999
+                            text "[str(round(current_status['attack_speed'], 2))] a/s" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['defense'])]" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['evasion'])]" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['morality'])]" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['cooldown_reduction'])]" size 22 color "#EEE" xalign 0.9999
-                            text "[str(round(current_status['critical_damage'] * 100, 2))]%" size 22 color "#EEE" xalign 0.9999
-                            text "[str(round(current_status['critical_chance'] * 100, 2))]%" size 22 color "#EEE" xalign 0.9999
+                            text "[str(round(current_status['critical_damage'] * 100, 2))] %" size 22 color "#EEE" xalign 0.9999
+                            text "[str(round(current_status['critical_chance'] * 100, 2))] %" size 22 color "#EEE" xalign 0.9999
                 vbox:
                     xalign 0.5
                     spacing 70
@@ -3494,8 +3494,8 @@ screen weapon_select(protector):
 
         vbox:
             spacing 10
-
-            text "Select your weapon:" size 30
+            xalign 0.5
+            text "Select your weapon:" size 30 xalign 0.5
 
             # For each available weapon, create a button
             $ filtered_weapons = sorted(
@@ -3503,14 +3503,14 @@ screen weapon_select(protector):
                 key=lambda weapon: (weapon.rarity, weapon.name.lower())
             )
             for weapon in filtered_weapons:
-                textbutton "[weapon.name] ([weapon.rarity])":
+                textbutton "[weapon.name] - [weapon.class_name] ([weapon.rarity])":
                     action [Function(protector.equip_weapon, weapon.weapon_id), Hide("weapon_select")]
-                    xminimum 200
                     ypadding 10
+                    xalign 0.5
 
             textbutton "Cancel":
                 action Hide("weapon_select")
-                xminimum 200
+                xalign 0.5
                 ypadding 10
 
 screen equipment_select(protector, equipment_type):
@@ -3525,24 +3525,26 @@ screen equipment_select(protector, equipment_type):
 
         vbox:
             spacing 10
+            xalign 0.5
 
-            text "Select your equipment:" size 30
+            text "Select your equipment:" size 30 xalign 0.5
 
             # For each available weapon, create a button
             $ filtered_equipments = sorted(
                 [equipment for equipment in myEquipments if equipment.type == equipment_type],
                 key=lambda equipment: (equipment.rarity, equipment.name.lower())
             )
+
             for equipment in filtered_equipments:
-                textbutton "[equipment.name] ([equipment.rarity])":
+                textbutton "[equipment.name] - [equipment.class_name] ([equipment.rarity])":
                     action [Function(protector.equip_equipment, equipment.equipment_id), Hide("equipment_select")]
-                    xminimum 200
+                    xalign 0.5
                     ypadding 10
 
             textbutton "Cancel":
                 action Hide("equipment_select")
-                xminimum 200
                 ypadding 10
+                xalign 0.5
 
 
 screen lucky_box_screen(box_type):

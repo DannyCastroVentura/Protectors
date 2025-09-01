@@ -23,7 +23,8 @@ init python:
                 "wisdom": 13,
                 "charisma": 8,
                 "speed": 15,
-                "luck": 11
+                "luck": 11,
+                "attack_speed": 1.3
             },
             [
                 "dexterity", "luck", "constitution", "dexterity", "speed",
@@ -52,7 +53,8 @@ init python:
                 "wisdom": 16,
                 "charisma": 15,
                 "speed": 7,
-                "luck": 8
+                "luck": 8,
+                "attack_speed": 0.7
             }, 
             [
                 "strength", "wisdom", "constitution", "strength", "charisma", 
@@ -71,6 +73,7 @@ init python:
             "Templar Greatsword"
         )
 
+
         protectors_base_information["Wizard"] = BaseProtectorData(
             {
                 "strength": 7,
@@ -80,10 +83,11 @@ init python:
                 "wisdom": 18,
                 "charisma": 9,
                 "speed": 10,
-                "luck": 12
+                "luck": 12,
+                "attack_speed": 0.9
             }, 
             [
-                "intelligence", "wisdom", "constitution", "intelligence", "intelligence", 
+                "intelligence", "wisdom", "constitution", "intelligence", "dexterity", 
                 "wisdom", "intelligence", "constitution", "wisdom", "dexterity", 
                 "intelligence", "wisdom", "constitution", "luck", "intelligence", 
                 "wisdom", "charisma", "intelligence", "wisdom", "constitution", "speed"
@@ -108,7 +112,8 @@ init python:
                 "wisdom": 15,
                 "charisma": 9,
                 "speed": 12,
-                "luck": 16
+                "luck": 16,
+                "attack_speed": 1.2
             }, 
             [
                 "dexterity", "wisdom", "luck", "dexterity", "wisdom", 
@@ -137,7 +142,8 @@ init python:
                 "wisdom": 14,
                 "charisma": 10,
                 "speed": 10,
-                "luck": 9
+                "luck": 9,
+                "attack_speed": 1.2
             },
             [
                 "strength", "dexterity", "strength", "constitution", "speed", 
@@ -145,7 +151,7 @@ init python:
                 "dexterity", "wisdom", "strength", "dexterity", "strength", 
                 "intelligence", "strength", "dexterity", "constitution", "charisma"
             ], 
-            "TAN", "DAM",
+            "TAN", "DAM_SPE",
             "Tech Samurai",
             "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
             "Wolf Samurai",
@@ -165,7 +171,8 @@ init python:
                 "wisdom": 9,
                 "charisma": 13,
                 "speed": 9,
-                "luck": 11
+                "luck": 11,
+                "attack_speed": 1
             },
             [
                 "dexterity", "strength", "dexterity", "constitution", "dexterity", 
@@ -173,7 +180,7 @@ init python:
                 "dexterity", "constitution", "dexterity", "strength", "charisma", 
                 "strength", "luck", "strength", "constitution", "charisma", "speed"
             ], 
-            "EVA", "STR_STR_STR_CON",
+            "EVA", "STR_STR_STR_CON_SPE",
             "Special Forces Agent",
             "Determined to become one of the best, he enlisted in the Special Forces intense training. After proving his skill, he earned his place and now strikes with unmatched precision, agility, and tactical mastery on every mission.",
             "Berserker",

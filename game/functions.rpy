@@ -85,82 +85,87 @@ init python:
     # TODO: Once I have the speed attribute, I should update them to also add, or lose some speed
     if 'evolution_increment_map' not in globals():
         evolution_increment_map = {
-            "DAM": {
-                "increase": [ "Dexterity", "Strength" ],
+            "DAM": {  # Physical damage dealer
+                "increase": [ "Strength", "Dexterity" ],
                 "decrease": [ "Intelligence", "Wisdom" ]
             },
-            "DEX": {
-                "increase": [ "Dexterity", "Dexterity", "Strength", "Luck" ],
+            "DAM_SPE": {  # Damage + Speed
+                "increase": [ "Strength", "Dexterity", "Speed" ],
                 "decrease": [ "Intelligence", "Wisdom" ]
             },
-            "DEX_TAN": {
-                "increase": [ "Dexterity", "Dexterity", "Strength", "Constitution" ],
+            "DEX": {  # High crit + accuracy
+                "increase": [ "Dexterity", "Dexterity", "Luck", "Speed" ],
                 "decrease": [ "Intelligence", "Wisdom" ]
             },
-            "STR": {
-                "increase": [ "Strength", "Strength", "Dexterity", "Constitution" ],
+            "DEX_TAN": {  # Agile tank
+                "increase": [ "Dexterity", "Dexterity", "Constitution" ],
                 "decrease": [ "Intelligence", "Wisdom" ]
             },
-            "STR_ONLY": {
-                "increase": [ "Strength" ],
+            "STR": {  # Balanced strength build
+                "increase": [ "Strength", "Strength", "Constitution" ],
+                "decrease": [ "Intelligence", "Wisdom" ]
+            },
+            "STR_ONLY": {  # Glass cannon
+                "increase": [ "Strength", "Strength" ],
                 "decrease": [ "Intelligence", "Wisdom", "Luck" ]
             },
-            "STR_STR_STR_CON": {
-                "increase": [ "Strength", "Strength", "Strength", "Constitution" ],
+            "STR_STR_STR_CON_SPE": {  # Pure bruiser
+                "increase": [ "Strength", "Strength", "Strength", "Constitution", "Speed" ],
                 "decrease": [ "Intelligence", "Wisdom", "Luck" ]
             },
-            "INT": {
+            "INT": {  # Pure caster
                 "increase": [ "Intelligence", "Intelligence", "Wisdom" ],
-                "decrease": [ "Strength", "Dexterity", "Luck" ]
-            },
-            "INT_TAN": {
-                "increase": [ "Intelligence", "Intelligence", "Constitution", "Constitution", "Wisdom" ],
-                "decrease": [ "Strength", "Dexterity", "Luck" ]
-            },
-            "INT_EVA": {
-                "increase": [ "Intelligence", "Intelligence", "Dexterity", "Dexterity", "Wisdom", "Luck"],
                 "decrease": [ "Strength", "Dexterity" ]
             },
-            "TAN": {
+            "INT_TAN": {  # Battle-mage tank
+                "increase": [ "Intelligence", "Wisdom", "Constitution", "Constitution" ],
+                "decrease": [ "Strength", "Dexterity" ]
+            },
+            "INT_EVA": {  # Trickster mage
+                "increase": [ "Intelligence", "Wisdom", "Dexterity", "Luck" ],
+                "decrease": [ "Strength", "Constitution" ]
+            },
+            "TAN": {  # Tanky build
                 "increase": [ "Constitution", "Constitution", "Strength" ],
-                "decrease": [ "Intelligence" ]
+                "decrease": [ "Intelligence", "Luck" ]
             },
-            "MIR_CON": {
+            "MIR_CON": {  # Spiritual tank
                 "increase": [ "Wisdom", "Wisdom", "Constitution" ],
-                "decrease": [ "Dexterity", "Luck"]
+                "decrease": [ "Dexterity", "Intelligence" ]
             },
-            "MIR_TAN": {
-                "increase": [ "Wisdom", "Wisdom", "Strength", "Constitution" ],
+            "MIR_TAN": {  # Paladin style
+                "increase": [ "Wisdom", "Strength", "Constitution" ],
                 "decrease": [ "Intelligence" ]
             },
-            "MIR_STR_STR": {
-                "increase": [ "Wisdom", "Strength", "Strength", "Constitution"],
-                "decrease": [ "Intelligence", "Luck"]
+            "MIR_STR_STR": {  # War cleric
+                "increase": [ "Wisdom", "Strength", "Strength" ],
+                "decrease": [ "Intelligence", "Luck" ]
             },
-            "MIR_MIR_DEX": {
-                "increase": [ "Wisdom", "Wisdom", "Dexterity"],
-                "decrease": [ "Intelligence", "Strength"]
+            "MIR_MIR_DEX": {  # Agile priest
+                "increase": [ "Wisdom", "Wisdom", "Dexterity" ],
+                "decrease": [ "Strength", "Constitution" ]
             },
-            "SHI": {
+            "SHI": {  # Shield-focused
                 "increase": [ "Constitution", "Constitution", "Dexterity" ],
-                "decrease": [ "Luck", "Strength" ]
+                "decrease": [ "Luck", "Speed" ]
             },
-            "HP": {
-                "increase": [ "Constitution" ],
-                "decrease": [ "Dexterity", "Strength", "Wisdom", "Luck", "Intelligence" ]
+            "HP": {  # Health-obsessed
+                "increase": [ "Constitution", "Constitution" ],
+                "decrease": [ "Dexterity", "Luck" ]
             },
-            "EVA": {
-                "increase": [ "Dexterity", "Dexterity", "Luck", "Constitution" ],
-                "decrease": [ "Strength", "Intelligence", "Wisdom" ]
+            "EVA": {  # Evasion build
+                "increase": [ "Dexterity", "Dexterity", "Luck", "Speed" ],
+                "decrease": [ "Strength", "Wisdom" ]
             },
-            "CRI": {
-                "increase": [ "Dexterity", "Dexterity", "Luck" ],
-                "decrease": [ "Strength", "Constitution", "Intelligence", "Wisdom" ]
+            "CRI": {  # Critical strike build
+                "increase": [ "Dexterity", "Luck", "Luck" ],
+                "decrease": [ "Strength", "Constitution", "Wisdom" ]
             }
         }
 
+
     percentage_for_increasing_on_evolutions = 0.50
-    percentage_for_decreasing_on_evolutions = 0.25
+    percentage_for_decreasing_on_evolutions = 0.50
     
     dynamic_backgrounds = {}
 
