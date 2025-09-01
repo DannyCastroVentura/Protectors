@@ -451,7 +451,7 @@ init python:
 
     class Mission:
         _id_counter = 0
-        def __init__(self, title, description, difficulty, neededDaysToFinish, disapearingInThisDays, mission_type, status = "not assigned", xp_received = None, gold_received = None):
+        def __init__(self, title, description, difficulty, neededDaysToFinish, disapearingInThisDays, expedition_type, status = "not assigned", xp_received = None, gold_received = None):
             self.mission_id = Mission._id_counter
             Mission._id_counter += 1
             self.title = title
@@ -459,7 +459,7 @@ init python:
             self.difficulty = difficulty
             self.neededDaysToFinish = neededDaysToFinish 
             self.disapearingInThisDays = disapearingInThisDays # this will going to be updated every time a day passes and this mission is assigned #if this reaches 0 and mission title is not "training", then the mission is deleted
-            self.mission_type = mission_type
+            self.expedition_type = expedition_type
             self.success_rate = None # This will have a value once the mission starts
             self.daysPassed = 0 # days passed since the mission started, this will be updated every day passed while the mission is running -> we should multiple the xp received per day worked.
             self.status = status # possible values: not assigned / assigned / started # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
@@ -492,17 +492,17 @@ init python:
             return
         
         def get_success_rate(self, protector):
-            mission_type = self.mission_type
+            expedition_type = self.expedition_type
             protector_stat = 0
-            if mission_type == "Rescue":
+            if expedition_type == "Rescue":
                 protector_stat = protector.get_defense()
-            if mission_type == "Recon":
+            if expedition_type == "Recon":
                 protector_stat = protector.get_evasion()
-            if mission_type == "Political":
+            if expedition_type == "Political":
                 protector_stat = protector.get_charisma()
-            if mission_type == "Moral":
+            if expedition_type == "Moral":
                 protector_stat = protector.get_morality()
-            if mission_type == "Combat":
+            if expedition_type == "Combat":
                 protector_stat = protector.get_damage_points() * 0.2
             difficulty = self.difficulty
             needed_stat_value = 10 + difficulty * 3
@@ -511,7 +511,7 @@ init python:
 
         def finishMission(self):
             global my_protectors_map
-            global bossMissions
+            global bossExpeditions
 
             # Evaluate if the mission was a success
             success_rate = self.success_rate  # already in percentage (0–100)
@@ -534,10 +534,10 @@ init python:
                 # updating the boss mission for this stage
                 mission_stage = min(((self.difficulty - 1) // 20) + 1, 10)
 
-                # if not training, update the bossMission
+                # if not training, update the bossExpedition
                 if self.mission_id != 0:
-                    bossMission = next((m for m in bossMissions if m.regionNumber == mission_stage), None)
-                    bossMission.successfulMinorMissions += 1
+                    bossExpedition = next((m for m in bossExpeditions if m.regionNumber == mission_stage), None)
+                    bossExpedition.successfulMinorExpeditions += 1
             else:
                 mission_success = False
                 renpy.notify(f"Mission failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
@@ -563,20 +563,20 @@ init python:
             self.assignedProtectorName = None
             return
     
-    class MissionTemplate:
-        def __init__(self, title, description, mission_type):
+    class ExpeditionTemplate:
+        def __init__(self, title, description, expedition_type):
             self.title = title
             self.description = description
-            self.mission_type = mission_type
+            self.expedition_type = expedition_type
             return
 
-    class BossMission:
-        def __init__(self, regionNumber, title, description, successfulMinorMissionsRequired):
+    class BossExpedition:
+        def __init__(self, regionNumber, title, description, successfulMinorExpeditionsRequired):
             self.regionNumber = regionNumber
             self.title = title
             self.description = description
-            self.successfulMinorMissionsRequired = successfulMinorMissionsRequired
-            self.successfulMinorMissions = 0
+            self.successfulMinorExpeditionsRequired = successfulMinorExpeditionsRequired
+            self.successfulMinorExpeditions = 0
             return
 
 

@@ -3184,7 +3184,7 @@ screen protector_selection(isThisMission):
             align (0.5, 0.5)
 
             label "Choose a protector to train" xalign 0.5
-            if allMissions[0].status != "started":
+            if allExpeditions[0].status != "started":
                 $ has_available = False
                 for key, protector in my_protectors_map.items():
                     if protector.status == "Available":
@@ -3194,17 +3194,17 @@ screen protector_selection(isThisMission):
                 if not has_available:
                     text "No protectors are currently available." xalign 0.5
             else: 
-                text "Training facility already occupied with: [my_protectors_map[allMissions[0].assignedProtectorName].name] " xalign 0.5
+                text "Training facility already occupied with: [my_protectors_map[allExpeditions[0].assignedProtectorName].name] " xalign 0.5
             textbutton "Back" action Return():
                 text_style "hover_black"
                 xalign 0.5
 
-screen mission_screen(regionNumber):
+screen expedition_screen(regionNumber):
     $ min_level = (regionNumber - 1) * 20
     $ max_level = regionNumber * 20
     default page = 0
     default page_size = 5
-    default filtered_missions = [m for m in allMissions if min_level <= m.difficulty <= max_level and m.title != "Training"]
+    default filtered_missions = [m for m in allExpeditions if min_level <= m.difficulty <= max_level and m.title != "Training"]
     default max_pages = max((len(filtered_missions) - 1) // page_size, 0)
     default mode = "list"
     default selected_mission = None
@@ -3228,20 +3228,20 @@ screen mission_screen(regionNumber):
                         
                         vbox:
                             xalign 0.5
-                            text "Missions" size 40
+                            text "Expeditions" size 40
                         
                         vbox:
                             xalign 0.5
-                            $ bossMission = next((m for m in bossMissions if m.regionNumber == regionNumber), None)
+                            $ bossExpedition = next((m for m in bossExpeditions if m.regionNumber == regionNumber), None)
                             vbox:
                                 xalign 0.5
-                                bar value bossMission.successfulMinorMissions range bossMission.successfulMinorMissionsRequired:
+                                bar value bossExpedition.successfulMinorExpeditions range bossExpedition.successfulMinorExpeditionsRequired:
                                     xmaximum 400
                                     ymaximum 30
 
                                 vbox:
                                     xalign 0.5
-                                    text "[bossMission.successfulMinorMissions] / [bossMission.successfulMinorMissionsRequired]" size 24
+                                    text "[bossExpedition.successfulMinorExpeditions] / [bossExpedition.successfulMinorExpeditionsRequired]" size 24
 
                     for i in range(page * page_size, min((page + 1) * page_size, len(filtered_missions))):
                         $ mission = filtered_missions[i]
@@ -3253,7 +3253,7 @@ screen mission_screen(regionNumber):
                                 padding (10, 10)
                                 vbox:
                                     spacing 5
-                                    text "[mission.title] ([mission.mission_type])" size 24 color "#fff"
+                                    text "[mission.title] ([mission.expedition_type])" size 24 color "#fff"
                                     text mission.description size 16 color "#ccc"
                                     text "Difficulty: [mission.difficulty]" size 14 color "#aaa"
                             action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_mission", mission)]
@@ -3289,7 +3289,7 @@ screen mission_screen(regionNumber):
                         vbox:
                             xalign 0.5
                             spacing 20
-                            text "([selected_mission.mission_type])" size 30 color "#000000"
+                            text "([selected_mission.expedition_type])" size 30 color "#000000"
                         
                             vbox:
                                 xalign 0.5

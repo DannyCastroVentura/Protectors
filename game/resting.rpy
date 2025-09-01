@@ -3,7 +3,7 @@
     $ current_day = current_day + 1
     python:
         
-        for mission in allMissions:
+        for mission in allExpeditions:
             mission.updateDaysPassed()
 
         for mission_id in missionsToDelete:

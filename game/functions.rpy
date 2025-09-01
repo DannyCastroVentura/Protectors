@@ -1,7 +1,7 @@
 default my_protectors_map = {}
 default protectors_base_information = {}
-default allMissions = []
-default bossMissions = []
+default allExpeditions = []
+default bossExpeditions = []
 default weapons = []
 default myWeapons = []
 default equipments = []
@@ -10,7 +10,7 @@ default initial_weapons_choice = []
 default missionsToDelete = []
 define config.console = True
 # define config.keymap["hide_windows"] = []
-default allMissionTemplates = []
+default allExpeditionTemplates = []
 
 init python:
     import os
@@ -23,11 +23,11 @@ init python:
     if 'protectors_base_information' not in globals():
         protectors_base_information = {}
     
-    if 'allMissions' not in globals():
-        allMissions = []
+    if 'allExpeditions' not in globals():
+        allExpeditions = []
 
-    if 'bossMissions' not in globals():
-        bossMissions = []
+    if 'bossExpeditions' not in globals():
+        bossExpeditions = []
 
     if 'weapons' not in globals():
         weapons = []
@@ -47,8 +47,8 @@ init python:
     if 'missionsToDelete' not in globals():
         missionsToDelete = []
 
-    if 'allMissionTemplates' not in globals():
-        allMissionTemplates = []
+    if 'allExpeditionTemplates' not in globals():
+        allExpeditionTemplates = []
 
     if 'stats_increment_map' not in globals():
         stats_increment_map = {
@@ -78,6 +78,10 @@ init python:
             },
             "Critical": {
                 "prio1": "Luck",
+                "prio2": "Dexterity"
+            },
+            "Speed": {
+                "prio1": "Speed",
                 "prio2": "Dexterity"
             }
         }
@@ -262,33 +266,33 @@ init python:
         return
 
     def creating_new_missions():
-        global allMissions
+        global allExpeditions
         global missionsListSize
         global maxDifficulty
         global maxNeededDaysToFinish
         global maxDisapearingInThisDays
-        global allMissionTemplates
+        global allExpeditionTemplates
 
-        for missionNumber in range(len(allMissions), missionsListSize):
+        for missionNumber in range(len(allExpeditions), missionsListSize):
             randomNumber = int(random.uniform(1, maxDifficulty))
             neededDaysToFinish = int(random.uniform(1, maxNeededDaysToFinish))
             disapearingInThisDays = int(random.uniform(1, maxDisapearingInThisDays))
-            randomMission = int(random.uniform(1, len(allMissionTemplates) - 1))
-            mission = allMissionTemplates[randomMission]
+            randomMission = int(random.uniform(1, len(allExpeditionTemplates) - 1))
+            mission = allExpeditionTemplates[randomMission]
 
-            allMissions.append(
+            allExpeditions.append(
                 Mission(
                     mission.title,
                     mission.description,
                     randomNumber,  # difficulty
                     neededDaysToFinish,
                     disapearingInThisDays,
-                    mission.mission_type
+                    mission.expedition_type
                 )
             )
 
         # ✅ Sort missions by difficulty (ascending)
-        allMissions.sort(key=lambda m: m.difficulty)
+        allExpeditions.sort(key=lambda m: m.difficulty)
         return
 
 
@@ -298,33 +302,33 @@ init python:
         return
 
     def delete_mission(chosen_mission_id):
-        global allMissions
-        allMissions = [m for m in allMissions if m.mission_id != chosen_mission_id]
+        global allExpeditions
+        allExpeditions = [m for m in allExpeditions if m.mission_id != chosen_mission_id]
         return
 
     def testing_things():
-        # global allMissions
-        # for mission in allMissions:
+        # global allExpeditions
+        # for mission in allExpeditions:
         #     renpy.say(None, str(mission.title))
         return
 
     def assign_protector(target_mission_id, protectorName):
-        global allMissions
+        global allExpeditions
 
-        mission_index = next((i for i, m in enumerate(allMissions) if m.mission_id == target_mission_id), -1)
+        mission_index = next((i for i, m in enumerate(allExpeditions) if m.mission_id == target_mission_id), -1)
 
         # assigning protector to the mission
-        allMissions[mission_index].assignedProtectorName = protectorName
-        allMissions[mission_index].status = "assigned"
+        allExpeditions[mission_index].assignedProtectorName = protectorName
+        allExpeditions[mission_index].status = "assigned"
         renpy.restart_interaction()
         
         return
 
     def start_mission(mission, protectorName, success_rate):
-        global allMissions
+        global allExpeditions
         
         target_mission_id = mission.mission_id
-        mission = next(m for m in allMissions if m.mission_id == target_mission_id)
+        mission = next(m for m in allExpeditions if m.mission_id == target_mission_id)
         
         mission.startMission(protectorName, success_rate)
 
@@ -332,8 +336,8 @@ init python:
         return
 
     def resetAssignmentsForThisProtectorName(protectorName):
-        global allMissions
-        for mission in allMissions:
+        global allExpeditions
+        for mission in allExpeditions:
             if mission.assignedProtectorName == protectorName and mission.status != "started":
                 mission.assignedProtectorName = None
                 mission.status = "not assigned"

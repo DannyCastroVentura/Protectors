@@ -137,15 +137,6 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] attack speed & speed
-    #   -   add some equipments which improve speed (also some evolutions which improves or decreases speed value)
-    # 
-    # TODO: [ PRIO 1 ] work on a priest protector
-    # 
-    # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
-    #   -   robot - this will be the tanky one (lets try it :) )
-    #   -   skeleton
-    # 
     # TODO: [ PRIO 1 ] add at least 1 weapons of each in initializing_things per rarity: 
     #   -   wand
     #   -   gun
@@ -156,11 +147,24 @@ label start:
     #   -   great hammer
     #   -   cards
     #   -   katana
+    # 
+    # TODO: [ PRIO 1 ] once a mission is finished should we show a report
+    #   -   "This missions was completed, this protector got this xp and this money"
+    #   -   it was successful or not
+    #   -   also the reason
+    # 
+    # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
+    #   -   robot - this will be the tanky one (lets try it :) )
+    #   -   skeleton - dexterity based
+    #   -   priest - this will use miracles
     #
     # TODO: [ PRIO 1 ] test all the protectors 
     #
+    # TODO: [ PRIO 2 ] work on Clashes
+    #   -   these should be turned base combat
+    #   -   let's start with only normal attacks - then we can start to think of adding spells (to use the mana from the protector)
+    #
     # TODO: [ PRIO 2 ] start to work on the stage missions
-    #   -   for the stage missions, our protector can be killed, we need to be careful
     #   -   once stage mission is completed, we can go to the next region - and everything should be the same
     #   -   final boss drops!
     #   -   -   Region 10 - 2 A Equipment or Weapon
@@ -174,10 +178,9 @@ label start:
     #   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: [ PRIO 3 ] create a way to buy items or item drop chance? Still need to think about it
-    # 
-    # TODO: [ PRIO 3 ] once a mission is finished should we show a report? saying "This missions was completed, the protector got this xp and this money"
-    #   -   or if it was successful or not -> maybe also the reason?
+    # TODO: [ PRIO 3 ] 
+    #   -   create a way to buy items 
+    #   -   item drop chance
     # 
     # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
@@ -195,8 +198,6 @@ label start:
     # TODO: [ PRIO 4 ] update the map functionality, as I want to have a map showing - so I can change location easier
     # 
     # TODO: [ IDEA ] another idea, maybe we could even get other forces, not protectors, but some army guys, which we could send on different missions?
-    # 
-    # TODO: [ IDEA ] add a way to use mana
     # 
     # TODO: [ IDEA ] each one of the protectors should have a unique passive
     #   -   ideas:
