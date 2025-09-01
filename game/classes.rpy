@@ -604,7 +604,9 @@ init python:
 
                 # update the damage type if its a great (big and heavy) weapon, or a knife
                 if self.type == "Great Hammer" or self.type == "Greataxe" or self.type == "Greatsword":
-                    base_damage *=  1.5 # TODO: BUT ATACK SPEED DECREASE
+                    base_damage *=  1.5 # TODO: BUT ATACK SPEED DECREASE x 0.67
+                elif self.type == "Katana" or self.type == "Spear":
+                    base_damage *=  1.2 # TODO: BUT ATACK SPEED DECREASE x 0.83
                 elif self.type == "Knife":
                     base_damage *= 0.7 # TODO: BUT CRITICAL DAMAGE DEALS MORE DAMAGE
 

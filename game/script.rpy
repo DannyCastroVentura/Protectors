@@ -142,6 +142,7 @@ label start:
     #   -   make the percentage improvements being not as much as we are seeing 
     #   -   add some equipments which improve speed (also some evolutions which improves or decreases speed value)
     #   -   update the evolutions to also add or remove speed
+    #   -   make the knife have more critical damage -> and work on the other topics there as well
     # 
     # TODO: [ PRIO 1 ] work on a priest protector
     # 
