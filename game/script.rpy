@@ -137,6 +137,17 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: [ PRIO 1 ] create enemies
+    #   -   I just need to create a new array, where I can store the enemies just like protectors
+    #   -   they are protectors - so they will escalate in the same way as the protectors
+    #   -   perfect for making it fair and scalable
+    #   -   on the stage expeditions we will fight agaisnt these enemies
+    #   -   once the first stage expedition is done, we unlock another part of the game, which is the battles
+    #   -   also the normal expeditions should be when we compare the stats for the protector with an enemy.
+    #   -   -   for this we should choose a strong enemie for each difficulty (should be the level of the enemie)
+    #   -   -   and for example, if the mission will compare the hps of the protector and the enemy, the enemy should be a tank one.
+    #   -   -   also thinking of creating this enemy on the fly.. as I think this would be a good idea, create them just for the mission, and then delete them. automatically.
+    # 
     # TODO: [ PRIO 1 ] make the extra damage things to be dependent on the improvement bonus
     #   -   ex:     divine sword, should have a divine rank: C (ex) and then I would get these calculations on the get damage
     # 
