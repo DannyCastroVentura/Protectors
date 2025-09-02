@@ -137,6 +137,9 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: [ PRIO 1 ] make the extra damage things to be dependent on the improvement bonus
+    #   -   ex:     divine sword, should have a divine rank: C (ex) and then I would get these calculations on the get damage
+    # 
     # TODO: [ PRIO 1 ] 
     #   -   create a way to buy items 
     #   -   -   store will refresh in weekly basis
