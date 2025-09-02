@@ -590,9 +590,14 @@ init python:
     #   E   Gray        #A9A9A9
     class Weapon:
         _id_counter = 0
+        _names_list = []
         def __init__(self, name, description, weapon_type, class_name, _range, rarity):
             self.weapon_id = Weapon._id_counter
             Weapon._id_counter += 1
+            if name in Weapon._names_list:
+                raise ExceptionType("Error message")
+            else:
+                Weapon._names_list.append(name)
             self.name = name # name of the weapon
             self.description = description # a small description for the weapon, it also can have a story of the weapon
             self.type = weapon_type # the type (knife, sword, axe, lance, etc..)

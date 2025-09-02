@@ -2283,10 +2283,10 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                         text "[str(equipment_or_weapon.type)]" size 22 color "#EEE" xalign 0.99999999999
                         text "[str(equipment_or_weapon.class_name)]" size 22 color "#EEE" xalign 0.99999999999
                         if weaponOrEquipment_type == "w":
-                            text "[str(equipment_or_weapon.base_damage)]" size 22 color "#EEE" xalign 0.99999999999
+                            text "[str(int(equipment_or_weapon.base_damage))]" size 22 color "#EEE" xalign 0.99999999999
                             text "[str(equipment_or_weapon.range)]" size 22 color "#EEE" xalign 0.99999999999
                         elif weaponOrEquipment_type == "e":
-                            text "[str(equipment_or_weapon.base_defense)]" size 22 color "#EEE" xalign 0.99999999999
+                            text "[str(int(equipment_or_weapon.base_defense))]" size 22 color "#EEE" xalign 0.99999999999
                             text "+[str(equipment_or_weapon.prio1)]%" size 22 color "#EEE" xalign 0.99999999999
                             text "+[str(equipment_or_weapon.prio2)]%" size 22 color "#EEE" xalign 0.99999999999
                         

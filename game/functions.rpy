@@ -6,7 +6,6 @@ default weapons = []
 default myWeapons = []
 default equipments = []
 default myEquipments = []
-default initial_weapons_choice = []
 default missionsToDelete = []
 define config.console = True
 # define config.keymap["hide_windows"] = []
@@ -40,9 +39,6 @@ init python:
     
     if 'myEquipments' not in globals():
         myEquipments = []
-
-    if 'initial_weapons_choice' not in globals():
-        initial_weapons_choice = []
 
     if 'missionsToDelete' not in globals():
         missionsToDelete = []
