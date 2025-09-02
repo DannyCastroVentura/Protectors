@@ -6,9 +6,9 @@
         for mission in allExpeditions:
             mission.updateDaysPassed()
 
-        for mission_id in missionsToDelete:
-            delete_mission(mission_id)
+        for expedition_id in expeditionsToDelete:
+            delete_mission(expedition_id)
 
-        creating_new_missions()
+        creating_new_expeditions()
 
     jump resting_area

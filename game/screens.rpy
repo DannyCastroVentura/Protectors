@@ -3165,8 +3165,8 @@ screen protector_detail_screen(my_protector):
                                 text_size 25
                                 text_style "button_in_black_background"
 
-screen protector_selection(isThisMission):
-    if isThisMission:
+screen protector_selection(isThisExpedition):
+    if isThisExpedition:
         $ where_to = "send_to_mission"
     else:
         $ where_to = "send_to_training"
@@ -3204,8 +3204,8 @@ screen expedition_screen(regionNumber):
     $ max_level = regionNumber * 20
     default page = 0
     default page_size = 5
-    default filtered_missions = [m for m in allExpeditions if min_level <= m.difficulty <= max_level and m.title != "Training"]
-    default max_pages = max((len(filtered_missions) - 1) // page_size, 0)
+    default filtered_expeditions = [m for m in allExpeditions if min_level <= m.difficulty <= max_level and m.title != "Training"]
+    default max_pages = max((len(filtered_expeditions) - 1) // page_size, 0)
     default mode = "list"
     default selected_mission = None
     frame:
@@ -3243,8 +3243,8 @@ screen expedition_screen(regionNumber):
                                     xalign 0.5
                                     text "[bossExpedition.successfulMinorExpeditions] / [bossExpedition.successfulMinorExpeditionsRequired]" size 24
 
-                    for i in range(page * page_size, min((page + 1) * page_size, len(filtered_missions))):
-                        $ mission = filtered_missions[i]
+                    for i in range(page * page_size, min((page + 1) * page_size, len(filtered_expeditions))):
+                        $ mission = filtered_expeditions[i]
                         button:
                             xfill True
                             frame:
@@ -3378,7 +3378,7 @@ screen expedition_screen(regionNumber):
                                 $ select_protector_button_style = "button_small_text"
                                 if protector.name == selected_mission.assignedProtectorName:
                                     $ select_protector_button_style = "button_small_text_selected"
-                                textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.mission_id, protector.name)
+                                textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
 
                             
                             if len(available_protectors) == 0:
@@ -3396,7 +3396,7 @@ screen expedition_screen(regionNumber):
                         xalign 0.5
                         spacing 20
                         if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
-                            textbutton "Start Mission" action Function(start_mission, selected_mission, protector.name, success_rate)
+                            textbutton "Start Expedition" action Function(start_mission, selected_mission, protector.name, success_rate)
                         textbutton "Back" action SetScreenVariable("mode", "list")
 
 screen base_stats(baseProtectorObject):

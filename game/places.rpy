@@ -10,7 +10,6 @@
 
 label base_of_operations():
     $ set_background("base-of-operations")
-    "Base of Operations"
     menu:
         "Go to computer":
             call go_to_computer()
@@ -20,7 +19,6 @@ label base_of_operations():
 
 label training_ground():
     $ set_background("training-ground")
-    "Training Ground"
     menu:
         "Send a protector to train":
             call show_my_available_protectors(False)
@@ -30,7 +28,6 @@ label training_ground():
     
 label resting_area():    
     $ set_background("resting-area")
-    "Resting Area"
     menu:
         "Rest":
             call rest()

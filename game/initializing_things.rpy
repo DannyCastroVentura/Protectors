@@ -11,7 +11,7 @@ init python:
         Equipment._id_counter = 0   # Reset the counter
         Weapon._id_counter = 0   # Reset the counter
         Weapon._names_list = []   # Reset the counter
-        Mission._id_counter = 0   # Reset the counter
+        Expedition._id_counter = 0   # Reset the counter
 
         # creating protectors    
         protectors_base_information["Ninja"] = BaseProtectorData(
@@ -28,9 +28,9 @@ init python:
             },
             [
                 "dexterity", "luck", "constitution", "dexterity", "speed",
-                "constitution", "dexterity", "strength", "dexterity", "charisma", 
+                "constitution", "dexterity", "strength", "speed", "charisma", 
                 "dexterity", "intelligence", "strength", "constitution", "wisdom", 
-                "dexterity", "luck", "dexterity", "strength", "dexterity", 
+                "speed", "luck", "dexterity", "strength", "dexterity", 
                 "wisdom", "constitution", "dexterity", "speed", "dexterity"
             ], 
             "EVA", "DEX_TAN", 
@@ -78,11 +78,11 @@ init python:
             {
                 "strength": 7,
                 "dexterity": 12,
-                "constitution": 11,
-                "intelligence": 21,
+                "constitution": 12,
+                "intelligence": 22,
                 "wisdom": 18,
                 "charisma": 9,
-                "speed": 10,
+                "speed": 8,
                 "luck": 12,
                 "attack_speed": 0.9
             }, 
@@ -107,11 +107,11 @@ init python:
             {
                 "strength": 8,
                 "dexterity": 15,
-                "constitution": 10,
+                "constitution": 12,
                 "intelligence": 15,
                 "wisdom": 15,
                 "charisma": 9,
-                "speed": 12,
+                "speed": 10,
                 "luck": 16,
                 "attack_speed": 1.2
             }, 
@@ -146,7 +146,7 @@ init python:
                 "attack_speed": 1.2
             },
             [
-                "strength", "dexterity", "strength", "constitution", "speed", 
+                "strength", "speed", "strength", "constitution", "speed", 
                 "wisdom", "dexterity", "speed", "constitution", "strength", 
                 "dexterity", "wisdom", "strength", "dexterity", "strength", 
                 "intelligence", "strength", "dexterity", "constitution", "charisma"
@@ -175,7 +175,7 @@ init python:
                 "attack_speed": 1
             },
             [
-                "dexterity", "strength", "dexterity", "constitution", "dexterity", 
+                "dexterity", "strength", "speed", "constitution", "dexterity", 
                 "strength", "dexterity", "constitution", "dexterity", "strength", 
                 "dexterity", "constitution", "dexterity", "strength", "charisma", 
                 "strength", "luck", "strength", "constitution", "charisma", "speed"
@@ -225,7 +225,7 @@ init python:
         # # 1 intelligence per 5 levels
         # # 1 wisdom per 6 levels
 
-        # Recreate Possible Missions # Tittle / description
+        # Recreate Possible Expeditions # Tittle / description
         # 🔥 23 - Combat - damage?
         allExpeditionTemplates.append(ExpeditionTemplate("Fortress Under Siege", "Enemy forces are surrounding our stronghold. Hold the line and repel the assault.", "Combat"))
         allExpeditionTemplates.append(ExpeditionTemplate("Ambush the Ambushers", "A convoy was attacked on the trade route. Hunt down the attackers and secure the area.", "Combat"))
@@ -356,10 +356,10 @@ init python:
         allExpeditionTemplates.append(ExpeditionTemplate("Kingmaker’s Gamble", "A noble is building power to influence the next ruler. Decide whether to support or stop them.", "Political"))
 
 
-        # Recreate missions
-        allExpeditions.append(Mission("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 99000, 0))
+        # Recreate expeditions
+        allExpeditions.append(Expedition("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 99000, 0))
 
-        creating_new_missions()
+        creating_new_expeditions()
 
         bossExpeditions.append(BossExpedition(1, "The Mireborn Tyrant", "Deep within a poisonous swamp, a mutated beast commands venomous creatures and twisted flora. It oozes acid and rage — only its death can cleanse the land.", 20))
         bossExpeditions.append(BossExpedition(2, "The Pale King", "A ruler who transcended death now commands legions of the undead. His soul is bound to a cursed throne. Break his chains and survive the wrath of his fallen empire.", 25))

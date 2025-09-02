@@ -11,6 +11,8 @@
             call check_online_shop()
         "Go back":
             jump base_of_operations
+        "Let's go to elsewhere":
+            call base_travel_menu()
     jump go_to_computer
 
 label see_expeditions(page):
@@ -38,6 +40,8 @@ label see_expeditions(page):
                 call see_expeditions(2)
             "Go back":
                 jump go_to_computer
+            "Let's go to elsewhere":
+                call base_travel_menu()
     elif page == 2:
         $ update_menu_disable_options(True)
         menu:
@@ -61,6 +65,8 @@ label see_expeditions(page):
                 call see_expeditions(1)
             "Go back":
                 jump go_to_computer
+            "Let's go to elsewhere":
+                call base_travel_menu()
     call see_expeditions(1)
 
 label see_expeditions_for_region(regionNumber):
@@ -68,5 +74,5 @@ label see_expeditions_for_region(regionNumber):
     call screen expedition_screen(regionNumber)
     # TODO: 
     #   -   create the boss mission so I can unlock the next region
-    #   -   but first, I'll need to conclude the minor missions
+    #   -   but first, I'll need to conclude the minor expeditions
     return

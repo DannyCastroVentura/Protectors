@@ -84,9 +84,9 @@ init python:
             self.equipedPants = None
             self.equipedBoots = None
             self.basePoints = protectors_base_information[name]
-            self.missions_succeeded = 0
-            self.missions_failed = 0
-            self.missions_went = 0
+            self.expeditions_succeeded = 0
+            self.expeditions_failed = 0
+            self.expeditions_went = 0
             self.chosen_evolution = 0
             return
 
@@ -325,6 +325,12 @@ init python:
 
         def get_evasion(self):
             return round(self.get_dexterity() * 0.03 + self.get_luck() * 0.003, 2)
+
+        def get_recon_points(self):
+            return round(self.get_dexterity() * 0.5 + self.get_speed() * 0.5 + self.get_evasion() * 10, 2)
+
+        def get_rescue_points(self):
+            return round(self.get_defense() * 0.5 + self.get_recon_points() * 0.5, 2)
         
         def get_defense(self):
             return round(self.get_defense_from_equipment() + int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5), 2)
@@ -450,11 +456,11 @@ init python:
                     self.unequip_weapon()
             return
 
-    class Mission:
+    class Expedition:
         _id_counter = 0
         def __init__(self, title, description, difficulty, neededDaysToFinish, disapearingInThisDays, expedition_type, status = "not assigned", xp_received = None, gold_received = None):
-            self.mission_id = Mission._id_counter
-            Mission._id_counter += 1
+            self.expedition_id = Expedition._id_counter
+            Expedition._id_counter += 1
             self.title = title
             self.description = description
             self.difficulty = difficulty
@@ -473,7 +479,7 @@ init python:
                 self.gold_received = gold_received
             return
         
-        def startMission(self, protectorName, success_rate = 100):
+        def startExpedition(self, protectorName, success_rate = 100):
             self.assignedProtectorName = protectorName
             self.status = "started"
             self.success_rate = success_rate
@@ -485,20 +491,20 @@ init python:
                 self.neededDaysToFinish -= 1
                 self.daysPassed += 1
                 if self.neededDaysToFinish <= 0:
-                    self.finishMission()
-            elif self.mission_id != 0:
+                    self.finishExpedition()
+            elif self.expedition_id != 0:
                 self.disapearingInThisDays -= 1
                 if self.disapearingInThisDays <= 0:
-                    marking_missions_to_be_deleted(self.mission_id)
+                    marking_expeditions_to_be_deleted(self.expedition_id)
             return
         
         def get_success_rate(self, protector):
             expedition_type = self.expedition_type
             protector_stat = 0
             if expedition_type == "Rescue":
-                protector_stat = protector.get_defense()
+                protector_stat = protector.get_rescue_points()
             if expedition_type == "Recon":
-                protector_stat = protector.get_evasion()
+                protector_stat = protector.get_recon_points()
             if expedition_type == "Political":
                 protector_stat = protector.get_charisma()
             if expedition_type == "Moral":
@@ -510,7 +516,7 @@ init python:
 
             return int((protector_stat * 100 / needed_stat_value) + protector.get_luck() * 0.15)
 
-        def finishMission(self):
+        def finishExpedition(self):
             global my_protectors_map
             global bossExpeditions
 
@@ -521,13 +527,13 @@ init python:
 
             if success_rate >= roll:
                 mission_success = True
-                renpy.notify(f"Mission success ✅ (rolled {roll:.2f} vs rate {success_rate}%)")
+                renpy.notify(f"Expedition success ✅ (rolled {roll:.2f} vs rate {success_rate}%)")
 
                 # updating xp
                 my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
 
-                # updating the missions succeeded on this protector
-                my_protectors_map[self.assignedProtectorName].missions_succeeded += 1
+                # updating the expeditions succeeded on this protector
+                my_protectors_map[self.assignedProtectorName].expeditions_succeeded += 1
 
                 # Updating wallet
                 updating_wallet(self.gold_received)
@@ -536,27 +542,27 @@ init python:
                 mission_stage = min(((self.difficulty - 1) // 20) + 1, 10)
 
                 # if not training, update the bossExpedition
-                if self.mission_id != 0:
+                if self.expedition_id != 0:
                     bossExpedition = next((m for m in bossExpeditions if m.regionNumber == mission_stage), None)
                     bossExpedition.successfulMinorExpeditions += 1
             else:
                 mission_success = False
-                renpy.notify(f"Mission failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
+                renpy.notify(f"Expedition failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
                 
-                # updating the missions failed on this protector
-                my_protectors_map[self.assignedProtectorName].missions_failed += 1
+                # updating the expeditions failed on this protector
+                my_protectors_map[self.assignedProtectorName].expeditions_failed += 1
 
             
             # updating the protector status and xp
             my_protectors_map[self.assignedProtectorName].status = "Available"
             
-            # updating the missions went on this protector
-            my_protectors_map[self.assignedProtectorName].missions_went += 1
+            # updating the expeditions went on this protector
+            my_protectors_map[self.assignedProtectorName].expeditions_went += 1
 
 
             # deleting the mission if not training
-            if self.mission_id != 0:
-                delete_mission(self.mission_id)
+            if self.expedition_id != 0:
+                delete_mission(self.expedition_id)
 
             # if training            
             self.neededDaysToFinish = 1

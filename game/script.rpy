@@ -142,7 +142,7 @@ label start:
     # TODO: [ PRIO 1 ] also make the rarity color being present on the equipment and weapon detail
     # 
     # TODO: [ PRIO 1 ] once a mission is finished should we show a report
-    #   -   "This missions was completed, this protector got this xp and this money"
+    #   -   "This expeditions was completed, this protector got this xp and this money"
     #   -   it was successful or not
     #   -   also the reason
     # 
@@ -157,7 +157,7 @@ label start:
     #   -   these should be turned base combat
     #   -   let's start with only normal attacks - then we can start to think of adding spells (to use the mana from the protector)
     #
-    # TODO: [ PRIO 2 ] start to work on the stage missions
+    # TODO: [ PRIO 2 ] start to work on the stage expeditions
     #   -   once stage mission is completed, we can go to the next region - and everything should be the same
     #   -   final boss drops!
     #   -   -   Region 10 - 2 A Equipment or Weapon
@@ -176,7 +176,7 @@ label start:
     #   -   item drop chance
     # 
     # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
-    #   -   for now the statistics are missions_succeeded / missions_failed / missions_went -> I can also create a bar
+    #   -   for now the statistics are expeditions_succeeded / expeditions_failed / expeditions_went -> I can also create a bar
     #   -   in case a evolution was already specified, we can also show the description once again
     #
     # TODO: [ PRIO 3 ] add equipment and things to improve charisma
@@ -190,12 +190,12 @@ label start:
     # 
     # TODO: [ PRIO 4 ] update the map functionality, as I want to have a map showing - so I can change location easier
     # 
-    # TODO: [ IDEA ] another idea, maybe we could even get other forces, not protectors, but some army guys, which we could send on different missions?
+    # TODO: [ IDEA ] another idea, maybe we could even get other forces, not protectors, but some army guys, which we could send on different expeditions?
     # 
     # TODO: [ IDEA ] each one of the protectors should have a unique passive
     #   -   ideas:
-    #   -   -   increase 10% gold from missions
-    #   -   -   increase 10% luck on missions
+    #   -   -   increase 10% gold from expeditions
+    #   -   -   increase 10% luck on expeditions
     #   -   -   increase 10% xp
     #   -   -   increase 10% more damage
     #   -   -   and so on and so forth
@@ -248,12 +248,12 @@ label nova_explains_tutorial():
     nova "Let me take you to your base of operations!"
     $ set_background("base-of-operations")
     nova "Here we are!"
-    nova "You can use your base of operations to: \n- Check your missions list \n- Train you protectors\n- Rest area"
-    nova "Check your missions list: \nIn here you can see what missions you have received."
-    nova "Check your missions list: \nNote that there will be some missions very hard to handle - I recommend to start with the basic ones first!"
-    nova "Check your missions list: \nIf the mission is to difficult for the experience of the protector, he might be unable from escape - and if this happens, he'll die and you'll lose this protector."
-    nova "Check your missions list: \nIf all of your protectors die - you'll lose the game."
-    nova "Check your missions list: \nBe careful when assinging protectors to missions."
+    nova "You can use your base of operations to: \n- Check your expeditions list \n- Train you protectors\n- Rest area"
+    nova "Check your expeditions list: \nIn here you can see what expeditions you have received."
+    nova "Check your expeditions list: \nNote that there will be some expeditions very hard to handle - I recommend to start with the basic ones first!"
+    nova "Check your expeditions list: \nIf the mission is to difficult for the experience of the protector, he might be unable from escape - and if this happens, he'll die and you'll lose this protector."
+    nova "Check your expeditions list: \nIf all of your protectors die - you'll lose the game."
+    nova "Check your expeditions list: \nBe careful when assinging protectors to expeditions."
 
     $ set_background("training-ground")
     nova "Training ground: \nThis is the a place we have built for helping you make new protectors stronger."
@@ -262,13 +262,13 @@ label nova_explains_tutorial():
     
     $ set_background("resting-area")
     nova "Resting area: \nYou can also go to the bedrooms to rest!"
-    nova "Resting area: \nResting is very important, as your protectors also need to recover when they are back from their missions."
+    nova "Resting area: \nResting is very important, as your protectors also need to recover when they are back from their expeditions."
     nova "Resting area: \nResting is also very helpful when you need to advance the time."
-    nova "Resting area: \nAdvancing time can be helpful for a lot of things, including - to get new missions."
-    nova "Resting area: \nNew missions appear every day, but be careful! Old missions might disapear when you rest."
+    nova "Resting area: \nAdvancing time can be helpful for a lot of things, including - to get new expeditions."
+    nova "Resting area: \nNew expeditions appear every day, but be careful! Old expeditions might disapear when you rest."
     nova "Resting area: \nEvery mission have a time to be started. If a mission was not yet initiated and this time finished, then this mission is closed as ignored."
     return
 
-label show_my_available_protectors(isThisMission):
-    call screen protector_selection(isThisMission)
+label show_my_available_protectors(isThisExpedition):
+    call screen protector_selection(isThisExpedition)
     return

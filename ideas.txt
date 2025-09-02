@@ -1,4 +1,4 @@
-- I will be able to have at max 3 protectors working at the same team -> for missions and so on -> the others will stay at my house protecting me
+- I will be able to have at max 3 protectors working at the same team -> for expeditions and so on -> the others will stay at my house protecting me
 
 - each of them have 10 levels -> at level 5 we can choose from 2 different things
     - each protector would have a different habilities ex:

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3523: 'bg_color' is not a keyword argument or valid child of the frame statement.
-    bg_color "#FFF"
-            ^
+File "game/functions.rpy", line 315: invalid syntax
+    renpy.say(mc "This got here")
+                     ^^^^^^^^^^^^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Sep  1 18:01:58 2025
+Tue Sep  2 14:18:14 2025
