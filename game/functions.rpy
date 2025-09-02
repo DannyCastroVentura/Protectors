@@ -317,7 +317,6 @@ init python:
         # assigning protector to the mission
         allExpeditions[mission_index].assignedProtectorName = protectorName
         allExpeditions[mission_index].status = "assigned"
-        renpy.notify("Somethign" + str(target_expedition_id))
         renpy.restart_interaction()
         
         return

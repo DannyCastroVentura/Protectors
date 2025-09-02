@@ -137,11 +137,23 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] add a logic to throw an error if a weapon with the same name is introduced
+    # TODO: [ PRIO 1 ] 
+    #   -   create a way to buy items 
+    #   -   -   store will refresh in weekly basis
+    #   -   -   it will have 2 equipments (always in different types) per class - randomly chosen
+    #   -   -   it will have 2 weapons (always in different types) per class - randomly chosen
+    #   -   -   The items prices should be like:
+    #   -   -   -   weapon = 150
+    #   -   -   -   helmet = 150
+    #   -   -   -   body = 200
+    #   -   -   -   pants = 175
+    #   -   -   -   boots = 160
+    #   -   -   -   then the prices multiple by 2 per each stage
+    #   -   item drop chance
+    #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
+    #   -   -   depending on the difficulty of the mission, this change get's ligther -> we should divide the total chance by the number per each rank of the equipment/weapon
     #
-    # TODO: [ PRIO 1 ] also make the rarity color being present on the equipment and weapon detail
-    # 
-    # TODO: [ PRIO 1 ] once a mission is finished should we show a report
+    # TODO: [ PRIO 1 ] once a expedition is finished should we show a report
     #   -   "This expeditions was completed, this protector got this xp and this money"
     #   -   it was successful or not
     #   -   also the reason
@@ -158,7 +170,7 @@ label start:
     #   -   let's start with only normal attacks - then we can start to think of adding spells (to use the mana from the protector)
     #
     # TODO: [ PRIO 2 ] start to work on the stage expeditions
-    #   -   once stage mission is completed, we can go to the next region - and everything should be the same
+    #   -   once stage expedition is completed, we can go to the next region - and everything should be the same
     #   -   final boss drops!
     #   -   -   Region 10 - 2 A Equipment or Weapon
     #   -   -   Region 9 - 1 A Equipment or Weapon
@@ -170,10 +182,6 @@ label start:
     #   -   -   Region 3 - 1 D Equipment or Weapon
     #   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   Region 1 - 1 E Equipment or Weapon
-    # 
-    # TODO: [ PRIO 3 ] 
-    #   -   create a way to buy items 
-    #   -   item drop chance
     # 
     # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are expeditions_succeeded / expeditions_failed / expeditions_went -> I can also create a bar

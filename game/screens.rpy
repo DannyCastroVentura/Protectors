@@ -2236,7 +2236,20 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                 # Scale the image
                 $ e_or_w_scaled = im.Scale(e_or_w_image, new_width, scale)
 
-                frame:
+                $ my_color = EClassColor
+                $ rarity = equipment_or_weapon.rarity
+                if equipment_or_weapon.rarity == "D":
+                    $ my_color = DClassColor
+                if equipment_or_weapon.rarity == "C":
+                    $ my_color = CClassColor
+                if equipment_or_weapon.rarity == "B":
+                    $ my_color = BClassColor
+                if equipment_or_weapon.rarity == "A":
+                    $ my_color = AClassColor
+                if equipment_or_weapon.rarity == "S":
+                    $ my_color = SClassColor
+                frame:                           
+                    background my_color
                     xalign 0.5 
                     add im.Composite(
                         (scale, scale),
