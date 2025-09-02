@@ -137,16 +137,7 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] add at least 1 weapons of each in initializing_things per rarity: 
-    #   -   wand
-    #   -   gun
-    #   -   machine gun
-    #   -   sniper
-    #   -   greatsword
-    #   -   greataxe
-    #   -   great hammer
-    #   -   cards
-    #   -   katana
+    # TODO: [ PRIO 1 ] add a logic to throw an error if a weapon with the same name is introduced
     # 
     # TODO: [ PRIO 1 ] once a mission is finished should we show a report
     #   -   "This missions was completed, this protector got this xp and this money"

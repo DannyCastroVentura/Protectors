@@ -374,873 +374,2336 @@ init python:
         
         # WEAPONS
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
-        # E CLASS
-        weapons.append(Weapon("Thieves knife", 
-            "A sleek normal dagger normally used by thieves.", 
-            "Knife", 
-            "Dexterity",
-            "Melee",
-            'E'))
         
-        weapons.append(Weapon("Templar Greatsword", 
-            "A rusty giant sword used in the crusades.", 
-            "Greatsword", 
-            "Strength",
-            "Melee",
-            'E'))
-        weapons.append(Weapon("Principiant Wand",
-            "A wand used by the iniciants on magic training.",
-            "Wand",
-            "Magic",
-            "Ranged",
-            'E'))
-        
-        weapons.append(Weapon("Gambling Cards",
-            "Normal cards, used for gamling.",
-            "Cards",
-            "Dexterity",
-            "Ranged",
-            'E'))
-        
-        weapons.append(Weapon("Deadman Cards",
-            "Pack of cards gotten from a dead man.",
-            "Cards",
-            "Divine",
-            "Ranged",
-            'E'))
-        
-        weapons.append(Weapon("Samurai Rusty Katana", 
-            "A rusty katana used by Samurais for training.", 
-            "Katana", 
-            "Strength",
-            "Melee",
-            'E'))
-        
-        weapons.append(Weapon("Combat knife", 
-            "A rusty knife used by the army.",
-            "Knife", 
-            "Strength",
-            "Melee",
-            'E'))
-        
-        weapons.append(Weapon("Combat Pistol", 
-            "A rusty pistol used by the army on its intensive training.",
-            "Gun", 
-            "Dexterity",
-            "Ranged",
-            'E'))
-
-        weapons.append(Weapon("Ironclad Mace",
-            "A sturdy mace used by city guards.",
-            "Mace",
-            "Strength",
-            "Melee",
-            'E'))
-        
-        weapons.append(Weapon("Elderwood Staff",
-            "A staff carved from ancient trees, buzzing with latent magic.",
-            "Staff",
-            "Magic",
-            "Ranged",
-            'E'))
-
-        weapons.append(Weapon("Whisperwind", 
-            "A light lance favored by the swift riders of the northern plains.", 
-            "Spear", 
-            "Dexterity",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Small Vikings Axe", 
-            "A small but deadly axe used by vikings to kill their enemies.", 
+        # Axe
+        weapons.append(Weapon("Rusty Hand Axe", 
+            "An old, worn axe with chips along the blade. It can still cut, but barely.", 
             "Axe", 
             "Strength",
             "Melee",
             'E'))
 
-        weapons.append(Weapon("Gale Hammer", 
-            "A slender hammer that strikes as hard as a rock.", 
+        weapons.append(Weapon("Iron Viking Axe", 
+            "A simple iron axe, sturdy enough for combat but still fairly common.", 
+            "Axe", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Warrior’s Axe", 
+            "A sharpened axe favored by experienced raiders, able to split shields cleanly.", 
+            "Axe", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Berserker’s Axe", 
+            "A brutal heavy axe designed for ferocious warriors, striking fear into foes.", 
+            "Axe", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Jarl’s Axe", 
+            "An ornate, perfectly balanced weapon wielded by Viking leaders in battle.", 
+            "Axe", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Axe of Valhalla", 
+            "A legendary axe said to be blessed by the gods themselves, glowing with power.", 
+            "Axe", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Worn Hatchet", 
+            "A small, light hatchet. Easy to swing, but weak in power.", 
+            "Axe", 
+            "Dexterity",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Raider’s Hatchet", 
+            "A balanced axe carried by quick raiders, sharp enough for swift strikes.", 
+            "Axe", 
+            "Dexterity",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Scout’s Axe", 
+            "Lightweight and razor-edged, designed for hit-and-run tactics.", 
+            "Axe", 
+            "Dexterity",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Hunter’s Axe", 
+            "An axe honed for precision, favored by hunters who strike with deadly accuracy.", 
+            "Axe", 
+            "Dexterity",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Raven’s Talon", 
+            "A finely crafted axe with a curved blade, striking swiftly like a raven’s claw.", 
+            "Axe", 
+            "Dexterity",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Shadowfang Axe", 
+            "A mythical axe said to move faster than the eye can follow, leaving only a blur.", 
+            "Axe", 
+            "Dexterity",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Axe", 
+            "An old axe with faint rune carvings. It hums softly with unstable magic.", 
+            "Axe", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Hatchet", 
+            "A small axe inscribed with basic runes, allowing it to cut with magical sharpness.", 
+            "Axe", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Shaman’s Axe", 
+            "An axe used by mystics, glowing faintly as it channels elemental energy.", 
+            "Axe", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Stormcaller Axe", 
+            "Crackling with lightning runes, this axe strikes with thunderous magical power.", 
+            "Axe", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Soulreaver Axe", 
+            "An enchanted weapon that draws strength from its victim’s soul with every strike.", 
+            "Axe", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Axe of the Allfather", 
+            "A divine weapon said to be blessed by Odin himself, radiating overwhelming magical might.", 
+            "Axe", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Hatchet", 
+            "A simple hatchet engraved with holy symbols. It glimmers faintly with divine light.", 
+            "Axe", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Axe", 
+            "An axe wielded by warrior-priests, consecrated to smite the unholy.", 
+            "Axe", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Axe", 
+            "Radiating a soft glow, this axe is blessed to pierce through darkness and corruption.", 
+            "Axe", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Axe", 
+            "A mighty weapon carried by holy warriors, blazing with righteous fury.", 
+            "Axe", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Axe of Purity", 
+            "Immaculately forged and bathed in sacred light, it cleanses evil with every strike.", 
+            "Axe", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Axe of the Valkyrie", 
+            "A legendary axe said to be wielded by Odin’s chosen, carrying the judgment of the heavens.", 
+            "Axe", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # BOOK
+        weapons.append(Weapon("Tattered Spellbook", 
+            "An old, fragile book with faded ink. Its magic is weak, but still functional.", 
+            "Book", 
+            "Magic",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Apprentice’s Grimoire", 
+            "A basic spellbook used by novice mages, containing simple incantations.", 
+            "Book", 
+            "Magic",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Runebound Tome", 
+            "A book inscribed with glowing runes that strengthen its magical power.", 
+            "Book", 
+            "Magic",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Codex", 
+            "A powerful grimoire filled with dangerous spells, pulsating with arcane energy.", 
+            "Book", 
+            "Magic",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Archmage’s Grimoire", 
+            "A tome of immense magical knowledge, its pages almost too heavy with power to turn.", 
+            "Book", 
+            "Magic",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Book of Eternity", 
+            "A legendary spellbook said to contain the secrets of creation itself.", 
+            "Book", 
+            "Magic",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Worn Prayer Book", 
+            "A small book of prayers carried by wandering priests. Its divine power is faint.", 
+            "Book", 
+            "Divine",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Scripture", 
+            "A holy text used by clerics to channel the light of the divine.", 
+            "Book", 
+            "Divine",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Blessed Hymnal", 
+            "A book of sacred hymns that radiates warmth and drives away shadows.", 
+            "Book", 
+            "Divine",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Saint’s Testament", 
+            "A revered scripture that carries the blessing of saints, glowing with holy light.", 
+            "Book", 
+            "Divine",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Codex of Radiance", 
+            "An ornate tome inscribed in golden ink, radiating divine judgment upon the wicked.", 
+            "Book", 
+            "Divine",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Tome of the Seraphim", 
+            "A legendary book said to be written by angels themselves, brimming with heavenly power.", 
+            "Book", 
+            "Divine",
+            "Ranged",
+            'S'))
+
+        # Cards
+        weapons.append(Weapon("Wooden Playing Cards", 
+            "Crude cards carved from wood. Heavier than paper, they still sting when thrown.", 
+            "Cards", 
+            "Strength",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Iron Throwing Cards", 
+            "Metal cards forged from iron. Solid and capable of piercing light armor.", 
+            "Cards", 
+            "Strength",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Steel Gambler’s Deck", 
+            "A deck of sharpened steel cards, deadly when thrown with brute force.", 
+            "Cards", 
+            "Strength",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Battle Deck", 
+            "Thick, reinforced cards forged for war. Each card hits like a thrown axe head.", 
+            "Cards", 
+            "Strength",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Colossus Cards", 
+            "Massive metal slabs shaped like cards, thrown with crushing strength to shatter shields.", 
+            "Cards", 
+            "Strength",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Titan’s Deck", 
+            "A legendary deck of indestructible cards forged by giants, each strike carrying the force of a boulder.", 
+            "Cards", 
+            "Strength",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Paper Throwing Cards", 
+            "Lightweight cards reinforced with thin edges. Weak, but quick to throw.", 
+            "Cards", 
+            "Dexterity",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Weighted Cards", 
+            "Specially balanced cards that fly straighter and strike harder than normal ones.", 
+            "Cards", 
+            "Dexterity",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Razor Deck", 
+            "A set of razor-edged cards designed for deadly precision throws.", 
+            "Cards", 
+            "Dexterity",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Assassin’s Deck", 
+            "A silent killer’s weapon — cards so sharp and fast they can cut a throat before a sound is made.", 
+            "Cards", 
+            "Dexterity",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Phantom Deck", 
+            "A masterwork deck of enchanted cards that vanish and reappear mid-flight, striking from unexpected angles.", 
+            "Cards", 
+            "Dexterity",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Deck of the Trickster", 
+            "A legendary set of cards wielded by the fastest rogues, said to never miss their mark.", 
+            "Cards", 
+            "Dexterity",
+            "Ranged",
+            'S'))
+
+
+        weapons.append(Weapon("Torn Playing Cards", 
+            "A set of worn-out cards with faint magical residue. Weak, but unpredictable.", 
+            "Cards", 
+            "Magic",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Enchanted Deck", 
+            "A deck infused with basic enchantments, allowing the user to throw cards like blades.", 
+            "Cards", 
+            "Magic",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Runic Tarot", 
+            "A mystical tarot deck inscribed with runes, each card releasing a spark of arcane power.", 
+            "Cards", 
+            "Magic",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Fatebinder’s Deck", 
+            "A deck wielded by seers, its cards bend probability and strike with magical precision.", 
+            "Cards", 
+            "Magic",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Deck of the Arcana", 
+            "A masterwork deck representing the great arcana, each card unleashing potent spells.", 
+            "Cards", 
+            "Magic",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Deck of Infinity", 
+            "A legendary deck said to contain every possible fate, its cards never run out and strike with godlike power.", 
+            "Cards", 
+            "Magic",
+            "Ranged",
+            'S'))
+        
+        weapons.append(Weapon("Blessed Playing Cards", 
+            "A simple deck of cards inscribed with holy symbols, faintly glowing with divine light.", 
+            "Cards", 
+            "Divine",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Deck", 
+            "A deck used by priest-warriors, each card carrying a minor blessing to smite foes.", 
+            "Cards", 
+            "Divine",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Hallowed Deck", 
+            "A deck imbued with sacred energy, shining with a soft, purifying light when thrown.", 
+            "Cards", 
+            "Divine",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Saint’s Deck", 
+            "A deck of holy cards that strike with precision, purging darkness and corruption.", 
+            "Cards", 
+            "Divine",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Deck of Radiance", 
+            "An ornate set of cards that glows with heavenly energy, burning evil wherever they land.", 
+            "Cards", 
+            "Divine",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Deck of the Archangel", 
+            "A legendary deck blessed by the heavens themselves, its cards strike with divine wrath.", 
+            "Cards", 
+            "Divine",
+            "Ranged",
+            'S'))
+
+        # Great Hammer
+        weapons.append(Weapon("Worn Warhammer", 
+            "A simple, battered hammer. Heavy but effective against weak foes.", 
+            "Great Hammer", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Great Hammer", 
+            "A solid iron hammer, capable of crushing armor and breaking bones.", 
+            "Great Hammer", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Battle Great Hammer", 
+            "A well-balanced hammer forged for warriors, delivering devastating blows.", 
+            "Great Hammer", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Mighty Warhammer", 
+            "A massive hammer designed to crush shields and scatter enemies with each swing.", 
+            "Great Hammer", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan’s Hammer", 
+            "A colossal weapon imbued with immense force, wielded only by the strongest warriors.", 
+            "Great Hammer", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Hammer of the Earthshaker", 
+            "A legendary great hammer said to shake the very ground with every strike.", 
+            "Great Hammer", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Hammer", 
+            "A simple hammer etched with faint runes. Its magical power is unstable and weak.", 
+            "Great Hammer", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Iron Hammer", 
+            "A sturdy hammer inscribed with glowing runes, allowing it to release small bursts of magic.", 
+            "Great Hammer", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Hammer", 
+            "A magical hammer that channels elemental energy, striking with fire, ice, or lightning.", 
+            "Great Hammer", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Warhammer", 
+            "A finely crafted hammer that amplifies the wielder’s magical power with every swing.", 
+            "Great Hammer", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Colossus", 
+            "A masterwork hammer pulsating with arcane energy, capable of unleashing devastating magical strikes.", 
+            "Great Hammer", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Hammer of the Archmage", 
+            "A legendary great hammer imbued with ancient magic, said to channel the raw forces of creation.", 
+            "Great Hammer", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Warhammer", 
+            "A simple hammer engraved with sacred symbols. It carries a faint divine aura.", 
+            "Great Hammer", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Hammer", 
+            "A holy hammer used by priests and paladins, capable of smiting minor evil.", 
+            "Great Hammer", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Great Hammer", 
+            "A radiant hammer blessed with divine energy, striking foes with purifying light.", 
+            "Great Hammer", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Hammer", 
+            "A mighty weapon wielded by holy warriors, each strike burning with righteous fury.", 
+            "Great Hammer", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Hammer of Purity", 
+            "A masterfully forged hammer glowing with sacred light, cleansing evil wherever it lands.", 
+            "Great Hammer", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Hammer of the Seraphim", 
+            "A legendary hammer said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Great Hammer", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Greataxe
+        weapons.append(Weapon("Rusty Battleaxe", 
+            "A crude axe with a dull edge. Heavy and unwieldy, but it can still hit hard.", 
+            "Greataxe", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Greataxe", 
+            "A solid iron axe, capable of splitting shields and cleaving foes.", 
+            "Greataxe", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Warrior’s Greataxe", 
+            "A balanced greataxe forged for battlefield veterans, delivering powerful strikes.", 
+            "Greataxe", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Berserker’s Greataxe", 
+            "A massive axe designed for brutal combat, striking fear into enemies.", 
+            "Greataxe", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan Greataxe", 
+            "A colossal axe wielded by the strongest warriors, capable of crushing anything in its path.", 
+            "Greataxe", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Axe of the Earthshaker", 
+            "A legendary greataxe said to split mountains and strike the very earth.", 
+            "Greataxe", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Axe", 
+            "A small axe etched with faint runes, barely containing its magical power.", 
+            "Greataxe", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Iron Axe", 
+            "An iron greataxe inscribed with glowing runes, releasing minor magical bursts.", 
+            "Greataxe", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Greataxe", 
+            "A magical axe channeling fire, ice, or lightning with each swing.", 
+            "Greataxe", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Greataxe", 
+            "A finely crafted greataxe amplifying the wielder’s arcane power.", 
+            "Greataxe", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Colossus", 
+            "A masterwork greataxe pulsing with arcane energy, capable of devastating magical strikes.", 
+            "Greataxe", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Greataxe of the Archmage", 
+            "A legendary greataxe imbued with ancient magic, channeling the raw forces of creation.", 
+            "Greataxe", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Greataxe", 
+            "A simple axe engraved with holy symbols, faintly glowing with divine energy.", 
+            "Greataxe", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Greataxe", 
+            "A holy greataxe used by priests and paladins, smiting minor evil.", 
+            "Greataxe", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Greataxe", 
+            "A radiant axe blessed with divine energy, purifying darkness with every strike.", 
+            "Greataxe", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Greataxe", 
+            "A mighty weapon wielded by holy warriors, burning with righteous fury.", 
+            "Greataxe", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Greataxe of Purity", 
+            "A masterfully forged greataxe glowing with sacred light, cleansing evil wherever it lands.", 
+            "Greataxe", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Greataxe of the Seraphim", 
+            "A legendary greataxe said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Greataxe", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Greatsword
+        weapons.append(Weapon("Rusty Greatsword", 
+            "A worn, heavy greatsword. Hard to swing, but it can still deliver powerful blows.", 
+            "Greatsword", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Greatsword", 
+            "A solid iron greatsword, capable of cleaving armor and shields with brute force.", 
+            "Greatsword", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Warrior’s Greatsword", 
+            "A balanced blade forged for veterans of the battlefield, delivering devastating strikes.", 
+            "Greatsword", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Berserker’s Greatsword", 
+            "A massive sword designed for brutal combat, capable of smashing through multiple foes.", 
+            "Greatsword", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan Greatsword", 
+            "A colossal blade wielded only by the strongest warriors, capable of splitting anything in its path.", 
+            "Greatsword", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Sword of the Earthshaker", 
+            "A legendary greatsword said to shatter mountains and leave tremors with every swing.", 
+            "Greatsword", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Lightwood Greatsword", 
+            "A lightweight sword made from strong but light wood. Easier to swing quickly.", 
+            "Greatsword", 
+            "Dexterity",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Balanced Greatsword", 
+            "A carefully balanced greatsword allowing faster and more precise swings.", 
+            "Greatsword", 
+            "Dexterity",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Swiftstrike Greatsword", 
+            "A finely crafted blade that allows rapid and accurate strikes.", 
+            "Greatsword", 
+            "Dexterity",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Razor Greatsword", 
+            "A nimble sword with sharpened edges, perfect for fast, precise attacks.", 
+            "Greatsword", 
+            "Dexterity",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Phantom Greatsword", 
+            "A masterwork blade that moves as fast as its wielder, striking like a shadow.", 
+            "Greatsword", 
+            "Dexterity",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Greatsword of the Trickster", 
+            "A legendary sword said to strike with impossible speed and precision.", 
+            "Greatsword", 
+            "Dexterity",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Greatsword", 
+            "A simple greatsword etched with faint runes. Its magical power is weak and unstable.", 
+            "Greatsword", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Greatsword", 
+            "A sword inscribed with glowing runes, releasing minor magical bursts.", 
+            "Greatsword", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Greatsword", 
+            "A magical blade channeling fire, ice, or lightning with each swing.", 
+            "Greatsword", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Greatsword", 
+            "A finely crafted greatsword that amplifies the wielder’s arcane power.", 
+            "Greatsword", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Colossus", 
+            "A masterwork blade pulsing with arcane energy, capable of devastating magical strikes.", 
+            "Greatsword", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Greatsword of the Archmage", 
+            "A legendary greatsword imbued with ancient magic, channeling the raw forces of creation.", 
+            "Greatsword", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Greatsword", 
+            "A simple sword engraved with holy symbols, faintly glowing with divine energy.", 
+            "Greatsword", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Greatsword", 
+            "A holy blade used by priests and paladins, smiting minor evil.", 
+            "Greatsword", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Greatsword", 
+            "A radiant greatsword blessed with divine energy, purifying darkness with every strike.", 
+            "Greatsword", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Greatsword", 
+            "A mighty weapon wielded by holy warriors, burning with righteous fury.", 
+            "Greatsword", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Greatsword of Purity", 
+            "A masterfully forged greatsword glowing with sacred light, cleansing evil wherever it lands.", 
+            "Greatsword", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Greatsword of the Seraphim", 
+            "A legendary greatsword said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Greatsword", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Gun
+        weapons.append(Weapon("Rusty Pistol", 
+            "A small, worn pistol. Lightweight and quick, but unreliable.", 
+            "Gun", 
+            "Dexterity",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Balanced Revolver", 
+            "A well-crafted revolver, allowing precise shots at medium range.", 
+            "Gun", 
+            "Dexterity",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sharpshooter’s Pistol", 
+            "A finely tuned firearm designed for deadly accuracy and fast reloads.", 
+            "Gun", 
+            "Dexterity",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Twin-Barrel Pistol", 
+            "A dual-shot pistol that allows rapid, skillful firing on multiple targets.", 
+            "Gun", 
+            "Dexterity",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Marksman’s Revolver", 
+            "A masterwork revolver with unmatched precision, favored by elite sharpshooters.", 
+            "Gun", 
+            "Dexterity",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Phantom Shooter", 
+            "A legendary firearm said to never miss its target, moving as fast as the wielder’s hand.", 
+            "Gun", 
+            "Dexterity",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Pistol", 
+            "A basic pistol etched with faint runes. Its magical power is weak and unstable.", 
+            "Gun", 
+            "Magic",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Runed Handgun", 
+            "A small firearm inscribed with glowing runes, firing minor magical projectiles.", 
+            "Gun", 
+            "Magic",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Elemental Pistol", 
+            "A magical handgun capable of shooting fire, ice, or lightning bullets.", 
+            "Gun", 
+            "Magic",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Firearm", 
+            "A finely crafted gun that channels the wielder’s arcane energy into powerful shots.", 
+            "Gun", 
+            "Magic",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Arcane Revolver", 
+            "A masterwork magical gun, firing devastating projectiles infused with raw magic.", 
+            "Gun", 
+            "Magic",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Gun of the Archmage", 
+            "A legendary firearm imbued with ancient magic, said to fire bullets of pure arcane force.", 
+            "Gun", 
+            "Magic",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Blessed Pistol", 
+            "A small pistol engraved with holy symbols. Its divine aura is faint but potent.", 
+            "Gun", 
+            "Divine",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Revolver", 
+            "A holy firearm used by priest-warriors, smiting minor evil with each shot.", 
+            "Gun", 
+            "Divine",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Handgun", 
+            "A radiant pistol blessed with divine energy, purging darkness with every bullet.", 
+            "Gun", 
+            "Divine",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Pistol", 
+            "A powerful firearm wielded by holy warriors, firing bullets burning with righteous fury.", 
+            "Gun", 
+            "Divine",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Pistol of Purity", 
+            "A masterfully forged firearm glowing with sacred light, cleansing evil wherever it lands.", 
+            "Gun", 
+            "Divine",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Gun of the Seraphim", 
+            "A legendary divine gun said to be wielded by angels, striking with holy judgment.", 
+            "Gun", 
+            "Divine",
+            "Ranged",
+            'S'))
+
+        # Hammer
+        weapons.append(Weapon("Worn Warhammer", 
+            "A simple, battered hammer. Heavy but effective against weak foes.", 
             "Hammer", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Warhammer", 
+            "A solid iron hammer, capable of crushing armor and breaking bones.", 
+            "Hammer", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Battle Hammer", 
+            "A well-balanced hammer forged for warriors, delivering devastating blows.", 
+            "Hammer", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Mighty Warhammer", 
+            "A massive hammer designed to crush shields and scatter enemies with each swing.", 
+            "Hammer", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan’s Hammer", 
+            "A colossal weapon imbued with immense force, wielded only by the strongest warriors.", 
+            "Hammer", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Hammer of the Earthshaker", 
+            "A legendary hammer said to shake the very ground with every strike.", 
+            "Hammer", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Hammer", 
+            "A simple hammer etched with faint runes. Its magic is weak and unstable.", 
+            "Hammer", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Iron Hammer", 
+            "A sturdy hammer inscribed with glowing runes, releasing minor magical bursts.", 
+            "Hammer", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Hammer", 
+            "A magical hammer that channels elemental energy, striking with fire, ice, or lightning.", 
+            "Hammer", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Hammer", 
+            "A finely crafted hammer that amplifies the wielder’s magical power with every swing.", 
+            "Hammer", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Colossus", 
+            "A masterwork hammer pulsating with arcane energy, capable of unleashing devastating magical strikes.", 
+            "Hammer", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Hammer of the Archmage", 
+            "A legendary hammer imbued with ancient magic, said to channel the raw forces of creation.", 
+            "Hammer", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Hammer", 
+            "A simple hammer engraved with sacred symbols. It carries a faint divine aura.", 
+            "Hammer", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Hammer", 
+            "A holy hammer used by priests and paladins, capable of smiting minor evil.", 
+            "Hammer", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Hammer", 
+            "A radiant hammer blessed with divine energy, purifying darkness with every strike.", 
+            "Hammer", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Hammer", 
+            "A mighty weapon wielded by holy warriors, each strike burning with righteous fury.", 
+            "Hammer", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Hammer of Purity", 
+            "A masterfully forged hammer glowing with sacred light, cleansing evil wherever it lands.", 
+            "Hammer", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Hammer of the Seraphim", 
+            "A legendary hammer said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Hammer", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Katana
+        weapons.append(Weapon("Rusty Katana", 
+            "A worn katana, heavy and unwieldy. Requires brute strength to wield effectively.", 
+            "Katana", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Katana", 
+            "A solid iron blade, capable of cleaving through armor and shields.", 
+            "Katana", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Warrior’s Katana", 
+            "A balanced katana forged for battlefield veterans, delivering powerful strikes.", 
+            "Katana", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Berserker’s Katana", 
+            "A massive katana designed to deal devastating blows to multiple foes.", 
+            "Katana", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan Katana", 
+            "A colossal blade wielded only by the strongest warriors, capable of slicing anything in its path.", 
+            "Katana", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Katana of the Earthshaker", 
+            "A legendary katana said to split mountains and leave tremors with every strike.", 
+            "Katana", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Lightwood Katana", 
+            "A lightweight katana, easy to swing quickly but less damaging.", 
+            "Katana", 
+            "Dexterity",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Balanced Katana", 
+            "A well-balanced blade allowing for precise, swift attacks.", 
+            "Katana", 
+            "Dexterity",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Swiftstrike Katana", 
+            "A finely crafted katana designed for rapid and accurate strikes.", 
+            "Katana", 
+            "Dexterity",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Razor Katana", 
+            "A nimble katana with sharpened edges, perfect for cutting with precision.", 
+            "Katana", 
+            "Dexterity",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Phantom Katana", 
+            "A masterwork blade that moves as fast as its wielder, striking like a shadow.", 
+            "Katana", 
+            "Dexterity",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Katana of the Trickster", 
+            "A legendary katana said to strike with impossible speed and accuracy.", 
+            "Katana", 
+            "Dexterity",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Katana", 
+            "A simple katana etched with faint runes. Its magic is weak and unstable.", 
+            "Katana", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Katana", 
+            "A blade inscribed with glowing runes, releasing minor magical bursts.", 
+            "Katana", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Katana", 
+            "A magical katana channeling fire, ice, or lightning with each swing.", 
+            "Katana", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Katana", 
+            "A finely crafted katana that amplifies the wielder’s arcane power.", 
+            "Katana", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Blade", 
+            "A masterwork magical katana capable of unleashing devastating arcane strikes.", 
+            "Katana", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Katana of the Archmage", 
+            "A legendary katana imbued with ancient magic, channeling the raw forces of creation.", 
+            "Katana", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Katana", 
+            "A simple katana engraved with holy symbols, faintly glowing with divine energy.", 
+            "Katana", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Katana", 
+            "A holy katana used by priests and paladins, smiting minor evil.", 
+            "Katana", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Katana", 
+            "A radiant katana blessed with divine energy, purifying darkness with every strike.", 
+            "Katana", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Katana", 
+            "A mighty weapon wielded by holy warriors, burning with righteous fury.", 
+            "Katana", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Katana of Purity", 
+            "A masterfully forged katana glowing with sacred light, cleansing evil wherever it lands.", 
+            "Katana", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Katana of the Seraphim", 
+            "A legendary katana said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Katana", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Knife
+        weapons.append(Weapon("Rusty Combat Knife", 
+            "A simple, worn knife. Heavy and crude, but still capable of cutting through flesh.", 
+            "Knife", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Knife", 
+            "A solid knife forged from iron, capable of piercing armor with brute force.", 
+            "Knife", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Warrior’s Knife", 
+            "A balanced blade forged for combat veterans, dealing devastating close-range damage.", 
+            "Knife", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Berserker’s Knife", 
+            "A large, brutal knife designed for heavy strikes and chopping attacks.", 
+            "Knife", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan Knife", 
+            "A massive knife wielded only by the strongest fighters, capable of cleaving through shields.", 
+            "Knife", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Knife of the Earthshaker", 
+            "A legendary knife said to split stone and leave shockwaves with every strike.", 
+            "Knife", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Rusty Throwing Knife", 
+            "A small, worn knife. Lightweight and easy to throw, but weak.", 
+            "Knife", 
+            "Dexterity",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Balanced Throwing Knife", 
+            "A well-balanced knife for precise throws and quick slashes.", 
+            "Knife", 
+            "Dexterity",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Assassin’s Knife", 
+            "A sharp, agile blade designed for fast, accurate strikes.", 
+            "Knife", 
+            "Dexterity",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Razor Knife", 
+            "A finely honed knife capable of slicing cleanly with minimal effort.", 
+            "Knife", 
+            "Dexterity",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Phantom Knife", 
+            "A masterwork blade that moves as fast as its wielder, hitting before the enemy can react.", 
+            "Knife", 
+            "Dexterity",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Knife of the Trickster", 
+            "A legendary knife said to strike with impossible speed and precision.", 
+            "Knife", 
+            "Dexterity",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Knife", 
+            "A simple knife etched with faint runes. Its magic is weak and unstable.", 
+            "Knife", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Knife", 
+            "A knife inscribed with glowing runes, capable of releasing minor magical bursts.", 
+            "Knife", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Knife", 
+            "A magical knife that channels fire, ice, or lightning with every strike.", 
+            "Knife", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Knife", 
+            "A finely crafted blade that amplifies the wielder’s arcane power.", 
+            "Knife", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Blade", 
+            "A masterwork magical knife capable of devastating arcane strikes.", 
+            "Knife", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Knife of the Archmage", 
+            "A legendary knife imbued with ancient magic, channeling the raw forces of creation.", 
+            "Knife", 
+            "Magic",
+            "Melee",
+            'S'))
+        
+        weapons.append(Weapon("Blessed Knife", 
+            "A small knife engraved with holy symbols, faintly glowing with divine energy.", 
+            "Knife", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Knife", 
+            "A holy knife used by priests and paladins, smiting minor evil.", 
+            "Knife", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Knife", 
+            "A radiant knife blessed with divine energy, purifying darkness with every strike.", 
+            "Knife", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Knife", 
+            "A powerful weapon wielded by holy warriors, burning with righteous fury.", 
+            "Knife", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Knife of Purity", 
+            "A masterfully forged knife glowing with sacred light, cleansing evil wherever it lands.", 
+            "Knife", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Knife of the Seraphim", 
+            "A legendary knife said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Knife", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Mace
+        weapons.append(Weapon("Rusty Mace", 
+            "A simple, worn mace. Heavy and crude, but still capable of dealing painful blows.", 
+            "Mace", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Mace", 
+            "A solid iron mace, capable of smashing shields and breaking bones.", 
+            "Mace", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Warrior’s Mace", 
+            "A balanced mace forged for experienced fighters, delivering devastating strikes.", 
+            "Mace", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Mighty Mace", 
+            "A heavy mace designed to crush enemies and scatter opponents.", 
+            "Mace", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan’s Mace", 
+            "A colossal mace wielded only by the strongest warriors, capable of smashing through anything.", 
+            "Mace", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Mace of the Earthshaker", 
+            "A legendary mace said to shake the ground with every strike, splitting earth and bone alike.", 
+            "Mace", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Mace", 
+            "A simple mace etched with faint runes. Its magic is weak and unstable.", 
+            "Mace", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Mace", 
+            "A sturdy mace inscribed with glowing runes, capable of minor magical strikes.", 
+            "Mace", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Mace", 
+            "A magical mace that channels fire, ice, or lightning with each swing.", 
+            "Mace", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Mace", 
+            "A finely crafted mace that amplifies the wielder’s magical power.", 
+            "Mace", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Colossus", 
+            "A masterwork magical mace capable of unleashing devastating arcane strikes.", 
+            "Mace", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Mace of the Archmage", 
+            "A legendary mace imbued with ancient magic, channeling the raw forces of creation.", 
+            "Mace", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Mace", 
+            "A simple mace engraved with sacred symbols, faintly glowing with divine energy.", 
+            "Mace", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Mace", 
+            "A holy mace used by priests and paladins, smiting minor evil.", 
+            "Mace", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Mace", 
+            "A radiant mace blessed with divine energy, purifying darkness with every strike.", 
+            "Mace", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Mace", 
+            "A mighty weapon wielded by holy warriors, burning with righteous fury.", 
+            "Mace", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Mace of Purity", 
+            "A masterfully forged mace glowing with sacred light, cleansing evil wherever it lands.", 
+            "Mace", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Mace of the Seraphim", 
+            "A legendary mace said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Mace", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Machine Gun
+        weapons.append(Weapon("Rusty Submachine Gun", 
+            "A worn, lightweight machine gun. Easy to handle but its firepower is weak.", 
+            "Machine Gun", 
+            "Dexterity",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Balanced SMG", 
+            "A well-crafted submachine gun that allows rapid, accurate bursts.", 
+            "Machine Gun", 
+            "Dexterity",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sharpshooter’s SMG", 
+            "A finely tuned machine gun for precision fire at high speed.", 
+            "Machine Gun", 
+            "Dexterity",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Twin-Barrel SMG", 
+            "A nimble dual-barrel machine gun, firing rapid bursts with expert control.", 
+            "Machine Gun", 
+            "Dexterity",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Marksman’s SMG", 
+            "A masterwork firearm capable of delivering deadly precision at high rate of fire.", 
+            "Machine Gun", 
+            "Dexterity",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Phantom SMG", 
+            "A legendary machine gun said to fire faster than the eye can track, never missing its target.", 
+            "Machine Gun", 
+            "Dexterity",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune SMG", 
+            "A basic machine gun etched with faint runes. Its magic is unstable and weak.", 
+            "Machine Gun", 
+            "Magic",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Runed SMG", 
+            "A small machine gun inscribed with glowing runes, firing minor magical projectiles.", 
+            "Machine Gun", 
+            "Magic",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Elemental SMG", 
+            "A magical machine gun capable of firing bursts of fire, ice, or lightning.", 
+            "Machine Gun", 
+            "Magic",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s SMG", 
+            "A finely crafted arcane firearm, amplifying the wielder’s magical power.", 
+            "Machine Gun", 
+            "Magic",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Arcane SMG", 
+            "A masterwork magical machine gun capable of devastating bursts of raw arcane energy.", 
+            "Machine Gun", 
+            "Magic",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("SMG of the Archmage", 
+            "A legendary magical machine gun said to fire bullets imbued with pure arcane force.", 
+            "Machine Gun", 
+            "Magic",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Blessed SMG", 
+            "A small machine gun engraved with holy symbols, faintly glowing with divine energy.", 
+            "Machine Gun", 
+            "Divine",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s SMG", 
+            "A holy firearm used by priest-warriors, smiting minor evil with every burst.", 
+            "Machine Gun", 
+            "Divine",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sanctified SMG", 
+            "A radiant machine gun firing bullets blessed to purify darkness.", 
+            "Machine Gun", 
+            "Divine",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s SMG", 
+            "A powerful divine firearm, raining holy judgment with every rapid burst.", 
+            "Machine Gun", 
+            "Divine",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("SMG of Purity", 
+            "A masterfully forged firearm glowing with sacred light, cleansing evil wherever it lands.", 
+            "Machine Gun", 
+            "Divine",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("SMG of the Seraphim", 
+            "A legendary divine machine gun said to be wielded by angels, firing bursts of holy wrath.", 
+            "Machine Gun", 
+            "Divine",
+            "Ranged",
+            'S'))
+
+        # Sniper
+        weapons.append(Weapon("Rusty Sniper Rifle", 
+            "A worn, lightweight sniper rifle. Accurate but has low damage.", 
+            "Sniper", 
+            "Dexterity",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Balanced Sniper", 
+            "A well-crafted sniper rifle allowing precise long-range shots.", 
+            "Sniper", 
+            "Dexterity",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sharpshooter’s Sniper", 
+            "A finely tuned sniper rifle designed for deadly accuracy and critical hits.", 
+            "Sniper", 
+            "Dexterity",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Twin-Barrel Sniper", 
+            "A dual-shot sniper rifle capable of rapid, precise follow-up shots.", 
+            "Sniper", 
+            "Dexterity",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Marksman’s Sniper", 
+            "A masterwork sniper rifle that delivers high-damage, pinpoint shots at extreme range.", 
+            "Sniper", 
+            "Dexterity",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Phantom Sniper", 
+            "A legendary sniper rifle said to hit targets instantly, no matter the distance.", 
+            "Sniper", 
+            "Dexterity",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Sniper", 
+            "A basic sniper rifle etched with faint runes. Its magic is weak and unstable.", 
+            "Sniper", 
+            "Magic",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Runed Sniper", 
+            "A sniper rifle inscribed with glowing runes, firing minor magical projectiles.", 
+            "Sniper", 
+            "Magic",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Elemental Sniper", 
+            "A magical sniper rifle that fires bullets of fire, ice, or lightning.", 
+            "Sniper", 
+            "Magic",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Sniper", 
+            "A finely crafted arcane sniper, amplifying the wielder’s magical power.", 
+            "Sniper", 
+            "Magic",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Arcane Sniper", 
+            "A masterwork magical sniper rifle capable of devastating arcane shots.", 
+            "Sniper", 
+            "Magic",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Sniper of the Archmage", 
+            "A legendary magical sniper rifle said to fire bullets imbued with pure arcane energy.", 
+            "Sniper", 
+            "Magic",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Blessed Sniper", 
+            "A sniper rifle engraved with holy symbols, faintly glowing with divine energy.", 
+            "Sniper", 
+            "Divine",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Sniper", 
+            "A holy sniper rifle used by priest-warriors, smiting minor evil with each shot.", 
+            "Sniper", 
+            "Divine",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Sniper", 
+            "A radiant sniper rifle firing bullets blessed to purify darkness.", 
+            "Sniper", 
+            "Divine",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Sniper", 
+            "A powerful divine firearm, delivering holy judgment with every precise shot.", 
+            "Sniper", 
+            "Divine",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Sniper of Purity", 
+            "A masterfully forged sniper rifle glowing with sacred light, cleansing evil wherever it lands.", 
+            "Sniper", 
+            "Divine",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Sniper of the Seraphim", 
+            "A legendary divine sniper rifle said to be wielded by angels, striking with holy wrath.", 
+            "Sniper", 
+            "Divine",
+            "Ranged",
+            'S'))
+
+        # Spear
+        weapons.append(Weapon("Rusty Spear", 
+            "A worn, heavy spear. Difficult to wield but can pierce through foes.", 
+            "Spear", 
+            "Strength",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Iron Spear", 
+            "A solid iron spear, capable of puncturing armor and shields.", 
+            "Spear", 
+            "Strength",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Warrior’s Spear", 
+            "A balanced spear forged for combat veterans, delivering strong thrusts.", 
+            "Spear", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Berserker’s Spear", 
+            "A massive spear designed to pierce multiple enemies in a single strike.", 
+            "Spear", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan Spear", 
+            "A colossal spear wielded by the strongest warriors, capable of cleaving anything in its path.", 
+            "Spear", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Spear of the Earthshaker", 
+            "A legendary spear said to split the ground and crush enemies with every thrust.", 
+            "Spear", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Lightwood Spear", 
+            "A lightweight spear, easy to handle quickly but less damaging.", 
+            "Spear", 
+            "Dexterity",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Balanced Spear", 
+            "A well-balanced spear allowing for precise and rapid thrusts.", 
+            "Spear", 
+            "Dexterity",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Swiftstrike Spear", 
+            "A finely crafted spear designed for fast, accurate attacks.", 
+            "Spear", 
+            "Dexterity",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Razor Spear", 
+            "A nimble spear with sharpened edges, perfect for slicing and piercing quickly.", 
+            "Spear", 
+            "Dexterity",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Phantom Spear", 
+            "A masterwork spear that moves as fast as its wielder, striking before enemies can react.", 
+            "Spear", 
+            "Dexterity",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Spear of the Trickster", 
+            "A legendary spear said to strike with impossible speed and precision.", 
+            "Spear", 
+            "Dexterity",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Spear", 
+            "A simple spear etched with faint runes. Its magic is weak and unstable.", 
+            "Spear", 
+            "Magic",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Runed Spear", 
+            "A spear inscribed with glowing runes, releasing minor magical bursts.", 
+            "Spear", 
+            "Magic",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Elemental Spear", 
+            "A magical spear channeling fire, ice, or lightning with every thrust.", 
+            "Spear", 
+            "Magic",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Spear", 
+            "A finely crafted spear that amplifies the wielder’s arcane power.", 
+            "Spear", 
+            "Magic",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Arcane Spear", 
+            "A masterwork magical spear capable of devastating elemental strikes.", 
+            "Spear", 
+            "Magic",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Spear of the Archmage", 
+            "A legendary spear imbued with ancient magic, channeling the raw forces of creation.", 
+            "Spear", 
+            "Magic",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Blessed Spear", 
+            "A simple spear engraved with holy symbols, faintly glowing with divine energy.", 
+            "Spear", 
+            "Divine",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Spear", 
+            "A holy spear used by priests and paladins, smiting minor evil.", 
+            "Spear", 
+            "Divine",
+            "Melee",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Spear", 
+            "A radiant spear blessed with divine energy, purifying darkness with every strike.", 
+            "Spear", 
+            "Divine",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Spear", 
+            "A mighty weapon wielded by holy warriors, burning with righteous fury.", 
+            "Spear", 
+            "Divine",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Spear of Purity", 
+            "A masterfully forged spear glowing with sacred light, cleansing evil wherever it lands.", 
+            "Spear", 
+            "Divine",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Spear of the Seraphim", 
+            "A legendary spear said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Spear", 
+            "Divine",
+            "Melee",
+            'S'))
+
+        # Staff
+        weapons.append(Weapon("Cracked Wooden Staff", 
+            "A simple wooden staff etched with faint runes. Its magic is weak and unstable.", 
+            "Staff", 
+            "Magic",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Runed Staff", 
+            "A sturdy staff inscribed with glowing runes, releasing minor magical bursts.", 
+            "Staff", 
+            "Magic",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Elemental Staff", 
+            "A magical staff that channels fire, ice, or lightning with every swing.", 
+            "Staff", 
+            "Magic",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Sorcerer’s Staff", 
+            "A finely crafted staff that amplifies the wielder’s arcane power.", 
+            "Staff", 
+            "Magic",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Arcane Staff", 
+            "A masterwork magical staff capable of devastating elemental strikes.", 
+            "Staff", 
+            "Magic",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Staff of the Archmage", 
+            "A legendary staff imbued with ancient magic, channeling the raw forces of creation.", 
+            "Staff", 
+            "Magic",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Blessed Staff", 
+            "A simple staff engraved with holy symbols, faintly glowing with divine energy.", 
+            "Staff", 
+            "Divine",
+            "Ranged",
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Staff", 
+            "A holy staff used by priests and paladins, smiting minor evil.", 
+            "Staff", 
+            "Divine",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Staff", 
+            "A radiant staff blessed with divine energy, purifying darkness with every strike.", 
+            "Staff", 
+            "Divine",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Staff", 
+            "A mighty weapon wielded by holy warriors, burning with righteous fury.", 
+            "Staff", 
+            "Divine",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Staff of Purity", 
+            "A masterfully forged staff glowing with sacred light, cleansing evil wherever it lands.", 
+            "Staff", 
+            "Divine",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Staff of the Seraphim", 
+            "A legendary staff said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Staff", 
+            "Divine",
+            "Ranged",
+            'S'))
+
+        # Sword
+        weapons.append(Weapon("Rusty Sword", 
+            "A worn, heavy sword. Difficult to swing, but can deliver powerful blows.", 
+            "Sword", 
             "Strength",
             "Melee",
             'E'))
 
         weapons.append(Weapon("Iron Sword", 
-            "A sword forged with iron stone.", 
-            "Sword", 
-            "Strength",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Shadow Sword", 
-            "A sword forged from shadows, almost invisible to the naked eye.", 
-            "Sword", 
-            "Dexterity",
-            "Melee",
-            'E'))
-            
-        weapons.append(Weapon("Swiftfang",
-            "A quick dagger favored by thieves, light and deadly.",
-            "Knife",
-            "Dexterity",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Moonlit Spear",
-            "A spear that gleams under the moonlight, perfect for precise strikes.",
-            "Spear",
-            "Magic",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Crimson Axe",
-            "An axe stained red from countless battles.",
-            "Axe",
-            "Strength",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Greatsword of Absolution", 
-            "A radiant blade said to carry the judgment of the heavens.", 
-            "Greatsword", 
-            "Divine",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Novice’s Prayer Wand",
-            "A simple wand blessed with light, used in the first rites of priests.",
-            "Wand",
-            "Divine",
-            "Ranged",
-            'E'))
-
-        weapons.append(Weapon("Saint’s Last Gamble",
-            "Cards left behind by a martyr, glowing with celestial power.",
-            "Cards",
-            "Divine",
-            "Ranged",
-            'E'))
-
-        weapons.append(Weapon("Katana of Serenity", 
-            "A blessed blade said to bring peace to both wielder and foe.", 
-            "Katana", 
-            "Divine",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Sacred Pistol", 
-            "A relic sidearm consecrated in holy fire, its shots pierce evil itself.",
-            "Gun", 
-            "Divine",
-            "Ranged",
-            'E'))
-
-        weapons.append(Weapon("Mace of Benediction",
-            "A heavy mace engraved with prayers, crushing enemies with divine weight.",
-            "Mace",
-            "Divine",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Staff of Revelation",
-            "A sacred staff said to connect its wielder directly to the divine.",
-            "Staff",
-            "Divine",
-            "Ranged",
-            'E'))
-
-        weapons.append(Weapon("Hammer of Virtue", 
-            "A massive hammer that resonates with holy hymns when swung.", 
-            "Hammer", 
-            "Divine",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Sword of Radiance", 
-            "A shining blade that blinds foes with its heavenly brilliance.", 
-            "Sword", 
-            "Divine",
-            "Melee",
-            'E'))
-                    
-        weapons.append(Weapon("Sanctified Fang",
-            "A consecrated dagger, small but deadly against creatures of darkness.",
-            "Knife",
-            "Divine",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Spear of Dawn",
-            "A long spear blessed by the morning sun, piercing shadows with light.",
-            "Spear",
-            "Divine",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Axe of the Martyr",
-            "An enormous axe wielded by fallen saints, still carrying their devotion.",
-            "Axe",
-            "Divine",
-            "Melee",
-            'E'))
-
-        weapons.append(Weapon("Rusty Bible",
-            "An old, worn bible with faded pages; its holy words still carry a faint power.",
-            "Book",
-            "Divine",
-            "Ranged",
-            "E"))
-
-
-        
-        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
-        # D CLASS
-        weapons.append(Weapon("Nightfang Dagger", 
-            "A wicked, curved blade rumored to drink the strength of its victims.", 
-            "Knife", 
-            "Dexterity",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Sentinel’s War Mace",
-            "A heavy iron mace favored by royal guards to shatter armor and bone alike.",
-            "Mace",
-            "Strength",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Runebark Staff",
-            "A mystical staff etched with ancient runes, channeling deep forest magic.",
-            "Staff",
-            "Magic",
-            "Ranged",
-            'D'))
-
-        weapons.append(Weapon("Stormpiercer Lance", 
-            "A long, gleaming lance said to cut through wind and flesh with equal ease.", 
-            "Spear", 
-            "Dexterity",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Mage Lance", 
-            "A magic infused lance - which gives magic blows to the enemy.", 
-            "Spear", 
-            "Magic",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Raven’s Bite Axe", 
-            "A brutal, blackened axe once wielded by northern raiders in the dead of winter.", 
-            "Axe", 
-            "Strength",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Thunderstrike Hammer", 
-            "A massive hammer that crackles faintly with the sound of distant storms.", 
-            "Hammer", 
-            "Strength",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Bloodforged Blade", 
-            "A broad sword quenched in the blood of its enemies, said to thirst for more.", 
+            "A solid iron sword, capable of cleaving armor and shields.", 
             "Sword", 
             "Strength",
             "Melee",
             'D'))
 
-        weapons.append(Weapon("Moonveil Saber", 
-            "A thin, silvery sword that glimmers faintly even in complete darkness.", 
+        weapons.append(Weapon("Warrior’s Sword", 
+            "A balanced sword forged for battlefield veterans, delivering strong strikes.", 
+            "Sword", 
+            "Strength",
+            "Melee",
+            'C'))
+
+        weapons.append(Weapon("Berserker’s Sword", 
+            "A massive sword designed to crush multiple foes with brute force.", 
+            "Sword", 
+            "Strength",
+            "Melee",
+            'B'))
+
+        weapons.append(Weapon("Titan Sword", 
+            "A colossal blade wielded only by the strongest warriors, capable of cleaving anything in its path.", 
+            "Sword", 
+            "Strength",
+            "Melee",
+            'A'))
+
+        weapons.append(Weapon("Sword of the Earthshaker", 
+            "A legendary sword said to split mountains and leave tremors with every strike.", 
+            "Sword", 
+            "Strength",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Lightwood Sword", 
+            "A lightweight sword, easy to swing quickly but less damaging.", 
+            "Sword", 
+            "Dexterity",
+            "Melee",
+            'E'))
+
+        weapons.append(Weapon("Balanced Sword", 
+            "A well-balanced sword allowing for precise, rapid strikes.", 
             "Sword", 
             "Dexterity",
             "Melee",
             'D'))
 
-        weapons.append(Weapon("Greatsword of Eternal Judgment", 
-            "A colossal blade forged in celestial flames, delivering divine verdicts with every strike.", 
-            "Greatsword", 
-            "Divine",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Wand of Ascension",
-            "A radiant wand said to channel the whispers of the heavens themselves.",
-            "Wand",
-            "Divine",
-            "Ranged",
-            'D'))
-
-        weapons.append(Weapon("Deck of Prophecy",
-            "Golden cards that reveal fate’s deepest secrets and smite the unworthy.",
-            "Cards",
-            "Divine",
-            "Ranged",
-            'D'))
-
-        weapons.append(Weapon("Gambit of Eternity",
-            "A saint’s final relic, each card a fragment of divine destiny.",
-            "Cards",
-            "Divine",
-            "Ranged",
-            'D'))
-
-        weapons.append(Weapon("Katana of Transcendence", 
-            "A flawless blade that glows with divine serenity, cleaving both body and spirit.", 
-            "Katana", 
-            "Divine",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Pistol of the Seraphim", 
-            "A consecrated firearm that fires bullets of pure light, burning through evil.", 
-            "Gun", 
-            "Divine",
-            "Ranged",
-            'D'))
-
-        weapons.append(Weapon("Mace of Eternal Light",
-            "An immense mace infused with celestial hymns, its blows echo with divine wrath.",
-            "Mace",
-            "Divine",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Staff of the High Oracle",
-            "A legendary staff pulsing with the raw essence of divinity, guiding its wielder to enlightenment.",
-            "Staff",
-            "Divine",
-            "Ranged",
-            'D'))
-
-        weapons.append(Weapon("Hammer of Sacred Wrath", 
-            "A titanic hammer that carries the unshakable fury of the heavens.", 
-            "Hammer", 
-            "Divine",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Blade of Divine Glory", 
-            "A sword so radiant it blinds enemies with holy brilliance before the killing blow.", 
-            "Sword", 
-            "Divine",
-            "Melee",
-            'D'))
-                            
-        weapons.append(Weapon("Fang of the Seraph",
-            "A dagger blessed by the angels, swift as light and lethal to all darkness.",
-            "Knife",
-            "Divine",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Spear of the Sun’s Wrath",
-            "A blazing spear infused with the eternal fire of the morning star.", 
-            "Spear",
-            "Divine",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Axe of Divine Retribution",
-            "A monstrous axe wielded by celestial champions, sundering foes with one strike.", 
-            "Axe",
-            "Divine",
-            "Melee",
-            'D'))
-
-        weapons.append(Weapon("Blessed Tome",
-            "A well-kept holy book, its pages imbued with divine energy that can strike the wicked.",
-            "Book",
-            "Divine",
-            "Ranged",
-            "D"))
-
-
-        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
-        # C CLASS
-        weapons.append(Weapon("Dragon's Breath", 
-            "A massive flaming sword said to be imbued with the power of an ancient dragon.", 
-            "Sword", 
-            "Strength",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Earthshaker", 
-            "A heavy axe that can split mountains with a single swing.", 
-            "Axe", 
-            "Strength",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Arcane Edge", 
-            "A magical sword glowing with blue runes, capable of slicing through spells.", 
-            "Sword", 
-            "Magic",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Frostbite", 
-            "An icy axe that chills the air with each hit.", 
-            "Axe", 
-            "Strength",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Stormpiercer", 
-            "A lance crackling with electricity, used by the storm riders.", 
-            "Spear", 
-            "Magic",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Venomfang", 
-            "A dagger coated with a potent poison that slowly saps life.", 
-            "Knife", 
-            "Dexterity",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Celestial Staff", 
-            "A staff pulsing with divine magic, guiding the wielder’s power.", 
-            "Staff", 
-            "Magic",
-            "Ranged",
-            "C"))
-
-        weapons.append(Weapon("Bloodfang", 
-            "A serrated sword that grows sharper with every drop of blood spilled.", 
-            "Sword", 
-            "Strength",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Emberclaw", 
-            "An axe glowing with smoldering embers, burning enemies on contact.", 
-            "Axe", 
-            "Strength",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Mystic Dagger", 
-            "A dagger that can pierce the veil between worlds.", 
-            "Knife", 
-            "Magic",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Silverlight", 
-            "A sword made from enchanted silver, effective against dark creatures.", 
-            "Sword", 
-            "Magic",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Warbreaker", 
-            "A massive axe that can shatter shields with ease.", 
-            "Axe", 
-            "Strength",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Soulpiercer", 
-            "A dagger that drains the soul of its victims, feeding the wielder.", 
-            "Knife", 
-            "Magic",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Dragonclaw", 
-            "A curved sword designed to mimic the claw of a dragon, swift and deadly.", 
+        weapons.append(Weapon("Swiftstrike Sword", 
+            "A finely crafted sword designed for fast and accurate attacks.", 
             "Sword", 
             "Dexterity",
             "Melee",
-            "C"))
+            'C'))
 
-
-        weapons.append(Weapon("Titan’s Wrath", 
-            "A colossal hammer that channels the fury of giants.", 
-            "Hammer", 
-            "Strength",
-            "Melee",
-            "C"))
-            
-        weapons.append(Weapon("Fang of the Wolf",
-            "A curved sword that bites as fiercely as a wolf.",
-            "Sword",
+        weapons.append(Weapon("Razor Sword", 
+            "A nimble sword with sharpened edges, perfect for slicing with precision.", 
+            "Sword", 
             "Dexterity",
             "Melee",
-            "C"))
+            'B'))
 
-        weapons.append(Weapon("Blazefury",
-            "A flaming greatsword that ignites enemies on contact.",
-            "Sword",
-            "Strength",
+        weapons.append(Weapon("Phantom Sword", 
+            "A masterwork blade that moves as fast as its wielder, striking before enemies can react.", 
+            "Sword", 
+            "Dexterity",
             "Melee",
-            "C"))
+            'A'))
 
-        weapons.append(Weapon("Thunderstrike Lance",
-            "A lance crackling with lightning, it paralyzes foes.",
-            "Spear",
+        weapons.append(Weapon("Sword of the Trickster", 
+            "A legendary sword said to strike with impossible speed and accuracy.", 
+            "Sword", 
+            "Dexterity",
+            "Melee",
+            'S'))
+
+        weapons.append(Weapon("Cracked Rune Sword", 
+            "A simple sword etched with faint runes. Its magic is weak and unstable.", 
+            "Sword", 
             "Magic",
             "Melee",
-            "C"))
+            'E'))
 
-        weapons.append(Weapon("Venomous Claw",
-            "A claw-shaped dagger coated with deadly poison.",
-            "Knife",
-            "Dexterity",
+        weapons.append(Weapon("Runed Sword", 
+            "A sword inscribed with glowing runes, releasing minor magical bursts.", 
+            "Sword", 
+            "Magic",
             "Melee",
-            "C"))
+            'D'))
 
-        weapons.append(Weapon("Stonebreaker",
-            "A hammer capable of smashing stone walls.",
-            "Hammer",
-            "Strength",
-            "Melee",
-            "C"))
-
-        weapons.append(Weapon("Greatsword of Final Dawn", 
-            "A massive blade said to split the heavens themselves, ending darkness forever.", 
-            "Greatsword", 
-            "Divine",
+        weapons.append(Weapon("Elemental Sword", 
+            "A magical sword channeling fire, ice, or lightning with every swing.", 
+            "Sword", 
+            "Magic",
             "Melee",
             'C'))
 
-        weapons.append(Weapon("Wand of Eternal Grace",
-            "A sacred wand that channels the pure light of eternity, burning away corruption.",
-            "Wand",
-            "Divine",
-            "Ranged",
-            'C'))
+        weapons.append(Weapon("Sorcerer’s Sword", 
+            "A finely crafted sword that amplifies the wielder’s arcane power.", 
+            "Sword", 
+            "Magic",
+            "Melee",
+            'B'))
 
-        weapons.append(Weapon("Deck of the Archangel",
-            "A divine deck of golden cards said to carry the will of celestial hosts.",
-            "Cards",
-            "Divine",
-            "Ranged",
-            'C'))
+        weapons.append(Weapon("Arcane Blade", 
+            "A masterwork magical sword capable of devastating elemental strikes.", 
+            "Sword", 
+            "Magic",
+            "Melee",
+            'A'))
 
-        weapons.append(Weapon("Gambit of Salvation",
-            "A relic deck, each card a fragment of divine law, reshaping fate itself.",
-            "Cards",
-            "Divine",
-            "Ranged",
-            'C'))
+        weapons.append(Weapon("Sword of the Archmage", 
+            "A legendary sword imbued with ancient magic, channeling the raw forces of creation.", 
+            "Sword", 
+            "Magic",
+            "Melee",
+            'S'))
 
-        weapons.append(Weapon("Katana of Eternal Purity", 
-            "A flawless white blade forged in divine starlight, cleaving shadow from existence.", 
-            "Katana", 
+        weapons.append(Weapon("Blessed Sword", 
+            "A simple sword engraved with holy symbols, faintly glowing with divine energy.", 
+            "Sword", 
             "Divine",
             "Melee",
-            'C'))
+            'E'))
 
-        weapons.append(Weapon("Pistol of Heaven’s Oath", 
-            "A radiant pistol firing bolts of consecrated flame that pierce all defenses.", 
-            "Gun", 
-            "Divine",
-            "Ranged",
-            'C'))
-
-        weapons.append(Weapon("Mace of Sacred Dominion",
-            "A colossal mace whose strikes echo like thunder, shaking even the heavens.",
-            "Mace",
+        weapons.append(Weapon("Cleric’s Sword", 
+            "A holy sword used by priests and paladins, smiting minor evil.", 
+            "Sword", 
             "Divine",
             "Melee",
-            'C'))
+            'D'))
 
-        weapons.append(Weapon("Staff of Divine Eternity",
-            "A legendary staff that channels the endless song of the heavens into raw power.",
-            "Staff",
-            "Divine",
-            "Ranged",
-            'C'))
-
-        weapons.append(Weapon("Hammer of the Archons", 
-            "A god-forged hammer capable of shattering mountains with a single blow.", 
-            "Hammer", 
-            "Divine",
-            "Melee",
-            'C'))
-
-        weapons.append(Weapon("Blade of Holy Cataclysm", 
-            "A shining sword that releases blinding waves of celestial fire with each strike.", 
+        weapons.append(Weapon("Sanctified Sword", 
+            "A radiant sword blessed with divine energy, purifying darkness with every strike.", 
             "Sword", 
             "Divine",
             "Melee",
             'C'))
-                            
-        weapons.append(Weapon("Fang of Eternal Light",
-            "A sanctified dagger imbued with pure radiance, swift as thought, fatal as judgment.",
-            "Knife",
-            "Divine",
-            "Melee",
-            'C'))
 
-        weapons.append(Weapon("Spear of the Dawnbringer",
-            "A divine spear said to channel the first light of creation itself.", 
-            "Spear",
-            "Divine",
-            "Melee",
-            'C'))
-
-        weapons.append(Weapon("Axe of Celestial Wrath",
-            "An axe wielded only by divine champions, splitting earth and sky alike.", 
-            "Axe",
-            "Divine",
-            "Melee",
-            'C'))
-
-        weapons.append(Weapon("Sacred Codex",
-            "A revered tome glowing with divine light, capable of delivering powerful holy strikes.",
-            "Book",
-            "Divine",
-            "Ranged",
-            "C"))
-
-        
-        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
-        # B CLASS
-        weapons.append(Weapon("Oblivion", 
-            "A legendary sword said to consume the souls of entire armies.", 
+        weapons.append(Weapon("Crusader’s Sword", 
+            "A mighty weapon wielded by holy warriors, burning with righteous fury.", 
             "Sword", 
-            "Magic",
-            "Melee",
-            "B"))
-
-        weapons.append(Weapon("Colossus Crusher", 
-            "A gargantuan hammer capable of leveling entire fortresses.", 
-            "Hammer", 
-            "Strength",
-            "Melee",
-            "B"))
-
-        weapons.append(Weapon("Dragonlord's Fury", 
-            "A lance wielded by the ancient dragon kings, burning with eternal flame.", 
-            "Spear",
-            "Strength",
-            "Melee",
-            "B"))
-
-        weapons.append(Weapon("Nightmare Edge", 
-            "A cursed blade that deals unimaginable pain to its victims.", 
-            "Sword",
-            "Magic",
-            "Melee",
-            "B"))
-            
-        weapons.append(Weapon("Obsidian Edge",
-            "A sword made from volcanic glass, razor sharp and dark.",
-            "Sword",
-            "Strength",
-            "Melee",
-            "B"))
-
-        weapons.append(Weapon("Celestial Wrath",
-            "A staff channeling the fury of the stars.",
-            "Staff",
-            "Magic",
-            "Ranged",
-            "B"))
-
-        weapons.append(Weapon("Silent Gale",
-            "A swift lance that can pierce through the thickest armor.",
-            "Spear",
-            "Dexterity",
-            "Melee",
-            "B"))
-
-        weapons.append(Weapon("Shadowfang Reaper",
-            "An assassin's dagger with a deadly bite and unmatched speed.",
-            "Knife",
-            "Dexterity",
-            "Melee",
-            "B"))
-
-            
-        weapons.append(Weapon("Stormbreaker Axe",
-            "An axe that calls down thunder with every swing.",
-            "Axe",
-            "Strength",
-            "Melee",
-            "B"))
-
-        weapons.append(Weapon("Greatsword of the Seraphim", 
-            "A colossal blade wreathed in celestial fire, each swing unleashing holy cataclysms.", 
-            "Greatsword", 
             "Divine",
             "Melee",
             'B'))
 
-        weapons.append(Weapon("Wand of the Eternal Choir",
-            "A crystalline wand that sings with the voices of angels, channeling infinite light.",
-            "Wand",
-            "Divine",
-            "Ranged",
-            'B'))
-
-        weapons.append(Weapon("Gambit of Infinity",
-            "A legendary relic deck, its cards contain fragments of eternity itself.",
-            "Cards",
-            "Divine",
-            "Ranged",
-            'B'))
-
-        weapons.append(Weapon("Katana of Celestial Harmony", 
-            "A perfect blade that balances the cosmos, severing shadow and chaos alike.", 
-            "Katana", 
-            "Divine",
-            "Melee",
-            'B'))
-
-        weapons.append(Weapon("Pistol of Eternal Flame", 
-            "A divine firearm that fires burning stars, consuming both flesh and spirit.", 
-            "Gun", 
-            "Divine",
-            "Ranged",
-            'B'))
-
-        weapons.append(Weapon("Mace of the Archangel",
-            "An immense weapon that carries the wrath of heaven, shaking the world upon impact.",
-            "Mace",
-            "Divine",
-            "Melee",
-            'B'))
-
-        weapons.append(Weapon("Staff of the Infinite Light",
-            "A radiant staff overflowing with endless divine energy, burning with creation’s first spark.",
-            "Staff",
-            "Divine",
-            "Ranged",
-            'B'))
-
-        weapons.append(Weapon("Hammer of the Pantheon", 
-            "A god-forged relic that channels the fury of countless divine beings.", 
-            "Hammer", 
-            "Divine",
-            "Melee",
-            'B'))
-
-        weapons.append(Weapon("Sword of the Dawn Eternal", 
-            "A blade so radiant it blinds even gods, cutting through time and destiny.", 
+        weapons.append(Weapon("Sword of Purity", 
+            "A masterfully forged sword glowing with sacred light, cleansing evil wherever it lands.", 
             "Sword", 
             "Divine",
             "Melee",
-            'B'))
-                            
-        weapons.append(Weapon("Fang of the Archseraph",
-            "A dagger that strikes with blinding light, faster than mortal eyes can follow.",
-            "Knife",
+            'A'))
+
+        weapons.append(Weapon("Sword of the Seraphim", 
+            "A legendary sword said to be wielded by angels, raining divine judgment on the wicked.", 
+            "Sword", 
             "Divine",
             "Melee",
-            'B'))
+            'S'))
 
-        weapons.append(Weapon("Spear of the First Light",
-            "A spear that channels the dawn of creation, shattering all darkness.", 
-            "Spear",
-            "Divine",
-            "Melee",
-            'B'))
-
-        weapons.append(Weapon("Axe of the Divine Tempest",
-            "An enormous axe that calls down storms of holy fire with every strike.", 
-            "Axe",
-            "Divine",
-            "Melee",
-            'B'))
-
-        weapons.append(Weapon("Grimoire of Celestial Wrath",
-            "An enormous tome radiating divine power, capable of unleashing devastating holy judgment upon all who oppose it.",
-            "Book",
-            "Divine",
-            "Ranged",
-            "B"))
-
-
-        
-        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #  
-        # A CLASS
-        
-        weapons.append(Weapon("Arcane Tempest Staff",
-            "A staff swirling with violent magical storms.",
-            "Staff",
+        # Wand
+        weapons.append(Weapon("Cracked Wooden Wand", 
+            "A simple wooden wand etched with faint runes. Its magic is weak and unstable.", 
+            "Wand", 
             "Magic",
             "Ranged",
-            "A"))
+            'E'))
 
-        weapons.append(Weapon("Phantom Lance",
-            "A lance that strikes from the shadows with unrelenting force.",
-            "Spear",
-            "Dexterity",
-            "Melee",
-            "A"))
-
-        weapons.append(Weapon("Titan's Grasp",
-            "A massive axe wielded only by the strongest warriors.",
-            "Axe",
-            "Strength",
-            "Melee",
-            "A"))
-
-        weapons.append(Weapon("Ethereal Lance",
-            "A lance that phases through solid matter, striking the spirit.",
-            "Spear",
-            "Magic",
-            "Melee",
-            "A"))
-
-        weapons.append(Weapon("Soulrend Dagger",
-            "A dagger that tears the soul apart, feared by all.",
-            "Knife",
-            "Dexterity",
-            "Melee",
-            "A"))
-
-        weapons.append(Weapon("Codex of the Eternal Light",
-            "An ancient tome radiating divine power, capable of striking the souls of the wicked with celestial fury.",
-            "Book",
-            "Divine",
-            "Ranged",
-            "A"))
-
-
-        #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #  
-        # S CLASS
-        weapons.append(Weapon("Dragonfire Greatsword",
-            "A legendary sword engulfed in eternal flames of a dragon.",
-            "Greatsword",
-            "Divine",
-            "Ranged",
-            "S"))
-
-        weapons.append(Weapon("Worldbreaker Hammer",
-            "A hammer said to have shattered mountains with a single blow.",
-            "Hammer",
-            "Strength",
-            "Melee",
-            "S"))
-
-        weapons.append(Weapon("Archmage's Staff",
-            "A staff imbued with unimaginable arcane power.",
-            "Staff",
+        weapons.append(Weapon("Runed Wand", 
+            "A sturdy wand inscribed with glowing runes, releasing minor magical projectiles.", 
+            "Wand", 
             "Magic",
             "Ranged",
-            "S"))
+            'D'))
 
-        weapons.append(Weapon("Venomstrike Razor",
-            "A legendary dagger so fast and deadly it’s said to pierce the fabric of reality.",
-            "Knife",
-            "Dexterity",
-            "Melee",
-            "S"))
-            
+        weapons.append(Weapon("Elemental Wand", 
+            "A magical wand that fires bursts of fire, ice, or lightning.", 
+            "Wand", 
+            "Magic",
+            "Ranged",
+            'C'))
 
-        weapons.append(Weapon("Grimoire of Celestial Judgment",
-            "A legendary tome imbued with the wrath of the heavens, each word capable of obliterating the soul of any mortal or demon.",
-            "Book",
+        weapons.append(Weapon("Sorcerer’s Wand", 
+            "A finely crafted wand that amplifies the wielder’s arcane power.", 
+            "Wand", 
+            "Magic",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Arcane Wand", 
+            "A masterwork magical wand capable of devastating elemental attacks.", 
+            "Wand", 
+            "Magic",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Wand of the Archmage", 
+            "A legendary wand imbued with ancient magic, channeling the raw forces of creation.", 
+            "Wand", 
+            "Magic",
+            "Ranged",
+            'S'))
+
+        weapons.append(Weapon("Blessed Wand", 
+            "A wand engraved with holy symbols, faintly glowing with divine energy.", 
+            "Wand", 
             "Divine",
             "Ranged",
-            "S"))
+            'E'))
+
+        weapons.append(Weapon("Cleric’s Wand", 
+            "A holy wand used by priests and paladins, firing minor divine energy.", 
+            "Wand", 
+            "Divine",
+            "Ranged",
+            'D'))
+
+        weapons.append(Weapon("Sanctified Wand", 
+            "A radiant wand blessed with divine power, purifying darkness with every shot.", 
+            "Wand", 
+            "Divine",
+            "Ranged",
+            'C'))
+
+        weapons.append(Weapon("Crusader’s Wand", 
+            "A powerful divine wand, shooting holy energy to smite evil.", 
+            "Wand", 
+            "Divine",
+            "Ranged",
+            'B'))
+
+        weapons.append(Weapon("Wand of Purity", 
+            "A masterfully forged wand glowing with sacred light, cleansing evil wherever its shots land.", 
+            "Wand", 
+            "Divine",
+            "Ranged",
+            'A'))
+
+        weapons.append(Weapon("Wand of the Seraphim", 
+            "A legendary divine wand said to be wielded by angels, firing beams of holy wrath.", 
+            "Wand", 
+            "Divine",
+            "Ranged",
+            'S'))
+
+
 
 
         weapon = next(w for w in weapons if w.name == "Thieves knife")
@@ -3295,8 +4758,6 @@ init python:
         ))
         
         myWeapons.append(next(w for w in weapons if w.weapon_id == 15))
-
-        adding_weapon = get_weapon_by_name("Archmage's Staff")
         myWeapons.append(adding_weapon)
         myEquipments.append(next(e for e in equipments if e.equipment_id == 0))
         myEquipments.append(next(e for e in equipments if e.equipment_id == 1))
