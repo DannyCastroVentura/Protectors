@@ -137,19 +137,33 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] create enemies
-    #   -   I just need to create a new array, where I can store the enemies just like protectors
-    #   -   they are protectors - so they will escalate in the same way as the protectors
-    #   -   perfect for making it fair and scalable
-    #   -   on the stage expeditions we will fight agaisnt these enemies
+    # TODO: [ PRIO 1 ] finalize the expeditions
+    #   -   create enemies for the stage expeditions
+    #   -   work on the frame to have the turned base combat
+    #   -   -   the ranged persons should have more 25 points of being the one to start, melee have 10 points - as the battle beggins when they both reach 40 for example.
+    #   -   -   for this speed should be the differenciator and once any of them reach 40 - the person who reached 40 first starts to deal damage.
+    #   -   -   when dealing damage, a button should show for "Atack" - later on I can update this button show other options, like speels, and defend, or something like this
+    #   -   -   then it should reset the calculations for the one who dealt damage, and the other should continue
+    #   -   -   when dealing damage, we should decrease the health of the other - I also need to check how would defense work on here..
+    #   -   -   once one of them dies, the battle ends.
+    #   -   -   then a report should show - stating who won (if protector, a victory panel should show first, if not, a defeat panel should show) 
+    #   -   -   -   the report will show how much gold it was earned, and what equipments we also got.
+    #   -   then it should open the next region
     #   -   once the first stage expedition is done, we unlock another part of the game, which is the battles
-    #   -   also the normal expeditions should be when we compare the stats for the protector with an enemy.
-    #   -   -   for this we should choose a strong enemie for each difficulty (should be the level of the enemie)
-    #   -   -   and for example, if the mission will compare the hps of the protector and the enemy, the enemy should be a tank one.
-    #   -   -   also thinking of creating this enemy on the fly.. as I think this would be a good idea, create them just for the mission, and then delete them. automatically.
-    # 
-    # TODO: [ PRIO 1 ] make the extra damage things to be dependent on the improvement bonus
-    #   -   ex:     divine sword, should have a divine rank: C (ex) and then I would get these calculations on the get damage
+    #
+    # TODO: [ PRIO 1 ] start to work on the stage expeditions
+    #   -   once stage expedition is completed, we can go to the next region - and everything should be the same
+    #   -   final boss drops!
+    #   -   -   Region 10 - 2 A Equipment or Weapon
+    #   -   -   Region 9 - 1 A Equipment or Weapon
+    #   -   -   Region 8 - 2 B Equipment or Weapon
+    #   -   -   Region 7 - 1 B Equipment or Weapon
+    #   -   -   Region 6 - 2 C Equipment or Weapon
+    #   -   -   Region 5 - 1 C Equipment or Weapon
+    #   -   -   Region 4 - 2 D Equipment or Weapon
+    #   -   -   Region 3 - 1 D Equipment or Weapon
+    #   -   -   Region 2 - 2 E Equipment or Weapon
+    #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
     # TODO: [ PRIO 1 ] 
     #   -   create a way to buy items 
@@ -176,32 +190,22 @@ label start:
     #   -   robot - this will be the tanky one (lets try it :) )
     #   -   skeleton - dexterity based
     #   -   priest - this will use miracles
+    #   -   lawyer - this will be good for charisma and political missions
     #
     # TODO: [ PRIO 1 ] test all the protectors 
+    # 
+    # TODO: [ PRIO 2 ] make the extra damage things to be dependent on the improvement bonus (like in dark souls 3)
+    #   -   ex:     divine sword, should have a divine rank: C (ex) and then I would get these calculations on the get damage
     #
     # TODO: [ PRIO 2 ] work on Clashes
     #   -   these should be turned base combat
     #   -   let's start with only normal attacks - then we can start to think of adding spells (to use the mana from the protector)
-    #
-    # TODO: [ PRIO 2 ] start to work on the stage expeditions
-    #   -   once stage expedition is completed, we can go to the next region - and everything should be the same
-    #   -   final boss drops!
-    #   -   -   Region 10 - 2 A Equipment or Weapon
-    #   -   -   Region 9 - 1 A Equipment or Weapon
-    #   -   -   Region 8 - 2 B Equipment or Weapon
-    #   -   -   Region 7 - 1 B Equipment or Weapon
-    #   -   -   Region 6 - 2 C Equipment or Weapon
-    #   -   -   Region 5 - 1 C Equipment or Weapon
-    #   -   -   Region 4 - 2 D Equipment or Weapon
-    #   -   -   Region 3 - 1 D Equipment or Weapon
-    #   -   -   Region 2 - 2 E Equipment or Weapon
-    #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
     # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are expeditions_succeeded / expeditions_failed / expeditions_went -> I can also create a bar
     #   -   in case a evolution was already specified, we can also show the description once again
     #
-    # TODO: [ PRIO 3 ] add equipment and things to improve charisma
+    # TODO: [ PRIO 3 ] add equipment and things to improve charisma and wisdom
     # 
     # TODO: [ PRIO 4 ] make it possible to call nova
     #   -   make her also explain the things regarding the calculations for the different things (but this would need to be done only at the end of the game, as I'll be changing this pretty often - I assume)

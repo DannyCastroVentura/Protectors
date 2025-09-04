@@ -3220,7 +3220,7 @@ screen expedition_screen(regionNumber):
     default filtered_expeditions = [m for m in allExpeditions if min_level <= m.difficulty <= max_level and m.title != "Training"]
     default max_pages = max((len(filtered_expeditions) - 1) // page_size, 0)
     default mode = "list"
-    default selected_mission = None
+    default selected_expedition = None
     frame:
         xalign 0.5
         yalign 0.5
@@ -3269,7 +3269,7 @@ screen expedition_screen(regionNumber):
                                     text "[mission.title] ([mission.expedition_type])" size 24 color "#fff"
                                     text mission.description size 16 color "#ccc"
                                     text "Difficulty: [mission.difficulty]" size 14 color "#aaa"
-                            action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_mission", mission)]
+                            action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_expedition", mission)]
 
                     hbox:
                         spacing 20
@@ -3287,7 +3287,7 @@ screen expedition_screen(regionNumber):
 
                     textbutton "Return" action Return() xalign 0.5
 
-            elif mode == "detail" and selected_mission is not None:
+            elif mode == "detail" and selected_expedition is not None:
                 vbox:
                     yalign 0.0
                     xalign 0.5
@@ -3297,16 +3297,16 @@ screen expedition_screen(regionNumber):
                     
                     vbox:
                         xalign 0.5
-                        text "[selected_mission.title]" size 40 color "#000000"
+                        text "[selected_expedition.title]" size 40 color "#000000"
                         
                         vbox:
                             xalign 0.5
                             spacing 20
-                            text "([selected_mission.expedition_type])" size 30 color "#000000"
+                            text "([selected_expedition.expedition_type])" size 30 color "#000000"
                         
                             vbox:
                                 xalign 0.5
-                                text "Difficulty: [selected_mission.difficulty]" size 20 color "#5a5a5a"
+                                text "Difficulty: [selected_expedition.difficulty]" size 20 color "#5a5a5a"
                                 
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
@@ -3314,13 +3314,13 @@ screen expedition_screen(regionNumber):
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
 
-                    text selected_mission.description size 20 color "#5a5a5a"
+                    text selected_expedition.description size 20 color "#5a5a5a"
 
                     $ neededDaysToFinish_day_name = "day"
                     $ disapearingInThisDays_day_name = "day"
-                    if selected_mission.neededDaysToFinish > 1:
+                    if selected_expedition.neededDaysToFinish > 1:
                         $ neededDaysToFinish_day_name = "days"
-                    if selected_mission.disapearingInThisDays > 1:
+                    if selected_expedition.disapearingInThisDays > 1:
                         $ disapearingInThisDays_day_name = "days"
                         
                     vbox:
@@ -3339,11 +3339,15 @@ screen expedition_screen(regionNumber):
                             hbox:
                                 text "Payment:" size 18 color "#5a5a5a"
                             hbox:
+                                text "Enemy:" size 18 color "#5a5a5a"
+                            hbox:
+                                text "Target value:" size 18 color "#5a5a5a"
+                            hbox:
                                 text "Time it takes to complete:" size 18 color "#5a5a5a"
-                            if selected_mission.status != "started":
+                            if selected_expedition.status != "started":
                                 hbox:
                                     text "Will disappear in:" size 18 color "#5a5a5a"
-                            if selected_mission.status == "assigned":
+                            if selected_expedition.status == "assigned":
                                 hbox:
                                     text "Assigned protector:" size 18 color "#5a5a5a"
 
@@ -3353,24 +3357,31 @@ screen expedition_screen(regionNumber):
 
                             hbox:
                                 xalign 1.0  # force to right
-                                text "[selected_mission.gold_received] $" size 18 color "#5a5a5a"
+                                text "[selected_expedition.gold_received] $" size 18 color "#5a5a5a"
+                            hbox:
+                                $ atts = selected_expedition.enemy.get_current_stats()
+                                xalign 1.0  # force to right
+                                text "str: " + str(atts["strength"]) + " / " + "dex: " + str(atts["dexterity"]) + " / " + "con: " + str(atts["constitution"]) + " / " + "int: " + str(atts["intelligence"]) + " / " + "wis: " + str(atts["wisdom"]) + " / " +  "cha: " + str(atts["charisma"]) + " / " + "spe: " + str(atts["speed"]) size 18 color "#5a5a5a"
                             hbox:
                                 xalign 1.0  # force to right
-                                text "[selected_mission.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a"
-                            if selected_mission.status != "started":
+                                text "[selected_expedition.target_value]" size 18 color "#5a5a5a"
+                            hbox:
+                                xalign 1.0  # force to right
+                                text "[selected_expedition.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a"
+                            if selected_expedition.status != "started":
                                 hbox:
                                     xalign 1.0  # force to right
-                                    text "[selected_mission.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a"
-                            if selected_mission.status == "assigned":
+                                    text "[selected_expedition.disapearingInThisDays] [disapearingInThisDays_day_name]" size 18 color "#5a5a5a"
+                            if selected_expedition.status == "assigned":
                                 hbox:
                                     xalign 1.0  # force to right
-                                    text "[selected_mission.assignedProtectorName]" size 18 color "#5a5a5a"
+                                    text "[selected_expedition.assignedProtectorName]" size 18 color "#5a5a5a"
                 
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
 
-                    if selected_mission.status == "assigned":
-                        $ success_rate = selected_mission.get_success_rate(my_protectors_map[selected_mission.assignedProtectorName])
+                    if selected_expedition.status == "assigned":
+                        $ success_rate = selected_expedition.get_success_rate(my_protectors_map[selected_expedition.assignedProtectorName])
                         if success_rate > 100:
                             $ success_rate = 100
                         vbox: 
@@ -3383,15 +3394,15 @@ screen expedition_screen(regionNumber):
                     # List of available protectors
                     $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
 
-                    if selected_mission.status != "started":                    
+                    if selected_expedition.status != "started":                    
                         hbox:
                             xalign 0.5
                             spacing 10
                             for protector in available_protectors:
                                 $ select_protector_button_style = "button_small_text"
-                                if protector.name == selected_mission.assignedProtectorName:
+                                if protector.name == selected_expedition.assignedProtectorName:
                                     $ select_protector_button_style = "button_small_text_selected"
-                                textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
+                                textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_expedition.expedition_id, protector.name)
 
                             
                             if len(available_protectors) == 0:
@@ -3408,8 +3419,8 @@ screen expedition_screen(regionNumber):
                     hbox:
                         xalign 0.5
                         spacing 20
-                        if selected_mission.status != "started" and selected_mission.assignedProtectorName != None:
-                            textbutton "Start Expedition" action Function(start_mission, selected_mission, protector.name, success_rate)
+                        if selected_expedition.status != "started" and selected_expedition.assignedProtectorName != None:
+                            textbutton "Start Expedition" action Function(start_mission, selected_expedition, protector.name, success_rate)
                         textbutton "Back" action SetScreenVariable("mode", "list")
 
 screen base_stats(baseProtectorObject):

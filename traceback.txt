@@ -1,278 +1,68 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
-  File "game/base_of_operations.rpy", line 74, in script
-    call screen expedition_screen(regionNumber)
-  File "game/screens.rpy", line 3202, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3202, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3211, in execute
-    frame:
-  File "game/screens.rpy", line 3218, in execute
-    vbox:
-  File "game/screens.rpy", line 3221, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3278, in execute
-    vbox:
-  File "game/screens.rpy", line 3373, in execute
-    if selected_mission.status != "started":
-  File "game/screens.rpy", line 3374, in execute
-    hbox:
-  File "game/screens.rpy", line 3377, in execute
-    for protector in available_protectors:
-  File "game/screens.rpy", line 3381, in execute
-    textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
-  File "game/screens.rpy", line 3381, in keywords
-    textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
-  File "game/screens.rpy", line 3381, in <module>
-    textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
-                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                 
-AttributeError: 'Expedition' object has no attribute 'expedition_id'. Did you mean: 'expedition_type'?
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+  File "game/script.rpy", line 60, in <module>
+    $ initializing_things()
+      ~~~~~~~~~~~~~~~~~~~^^
+  File "game/initializing_things.rpy", line 2570, in initializing_things
+    creating_new_expeditions()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/functions.rpy", line 301, in creating_new_expeditions
+    Expedition(
+    ~~~~~~~~~~^
+        mission.title,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        mission.expedition_type
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "game/classes.rpy", line 532, in __init__
+    enemy = Protector(expedition_type, enemy_stage + 1, difficulty, "Available", expeditions_enemies_base_data, chosen_evolution_value)
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 86, in __init__
+    self.basePoints = protector_enemies_map[name].copy()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
+AttributeError: 'BaseProtectorData' object has no attribute 'copy'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
-  File "game/base_of_operations.rpy", line 74, in script
-    call screen expedition_screen(regionNumber)
-  File "renpy/ast.py", line 2231, in execute
-    self.call("execute")
-    ~~~~~~~~~^^^^^^^^^^^
-  File "renpy/ast.py", line 2195, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/statements.py", line 379, in call
-    return method(parsed, *args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 348, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ui.py", line 304, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2219, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
+  File "game/script.rpy", line 60, in script
+    $ initializing_things()
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/script.rpy", line 60, in <module>
+    $ initializing_things()
+      ~~~~~~~~~~~~~~~~~~~^^
+  File "game/initializing_things.rpy", line 2570, in initializing_things
+    creating_new_expeditions()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/functions.rpy", line 301, in creating_new_expeditions
+    Expedition(
+    ~~~~~~~~~~^
+        mission.title,
+        ^^^^^^^^^^^^^^
     ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )  # type: ignore
-    ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3202, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3202, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3211, in execute
-    frame:
-  File "game/screens.rpy", line 3218, in execute
-    vbox:
-  File "game/screens.rpy", line 3221, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3278, in execute
-    vbox:
-  File "game/screens.rpy", line 3373, in execute
-    if selected_mission.status != "started":
-  File "game/screens.rpy", line 3374, in execute
-    hbox:
-  File "game/screens.rpy", line 3377, in execute
-    for protector in available_protectors:
-  File "game/screens.rpy", line 3381, in execute
-    textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
-  File "game/screens.rpy", line 3381, in keywords
-    textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3381, in <module>
-    textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_mission.expedition_id, protector.name)
-                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                 
-AttributeError: 'Expedition' object has no attribute 'expedition_id'. Did you mean: 'expedition_type'?
+        mission.expedition_type
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "game/classes.rpy", line 532, in __init__
+    enemy = Protector(expedition_type, enemy_stage + 1, difficulty, "Available", expeditions_enemies_base_data, chosen_evolution_value)
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 86, in __init__
+    self.basePoints = protector_enemies_map[name].copy()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
+AttributeError: 'BaseProtectorData' object has no attribute 'copy'
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Sep  2 15:01:27 2025
+Thu Sep  4 19:13:17 2025

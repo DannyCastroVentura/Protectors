@@ -1,8 +1,8 @@
 init python:
     import random
-
+    import copy
+    
     levelAttributeIncrements = 1
-    stage_attribute_inc = 1.3
             
     # define the base multiplier per rank
     rank_multipliers = {
@@ -71,7 +71,7 @@ init python:
             return
 
     class Protector:
-        def __init__(self, name, stage, level, status):
+        def __init__(self, name, stage, level, status, protector_enemies_map, chosen_evolution_value = None):
             self.name = name
             self.stage = stage
             self.level = level
@@ -83,13 +83,26 @@ init python:
             self.equipedBodyArmor = None
             self.equipedPants = None
             self.equipedBoots = None
-            self.basePoints = protectors_base_information[name]
+            self.basePoints = copy.deepcopy(protector_enemies_map[name])
             self.expeditions_succeeded = 0
             self.expeditions_failed = 0
             self.expeditions_went = 0
             self.chosen_evolution = 0
-            return
+            if chosen_evolution_value != None:
+                self.chosen_evolution = chosen_evolution_value
+            if self.level > 1:
+                aux = 1
+                while aux <= self.level:
+                    self.leveling_up()
+                    aux += 1
 
+        def leveling_up(self):
+            # Add the needed attributes to the base stats variable accordingly
+            for i in range(levelAttributeIncrements):
+                attribute = self.basePoints.increasing_list.pop(0)
+                self.basePoints.increase_attribute(attribute)
+                self.basePoints.increasing_list.append(attribute)
+        
         def increasing_xp(self, incoming_xp):
             if self.level / 20 > (self.stage):
                 if self.stage != 10:
@@ -104,11 +117,7 @@ init python:
                     self.xp -= xp_needed
                     self.level += 1
 
-                    # Add the needed attributes to the base stats variable accordingly
-                    for i in range(levelAttributeIncrements):
-                        attribute = self.basePoints.increasing_list.pop(0)
-                        self.basePoints.increase_attribute(attribute)
-                        self.basePoints.increasing_list.append(attribute)
+                    self.leveling_up()
 
                     # check if level is ready for promotion
                     if self.level / 20 > (self.stage):
@@ -118,6 +127,26 @@ init python:
                             self.readyForPromotion = True
                 else:
                     break
+            return
+
+        def set_weapon(self, weapon):
+            self.equipedWeapon = weapon
+            return
+
+        def set_helmet(self, helmet):
+            self.equipedHelmet = helmet
+            return
+
+        def set_body(self, body):
+            self.equipedBodyArmor = body
+            return
+
+        def set_pants(self, pants):
+            self.equipedPants = pants
+            return
+
+        def set_boots(self, boots):
+            self.equipedBoots = boots
             return
 
         def equip_weapon(self, weapon_id):
@@ -330,7 +359,7 @@ init python:
             return round(self.get_dexterity() * 0.5 + self.get_speed() * 0.5 + self.get_evasion() * 10, 2)
 
         def get_rescue_points(self):
-            return round(self.get_defense() * 0.5 + self.get_recon_points() * 0.5, 2)
+            return round(self.get_defense() * 0.2 + self.get_recon_points() * 0.8, 2)
         
         def get_defense(self):
             return round(self.get_defense_from_equipment() + int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5), 2)
@@ -477,6 +506,120 @@ init python:
             else:
                 self.xp_received = xp_received
                 self.gold_received = gold_received
+
+            
+            enemy = None
+            enemy_target_value = None
+            chosen_evolution_value = 0
+            enemy_stage = None
+            rarity_number = None
+            rank_multipliers_array = None
+            weapon = None
+            target_class_name = None
+            helmet = None
+            body = None
+            pants = None
+            boots = None
+
+            if expedition_type != "Training":
+                
+                if difficulty >= 100:
+                    chosen_evolution_value = 1
+                    
+                enemy_stage = int((difficulty - 1) / 20)
+                
+                enemy = Protector(expedition_type, enemy_stage + 1, difficulty, "Available", expeditions_enemies_base_data, chosen_evolution_value)
+                
+                # calculating rarity of weapon
+                rarity_number = int(enemy.level * len(rank_multipliers) / maxDifficulty)
+
+                # decreasing rarity_number because its to much difficult
+                rarity_number -= 1
+
+                if rarity_number >= 0:
+                    # getting the letter for the rarity
+                    rank_multipliers_array = {v: k for k, v in rank_multipliers.items()}
+                    rarity_letter = rank_multipliers_array[rarity_number]
+                else:
+                    rarity_letter = "E"
+
+                # Getting a weapon for the weapon
+                #   -   it needs to be of the type that the enemy can use
+                #   -   also needs to be according to the rarity he should use
+                weapon = next(
+                    w for w in weapons 
+                        if w.type == enemy.basePoints.usable_weapon_types[0]
+                        if w.rarity == rarity_letter 
+                )
+
+                enemy.set_weapon(weapon)
+
+                # Getting equipments
+                if rarity_number >= 0:
+                    # if combat:
+                    target_class_name = "Tank"
+                    # TODO: think on a better way to handle these moral and politic things
+                    if self.expedition_type == "Moral":
+                        target_class_name = "Tank"
+                    # TODO: think on a better way to handle these moral and politic things
+                    elif self.expedition_type == "Political":
+                        target_class_name = "Tank"
+                    elif self.expedition_type == "Recon":
+                        target_class_name = "Speed"
+                    elif self.expedition_type == "Rescue":
+                        target_class_name = "Shield"
+
+                    # Getting a helmet
+                    helmet = next(
+                        e for e in equipments 
+                            if e.type == "helmet"
+                            if e.rarity == rarity_letter
+                            if e.class_name == target_class_name
+                    )
+
+                    # Getting a body armor
+                    body = next(
+                        e for e in equipments 
+                            if e.type == "body"
+                            if e.rarity == rarity_letter
+                            if e.class_name == target_class_name
+                    )
+
+                    # Getting pants
+                    pants = next(
+                        e for e in equipments 
+                            if e.type == "pants"
+                            if e.rarity == rarity_letter
+                            if e.class_name == target_class_name
+                    )
+                    
+                    # Getting boots
+                    boots = next(
+                        e for e in equipments 
+                            if e.type == "boots"
+                            if e.rarity == rarity_letter
+                            if e.class_name == target_class_name
+                    )
+
+                    enemy.set_helmet(helmet)
+                    enemy.set_body(body)
+                    enemy.set_pants(pants)
+                    enemy.set_boots(boots)
+
+                # Assign the target value of the needed thing for this expedition_type
+                if self.expedition_type == "Combat":
+                    enemy_target_value = enemy.get_damage_points() * enemy.get_attack_speed() + enemy.get_health_points()
+                elif self.expedition_type == "Moral":
+                    enemy_target_value = enemy.get_morality()
+                elif self.expedition_type == "Political":
+                    enemy_target_value = enemy.get_charisma()
+                elif self.expedition_type == "Recon":
+                    enemy_target_value = enemy.get_recon_points()
+                elif self.expedition_type == "Rescue":
+                    enemy_target_value = enemy.get_rescue_points()
+
+                self.target_value = enemy_target_value
+                self.enemy = enemy
             return
         
         def startExpedition(self, protectorName, success_rate = 100):
@@ -510,11 +653,10 @@ init python:
             if expedition_type == "Moral":
                 protector_stat = protector.get_morality()
             if expedition_type == "Combat":
-                protector_stat = protector.get_damage_points() * 0.2
+                protector_stat = protector.get_damage_points() * protector.get_attack_speed() + protector.get_health_points()
             difficulty = self.difficulty
-            needed_stat_value = 10 + difficulty * 3
 
-            return int((protector_stat * 100 / needed_stat_value) + protector.get_luck() * 0.15)
+            return int((protector_stat * 100 / self.target_value) + protector.get_luck() * 0.15)
 
         def finishExpedition(self):
             global my_protectors_map

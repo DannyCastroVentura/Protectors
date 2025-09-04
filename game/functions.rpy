@@ -1,4 +1,5 @@
 default my_protectors_map = {}
+default expeditions_enemies_base_data = {}
 default protectors_base_information = {}
 default allExpeditions = []
 default bossExpeditions = []
@@ -18,6 +19,9 @@ init python:
 
     if 'my_protectors_map' not in globals():
         my_protectors_map = {}
+
+    if 'expeditions_enemies_base_data' not in globals():
+        expeditions_enemies_base_data = {}
 
     if 'protectors_base_information' not in globals():
         protectors_base_information = {}
@@ -105,6 +109,10 @@ init python:
                 "increase": [ "Strength", "Strength", "Constitution" ],
                 "decrease": [ "Intelligence", "Wisdom" ]
             },
+            "STR_CON": {  # Balanced strength build
+                "increase": [ "Strength", "Constitution" ],
+                "decrease": [ "Intelligence", "Wisdom" ]
+            },
             "STR_ONLY": {  # Glass cannon
                 "increase": [ "Strength", "Strength" ],
                 "decrease": [ "Intelligence", "Wisdom", "Luck" ]
@@ -149,6 +157,10 @@ init python:
                 "increase": [ "Constitution", "Constitution", "Dexterity" ],
                 "decrease": [ "Luck", "Speed" ]
             },
+            "CON_DEX": {  # constitution and dexterity
+                "increase": [ "Constitution", "Dexterity" ],
+                "decrease": [ "Intelligence", "Wisdom" ]
+            },
             "HP": {  # Health-obsessed
                 "increase": [ "Constitution", "Constitution" ],
                 "decrease": [ "Dexterity", "Luck" ]
@@ -160,6 +172,14 @@ init python:
             "CRI": {  # Critical strike build
                 "increase": [ "Dexterity", "Luck", "Luck" ],
                 "decrease": [ "Strength", "Constitution", "Wisdom" ]
+            },
+            "CHA_WIS": {  # Charisma and wisdom
+                "increase": [ "Charisma", "Wisdom" ],
+                "decrease": [ "Strength", "Constitution", "Speed" ]
+            },
+            "CHA": {  # Charisma
+                "increase": [ "Charisma" ],
+                "decrease": [ "Strength", "Constitution", "Speed" ]
             }
         }
 
@@ -229,7 +249,8 @@ init python:
 
     def add_new_protector(protector_name, stage = 1, level = 1):
         global my_protectors_map
-        new_protector = Protector(protector_name, stage, level, "Available")
+        global protectors_base_information
+        new_protector = Protector(protector_name, stage, level, "Available", protectors_base_information)
         default_weapon_name = new_protector.basePoints.default_weapon
         if default_weapon_name != None:
             # get the weapon id
@@ -269,7 +290,7 @@ init python:
         global maxDisapearingInThisDays
         global allExpeditionTemplates
 
-        for missionNumber in range(len(allExpeditions), expeditionsListSize):
+        for expeditionNumber in range(len(allExpeditions), expeditionsListSize):
             randomNumber = int(random.uniform(1, maxDifficulty))
             neededDaysToFinish = int(random.uniform(1, maxNeededDaysToFinish))
             disapearingInThisDays = int(random.uniform(1, maxDisapearingInThisDays))

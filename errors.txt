@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 315: invalid syntax
-    renpy.say(mc "This got here")
-                     ^^^^^^^^^^^^^^^
+File "game/screens.rpy", line 3364: 'str' is not a keyword argument or valid child of the text statement.
+    text "["str: " + str(atts.strength) + " / " + "dex: " + str(atts.dexterity) + " / " + "con: " + str(atts.constitution) + " / " + "int: " + str(atts.intelligence) + " / " + "wis: " + str(atts.wisdom) + " / " +  "cha: " + str(atts.charisma) + " / " + "spe: " + str(atts.speed) + " / " ]" size 18 color "#5a5a5a"
+               ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Sep  2 14:18:14 2025
+Thu Sep  4 18:56:09 2025
