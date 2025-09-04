@@ -137,6 +137,22 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: [ PRIO 1 ] 
+    #   -   create a way to buy items 
+    #   -   -   store will refresh in weekly basis
+    #   -   -   it will have 2 equipments (always in different types) per class - randomly chosen
+    #   -   -   it will have 2 weapons (always in different types) per class - randomly chosen
+    #   -   -   The items prices should be like:
+    #   -   -   -   weapon = 150
+    #   -   -   -   helmet = 150
+    #   -   -   -   body = 200
+    #   -   -   -   pants = 175
+    #   -   -   -   boots = 160
+    #   -   -   -   then the prices multiple by 2 per each stage
+    #   -   item drop chance
+    #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
+    #   -   -   depending on the difficulty of the mission, this change get's ligther -> we should divide the total chance by the number per each rank of the equipment/weapon
+    # 
     # TODO: [ PRIO 1 ] finalize the expeditions
     #   -   create enemies for the stage expeditions
     #   -   work on the frame to have the turned base combat
@@ -165,22 +181,6 @@ label start:
     #   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
-    # TODO: [ PRIO 1 ] 
-    #   -   create a way to buy items 
-    #   -   -   store will refresh in weekly basis
-    #   -   -   it will have 2 equipments (always in different types) per class - randomly chosen
-    #   -   -   it will have 2 weapons (always in different types) per class - randomly chosen
-    #   -   -   The items prices should be like:
-    #   -   -   -   weapon = 150
-    #   -   -   -   helmet = 150
-    #   -   -   -   body = 200
-    #   -   -   -   pants = 175
-    #   -   -   -   boots = 160
-    #   -   -   -   then the prices multiple by 2 per each stage
-    #   -   item drop chance
-    #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
-    #   -   -   depending on the difficulty of the mission, this change get's ligther -> we should divide the total chance by the number per each rank of the equipment/weapon
-    #
     # TODO: [ PRIO 1 ] once a expedition is finished should we show a report
     #   -   "This expeditions was completed, this protector got this xp and this money"
     #   -   it was successful or not

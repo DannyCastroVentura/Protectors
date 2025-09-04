@@ -619,7 +619,6 @@ init python:
                     enemy_target_value = enemy.get_rescue_points()
 
                 self.target_value = enemy_target_value
-                self.enemy = enemy
             return
         
         def startExpedition(self, protectorName, success_rate = 100):

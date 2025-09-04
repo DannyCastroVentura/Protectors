@@ -3314,7 +3314,7 @@ screen expedition_screen(regionNumber):
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
 
-                    text selected_expedition.description size 20 color "#5a5a5a"
+                    text selected_expedition.description size 20 color "#5a5a5a" xalign 0.5
 
                     $ neededDaysToFinish_day_name = "day"
                     $ disapearingInThisDays_day_name = "day"
@@ -3325,23 +3325,16 @@ screen expedition_screen(regionNumber):
                         
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
-                        
-                    vbox:
-                        null width 40  # This adds 40 pixels of vertical space at the top
                     hbox:
                         xsize 700
                         spacing 20
 
                         vbox:
-                            xalign 0.0  # force to left
+                            xalign 0.2  # force to left
                             spacing 20
 
                             hbox:
                                 text "Payment:" size 18 color "#5a5a5a"
-                            hbox:
-                                text "Enemy:" size 18 color "#5a5a5a"
-                            hbox:
-                                text "Target value:" size 18 color "#5a5a5a"
                             hbox:
                                 text "Time it takes to complete:" size 18 color "#5a5a5a"
                             if selected_expedition.status != "started":
@@ -3352,19 +3345,12 @@ screen expedition_screen(regionNumber):
                                     text "Assigned protector:" size 18 color "#5a5a5a"
 
                         vbox:
-                            xalign 1.0  # force to right
+                            xalign 0.8  # force to right
                             spacing 20
 
                             hbox:
                                 xalign 1.0  # force to right
                                 text "[selected_expedition.gold_received] $" size 18 color "#5a5a5a"
-                            hbox:
-                                $ atts = selected_expedition.enemy.get_current_stats()
-                                xalign 1.0  # force to right
-                                text "str: " + str(atts["strength"]) + " / " + "dex: " + str(atts["dexterity"]) + " / " + "con: " + str(atts["constitution"]) + " / " + "int: " + str(atts["intelligence"]) + " / " + "wis: " + str(atts["wisdom"]) + " / " +  "cha: " + str(atts["charisma"]) + " / " + "spe: " + str(atts["speed"]) size 18 color "#5a5a5a"
-                            hbox:
-                                xalign 1.0  # force to right
-                                text "[selected_expedition.target_value]" size 18 color "#5a5a5a"
                             hbox:
                                 xalign 1.0  # force to right
                                 text "[selected_expedition.neededDaysToFinish] [neededDaysToFinish_day_name]" size 18 color "#5a5a5a"
