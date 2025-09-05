@@ -421,3 +421,7 @@ init python:
         # and get the protector
         add_new_protector(randomProtectorName)
         return randomProtectorName
+
+    def notify_user_money_is_not_enough(item_name):
+        renpy.notify(f"Can't afford to buy {item_name}")
+        return

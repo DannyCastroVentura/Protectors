@@ -3615,16 +3615,18 @@ screen lucky_box_screen(box_type):
 screen online_shop():
     default online_shop_show = "main_menu"
     default rarity_selected = "S"
+    $ online_shop_color = "#FFF"
     $ title_size = 60
     $ tittle_v_align = 0.1
     if online_shop_show != "main_menu":
         $ title_size = 40
-        $ tittle_v_align = 0.0
+        $ tittle_v_align = 0.01
 
     $ main_options_scale = 350
     $ items_scale = 400
     $ main_buttons_background = im.Scale("images/background_item.png", main_options_scale, main_options_scale)
     frame:
+        background Solid("#1a1a1a")
         fixed:
             xfill True
             yfill True
@@ -3643,7 +3645,7 @@ screen online_shop():
                 
                 vbox:
                     xalign 0.5
-                    text "Online Shop" size title_size
+                    text "Online Shop" size title_size color online_shop_color
 
         vbox:
             spacing 10
@@ -3752,9 +3754,14 @@ screen online_shop():
                                                         ((items_scale - new_width) // 2, 0), equipment_scaled   
                                                     )
 
-                                    text str(equipment.name) xalign 0.5
+                                    text str(equipment.name) xalign 0.5 color online_shop_color
 
-                                    text str(equipment.price) + " $" xalign 0.5
+                                    text str(equipment.price) + " $" xalign 0.5 color online_shop_color
+
+                                    $ online_shop_action = Function(notify_user_money_is_not_enough, equipment.name)
+                                    if money >= equipment.price:
+                                        # TODO:
+                                        $ online_shop_action = Function(buy_new_item, equipment.equipment_id)
 
                                     button:
                                         xfill True
@@ -3768,7 +3775,7 @@ screen online_shop():
                                                 spacing 5
                                                 xalign 0.5
                                                 text "Buy" size 24 color "#fff" xalign 0.5
-                                        # action [Function("mode", "detail"), SetScreenVariable("selected_expedition", mission)]
+                                        action online_shop_action
                                     
                 hbox:
                     spacing 10
