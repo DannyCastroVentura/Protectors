@@ -3613,6 +3613,7 @@ screen lucky_box_screen(box_type):
 #   -   -   maybe at the bottom we can see the list of rarities, which by clicking on them allow us to continue the search
 #   -   for the protectors part, we would not have the rarity system, of course
 screen online_shop():
+    default online_shop_show = "main_menu"
     frame:
         fixed:
             xfill True
@@ -3638,12 +3639,29 @@ screen online_shop():
             spacing 20
             xalign 0.5
             yalign 0.5
-            for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-                for equipment in equipments:
-                    text str(equipment.name) xalign 0.5
+            if online_shop_show == "main_menu":
+                text "here would be the main menu"
+                text "the three buttons"
+                textbutton " - equipments" action SetScreenVariable("online_shop_show", "show_equipments")
+                textbutton " - weapons" action SetScreenVariable("online_shop_show", "show_weapons")
+                textbutton " - protectors" action SetScreenVariable("online_shop_show", "show_protectors")
                     
-
-
+            if online_shop_show == "show_equipments":
+                for rarity, equipments in online_shop_variable.selling_equipments_list.items():
+                    for equipment in equipments:
+                        text str(equipment.name) xalign 0.5
+                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu")
+                    
+            # TODO
+            if online_shop_show == "show_weapons":
+                text "here would be the weapons in sale"
+                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu")
+                  
+            # TODO  
+            if online_shop_show == "show_protectors":
+                text "here would be the protectors in sale"
+                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu")
+                    
         hbox:
             spacing 20
             xalign 0.5

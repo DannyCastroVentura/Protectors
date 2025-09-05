@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 889: expected an indented block after 'if' statement on line 888
-    chosen.append(e)
-        ^^^^^^
+File "game/screens.rpy", line 3626: 'padding' is not a keyword argument or valid child of the fixed statement.
+    padding (20, 20)
+           ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Sep  5 12:17:35 2025
+Fri Sep  5 12:43:53 2025
