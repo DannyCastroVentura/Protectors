@@ -2580,4 +2580,8 @@ init python:
         bossExpeditions.append(BossExpedition(9, "The Shattered Queen", "In a realm of mirrors and illusions, an exiled queen of a fallen kingdom bends reality to her will. Break her illusions to reveal her true form — and end her madness.", 5))
         bossExpeditions.append(BossExpedition(10, "The Void-Touched Seraph", "Once a divine guardian, now corrupted by the void. This winged horror fights in aerial stages, using celestial and abyssal magic. Only a grounded will can reach the skies.", 5))
         
+        
+        global online_shop_variable
+        online_shop_variable = OnlineShop()
+
         return 

@@ -86,7 +86,6 @@ init python:
             }
         }
 
-    # TODO: Once I have the speed attribute, I should update them to also add, or lose some speed
     if 'evolution_increment_map' not in globals():
         evolution_increment_map = {
             "DAM": {  # Physical damage dealer
@@ -183,7 +182,7 @@ init python:
             }
         }
 
-
+    
     percentage_for_increasing_on_evolutions = 0.50
     percentage_for_decreasing_on_evolutions = 0.50
     
@@ -295,16 +294,16 @@ init python:
             neededDaysToFinish = int(random.uniform(1, maxNeededDaysToFinish))
             disapearingInThisDays = int(random.uniform(1, maxDisapearingInThisDays))
             randomExpedition = int(random.uniform(1, len(allExpeditionTemplates) - 1))
-            mission = allExpeditionTemplates[randomExpedition]
+            expedition = allExpeditionTemplates[randomExpedition]
 
             allExpeditions.append(
                 Expedition(
-                    mission.title,
-                    mission.description,
+                    expedition.title,
+                    expedition.description,
                     randomNumber,  # difficulty
                     neededDaysToFinish,
                     disapearingInThisDays,
-                    mission.expedition_type
+                    expedition.expedition_type
                 )
             )
 
@@ -318,9 +317,9 @@ init python:
         expeditionsToDelete.append(expedition_id)
         return
 
-    def delete_mission(chosen_expedition_id):
+    def delete_expedition(chosen_expedition_id):
         global allExpeditions
-        allExpeditions = [m for m in allExpeditions if m.expedition_id != chosen_expedition_id]
+        allExpeditions = [e for e in allExpeditions if e.expedition_id != chosen_expedition_id]
         return
 
     def testing_things():
@@ -332,33 +331,33 @@ init python:
     def assign_protector(target_expedition_id, protectorName):
         global allExpeditions
 
-        mission_index = next((i for i, m in enumerate(allExpeditions) if m.expedition_id == target_expedition_id), -1)
+        expedition_index = next((i for i, e in enumerate(allExpeditions) if e.expedition_id == target_expedition_id), -1)
         
 
         # assigning protector to the mission
-        allExpeditions[mission_index].assignedProtectorName = protectorName
-        allExpeditions[mission_index].status = "assigned"
+        allExpeditions[expedition_index].assignedProtectorName = protectorName
+        allExpeditions[expedition_index].status = "assigned"
         renpy.restart_interaction()
         
         return
 
-    def start_mission(mission, protectorName, success_rate):
+    def start_mission(expedition, protectorName, success_rate):
         global allExpeditions
         
-        target_expedition_id = mission.expedition_id
-        mission = next(m for m in allExpeditions if m.expedition_id == target_expedition_id)
+        target_expedition_id = expedition.expedition_id
+        expedition = next(e for e in allExpeditions if e.expedition_id == target_expedition_id)
         
-        mission.startExpedition(protectorName, success_rate)
+        expedition.startExpedition(protectorName, success_rate)
 
         my_protectors_map[protectorName].status = "In a mission"
         return
 
     def resetAssignmentsForThisProtectorName(protectorName):
         global allExpeditions
-        for mission in allExpeditions:
-            if mission.assignedProtectorName == protectorName and mission.status != "started":
-                mission.assignedProtectorName = None
-                mission.status = "not assigned"
+        for expedition in allExpeditions:
+            if expedition.assignedProtectorName == protectorName and expedition.status != "started":
+                expedition.assignedProtectorName = None
+                expedition.status = "not assigned"
         return
 
     def show_weapons(protector):

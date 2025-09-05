@@ -3603,3 +3603,50 @@ screen lucky_box_screen(box_type):
                                 (0, 0), buttons_background,
                                 (0, 0), show_protectors_scaled
                             )
+
+# TODO:
+#   -   when we open the shop we see 3 buttons
+#   -   -   Weapons
+#   -   -   Equipments
+#   -   -   Protectors
+#   -   when clicking on one of them we can see all the weapons for a specific rarity, we should also be able to navigate through the rarities
+#   -   -   maybe at the bottom we can see the list of rarities, which by clicking on them allow us to continue the search
+#   -   for the protectors part, we would not have the rarity system, of course
+screen online_shop():
+    frame:
+        fixed:
+            xfill True
+            yfill True
+        xalign 0.5
+        yalign 0.5
+        xsize 1700
+        
+        ysize 925
+        padding (20, 20)
+        vbox:
+            spacing 10
+            xalign 0.5
+            yalign 0.0
+            vbox:
+                xalign 0.5
+                
+                vbox:
+                    xalign 0.5
+                    text "Online Shop" size 40
+
+        vbox:
+            spacing 20
+            xalign 0.5
+            yalign 0.5
+            for rarity, equipments in online_shop_variable.selling_equipments_list.items():
+                for equipment in equipments:
+                    text str(equipment.name) xalign 0.5
+                    
+
+
+        hbox:
+            spacing 20
+            xalign 0.5
+            yalign 0.99
+            textbutton "Return" action Return() xalign 0.5
+

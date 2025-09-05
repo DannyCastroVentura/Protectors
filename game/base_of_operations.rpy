@@ -76,3 +76,7 @@ label see_expeditions_for_region(regionNumber):
     #   -   create the boss mission so I can unlock the next region
     #   -   but first, I'll need to conclude the minor expeditions
     return
+
+label check_online_shop():
+    call screen online_shop()
+    return

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3364: 'str' is not a keyword argument or valid child of the text statement.
-    text "["str: " + str(atts.strength) + " / " + "dex: " + str(atts.dexterity) + " / " + "con: " + str(atts.constitution) + " / " + "int: " + str(atts.intelligence) + " / " + "wis: " + str(atts.wisdom) + " / " +  "cha: " + str(atts.charisma) + " / " + "spe: " + str(atts.speed) + " / " ]" size 18 color "#5a5a5a"
-               ^
+File "game/classes.rpy", line 889: expected an indented block after 'if' statement on line 888
+    chosen.append(e)
+        ^^^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Thu Sep  4 18:56:09 2025
+Fri Sep  5 12:17:35 2025

@@ -1,68 +1,83 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 60, in script
-    $ initializing_things()
-  File "game/script.rpy", line 60, in <module>
-    $ initializing_things()
-      ~~~~~~~~~~~~~~~~~~~^^
-  File "game/initializing_things.rpy", line 2570, in initializing_things
-    creating_new_expeditions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/functions.rpy", line 301, in creating_new_expeditions
-    Expedition(
-    ~~~~~~~~~~^
-        mission.title,
-        ^^^^^^^^^^^^^^
-    ...<4 lines>...
-        mission.expedition_type
-        ^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "game/classes.rpy", line 532, in __init__
-    enemy = Protector(expedition_type, enemy_stage + 1, difficulty, "Available", expeditions_enemies_base_data, chosen_evolution_value)
-            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/classes.rpy", line 86, in __init__
-    self.basePoints = protector_enemies_map[name].copy()
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
-AttributeError: 'BaseProtectorData' object has no attribute 'copy'
+After initialization, but before game start.
+  File "game/screens.rpy", line 3608, in analyze_screen
+    screen online_shop():
+  File "game/screens.rpy", line 3608, in analyze
+    screen online_shop():
+  File "game/screens.rpy", line 3608, in analyze
+    screen online_shop():
+  File "game/screens.rpy", line 3609, in analyze
+    frame:
+  File "game/screens.rpy", line 3609, in analyze
+    frame:
+  File "game/screens.rpy", line 3630, in analyze
+    vbox:
+  File "game/screens.rpy", line 3630, in analyze
+    vbox:
+  File "game/screens.rpy", line 3634, in analyze
+    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
+  File "game/screens.rpy", line 3634, in analyze
+    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
+  File "game/screens.rpy", line 3635, in analyze
+    for equipment in equipments if equipment.rarity == rarity :
+  File "game/screens.rpy", line 3635
+    equipments if equipment.rarity == rarity
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 60, in script
-    $ initializing_things()
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1260, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 60, in <module>
-    $ initializing_things()
-      ~~~~~~~~~~~~~~~~~~~^^
-  File "game/initializing_things.rpy", line 2570, in initializing_things
-    creating_new_expeditions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/functions.rpy", line 301, in creating_new_expeditions
-    Expedition(
-    ~~~~~~~~~~^
-        mission.title,
-        ^^^^^^^^^^^^^^
-    ...<4 lines>...
-        mission.expedition_type
-        ^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "game/classes.rpy", line 532, in __init__
-    enemy = Protector(expedition_type, enemy_stage + 1, difficulty, "Available", expeditions_enemies_base_data, chosen_evolution_value)
-            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/classes.rpy", line 86, in __init__
-    self.basePoints = protector_enemies_map[name].copy()
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
-AttributeError: 'BaseProtectorData' object has no attribute 'copy'
+  File "renpy/bootstrap.py", line 376, in bootstrap
+    renpy.main.main()
+    ~~~~~~~~~~~~~~~^^
+  File "renpy/main.py", line 614, in main
+    run(restart)
+    ~~~^^^^^^^^^
+  File "renpy/main.py", line 78, in run
+    renpy.display.screen.analyze_screens()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 1006, in analyze_screens
+    s.ast.analyze_screen()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "game/screens.rpy", line 3608, in analyze_screen
+    screen online_shop():
+  File "game/screens.rpy", line 3608, in analyze
+    screen online_shop():
+  File "game/screens.rpy", line 3608, in analyze
+    screen online_shop():
+  File "game/screens.rpy", line 3609, in analyze
+    frame:
+  File "game/screens.rpy", line 3609, in analyze
+    frame:
+  File "game/screens.rpy", line 3630, in analyze
+    vbox:
+  File "game/screens.rpy", line 3630, in analyze
+    vbox:
+  File "game/screens.rpy", line 3634, in analyze
+    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
+  File "game/screens.rpy", line 3634, in analyze
+    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
+  File "game/screens.rpy", line 3635, in analyze
+    for equipment in equipments if equipment.rarity == rarity :
+  File "renpy/pyanalysis.py", line 674, in is_constant_expr
+    node, literal = ccache.ast_eval_literal(expr)
+                    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "renpy/pyanalysis.py", line 895, in ast_eval_literal
+    expr = py_compile(expr, "eval", ast_node=True)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1247, in py_compile
+    raise e
+  File "renpy/python.py", line 1177, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, True)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 3635
+    equipments if equipment.rarity == rarity
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Thu Sep  4 19:13:17 2025
+Fri Sep  5 12:22:30 2025
