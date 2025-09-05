@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3626: 'padding' is not a keyword argument or valid child of the fixed statement.
-    padding (20, 20)
-           ^
+File "game/screens.rpy", line 3618: 'title_size' is not a keyword argument or valid child of the screen statement.
+    title_size = 50
+              ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Sep  5 12:43:53 2025
+Fri Sep  5 15:56:53 2025

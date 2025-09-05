@@ -3614,6 +3614,16 @@ screen lucky_box_screen(box_type):
 #   -   for the protectors part, we would not have the rarity system, of course
 screen online_shop():
     default online_shop_show = "main_menu"
+    default rarity_selected = "S"
+    $ title_size = 60
+    $ tittle_v_align = 0.1
+    if online_shop_show != "main_menu":
+        $ title_size = 40
+        $ tittle_v_align = 0.0
+
+    $ main_options_scale = 350
+    $ items_scale = 400
+    $ main_buttons_background = im.Scale("images/background_item.png", main_options_scale, main_options_scale)
     frame:
         fixed:
             xfill True
@@ -3627,40 +3637,187 @@ screen online_shop():
         vbox:
             spacing 10
             xalign 0.5
-            yalign 0.0
+            yalign tittle_v_align
             vbox:
                 xalign 0.5
                 
                 vbox:
                     xalign 0.5
-                    text "Online Shop" size 40
+                    text "Online Shop" size title_size
 
         vbox:
-            spacing 20
+            spacing 10
             xalign 0.5
             yalign 0.5
             if online_shop_show == "main_menu":
-                text "here would be the main menu"
-                text "the three buttons"
-                textbutton " - equipments" action SetScreenVariable("online_shop_show", "show_equipments")
-                textbutton " - weapons" action SetScreenVariable("online_shop_show", "show_weapons")
-                textbutton " - protectors" action SetScreenVariable("online_shop_show", "show_protectors")
+                hbox:
+                    spacing 50
+                    xalign 0.5
+                    yalign 0.5
+                    $ show_protectors_image = "images/menu/protectors.png"
+                    $ show_protectors_scaled = im.Scale(show_protectors_image, main_options_scale, main_options_scale)
+                        
+                    button:
+                        action SetScreenVariable("online_shop_show", "show_protectors")
+                        background "#ffffff"
+                        frame:
+                            add im.Composite(
+                                (main_options_scale, main_options_scale),
+                                (0, 0), main_buttons_background,
+                                (0, 0), show_protectors_scaled
+                            )
+                    
+                    
+                    $ show_weapons_image = "images/menu/weapons.png"
+                    $ show_weapons_scaled = im.Scale(show_weapons_image, main_options_scale, main_options_scale)
+                        
+                    button:
+                        action SetScreenVariable("online_shop_show", "show_weapons")
+                        background "#ffffff"
+                        frame:
+                            add im.Composite(
+                                (main_options_scale, main_options_scale),
+                                (0, 0), main_buttons_background,
+                                (0, 0), show_weapons_scaled
+                            )
+
+                    $ show_equipment_image = "images/menu/equipments.png"
+                    $ show_equipment_scaled = im.Scale(show_equipment_image, main_options_scale, main_options_scale)
+                        
+                    button:
+                        action SetScreenVariable("online_shop_show", "show_equipments")
+                        background "#ffffff"
+                        frame:
+                            add im.Composite(
+                                (main_options_scale, main_options_scale),
+                                (0, 0), main_buttons_background,
+                                (0, 0), show_equipment_scaled
+                            )
                     
             if online_shop_show == "show_equipments":
-                for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-                    for equipment in equipments:
-                        text str(equipment.name) xalign 0.5
-                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu")
+                
+                hbox:
+                    spacing 50
+                    xalign 0.5
+                    yalign 0.5
+                    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
+                        if rarity == rarity_selected:
+                            for equipment in equipments:
+                                $ my_color = EClassColor
+                                $ rarity = equipment.rarity
+                                if equipment.rarity == "D":
+                                    $ my_color = DClassColor
+                                if equipment.rarity == "C":
+                                    $ my_color = CClassColor
+                                if equipment.rarity == "B":
+                                    $ my_color = BClassColor
+                                if equipment.rarity == "A":
+                                    $ my_color = AClassColor
+                                if equipment.rarity == "S":
+                                    $ my_color = SClassColor
+                                
+                                $ equipment_img = "images/equipment/{}_{}.png".format(equipment.class_name, equipment.type)
+
+                                $ empty_scaled = im.Scale("images/background_item.png", items_scale, items_scale)
+                                # Get original image size
+                                $ orig_width, orig_height = renpy.image_size(equipment_img)
+
+                                # Calculate proportional width
+                                $ new_width = int(orig_width * (items_scale / float(orig_height)))
+
+                                # Scale the image
+                                $ equipment_scaled = im.Scale(equipment_img, new_width, items_scale)
+
+                                $ button_action = Show("equipment_detail_screen", None, "e", equipment)
+                                vbox:
+                                    xalign 0.5
+                                    yalign 0.5
+                                    spacing 20
+                                    vbox:
+                                        xalign 0.5
+                                        xminimum 700
+                                        xmaximum 700
+                                        vbox:
+                                            xalign 0.5
+                                            button:
+                                                action button_action
+                                                xpadding 4
+                                                ypadding 4
+                                                frame:                                            
+                                                    background my_color
+                                                    xalign 0.5 
+                                                    add im.Composite(
+                                                        (items_scale, items_scale),
+                                                        (0, 0), empty_scaled,
+                                                        ((items_scale - new_width) // 2, 0), equipment_scaled   
+                                                    )
+
+                                    text str(equipment.name) xalign 0.5
+
+                                    text str(equipment.price) + " $" xalign 0.5
+
+                                    button:
+                                        xfill True
+                                        xmaximum 500
+                                        xalign 0.5
+                                        frame:
+                                            xfill True
+                                            background "#444"
+                                            padding (10, 10)
+                                            vbox:
+                                                spacing 5
+                                                xalign 0.5
+                                                text "Buy" size 24 color "#fff" xalign 0.5
+                                        # action [Function("mode", "detail"), SetScreenVariable("selected_expedition", mission)]
+                                    
+                hbox:
+                    spacing 10
+                    xalign 0.5
+                    yalign 0.5
+                    textbutton "S" action SetScreenVariable("rarity_selected", "S") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "A" action SetScreenVariable("rarity_selected", "A") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "B" action SetScreenVariable("rarity_selected", "B") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "C" action SetScreenVariable("rarity_selected", "C") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5
+                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu") yalign 0.9 xalign 0.5
                     
             # TODO
             if online_shop_show == "show_weapons":
-                text "here would be the weapons in sale"
-                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu")
+                hbox:
+                    spacing 50
+                    xalign 0.5
+                    yalign 0.5
+                    for rarity, weapons in online_shop_variable.selling_weapons_list.items():
+                        if rarity == rarity_selected:
+                            for weapon in weapons:
+                                text str(weapon.name) xalign 0.5
+                hbox:
+                    spacing 10
+                    xalign 0.5
+                    yalign 0.5
+                    textbutton "S" action SetScreenVariable("rarity_selected", "S") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "A" action SetScreenVariable("rarity_selected", "A") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "B" action SetScreenVariable("rarity_selected", "B") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "C" action SetScreenVariable("rarity_selected", "C") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5
+                    text "|"
+                    textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5
+                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu") yalign 0.9 xalign 0.5
                   
             # TODO  
             if online_shop_show == "show_protectors":
-                text "here would be the protectors in sale"
-                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu")
+                text "... here would be the protectors in sale ..." xalign 0.5
+                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu") xalign 0.5
                     
         hbox:
             spacing 20

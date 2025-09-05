@@ -863,43 +863,39 @@ init python:
             
     class OnlineShop:
         def __init__(self):
-            self.selling_equipments_list = self.get_equipments_for_sale()
-            self.selling_weapons_list = self.get_weapons_for_sale()
+            global equipments
+            global weapons
+            self.selling_equipments_list = self.get_items_for_sale(equipments)
+            self.selling_weapons_list = self.get_items_for_sale(weapons)
             self.selling_protectors_list = self.get_protectors_for_sale()
 
-        def get_equipments_for_sale(self):
-            global equipments
+        def get_items_for_sale(self, items):
             results = {}
             
-            rarities = ["S", "A", "B", "C", "D", "E"]
-
+            rarities = [ "E", "D", "C", "B", "A", "S" ]
+            prices = [ 250, 600, 1500, 5000, 12000, 50000 ]
+            aux = 0
             for rar in rarities:
                 
-                # filter equipments of this rarity
-                filtered = [e for e in equipments if e.rarity == rar]
-
-                # shuffle in-place
-                # random.shuffle(filtered)
+                # filter items of this rarity
+                filtered = [i for i in items if i.rarity == rar]
+                
+                random.shuffle(filtered)
 
                 chosen = []
                 seen_types = set()
 
                 for e in filtered:
                     if e.type not in seen_types:
+                        e.price = prices[aux]
                         chosen.append(e)
                         seen_types.add(e.type)
                     if len(chosen) == 2:
                         break
 
-                # store IDs only
-                # results[r] = [eq.equipment_id for eq in chosen]
                 results[rar] = chosen
+                aux += 1
             return results
-        
-        # TODO: get the selling weapons list
-        def get_weapons_for_sale(self):
-
-            return
         
         # TODO: get the selling list
         def get_protectors_for_sale(self):

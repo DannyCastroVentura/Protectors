@@ -1,83 +1,96 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "game/screens.rpy", line 3608, in analyze_screen
+While running game code:
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 11, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 81, in script
+    call screen online_shop()
+  File "game/screens.rpy", line 3615, in execute
     screen online_shop():
-  File "game/screens.rpy", line 3608, in analyze
+  File "game/screens.rpy", line 3615, in execute
     screen online_shop():
-  File "game/screens.rpy", line 3608, in analyze
-    screen online_shop():
-  File "game/screens.rpy", line 3609, in analyze
-    frame:
-  File "game/screens.rpy", line 3609, in analyze
-    frame:
-  File "game/screens.rpy", line 3630, in analyze
-    vbox:
-  File "game/screens.rpy", line 3630, in analyze
-    vbox:
-  File "game/screens.rpy", line 3634, in analyze
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3634, in analyze
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3635, in analyze
-    for equipment in equipments if equipment.rarity == rarity :
-  File "game/screens.rpy", line 3635
-    equipments if equipment.rarity == rarity
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: expected 'else' after 'if' expression
+  File "game/screens.rpy", line 3626, in execute
+    $ buttons_background_ = im.Scale("images/background_item.png", scale, scale)
+  File "game/screens.rpy", line 3626, in <module>
+    $ buttons_background_ = im.Scale("images/background_item.png", scale, scale)
+                                                                   ^^^^^        
+NameError: name 'scale' is not defined. Did you mean: 'style'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/bootstrap.py", line 376, in bootstrap
-    renpy.main.main()
-    ~~~~~~~~~~~~~~~^^
-  File "renpy/main.py", line 614, in main
-    run(restart)
-    ~~~^^^^^^^^^
-  File "renpy/main.py", line 78, in run
-    renpy.display.screen.analyze_screens()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 1006, in analyze_screens
-    s.ast.analyze_screen()
-    ~~~~~~~~~~~~~~~~~~~~^^
-  File "game/screens.rpy", line 3608, in analyze_screen
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 11, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 81, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 3615, in execute
     screen online_shop():
-  File "game/screens.rpy", line 3608, in analyze
+  File "game/screens.rpy", line 3615, in execute
     screen online_shop():
-  File "game/screens.rpy", line 3608, in analyze
-    screen online_shop():
-  File "game/screens.rpy", line 3609, in analyze
-    frame:
-  File "game/screens.rpy", line 3609, in analyze
-    frame:
-  File "game/screens.rpy", line 3630, in analyze
-    vbox:
-  File "game/screens.rpy", line 3630, in analyze
-    vbox:
-  File "game/screens.rpy", line 3634, in analyze
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3634, in analyze
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3635, in analyze
-    for equipment in equipments if equipment.rarity == rarity :
-  File "renpy/pyanalysis.py", line 674, in is_constant_expr
-    node, literal = ccache.ast_eval_literal(expr)
-                    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "renpy/pyanalysis.py", line 895, in ast_eval_literal
-    expr = py_compile(expr, "eval", ast_node=True)
-           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1247, in py_compile
-    raise e
-  File "renpy/python.py", line 1177, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, True)
-           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3635
-    equipments if equipment.rarity == rarity
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: expected 'else' after 'if' expression
+  File "game/screens.rpy", line 3626, in execute
+    $ buttons_background_ = im.Scale("images/background_item.png", scale, scale)
+  File "game/screens.rpy", line 3626, in <module>
+    $ buttons_background_ = im.Scale("images/background_item.png", scale, scale)
+                                                                   ^^^^^        
+NameError: name 'scale' is not defined. Did you mean: 'style'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Fri Sep  5 12:22:30 2025
+Fri Sep  5 15:59:59 2025
