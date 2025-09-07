@@ -143,19 +143,11 @@ label start:
     # TODOS:
     # 
     # TODO: [ PRIO 1 ] online shop
-    #   -   -   asthetic things:
-    #   -   -   -   making the item to appear as sold out after we buy it
     #   -   create a way to buy items 
     #   -   -   store will refresh in weekly basis
-    #   -   -   it will have 2 equipments (always in different types) per class - randomly chosen
-    #   -   -   it will have 2 weapons (always in different types) per class - randomly chosen
-    #   -   -   The items prices should be like:
-    #   -   -   -   weapon = 150
-    #   -   -   -   helmet = 150
-    #   -   -   -   body = 200
-    #   -   -   -   pants = 175
-    #   -   -   -   boots = 160
-    #   -   -   -   then the prices multiple by 2 per each stage
+    #   -   -   it will have 2 protectors - prices per protector would be 10 000 $
+    #
+    # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTELS AND EXPEDITIONS
     #   -   item drop chance
     #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
     #   -   -   depending on the difficulty of the mission, this change get's ligther -> we should divide the total chance by the number per each rank of the equipment/weapon
