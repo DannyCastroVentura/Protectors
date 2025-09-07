@@ -1,166 +1,61 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 17, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 17, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 24, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 26, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call base_travel_menu()
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 17, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 15, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 31, in script
-    menu:
-  File "game/screens.rpy", line 2651, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2651, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2654, in execute
+  File "game/base_of_operations.rpy", line 11, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 81, in script
+    call screen online_shop()
+  File "game/screens.rpy", line 3630, in execute
+    screen online_shop():
+  File "game/screens.rpy", line 3630, in execute
+    screen online_shop():
+  File "game/screens.rpy", line 3643, in execute
     frame:
-  File "game/screens.rpy", line 2659, in execute
-    fixed:
-  File "game/screens.rpy", line 2702, in execute
+  File "game/screens.rpy", line 3671, in execute
     vbox:
-  File "game/screens.rpy", line 3081, in execute
-    vbox:
-  File "game/screens.rpy", line 3086, in execute
-    $ current_status = my_protector.get_current_stats()
-  File "game/screens.rpy", line 3086, in <module>
-    $ current_status = my_protector.get_current_stats()
-                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 383, in get_current_stats
-    "strength": self.get_strength(fake_stage, fake_evolution),
-                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-  File "game/classes.rpy", line 239, in get_strength
-    return int(self.basePoints.strength * used_stage * self.get_increments("Strength") * self.get_evolution_increments("Strength", fake_evolution))
-                                                       ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^                                                             
-  File "game/classes.rpy", line 439, in get_increments
-    if prios["prio1"] == equipedBoots:
-                         ^^^^^^^^^^^^ 
-NameError: name 'equipedBoots' is not defined. Did you mean: 'self.equipedBoots'?
+  File "game/screens.rpy", line 3852, in execute
+    if online_shop_show == "show_weapons":
+  File "game/screens.rpy", line 3854, in execute
+    hbox:
+  File "game/screens.rpy", line 3858, in execute
+    for rarity, weapons in online_shop_variable.selling_weapons_list.items():
+  File "game/screens.rpy", line 3859, in execute
+    if rarity == rarity_selected:
+  File "game/screens.rpy", line 3860, in execute
+    for weapon in weapons:
+  File "game/screens.rpy", line 3878, in execute
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+  File "game/screens.rpy", line 3878, in <module>
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: Couldn't find file 'images/weapons/Magic_Book.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 17, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 17, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 24, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 26, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 26, in script call
-    call base_travel_menu()
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 17, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 15, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 31, in script
-    menu:
-  File "renpy/ast.py", line 1815, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 135, in menu
-    rv = renpy.store.menu(new_items)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 418, in display_menu
-    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/base_of_operations.rpy", line 11, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 81, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -198,35 +93,42 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 2651, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2651, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/screens.rpy", line 2654, in execute
+  File "game/screens.rpy", line 3630, in execute
+    screen online_shop():
+  File "game/screens.rpy", line 3630, in execute
+    screen online_shop():
+  File "game/screens.rpy", line 3643, in execute
     frame:
-  File "game/screens.rpy", line 2659, in execute
-    fixed:
-  File "game/screens.rpy", line 2702, in execute
+  File "game/screens.rpy", line 3671, in execute
     vbox:
-  File "game/screens.rpy", line 3081, in execute
-    vbox:
-  File "game/screens.rpy", line 3086, in execute
-    $ current_status = my_protector.get_current_stats()
-  File "game/screens.rpy", line 3086, in <module>
-    $ current_status = my_protector.get_current_stats()
-                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 383, in get_current_stats
-    "strength": self.get_strength(fake_stage, fake_evolution),
-                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-  File "game/classes.rpy", line 239, in get_strength
-    return int(self.basePoints.strength * used_stage * self.get_increments("Strength") * self.get_evolution_increments("Strength", fake_evolution))
-                                                       ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^                                                             
-  File "game/classes.rpy", line 439, in get_increments
-    if prios["prio1"] == equipedBoots:
-                         ^^^^^^^^^^^^ 
-NameError: name 'equipedBoots' is not defined. Did you mean: 'self.equipedBoots'?
+  File "game/screens.rpy", line 3852, in execute
+    if online_shop_show == "show_weapons":
+  File "game/screens.rpy", line 3854, in execute
+    hbox:
+  File "game/screens.rpy", line 3858, in execute
+    for rarity, weapons in online_shop_variable.selling_weapons_list.items():
+  File "game/screens.rpy", line 3859, in execute
+    if rarity == rarity_selected:
+  File "game/screens.rpy", line 3860, in execute
+    for weapon in weapons:
+  File "game/screens.rpy", line 3878, in execute
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+  File "game/screens.rpy", line 3878, in <module>
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "renpy/exports/displayexports.py", line 771, in image_size
+    surf = im.load()
+           ~~~~~~~^^
+  File "renpy/display/im.py", line 838, in load
+    raise e
+  File "renpy/display/im.py", line 792, in load
+    filelike = renpy.loader.load(self.filename, directory="images")
+               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/loader.py", line 698, in load
+    raise FileNotFoundError("Couldn't find file '%s'." % name)
+FileNotFoundError: Couldn't find file 'images/weapons/Magic_Book.png'.
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Sun Sep  7 19:22:02 2025
+Sun Sep  7 19:29:10 2025

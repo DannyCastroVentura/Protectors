@@ -1934,7 +1934,7 @@ screen my_equipments_screen():
                                             if equipment.rarity == "S":
                                                 $ my_color = SClassColor
 
-                                            $ equipment_img = "images/equipment/{}_{}.png".format(equipment.class_name, equipment.type)
+                                            $ equipment_img = "images/equipments/{}_{}.png".format(equipment.class_name, equipment.type)
 
                                             # Get original image size
                                             $ orig_width, orig_height = renpy.image_size(equipment_img)
@@ -2240,7 +2240,7 @@ screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, prot
                 if weaponOrEquipment_type == "w":
                     $ e_or_w_image = "images/weapons/{}.png".format(equipment_or_weapon.type)
                 elif weaponOrEquipment_type == "e":
-                    $ e_or_w_image = "images/equipment/{}_{}.png".format(equipment_or_weapon.class_name, equipment_or_weapon.type)
+                    $ e_or_w_image = "images/equipments/{}_{}.png".format(equipment_or_weapon.class_name, equipment_or_weapon.type)
 
                 # Get original image size
                 $ orig_width, orig_height = renpy.image_size(e_or_w_image)
@@ -2781,21 +2781,21 @@ screen protector_detail_screen(my_protector):
 
 
                     
-                    $ helmet_img = "images/equipment/no_helmet.png"
+                    $ helmet_img = "images/equipments/no_helmet.png"
                     $ empty_helmet_scaled = im.Scale("images/background_item.png", scale, scale)
                     
-                    $ body_img = "images/equipment/no_body.png"
+                    $ body_img = "images/equipments/no_body.png"
                     $ empty_body_scaled = im.Scale("images/background_item.png", scale, scale)
                     
-                    $ pants_img = "images/equipment/no_pants.png"
+                    $ pants_img = "images/equipments/no_pants.png"
                     $ empty_pants_scaled = im.Scale("images/background_item.png", scale, scale)
                     
-                    $ boots_img = "images/equipment/no_boots.png"
+                    $ boots_img = "images/equipments/no_boots.png"
                     $ empty_boots_scaled = im.Scale("images/background_item.png", scale, scale)
                         
 
                     if my_protector.equipedHelmet == None:
-                        $ helmet_img = "images/equipment/no_helmet.png"
+                        $ helmet_img = "images/equipments/no_helmet.png"
 
                         # Get original image size
                         $ orig_width, orig_height = renpy.image_size(helmet_img)
@@ -2824,7 +2824,7 @@ screen protector_detail_screen(my_protector):
                                     ((scale - new_width) // 2, 0), helmet_scaled
                                 )
                     else:
-                        $ helmet_img = "images/equipment/{}_{}.png".format(my_protector.equipedHelmet.class_name, my_protector.equipedHelmet.type)
+                        $ helmet_img = "images/equipments/{}_{}.png".format(my_protector.equipedHelmet.class_name, my_protector.equipedHelmet.type)
                         $ helmet_scaled = im.Scale(helmet_img, 200, 200)
                         $ background_color_style = EClassColor
                         if my_protector.equipedHelmet.rarity == "D":
@@ -2865,7 +2865,7 @@ screen protector_detail_screen(my_protector):
                                     ((scale - new_width) // 2, 0), helmet_scaled
                                 )
                     if my_protector.equipedBodyArmor == None:
-                        $ body_img = "images/equipment/no_body.png"
+                        $ body_img = "images/equipments/no_body.png"
 
                         # Get original image size
                         $ orig_width, orig_height = renpy.image_size(body_img)
@@ -2894,7 +2894,7 @@ screen protector_detail_screen(my_protector):
                                     ((scale - new_width) // 2, 0), body_scaled
                                 )
                     else:
-                        $ body_img = "images/equipment/{}_{}.png".format(my_protector.equipedBodyArmor.class_name, my_protector.equipedBodyArmor.type)
+                        $ body_img = "images/equipments/{}_{}.png".format(my_protector.equipedBodyArmor.class_name, my_protector.equipedBodyArmor.type)
                         $ body_scaled = im.Scale(body_img, 200, 200)
                         $ background_color_style = EClassColor
                         if my_protector.equipedBodyArmor.rarity == "D":
@@ -2938,7 +2938,7 @@ screen protector_detail_screen(my_protector):
                     xalign 0.5
                     spacing 20
                     if my_protector.equipedPants == None:
-                        $ pants_img = "images/equipment/no_pants.png"
+                        $ pants_img = "images/equipments/no_pants.png"
 
                         # Get original image size
                         $ orig_width, orig_height = renpy.image_size(pants_img)
@@ -2967,7 +2967,7 @@ screen protector_detail_screen(my_protector):
                                     ((scale - new_width) // 2, 0), pants_scaled
                                 )
                     else:
-                        $ pants_img = "images/equipment/{}_{}.png".format(my_protector.equipedPants.class_name, my_protector.equipedPants.type)
+                        $ pants_img = "images/equipments/{}_{}.png".format(my_protector.equipedPants.class_name, my_protector.equipedPants.type)
                         $ pants_scaled = im.Scale(pants_img, 200, 200)
                         $ background_color_style = EClassColor
                         if my_protector.equipedPants.rarity == "D":
@@ -3008,7 +3008,7 @@ screen protector_detail_screen(my_protector):
                                 )
 
                     if my_protector.equipedBoots == None:
-                        $ boots_img = "images/equipment/no_boots.png"
+                        $ boots_img = "images/equipments/no_boots.png"
 
                         # Get original image size
                         $ orig_width, orig_height = renpy.image_size(boots_img)
@@ -3037,7 +3037,7 @@ screen protector_detail_screen(my_protector):
                                     ((scale - new_width) // 2, 0), boots_scaled
                                 )
                     else:
-                        $ boots_img = "images/equipment/{}_{}.png".format(my_protector.equipedBoots.class_name, my_protector.equipedBoots.type)
+                        $ boots_img = "images/equipments/{}_{}.png".format(my_protector.equipedBoots.class_name, my_protector.equipedBoots.type)
                         $ boots_scaled = im.Scale(boots_img, 200, 200)
                         $ background_color_style = EClassColor
                         if my_protector.equipedBoots.rarity == "D":
@@ -3770,7 +3770,7 @@ screen online_shop():
                                 if equipment.rarity == "S":
                                     $ my_color = SClassColor
                                 
-                                $ equipment_img = "images/equipment/{}_{}.png".format(equipment.class_name, equipment.type)
+                                $ equipment_img = "images/equipments/{}_{}.png".format(equipment.class_name, equipment.type)
 
                                 $ empty_scaled = im.Scale("images/background_item.png", items_scale, items_scale)
                                 # Get original image size
@@ -3850,6 +3850,7 @@ screen online_shop():
                     
             # TODO
             if online_shop_show == "show_weapons":
+
                 hbox:
                     spacing 50
                     xalign 0.5
@@ -3857,7 +3858,79 @@ screen online_shop():
                     for rarity, weapons in online_shop_variable.selling_weapons_list.items():
                         if rarity == rarity_selected:
                             for weapon in weapons:
-                                text str(weapon.name) xalign 0.5
+                                $ my_color = EClassColor
+                                $ rarity = weapon.rarity
+                                if weapon.rarity == "D":
+                                    $ my_color = DClassColor
+                                if weapon.rarity == "C":
+                                    $ my_color = CClassColor
+                                if weapon.rarity == "B":
+                                    $ my_color = BClassColor
+                                if weapon.rarity == "A":
+                                    $ my_color = AClassColor
+                                if weapon.rarity == "S":
+                                    $ my_color = SClassColor
+                                
+                                $ weapon_img = "images/weapons/{}.png".format(weapon.type)
+
+                                $ empty_scaled = im.Scale("images/background_item.png", items_scale, items_scale)
+                                # Get original image size
+                                $ orig_width, orig_height = renpy.image_size(weapon_img)
+
+                                # Calculate proportional width
+                                $ new_width = int(orig_width * (items_scale / float(orig_height)))
+
+                                # Scale the image
+                                $ weapon_scaled = im.Scale(weapon_img, new_width, items_scale)
+
+                                $ button_action = Show("weapon_detail_screen", None, "e", weapon)
+                                vbox:
+                                    xalign 0.5
+                                    yalign 0.5
+                                    spacing 20
+                                    vbox:
+                                        xalign 0.5
+                                        xminimum 700
+                                        xmaximum 700
+                                        vbox:
+                                            xalign 0.5
+                                            button:
+                                                action button_action
+                                                style "option_button_online_shop"
+                                                xpadding 4
+                                                ypadding 4
+                                                frame:                                            
+                                                    background my_color
+                                                    xalign 0.5 
+                                                    add im.Composite(
+                                                        (items_scale, items_scale),
+                                                        (0, 0), empty_scaled,
+                                                        ((items_scale - new_width) // 2, 0), weapon_scaled   
+                                                    )
+
+                                    text str(weapon.name) xalign 0.5 color online_shop_color
+
+                                    text str(weapon.price) + " $" xalign 0.5 color online_shop_color
+
+                                    $ online_shop_action = Function(notify_user_money_is_not_enough, weapon.name)
+                                    if money >= weapon.price:
+                                        $ online_shop_action = Function(buy_new_weapon, weapon)
+
+                                    if weapon.stillAvailable:
+                                        button:
+                                            style "option_button_online_shop"
+                                            xfill True
+                                            xmaximum 500
+                                            xalign 0.5
+                                            frame:
+                                                xfill True
+                                                background "#444"
+                                                padding (10, 10)
+                                                vbox:
+                                                    spacing 5
+                                                    xalign 0.5
+                                                    text "Buy" size 24 color "#fff" xalign 0.5
+                                            action online_shop_action
                 hbox:
                     spacing 10
                     xalign 0.5
