@@ -1684,6 +1684,17 @@ style option_button_online_shop:
     xalign 0.5
     yalign 0.5
 
+style rarity_navegation_text_online_shop:
+    color "#555"
+    hover_color "#fff"
+    padding (10, 5)
+    xalign 0.5
+
+style rarity_navegation_text_online_shop_active:
+    color "#fff"
+    padding (10, 5)
+    xalign 0.5
+
 screen my_weapons_screen():
     frame:
         modal True
@@ -3640,6 +3651,7 @@ screen online_shop():
     $ main_options_scale = 350
     $ items_scale = 400
     $ main_buttons_background = im.Scale("images/background_item.png", main_options_scale, main_options_scale)
+    $ empty_scaled = im.Scale("images/background_item.png", items_scale, items_scale)
     frame:
         background Solid("#1a1a1a")
         fixed:
@@ -3772,7 +3784,6 @@ screen online_shop():
                                 
                                 $ equipment_img = "images/equipments/{}_{}.png".format(equipment.class_name, equipment.type)
 
-                                $ empty_scaled = im.Scale("images/background_item.png", items_scale, items_scale)
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(equipment_img)
 
@@ -3835,18 +3846,37 @@ screen online_shop():
                     spacing 10
                     xalign 0.5
                     yalign 0.5
-                    textbutton "S" action SetScreenVariable("rarity_selected", "S") yalign 0.9 xalign 0.5
+                    $ text_style_S = "rarity_navegation_text_online_shop"
+                    $ text_style_A = "rarity_navegation_text_online_shop"
+                    $ text_style_B = "rarity_navegation_text_online_shop"
+                    $ text_style_C = "rarity_navegation_text_online_shop"
+                    $ text_style_D = "rarity_navegation_text_online_shop"
+                    $ text_style_E = "rarity_navegation_text_online_shop"
+                    
+                    if rarity_selected == "S": 
+                        $ text_style_S = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "A": 
+                        $ text_style_A = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "B": 
+                        $ text_style_B = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "C": 
+                        $ text_style_C = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "D": 
+                        $ text_style_D = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "E": 
+                        $ text_style_E = "rarity_navegation_text_online_shop_active"
+                    textbutton "S" action SetScreenVariable("rarity_selected", "S") yalign 0.9 xalign 0.5 text_style text_style_S
                     text "|"
-                    textbutton "A" action SetScreenVariable("rarity_selected", "A") yalign 0.9 xalign 0.5
+                    textbutton "A" action SetScreenVariable("rarity_selected", "A") yalign 0.9 xalign 0.5 text_style text_style_A
                     text "|"
-                    textbutton "B" action SetScreenVariable("rarity_selected", "B") yalign 0.9 xalign 0.5
+                    textbutton "B" action SetScreenVariable("rarity_selected", "B") yalign 0.9 xalign 0.5 text_style text_style_B
                     text "|"
-                    textbutton "C" action SetScreenVariable("rarity_selected", "C") yalign 0.9 xalign 0.5
+                    textbutton "C" action SetScreenVariable("rarity_selected", "C") yalign 0.9 xalign 0.5 text_style text_style_C
                     text "|"
-                    textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5
+                    textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5 text_style text_style_D
                     text "|"
-                    textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5
-                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu") yalign 0.9 xalign 0.5
+                    textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
+                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5
                     
             # TODO
             if online_shop_show == "show_weapons":
@@ -3873,7 +3903,6 @@ screen online_shop():
                                 
                                 $ weapon_img = "images/weapons/{}.png".format(weapon.type)
 
-                                $ empty_scaled = im.Scale("images/background_item.png", items_scale, items_scale)
                                 # Get original image size
                                 $ orig_width, orig_height = renpy.image_size(weapon_img)
 
@@ -3883,7 +3912,7 @@ screen online_shop():
                                 # Scale the image
                                 $ weapon_scaled = im.Scale(weapon_img, new_width, items_scale)
 
-                                $ button_action = Show("weapon_detail_screen", None, "e", weapon)
+                                $ button_action = Show("equipment_detail_screen", None, "w", weapon)
                                 vbox:
                                     xalign 0.5
                                     yalign 0.5
@@ -3935,23 +3964,108 @@ screen online_shop():
                     spacing 10
                     xalign 0.5
                     yalign 0.5
-                    textbutton "S" action SetScreenVariable("rarity_selected", "S") yalign 0.9 xalign 0.5
+                    $ text_style_S = "rarity_navegation_text_online_shop"
+                    $ text_style_A = "rarity_navegation_text_online_shop"
+                    $ text_style_B = "rarity_navegation_text_online_shop"
+                    $ text_style_C = "rarity_navegation_text_online_shop"
+                    $ text_style_D = "rarity_navegation_text_online_shop"
+                    $ text_style_E = "rarity_navegation_text_online_shop"
+                    
+                    if rarity_selected == "S": 
+                        $ text_style_S = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "A": 
+                        $ text_style_A = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "B": 
+                        $ text_style_B = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "C": 
+                        $ text_style_C = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "D": 
+                        $ text_style_D = "rarity_navegation_text_online_shop_active"
+                    elif rarity_selected == "E": 
+                        $ text_style_E = "rarity_navegation_text_online_shop_active"
+                    textbutton "S" action SetScreenVariable("rarity_selected", "S") yalign 0.9 xalign 0.5 text_style text_style_S
                     text "|"
-                    textbutton "A" action SetScreenVariable("rarity_selected", "A") yalign 0.9 xalign 0.5
+                    textbutton "A" action SetScreenVariable("rarity_selected", "A") yalign 0.9 xalign 0.5 text_style text_style_A
                     text "|"
-                    textbutton "B" action SetScreenVariable("rarity_selected", "B") yalign 0.9 xalign 0.5
+                    textbutton "B" action SetScreenVariable("rarity_selected", "B") yalign 0.9 xalign 0.5 text_style text_style_B
                     text "|"
-                    textbutton "C" action SetScreenVariable("rarity_selected", "C") yalign 0.9 xalign 0.5
+                    textbutton "C" action SetScreenVariable("rarity_selected", "C") yalign 0.9 xalign 0.5 text_style text_style_C
                     text "|"
-                    textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5
+                    textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5 text_style text_style_D
                     text "|"
-                    textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5
-                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu") yalign 0.9 xalign 0.5
+                    textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
+                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5
                   
             # TODO  
             if online_shop_show == "show_protectors":
-                text "... here would be the protectors in sale ..." xalign 0.5
-                textbutton "Back" action SetScreenVariable("online_shop_show", "main_menu") xalign 0.5
+                
+                hbox:
+                    spacing 50
+                    xalign 0.5
+                    yalign 0.5
+                    for protector_to_sell in online_shop_variable.selling_protectors_list:
+                        $ image_name = protector_to_sell.stage
+
+                        # Path to the image
+                        $ show_protectors_image = "images/protectors/{}/{}.png".format(protector_to_sell.name, image_name)
+
+                        # Get original image size
+                        $ orig_width, orig_height = renpy.image_size(show_protectors_image)
+
+                        # Calculate proportional width
+                        $ new_width = int(orig_width * (items_scale / float(orig_height)))
+
+                        # Scale the image
+                        $ show_protectors_scaled = im.Scale(show_protectors_image, new_width, items_scale)
+
+                        $ button_action = Show("protector_detail_screen", my_protector=protector_to_sell)
+                        vbox:
+                            xalign 0.5
+                            yalign 0.5
+                            spacing 20
+                            vbox:
+                                xalign 0.5
+                                xminimum 700
+                                xmaximum 700
+                                vbox:
+                                    xalign 0.5
+                                    button:
+                                        action button_action
+                                        style "option_button_online_shop"
+                                        xpadding 4
+                                        ypadding 4
+                                        frame:
+                                            xalign 0.5 
+                                            add im.Composite(
+                                                (items_scale, items_scale),
+                                                (0, 0), empty_scaled,
+                                                ((items_scale - new_width) // 2, 0), show_protectors_scaled   
+                                            )
+
+                            text str(protector_to_sell.name) xalign 0.5 color online_shop_color
+
+                            text str(protector_to_sell.price) + " $" xalign 0.5 color online_shop_color
+
+                            $ online_shop_action = Function(notify_user_money_is_not_enough, protector_to_sell.name)
+                            if money >= protector_to_sell.price:
+                                $ online_shop_action = Function(buy_new_protector, protector_to_sell)
+
+                            if protector_to_sell.stillAvailable:
+                                button:
+                                    style "option_button_online_shop"
+                                    xfill True
+                                    xmaximum 500
+                                    xalign 0.5
+                                    frame:
+                                        xfill True
+                                        background "#444"
+                                        padding (10, 10)
+                                        vbox:
+                                            spacing 5
+                                            xalign 0.5
+                                            text "Buy" size 24 color "#fff" xalign 0.5
+                                    action online_shop_action
+                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5
                     
         hbox:
             spacing 20

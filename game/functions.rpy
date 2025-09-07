@@ -432,3 +432,17 @@ init python:
         renpy.notify(f"You’ve purchased a new equipment: {equipment.name}")
         equipment.stillAvailable = False
         return
+
+    def buy_new_weapon(weapon):
+        add_new_weapon_to_our_bag(weapon.weapon_id)
+        updating_wallet(int(0 - weapon.price))
+        renpy.notify(f"You’ve purchased a new weapon: {weapon.name}")
+        weapon.stillAvailable = False
+        return
+
+    def buy_new_protector(protector):
+        add_new_protector(protector.name, protector.stage, protector.level)
+        updating_wallet(int(0 - protector.price))
+        renpy.notify(f"You’ve purchased a new protector: {protector.name}")
+        protector.stillAvailable = False
+        return

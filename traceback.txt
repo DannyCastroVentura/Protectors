@@ -11,26 +11,23 @@ While running game code:
     screen online_shop():
   File "game/screens.rpy", line 3630, in execute
     screen online_shop():
-  File "game/screens.rpy", line 3643, in execute
+  File "game/screens.rpy", line 3644, in execute
     frame:
-  File "game/screens.rpy", line 3671, in execute
+  File "game/screens.rpy", line 3672, in execute
     vbox:
-  File "game/screens.rpy", line 3852, in execute
-    if online_shop_show == "show_weapons":
-  File "game/screens.rpy", line 3854, in execute
+  File "game/screens.rpy", line 3951, in execute
+    if online_shop_show == "show_protectors":
+  File "game/screens.rpy", line 3953, in execute
     hbox:
-  File "game/screens.rpy", line 3858, in execute
-    for rarity, weapons in online_shop_variable.selling_weapons_list.items():
-  File "game/screens.rpy", line 3859, in execute
-    if rarity == rarity_selected:
-  File "game/screens.rpy", line 3860, in execute
-    for weapon in weapons:
-  File "game/screens.rpy", line 3878, in execute
-    $ orig_width, orig_height = renpy.image_size(weapon_img)
-  File "game/screens.rpy", line 3878, in <module>
-    $ orig_width, orig_height = renpy.image_size(weapon_img)
-                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
-FileNotFoundError: Couldn't find file 'images/weapons/Magic_Book.png'.
+  File "game/screens.rpy", line 3957, in execute
+    for protector_to_sell in online_shop_variable.selling_protectors_list:
+  File "game/screens.rpy", line 3973, in execute
+    vbox:
+  File "game/screens.rpy", line 3996, in execute
+    text str(weapon.name) xalign 0.5 color online_shop_color
+  File "game/screens.rpy", line 3996, in <module>
+    text str(weapon.name) xalign 0.5 color online_shop_color
+NameError: name 'weapon' is not defined. Did you mean: 'Weapon'?
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -97,38 +94,31 @@ Traceback (most recent call last):
     screen online_shop():
   File "game/screens.rpy", line 3630, in execute
     screen online_shop():
-  File "game/screens.rpy", line 3643, in execute
+  File "game/screens.rpy", line 3644, in execute
     frame:
-  File "game/screens.rpy", line 3671, in execute
+  File "game/screens.rpy", line 3672, in execute
     vbox:
-  File "game/screens.rpy", line 3852, in execute
-    if online_shop_show == "show_weapons":
-  File "game/screens.rpy", line 3854, in execute
+  File "game/screens.rpy", line 3951, in execute
+    if online_shop_show == "show_protectors":
+  File "game/screens.rpy", line 3953, in execute
     hbox:
-  File "game/screens.rpy", line 3858, in execute
-    for rarity, weapons in online_shop_variable.selling_weapons_list.items():
-  File "game/screens.rpy", line 3859, in execute
-    if rarity == rarity_selected:
-  File "game/screens.rpy", line 3860, in execute
-    for weapon in weapons:
-  File "game/screens.rpy", line 3878, in execute
-    $ orig_width, orig_height = renpy.image_size(weapon_img)
-  File "game/screens.rpy", line 3878, in <module>
-    $ orig_width, orig_height = renpy.image_size(weapon_img)
-                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
-  File "renpy/exports/displayexports.py", line 771, in image_size
-    surf = im.load()
-           ~~~~~~~^^
-  File "renpy/display/im.py", line 838, in load
-    raise e
-  File "renpy/display/im.py", line 792, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
-               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/loader.py", line 698, in load
-    raise FileNotFoundError("Couldn't find file '%s'." % name)
-FileNotFoundError: Couldn't find file 'images/weapons/Magic_Book.png'.
+  File "game/screens.rpy", line 3957, in execute
+    for protector_to_sell in online_shop_variable.selling_protectors_list:
+  File "game/screens.rpy", line 3973, in execute
+    vbox:
+  File "game/screens.rpy", line 3996, in execute
+    text str(weapon.name) xalign 0.5 color online_shop_color
+  File "renpy/python.py", line 1292, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1285, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 3996, in <module>
+    text str(weapon.name) xalign 0.5 color online_shop_color
+NameError: name 'weapon' is not defined. Did you mean: 'Weapon'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Sun Sep  7 19:29:10 2025
+Sun Sep  7 21:23:14 2025

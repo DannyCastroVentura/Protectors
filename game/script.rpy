@@ -144,8 +144,8 @@ label start:
     # 
     # TODO: [ PRIO 1 ] online shop
     #   -   create a way to buy items 
-    #   -   -   store will refresh in weekly basis
-    #   -   -   it will have 2 protectors - prices per protector would be 10 000 $
+    #   -   -   fix the back button, as it is not showing any hover color
+    #   -   -   equip the default weapon to the selling protector
     #
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTELS AND EXPEDITIONS
     #   -   item drop chance

@@ -898,9 +898,27 @@ init python:
                 aux += 1
             return results
         
-        # TODO: get the selling list
+        # TODO: also make the protector to have its default weapon equiped
         def get_protectors_for_sale(self):
-            return
+            global protectors_base_information
+            protectors_base_information_name_array = protectors_base_information.keys()
+            my_protectors_array = my_protectors_map.keys()
+            # filter items of this rarity
+            filtered = [p_name for p_name in protectors_base_information_name_array if p_name not in my_protectors_array]
+            
+            random.shuffle(filtered)
+
+            chosen = []
+
+            for p_name in filtered:
+                protector_to_sell = Protector(p_name, 1, 1, "To sell", protectors_base_information)
+                protector_to_sell.price = 10000
+                protector_to_sell.stillAvailable = True
+                chosen.append(protector_to_sell)
+                if len(chosen) == 2:
+                    break
+
+            return chosen
 
         def update_store(self):
             global equipments

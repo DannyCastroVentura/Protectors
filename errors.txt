@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3822: 'insensitive' is not a keyword argument or valid child of the button statement.
-    insensitive insensitive_variable
-               ^
+File "game/screens.rpy", line 3849: reached end of line when expecting ':'.
+    if rarity_selected == "S"
+                             ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sun Sep  7 19:13:29 2025
+Sun Sep  7 22:23:10 2025
