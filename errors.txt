@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3833: 'color' is not a keyword argument or valid child of the textbutton statement.
-    textbutton "Return" action Return() xalign 0.5 color online_shop_color
-                                                        ^
+File "game/screens.rpy", line 3822: 'insensitive' is not a keyword argument or valid child of the button statement.
+    insensitive insensitive_variable
+               ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Fri Sep  5 16:25:37 2025
+Sun Sep  7 19:13:29 2025

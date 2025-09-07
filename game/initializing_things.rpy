@@ -2425,12 +2425,13 @@ init python:
             "S"
         ))
         
-        myWeapons.append(next(w for w in weapons if w.weapon_id == 15))
-        myEquipments.append(next(e for e in equipments if e.equipment_id == 0))
-        myEquipments.append(next(e for e in equipments if e.equipment_id == 1))
-        myEquipments.append(next(e for e in equipments if e.equipment_id == 2))
-        myEquipments.append(next(e for e in equipments if e.equipment_id == 3))
-        myEquipments.append(next(e for e in equipments if e.equipment_id == 4))
+        # # Starting weapons and equipments for testing purposes
+        # myWeapons.append(next(w for w in weapons if w.weapon_id == 15))
+        # myEquipments.append(next(e for e in equipments if e.equipment_id == 0))
+        # myEquipments.append(next(e for e in equipments if e.equipment_id == 1))
+        # myEquipments.append(next(e for e in equipments if e.equipment_id == 2))
+        # myEquipments.append(next(e for e in equipments if e.equipment_id == 3))
+        # myEquipments.append(next(e for e in equipments if e.equipment_id == 4))
 
         
         # Recreate Possible Expeditions # Tittle / description

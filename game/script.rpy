@@ -4,6 +4,9 @@ default show_equipment = False
 default current_day = 1
 default online_shop_refresh_in = 7
 default money = 0
+default online_shop_new_protectors = True
+default online_shop_new_weapons = True
+default online_shop_new_equipments = True
 default SClassColor = "#DC143C"
 default AClassColor = "#FFD700"
 default BClassColor = "#9370DB"
@@ -141,7 +144,6 @@ label start:
     # 
     # TODO: [ PRIO 1 ] online shop
     #   -   -   asthetic things:
-    #   -   -   -   making the buy button to have a hover color, and a clicked color
     #   -   -   -   making the item to appear as sold out after we buy it
     #   -   create a way to buy items 
     #   -   -   store will refresh in weekly basis

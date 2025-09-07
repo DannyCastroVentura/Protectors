@@ -1677,6 +1677,13 @@ style button_in_black_background:
     xminimum 200                    # ensures consistent width
     yminimum 50
 
+style option_button_online_shop:
+    background "#555"   # normal dark gray
+    hover_background "#fff"  # lighter gray when hovered
+    padding (5, 5)
+    xalign 0.5
+    yalign 0.5
+
 screen my_weapons_screen():
     frame:
         modal True
@@ -3673,42 +3680,73 @@ screen online_shop():
                     $ show_protectors_image = "images/menu/protectors.png"
                     $ show_protectors_scaled = im.Scale(show_protectors_image, main_options_scale, main_options_scale)
                         
-                    button:
-                        action SetScreenVariable("online_shop_show", "show_protectors")
-                        background "#ffffff"
-                        frame:
-                            add im.Composite(
-                                (main_options_scale, main_options_scale),
-                                (0, 0), main_buttons_background,
-                                (0, 0), show_protectors_scaled
-                            )
-                    
+                    fixed: 
+                        xmaximum main_options_scale
+                        ymaximum main_options_scale
+                        button:
+                            action [SetScreenVariable("online_shop_show", "show_protectors"), SetVariable("online_shop_new_protectors", False) ]
+                            style "option_button_online_shop"
+                            frame:
+                                add im.Composite(
+                                    (main_options_scale, main_options_scale),
+                                    (0, 0), main_buttons_background,
+                                    (0, 0), show_protectors_scaled
+                                )
+                        if online_shop_new_protectors == True:
+                            frame:
+                                background "#fff"  # white background
+                                padding (5, 2)    # space around the "!"
+                                xalign 1.0
+                                yalign 0.0
+                                text "!" size 30 color "#f00" bold True
+
                     
                     $ show_weapons_image = "images/menu/weapons.png"
                     $ show_weapons_scaled = im.Scale(show_weapons_image, main_options_scale, main_options_scale)
-                        
-                    button:
-                        action SetScreenVariable("online_shop_show", "show_weapons")
-                        background "#ffffff"
-                        frame:
-                            add im.Composite(
-                                (main_options_scale, main_options_scale),
-                                (0, 0), main_buttons_background,
-                                (0, 0), show_weapons_scaled
-                            )
+                    
+                    fixed: 
+                        xmaximum main_options_scale
+                        ymaximum main_options_scale
+                        button:
+                            action [SetScreenVariable("online_shop_show", "show_weapons"), SetVariable("online_shop_new_weapons", False)]
+                            style "option_button_online_shop"
+                            frame:
+                                add im.Composite(
+                                    (main_options_scale, main_options_scale),
+                                    (0, 0), main_buttons_background,
+                                    (0, 0), show_weapons_scaled
+                                )
+                        if online_shop_new_weapons == True:
+                            frame:
+                                background "#fff"  # white background
+                                padding (5, 2)    # space around the "!"
+                                xalign 1.0
+                                yalign 0.0
+                                text "!" size 30 color "#f00" bold True
+                            
 
                     $ show_equipment_image = "images/menu/equipments.png"
                     $ show_equipment_scaled = im.Scale(show_equipment_image, main_options_scale, main_options_scale)
                         
-                    button:
-                        action SetScreenVariable("online_shop_show", "show_equipments")
-                        background "#ffffff"
-                        frame:
-                            add im.Composite(
-                                (main_options_scale, main_options_scale),
-                                (0, 0), main_buttons_background,
-                                (0, 0), show_equipment_scaled
-                            )
+                    fixed: 
+                        xmaximum main_options_scale
+                        ymaximum main_options_scale
+                        button:
+                            action [SetScreenVariable("online_shop_show", "show_equipments"), SetVariable("online_shop_new_equipments", False)]
+                            style "option_button_online_shop"
+                            frame:
+                                add im.Composite(
+                                    (main_options_scale, main_options_scale),
+                                    (0, 0), main_buttons_background,
+                                    (0, 0), show_equipment_scaled
+                                )
+                        if online_shop_new_equipments == True:
+                            frame:
+                                background "#fff"  # white background
+                                padding (5, 2)    # space around the "!"
+                                xalign 1.0
+                                yalign 0.0
+                                text "!" size 30 color "#f00" bold True
                     
             if online_shop_show == "show_equipments":
                 
@@ -3757,6 +3795,7 @@ screen online_shop():
                                             xalign 0.5
                                             button:
                                                 action button_action
+                                                style "option_button_online_shop"
                                                 xpadding 4
                                                 ypadding 4
                                                 frame:                                            
@@ -3776,19 +3815,21 @@ screen online_shop():
                                     if money >= equipment.price:
                                         $ online_shop_action = Function(buy_new_equipment, equipment)
 
-                                    button:
-                                        xfill True
-                                        xmaximum 500
-                                        xalign 0.5
-                                        frame:
+                                    if equipment.stillAvailable:
+                                        button:
+                                            style "option_button_online_shop"
                                             xfill True
-                                            background "#444"
-                                            padding (10, 10)
-                                            vbox:
-                                                spacing 5
-                                                xalign 0.5
-                                                text "Buy" size 24 color "#fff" xalign 0.5
-                                        action online_shop_action
+                                            xmaximum 500
+                                            xalign 0.5
+                                            frame:
+                                                xfill True
+                                                background "#444"
+                                                padding (10, 10)
+                                                vbox:
+                                                    spacing 5
+                                                    xalign 0.5
+                                                    text "Buy" size 24 color "#fff" xalign 0.5
+                                            action online_shop_action
                                     
                 hbox:
                     spacing 10

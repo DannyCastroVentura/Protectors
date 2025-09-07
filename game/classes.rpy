@@ -423,23 +423,23 @@ init python:
                 if self.equipedBodyArmor is not None:
                     if self.equipedBodyArmor.class_name == className:
                         if prios["prio1"] == searchingClassName:
-                            totalIncrement += (self.equipedHelmet.prio1 / 100)
+                            totalIncrement += (self.equipedBodyArmor.prio1 / 100)
                         if prios["prio2"] == searchingClassName:
-                            totalIncrement += (self.equipedHelmet.prio2 / 100)
+                            totalIncrement += (self.equipedBodyArmor.prio2 / 100)
                 # pants
                 if self.equipedPants is not None:
                     if self.equipedPants.class_name == className:
                         if prios["prio1"] == searchingClassName:
-                            totalIncrement += (self.equipedHelmet.prio1 / 100)
+                            totalIncrement += (self.equipedPants.prio1 / 100)
                         if prios["prio2"] == searchingClassName:
-                            totalIncrement += (self.equipedHelmet.prio2 / 100)
+                            totalIncrement += (self.equipedPants.prio2 / 100)
                 # boots
                 if self.equipedBoots is not None:
                     if self.equipedBoots.class_name == className:
                         if prios["prio1"] == searchingClassName:
-                            totalIncrement += (self.equipedHelmet.prio1 / 100)
+                            totalIncrement += (self.equipedBoots.prio1 / 100)
                         if prios["prio2"] == searchingClassName:
-                            totalIncrement += (self.equipedHelmet.prio2 / 100)
+                            totalIncrement += (self.equipedBoots.prio2 / 100)
             return totalIncrement
 
         def get_evolution_increments(self, searchingAttributeName, fake_evolution = None):
@@ -888,6 +888,7 @@ init python:
                 for e in filtered:
                     if e.type not in seen_types:
                         e.price = prices[aux]
+                        e.stillAvailable = True
                         chosen.append(e)
                         seen_types.add(e.type)
                     if len(chosen) == 2:
@@ -904,6 +905,12 @@ init python:
         def update_store(self):
             global equipments
             global weapons
+            global online_shop_new_protectors
+            global online_shop_new_weapons
+            global online_shop_new_equipments
             self.selling_equipments_list = self.get_items_for_sale(equipments)
             self.selling_weapons_list = self.get_items_for_sale(weapons)
             self.selling_protectors_list = self.get_protectors_for_sale()
+            online_shop_new_protectors = True
+            online_shop_new_weapons = True
+            online_shop_new_equipments = True

@@ -430,4 +430,5 @@ init python:
         add_new_equipment_to_our_bag(equipment.equipment_id)
         updating_wallet(int(0 - equipment.price))
         renpy.notify(f"You’ve purchased a new equipment: {equipment.name}")
+        equipment.stillAvailable = False
         return
