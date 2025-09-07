@@ -139,7 +139,10 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] 
+    # TODO: [ PRIO 1 ] online shop
+    #   -   -   asthetic things:
+    #   -   -   -   making the buy button to have a hover color, and a clicked color
+    #   -   -   -   making the item to appear as sold out after we buy it
     #   -   create a way to buy items 
     #   -   -   store will refresh in weekly basis
     #   -   -   it will have 2 equipments (always in different types) per class - randomly chosen
