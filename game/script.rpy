@@ -2,6 +2,7 @@
 default show_things = False
 default show_equipment = False
 default current_day = 1
+default online_shop_refresh_in = 7
 default money = 0
 default SClassColor = "#DC143C"
 default AClassColor = "#FFD700"
@@ -9,6 +10,7 @@ default BClassColor = "#9370DB"
 default CClassColor = "#1E90FF"
 default DClassColor = "#32CD32"
 default EClassColor = "#A9A9A9"
+default black_see_through_color = "#000000f8"
 
 init python:
     if 'mc_name' not in globals():

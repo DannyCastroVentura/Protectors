@@ -425,3 +425,9 @@ init python:
     def notify_user_money_is_not_enough(item_name):
         renpy.notify(f"Can't afford to buy {item_name}")
         return
+
+    def buy_new_equipment(equipment):
+        add_new_equipment_to_our_bag(equipment.equipment_id)
+        updating_wallet(int(0 - equipment.price))
+        renpy.notify(f"You’ve purchased a new equipment: {equipment.name}")
+        return

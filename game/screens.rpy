@@ -2104,7 +2104,7 @@ screen menu_button_for_protectors_game():
 screen menu_for_protectors_game():
     frame:
         modal True
-        background Solid("#000000ea")
+        background Solid(black_see_through_color)
         xysize (config.screen_width, config.screen_height)
         $ scale = 300
 
@@ -2133,45 +2133,53 @@ screen menu_for_protectors_game():
                     xalign 0.5
                     spacing 100
                     
-                    $ show_protectors_image = "images/menu/protectors.png"
-                    $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
-                        
-                    button:
-                        action Show("my_protectors_screen")  # show possible weapons to use
-                        background "#ffffff"
-                        frame:
-                            add im.Composite(
-                                (scale, scale),
-                                (0, 0), buttons_background,
-                                (0, 0), show_protectors_scaled
-                            )
+                    vbox:
+                        spacing 20
+                        $ show_protectors_image = "images/menu/protectors.png"
+                        $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
+                            
+                        button:
+                            action Show("my_protectors_screen")  # show possible weapons to use
+                            background "#ffffff"
+                            frame:
+                                add im.Composite(
+                                    (scale, scale),
+                                    (0, 0), buttons_background,
+                                    (0, 0), show_protectors_scaled
+                                )
+                        text "Protectors" color "#FFF" xalign 0.5
                     
+                    vbox:
+                        spacing 20
+                        $ show_weapons_image = "images/menu/weapons.png"
+                        $ show_weapons_scaled = im.Scale(show_weapons_image, scale, scale)
+                            
+                        button:
+                            action Show("my_weapons_screen")  # show possible weapons to use
+                            background "#ffffff"
+                            frame:
+                                add im.Composite(
+                                    (scale, scale),
+                                    (0, 0), buttons_background,
+                                    (0, 0), show_weapons_scaled
+                                )
+                        text "Weapons" color "#FFF" xalign 0.5
                     
-                    $ show_weapons_image = "images/menu/weapons.png"
-                    $ show_weapons_scaled = im.Scale(show_weapons_image, scale, scale)
-                        
-                    button:
-                        action Show("my_weapons_screen")  # show possible weapons to use
-                        background "#ffffff"
-                        frame:
-                            add im.Composite(
-                                (scale, scale),
-                                (0, 0), buttons_background,
-                                (0, 0), show_weapons_scaled
-                            )
-
-                    $ show_equipment_image = "images/menu/equipments.png"
-                    $ show_equipment_scaled = im.Scale(show_equipment_image, scale, scale)
-                        
-                    button:
-                        action Show("my_equipments_screen")  # show possible weapons to use
-                        background "#ffffff"
-                        frame:
-                            add im.Composite(
-                                (scale, scale),
-                                (0, 0), buttons_background,
-                                (0, 0), show_equipment_scaled
-                            )
+                    vbox:
+                        spacing 20
+                        $ show_equipment_image = "images/menu/equipments.png"
+                        $ show_equipment_scaled = im.Scale(show_equipment_image, scale, scale)
+                            
+                        button:
+                            action Show("my_equipments_screen")  # show possible weapons to use
+                            background "#ffffff"
+                            frame:
+                                add im.Composite(
+                                    (scale, scale),
+                                    (0, 0), buttons_background,
+                                    (0, 0), show_equipment_scaled
+                                )
+                        text "Equipments" color "#FFF" xalign 0.5
 
 
 screen current_day_screen():
@@ -3560,7 +3568,7 @@ screen equipment_select(protector, equipment_type):
 screen lucky_box_screen(box_type):
     frame:
         modal True
-        background Solid("#000000ea")
+        background Solid(black_see_through_color)
         xysize (config.screen_width, config.screen_height)
         $ scale = 650
 
@@ -3636,6 +3644,12 @@ screen online_shop():
         
         ysize 925
         padding (20, 20)
+        vbox:
+            spacing 10
+            xalign 0.99999
+            yalign 0                
+            vbox:
+                text "Next refresh: " + str(online_shop_refresh_in) + "d" size 20 color online_shop_color
         vbox:
             spacing 10
             xalign 0.5
@@ -3760,8 +3774,7 @@ screen online_shop():
 
                                     $ online_shop_action = Function(notify_user_money_is_not_enough, equipment.name)
                                     if money >= equipment.price:
-                                        # TODO:
-                                        $ online_shop_action = Function(buy_new_item, equipment.equipment_id)
+                                        $ online_shop_action = Function(buy_new_equipment, equipment)
 
                                     button:
                                         xfill True

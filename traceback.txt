@@ -3,126 +3,50 @@
 While running game code:
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 11, in script call
-    call check_online_shop()
-  File "game/base_of_operations.rpy", line 81, in script
-    call screen online_shop()
-  File "game/screens.rpy", line 3615, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3615, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3627, in execute
-    frame:
-  File "game/screens.rpy", line 3648, in execute
-    vbox:
-  File "game/screens.rpy", line 3697, in execute
-    if online_shop_show == "show_equipments":
-  File "game/screens.rpy", line 3699, in execute
-    hbox:
-  File "game/screens.rpy", line 3703, in execute
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3704, in execute
-    if rarity == rarity_selected:
-  File "game/screens.rpy", line 3705, in execute
-    for equipment in equipments:
-  File "game/screens.rpy", line 3732, in execute
-    vbox:
-  File "game/screens.rpy", line 3759, in execute
-    $ online_shop_action = Function(notify_user_money_is_not_enough, equipment.name)
-  File "game/screens.rpy", line 3759, in <module>
-    $ online_shop_action = Function(notify_user_money_is_not_enough, equipment.name)
-                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                 
-NameError: name 'notify_user_money_is_not_enough' is not defined
+  File "game/base_of_operations.rpy", line 15, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 4 more times]
+  File "game/resting.rpy", line 5, in script
+    python:
+  File "game/resting.rpy", line 19, in <module>
+    online_shop.update_store()
+    ^^^^^^^^^^^               
+NameError: name 'online_shop' is not defined. Did you mean: 'OnlineShop'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 11, in script call
-    call check_online_shop()
-  File "game/base_of_operations.rpy", line 81, in script
-    call screen online_shop()
-  File "renpy/ast.py", line 2231, in execute
-    self.call("execute")
-    ~~~~~~~~~^^^^^^^^^^^
-  File "renpy/ast.py", line 2195, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/statements.py", line 379, in call
-    return method(parsed, *args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 348, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ui.py", line 304, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2219, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )  # type: ignore
-    ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3615, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3615, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3627, in execute
-    frame:
-  File "game/screens.rpy", line 3648, in execute
-    vbox:
-  File "game/screens.rpy", line 3697, in execute
-    if online_shop_show == "show_equipments":
-  File "game/screens.rpy", line 3699, in execute
-    hbox:
-  File "game/screens.rpy", line 3703, in execute
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3704, in execute
-    if rarity == rarity_selected:
-  File "game/screens.rpy", line 3705, in execute
-    for equipment in equipments:
-  File "game/screens.rpy", line 3732, in execute
-    vbox:
-  File "game/screens.rpy", line 3759, in execute
-    $ online_shop_action = Function(notify_user_money_is_not_enough, equipment.name)
-  File "game/screens.rpy", line 3759, in <module>
-    $ online_shop_action = Function(notify_user_money_is_not_enough, equipment.name)
-                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                 
-NameError: name 'notify_user_money_is_not_enough' is not defined
+  File "game/base_of_operations.rpy", line 15, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 4 more times]
+  File "game/resting.rpy", line 5, in script
+    python:
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/resting.rpy", line 19, in <module>
+    online_shop.update_store()
+    ^^^^^^^^^^^               
+NameError: name 'online_shop' is not defined. Did you mean: 'OnlineShop'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Fri Sep  5 16:18:59 2025
+Sun Sep  7 17:34:46 2025

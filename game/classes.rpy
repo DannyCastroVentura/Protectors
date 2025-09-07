@@ -703,7 +703,7 @@ init python:
 
             # deleting the mission if not training
             if self.expedition_id != 0:
-                delete_mission(self.expedition_id)
+                delete_expedition(self.expedition_id)
 
             # if training            
             self.neededDaysToFinish = 1
@@ -900,3 +900,10 @@ init python:
         # TODO: get the selling list
         def get_protectors_for_sale(self):
             return
+
+        def update_store(self):
+            global equipments
+            global weapons
+            self.selling_equipments_list = self.get_items_for_sale(equipments)
+            self.selling_weapons_list = self.get_items_for_sale(weapons)
+            self.selling_protectors_list = self.get_protectors_for_sale()
