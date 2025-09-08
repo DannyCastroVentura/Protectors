@@ -328,30 +328,6 @@ init python:
         #     renpy.say(None, str(mission.title))
         return
 
-    def assign_protector(target_expedition_id, protectorName):
-        global allExpeditions
-
-        expedition_index = next((i for i, e in enumerate(allExpeditions) if e.expedition_id == target_expedition_id), -1)
-        
-
-        # assigning protector to the mission
-        allExpeditions[expedition_index].assignedProtectorName = protectorName
-        allExpeditions[expedition_index].status = "assigned"
-        renpy.restart_interaction()
-        
-        return
-
-    def start_mission(expedition, protectorName, success_rate):
-        global allExpeditions
-        
-        target_expedition_id = expedition.expedition_id
-        expedition = next(e for e in allExpeditions if e.expedition_id == target_expedition_id)
-        
-        expedition.startExpedition(protectorName, success_rate)
-
-        my_protectors_map[protectorName].status = "In a mission"
-        return
-
     def resetAssignmentsForThisProtectorName(protectorName):
         global allExpeditions
         for expedition in allExpeditions:
@@ -366,6 +342,11 @@ init python:
     def get_weapon_by_id(weapon_id):
         global weapons
         return next(w for w in weapons if w.weapon_id == weapon_id)
+
+    def get_my_protector(protector_name):
+        global my_protectors_map
+        if protector_name in my_protectors_map.keys():
+            return my_protectors_map[protector_name]
 
     def get_weapon_by_name(weapon_name):
         global weapons

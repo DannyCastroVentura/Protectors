@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3849: reached end of line when expecting ':'.
-    if rarity_selected == "S"
-                             ^
+File "game/screens.rpy", line 3434: 'size' is not a keyword argument or valid child of the textbutton statement.
+    textbutton "Unassign [selected_expedition.assignedProtectorName]" action Function(selected_expedition.unassignProtector) size 25
+                                                                                                                                 ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sun Sep  7 22:23:10 2025
+Mon Sep  8 17:43:50 2025

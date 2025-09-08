@@ -18,4 +18,10 @@
             online_shop_refresh_in = 7
             online_shop_variable.update_store()
 
+
+        # checking if the protector is much time not available
+        for my_protector_name in my_protectors_map.keys():
+            if my_protectors_map[my_protector_name].status != "Available":
+                my_protectors_map[my_protector_name].adding_not_available_counter()
+
     jump resting_area

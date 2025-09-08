@@ -141,13 +141,8 @@ label start:
     
     #
     # TODOS:
-    # 
-    # TODO: [ PRIO 1 ] online shop
-    #   -   create a way to buy items 
-    #   -   -   fix the back button, as it is not showing any hover color
-    #   -   -   equip the default weapon to the selling protector
     #
-    # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTELS AND EXPEDITIONS
+    # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance
     #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
     #   -   -   depending on the difficulty of the mission, this change get's ligther -> we should divide the total chance by the number per each rank of the equipment/weapon

@@ -2701,6 +2701,12 @@ screen protector_detail_screen(my_protector):
                     
                 else:
                     text "[my_protector.name] ([my_protector.status])" size 50 color "#FFF" xalign 0.5
+                
+                if my_protector.status != "Available" and my_protector.status != "To sell":
+                    $ day_or_days = "day"
+                    if my_protector.not_available_counter > 1:
+                        $ day_or_days = "days"
+                    text "Away for [my_protector.not_available_counter] [day_or_days]." size 25 color "#FFF" xalign 0.5
 
             hbox:
                 xalign 0.5
@@ -3406,19 +3412,26 @@ screen expedition_screen(regionNumber):
                     # List of available protectors
                     $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
 
-                    if selected_expedition.status != "started":                    
-                        hbox:
-                            xalign 0.5
-                            spacing 10
-                            for protector in available_protectors:
-                                $ select_protector_button_style = "button_small_text"
-                                if protector.name == selected_expedition.assignedProtectorName:
-                                    $ select_protector_button_style = "button_small_text_selected"
-                                textbutton protector.name style str(select_protector_button_style) action Function(assign_protector, selected_expedition.expedition_id, protector.name)
+                    if selected_expedition.status != "started":
+                        if selected_expedition.assignedProtectorName == None:
+                            hbox:
+                                xalign 0.5
+                                spacing 10
+                                for protector in available_protectors:
+                                    $ select_protector_button_style = "button_small_text"
+                                    if protector.name == selected_expedition.assignedProtectorName:
+                                        $ select_protector_button_style = "button_small_text_selected"
+                                    textbutton protector.name style str(select_protector_button_style) action Function(selected_expedition.assignProtector, protector.name) text_size 25
 
-                            
-                            if len(available_protectors) == 0:
-                                text "There are no available protectors." size 15 color "#5a5a5a" xmaximum 640
+                                
+                                if len(available_protectors) == 0:
+                                    text "There are no available protectors." size 15 color "#5a5a5a" xmaximum 640
+                        else:
+                            hbox:
+                                xalign 0.5
+                                spacing 10
+                                
+                                textbutton "Unassign [selected_expedition.assignedProtectorName]" action Function(selected_expedition.unassignProtector) text_size 20
 
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
@@ -3432,7 +3445,7 @@ screen expedition_screen(regionNumber):
                         xalign 0.5
                         spacing 20
                         if selected_expedition.status != "started" and selected_expedition.assignedProtectorName != None:
-                            textbutton "Start Expedition" action Function(start_mission, selected_expedition, protector.name, success_rate)
+                            textbutton "Start Expedition" action Function(selected_expedition.startExpedition, protector.name, success_rate)
                         textbutton "Back" action SetScreenVariable("mode", "list")
 
 screen base_stats(baseProtectorObject):
@@ -3648,6 +3661,7 @@ screen online_shop():
         $ title_size = 40
         $ tittle_v_align = 0.01
 
+    $ text_style_back_button = "rarity_navegation_text_online_shop"
     $ main_options_scale = 350
     $ items_scale = 400
     $ main_buttons_background = im.Scale("images/background_item.png", main_options_scale, main_options_scale)
@@ -3876,7 +3890,7 @@ screen online_shop():
                     textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5 text_style text_style_D
                     text "|"
                     textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
-                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5
+                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
                     
             # TODO
             if online_shop_show == "show_weapons":
@@ -3994,7 +4008,7 @@ screen online_shop():
                     textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5 text_style text_style_D
                     text "|"
                     textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
-                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5
+                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
                   
             # TODO  
             if online_shop_show == "show_protectors":
@@ -4065,11 +4079,11 @@ screen online_shop():
                                             xalign 0.5
                                             text "Buy" size 24 color "#fff" xalign 0.5
                                     action online_shop_action
-                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5
+                textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
                     
         hbox:
             spacing 20
             xalign 0.5
             yalign 0.99
-            textbutton "Return" action Return() xalign 0.5
+            textbutton "Return" action Return() xalign 0.5 text_style text_style_back_button
 

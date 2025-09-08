@@ -77,6 +77,7 @@ init python:
             self.level = level
             self.status = status
             self.xp = 0
+            self.not_available_counter = 0
             self.readyForPromotion = False
             self.equipedWeapon = None
             self.equipedHelmet = None
@@ -95,6 +96,17 @@ init python:
                 while aux <= self.level:
                     self.leveling_up()
                     aux += 1
+
+        def adding_not_available_counter(self):
+            self.not_available_counter += 1
+            if self.not_available_counter == 10:
+                self.status = "Available"
+                renpy.notify(f"Something unexpected occured, but {self.name} is back!")
+            return
+
+        def reset_not_available_counter(self):
+            self.not_available_counter = 0
+            return
 
         def leveling_up(self):
             # Add the needed attributes to the base stats variable accordingly
@@ -127,6 +139,10 @@ init python:
                             self.readyForPromotion = True
                 else:
                     break
+            return
+        
+        def set_status(self, status_message):
+            self.status = status_message
             return
 
         def set_weapon(self, weapon):
@@ -625,15 +641,29 @@ init python:
             self.assignedProtectorName = protectorName
             self.status = "started"
             self.success_rate = success_rate
+            my_protector = get_my_protector(protectorName)
+            my_protector.set_status("In a mission")
             resetAssignmentsForThisProtectorName(protectorName)
             return
 
+        def assignProtector(self, protectorName):
+            self.assignedProtectorName = protectorName
+            self.status = "assigned"
+            return
+
+        def unassignProtector(self):
+            self.assignedProtectorName = None
+            self.status = "not assigned"
+            return
+
         def updateDaysPassed(self):
+            # if started, we don't make it disapear
             if self.status == "started":
                 self.neededDaysToFinish -= 1
                 self.daysPassed += 1
                 if self.neededDaysToFinish <= 0:
                     self.finishExpedition()
+            # we want to update every expedition, except for 0 as 0 is the training
             elif self.expedition_id != 0:
                 self.disapearingInThisDays -= 1
                 if self.disapearingInThisDays <= 0:
@@ -696,6 +726,9 @@ init python:
             
             # updating the protector status and xp
             my_protectors_map[self.assignedProtectorName].status = "Available"
+
+            # Reset counter
+            my_protectors_map[self.assignedProtectorName].reset_not_available_counter()
             
             # updating the expeditions went on this protector
             my_protectors_map[self.assignedProtectorName].expeditions_went += 1
@@ -901,6 +934,7 @@ init python:
         # TODO: also make the protector to have its default weapon equiped
         def get_protectors_for_sale(self):
             global protectors_base_information
+            global weapons
             protectors_base_information_name_array = protectors_base_information.keys()
             my_protectors_array = my_protectors_map.keys()
             # filter items of this rarity
@@ -914,6 +948,8 @@ init python:
                 protector_to_sell = Protector(p_name, 1, 1, "To sell", protectors_base_information)
                 protector_to_sell.price = 10000
                 protector_to_sell.stillAvailable = True
+                default_weapon = get_weapon_by_name(protector_to_sell.basePoints.default_weapon)
+                protector_to_sell.set_weapon(default_weapon)
                 chosen.append(protector_to_sell)
                 if len(chosen) == 2:
                     break
