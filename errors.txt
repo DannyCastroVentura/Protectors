@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3434: 'size' is not a keyword argument or valid child of the textbutton statement.
-    textbutton "Unassign [selected_expedition.assignedProtectorName]" action Function(selected_expedition.unassignProtector) size 25
-                                                                                                                                 ^
+File "game/screens.rpy", line 3294: 'size' is not a keyword argument or valid child of the textbutton statement.
+    textbutton "Boss Expedition" size 24
+                                     ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Sep  8 17:43:50 2025
+Tue Sep  9 09:37:45 2025

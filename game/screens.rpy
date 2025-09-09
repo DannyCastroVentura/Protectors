@@ -3253,6 +3253,7 @@ screen expedition_screen(regionNumber):
     default max_pages = max((len(filtered_expeditions) - 1) // page_size, 0)
     default mode = "list"
     default selected_expedition = None
+    default selected_boss_expedition = None
     frame:
         xalign 0.5
         yalign 0.5
@@ -3270,7 +3271,6 @@ screen expedition_screen(regionNumber):
                     yalign 0.0
                     vbox:
                         xalign 0.5
-                        
                         vbox:
                             xalign 0.5
                             text "Expeditions" size 40
@@ -3280,16 +3280,23 @@ screen expedition_screen(regionNumber):
                             $ bossExpedition = next((m for m in bossExpeditions if m.regionNumber == regionNumber), None)
                             vbox:
                                 xalign 0.5
-                                bar value bossExpedition.successfulMinorExpeditions range bossExpedition.successfulMinorExpeditionsRequired:
-                                    xmaximum 400
-                                    ymaximum 30
+                                yminimum 75
+                                if bossExpedition.successfulMinorExpeditions >= bossExpedition.successfulMinorExpeditionsRequired:
+                                    vbox:
+                                        xalign 0.5
+                                        yalign 0.5
+                                        textbutton "Start Boss Expedition" text_size 30 action [SetScreenVariable("mode", "boss_expedition_detail"), SetScreenVariable("selected_boss_expedition", bossExpedition)]
+                                else:
+                                    bar value bossExpedition.successfulMinorExpeditions range bossExpedition.successfulMinorExpeditionsRequired:
+                                        xmaximum 400
+                                        ymaximum 30
 
-                                vbox:
-                                    xalign 0.5
-                                    text "[bossExpedition.successfulMinorExpeditions] / [bossExpedition.successfulMinorExpeditionsRequired]" size 24
+                                    vbox:
+                                        xalign 0.5
+                                        text "[bossExpedition.successfulMinorExpeditions] / [bossExpedition.successfulMinorExpeditionsRequired]" size 24
 
                     for i in range(page * page_size, min((page + 1) * page_size, len(filtered_expeditions))):
-                        $ mission = filtered_expeditions[i]
+                        $ expedition = filtered_expeditions[i]
                         button:
                             xfill True
                             frame:
@@ -3298,26 +3305,26 @@ screen expedition_screen(regionNumber):
                                 padding (10, 10)
                                 vbox:
                                     spacing 5
-                                    text "[mission.title] ([mission.expedition_type])" size 24 color "#fff"
-                                    text mission.description size 16 color "#ccc"
-                                    text "Difficulty: [mission.difficulty]" size 14 color "#aaa"
-                            action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_expedition", mission)]
+                                    text "[expedition.title] ([expedition.expedition_type])" size 24 color "#fff"
+                                    text expedition.description size 16 color "#ccc"
+                                    text "Difficulty: [expedition.difficulty]" size 14 color "#aaa"
+                            action [SetScreenVariable("mode", "detail"), SetScreenVariable("selected_expedition", expedition)]
 
                     hbox:
                         spacing 20
                         xalign 0.5
 
                         if page > 0:
-                            textbutton "Previous" action SetScreenVariable("page", page - 1)
+                            textbutton "Previous" action SetScreenVariable("page", page - 1) text_size 25
                         else:
-                            textbutton "Previous" action NullAction() sensitive False
+                            textbutton "Previous" action NullAction() sensitive False text_size 25
 
                         if page < max_pages:
-                            textbutton "Next" action SetScreenVariable("page", page + 1)
+                            textbutton "Next" action SetScreenVariable("page", page + 1) text_size 25
                         else:
-                            textbutton "Next" action NullAction() sensitive False
+                            textbutton "Next" action NullAction() sensitive False text_size 25
 
-                    textbutton "Return" action Return() xalign 0.5
+                    textbutton "Return" action Return() xalign 0.5 text_size 25
 
             elif mode == "detail" and selected_expedition is not None:
                 vbox:
@@ -3339,10 +3346,10 @@ screen expedition_screen(regionNumber):
                             vbox:
                                 xalign 0.5
                                 text "Difficulty: [selected_expedition.difficulty]" size 20 color "#5a5a5a"
-                                
+
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
-                        
+
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
 
@@ -3446,7 +3453,29 @@ screen expedition_screen(regionNumber):
                         spacing 20
                         if selected_expedition.status != "started" and selected_expedition.assignedProtectorName != None:
                             textbutton "Start Expedition" action Function(selected_expedition.startExpedition, protector.name, success_rate)
-                        textbutton "Back" action SetScreenVariable("mode", "list")
+                        textbutton "Back" action SetScreenVariable("mode", "list") text_size 25
+            
+            elif mode == "boss_expedition_detail" and selected_boss_expedition is not None:
+                vbox:
+                    yalign 0.0
+                    xalign 0.5
+                    spacing 20
+                    xsize 700
+                    null height 40  # This adds 40 pixels of vertical space at the top
+                    
+                    vbox:
+                        xalign 0.5
+                        text "[selected_boss_expedition.title]" size 40 color "#000000" xalign 0.5
+
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+
+                    vbox:
+                        null width 40  # This adds 40 pixels of vertical space at the top
+
+                    text selected_boss_expedition.description size 20 color "#5a5a5a" xalign 0.5 text_align 0.5
+                        
+                    textbutton "Back" action SetScreenVariable("mode", "list") text_size 25 xalign 0.5
 
 screen base_stats(baseProtectorObject):
     key config.keymap["hide_windows"] action None
