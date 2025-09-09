@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3515: 'else' is not a keyword argument or valid child of the vbox statement.
-    else:
-        ^
+File "game/screens.rpy", line 3309: 'padding' is not a keyword argument or valid child of the vbox statement.
+    padding (10, 10)
+           ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Sep  9 14:50:36 2025
+Tue Sep  9 16:29:05 2025

@@ -1695,6 +1695,24 @@ style rarity_navegation_text_online_shop_active:
     padding (10, 5)
     xalign 0.5
 
+style text_boss_expedition_button:
+    color "#ffffff"
+    xalign 0.5
+    yalign 0.5
+
+style background_boss_expedition_button:
+    background "#555"
+    hover_background "#752121"
+    padding (20, 10)
+    xalign 0.5
+    yalign 0.5
+
+style background_expedition_button:
+    background "#555"
+    hover_background "#2E5530"
+    padding (10, 5)
+    xalign 0.5
+
 screen my_weapons_screen():
     frame:
         modal True
@@ -3288,9 +3306,8 @@ screen expedition_screen(regionNumber):
                                     vbox:
                                         xalign 0.5
                                         yalign 0.5
-                                        # TODO: update the colors for this button
-                                        #   -   make it showing on red and white ?
-                                        textbutton "Boss Expedition" text_size 30 action [SetScreenVariable("mode", "boss_expedition_detail"), SetScreenVariable("selected_boss_expedition", bossExpedition)]
+                                        spacing 5
+                                        textbutton "Boss Expedition" text_size 27 action [SetScreenVariable("mode", "boss_expedition_detail"), SetScreenVariable("selected_boss_expedition", bossExpedition)] style "background_boss_expedition_button" text_style "text_boss_expedition_button"
                                 else:
                                     bar value bossExpedition.successfulMinorExpeditions range bossExpedition.successfulMinorExpeditionsRequired:
                                         xmaximum 400
@@ -3306,7 +3323,7 @@ screen expedition_screen(regionNumber):
                             xfill True
                             frame:
                                 xfill True
-                                background "#444"
+                                style "background_expedition_button"
                                 padding (10, 10)
                                 vbox:
                                     spacing 5
