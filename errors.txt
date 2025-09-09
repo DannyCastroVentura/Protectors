@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3294: 'size' is not a keyword argument or valid child of the textbutton statement.
-    textbutton "Boss Expedition" size 24
-                                     ^
+File "game/screens.rpy", line 3515: 'else' is not a keyword argument or valid child of the vbox statement.
+    else:
+        ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Sep  9 09:37:45 2025
+Tue Sep  9 14:50:36 2025

@@ -11,32 +11,11 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 44, in script call
     call base_travel_menu()
@@ -46,24 +25,6 @@ While running game code:
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-[Previous line repeated 2 more times]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -91,6 +52,8 @@ While running game code:
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 44, in script call
     call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
   File "game/places.rpy", line 35, in script call
@@ -107,21 +70,24 @@ While running game code:
     screen expedition_screen(regionNumber):
   File "game/screens.rpy", line 3247, in execute
     screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3256, in execute
+  File "game/screens.rpy", line 3257, in execute
     frame:
-  File "game/screens.rpy", line 3263, in execute
+  File "game/screens.rpy", line 3264, in execute
     vbox:
-  File "game/screens.rpy", line 3266, in execute
+  File "game/screens.rpy", line 3267, in execute
     if mode == "list":
-  File "game/screens.rpy", line 3329, in execute
+  File "game/screens.rpy", line 3458, in execute
     vbox:
-  File "game/screens.rpy", line 3336, in execute
-    vbox:
-  File "game/screens.rpy", line 3340, in execute
-    vbox:
-  File "game/screens.rpy", line 3343, in execute
-    text "([selected_expedition.expedition_type])" size 30 color "#000000"
-AttributeError: 'BossExpedition' object has no attribute 'expedition_type'
+  File "game/screens.rpy", line 3502, in execute
+    if selected_boss_expedition.assignedProtectorName == None:
+  File "game/screens.rpy", line 3503, in execute
+    hbox:
+  File "game/screens.rpy", line 3506, in execute
+    for protector in available_protectors:
+  File "game/screens.rpy", line 3506, in <module>
+    for protector in available_protectors:
+                     ^^^^^^^^^^^^^^^^^^^^ 
+NameError: name 'available_protectors' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -136,32 +102,11 @@ Traceback (most recent call last):
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 44, in script call
     call base_travel_menu()
@@ -171,24 +116,6 @@ Traceback (most recent call last):
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-[Previous line repeated 2 more times]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -216,6 +143,8 @@ Traceback (most recent call last):
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 44, in script call
     call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
   File "game/places.rpy", line 35, in script call
@@ -284,44 +213,32 @@ Traceback (most recent call last):
     screen expedition_screen(regionNumber):
   File "game/screens.rpy", line 3247, in execute
     screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3256, in execute
+  File "game/screens.rpy", line 3257, in execute
     frame:
-  File "game/screens.rpy", line 3263, in execute
+  File "game/screens.rpy", line 3264, in execute
     vbox:
-  File "game/screens.rpy", line 3266, in execute
+  File "game/screens.rpy", line 3267, in execute
     if mode == "list":
-  File "game/screens.rpy", line 3329, in execute
+  File "game/screens.rpy", line 3458, in execute
     vbox:
-  File "game/screens.rpy", line 3336, in execute
-    vbox:
-  File "game/screens.rpy", line 3340, in execute
-    vbox:
-  File "game/screens.rpy", line 3343, in execute
-    text "([selected_expedition.expedition_type])" size 30 color "#000000"
-  File "renpy/text/text.py", line 2195, in __init__
-    self.set_text(text, scope, substitute)  # type: ignore
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^                
-  File "renpy/text/text.py", line 2329, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)  # type: ignore
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 355, in substitute
-    s = interpolate(s, variables)  # type: ignore
-        ~~~~~~~~~~~^^^^^^^^^^^^^^                
-  File "renpy/substitutions.py", line 89, in interpolate
-    raise e
-  File "renpy/substitutions.py", line 81, in interpolate
-    value = renpy.python.py_eval(code, {}, scope)
-            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 3502, in execute
+    if selected_boss_expedition.assignedProtectorName == None:
+  File "game/screens.rpy", line 3503, in execute
+    hbox:
+  File "game/screens.rpy", line 3506, in execute
+    for protector in available_protectors:
   File "renpy/python.py", line 1292, in py_eval
     return py_eval_bytecode(code, globals, locals)
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1285, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<none>", line 1, in <module>
-AttributeError: 'BossExpedition' object has no attribute 'expedition_type'
+  File "game/screens.rpy", line 3506, in <module>
+    for protector in available_protectors:
+                     ^^^^^^^^^^^^^^^^^^^^ 
+NameError: name 'available_protectors' is not defined
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Sep  9 09:44:35 2025
+Tue Sep  9 14:51:51 2025

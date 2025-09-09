@@ -141,6 +141,12 @@ label start:
     
     #
     # TODOS:
+    # 
+    # TODO: update the Boss Expeditions text button - make it have different colors
+    # 
+    # TODO: also make the different expeditions to have an hover color
+    # 
+    # TODO: create the screen for the time based combat
     #
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance

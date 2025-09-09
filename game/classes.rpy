@@ -517,8 +517,8 @@ init python:
             self.status = status # possible values: not assigned / assigned / started # if the mission title is not training, once this is concluded, this mission needs to be deleted, if not, this needs to be reseted
             self.assignedProtectorName = None # on assigning the protector to a specific mission, this variable is going to be updated accordingly # this needs to be reseted once this mission is finished
             if xp_received == None or gold_received == None:
-                self.xp_received = difficulty * 20
                 self.gold_received = difficulty * 10
+                self.xp_received = self.gold_received * 2
             else:
                 self.xp_received = xp_received
                 self.gold_received = gold_received
@@ -637,8 +637,8 @@ init python:
                 self.target_value = enemy_target_value
             return
         
-        def startExpedition(self, protectorName, success_rate = 100):
-            self.assignedProtectorName = protectorName
+        def startExpedition(self, success_rate = 100):
+            protectorName = self.assignedProtectorName
             self.status = "started"
             self.success_rate = success_rate
             my_protector = get_my_protector(protectorName)
@@ -752,12 +752,30 @@ init python:
             return
 
     class BossExpedition:
-        def __init__(self, regionNumber, title, description, successfulMinorExpeditionsRequired):
+        def __init__(self, regionNumber, title, description, successfulMinorExpeditionsRequired, stage):
             self.regionNumber = regionNumber
             self.title = title
             self.description = description
             self.successfulMinorExpeditionsRequired = successfulMinorExpeditionsRequired
             self.successfulMinorExpeditions = 0
+            self.assignedProtectorName = None
+            self.status = "not assigned"
+            self.gold_received = stage * 300
+            self.xp_received = self.gold_received * 2
+
+        def assignProtector(self, protectorName):
+            self.assignedProtectorName = protectorName
+            self.status = "assigned"
+            return
+
+        def unassignProtector(self):
+            self.assignedProtectorName = None
+            self.status = "not assigned"
+            return
+
+        def startBossExpedition(self):
+            # TODO
+            # open a new screen for handling the fight
             return
 
 

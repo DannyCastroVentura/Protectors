@@ -3254,6 +3254,9 @@ screen expedition_screen(regionNumber):
     default mode = "list"
     default selected_expedition = None
     default selected_boss_expedition = None
+    
+    # List of available protectors
+    $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
     frame:
         xalign 0.5
         yalign 0.5
@@ -3285,7 +3288,9 @@ screen expedition_screen(regionNumber):
                                     vbox:
                                         xalign 0.5
                                         yalign 0.5
-                                        textbutton "Start Boss Expedition" text_size 30 action [SetScreenVariable("mode", "boss_expedition_detail"), SetScreenVariable("selected_boss_expedition", bossExpedition)]
+                                        # TODO: update the colors for this button
+                                        #   -   make it showing on red and white ?
+                                        textbutton "Boss Expedition" text_size 30 action [SetScreenVariable("mode", "boss_expedition_detail"), SetScreenVariable("selected_boss_expedition", bossExpedition)]
                                 else:
                                     bar value bossExpedition.successfulMinorExpeditions range bossExpedition.successfulMinorExpeditionsRequired:
                                         xmaximum 400
@@ -3416,8 +3421,6 @@ screen expedition_screen(regionNumber):
                             text "Success rate: [success_rate] %" size 20 xalign 0.5
                     vbox:
                         null width 40  # This adds 40 pixels of vertical space at the top
-                    # List of available protectors
-                    $ available_protectors = [p for p in my_protectors_map.values() if p.status == "Available"]
 
                     if selected_expedition.status != "started":
                         if selected_expedition.assignedProtectorName == None:
@@ -3428,7 +3431,7 @@ screen expedition_screen(regionNumber):
                                     $ select_protector_button_style = "button_small_text"
                                     if protector.name == selected_expedition.assignedProtectorName:
                                         $ select_protector_button_style = "button_small_text_selected"
-                                    textbutton protector.name style str(select_protector_button_style) action Function(selected_expedition.assignProtector, protector.name) text_size 25
+                                    textbutton protector.name style str(select_protector_button_style) action Function(selected_expedition.assignProtector, protector.name) text_size 20
 
                                 
                                 if len(available_protectors) == 0:
@@ -3437,7 +3440,6 @@ screen expedition_screen(regionNumber):
                             hbox:
                                 xalign 0.5
                                 spacing 10
-                                
                                 textbutton "Unassign [selected_expedition.assignedProtectorName]" action Function(selected_expedition.unassignProtector) text_size 20
 
                     vbox:
@@ -3452,7 +3454,7 @@ screen expedition_screen(regionNumber):
                         xalign 0.5
                         spacing 20
                         if selected_expedition.status != "started" and selected_expedition.assignedProtectorName != None:
-                            textbutton "Start Expedition" action Function(selected_expedition.startExpedition, protector.name, success_rate)
+                            textbutton "Start Expedition" action Function(selected_expedition.startExpedition, success_rate) text_size 25
                         textbutton "Back" action SetScreenVariable("mode", "list") text_size 25
             
             elif mode == "boss_expedition_detail" and selected_boss_expedition is not None:
@@ -3474,8 +3476,57 @@ screen expedition_screen(regionNumber):
                         null width 40  # This adds 40 pixels of vertical space at the top
 
                     text selected_boss_expedition.description size 20 color "#5a5a5a" xalign 0.5 text_align 0.5
+
+                    hbox:
+                        xsize 700
+                        spacing 20
+                        vbox:
+                            xalign 0.2  # force to left
+                            spacing 20
+
+                            hbox:
+                                text "Payment:" size 18 color "#5a5a5a"
+                            if selected_boss_expedition.status == "assigned":
+                                hbox:
+                                    text "Assigned protector:" size 18 color "#5a5a5a"
+
+                        vbox:
+                            xalign 0.8  # force to right
+                            spacing 20
+
+                            hbox:
+                                xalign 1.0  # force to right
+                                text "[selected_boss_expedition.gold_received] $" size 18 color "#5a5a5a"
+                            if selected_boss_expedition.status == "assigned":
+                                hbox:
+                                    xalign 1.0  # force to right
+                                    text "[selected_boss_expedition.assignedProtectorName]" size 18 color "#5a5a5a"
+
+                    if selected_boss_expedition.assignedProtectorName == None:
+                        hbox:
+                            xalign 0.5
+                            spacing 10
+                            for protector in available_protectors:
+                                $ select_protector_button_style = "button_small_text"
+                                if protector.name == selected_boss_expedition.assignedProtectorName:
+                                    $ select_protector_button_style = "button_small_text_selected"
+                                textbutton protector.name style str(select_protector_button_style) action Function(selected_boss_expedition.assignProtector, protector.name) text_size 20
+
+                            
+                            if len(available_protectors) == 0:
+                                text "There are no available protectors." size 15 color "#5a5a5a" xmaximum 640
+                    else:
+                        hbox:
+                            xalign 0.5
+                            spacing 10
+                            textbutton "Unassign [selected_boss_expedition.assignedProtectorName]" action Function(selected_boss_expedition.unassignProtector) text_size 20
                         
-                    textbutton "Back" action SetScreenVariable("mode", "list") text_size 25 xalign 0.5
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        if selected_boss_expedition.assignedProtectorName != None:
+                            textbutton "Start Boss Expedition" action Function(selected_boss_expedition.startBossExpedition) text_size 25 
+                        textbutton "Back" action SetScreenVariable("mode", "list") text_size 25
 
 screen base_stats(baseProtectorObject):
     key config.keymap["hide_windows"] action None

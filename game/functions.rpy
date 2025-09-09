@@ -186,6 +186,8 @@ init python:
     percentage_for_increasing_on_evolutions = 0.50
     percentage_for_decreasing_on_evolutions = 0.50
     
+    expeditions_needed_for_boss_expedition = 2
+
     dynamic_backgrounds = {}
 
     expeditionsListSize = 51
