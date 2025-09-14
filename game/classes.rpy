@@ -3,6 +3,13 @@ init python:
     import copy
     
     levelAttributeIncrements = 1
+    bossLevelPerStage = 25
+    melee_starting_period = 10
+    ranged_starting_period = 50
+    start_fight_timer_period = 100
+    fight_thinking_message = "Calculating"
+    fight_victory_message = "You won!"
+    fight_defeat_message = "You lost!"
             
     # define the base multiplier per rank
     rank_multipliers = {
@@ -96,7 +103,11 @@ init python:
                 while aux <= self.level:
                     self.leveling_up()
                     aux += 1
+            self.refresh_stats()
+
+        def refresh_stats(self):
             self.hp = self.get_health_points()
+            return
 
         def adding_not_available_counter(self):
             self.not_available_counter += 1
@@ -115,7 +126,7 @@ init python:
                 attribute = self.basePoints.increasing_list.pop(0)
                 self.basePoints.increase_attribute(attribute)
                 self.basePoints.increasing_list.append(attribute)
-            self.hp = self.get_health_points()
+            self.refresh_stats()
         
         def increasing_xp(self, incoming_xp):
             if self.level / 20 > (self.stage):
@@ -287,7 +298,6 @@ init python:
                 used_stage = fake_stage
             return int(self.basePoints.charisma * used_stage * self.get_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
 
-        # TODO: add things to increment speed attribute
         def get_speed(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
@@ -554,23 +564,7 @@ init python:
                 # decreasing rarity_number because its to much difficult
                 rarity_number -= 1
 
-                if rarity_number >= 0:
-                    # getting the letter for the rarity
-                    rank_multipliers_array = {v: k for k, v in rank_multipliers.items()}
-                    rarity_letter = rank_multipliers_array[rarity_number]
-                else:
-                    rarity_letter = "E"
-
-                # Getting a weapon for the weapon
-                #   -   it needs to be of the type that the enemy can use
-                #   -   also needs to be according to the rarity he should use
-                weapon = next(
-                    w for w in weapons 
-                        if w.type == enemy.basePoints.usable_weapon_types[0]
-                        if w.rarity == rarity_letter 
-                )
-
-                enemy.set_weapon(weapon)
+                enemy_equip_weapon(enemy, rarity_number)
 
                 # Getting equipments
                 if rarity_number >= 0:
@@ -587,42 +581,7 @@ init python:
                     elif self.expedition_type == "Rescue":
                         target_class_name = "Shield"
 
-                    # Getting a helmet
-                    helmet = next(
-                        e for e in equipments 
-                            if e.type == "helmet"
-                            if e.rarity == rarity_letter
-                            if e.class_name == target_class_name
-                    )
-
-                    # Getting a body armor
-                    body = next(
-                        e for e in equipments 
-                            if e.type == "body"
-                            if e.rarity == rarity_letter
-                            if e.class_name == target_class_name
-                    )
-
-                    # Getting pants
-                    pants = next(
-                        e for e in equipments 
-                            if e.type == "pants"
-                            if e.rarity == rarity_letter
-                            if e.class_name == target_class_name
-                    )
-                    
-                    # Getting boots
-                    boots = next(
-                        e for e in equipments 
-                            if e.type == "boots"
-                            if e.rarity == rarity_letter
-                            if e.class_name == target_class_name
-                    )
-
-                    enemy.set_helmet(helmet)
-                    enemy.set_body(body)
-                    enemy.set_pants(pants)
-                    enemy.set_boots(boots)
+                    enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
 
                 # Assign the target value of the needed thing for this expedition_type
                 if self.expedition_type == "Combat":
@@ -754,7 +713,7 @@ init python:
             return
 
     class BossExpedition:
-        def __init__(self, regionNumber, title, description, successfulMinorExpeditionsRequired, stage):
+        def __init__(self, regionNumber, title, description, successfulMinorExpeditionsRequired):
             self.regionNumber = regionNumber
             self.title = title
             self.description = description
@@ -762,7 +721,7 @@ init python:
             self.successfulMinorExpeditions = 0
             self.assignedProtectorName = None
             self.status = "not assigned"
-            self.gold_received = stage * 300
+            self.gold_received = regionNumber * 300
             self.xp_received = self.gold_received * 2
 
         def assignProtector(self, protectorName):
@@ -777,8 +736,27 @@ init python:
 
         def startBossExpedition(self):
             my_protector = get_my_protector(self.assignedProtectorName)
-            # TODO: update this to use the actual enemy (after I create the enemy)
-            fight = Fight(my_protector, my_protector)
+            chosen_evolution_value = 0
+            if self.regionNumber * bossLevelPerStage >= 100:
+                chosen_evolution_value = 1
+            enemy = Protector(self.title, self.regionNumber, self.regionNumber * bossLevelPerStage, "expedition_boss_status", expeditions_bosses_base_data, chosen_evolution_value)
+            
+            maxDifficulty = bossLevelPerStage * 10
+
+            # calculating rarity of weapon
+            rarity_number = int(enemy.level * len(rank_multipliers) / maxDifficulty)
+
+            enemy = enemy_equip_weapon(enemy, rarity_number)
+            
+            # Getting equipments
+            if rarity_number >= 0:
+                if self.title == "The Mireborn Tyrant":
+                    target_class_name = "Tank"
+
+                enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
+
+            enemy.refresh_stats()
+            fight = Fight(my_protector, enemy, self)
             renpy.hide_screen("expedition_screen")
             renpy.show_screen("boss_expedition", self, fight)
             return
@@ -996,31 +974,131 @@ init python:
             online_shop_new_equipments = True
 
     class Fight:
-        def __init__(self, protector, enemy):
+        def __init__(self, protector, enemy, boss_expedition):
             self.protector = copy.deepcopy(protector)
             self.enemy = copy.deepcopy(enemy)
+            self.boss_expedition = boss_expedition
             self.protector_defend = False
             self.enemy_defend = False
+            self.battle_message = "The battle is about to beggin!"
+            self.protector_time_until_atack = None
+            self.enemy_time_until_atack = None
+            self.message_turn = True
+            self.your_turn = False
 
         def protector_attack_enemy(self):
             damage = self.protector.get_damage_points()
             if self.enemy_defend == True:
                 damage = int(damage / 2)
+                self.enemy_defend = False
             self.enemy.hp -= damage
+            self.enemy_time_until_atack -= self.protector_time_until_atack
+            self.protector_time_until_atack = 1 / self.protector.get_attack_speed()
+            self.battle_message = fight_thinking_message
+            
+            # checking if protector killed enemy
+            if self.enemy.hp <= 0:
+                self.battle_message = fight_victory_message
+            self.continue_fight()
             return
 
         def enemy_attack_protector(self):
             damage = self.enemy.get_damage_points()
             if self.protector_defend == True:
                 damage = int(damage / 2)
+                self.protector_defend = False
             self.protector.hp -= damage
+            self.protector_time_until_atack -= self.enemy_time_until_atack
+            self.enemy_time_until_atack = 1 / self.enemy.get_attack_speed()
+            self.battle_message = fight_thinking_message
+
+            # checking if enemy killed protector            
+            if self.protector.hp <= 0:
+                self.battle_message = fight_defeat_message
+            self.continue_fight()
             return
 
         def protector_defend_enemy(self):
             self.protector_defend = True
+            self.enemy_time_until_atack -= self.protector_time_until_atack
+            self.protector_time_until_atack = 1 / self.protector.get_attack_speed()
+            self.battle_message = fight_thinking_message
+            self.continue_fight()
             return
 
         def enemy_defend_protector(self):
             self.enemy_defend = True
+            self.protector_time_until_atack -= self.enemy_time_until_atack
+            self.enemy_time_until_atack = 1 / self.enemy.get_attack_speed()
+            self.battle_message = fight_thinking_message
+            self.continue_fight()
+            return
+
+        def continue_fight(self):
+            if self.battle_message == "The battle is about to beggin!":
+                # lets calculate who should be the first to attack!
+                protector_timer = 0
+                enemy_timer = 0
+                # get the protector range type
+                protector_range_type = self.protector.basePoints.unarmed_range
+                if self.protector.equipedWeapon != None:
+                    protector_range_type = self.protector.equipedWeapon.range
+
+                if protector_range_type == "Melee":
+                    protector_timer += melee_starting_period
+                elif protector_range_type == "Ranged":
+                    protector_timer += ranged_starting_period
+                
+                # get the enemy range type
+                enemy_range_type = self.enemy.basePoints.unarmed_range
+                if self.protector.equipedWeapon != None:
+                    enemy_range_type = self.enemy.equipedWeapon.range
+
+                if enemy_range_type == "Melee":
+                    enemy_timer += melee_starting_period
+                elif enemy_range_type == "Ranged":
+                    enemy_timer += ranged_starting_period
+                
+                # get the time remaining for the protector
+                protector_remaining_time = start_fight_timer_period - protector_timer
+
+                # get the time until atack
+                self.protector_time_until_atack = protector_remaining_time / self.protector.get_speed()
+                
+                # get the time remaining for the enemy
+                enemy_remaining_time = start_fight_timer_period - enemy_timer
+
+                # get the time until atack
+                self.enemy_time_until_atack = enemy_remaining_time / self.enemy.get_speed()
+
+                if self.protector_time_until_atack <= self.enemy_time_until_atack:
+                    self.battle_message = "It's your turn"
+                    self.your_turn = True
+                else: 
+                    self.battle_message = "It's the enemy turn"
+                    self.your_turn = False
+
+                # now that we got who should be the first to attack, let's reset both attack speeds
+                self.protector_time_until_atack = self.protector.get_attack_speed()
+                self.enemy_time_until_atack = self.enemy.get_attack_speed()
+                
+            if self.battle_message == "It's the enemy turn":
+                self.your_turn = False
+                self.enemy_attack_protector()
+            if self.battle_message == fight_thinking_message:
+                if self.protector_time_until_atack <= self.enemy_time_until_atack:
+                    self.battle_message = "It's your turn"
+                    self.your_turn = True
+                else: 
+                    self.battle_message = "It's the enemy turn"
+                    self.your_turn = False
+
+            if self.battle_message == fight_victory_message:
+                # TODO: add xp and so on
+                self.battle_message = fight_victory_message
+                
+            if self.battle_message == fight_defeat_message:
+                self.boss_expedition.returnFromBossExpedition()
+                
             return
             

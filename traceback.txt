@@ -15,21 +15,6 @@ While running game code:
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 15, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -42,11 +27,6 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -57,26 +37,16 @@ While running game code:
     call see_expeditions_for_region(1)
   File "game/base_of_operations.rpy", line 74, in script
     call screen expedition_screen(regionNumber)
-  File "game/screens.rpy", line 3638, in execute
-    screen boss_expedition(bossExpedition, fight):
-  File "game/screens.rpy", line 3638, in execute
-    screen boss_expedition(bossExpedition, fight):
-  File "game/screens.rpy", line 3640, in execute
-    frame:
-  File "game/screens.rpy", line 3648, in execute
-    fixed:
-  File "game/screens.rpy", line 3656, in execute
-    fixed:
-  File "game/screens.rpy", line 3662, in execute
-    vbox:
-  File "game/screens.rpy", line 3666, in execute
-    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 3666, in keywords
-    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 3666, in <module>
-    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
-               ~~~~~~~~~~~~~~^^~                                                     
-TypeError: 'int' object is not callable
+  File "game/classes.rpy", line 1087, in continue_fight
+    self.enemy_attack_protector()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 1018, in enemy_attack_protector
+    self.continue_fight()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 1101, in continue_fight
+    boss_expedition.returnFromBossExpedition()
+    ^^^^^^^^^^^^^^^                           
+NameError: name 'boss_expedition' is not defined. Did you mean: 'self.boss_expedition'?
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -95,21 +65,6 @@ Traceback (most recent call last):
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 15, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -122,11 +77,6 @@ Traceback (most recent call last):
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -165,58 +115,60 @@ Traceback (most recent call last):
         ^^^^^^^^^
     )  # type: ignore
     ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3638, in execute
-    screen boss_expedition(bossExpedition, fight):
-  File "game/screens.rpy", line 3638, in execute
-    screen boss_expedition(bossExpedition, fight):
-  File "game/screens.rpy", line 3640, in execute
-    frame:
-  File "game/screens.rpy", line 3648, in execute
-    fixed:
-  File "game/screens.rpy", line 3656, in execute
-    fixed:
-  File "game/screens.rpy", line 3662, in execute
-    vbox:
-  File "game/screens.rpy", line 3666, in execute
-    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
-  File "game/screens.rpy", line 3666, in keywords
-    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3666, in <module>
-    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
-               ~~~~~~~~~~~~~~^^~                                                     
-TypeError: 'int' object is not callable
+  File "renpy/display/core.py", line 3302, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 805, in event
+    rv = self.child.event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1508, in event
+    rv = super(Window, self).event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 273, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1184, in event
+    return handle_click(self.clicked)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1107, in handle_click
+    rv = run(action)
+         ~~~^^^^^^^^
+  File "renpy/display/behavior.py", line 411, in run
+    return action(*args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^
+  File "renpy/common/00action_other.rpy", line 618, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 1087, in continue_fight
+    self.enemy_attack_protector()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 1018, in enemy_attack_protector
+    self.continue_fight()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 1101, in continue_fight
+    boss_expedition.returnFromBossExpedition()
+    ^^^^^^^^^^^^^^^                           
+NameError: name 'boss_expedition' is not defined. Did you mean: 'self.boss_expedition'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Sun Sep 14 18:56:47 2025
+Sun Sep 14 23:59:19 2025

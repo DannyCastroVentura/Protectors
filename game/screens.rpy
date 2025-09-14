@@ -3703,11 +3703,21 @@ screen boss_expedition(bossExpedition, fight):
                     bar value enemy.get_mana_points() range enemy.get_mana_points() style "mana_bar"
                     text "[enemy.get_mana_points()] / [enemy.get_mana_points()]" size 20 color "#DDD"
             vbox:
-                yalign 0.5
+                yalign 1.0
                 xalign 1.0
                 spacing 50
-                
-                text "Showing in the right the bad man"
+                ymaximum 900
+                xmaximum 500
+                vbox:
+                    yalign 1.0
+                    xalign 0.5
+                    spacing 5
+                    # Adding protector image
+                    python:
+                        image_path = getImage("images/expedition_bosses/" + str(enemy.name) + '/1')
+                        if image_path:
+                            ui.at(fit_to_screen_height)
+                            ui.add(image_path)
             vbox:
                 yalign 0.5
                 xalign 0.5
@@ -3728,7 +3738,7 @@ screen boss_expedition(bossExpedition, fight):
                             yalign 0.5  # vertical center
                             spacing 5
                             text "Attack"
-                    action Function(fight.protector_attack_enemy)
+                    action Function(fight.protector_attack_enemy) sensitive fight.your_turn
                 
                 button:
                     frame:
@@ -3739,7 +3749,7 @@ screen boss_expedition(bossExpedition, fight):
                             yalign 0.5  # vertical center
                             spacing 5
                             text "Defend"
-                    action Function(fight.protector_defend_enemy)
+                    action Function(fight.protector_defend_enemy) sensitive fight.your_turn
                 
                 button:
                     frame:
@@ -3750,4 +3760,23 @@ screen boss_expedition(bossExpedition, fight):
                             yalign 0.5  # vertical center
                             spacing 5
                             text "Flee"
-                    action Function(bossExpedition.returnFromBossExpedition) xalign 0.5
+                    action Function(bossExpedition.returnFromBossExpedition) sensitive fight.your_turn
+
+            vbox:
+                spacing 20
+                xalign 0.5
+                yalign 0.8
+                text fight.battle_message color "#FFF" xalign 0.5
+                textbutton "Click to continue..." text_size 30 action Function(fight.continue_fight) sensitive fight.message_turn xalign 0.5
+                hbox:
+                    spacing 20
+                    if fight.protector_time_until_atack != None:
+                        text str(fight.protector_time_until_atack) color "#FFF" xalign 0.5
+                    
+                    if fight.enemy_time_until_atack != None:
+                        text str(fight.enemy_time_until_atack) color "#FFF" xalign 0.5
+                hbox:
+                    spacing 20
+                    text str(fight.protector.get_attack_speed()) color "#FFF" xalign 0.5
+                    
+                    text str(fight.enemy.get_attack_speed()) color "#FFF" xalign 0.5

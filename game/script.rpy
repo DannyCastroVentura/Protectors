@@ -143,19 +143,19 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: create the equipments for Moral and Political -> for the normal expeditions
+    # 
+    # 
+    # 
     # TODO: create the screen for the time based combat
-    #   -   complete whats left in the screen
-    #   -   add some text about the actions
-    #   -   -   ex:
-    #   -   -   -   Your turn!
-    #   -   -   -   You choosed Atack!
-    #   -   -   -   Enemy turn!
-    #   -   -   -   Enemy choosed Atack!
-    #   -   -   -   Your turn! - and so on
     #   -   add the probabilities for the enemy to do things
     #   -   -   ex:
     #   -   -   -   70% - atack
     #   -   -   -   30% - defend
+    #   -   improve frontend when we lose - should we also really kill the protector? I think its a good idea, to improve reality
+    #   -   improve frontend when we flee
+    #   -   create logic for when we won
+    #   -   also make the defense attribute to play a role when receiving damage
     #
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance
@@ -165,8 +165,8 @@ label start:
     # TODO: [ PRIO 1 ] finalize the expeditions
     #   -   create enemies for the stage expeditions
     #   -   work on the frame to have the turned base combat
-    #   -   -   the ranged persons should have more 25 points of being the one to start, melee have 10 points - as the battle beggins when they both reach 40 for example.
-    #   -   -   for this speed should be the differenciator and once any of them reach 40 - the person who reached 40 first starts to deal damage.
+    #   -   -   the ranged persons should have 50 points of being the one to start, melee have 10 points - as the battle beggins when they both reach 40 for example.
+    #   -   -   for this speed should be the differenciator and once any of them reach 100 - the person who reached 100 first starts to deal damage.
     #   -   -   when dealing damage, a button should show for "Atack" - later on I can update this button show other options, like speels, and defend, or something like this
     #   -   -   then it should reset the calculations for the one who dealt damage, and the other should continue
     #   -   -   when dealing damage, we should decrease the health of the other - I also need to check how would defense work on here..

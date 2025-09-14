@@ -1,5 +1,6 @@
 default my_protectors_map = {}
 default expeditions_enemies_base_data = {}
+default expeditions_bosses_base_data = {}
 default protectors_base_information = {}
 default allExpeditions = []
 default bossExpeditions = []
@@ -22,6 +23,9 @@ init python:
 
     if 'expeditions_enemies_base_data' not in globals():
         expeditions_enemies_base_data = {}
+
+    if 'expeditions_bosses_base_data' not in globals():
+        expeditions_bosses_base_data = {}
 
     if 'protectors_base_information' not in globals():
         protectors_base_information = {}
@@ -429,3 +433,65 @@ init python:
         renpy.notify(f"You’ve purchased a new protector: {protector.name}")
         protector.stillAvailable = False
         return
+
+    def enemy_equip_weapon(enemy, rarity_number):
+        if rarity_number >= 0:
+            # getting the letter for the rarity
+            rank_multipliers_array = {v: k for k, v in rank_multipliers.items()}
+            rarity_letter = rank_multipliers_array[rarity_number]
+        else:
+            rarity_letter = "E"
+
+        # Getting a weapon for the weapon
+        #   -   it needs to be of the type that the enemy can use
+        #   -   also needs to be according to the rarity he should use
+        weapon = next(
+            w for w in weapons 
+                if w.type == enemy.basePoints.usable_weapon_types[0]
+                if w.rarity == rarity_letter 
+        )
+
+        enemy.set_weapon(weapon)
+        return enemy
+
+
+    def enemy_equip_equipments(enemy, rarity_number, target_class_name):
+        rank_multipliers_array = {v: k for k, v in rank_multipliers.items()}
+        rarity_letter = rank_multipliers_array[rarity_number]
+        # Getting a helmet
+        helmet = next(
+            e for e in equipments 
+                if e.type == "helmet"
+                if e.rarity == rarity_letter
+                if e.class_name == target_class_name
+        )
+
+        # Getting a body armor
+        body = next(
+            e for e in equipments 
+                if e.type == "body"
+                if e.rarity == rarity_letter
+                if e.class_name == target_class_name
+        )
+
+        # Getting pants
+        pants = next(
+            e for e in equipments 
+                if e.type == "pants"
+                if e.rarity == rarity_letter
+                if e.class_name == target_class_name
+        )
+        
+        # Getting boots
+        boots = next(
+            e for e in equipments 
+                if e.type == "boots"
+                if e.rarity == rarity_letter
+                if e.class_name == target_class_name
+        )
+
+        enemy.set_helmet(helmet)
+        enemy.set_body(body)
+        enemy.set_pants(pants)
+        enemy.set_boots(boots)
+        return enemy

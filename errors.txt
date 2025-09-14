@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 1007: expected ':'
-    if enemy_defend == True
-                               ^
+File "game/classes.rpy", line 1103: expected an indented block after 'if' statement on line 1100
+    return
+        ^^^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sun Sep 14 19:01:37 2025
+Sun Sep 14 23:57:39 2025
