@@ -774,9 +774,13 @@ init python:
             return
 
         def startBossExpedition(self):
-            # TODO
-            # open a new screen for handling the fight
+            renpy.hide_screen("expedition_screen")
+            renpy.show_screen("boss_expedition", self)
             return
+
+        def returnFromBossExpedition(self):
+            renpy.hide_screen("boss_expedition")
+            renpy.jump("resting_area")
 
 
     # RARITY COLORS:
@@ -949,7 +953,6 @@ init python:
                 aux += 1
             return results
         
-        # TODO: also make the protector to have its default weapon equiped
         def get_protectors_for_sale(self):
             global protectors_base_information
             global weapons

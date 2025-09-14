@@ -14,6 +14,7 @@ default CClassColor = "#1E90FF"
 default DClassColor = "#32CD32"
 default EClassColor = "#A9A9A9"
 default black_see_through_color = "#000000f8"
+default black_color = "#000000ff"
 
 init python:
     if 'mc_name' not in globals():
@@ -142,11 +143,10 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: update the Boss Expeditions text button - make it have different colors
-    # 
-    # TODO: also make the different expeditions to have an hover color
-    # 
     # TODO: create the screen for the time based combat
+    #   -   complete whats left in the screen
+    #   -   create the bosses for the expeditions (images, and enemies it self)
+    #   -   add the enemy to the screen, as all his data
     #
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance

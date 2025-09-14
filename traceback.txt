@@ -11,16 +11,6 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
   File "game/places.rpy", line 33, in script call
@@ -37,21 +27,6 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-[Previous line repeated 2 more times]
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
   File "game/places.rpy", line 33, in script call
@@ -64,30 +39,48 @@ While running game code:
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 25, in script call
     call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 25, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 25, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 25, in script call
+    call see_expeditions_for_region(1)
   File "game/base_of_operations.rpy", line 74, in script
     call screen expedition_screen(regionNumber)
-  File "game/screens.rpy", line 3247, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3247, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3257, in execute
+  File "game/screens.rpy", line 3628, in execute
+    screen boss_expedition(bossExpedition):
+  File "game/screens.rpy", line 3628, in execute
+    screen boss_expedition(bossExpedition):
+  File "game/screens.rpy", line 3629, in execute
     frame:
-  File "game/screens.rpy", line 3264, in execute
+  File "game/screens.rpy", line 3637, in execute
+    fixed:
+  File "game/screens.rpy", line 3645, in execute
     vbox:
-  File "game/screens.rpy", line 3267, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3458, in execute
-    vbox:
-  File "game/screens.rpy", line 3502, in execute
-    if selected_boss_expedition.assignedProtectorName == None:
-  File "game/screens.rpy", line 3503, in execute
-    hbox:
-  File "game/screens.rpy", line 3506, in execute
-    for protector in available_protectors:
-  File "game/screens.rpy", line 3506, in <module>
-    for protector in available_protectors:
-                     ^^^^^^^^^^^^^^^^^^^^ 
-NameError: name 'available_protectors' is not defined
+  File "game/screens.rpy", line 3651, in execute
+    python:
+  File "game/screens.rpy", line 3652, in <module>
+    image_name = my_protector.stage
+                 ^^^^^^^^^^^^      
+NameError: name 'my_protector' is not defined. Did you mean: 'Protector'?
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -102,16 +95,6 @@ Traceback (most recent call last):
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
   File "game/places.rpy", line 33, in script call
@@ -132,21 +115,30 @@ Traceback (most recent call last):
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-[Previous line repeated 2 more times]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 70, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 44, in script call
+  File "game/base_of_operations.rpy", line 25, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 25, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 25, in script call
+    call see_expeditions_for_region(1)
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -209,36 +201,24 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3247, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3247, in execute
-    screen expedition_screen(regionNumber):
-  File "game/screens.rpy", line 3257, in execute
+  File "game/screens.rpy", line 3628, in execute
+    screen boss_expedition(bossExpedition):
+  File "game/screens.rpy", line 3628, in execute
+    screen boss_expedition(bossExpedition):
+  File "game/screens.rpy", line 3629, in execute
     frame:
-  File "game/screens.rpy", line 3264, in execute
+  File "game/screens.rpy", line 3637, in execute
+    fixed:
+  File "game/screens.rpy", line 3645, in execute
     vbox:
-  File "game/screens.rpy", line 3267, in execute
-    if mode == "list":
-  File "game/screens.rpy", line 3458, in execute
-    vbox:
-  File "game/screens.rpy", line 3502, in execute
-    if selected_boss_expedition.assignedProtectorName == None:
-  File "game/screens.rpy", line 3503, in execute
-    hbox:
-  File "game/screens.rpy", line 3506, in execute
-    for protector in available_protectors:
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3506, in <module>
-    for protector in available_protectors:
-                     ^^^^^^^^^^^^^^^^^^^^ 
-NameError: name 'available_protectors' is not defined
+  File "game/screens.rpy", line 3651, in execute
+    python:
+  File "game/screens.rpy", line 3652, in <module>
+    image_name = my_protector.stage
+                 ^^^^^^^^^^^^      
+NameError: name 'my_protector' is not defined. Did you mean: 'Protector'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Sep  9 14:51:51 2025
+Sun Sep 14 16:57:14 2025

@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 3309: 'padding' is not a keyword argument or valid child of the vbox statement.
-    padding (10, 10)
-           ^
+File "game/screens.rpy", line 3661: keyword argument 'yalign' appears more than once in a vbox statement.
+    yalign 1.0
+          ^
+
+File "game/screens.rpy", line 3660: invalid syntax
+    ui.add(image_path)vbox:
+                                          ^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Sep  9 16:29:05 2025
+Sun Sep 14 17:07:13 2025
