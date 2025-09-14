@@ -145,8 +145,17 @@ label start:
     # 
     # TODO: create the screen for the time based combat
     #   -   complete whats left in the screen
-    #   -   create the bosses for the expeditions (images, and enemies it self)
-    #   -   add the enemy to the screen, as all his data
+    #   -   add some text about the actions
+    #   -   -   ex:
+    #   -   -   -   Your turn!
+    #   -   -   -   You choosed Atack!
+    #   -   -   -   Enemy turn!
+    #   -   -   -   Enemy choosed Atack!
+    #   -   -   -   Your turn! - and so on
+    #   -   add the probabilities for the enemy to do things
+    #   -   -   ex:
+    #   -   -   -   70% - atack
+    #   -   -   -   30% - defend
     #
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance

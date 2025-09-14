@@ -476,8 +476,8 @@ screen protector_detail_screen(my_protector):
                 vbox:
                     xalign 0.5
                     spacing 20
-                    bar value my_protector.get_health_points() range my_protector.get_health_points() style "hp_bar"
-                    text "[my_protector.get_health_points()] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                    bar value my_protector.hp range my_protector.get_health_points() style "hp_bar"
+                    text "[my_protector.hp] / [my_protector.get_health_points()]" size 20 color "#DDD"
                     bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
                     text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
                     bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"

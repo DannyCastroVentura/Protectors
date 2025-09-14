@@ -15,6 +15,21 @@ While running game code:
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
+[Previous line repeated 1 more time]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 70, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 15, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -31,30 +46,7 @@ While running game code:
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
+[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -65,22 +57,26 @@ While running game code:
     call see_expeditions_for_region(1)
   File "game/base_of_operations.rpy", line 74, in script
     call screen expedition_screen(regionNumber)
-  File "game/screens.rpy", line 3628, in execute
-    screen boss_expedition(bossExpedition):
-  File "game/screens.rpy", line 3628, in execute
-    screen boss_expedition(bossExpedition):
-  File "game/screens.rpy", line 3629, in execute
+  File "game/screens.rpy", line 3638, in execute
+    screen boss_expedition(bossExpedition, fight):
+  File "game/screens.rpy", line 3638, in execute
+    screen boss_expedition(bossExpedition, fight):
+  File "game/screens.rpy", line 3640, in execute
     frame:
-  File "game/screens.rpy", line 3637, in execute
+  File "game/screens.rpy", line 3648, in execute
     fixed:
-  File "game/screens.rpy", line 3645, in execute
+  File "game/screens.rpy", line 3656, in execute
+    fixed:
+  File "game/screens.rpy", line 3662, in execute
     vbox:
-  File "game/screens.rpy", line 3651, in execute
-    python:
-  File "game/screens.rpy", line 3652, in <module>
-    image_name = my_protector.stage
-                 ^^^^^^^^^^^^      
-NameError: name 'my_protector' is not defined. Did you mean: 'Protector'?
+  File "game/screens.rpy", line 3666, in execute
+    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
+  File "game/screens.rpy", line 3666, in keywords
+    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
+  File "game/screens.rpy", line 3666, in <module>
+    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
+               ~~~~~~~~~~~~~~^^~                                                     
+TypeError: 'int' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -99,6 +95,21 @@ Traceback (most recent call last):
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
+[Previous line repeated 1 more time]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 70, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 15, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -115,30 +126,7 @@ Traceback (most recent call last):
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 35, in script call
-    call base_travel_menu()
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 5, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 25, in script call
-    call see_expeditions_for_region(1)
+[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -201,24 +189,34 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3628, in execute
-    screen boss_expedition(bossExpedition):
-  File "game/screens.rpy", line 3628, in execute
-    screen boss_expedition(bossExpedition):
-  File "game/screens.rpy", line 3629, in execute
+  File "game/screens.rpy", line 3638, in execute
+    screen boss_expedition(bossExpedition, fight):
+  File "game/screens.rpy", line 3638, in execute
+    screen boss_expedition(bossExpedition, fight):
+  File "game/screens.rpy", line 3640, in execute
     frame:
-  File "game/screens.rpy", line 3637, in execute
+  File "game/screens.rpy", line 3648, in execute
     fixed:
-  File "game/screens.rpy", line 3645, in execute
+  File "game/screens.rpy", line 3656, in execute
+    fixed:
+  File "game/screens.rpy", line 3662, in execute
     vbox:
-  File "game/screens.rpy", line 3651, in execute
-    python:
-  File "game/screens.rpy", line 3652, in <module>
-    image_name = my_protector.stage
-                 ^^^^^^^^^^^^      
-NameError: name 'my_protector' is not defined. Did you mean: 'Protector'?
+  File "game/screens.rpy", line 3666, in execute
+    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
+  File "game/screens.rpy", line 3666, in keywords
+    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
+  File "renpy/python.py", line 1292, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1285, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 3666, in <module>
+    bar value my_protector.hp() range my_protector.get_health_points() style "hp_bar"
+               ~~~~~~~~~~~~~~^^~                                                     
+TypeError: 'int' object is not callable
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Sun Sep 14 16:57:14 2025
+Sun Sep 14 18:56:47 2025

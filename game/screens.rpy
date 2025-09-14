@@ -1713,6 +1713,16 @@ style background_expedition_button:
     padding (10, 5)
     xalign 0.5
 
+style square_button:
+    xminimum 200
+    yminimum 200
+    xmaximum 200
+    ymaximum 200
+    background "#a5a5a5"
+    hover_background "#666"
+    size 20
+
+
 screen my_weapons_screen():
     frame:
         modal True
@@ -3625,8 +3635,9 @@ screen online_shop():
             textbutton "Return" action Return() xalign 0.5 text_style text_style_back_button
 
 
-screen boss_expedition(bossExpedition):
-    $ my_protector = get_my_protector(bossExpedition.assignedProtectorName)
+screen boss_expedition(bossExpedition, fight):
+    $ my_protector = fight.protector
+    $ enemy = fight.enemy
     frame:
         modal True
         background Solid(black_color)
@@ -3643,37 +3654,54 @@ screen boss_expedition(bossExpedition):
                 yalign 0.1
                 xalign 0.5
                 text "[bossExpedition.title]" size 50 color "#FFF" xalign 0.5
-            vbox:
+            fixed:
                 yalign 0.0
                 xalign 0.0
-                spacing 50
-                ymaximum 250
+                spacing 5
+                ymaximum 200
                 
-                null height 20
-                text "Showing protector life and mana bars"
-            vbox:
+                vbox:
+                    yalign 1.0
+                    xalign 0.0
+                    spacing 5
+                    bar value my_protector.hp range my_protector.get_health_points() style "hp_bar"
+                    text "[my_protector.hp] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                    bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
+                    text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
+            fixed:
                 yalign 1.0
                 xalign 0.0
                 spacing 50
                 ymaximum 900
+                xmaximum 500
                 
-                # Adding protector image
-                python:
-                    image_name = my_protector.stage
-                    if my_protector.stage >= 5:
-                        image_name = str(my_protector.stage) + "_" + str(my_protector.chosen_evolution)
-                    image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
-                    if image_path:
-                        ui.at(fit_to_screen_height)
-                        ui.add(image_path)
-            vbox:
+                vbox:
+                    yalign 1.0
+                    xalign 0.5
+                    spacing 5
+                    # Adding protector image
+                    python:
+                        image_name = my_protector.stage
+                        if my_protector.stage >= 5:
+                            image_name = str(my_protector.stage) + "_" + str(my_protector.chosen_evolution)
+                        image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
+                        if image_path:
+                            ui.at(fit_to_screen_height)
+                            ui.add(image_path)
+            fixed:
                 yalign 0.0
                 xalign 1.0
                 spacing 50
-                ymaximum 250
+                ymaximum 200
                 
-                null height 20
-                text "Showing bad man life and mana bars"
+                vbox:
+                    yalign 1.0
+                    xalign 1.0
+                    spacing 5
+                    bar value enemy.hp range enemy.get_health_points() style "hp_bar"
+                    text "[enemy.hp] / [enemy.get_health_points()]" size 20 color "#DDD"
+                    bar value enemy.get_mana_points() range enemy.get_mana_points() style "mana_bar"
+                    text "[enemy.get_mana_points()] / [enemy.get_mana_points()]" size 20 color "#DDD"
             vbox:
                 yalign 0.5
                 xalign 1.0
@@ -3685,10 +3713,41 @@ screen boss_expedition(bossExpedition):
                 xalign 0.5
                 spacing 50
                 
-                text "Showing the options"
-                
+
+            # Top row: two buttons
             hbox:
                 spacing 20
                 xalign 0.5
-                yalign 0.99
-                textbutton "Return" action Function(bossExpedition.returnFromBossExpedition) xalign 0.5
+                yalign 0.5
+                button:
+                    frame:
+                        style "square_button"
+                        padding (10, 10)
+                        vbox:
+                            xalign 0.5  # horizontal center
+                            yalign 0.5  # vertical center
+                            spacing 5
+                            text "Attack"
+                    action Function(fight.protector_attack_enemy)
+                
+                button:
+                    frame:
+                        style "square_button"
+                        padding (10, 10)
+                        vbox:
+                            xalign 0.5  # horizontal center
+                            yalign 0.5  # vertical center
+                            spacing 5
+                            text "Defend"
+                    action Function(fight.protector_defend_enemy)
+                
+                button:
+                    frame:
+                        style "square_button"
+                        padding (10, 10)
+                        vbox:
+                            xalign 0.5  # horizontal center
+                            yalign 0.5  # vertical center
+                            spacing 5
+                            text "Flee"
+                    action Function(bossExpedition.returnFromBossExpedition) xalign 0.5

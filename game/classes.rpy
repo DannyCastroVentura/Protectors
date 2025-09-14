@@ -96,6 +96,7 @@ init python:
                 while aux <= self.level:
                     self.leveling_up()
                     aux += 1
+            self.hp = self.get_health_points()
 
         def adding_not_available_counter(self):
             self.not_available_counter += 1
@@ -114,6 +115,7 @@ init python:
                 attribute = self.basePoints.increasing_list.pop(0)
                 self.basePoints.increase_attribute(attribute)
                 self.basePoints.increasing_list.append(attribute)
+            self.hp = self.get_health_points()
         
         def increasing_xp(self, incoming_xp):
             if self.level / 20 > (self.stage):
@@ -774,8 +776,11 @@ init python:
             return
 
         def startBossExpedition(self):
+            my_protector = get_my_protector(self.assignedProtectorName)
+            # TODO: update this to use the actual enemy (after I create the enemy)
+            fight = Fight(my_protector, my_protector)
             renpy.hide_screen("expedition_screen")
-            renpy.show_screen("boss_expedition", self)
+            renpy.show_screen("boss_expedition", self, fight)
             return
 
         def returnFromBossExpedition(self):
@@ -989,3 +994,33 @@ init python:
             online_shop_new_protectors = True
             online_shop_new_weapons = True
             online_shop_new_equipments = True
+
+    class Fight:
+        def __init__(self, protector, enemy):
+            self.protector = copy.deepcopy(protector)
+            self.enemy = copy.deepcopy(enemy)
+            self.protector_defend = False
+            self.enemy_defend = False
+
+        def protector_attack_enemy(self):
+            damage = self.protector.get_damage_points()
+            if self.enemy_defend == True:
+                damage = int(damage / 2)
+            self.enemy.hp -= damage
+            return
+
+        def enemy_attack_protector(self):
+            damage = self.enemy.get_damage_points()
+            if self.protector_defend == True:
+                damage = int(damage / 2)
+            self.protector.hp -= damage
+            return
+
+        def protector_defend_enemy(self):
+            self.protector_defend = True
+            return
+
+        def enemy_defend_protector(self):
+            self.enemy_defend = True
+            return
+            
