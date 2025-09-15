@@ -937,6 +937,7 @@ init python:
         
         def get_protectors_for_sale(self):
             global protectors_base_information
+            global my_protectors_map
             global weapons
             protectors_base_information_name_array = protectors_base_information.keys()
             my_protectors_array = my_protectors_map.keys()
@@ -971,6 +972,15 @@ init python:
             online_shop_new_protectors = True
             online_shop_new_weapons = True
             online_shop_new_equipments = True
+
+        def checkIfProtectorStillAvailable(self):
+            global my_protectors_map
+            my_protectors_array = my_protectors_map.keys()
+            for protector in self.selling_protectors_list:
+                if protector.name in my_protectors_array:
+                    protector.stillAvailable = False
+            return
+        
 
     class Fight:
         def __init__(self, protector, enemy, boss_expedition):

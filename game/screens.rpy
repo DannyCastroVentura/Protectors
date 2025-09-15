@@ -3209,6 +3209,11 @@ screen lucky_box_screen(box_type):
                             )
 
 screen online_shop():
+    
+    # # Check if I already have the protector
+    # #   -   if so, then it should not be available anymore
+    $ online_shop_variable.checkIfProtectorStillAvailable()
+
     default online_shop_show = "main_menu"
     default rarity_selected = "S"
     $ online_shop_color = "#FFF"
@@ -3575,6 +3580,7 @@ screen online_shop():
                     xalign 0.5
                     yalign 0.5
                     for protector_to_sell in online_shop_variable.selling_protectors_list:
+
                         $ image_name = protector_to_sell.stage
 
                         # Path to the image
