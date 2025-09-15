@@ -143,8 +143,9 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: make the equipments have different defense points - acording to the class
+    # 
     # TODO: make equipment for wisdom (priest suit)
-    #   -   get the images
     #   -   and create the equipments
     # 
     # TODO: also make an option to send the protectors to help the organization
@@ -152,7 +153,7 @@ label start:
     #   -   and they would also win xp (not much)
     # 
     # TODO: create the screen for the time based combat
-    #   -   on ending the battle a report should show - stating who won (ex: on victory, a victory panel should show)
+    #   -   on ending the battle a report should show - stating who won (ex: on victory, a victory panel should show) - copy the pane for the store, and use it for this victory / defeat panel
     #   -   same for flee
     #   -   same for losing
     #   -   what to show in the report?
