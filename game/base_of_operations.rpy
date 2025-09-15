@@ -4,10 +4,6 @@
         "Expeditions":
             call see_expeditions(1)
         "Check online shop":
-            # TODO: make this work -> online shop for some items
-            #   -   for this we would need to create a couple of items
-            #   -   and think of what could these items do :\
-            #   -   implement the logic
             call check_online_shop()
         "Go back":
             jump base_of_operations
@@ -72,9 +68,6 @@ label see_expeditions(page):
 label see_expeditions_for_region(regionNumber):
     $ set_background(f"regions/{regionNumber}")
     call screen expedition_screen(regionNumber)
-    # TODO: 
-    #   -   create the boss mission so I can unlock the next region
-    #   -   but first, I'll need to conclude the minor expeditions
     return
 
 label check_online_shop():

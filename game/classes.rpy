@@ -322,7 +322,6 @@ init python:
         def get_mana_points(self):
             return int(20 + self.get_intelligence() * 5 + self.get_wisdom() * 3)
 
-        # TODO: change this logic
         def get_damage_points(self):
             value = 0
             type_damage = 0.5

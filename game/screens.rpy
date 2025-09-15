@@ -3335,7 +3335,7 @@ screen online_shop():
                                 xalign 1.0
                                 yalign 0.0
                                 text "!" size 30 color "#f00" bold True
-                    
+
             if online_shop_show == "show_equipments":
                 
                 hbox:
@@ -3453,8 +3453,7 @@ screen online_shop():
                     text "|"
                     textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
                 textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
-                    
-            # TODO
+
             if online_shop_show == "show_weapons":
 
                 hbox:
@@ -3571,8 +3570,7 @@ screen online_shop():
                     text "|"
                     textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
                 textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
-                  
-            # TODO  
+
             if online_shop_show == "show_protectors":
                 
                 hbox:

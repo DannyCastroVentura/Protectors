@@ -143,52 +143,45 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: training is doing somehting wrong - error
-    # 
-    # TODO: create the equipments for Moral and Political -> for the normal expeditions
+    # TODO: make equipment for wisdom (priest suit)
+    #   -   get the images
+    #   -   and create the equipments
     # 
     # TODO: also make an option to send the protectors to help the organization
     #   -   this would make us earn weekly money
     #   -   and they would also win xp (not much)
     # 
     # TODO: create the screen for the time based combat
-    #   -   improve frontend when we flee
+    #   -   on ending the battle a report should show - stating who won (ex: on victory, a victory panel should show)
+    #   -   same for flee
+    #   -   same for losing
+    #   -   what to show in the report?
+    #   -   -   congratiolations message (or losing message)
+    #   -   -   gold won it was earned - in case of victory
+    #   -   -   what equipments we also got - in case of victory
+    #   -   -   -   final boss drops!
+    #   -   -   -   -   Region 10 - 2 A Equipment or Weapon
+    #   -   -   -   -   Region 9 - 1 A Equipment or Weapon
+    #   -   -   -   -   Region 8 - 2 B Equipment or Weapon
+    #   -   -   -   -   Region 7 - 1 B Equipment or Weapon
+    #   -   -   -   -   Region 6 - 2 C Equipment or Weapon
+    #   -   -   -   -   Region 5 - 1 C Equipment or Weapon
+    #   -   -   -   -   Region 4 - 2 D Equipment or Weapon
+    #   -   -   -   -   Region 3 - 1 D Equipment or Weapon
+    #   -   -   -   -   Region 2 - 2 E Equipment or Weapon
+    #   -   -   -   -   Region 1 - 1 E Equipment or Weapon
+    #   -   -   in case a next region was unlocked, we should also see that information
     #   -   create logic for when we won
-    #   -   also make the defense attribute to play a role when receiving damage
+    #   -   also make the critical chance with critical damage attribute to play a role when doing damage
+    #   -   also make the evasion attribute to play a role when receiving damage
     #   -   once the stage 1 is killed, then it should refresh the counting for the fight again, and unlock the new stage
+    #   -   add the option for spell
+    #   -   once the first stage expedition is done, we unlock another part of the game, which is the clashes (battles)
     #
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance
     #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
     #   -   -   depending on the difficulty of the mission, this change get's ligther -> we should divide the total chance by the number per each rank of the equipment/weapon
-    # 
-    # TODO: [ PRIO 1 ] finalize the expeditions
-    #   -   create enemies for the stage expeditions
-    #   -   work on the frame to have the turned base combat
-    #   -   -   the ranged persons should have 50 points of being the one to start, melee have 10 points - as the battle beggins when they both reach 40 for example.
-    #   -   -   for this speed should be the differenciator and once any of them reach 100 - the person who reached 100 first starts to deal damage.
-    #   -   -   when dealing damage, a button should show for "Atack" - later on I can update this button show other options, like speels, and defend, or something like this
-    #   -   -   then it should reset the calculations for the one who dealt damage, and the other should continue
-    #   -   -   when dealing damage, we should decrease the health of the other - I also need to check how would defense work on here..
-    #   -   -   once one of them dies, the battle ends.
-    #   -   -   then a report should show - stating who won (if protector, a victory panel should show first, if not, a defeat panel should show) 
-    #   -   -   -   the report will show how much gold it was earned, and what equipments we also got.
-    #   -   then it should open the next region
-    #   -   once the first stage expedition is done, we unlock another part of the game, which is the battles
-    #
-    # TODO: [ PRIO 1 ] start to work on the stage expeditions
-    #   -   once stage expedition is completed, we can go to the next region - and everything should be the same
-    #   -   final boss drops!
-    #   -   -   Region 10 - 2 A Equipment or Weapon
-    #   -   -   Region 9 - 1 A Equipment or Weapon
-    #   -   -   Region 8 - 2 B Equipment or Weapon
-    #   -   -   Region 7 - 1 B Equipment or Weapon
-    #   -   -   Region 6 - 2 C Equipment or Weapon
-    #   -   -   Region 5 - 1 C Equipment or Weapon
-    #   -   -   Region 4 - 2 D Equipment or Weapon
-    #   -   -   Region 3 - 1 D Equipment or Weapon
-    #   -   -   Region 2 - 2 E Equipment or Weapon
-    #   -   -   Region 1 - 1 E Equipment or Weapon
     # 
     # TODO: [ PRIO 1 ] once a expedition is finished should we show a report
     #   -   "This expeditions was completed, this protector got this xp and this money"
@@ -196,7 +189,7 @@ label start:
     #   -   also the reason
     # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
-    #   -   robot - this will be the tanky one (lets try it :) )
+    #   -   robot - this will be the tanky one ( lets try it :) )
     #   -   skeleton - dexterity based
     #   -   priest - this will use miracles
     #   -   lawyer - this will be good for charisma and political missions
@@ -205,16 +198,10 @@ label start:
     # 
     # TODO: [ PRIO 2 ] make the extra damage things to be dependent on the improvement bonus (like in dark souls 3)
     #   -   ex:     divine sword, should have a divine rank: C (ex) and then I would get these calculations on the get damage
-    #
-    # TODO: [ PRIO 2 ] work on Clashes
-    #   -   these should be turned base combat
-    #   -   let's start with only normal attacks - then we can start to think of adding spells (to use the mana from the protector)
     # 
     # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are expeditions_succeeded / expeditions_failed / expeditions_went -> I can also create a bar
     #   -   in case a evolution was already specified, we can also show the description once again
-    #
-    # TODO: [ PRIO 3 ] add equipment and things to improve charisma and wisdom
     # 
     # TODO: [ PRIO 4 ] make it possible to call nova
     #   -   make her also explain the things regarding the calculations for the different things (but this would need to be done only at the end of the game, as I'll be changing this pretty often - I assume)
