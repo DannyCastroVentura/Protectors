@@ -21,6 +21,7 @@
 
         # checking if the protector is much time not available
         for my_protector_name in my_protectors_map.keys():
+            my_protectors_map[my_protector_name].refresh_stats()
             if my_protectors_map[my_protector_name].status != "Available":
                 my_protectors_map[my_protector_name].adding_not_available_counter()
 

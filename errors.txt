@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 1103: expected an indented block after 'if' statement on line 1100
-    return
-        ^^^^^^
+File "game/classes.rpy", line 1100: invalid syntax
+    elif self.battle_message == fight_you_attacked_message or
+                                                                 ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sun Sep 14 23:57:39 2025
+Mon Sep 15 15:03:48 2025

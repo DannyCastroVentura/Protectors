@@ -1722,6 +1722,16 @@ style square_button:
     hover_background "#666"
     size 20
 
+style message_boss_expedition_textbutton:
+    color "#666"
+    hover_color "#ffffff"
+    xalign 0.5
+    yalign 0.5
+
+style message_boss_expedition_textbutton_your_turn:
+    color "#666"
+    xalign 0.5
+    yalign 0.5
 
 screen my_weapons_screen():
     frame:
@@ -3655,6 +3665,25 @@ screen boss_expedition(bossExpedition, fight):
                 xalign 0.5
                 text "[bossExpedition.title]" size 50 color "#FFF" xalign 0.5
             fixed:
+                yalign 1.0
+                xalign 0.0
+                spacing 50
+                ymaximum 850
+                
+                vbox:
+                    yalign 1.0
+                    xalign 0.0
+                    spacing 5
+                    # Adding protector image
+                    python:
+                        image_name = my_protector.stage
+                        if my_protector.stage >= 5:
+                            image_name = str(my_protector.stage) + "_" + str(my_protector.chosen_evolution)
+                        image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
+                        if image_path:
+                            ui.at(fit_to_screen_height)
+                            ui.add(image_path)
+            fixed:
                 yalign 0.0
                 xalign 0.0
                 spacing 5
@@ -3665,26 +3694,21 @@ screen boss_expedition(bossExpedition, fight):
                     xalign 0.0
                     spacing 5
                     bar value my_protector.hp range my_protector.get_health_points() style "hp_bar"
-                    text "[my_protector.hp] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                    text "[int(my_protector.hp)] / [my_protector.get_health_points()]" size 20 color "#DDD"
                     bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
                     text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
-            fixed:
+            vbox:
                 yalign 1.0
-                xalign 0.0
+                xalign 1.0
                 spacing 50
-                ymaximum 900
-                xmaximum 500
-                
+                ymaximum 850
                 vbox:
                     yalign 1.0
-                    xalign 0.5
+                    xalign 1.0
                     spacing 5
                     # Adding protector image
                     python:
-                        image_name = my_protector.stage
-                        if my_protector.stage >= 5:
-                            image_name = str(my_protector.stage) + "_" + str(my_protector.chosen_evolution)
-                        image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
+                        image_path = getImage("images/expedition_bosses/" + str(enemy.name) + '/1')
                         if image_path:
                             ui.at(fit_to_screen_height)
                             ui.add(image_path)
@@ -3699,84 +3723,55 @@ screen boss_expedition(bossExpedition, fight):
                     xalign 1.0
                     spacing 5
                     bar value enemy.hp range enemy.get_health_points() style "hp_bar"
-                    text "[enemy.hp] / [enemy.get_health_points()]" size 20 color "#DDD"
+                    text "[int(enemy.hp)] / [enemy.get_health_points()]" size 20 color "#DDD"
                     bar value enemy.get_mana_points() range enemy.get_mana_points() style "mana_bar"
                     text "[enemy.get_mana_points()] / [enemy.get_mana_points()]" size 20 color "#DDD"
             vbox:
-                yalign 1.0
-                xalign 1.0
+                yalign 0.5
+                xalign 0.5
                 spacing 50
-                ymaximum 900
-                xmaximum 500
-                vbox:
-                    yalign 1.0
+                
+            if fight.your_turn == True:
+                # Top row: two buttons
+                hbox:
+                    spacing 20
                     xalign 0.5
-                    spacing 5
-                    # Adding protector image
-                    python:
-                        image_path = getImage("images/expedition_bosses/" + str(enemy.name) + '/1')
-                        if image_path:
-                            ui.at(fit_to_screen_height)
-                            ui.add(image_path)
-            vbox:
-                yalign 0.5
-                xalign 0.5
-                spacing 50
-                
-
-            # Top row: two buttons
-            hbox:
-                spacing 20
-                xalign 0.5
-                yalign 0.5
-                button:
-                    frame:
-                        style "square_button"
-                        padding (10, 10)
-                        vbox:
-                            xalign 0.5  # horizontal center
-                            yalign 0.5  # vertical center
-                            spacing 5
-                            text "Attack"
-                    action Function(fight.protector_attack_enemy) sensitive fight.your_turn
-                
-                button:
-                    frame:
-                        style "square_button"
-                        padding (10, 10)
-                        vbox:
-                            xalign 0.5  # horizontal center
-                            yalign 0.5  # vertical center
-                            spacing 5
-                            text "Defend"
-                    action Function(fight.protector_defend_enemy) sensitive fight.your_turn
-                
-                button:
-                    frame:
-                        style "square_button"
-                        padding (10, 10)
-                        vbox:
-                            xalign 0.5  # horizontal center
-                            yalign 0.5  # vertical center
-                            spacing 5
-                            text "Flee"
-                    action Function(bossExpedition.returnFromBossExpedition) sensitive fight.your_turn
-
-            vbox:
-                spacing 20
-                xalign 0.5
-                yalign 0.8
-                text fight.battle_message color "#FFF" xalign 0.5
-                textbutton "Click to continue..." text_size 30 action Function(fight.continue_fight) sensitive fight.message_turn xalign 0.5
-                hbox:
-                    spacing 20
-                    if fight.protector_time_until_atack != None:
-                        text str(fight.protector_time_until_atack) color "#FFF" xalign 0.5
+                    yalign 0.5
+                    button:
+                        frame:
+                            style "square_button"
+                            padding (10, 10)
+                            vbox:
+                                xalign 0.5  # horizontal center
+                                yalign 0.5  # vertical center
+                                spacing 5
+                                text "Attack"
+                        action Function(fight.protector_attack_enemy)
                     
-                    if fight.enemy_time_until_atack != None:
-                        text str(fight.enemy_time_until_atack) color "#FFF" xalign 0.5
-                hbox:
-                    spacing 20
-                    text str(fight.protector.get_attack_speed()) color "#FFF" xalign 0.5
+                    button:
+                        frame:
+                            style "square_button"
+                            padding (10, 10)
+                            vbox:
+                                xalign 0.5  # horizontal center
+                                yalign 0.5  # vertical center
+                                spacing 5
+                                text "Defend"
+                        action Function(fight.protector_defend_enemy) 
                     
-                    text str(fight.enemy.get_attack_speed()) color "#FFF" xalign 0.5
+                    button:
+                        frame:
+                            style "square_button"
+                            padding (10, 10)
+                            vbox:
+                                xalign 0.5  # horizontal center
+                                yalign 0.5  # vertical center
+                                spacing 5
+                                text "Flee"
+                        action Function(bossExpedition.returnFromBossExpedition)
+            if fight.your_turn == False:
+                vbox:
+                    spacing 20
+                    xalign 0.5
+                    yalign 0.5
+                    textbutton fight.battle_message text_style "message_boss_expedition_textbutton" action Function(fight.continue_fight) sensitive fight.message_turn xalign 0.5

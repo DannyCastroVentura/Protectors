@@ -143,19 +143,19 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: training is doing somehting wrong - error
+    # 
     # TODO: create the equipments for Moral and Political -> for the normal expeditions
     # 
-    # 
+    # TODO: also make an option to send the protectors to help the organization
+    #   -   this would make us earn weekly money
+    #   -   and they would also win xp (not much)
     # 
     # TODO: create the screen for the time based combat
-    #   -   add the probabilities for the enemy to do things
-    #   -   -   ex:
-    #   -   -   -   70% - atack
-    #   -   -   -   30% - defend
-    #   -   improve frontend when we lose - should we also really kill the protector? I think its a good idea, to improve reality
     #   -   improve frontend when we flee
     #   -   create logic for when we won
     #   -   also make the defense attribute to play a role when receiving damage
+    #   -   once the stage 1 is killed, then it should refresh the counting for the fight again, and unlock the new stage
     #
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance

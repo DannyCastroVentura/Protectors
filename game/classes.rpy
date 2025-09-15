@@ -7,9 +7,14 @@ init python:
     melee_starting_period = 10
     ranged_starting_period = 50
     start_fight_timer_period = 100
-    fight_thinking_message = "Calculating"
+    fight_you_attacked_message = "You attacked the enemy.."
+    fight_you_are_defending_message = "You are now defending.."
+    fight_enemy_attacked_message = "Enemy attacked you.."
+    fight_enemy_is_defending_message = "Enemy is now defending.."
     fight_victory_message = "You won!"
     fight_defeat_message = "You lost!"
+    fight_your_turn_message = "It's your turn"
+    fight_enemy_turn_message = "It's the enemy turn"
             
     # define the base multiplier per rank
     rank_multipliers = {
@@ -111,8 +116,9 @@ init python:
 
         def adding_not_available_counter(self):
             self.not_available_counter += 1
-            if self.not_available_counter == 10:
+            if self.not_available_counter >= 10:
                 self.status = "Available"
+                self.not_available_counter = 0
                 renpy.notify(f"Something unexpected occured, but {self.name} is back!")
             return
 
@@ -145,7 +151,7 @@ init python:
                     self.leveling_up()
 
                     # check if level is ready for promotion
-                    if self.level / 20 > (self.stage):
+                    if self.level / 20 >= (self.stage):
                         # we need to increase the stage
                         # check if stage is already at 10
                         if self.stage != 10:
@@ -561,27 +567,20 @@ init python:
                 # calculating rarity of weapon
                 rarity_number = int(enemy.level * len(rank_multipliers) / maxDifficulty)
 
-                # decreasing rarity_number because its to much difficult
-                rarity_number -= 1
-
                 enemy_equip_weapon(enemy, rarity_number)
 
-                # Getting equipments
-                if rarity_number >= 0:
-                    # if combat:
-                    target_class_name = "Tank"
-                    # TODO: think on a better way to handle these moral and politic things
-                    if self.expedition_type == "Moral":
-                        target_class_name = "Tank"
-                    # TODO: think on a better way to handle these moral and politic things
-                    elif self.expedition_type == "Political":
-                        target_class_name = "Tank"
-                    elif self.expedition_type == "Recon":
-                        target_class_name = "Speed"
-                    elif self.expedition_type == "Rescue":
-                        target_class_name = "Shield"
+                # if combat:
+                target_class_name = "Tank"
+                if self.expedition_type == "Moral":
+                    target_class_name = "Political"
+                elif self.expedition_type == "Political":
+                    target_class_name = "Political"
+                elif self.expedition_type == "Recon":
+                    target_class_name = "Speed"
+                elif self.expedition_type == "Rescue":
+                    target_class_name = "Shield"
 
-                    enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
+                enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
 
                 # Assign the target value of the needed thing for this expedition_type
                 if self.expedition_type == "Combat":
@@ -991,15 +990,23 @@ init python:
             if self.enemy_defend == True:
                 damage = int(damage / 2)
                 self.enemy_defend = False
-            self.enemy.hp -= damage
+            self.enemy.hp -= damage * ( 100 / (100 + self.enemy.get_defense()))
             self.enemy_time_until_atack -= self.protector_time_until_atack
             self.protector_time_until_atack = 1 / self.protector.get_attack_speed()
-            self.battle_message = fight_thinking_message
+            self.battle_message = fight_you_attacked_message
+            self.your_turn = False
             
             # checking if protector killed enemy
-            if self.enemy.hp <= 0:
+            if int(self.enemy.hp) <= 0:
                 self.battle_message = fight_victory_message
-            self.continue_fight()
+            return
+
+        def protector_defend_enemy(self):
+            self.protector_defend = True
+            self.enemy_time_until_atack -= self.protector_time_until_atack
+            self.protector_time_until_atack = 1 / self.protector.get_attack_speed()
+            self.battle_message = fight_you_are_defending_message
+            self.your_turn = False
             return
 
         def enemy_attack_protector(self):
@@ -1007,31 +1014,21 @@ init python:
             if self.protector_defend == True:
                 damage = int(damage / 2)
                 self.protector_defend = False
-            self.protector.hp -= damage
+            self.protector.hp -= damage * ( 100 / (100 + self.protector.get_defense()))
             self.protector_time_until_atack -= self.enemy_time_until_atack
             self.enemy_time_until_atack = 1 / self.enemy.get_attack_speed()
-            self.battle_message = fight_thinking_message
+            self.battle_message = fight_enemy_attacked_message
 
             # checking if enemy killed protector            
-            if self.protector.hp <= 0:
+            if int(self.protector.hp) <= 0:
                 self.battle_message = fight_defeat_message
-            self.continue_fight()
-            return
-
-        def protector_defend_enemy(self):
-            self.protector_defend = True
-            self.enemy_time_until_atack -= self.protector_time_until_atack
-            self.protector_time_until_atack = 1 / self.protector.get_attack_speed()
-            self.battle_message = fight_thinking_message
-            self.continue_fight()
             return
 
         def enemy_defend_protector(self):
             self.enemy_defend = True
             self.protector_time_until_atack -= self.enemy_time_until_atack
             self.enemy_time_until_atack = 1 / self.enemy.get_attack_speed()
-            self.battle_message = fight_thinking_message
-            self.continue_fight()
+            self.battle_message = fight_enemy_is_defending_message
             return
 
         def continue_fight(self):
@@ -1072,33 +1069,43 @@ init python:
                 self.enemy_time_until_atack = enemy_remaining_time / self.enemy.get_speed()
 
                 if self.protector_time_until_atack <= self.enemy_time_until_atack:
-                    self.battle_message = "It's your turn"
+                    self.battle_message = fight_your_turn_message
                     self.your_turn = True
                 else: 
-                    self.battle_message = "It's the enemy turn"
+                    self.battle_message = fight_enemy_turn_message
                     self.your_turn = False
 
                 # now that we got who should be the first to attack, let's reset both attack speeds
                 self.protector_time_until_atack = self.protector.get_attack_speed()
                 self.enemy_time_until_atack = self.enemy.get_attack_speed()
                 
-            if self.battle_message == "It's the enemy turn":
+            elif self.battle_message == fight_enemy_turn_message:
                 self.your_turn = False
-                self.enemy_attack_protector()
-            if self.battle_message == fight_thinking_message:
-                if self.protector_time_until_atack <= self.enemy_time_until_atack:
-                    self.battle_message = "It's your turn"
-                    self.your_turn = True
-                else: 
-                    self.battle_message = "It's the enemy turn"
-                    self.your_turn = False
 
-            if self.battle_message == fight_victory_message:
-                # TODO: add xp and so on
+                roll = int(random.uniform(0, 100))  # get a random float between 0 and 100
+
+                if 0 <= roll and roll < 30 :
+                    self.enemy_defend_protector()
+                if 30 <= roll:
+                    self.enemy_attack_protector()
+
+            elif self.battle_message == fight_victory_message:
+                # TODO: add xp, money, open the next stage and so on
                 self.battle_message = fight_victory_message
                 
-            if self.battle_message == fight_defeat_message:
+            elif self.battle_message == fight_defeat_message:
+                # TODO: make the stage fight to reset state
                 self.boss_expedition.returnFromBossExpedition()
                 
+            elif self.battle_message == fight_you_attacked_message or \
+                self.battle_message == fight_you_are_defending_message or \
+                self.battle_message == fight_enemy_attacked_message or \
+                self.battle_message == fight_enemy_is_defending_message:
+                if self.protector_time_until_atack <= self.enemy_time_until_atack:
+                    self.battle_message = fight_your_turn_message
+                    self.your_turn = True
+                else: 
+                    self.battle_message = fight_enemy_turn_message
+                    self.your_turn = False
             return
             

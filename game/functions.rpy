@@ -18,173 +18,150 @@ init python:
     import json
     import random
 
-    if 'my_protectors_map' not in globals():
-        my_protectors_map = {}
-
-    if 'expeditions_enemies_base_data' not in globals():
-        expeditions_enemies_base_data = {}
-
-    if 'expeditions_bosses_base_data' not in globals():
-        expeditions_bosses_base_data = {}
-
-    if 'protectors_base_information' not in globals():
-        protectors_base_information = {}
-    
-    if 'allExpeditions' not in globals():
-        allExpeditions = []
-
-    if 'bossExpeditions' not in globals():
-        bossExpeditions = []
-
-    if 'weapons' not in globals():
-        weapons = []
-
-    if 'myWeapons' not in globals():
-        myWeapons = []
-
-    if 'equipments' not in globals():
-        equipments = []
-    
-    if 'myEquipments' not in globals():
-        myEquipments = []
-
-    if 'expeditionsToDelete' not in globals():
-        expeditionsToDelete = []
-
-    if 'allExpeditionTemplates' not in globals():
-        allExpeditionTemplates = []
-
-    if 'stats_increment_map' not in globals():
-        stats_increment_map = {
-            "Dexterity": {
-                "prio1": "Dexterity",
-                "prio2": "Strength"
-            },
-            "Strength": {
-                "prio1": "Strength",
-                "prio2": "Dexterity"
-            },
-            "Magic": {
-                "prio1": "Intelligence",
-                "prio2": "Wisdom"
-            },
-            "Tank": {
-                "prio1": "Constitution",
-                "prio2": "Strength"
-            },
-            "Shield": {
-                "prio1": "Constitution",
-                "prio2": "Dexterity"
-            },
-            "Evasion": {
-                "prio1": "Dexterity",
-                "prio2": "Luck"
-            },
-            "Critical": {
-                "prio1": "Luck",
-                "prio2": "Dexterity"
-            },
-            "Speed": {
-                "prio1": "Speed",
-                "prio2": "Dexterity"
-            }
+    my_protectors_map = {}
+    expeditions_enemies_base_data = {}
+    expeditions_bosses_base_data = {}
+    protectors_base_information = {}
+    allExpeditions = []
+    bossExpeditions = []
+    weapons = []
+    myWeapons = []
+    equipments = []
+    myEquipments = []
+    expeditionsToDelete = []
+    allExpeditionTemplates = []
+    stats_increment_map = {
+        "Dexterity": {
+            "prio1": "Dexterity",
+            "prio2": "Strength"
+        },
+        "Strength": {
+            "prio1": "Strength",
+            "prio2": "Dexterity"
+        },
+        "Magic": {
+            "prio1": "Intelligence",
+            "prio2": "Wisdom"
+        },
+        "Tank": {
+            "prio1": "Constitution",
+            "prio2": "Strength"
+        },
+        "Shield": {
+            "prio1": "Constitution",
+            "prio2": "Dexterity"
+        },
+        "Evasion": {
+            "prio1": "Dexterity",
+            "prio2": "Luck"
+        },
+        "Critical": {
+            "prio1": "Luck",
+            "prio2": "Dexterity"
+        },
+        "Speed": {
+            "prio1": "Speed",
+            "prio2": "Dexterity"
+        },
+        "Political":{
+            "prio1": "Charisma",
+            "prio2": "Wisdom"
         }
-
-    if 'evolution_increment_map' not in globals():
-        evolution_increment_map = {
-            "DAM": {  # Physical damage dealer
-                "increase": [ "Strength", "Dexterity" ],
-                "decrease": [ "Intelligence", "Wisdom" ]
-            },
-            "DAM_SPE": {  # Damage + Speed
-                "increase": [ "Strength", "Dexterity", "Speed" ],
-                "decrease": [ "Intelligence", "Wisdom" ]
-            },
-            "DEX": {  # High crit + accuracy
-                "increase": [ "Dexterity", "Dexterity", "Luck", "Speed" ],
-                "decrease": [ "Intelligence", "Wisdom" ]
-            },
-            "DEX_TAN": {  # Agile tank
-                "increase": [ "Dexterity", "Dexterity", "Constitution" ],
-                "decrease": [ "Intelligence", "Wisdom" ]
-            },
-            "STR": {  # Balanced strength build
-                "increase": [ "Strength", "Strength", "Constitution" ],
-                "decrease": [ "Intelligence", "Wisdom" ]
-            },
-            "STR_CON": {  # Balanced strength build
-                "increase": [ "Strength", "Constitution" ],
-                "decrease": [ "Intelligence", "Wisdom" ]
-            },
-            "STR_ONLY": {  # Glass cannon
-                "increase": [ "Strength", "Strength" ],
-                "decrease": [ "Intelligence", "Wisdom", "Luck" ]
-            },
-            "STR_STR_STR_CON_SPE": {  # Pure bruiser
-                "increase": [ "Strength", "Strength", "Strength", "Constitution", "Speed" ],
-                "decrease": [ "Intelligence", "Wisdom", "Luck" ]
-            },
-            "INT": {  # Pure caster
-                "increase": [ "Intelligence", "Intelligence", "Wisdom" ],
-                "decrease": [ "Strength", "Dexterity" ]
-            },
-            "INT_TAN": {  # Battle-mage tank
-                "increase": [ "Intelligence", "Wisdom", "Constitution", "Constitution" ],
-                "decrease": [ "Strength", "Dexterity" ]
-            },
-            "INT_EVA": {  # Trickster mage
-                "increase": [ "Intelligence", "Wisdom", "Dexterity", "Luck" ],
-                "decrease": [ "Strength", "Constitution" ]
-            },
-            "TAN": {  # Tanky build
-                "increase": [ "Constitution", "Constitution", "Strength" ],
-                "decrease": [ "Intelligence", "Luck" ]
-            },
-            "MIR_CON": {  # Spiritual tank
-                "increase": [ "Wisdom", "Wisdom", "Constitution" ],
-                "decrease": [ "Dexterity", "Intelligence" ]
-            },
-            "MIR_TAN": {  # Paladin style
-                "increase": [ "Wisdom", "Strength", "Constitution" ],
-                "decrease": [ "Intelligence" ]
-            },
-            "MIR_STR_STR": {  # War cleric
-                "increase": [ "Wisdom", "Strength", "Strength" ],
-                "decrease": [ "Intelligence", "Luck" ]
-            },
-            "MIR_MIR_DEX": {  # Agile priest
-                "increase": [ "Wisdom", "Wisdom", "Dexterity" ],
-                "decrease": [ "Strength", "Constitution" ]
-            },
-            "SHI": {  # Shield-focused
-                "increase": [ "Constitution", "Constitution", "Dexterity" ],
-                "decrease": [ "Luck", "Speed" ]
-            },
-            "CON_DEX": {  # constitution and dexterity
-                "increase": [ "Constitution", "Dexterity" ],
-                "decrease": [ "Intelligence", "Wisdom" ]
-            },
-            "HP": {  # Health-obsessed
-                "increase": [ "Constitution", "Constitution" ],
-                "decrease": [ "Dexterity", "Luck" ]
-            },
-            "EVA": {  # Evasion build
-                "increase": [ "Dexterity", "Dexterity", "Luck", "Speed" ],
-                "decrease": [ "Strength", "Wisdom" ]
-            },
-            "CRI": {  # Critical strike build
-                "increase": [ "Dexterity", "Luck", "Luck" ],
-                "decrease": [ "Strength", "Constitution", "Wisdom" ]
-            },
-            "CHA_WIS": {  # Charisma and wisdom
-                "increase": [ "Charisma", "Wisdom" ],
-                "decrease": [ "Strength", "Constitution", "Speed" ]
-            },
-            "CHA": {  # Charisma
-                "increase": [ "Charisma" ],
-                "decrease": [ "Strength", "Constitution", "Speed" ]
-            }
+    }
+    evolution_increment_map = {
+        "DAM": {  # Physical damage dealer
+            "increase": [ "Strength", "Dexterity" ],
+            "decrease": [ "Intelligence", "Wisdom" ]
+        },
+        "DAM_SPE": {  # Damage + Speed
+            "increase": [ "Strength", "Dexterity", "Speed" ],
+            "decrease": [ "Intelligence", "Wisdom" ]
+        },
+        "DEX": {  # High crit + accuracy
+            "increase": [ "Dexterity", "Dexterity", "Luck", "Speed" ],
+            "decrease": [ "Intelligence", "Wisdom" ]
+        },
+        "DEX_TAN": {  # Agile tank
+            "increase": [ "Dexterity", "Dexterity", "Constitution" ],
+            "decrease": [ "Intelligence", "Wisdom" ]
+        },
+        "STR": {  # Balanced strength build
+            "increase": [ "Strength", "Strength", "Constitution" ],
+            "decrease": [ "Intelligence", "Wisdom" ]
+        },
+        "STR_CON": {  # Balanced strength build
+            "increase": [ "Strength", "Constitution" ],
+            "decrease": [ "Intelligence", "Wisdom" ]
+        },
+        "STR_ONLY": {  # Glass cannon
+            "increase": [ "Strength", "Strength" ],
+            "decrease": [ "Intelligence", "Wisdom", "Luck" ]
+        },
+        "STR_STR_STR_CON_SPE": {  # Pure bruiser
+            "increase": [ "Strength", "Strength", "Strength", "Constitution", "Speed" ],
+            "decrease": [ "Intelligence", "Wisdom", "Luck" ]
+        },
+        "INT": {  # Pure caster
+            "increase": [ "Intelligence", "Intelligence", "Wisdom" ],
+            "decrease": [ "Strength", "Dexterity" ]
+        },
+        "INT_TAN": {  # Battle-mage tank
+            "increase": [ "Intelligence", "Wisdom", "Constitution", "Constitution" ],
+            "decrease": [ "Strength", "Dexterity" ]
+        },
+        "INT_EVA": {  # Trickster mage
+            "increase": [ "Intelligence", "Wisdom", "Dexterity", "Luck" ],
+            "decrease": [ "Strength", "Constitution" ]
+        },
+        "TAN": {  # Tanky build
+            "increase": [ "Constitution", "Constitution", "Strength" ],
+            "decrease": [ "Intelligence", "Luck" ]
+        },
+        "MIR_CON": {  # Spiritual tank
+            "increase": [ "Wisdom", "Wisdom", "Constitution" ],
+            "decrease": [ "Dexterity", "Intelligence" ]
+        },
+        "MIR_TAN": {  # Paladin style
+            "increase": [ "Wisdom", "Strength", "Constitution" ],
+            "decrease": [ "Intelligence" ]
+        },
+        "MIR_STR_STR": {  # War cleric
+            "increase": [ "Wisdom", "Strength", "Strength" ],
+            "decrease": [ "Intelligence", "Luck" ]
+        },
+        "MIR_MIR_DEX": {  # Agile priest
+            "increase": [ "Wisdom", "Wisdom", "Dexterity" ],
+            "decrease": [ "Strength", "Constitution" ]
+        },
+        "SHI": {  # Shield-focused
+            "increase": [ "Constitution", "Constitution", "Dexterity" ],
+            "decrease": [ "Luck", "Speed" ]
+        },
+        "CON_DEX": {  # constitution and dexterity
+            "increase": [ "Constitution", "Dexterity" ],
+            "decrease": [ "Intelligence", "Wisdom" ]
+        },
+        "HP": {  # Health-obsessed
+            "increase": [ "Constitution", "Constitution" ],
+            "decrease": [ "Dexterity", "Luck" ]
+        },
+        "EVA": {  # Evasion build
+            "increase": [ "Dexterity", "Dexterity", "Luck", "Speed" ],
+            "decrease": [ "Strength", "Wisdom" ]
+        },
+        "CRI": {  # Critical strike build
+            "increase": [ "Dexterity", "Luck", "Luck" ],
+            "decrease": [ "Strength", "Constitution", "Wisdom" ]
+        },
+        "CHA_WIS": {  # Charisma and wisdom
+            "increase": [ "Charisma", "Wisdom" ],
+            "decrease": [ "Strength", "Constitution", "Speed" ]
+        },
+        "CHA": {  # Charisma
+            "increase": [ "Charisma" ],
+            "decrease": [ "Strength", "Constitution", "Speed" ]
         }
+    }
 
     
     percentage_for_increasing_on_evolutions = 0.50
@@ -374,6 +351,10 @@ init python:
             renpy.notify(f"Protector unavailable: {protector.name}")
         else:
             renpy.notify(f"Protector unavailable: {protector.name} - {additional_message}")
+        return
+
+    def send_custom_notification(message):
+        renpy.notify(f"{message}")
         return
         
     def get_equipment_by_id(equipment_id):

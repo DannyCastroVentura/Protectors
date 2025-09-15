@@ -11,10 +11,6 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -27,6 +23,8 @@ While running game code:
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -35,18 +33,39 @@ While running game code:
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 25, in script call
     call see_expeditions_for_region(1)
-  File "game/base_of_operations.rpy", line 74, in script
-    call screen expedition_screen(regionNumber)
-  File "game/classes.rpy", line 1087, in continue_fight
-    self.enemy_attack_protector()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 1018, in enemy_attack_protector
-    self.continue_fight()
-    ~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 1101, in continue_fight
-    boss_expedition.returnFromBossExpedition()
-    ^^^^^^^^^^^^^^^                           
-NameError: name 'boss_expedition' is not defined. Did you mean: 'self.boss_expedition'?
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 70, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 44, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 15, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/training.rpy", line 4, in script
+    $ allExpeditions[0].startExpedition(selected_protector.name)
+  File "game/training.rpy", line 4, in <module>
+    $ allExpeditions[0].startExpedition(selected_protector.name)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 605, in startExpedition
+    my_protector.set_status("In a mission")
+    ^^^^^^^^^^^^^^^^^^^^^^^                
+AttributeError: 'NoneType' object has no attribute 'set_status'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -61,10 +80,6 @@ Traceback (most recent call last):
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -77,6 +92,8 @@ Traceback (most recent call last):
     call base_travel_menu()
   File "game/places.rpy", line 33, in script call
     call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -85,90 +102,47 @@ Traceback (most recent call last):
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 25, in script call
     call see_expeditions_for_region(1)
-  File "game/base_of_operations.rpy", line 74, in script
-    call screen expedition_screen(regionNumber)
-  File "renpy/ast.py", line 2231, in execute
-    self.call("execute")
-    ~~~~~~~~~^^^^^^^^^^^
-  File "renpy/ast.py", line 2195, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/statements.py", line 379, in call
-    return method(parsed, *args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 348, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ui.py", line 304, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2219, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )  # type: ignore
-    ^                
-  File "renpy/display/core.py", line 3302, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 805, in event
-    rv = self.child.event(ev, x, y, st)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1508, in event
-    rv = super(Window, self).event(ev, x, y, st)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 273, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/layout.py", line 1284, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/behavior.py", line 1184, in event
-    return handle_click(self.clicked)
-           ~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/display/behavior.py", line 1107, in handle_click
-    rv = run(action)
-         ~~~^^^^^^^^
-  File "renpy/display/behavior.py", line 411, in run
-    return action(*args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^
-  File "renpy/common/00action_other.rpy", line 618, in __call__
-    rv = self.callable(*self.args, **self.kwargs)
-         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/classes.rpy", line 1087, in continue_fight
-    self.enemy_attack_protector()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 1018, in enemy_attack_protector
-    self.continue_fight()
-    ~~~~~~~~~~~~~~~~~~~^^
-  File "game/classes.rpy", line 1101, in continue_fight
-    boss_expedition.returnFromBossExpedition()
-    ^^^^^^^^^^^^^^^                           
-NameError: name 'boss_expedition' is not defined. Did you mean: 'self.boss_expedition'?
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 70, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 44, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 15, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/training.rpy", line 4, in script
+    $ allExpeditions[0].startExpedition(selected_protector.name)
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/training.rpy", line 4, in <module>
+    $ allExpeditions[0].startExpedition(selected_protector.name)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 605, in startExpedition
+    my_protector.set_status("In a mission")
+    ^^^^^^^^^^^^^^^^^^^^^^^                
+AttributeError: 'NoneType' object has no attribute 'set_status'
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Sun Sep 14 23:59:19 2025
+Mon Sep 15 16:53:37 2025

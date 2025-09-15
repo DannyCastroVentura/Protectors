@@ -287,6 +287,38 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # E CLASS
+        ######## FULL POLITICAL GEAR (Rank E) ########
+        equipments.append(Equipment(
+            "Simple Glasses",
+            "A plain pair of glasses. Offers a small boost to confidence.",
+            "helmet",
+            "Political",
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Simple Suit",
+            "An old suit, slightly frayed at the edges. Provides minimal authority.",
+            "body",
+            "Political",
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Simple Pants",
+            "Pants that have seen better days. Helps maintain a basic professional look.",
+            "pants",
+            "Political",
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Simple Shoes",
+            "Shoes with worn soles. Barely suitable for public appearances.",
+            "boots",
+            "Political",
+            "E"
+        ))
 
         ######## FULL GEAR ########
         equipments.append(Equipment(
@@ -545,6 +577,39 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # D CLASS
+
+        ######## FULL POLITICAL GEAR (Rank D) ########
+        equipments.append(Equipment(
+            "Shining Glasses",
+            "A neat pair of glasses that slightly enhances charisma and sharpens appearance.",
+            "helmet",
+            "Political",
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Shining Suit",
+            "A clean, well-maintained suit. Helps project credibility in public speeches.",
+            "body",
+            "Political",
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Shining Pants",
+            "Pants with a better fit, improving confidence and composure.",
+            "pants",
+            "Political",
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Shining Shoes",
+            "Shoes carefully polished for public appearances. A small boost to confidence.",
+            "boots",
+            "Political",
+            "D"
+        ))
         
         ######## FULL GEAR FOR SPEED: WINDRUNNER SET ########
         equipments.append(Equipment(
@@ -854,6 +919,39 @@ init python:
         ######## 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # C CLASS
+
+        ######## FULL POLITICAL GEAR (Rank C) ########
+        equipments.append(Equipment(
+            "Executive Glasses",
+            "A stylish pair of glasses that improve public image and persuasive power.",
+            "helmet",
+            "Political",
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Executive Suit",
+            "A high-quality suit worn by rising politicians. Enhances authority and credibility.",
+            "body",
+            "Political",
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Executive Pants",
+            "Well-tailored pants that complete the professional look. Boosts confidence under pressure.",
+            "pants",
+            "Political",
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Executive Shoes",
+            "Immaculately kept shoes designed for the spotlight. Supports long hours of campaigning.",
+            "boots",
+            "Political",
+            "C"
+        ))
 
         ######## FULL GEAR FOR SPEED: SKYBLADE SET ########
         equipments.append(Equipment(
@@ -1208,6 +1306,38 @@ init python:
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # B CLASS
         
+        ######## FULL POLITICAL GEAR (Rank B) ########
+        equipments.append(Equipment(
+            "Leader’s Glasses",
+            "Elegant glasses with a subtle shine. They enhance charm and inspire trust in speeches.",
+            "helmet",
+            "Political",
+            "B"
+        ))
+
+        equipments.append(Equipment(
+            "Leader’s Suit",
+            "A refined suit tailored for high-profile events. Radiates authority and respect.",
+            "body",
+            "Political",
+            "B"
+        ))
+
+        equipments.append(Equipment(
+            "Leader’s Pants",
+            "Perfectly tailored pants that symbolize prestige. They reinforce composure in negotiations.",
+            "pants",
+            "Political",
+            "B"
+        ))
+
+        equipments.append(Equipment(
+            "Leader’s Shoes",
+            "Polished leather shoes that carry authority with every step. Ideal for debates and campaigns.",
+            "boots",
+            "Political",
+            "B"
+        ))
         ######## FULL GEAR FOR SPEED ########
         equipments.append(Equipment(
             "Speedster Helmet",
@@ -1539,6 +1669,39 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # A CLASS
+
+        ######## FULL POLITICAL GEAR (Rank A) ########
+        equipments.append(Equipment(
+            "Statesman’s Glasses",
+            "A distinguished pair of glasses that project intelligence and inspire confidence in all who see them.",
+            "helmet",
+            "Political",
+            "A"
+        ))
+
+        equipments.append(Equipment(
+            "Statesman’s Suit",
+            "A luxurious, impeccably tailored suit that commands respect and demonstrates leadership.",
+            "body",
+            "Political",
+            "A"
+        ))
+
+        equipments.append(Equipment(
+            "Statesman’s Trousers",
+            "Flawlessly tailored pants that complete the commanding look, boosting authority in any setting.",
+            "pants",
+            "Political",
+            "A"
+        ))
+
+        equipments.append(Equipment(
+            "Statesman’s Shoes",
+            "Polished, high-quality shoes that exude confidence and stability, perfect for high-stakes appearances.",
+            "boots",
+            "Political",
+            "A"
+        ))
 
         ######## FULL GEAR FOR SPEED ########
         equipments.append(Equipment(
@@ -1958,6 +2121,40 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # S CLASS
+
+        ######## FULL POLITICAL GEAR (Rank S) ########
+        equipments.append(Equipment(
+            "Legendary Visionary’s Spectacles",
+            "A flawless pair of glasses that radiate genius and unparalleled charisma, making all who see them inspired.",
+            "helmet",
+            "Political",
+            "S"
+        ))
+
+        equipments.append(Equipment(
+            "Legendary Statesman Suit",
+            "A masterfully crafted suit that exudes unmatched authority and presence. Wearing it commands attention and respect on a global scale.",
+            "body",
+            "Political",
+            "S"
+        ))
+
+        equipments.append(Equipment(
+            "Legendary Diplomat’s Trousers",
+            "Perfectly tailored trousers that complete an aura of influence and wisdom. Instills confidence in allies and awe in opponents.",
+            "pants",
+            "Political",
+            "S"
+        ))
+
+        equipments.append(Equipment(
+            "Legendary Monarch’s Shoes",
+            "Shoes of impeccable craftsmanship that carry the weight of leadership with grace and power. Every step exudes confidence and dominance.",
+            "boots",
+            "Political",
+            "S"
+        ))
+
         ######## FULL GEAR FOR SPEED: GODSLAYER SET ########
         equipments.append(Equipment(
             "Celestial Tempest Helmet",
