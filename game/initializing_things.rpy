@@ -320,6 +320,39 @@ init python:
             "E"
         ))
 
+        ######## FULL MIRACLE GEAR (Rank E) ########
+        equipments.append(Equipment(
+            "Simple Veil",
+            "A plain veil that carries a faint blessing. Inspires small hope.",
+            "helmet",
+            "Miracle",
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Simple Vestment",
+            "A modest garment, worn by those who believe. Grants a touch of serenity.",
+            "body",
+            "Miracle",
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Simple Slacks",
+            "Unassuming pants, stitched with care. Brings quiet dignity.",
+            "pants",
+            "Miracle",
+            "E"
+        ))
+
+        equipments.append(Equipment(
+            "Simple Sandals",
+            "Humble sandals, softened by many steps. Symbol of walking the faithful path.",
+            "boots",
+            "Miracle",
+            "E"
+        ))
+
         ######## FULL GEAR ########
         equipments.append(Equipment(
             "Reinforced Helmet",
@@ -577,6 +610,39 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # D CLASS
+
+        ######## FULL MIRACLE GEAR (Rank D) ########
+        equipments.append(Equipment(
+            "Blessed Hood",
+            "A hood embroidered with small symbols of faith. Offers protection from doubt.",
+            "helmet",
+            "Miracle",
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Blessed Robe",
+            "A robe lightly infused with divine essence. Brings comfort to the wearer.",
+            "body",
+            "Miracle",
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Blessed Trousers",
+            "Simple yet well-kept trousers, carrying a quiet sacred charm.",
+            "pants",
+            "Miracle",
+            "D"
+        ))
+
+        equipments.append(Equipment(
+            "Blessed Sandals",
+            "Sandals reinforced with care. Each step feels guided by unseen hands.",
+            "boots",
+            "Miracle",
+            "D"
+        ))
 
         ######## FULL POLITICAL GEAR (Rank D) ########
         equipments.append(Equipment(
@@ -919,6 +985,39 @@ init python:
         ######## 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # C CLASS
+
+        ######## FULL MIRACLE GEAR (Rank C) ########
+        equipments.append(Equipment(
+            "Holy Hood",
+            "A hood that glows faintly in candlelight. Said to ward off despair.",
+            "helmet",
+            "Miracle",
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Holy Robe",
+            "A flowing robe adorned with sacred patterns. Strengthens the spirit.",
+            "body",
+            "Miracle",
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Holy Trousers",
+            "Finely woven trousers blessed by ritual. Offers dignity and grace.",
+            "pants",
+            "Miracle",
+            "C"
+        ))
+
+        equipments.append(Equipment(
+            "Holy Sandals",
+            "Sandals said to leave footprints of light. Brings steadiness to each step.",
+            "boots",
+            "Miracle",
+            "C"
+        ))
 
         ######## FULL POLITICAL GEAR (Rank C) ########
         equipments.append(Equipment(
@@ -1306,6 +1405,39 @@ init python:
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # B CLASS
         
+        ######## FULL MIRACLE GEAR (Rank B) ########
+        equipments.append(Equipment(
+            "Sacred Hood",
+            "A hood woven with golden thread, radiating quiet reverence.",
+            "helmet",
+            "Miracle",
+            "B"
+        ))
+
+        equipments.append(Equipment(
+            "Sacred Vestments",
+            "Elaborate robes carrying the weight of ancient prayers. Inspires awe.",
+            "body",
+            "Miracle",
+            "B"
+        ))
+
+        equipments.append(Equipment(
+            "Sacred Trousers",
+            "Garments imbued with solemn rites. Worn only by the devoted.",
+            "pants",
+            "Miracle",
+            "B"
+        ))
+
+        equipments.append(Equipment(
+            "Sacred Sandals",
+            "Sandals strengthened by blessings. Each step echoes with faith.",
+            "boots",
+            "Miracle",
+            "B"
+        ))
+
         ######## FULL POLITICAL GEAR (Rank B) ########
         equipments.append(Equipment(
             "Leader’s Glasses",
@@ -1669,6 +1801,39 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # A CLASS
+
+        ######## FULL MIRACLE GEAR (Rank A) ########
+        equipments.append(Equipment(
+            "Divine Hood",
+            "A hood that shines with otherworldly light. Said to silence all fear.",
+            "helmet",
+            "Miracle",
+            "A"
+        ))
+
+        equipments.append(Equipment(
+            "Divine Robe",
+            "Robes woven with threads of celestial grace. They uplift all who gaze upon them.",
+            "body",
+            "Miracle",
+            "A"
+        ))
+
+        equipments.append(Equipment(
+            "Divine Trousers",
+            "Finely tailored garments, radiant with sanctity. Bestowed upon the chosen.",
+            "pants",
+            "Miracle",
+            "A"
+        ))
+
+        equipments.append(Equipment(
+            "Divine Sandals",
+            "Footwear said to tread upon both earth and heavens. Each step carries divine will.",
+            "boots",
+            "Miracle",
+            "A"
+        ))
 
         ######## FULL POLITICAL GEAR (Rank A) ########
         equipments.append(Equipment(
@@ -2121,6 +2286,39 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # S CLASS
+
+        ######## FULL MIRACLE GEAR (Rank S) ########
+        equipments.append(Equipment(
+            "Transcendent Crown",
+            "A radiant crown of pure light. Said to be gifted only to those chosen by the heavens.",
+            "helmet",
+            "Miracle",
+            "S"
+        ))
+
+        equipments.append(Equipment(
+            "Transcendent Robe",
+            "Robes that shimmer with celestial brilliance, flowing as if alive with divine power.",
+            "body",
+            "Miracle",
+            "S"
+        ))
+
+        equipments.append(Equipment(
+            "Transcendent Garments",
+            "Clothing woven from threads of starlight. A symbol of miracles beyond comprehension.",
+            "pants",
+            "Miracle",
+            "S"
+        ))
+
+        equipments.append(Equipment(
+            "Transcendent Sandals",
+            "Sandals that leave no trace upon the earth. Each step echoes in eternity.",
+            "boots",
+            "Miracle",
+            "S"
+        ))
 
         ######## FULL POLITICAL GEAR (Rank S) ########
         equipments.append(Equipment(

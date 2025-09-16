@@ -66,6 +66,10 @@ init python:
         "Political":{
             "prio1": "Charisma",
             "prio2": "Wisdom"
+        },
+        "Miracle":{
+            "prio1": "Wisdom",
+            "prio2": "Charisma"
         }
     }
     evolution_increment_map = {
