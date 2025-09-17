@@ -850,22 +850,6 @@ init python:
                 base_defense = 17
             elif self.type == "boots":
                 base_defense = 12
-            
-            # get the defense depending on the class_name
-            if self.class_name == "Dexterity":
-                base_defense = base_defense * 1.2
-            elif self.class_name == "Strength":
-                base_defense = base_defense * 1.5
-            elif self.class_name == "Magic":
-                base_defense = base_defense * 1
-            elif self.class_name == "Tank":
-                base_defense = base_defense * 1.8
-            elif self.class_name == "Shield":
-                base_defense = base_defense * 2
-            elif self.class_name == "Evasion":
-                base_defense = base_defense * 1
-            elif self.class_name == "Critical":
-                base_defense = base_defense * 1
                 
             # get the defense depending on the rarity
             if self.rarity == "E":
@@ -892,6 +876,32 @@ init python:
                 base_defense = base_defense * 16
                 prio1 = 50
                 prio2 = 35
+
+            # Update the base defense and priorities depending on the class            
+            if self.class_name == "Dexterity" or self.class_name == "Strength":
+                base_defense = base_defense * 0.8
+                prio1 = prio1 * 1.2
+                prio2 = prio2 * 1.2
+            elif self.class_name == "Magic" or self.class_name == "Evasion" or self.class_name == "Critical":
+                base_defense = base_defense * 0.5
+                prio1 = prio1 * 1.5
+                prio2 = prio2 * 1.5
+            elif self.class_name == "Tank":
+                base_defense = base_defense * 1.3
+                prio1 = prio1 * 0.7
+                prio2 = prio2 * 0.7
+            elif self.class_name == "Shield":
+                base_defense = base_defense * 1.5
+                prio1 = prio1 * 0.5
+                prio2 = prio2 * 0.5
+            elif self.class_name == "Speed":
+                base_defense = base_defense * 1
+                prio1 = prio1 * 1
+                prio2 = prio2 * 1
+            elif self.class_name == "Political" or self.class_name == "Miracle":
+                base_defense = base_defense * 0.2
+                prio1 = prio1 * 1.8
+                prio2 = prio2 * 1.8
 
             self.base_defense = int(base_defense)
             self.prio1 = prio1

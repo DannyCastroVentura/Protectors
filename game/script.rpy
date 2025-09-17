@@ -143,8 +143,6 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: make the equipments have different defense points - acording to the class
-    # 
     # TODO: also make an option to send the protectors to help the organization
     #   -   this would make us earn weekly money
     #   -   and they would also win xp (not much)
