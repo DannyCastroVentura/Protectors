@@ -776,6 +776,11 @@ init python:
 
                 # Updating wallet
                 updating_wallet(self.gold_received)
+
+                # unlock the next region
+                if self.regionNumber != 10:
+                    unlockingExpeditionStage(self.regionNumber)
+                    
             elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:                
                 # updating the expeditions failed on this protector
                 my_protectors_map[self.assignedProtectorName].boss_expeditions_failed += 1
@@ -787,10 +792,6 @@ init python:
             self.successfulMinorExpeditions = 0
             self.assignedProtectorName = None
             self.status = "not assigned"
-
-            # unlock the next region
-            if self.regionNumber != 10:
-                unlockingExpeditionStage(self.regionNumber)
             return
 
     # RARITY COLORS:
@@ -1122,10 +1123,6 @@ init python:
                 else: 
                     self.battle_message = fight_enemy_turn_message
                     self.your_turn = False
-
-                # now that we got who should be the first to attack, let's reset both attack speeds
-                self.protector_time_until_atack = self.protector.get_attack_speed()
-                self.enemy_time_until_atack = self.enemy.get_attack_speed()
                 
             elif self.battle_message == fight_enemy_turn_message:
                 self.your_turn = False

@@ -143,7 +143,11 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: Fix the attack speed on the fights, enemy is attacking 2 times after ninja atack the first time?? He should have a big attack speed
+    # TODO: getting a notification when a protector is ready for promotion
+    # 
+    # TODO: informing that the protector can only equipe specified weapons in the protector detail
+    # 
+    # TODO: add the option to sell equipment / weapons
     # 
     # TODO: create the boss images for the other stages
     # 
