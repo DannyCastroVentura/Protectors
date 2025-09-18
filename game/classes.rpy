@@ -530,7 +530,7 @@ init python:
         def __init__(self, title, description, difficulty, neededDaysToFinish, disapearingInThisDays, expedition_type, status = "not assigned", xp_received = None, gold_received = None):
             self.expedition_id = Expedition._id_counter
             Expedition._id_counter += 1
-            self.title = title
+            self.title = title + " - N" + str(self.expedition_id)
             self.description = description
             self.difficulty = difficulty
             self.neededDaysToFinish = neededDaysToFinish 
@@ -607,6 +607,7 @@ init python:
             protectorName = self.assignedProtectorName
             self.status = "started"
             self.success_rate = success_rate
+            renpy.notify(self.title)
             my_protector = get_my_protector(protectorName)
             my_protector.set_status("In a mission")
             resetAssignmentsForThisProtectorName(protectorName)
@@ -664,7 +665,6 @@ init python:
 
             if success_rate >= roll:
                 mission_success = True
-                renpy.notify(f"Expedition success ✅ (rolled {roll:.2f} vs rate {success_rate}%)")
 
                 # updating xp
                 my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
@@ -682,9 +682,21 @@ init python:
                 if self.expedition_id != 0:
                     bossExpedition = next((m for m in bossExpeditions if m.regionNumber == mission_stage), None)
                     bossExpedition.successfulMinorExpeditions += 1
+
+                if my_protectors_map[self.assignedProtectorName].readyForPromotion == True:
+                    # notifying that the mission was a success!
+                    messages = [
+                        f"Expedition success (rolled {roll:.2f} vs rate {success_rate}%)",
+                        f"{self.assignedProtectorName} is ready for promotion!"
+                    ]
+                    renpy.notify(messages)
+                    
+                else:
+                    # notifying that the mission was a success!
+                    renpy.notify(f"Expedition success (rolled {roll:.2f} vs rate {success_rate}%)")
             else:
                 mission_success = False
-                renpy.notify(f"Expedition failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
+                renpy.notify(f"Expedition failed (rolled {roll:.2f} vs rate {success_rate}%)")
                 
                 # updating the expeditions failed on this protector
                 my_protectors_map[self.assignedProtectorName].expeditions_failed += 1
@@ -757,6 +769,8 @@ init python:
             if rarity_number >= 0:
                 if self.title == "The Mireborn Tyrant":
                     target_class_name = "Tank"
+                if self.title == "The Pale King":
+                    target_class_name = "Miracle"
 
                 enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
 
@@ -780,6 +794,10 @@ init python:
                 # unlock the next region
                 if self.regionNumber != 10:
                     unlockingExpeditionStage(self.regionNumber)
+                
+                # check if the protector is now ready for promotion
+                if my_protectors_map[self.assignedProtectorName].readyForPromotion == True:
+                    renpy.notify(f"{self.assignedProtectorName} is ready for promotion!")
                     
             elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:                
                 # updating the expeditions failed on this protector
@@ -834,7 +852,7 @@ init python:
 
                 # update the damage type if its a great (big and heavy) weapon, or a knife
                 if self.type == "Great Hammer" or self.type == "Greataxe" or self.type == "Greatsword":
-                    base_damage *=  1.5
+                    base_damage *=  2
                     self.attack_speed_boost = 0.67
                 elif self.type == "Katana" or self.type == "Spear":
                     base_damage *=  1.2

@@ -1,21 +1,19 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 11, in script call
+  File "game/places.rpy", line 17, in script call
     call base_travel_menu()
   File "game/places.rpy", line 24, in script call
     call show_my_available_protectors(False)
   File "game/places.rpy", line 26, in script call
     call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
+  File "game/places.rpy", line 17, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
@@ -31,7 +29,6 @@ While running game code:
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -57,34 +54,67 @@ While running game code:
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 34, in script call
     call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 11, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 37, in script call
+    call see_expeditions_for_region(2)
   File "game/base_of_operations.rpy", line 83, in script
     call screen expedition_screen(regionNumber)
-  File "game/classes.rpy", line 793, in finishBossExpedition
-    unlockingExpeditionStage(self.regionNumber)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-  File "game/functions.rpy", line 519, in unlockingExpeditionStage
-    expedition_stage_names[number]['unlocked'] = True
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^       
-TypeError: 'str' object does not support item assignment
+  File "game/classes.rpy", line 773, in startBossExpedition
+    enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
+                                                         ^^^^^^^^^^^^^^^^^ 
+UnboundLocalError: cannot access local variable 'target_class_name' where it is not associated with a value
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 15, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 11, in script call
+  File "game/places.rpy", line 17, in script call
     call base_travel_menu()
   File "game/places.rpy", line 24, in script call
     call show_my_available_protectors(False)
   File "game/places.rpy", line 26, in script call
     call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 33, in script call
-    call rest()
-  File "game/places.rpy", line 35, in script call
+  File "game/places.rpy", line 17, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
@@ -100,7 +130,6 @@ Traceback (most recent call last):
     call rest()
   File "game/places.rpy", line 33, in script call
     call rest()
-[Previous line repeated 1 more time]
   File "game/places.rpy", line 35, in script call
     call base_travel_menu()
   File "game/places.rpy", line 15, in script call
@@ -126,6 +155,44 @@ Traceback (most recent call last):
     call see_expeditions(1)
   File "game/base_of_operations.rpy", line 34, in script call
     call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 11, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 37, in script call
+    call see_expeditions_for_region(2)
   File "game/base_of_operations.rpy", line 83, in script
     call screen expedition_screen(regionNumber)
   File "renpy/ast.py", line 2231, in execute
@@ -186,30 +253,27 @@ Traceback (most recent call last):
   File "renpy/display/layout.py", line 1284, in event
     rv = i.event(ev, x - xo, y - yo, cst)
          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/display/behavior.py", line 1184, in event
     return handle_click(self.clicked)
            ~~~~~~~~~~~~^^^^^^^^^^^^^^
   File "renpy/display/behavior.py", line 1107, in handle_click
     rv = run(action)
          ~~~^^^^^^^^
-  File "renpy/display/behavior.py", line 404, in run
-    new_rv = run(i, *args, **kwargs)
-             ~~~^^^^^^^^^^^^^^^^^^^^
   File "renpy/display/behavior.py", line 411, in run
     return action(*args, **kwargs)
            ~~~~~~^^^^^^^^^^^^^^^^^
   File "renpy/common/00action_other.rpy", line 618, in __call__
     rv = self.callable(*self.args, **self.kwargs)
          ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/classes.rpy", line 793, in finishBossExpedition
-    unlockingExpeditionStage(self.regionNumber)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-  File "game/functions.rpy", line 519, in unlockingExpeditionStage
-    expedition_stage_names[number]['unlocked'] = True
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^       
-TypeError: 'str' object does not support item assignment
+  File "game/classes.rpy", line 773, in startBossExpedition
+    enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
+                                                         ^^^^^^^^^^^^^^^^^ 
+UnboundLocalError: cannot access local variable 'target_class_name' where it is not associated with a value
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Thu Sep 18 14:37:16 2025
+Thu Sep 18 17:37:24 2025

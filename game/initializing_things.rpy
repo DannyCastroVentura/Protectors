@@ -63,7 +63,7 @@ init python:
             "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
             "Demonic Templar",
             "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
-            ["Sword", "Spear", "Greatsword"], None, None,
+            ["Sword", "Spear", "Greatsword", "Great Hammer", "Greataxe"], None, None,
             "Melee",
             "Divine",
             "Rusty Greatsword"

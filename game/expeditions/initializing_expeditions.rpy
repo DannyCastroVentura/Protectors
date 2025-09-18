@@ -275,6 +275,6 @@ init python:
 
 
         # Recreate expeditions
-        allExpeditions.append(Expedition("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 99000, 0))
+        allExpeditions.append(Expedition("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 9000, 0))
 
         creating_new_expeditions()

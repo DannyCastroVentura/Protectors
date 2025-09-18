@@ -57,19 +57,28 @@ style red_hover_red_dark:
 transform notify_fade:
     alpha 0.0
     linear 0.5 alpha 1.0     # Fade in over 0.5 seconds
-    pause 2.0                # Stay fully visible
+    pause 4.0                # Stay fully visible
     linear 0.5 alpha 0.0     # Fade out over 0.5 seconds
 
-screen notify(message):
+screen notify(message, duration=5):
     frame:
         at notify_fade
         style "notify_frame"
         xalign 1.0
         yalign 0.1
 
-        text message style "notify_text"
+        vbox:
+            spacing 4
+            if isinstance(message, str):
+                text message style "notify_text"
+            elif isinstance(message, (list, tuple)):
+                for m in message:
+                    text m style "notify_text"
+            else:
+                text str(message) style "notify_text"
 
-    timer 30.0 action Hide('notify')
+    # Hide after given time
+    timer duration action Hide('notify')
 
 
 ################################################################################
@@ -1742,6 +1751,9 @@ style message_boss_expedition_textbutton_your_turn:
     xalign 0.5
     yalign 0.5
 
+transform flip_horizontal:
+    xzoom -1.0
+
 screen my_weapons_screen():
     frame:
         modal True
@@ -2744,7 +2756,7 @@ screen expedition_screen(regionNumber):
     $ max_level = regionNumber * 20
     default page = 0
     default page_size = 5
-    default filtered_expeditions = [m for m in allExpeditions if min_level <= m.difficulty <= max_level and m.title != "Training"]
+    default filtered_expeditions = [m for m in allExpeditions if min_level <= m.difficulty <= max_level and m.expedition_id != 0]
     default max_pages = max((len(filtered_expeditions) - 1) // page_size, 0)
     default mode = "list"
     default selected_expedition = None
@@ -3698,6 +3710,7 @@ screen boss_expedition(bossExpedition, fight):
                             image_name = str(my_protector.stage) + "_" + str(my_protector.chosen_evolution)
                         image_path = getImage(str(get_folder_from_map(my_protector.name)) + '/' + str(image_name))
                         if image_path:
+                            ui.at(flip_horizontal)
                             ui.at(fit_to_screen_height)
                             ui.add(image_path)
             fixed:
@@ -3723,7 +3736,7 @@ screen boss_expedition(bossExpedition, fight):
                     yalign 1.0
                     xalign 1.0
                     spacing 5
-                    # Adding protector image
+                    # Adding enemy image
                     python:
                         image_path = getImage("images/expedition_bosses/" + str(enemy.name) + '/1')
                         if image_path:

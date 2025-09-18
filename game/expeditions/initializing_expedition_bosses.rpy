@@ -41,4 +41,32 @@ init python:
             "Regular",
             "Rusty Greatsword"
         )
+        
+        # creating enemies
+        # The Mireborn Tyrant (hp + damage)
+        expeditions_bosses_base_data["The Pale King"] = BaseProtectorData(
+            {
+                "strength": 15,
+                "dexterity": 15,
+                "constitution": 15,
+                "intelligence": 15,
+                "wisdom": 15,
+                "charisma": 15,
+                "speed": 15,
+                "luck": 15,
+                "attack_speed": 1
+            },
+            [
+                "wisdom", "constitution"
+            ], 
+            "MIR_CON", "MIR_CON", 
+            "Name 1", 
+            "Description 1",
+            "Name 2", 
+            "Description 2",
+            ["Book"], None, None,
+            "Ranged",
+            "Divine",
+            "Cleric’s Scripture"
+        )
 

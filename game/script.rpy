@@ -143,9 +143,11 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: improve the images
+    # TODO: make the level up points change when we specify a different evolution!
     # 
-    # TODO: make the image for the protector on fights to flip horizontally
+    # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again
+    #
+    # TODO: improve the images
     # 
     # TODO: getting a notification when a protector is ready for promotion
     # 
