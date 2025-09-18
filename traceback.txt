@@ -3,48 +3,157 @@
 While running game code:
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
+  File "game/base_of_operations.rpy", line 11, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 7, in script call
-    call check_online_shop()
-  File "game/base_of_operations.rpy", line 74, in script
-    call screen online_shop()
-  File "game/screens.rpy", line 3211, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3211, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3231, in execute
-    frame:
-  File "game/screens.rpy", line 3259, in execute
-    vbox:
-  File "game/screens.rpy", line 3339, in execute
-    if online_shop_show == "show_equipments":
-  File "game/screens.rpy", line 3341, in execute
-    hbox:
-  File "game/screens.rpy", line 3345, in execute
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3346, in execute
-    if rarity == rarity_selected:
-  File "game/screens.rpy", line 3347, in execute
-    for equipment in equipments:
-  File "game/screens.rpy", line 3364, in execute
-    $ orig_width, orig_height = renpy.image_size(equipment_img)
-  File "game/screens.rpy", line 3364, in <module>
-    $ orig_width, orig_height = renpy.image_size(equipment_img)
-                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-FileNotFoundError: Couldn't find file 'images/equipments/Miracle_boots.png'.
+  File "game/base_of_operations.rpy", line 66, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 40, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 66, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 40, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 66, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 40, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 21, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 21, in script call
+    call see_expeditions_for_region(1)
+  File "game/base_of_operations.rpy", line 70, in script
+    call screen expedition_screen(regionNumber)
+TypeError: 'str' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
   File "game/places.rpy", line 15, in script call
     call go_to_computer()
+  File "game/base_of_operations.rpy", line 11, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
   File "game/base_of_operations.rpy", line 5, in script call
     call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 7, in script call
-    call check_online_shop()
-  File "game/base_of_operations.rpy", line 74, in script
-    call screen online_shop()
+  File "game/base_of_operations.rpy", line 66, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 40, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 66, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 40, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 66, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 40, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 21, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 21, in script call
+    call see_expeditions_for_region(1)
+  File "game/base_of_operations.rpy", line 70, in script
+    call screen expedition_screen(regionNumber)
   File "renpy/ast.py", line 2231, in execute
     self.call("execute")
     ~~~~~~~~~^^^^^^^^^^^
@@ -73,66 +182,51 @@ Traceback (most recent call last):
         ^^^^^^^^^
     )  # type: ignore
     ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/screens.rpy", line 3211, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3211, in execute
-    screen online_shop():
-  File "game/screens.rpy", line 3231, in execute
-    frame:
-  File "game/screens.rpy", line 3259, in execute
-    vbox:
-  File "game/screens.rpy", line 3339, in execute
-    if online_shop_show == "show_equipments":
-  File "game/screens.rpy", line 3341, in execute
-    hbox:
-  File "game/screens.rpy", line 3345, in execute
-    for rarity, equipments in online_shop_variable.selling_equipments_list.items():
-  File "game/screens.rpy", line 3346, in execute
-    if rarity == rarity_selected:
-  File "game/screens.rpy", line 3347, in execute
-    for equipment in equipments:
-  File "game/screens.rpy", line 3364, in execute
-    $ orig_width, orig_height = renpy.image_size(equipment_img)
-  File "game/screens.rpy", line 3364, in <module>
-    $ orig_width, orig_height = renpy.image_size(equipment_img)
-                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "renpy/exports/displayexports.py", line 771, in image_size
-    surf = im.load()
-           ~~~~~~~^^
-  File "renpy/display/im.py", line 838, in load
-    raise e
-  File "renpy/display/im.py", line 792, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
-               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/loader.py", line 698, in load
-    raise FileNotFoundError("Couldn't find file '%s'." % name)
-FileNotFoundError: Couldn't find file 'images/equipments/Miracle_boots.png'.
+  File "renpy/display/core.py", line 3302, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 805, in event
+    rv = self.child.event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1508, in event
+    rv = super(Window, self).event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 273, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1184, in event
+    return handle_click(self.clicked)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1107, in handle_click
+    rv = run(action)
+         ~~~^^^^^^^^
+  File "renpy/display/behavior.py", line 411, in run
+    return action(*args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^
+  File "renpy/common/00action_other.rpy", line 618, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not callable
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Sep 16 17:04:58 2025
+Thu Sep 18 12:59:37 2025

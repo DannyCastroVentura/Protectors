@@ -1722,6 +1722,15 @@ style square_button:
     hover_background "#666"
     size 20
 
+style rectangle_button:
+    xminimum 200
+    yminimum 75
+    xmaximum 200
+    ymaximum 75
+    background "#a5a5a5"
+    hover_background "#666"
+    size 20
+
 style message_boss_expedition_textbutton:
     color "#666"
     hover_color "#ffffff"
@@ -3772,10 +3781,72 @@ screen boss_expedition(bossExpedition, fight):
                                 yalign 0.5  # vertical center
                                 spacing 5
                                 text "Flee"
-                        action Function(bossExpedition.returnFromBossExpedition)
+                        action [Show("boss_expedition_results", None, bossExpedition, bossExpeditionFledResult), Hide("boss_expedition")]
             if fight.your_turn == False:
+                $ continue_action = Function(fight.continue_fight)
+                if fight.battle_message == fight_victory_message:
+                    $ continue_action = [Show("boss_expedition_results", None, bossExpedition, bossExpeditionVictoryResult), Hide("boss_expedition")]
+                elif fight.battle_message == fight_defeat_message:
+                    $ continue_action = [Show("boss_expedition_results", None, bossExpedition, bossExpeditionDefeatResult), Hide("boss_expedition")]
                 vbox:
                     spacing 20
                     xalign 0.5
                     yalign 0.5
-                    textbutton fight.battle_message text_style "message_boss_expedition_textbutton" action Function(fight.continue_fight) sensitive fight.message_turn xalign 0.5
+                    textbutton fight.battle_message text_style "message_boss_expedition_textbutton" action continue_action xalign 0.5
+
+
+screen boss_expedition_results(bossExpedition, result):
+    frame:
+        modal True
+        background Solid(black_color)
+        xysize (config.screen_width, config.screen_height)
+        $ scale = 650
+
+        $ buttons_background = im.Scale("images/background_item.png", scale, scale)
+
+        fixed:
+            xfill True
+            yfill True
+
+            vbox:
+                yalign 0.15
+                xalign 0.5
+                spacing 100
+                text "[bossExpedition.title]" size 30 color "#FFF" xalign 0.5
+                text "[result]" size 50 color "#FFF" xalign 0.5
+
+            vbox:
+                yalign 0.5
+                xalign 0.5
+                spacing 20
+                # TODO: improve
+                if result == bossExpeditionVictoryResult:
+                    text "Victory! You crushed it! Time to collect your rewards and get ready for the next challenge." size 20 color "#FFF" xalign 0.5
+                    text "You have now unlocked the next stage! TODO: ADD HERE THE NAME OF THE NEXT STAGE UNLOCKED"
+                    text "bossExpedition stage won -> [bossExpedition.regionNumber]" size 20 color "#FFF" xalign 0.5
+                    text "bossExpedition next stage to be unlocked -> [str(int(bossExpedition.regionNumber + 1))]" size 20 color "#FFF" xalign 0.5
+                    text "Gold to receive -> [bossExpedition.gold_received]" size 20 color "#FFF" xalign 0.5
+                    text "XP to receive -> [bossExpedition.xp_received]" size 20 color "#FFF" xalign 0.5
+                elif result == bossExpeditionDefeatResult:
+                    text "You were defeated by the [bossExpedition.title]!" size 25 color "#FFF" xalign 0.5
+                    text "Don’t give up! Take on more missions, gain experience, level up, and come back stronger!" size 25 color "#FFF" xalign 0.5
+                    text "You might also find better equipment in the shop." size 25 color "#FFF" xalign 0.5
+                elif result == bossExpeditionFledResult:
+                    text "You fled the battle agaisnt the [bossExpedition.title]!" size 25 color "#FFF" xalign 0.5
+                    text "Don’t give up! Take on more missions, gain experience, level up, and come back stronger!" size 25 color "#FFF" xalign 0.5
+                    text "You might also find better equipment in the shop." size 25 color "#FFF" xalign 0.5
+                
+                
+            vbox:
+                yalign 0.9
+                xalign 0.5
+                button:
+                        frame:
+                            style "rectangle_button"
+                            padding (10, 10)
+                            vbox:
+                                xalign 0.5  # horizontal center
+                                yalign 0.5  # vertical center
+                                spacing 5
+                                text "Continue"
+                        action [Function(bossExpedition.finishBossExpedition, result), Hide("boss_expedition_results"), Jump("resting_area")]

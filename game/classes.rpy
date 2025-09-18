@@ -15,6 +15,10 @@ init python:
     fight_defeat_message = "You lost!"
     fight_your_turn_message = "It's your turn"
     fight_enemy_turn_message = "It's the enemy turn"
+
+    bossExpeditionVictoryResult = "Victory!"
+    bossExpeditionDefeatResult = "Defeat..."
+    bossExpeditionFledResult = "You fled the battle."
             
     # define the base multiplier per rank
     rank_multipliers = {
@@ -101,6 +105,9 @@ init python:
             self.expeditions_failed = 0
             self.expeditions_went = 0
             self.chosen_evolution = 0
+            self.boss_expeditions_succeeded = 0
+            self.boss_expeditions_failed = 0
+            self.boss_expeditions_went = 0
             if chosen_evolution_value != None:
                 self.chosen_evolution = chosen_evolution_value
             if self.level > 1:
@@ -759,10 +766,28 @@ init python:
             renpy.show_screen("boss_expedition", self, fight)
             return
 
-        def returnFromBossExpedition(self):
-            renpy.hide_screen("boss_expedition")
-            renpy.jump("resting_area")
+        def finishBossExpedition(self, result):
+            if result == bossExpeditionVictoryResult:
+                # updating xp
+                my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received)
 
+                # updating the expeditions succeeded on this protector
+                my_protectors_map[self.assignedProtectorName].boss_expeditions_succeeded += 1
+
+                # Updating wallet
+                updating_wallet(self.gold_received)
+            elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:                
+                # updating the expeditions failed on this protector
+                my_protectors_map[self.assignedProtectorName].boss_expeditions_failed += 1
+
+            # updating the expeditions went on this protector
+            my_protectors_map[self.assignedProtectorName].boss_expeditions_went += 1
+
+            # reseting the BossExpedition
+            self.successfulMinorExpeditions = 0
+            self.assignedProtectorName = None
+            self.status = "not assigned"
+            return
 
     # RARITY COLORS:
     #   S   Crimson Red #DC143C
@@ -1107,14 +1132,6 @@ init python:
                     self.enemy_defend_protector()
                 if 30 <= roll:
                     self.enemy_attack_protector()
-
-            elif self.battle_message == fight_victory_message:
-                # TODO: add xp, money, open the next stage and so on
-                self.battle_message = fight_victory_message
-                
-            elif self.battle_message == fight_defeat_message:
-                # TODO: make the stage fight to reset state
-                self.boss_expedition.returnFromBossExpedition()
                 
             elif self.battle_message == fight_you_attacked_message or \
                 self.battle_message == fight_you_are_defending_message or \

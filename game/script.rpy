@@ -148,12 +148,7 @@ label start:
     #   -   and they would also win xp (not much)
     # 
     # TODO: create the screen for the time based combat
-    #   -   on ending the battle a report should show - stating who won (ex: on victory, a victory panel should show) - copy the pane for the store, and use it for this victory / defeat panel
-    #   -   same for flee
-    #   -   same for losing
     #   -   what to show in the report?
-    #   -   -   congratiolations message (or losing message)
-    #   -   -   gold won it was earned - in case of victory
     #   -   -   what equipments we also got - in case of victory
     #   -   -   -   final boss drops!
     #   -   -   -   -   Region 10 - 2 A Equipment or Weapon
@@ -166,14 +161,15 @@ label start:
     #   -   -   -   -   Region 3 - 1 D Equipment or Weapon
     #   -   -   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   -   -   Region 1 - 1 E Equipment or Weapon
-    #   -   -   in case a next region was unlocked, we should also see that information
-    #   -   create logic for when we won
     #   -   also make the critical chance with critical damage attribute to play a role when doing damage
     #   -   also make the evasion attribute to play a role when receiving damage
-    #   -   once the stage 1 is killed, then it should refresh the counting for the fight again, and unlock the new stage
-    #   -   add the option for spell
-    #   -   once the first stage expedition is done, we unlock another part of the game, which is the clashes (battles)
+    #   -   once the stage 1 is killed:
+    #   -   -   we should unlock the new stage
+    #   -   -   unlock battles
     #
+    # TODO: Improve the fight experience
+    #   -   add the option for spell
+    # 
     # TODO: [ PRIO 1 ] ADD DROP CHANCE FOR BATTLES AND EXPEDITIONS
     #   -   item drop chance
     #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
