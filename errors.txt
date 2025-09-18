@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/classes.rpy", line 771: expected an indented block after 'if' statement on line 769
-    elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:
-        ^^^^
+File "game/base_of_operations.rpy", line 23: end of line expected.
+    "[expedition_names[1]]": if False:
+                             ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Thu Sep 18 12:46:25 2025
+Thu Sep 18 14:23:29 2025

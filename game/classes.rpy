@@ -787,6 +787,10 @@ init python:
             self.successfulMinorExpeditions = 0
             self.assignedProtectorName = None
             self.status = "not assigned"
+
+            # unlock the next region
+            if self.regionNumber != 10:
+                unlockingExpeditionStage(self.regionNumber)
             return
 
     # RARITY COLORS:

@@ -15,20 +15,33 @@ label see_expeditions(page):
     $ set_background("computer")
     if page == 1:
         $ update_menu_disable_options(True)
+        $ expedition_names = list(expedition_stages.keys())
+        $ region_1_name = expedition_names[0]
+        $ region_2_name = expedition_names[1]
+        $ region_3_name = expedition_names[2]
+        $ region_4_name = expedition_names[3]
+        $ region_5_name = expedition_names[4]
+        $ region_6_name = expedition_names[5]
+        $ region_7_name = expedition_names[6]
+        $ region_8_name = expedition_names[7]
+        $ region_9_name = expedition_names[8]
+        $ region_10_name = expedition_names[9]
+
+        
         menu:
-            "Region 1":
+            "[region_1_name]":
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(1)
-            "Region 2" if False:
+            "[region_2_name]" if expedition_stages[region_2_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(2)
-            "Region 3" if False:
+            "[region_3_name]" if expedition_stages[region_3_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(3)
-            "Region 4" if False:
+            "[region_4_name]" if expedition_stages[region_4_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(4)
-            "Region 5" if False:
+            "[region_5_name]" if expedition_stages[region_5_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(5)
             ">> Check next regions >>":
@@ -41,19 +54,19 @@ label see_expeditions(page):
     elif page == 2:
         $ update_menu_disable_options(True)
         menu:
-            "Region 6" if False:
+            "[region_6_name]" if expedition_stages[region_6_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(6)
-            "Region 7" if False:
+            "[region_7_name]" if expedition_stages[region_7_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(7)
-            "Region 8" if False:
+            "[region_8_name]" if expedition_stages[region_8_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(8)
-            "Region 9" if False:
+            "[region_9_name]" if expedition_stages[region_9_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(9)
-            "Region 10" if False:
+            "[region_10_name]" if expedition_stages[region_10_name]['unlocked']:
                 $ update_menu_disable_options(False)
                 call see_expeditions_for_region(10)
             "<< Check previous regions <<":

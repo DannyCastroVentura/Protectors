@@ -3819,14 +3819,11 @@ screen boss_expedition_results(bossExpedition, result):
                 yalign 0.5
                 xalign 0.5
                 spacing 20
-                # TODO: improve
+                $ expedition_stage_names = list(expedition_stages.keys())
                 if result == bossExpeditionVictoryResult:
-                    text "Victory! You crushed it! Time to collect your rewards and get ready for the next challenge." size 20 color "#FFF" xalign 0.5
-                    text "You have now unlocked the next stage! TODO: ADD HERE THE NAME OF THE NEXT STAGE UNLOCKED"
-                    text "bossExpedition stage won -> [bossExpedition.regionNumber]" size 20 color "#FFF" xalign 0.5
-                    text "bossExpedition next stage to be unlocked -> [str(int(bossExpedition.regionNumber + 1))]" size 20 color "#FFF" xalign 0.5
-                    text "Gold to receive -> [bossExpedition.gold_received]" size 20 color "#FFF" xalign 0.5
-                    text "XP to receive -> [bossExpedition.xp_received]" size 20 color "#FFF" xalign 0.5
+                    text "Victory! You crushed it! You are now the hero of [expedition_stage_names[int(bossExpedition.regionNumber - 1)]]!" size 20 color "#FFF" xalign 0.5
+                    text "You have unlocked the next region: [expedition_stage_names[int(bossExpedition.regionNumber)]]" size 20 color "#FFF" xalign 0.5
+                    text "Time to collect your rewards and get ready for the next challenge." size 20 color "#FFF" xalign 0.5
                 elif result == bossExpeditionDefeatResult:
                     text "You were defeated by the [bossExpedition.title]!" size 25 color "#FFF" xalign 0.5
                     text "Don’t give up! Take on more missions, gain experience, level up, and come back stronger!" size 25 color "#FFF" xalign 0.5

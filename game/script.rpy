@@ -143,6 +143,10 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: Fix the attack speed on the fights, enemy is attacking 2 times after ninja atack the first time?? He should have a big attack speed
+    # 
+    # TODO: create the boss images for the other stages
+    # 
     # TODO: also make an option to send the protectors to help the organization
     #   -   this would make us earn weekly money
     #   -   and they would also win xp (not much)
@@ -164,7 +168,6 @@ label start:
     #   -   also make the critical chance with critical damage attribute to play a role when doing damage
     #   -   also make the evasion attribute to play a role when receiving damage
     #   -   once the stage 1 is killed:
-    #   -   -   we should unlock the new stage
     #   -   -   unlock battles
     #
     # TODO: Improve the fight experience
