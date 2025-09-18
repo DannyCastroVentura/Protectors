@@ -143,6 +143,10 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: improve the images
+    # 
+    # TODO: make the image for the protector on fights to flip horizontally
+    # 
     # TODO: getting a notification when a protector is ready for promotion
     # 
     # TODO: informing that the protector can only equipe specified weapons in the protector detail
