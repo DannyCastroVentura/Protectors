@@ -142,14 +142,13 @@ label start:
     
     #
     # TODOS:
-    # 
-    # TODO: make the level up points change when we specify a different evolution!
+    #
+    # TODO: create a report for the expeditions, instead of making them to send a notification
+    #   -   also add the information if the protector leveled up, or is ready for promotion
     # 
     # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again
     #
     # TODO: improve the images
-    # 
-    # TODO: getting a notification when a protector is ready for promotion
     # 
     # TODO: informing that the protector can only equipe specified weapons in the protector detail
     # 

@@ -22,13 +22,29 @@ init python:
                 "luck": 11,
                 "attack_speed": 1.3
             },
-            [
-                "dexterity", "luck", "constitution", "dexterity", "speed",
-                "constitution", "dexterity", "strength", "speed", "charisma", 
-                "dexterity", "intelligence", "strength", "constitution", "wisdom", 
-                "speed", "luck", "dexterity", "strength", "dexterity", 
-                "wisdom", "constitution", "dexterity", "speed", "dexterity"
-            ], 
+            {
+                "basic": [
+                    "dexterity", "luck", "constitution", "dexterity", "speed",
+                    "constitution", "dexterity", "strength", "speed", "charisma", 
+                    "dexterity", "speed", "strength", "constitution", "luck", 
+                    "speed", "luck", "dexterity", "strength", "dexterity", 
+                    "dexterity", "constitution", "dexterity", "speed", "dexterity"
+                ], 
+                "evolution1": [
+                    "dexterity", "speed", "Luck", "dexterity", "speed",
+                    "Luck", "dexterity", "dexterity", "speed", "Luck", 
+                    "dexterity", "dexterity", "speed", "Luck", "speed", 
+                    "speed", "speed", "dexterity", "Luck", "dexterity", 
+                    "Luck", "speed", "dexterity", "speed", "dexterity"
+                ], 
+                "evolution2": [
+                    "dexterity", "constitution", "constitution", "dexterity", "speed",
+                    "constitution", "dexterity", "dexterity", "speed", "constitution", 
+                    "dexterity", "dexterity", "constitution", "constitution", "constitution", 
+                    "speed", "constitution", "dexterity", "dexterity", "dexterity", 
+                    "constitution", "constitution", "dexterity", "speed", "dexterity"
+                ]
+            },
             "EVA", "DEX_TAN", 
             "Ash Ninja", 
             "While exploring a forgotten cave, he touched a cursed relic that bound dark magic to his body. From that moment, he gained the power to transform into ash, disappearing into smoke to strike unseen.",
@@ -36,7 +52,7 @@ init python:
             "Recruited by the army, he wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield.",
             ["Knife", "Sword", "Katana"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Thief’s Knife"
         )
         
@@ -51,13 +67,27 @@ init python:
                 "speed": 7,
                 "luck": 8,
                 "attack_speed": 0.7
-            }, 
-            [
-                "strength", "wisdom", "constitution", "strength", "charisma", 
-                "strength", "wisdom", "constitution", "strength", "intelligence", 
-                "strength", "wisdom", "strength", "charisma", "constitution", 
-                "strength", "wisdom", "strength", "luck", "strength", "speed"
-            ], 
+            },
+            {
+                "basic": [
+                    "strength", "wisdom", "constitution", "strength", "constitution", 
+                    "strength", "wisdom", "constitution", "strength", "constitution", 
+                    "strength", "wisdom", "strength", "constitution", "constitution", 
+                    "strength", "wisdom", "strength", "wisdom", "strength", "wisdom"
+                ], 
+                "evolution1": [
+                    "strength", "wisdom", "constitution", "strength", "constitution", 
+                    "strength", "wisdom", "constitution", "strength", "constitution", 
+                    "strength", "wisdom", "strength", "constitution", "constitution", 
+                    "strength", "wisdom", "strength", "wisdom", "strength", "wisdom"
+                ], 
+                "evolution2": [
+                    "strength", "wisdom", "constitution", "strength", "constitution", 
+                    "strength", "wisdom", "constitution", "strength", "constitution", 
+                    "strength", "wisdom", "strength", "constitution", "constitution", 
+                    "strength", "wisdom", "strength", "wisdom", "strength", "wisdom"
+                ]
+            },
             "MIR_TAN", "MIR_STR_STR",
             "Saint Templar",
             "A devoted templar, he was granted a sacred blessing to wield the power of the saints. and every strike carries divine judgment. Guided by unbreakable devotion, he stands as a living vessel of sanctity on the battlefield.",
@@ -65,7 +95,7 @@ init python:
             "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
             ["Sword", "Spear", "Greatsword", "Great Hammer", "Greataxe"], None, None,
             "Melee",
-            "Divine",
+            "Regular", "Divine", "Divine",
             "Rusty Greatsword"
         )
 
@@ -82,20 +112,34 @@ init python:
                 "luck": 12,
                 "attack_speed": 0.9
             }, 
-            [
-                "intelligence", "wisdom", "constitution", "intelligence", "dexterity", 
-                "wisdom", "intelligence", "constitution", "wisdom", "dexterity", 
-                "intelligence", "wisdom", "constitution", "luck", "intelligence", 
-                "wisdom", "charisma", "intelligence", "wisdom", "constitution", "speed"
-            ], 
+            {
+                "basic": [
+                    "intelligence", "wisdom", "constitution", "intelligence", "dexterity", 
+                    "wisdom", "intelligence", "constitution", "wisdom", "dexterity", 
+                    "intelligence", "wisdom", "constitution", "luck", "intelligence", 
+                    "wisdom", "charisma", "intelligence", "wisdom", "constitution", "speed"
+                ], 
+                "evolution1": [
+                    "wisdom", "wisdom", "constitution", "wisdom", "constitution", 
+                    "wisdom", "wisdom", "constitution", "wisdom", "constitution", 
+                    "wisdom", "wisdom", "constitution", "constitution", "wisdom", 
+                    "wisdom", "constitution", "wisdom", "wisdom", "constitution", "constitution"
+                ], 
+                "evolution2": [
+                    "intelligence", "intelligence", "constitution", "intelligence", "dexterity", 
+                    "intelligence", "intelligence", "constitution", "intelligence", "dexterity", 
+                    "intelligence", "intelligence", "constitution", "luck", "intelligence", 
+                    "intelligence", "constitution", "intelligence", "intelligence", "constitution", "speed"
+                ], 
+            },
             "MIR_CON", "INT",
             "Thunder Wizard",
             "Through years of study in forgotten libraries, he unlocked the secrets of the arcane. Spells of thunder and lightning bend to his will, making him a master of battlefield control.",
             "Nature Wizard",
             "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him.",
-            ["Wand", "Staff"], None, None,
+            ["Wand", "Staff"], ["Wand", "Staff", "Book"], ["Wand", "Staff"],
             "Ranged",
-            "Magic",
+            "Magic", "Divine", "Magic",
             "Cracked Wooden Wand"
         )
 
@@ -111,21 +155,37 @@ init python:
                 "luck": 16,
                 "attack_speed": 1.2
             }, 
-            [
-                "dexterity", "wisdom", "luck", "dexterity", "wisdom", 
-                "constitution", "dexterity", "wisdom", "speed", "luck", 
-                "dexterity", "wisdom", "luck", "luck", "dexterity", 
-                "wisdom", "luck", "dexterity", "wisdom", "constitution",
-                "constitution", "luck", "wisdom", "dexterity", "constitution"
-            ], 
-            "MIR_MIR_DEX", "CRI",
+            {
+                "basic": [
+                    "dexterity", "speed", "luck", "dexterity", "constitution", 
+                    "constitution", "dexterity", "dexterity", "speed", "luck", 
+                    "dexterity", "dexterity", "luck", "luck", "dexterity", 
+                    "dexterity", "luck", "luck", "dexterity", "constitution",
+                    "speed", "luck", "dexterity", "luck", "constitution"
+                ],
+                "evolution1": [
+                    "wisdom", "wisdom", "constitution", "wisdom", "wisdom", 
+                    "constitution", "wisdom", "wisdom", "speed", "constitution", 
+                    "wisdom", "wisdom", "constitution", "luck", "wisdom", 
+                    "wisdom", "constitution", "wisdom", "wisdom", "constitution",
+                    "constitution", "constitution", "wisdom", "wisdom", "constitution"
+                ],
+                "evolution2": [
+                    "dexterity", "speed", "luck", "constitution", "luck", 
+                    "luck", "luck", "dexterity", "speed", "luck", 
+                    "dexterity", "dexterity", "luck", "constitution", "dexterity", 
+                    "dexterity", "luck", "luck", "dexterity", "dexterity",
+                    "speed", "luck", "dexterity", "luck", "luck"
+                ]
+            }, 
+            "MIR_CON", "CRI",
             "Demonic Dealer",
             "In a forgotten arcane library, he found a deck of dark enchanted cards, each holding demonic essence. Now, whispers from the cards slowly turn him into a demon with every throw.",
             "Ace of Fates",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
             ["Cards"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Divine", "Regular",
             "Paper Throwing Cards"
         )
 
@@ -141,20 +201,34 @@ init python:
                 "luck": 9,
                 "attack_speed": 1.2
             },
-            [
-                "strength", "speed", "strength", "constitution", "speed", 
-                "wisdom", "dexterity", "speed", "constitution", "strength", 
-                "dexterity", "wisdom", "strength", "dexterity", "strength", 
-                "intelligence", "strength", "dexterity", "constitution", "charisma"
-            ], 
-            "TAN", "DAM_SPE",
+            {
+                "basic": [
+                    "strength", "speed", "strength", "constitution", "speed", 
+                    "wisdom", "dexterity", "speed", "constitution", "strength", 
+                    "dexterity", "wisdom", "strength", "dexterity", "strength", 
+                    "intelligence", "strength", "dexterity", "constitution", "charisma"
+                ], 
+                "evolution1": [
+                    "strength", "strength", "strength", "constitution", "constitution", 
+                    "strength", "constitution", "speed", "constitution", "strength", 
+                    "strength", "constitution", "strength", "strength", "strength", 
+                    "constitution", "strength", "constitution", "constitution", "strength"
+                ], 
+                "evolution2": [
+                    "dexterity", "speed", "dexterity", "constitution", "speed", 
+                    "constitution", "dexterity", "speed", "constitution", "dexterity", 
+                    "dexterity", "speed", "dexterity", "dexterity", "dexterity", 
+                    "speed", "dexterity", "dexterity", "constitution", "speed"
+                ], 
+            },            
+            "TAN", "DEX",
             "Tech Samurai",
             "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
             "Wolf Samurai",
             "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
             ["Katana"], ["Katana"], ["Katana", "Sword", "Knife"],
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Katana"
         )
 
@@ -170,12 +244,26 @@ init python:
                 "luck": 11,
                 "attack_speed": 1
             },
-            [
-                "dexterity", "strength", "speed", "constitution", "dexterity", 
-                "strength", "dexterity", "constitution", "dexterity", "strength", 
-                "dexterity", "constitution", "dexterity", "strength", "charisma", 
-                "strength", "luck", "strength", "constitution", "charisma", "speed"
-            ], 
+            {
+                "basic": [
+                    "dexterity", "strength", "speed", "constitution", "dexterity", 
+                    "strength", "dexterity", "constitution", "dexterity", "strength", 
+                    "dexterity", "constitution", "dexterity", "strength", "charisma", 
+                    "strength", "luck", "strength", "constitution", "charisma", "speed"
+                ], 
+                "evolution1": [
+                    "dexterity", "dexterity", "speed", "constitution", "dexterity", 
+                    "luck", "dexterity", "constitution", "dexterity", "dexterity", 
+                    "dexterity", "constitution", "dexterity", "speed", "dexterity", 
+                    "luck", "luck", "dexterity", "constitution", "speed", "speed"
+                ], 
+                "evolution2": [
+                    "strength", "strength", "speed", "constitution", "constitution", 
+                    "strength", "strength", "constitution", "speed", "strength", 
+                    "strength", "constitution", "strength", "strength", "speed", 
+                    "strength", "constitution", "strength", "constitution", "constitution", "speed"
+                ], 
+            },
             "EVA", "STR_STR_STR_CON_SPE",
             "Special Forces Agent",
             "Determined to become one of the best, he enlisted in the Special Forces intense training. After proving his skill, he earned his place and now strikes with unmatched precision, agility, and tactical mastery on every mission.",
@@ -183,7 +271,7 @@ init python:
             "Trapped in fear during a mission, the recruit’s mind finally snapped, and that terror erupted into uncontrollable, burning rage. Now he fights with pure instinct as he charges into battle with relentless ferocity.",
             ["Knife", "Gun", "Machine gun", "Sniper"], ["Knife", "Gun", "Machine gun", "Sniper"], ["Knife", "Sword", "Greatsword", "Greataxe", "Spear", "Axe", "Hammer", "Great Hammer", "Mace"],
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Combat Knife"
         )
 

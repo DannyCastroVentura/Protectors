@@ -28,9 +28,17 @@ init python:
                 "luck": 15,
                 "attack_speed": 1
             },
-            [
-                "strength", "constitution", "speed"
-            ], 
+            {
+                "basic": [
+                    "strength", "constitution", "speed"
+                ], 
+                "evolution1": [
+                    "strength", "constitution", "speed"
+                ], 
+                "evolution2": [
+                    "strength", "constitution", "speed"
+                ]
+            }, 
             "STR_CON", "STR_CON", 
             "Name 1", 
             "Description 1",
@@ -38,7 +46,7 @@ init python:
             "Description 2",
             ["Greatsword"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
         
@@ -56,9 +64,17 @@ init python:
                 "luck": 15,
                 "attack_speed": 1
             },
-            [
-                "wisdom", "constitution"
-            ], 
+            {
+                "basic": [
+                    "wisdom", "constitution"
+                ], 
+                "evolution1": [
+                    "wisdom", "constitution"
+                ], 
+                "evolution2": [
+                    "wisdom", "constitution"
+                ]
+            }, 
             "MIR_CON", "MIR_CON", 
             "Name 1", 
             "Description 1",
@@ -66,7 +82,7 @@ init python:
             "Description 2",
             ["Book"], None, None,
             "Ranged",
-            "Divine",
+            "Divine", "Divine", "Divine",
             "Cleric’s Scripture"
         )
 

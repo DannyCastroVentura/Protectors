@@ -20,9 +20,17 @@ init python:
                 "luck": 15,
                 "attack_speed": 1
             },
-            [
-                "strength", "constitution", "speed"
-            ], 
+            {
+                "basic": [
+                    "strength", "constitution", "speed"
+                ], 
+                "evolution1": [
+                    "strength", "constitution", "speed"
+                ], 
+                "evolution2": [
+                    "strength", "constitution", "speed"
+                ]
+            }, 
             "STR_CON", "STR_CON", 
             "Name 1", 
             "Description 1",
@@ -30,7 +38,7 @@ init python:
             "Description 2",
             ["Greatsword"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
         
@@ -47,9 +55,17 @@ init python:
                 "luck": 15,
                 "attack_speed": 1
             },
-            [
-                "constitution", "dexterity", "luck", "speed", "speed"
-            ], 
+            {
+                "basic": [
+                    "constitution", "dexterity", "luck", "speed", "speed"
+                ], 
+                "evolution1": [
+                    "constitution", "dexterity", "luck", "speed", "speed"
+                ], 
+                "evolution2": [
+                    "constitution", "dexterity", "luck", "speed", "speed"
+                ]
+            }, 
             "CON_DEX", "CON_DEX", 
             "Name 1", 
             "Description 1",
@@ -57,7 +73,7 @@ init python:
             "Description 2",
             ["Greatsword"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
         
@@ -74,9 +90,17 @@ init python:
                 "luck": 15,
                 "attack_speed": 1
             },
-            [
-                "dexterity", "speed", "luck", "speed"
-            ], 
+            {
+                "basic": [
+                    "dexterity", "speed", "luck", "speed"
+                ], 
+                "evolution1": [
+                    "dexterity", "speed", "luck", "speed"
+                ], 
+                "evolution2": [
+                    "dexterity", "speed", "luck", "speed"
+                ]
+            }, 
             "EVA", "EVA", 
             "Name 1", 
             "Description 1",
@@ -84,7 +108,7 @@ init python:
             "Description 2",
             ["Greatsword"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
         
@@ -101,9 +125,17 @@ init python:
                 "luck": 15,
                 "attack_speed": 1
             },
-            [
-                "charisma", "wisdom", "wisdom", "wisdom"
-            ], 
+            {
+                "basic": [
+                    "charisma", "wisdom", "wisdom", "wisdom"
+                ], 
+                "evolution1": [
+                    "charisma", "wisdom", "wisdom", "wisdom"
+                ], 
+                "evolution2": [
+                    "charisma", "wisdom", "wisdom", "wisdom"
+                ]
+            }, 
             "CHA_WIS", "CHA_WIS", 
             "Name 1", 
             "Description 1",
@@ -111,7 +143,7 @@ init python:
             "Description 2",
             ["Greatsword"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
         
@@ -128,9 +160,17 @@ init python:
                 "luck": 15,
                 "attack_speed": 1
             },
-            [
-                "charisma", "charisma", "charisma", "wisdom"
-            ], 
+            {
+                "basic": [
+                    "charisma", "charisma", "charisma", "wisdom"
+                ], 
+                "evolution1": [
+                    "charisma", "charisma", "charisma", "wisdom"
+                ], 
+                "evolution2": [
+                    "charisma", "charisma", "charisma", "wisdom"
+                ]
+            }, 
             "CHA", "CHA", 
             "Name 1", 
             "Description 1",
@@ -138,7 +178,7 @@ init python:
             "Description 2",
             ["Greatsword"], None, None,
             "Melee",
-            "Regular",
+            "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
 
@@ -275,6 +315,6 @@ init python:
 
 
         # Recreate expeditions
-        allExpeditions.append(Expedition("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 9000, 0))
+        allExpeditions.append(Expedition("Training", "Send a protector to train in your facilities.", 0, 1, 1, "Training", "not assigned", 99000, 0))
 
         creating_new_expeditions()

@@ -36,7 +36,8 @@ init python:
             evolution_2, evolution_name_1, evolution_description_1,
             evolution_name_2, evolution_description_2, usable_weapon_types, 
             usable_weapon_types_evolution_1, usable_weapon_types_evolution_2,
-            unarmed_range, unarmed_damage_type, default_weapon):
+            unarmed_range, basic_unarmed_damage_type, evo1_unarmed_damage_type, 
+            evo2_unarmed_damage_type, default_weapon):
             self.strength = stats["strength"]
             self.dexterity = stats["dexterity"]
             self.constitution = stats["constitution"]
@@ -63,7 +64,9 @@ init python:
             else:
                 self.usable_weapon_types_evolution_2 = usable_weapon_types_evolution_2
             self.unarmed_range = unarmed_range
-            self.unarmed_damage_type = unarmed_damage_type
+            self.basic_unarmed_damage_type = basic_unarmed_damage_type
+            self.evo1_unarmed_damage_type = evo1_unarmed_damage_type
+            self.evo2_unarmed_damage_type = evo2_unarmed_damage_type
             self.can_it_use_weapons = True
             if usable_weapon_types == "":
                 self.can_it_use_weapons = False
@@ -104,10 +107,10 @@ init python:
             self.expeditions_succeeded = 0
             self.expeditions_failed = 0
             self.expeditions_went = 0
-            self.chosen_evolution = 0
             self.boss_expeditions_succeeded = 0
             self.boss_expeditions_failed = 0
             self.boss_expeditions_went = 0
+            self.chosen_evolution = 0
             if chosen_evolution_value != None:
                 self.chosen_evolution = chosen_evolution_value
             if self.level > 1:
@@ -134,12 +137,26 @@ init python:
             return
 
         def leveling_up(self):
+            attribute_train = self.basePoints.increasing_list['basic']
+            if self.chosen_evolution != None:
+                if self.chosen_evolution == 1:
+                    attribute_train = self.basePoints.increasing_list['evolution1']
+                elif self.chosen_evolution == 2:
+                    attribute_train = self.basePoints.increasing_list['evolution2']
             # Add the needed attributes to the base stats variable accordingly
             for i in range(levelAttributeIncrements):
-                attribute = self.basePoints.increasing_list.pop(0)
+                attribute = attribute_train.pop(0)
                 self.basePoints.increase_attribute(attribute)
-                self.basePoints.increasing_list.append(attribute)
+                attribute_train.append(attribute)
             self.refresh_stats()
+
+        def re_evaluate_level_points(self):
+            global protectors_base_information
+            self.basePoints = copy.deepcopy(protectors_base_information[self.name])
+            xp_needed = self.get_total_xp_needed_for_level(self.level)
+            self.level = 0
+            self.increasing_xp(xp_needed)
+            return
         
         def increasing_xp(self, incoming_xp):
             if self.level / 20 > (self.stage):
@@ -252,12 +269,26 @@ init python:
                 self.equipedBoots = None
             return
 
-        def get_amount_of_xp_needed_for_leveling_up(self):
+        def get_amount_of_xp_needed_for_leveling_up(self, lvl = None):
+            if lvl == None:
+                lvl = self.level
             return ( 
                 round(( xp_starter_size + 
-                    (xp_size * increasing_per_level_multiplier_xp * (self.level - 1))
+                    (xp_size * increasing_per_level_multiplier_xp * (lvl - 1))
                 ), 2)
             )
+
+        def get_total_xp_needed_for_level(self, target_level: int) -> float:
+            """
+            Calculate the total amount of XP required to reach a given level from level 1.
+            
+            :param target_level: The level you want to reach.
+            :return: The total XP required.
+            """
+            total_xp = 0.0
+            for lvl in range(1, target_level):
+                total_xp += self.get_amount_of_xp_needed_for_leveling_up(lvl)
+            return round(total_xp, 2)
 
         # dexterity -> prio1 -> dexterity
         #           -> prio2 -> strength
@@ -332,43 +363,52 @@ init python:
         def get_damage_points(self):
             value = 0
             type_damage = 0.5
-            class_damage = 0.5
 
             if self.basePoints.can_it_use_weapons == False:
                 type_damage = 1.2
 
+            using_unarmed_damage_type = self.basePoints.basic_unarmed_damage_type
+            if self.chosen_evolution != None:
+                if self.chosen_evolution == 1:
+                    using_unarmed_damage_type = self.basePoints.evo1_unarmed_damage_type
+                elif self.chosen_evolution == 2:
+                    using_unarmed_damage_type = self.basePoints.evo2_unarmed_damage_type
+
             weapon_base_damage = 3
             if self.equipedWeapon == None:
-                if self.basePoints.unarmed_damage_type == "Regular":
-                    value = (self.get_strength() + self.get_dexterity()) * type_damage
-                elif self.basePoints.unarmed_damage_type == "Magic":
-                    value = (self.get_intelligence() + self.get_wisdom()) * type_damage
-                elif self.basePoints.unarmed_damage_type == "Divine":
-                    value = (self.get_wisdom()) * 1.2
+                if using_unarmed_damage_type == "Regular":
+                    value = (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * type_damage
+                elif using_unarmed_damage_type == "Magic":
+                    value = (self.get_intelligence() * 2 + self.get_wisdom() + self.get_luck()) * type_damage
+                elif using_unarmed_damage_type == "Divine":
+                    value = (self.get_wisdom() * 3 + self.get_luck()) * type_damage
             else:
                 if self.equipedWeapon.class_name == "Strength":
-                    value = (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * type_damage
+                    value = (self.get_strength() * 2 + self.get_dexterity() + self.get_luck())
                 elif self.equipedWeapon.class_name == "Dexterity":
-                    value = (self.get_dexterity() * 2 + self.get_strength() + self.get_luck()) * type_damage
+                    value = (self.get_dexterity() * 2 + self.get_strength() + self.get_luck())
                 elif self.equipedWeapon.class_name == "Magic":
-                    value = (self.get_intelligence() * 2 + self.get_wisdom() + self.get_luck()) * type_damage
+                    value = (self.get_intelligence() * 2 + self.get_wisdom() + self.get_luck())
                 elif self.equipedWeapon.class_name == "Divine":
-                    value = (self.get_wisdom() * 3 + self.get_luck()) * type_damage
+                    value = (self.get_wisdom() * 3 + self.get_luck())
 
-                if self.equipedWeapon.type == "Axe" or self.equipedWeapon.type == "Hammer" or self.equipedWeapon.type == "Mace":
-                    value += (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * class_damage
-                elif self.equipedWeapon.type == "Cards" or self.equipedWeapon.type == "Gun" or self.equipedWeapon.type == "Machine gun" or self.equipedWeapon.type == "Sniper":
-                    value += (self.get_dexterity() * 3 + self.get_luck()) * class_damage
-                elif self.equipedWeapon.type == "Great Hammer" or self.equipedWeapon.type == "Greataxe" or self.equipedWeapon.type == "Greatsword":
-                    value += (self.get_strength() * 2.7 + self.get_dexterity() * 0.3 + self.get_luck()) * class_damage
-                elif self.equipedWeapon.type == "Katana" or self.equipedWeapon.type == "Spear" or self.equipedWeapon.type == "Sword":
-                    value += (self.get_strength() * 1.5 + self.get_dexterity() * 1.5 + self.get_luck()) * class_damage
-                elif self.equipedWeapon.type == "Knife":
-                    value += (self.get_dexterity() * 2 + self.get_strength() * 1 + self.get_luck()) * class_damage
-                elif self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
-                    value += (self.get_intelligence() * 2 + self.get_wisdom() * 1 + self.get_luck()) * class_damage
-                elif self.equipedWeapon.type == "Book":
-                    value += (self.get_wisdom() * 3 + self.get_luck()) * class_damage
+                # # commenting this out because I don't want the damage output to be depending on the type of the weapon
+                # # it seemed a good idea, but thinking about it, I'm not sure if I like that idea anymore
+                # class_damage = 0.5
+                # if self.equipedWeapon.type == "Axe" or self.equipedWeapon.type == "Hammer" or self.equipedWeapon.type == "Mace":
+                #     value += (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * class_damage
+                # elif self.equipedWeapon.type == "Cards" or self.equipedWeapon.type == "Gun" or self.equipedWeapon.type == "Machine gun" or self.equipedWeapon.type == "Sniper":
+                #     value += (self.get_dexterity() * 3 + self.get_luck()) * class_damage
+                # elif self.equipedWeapon.type == "Great Hammer" or self.equipedWeapon.type == "Greataxe" or self.equipedWeapon.type == "Greatsword":
+                #     value += (self.get_strength() * 2.7 + self.get_dexterity() * 0.3 + self.get_luck()) * class_damage
+                # elif self.equipedWeapon.type == "Katana" or self.equipedWeapon.type == "Spear" or self.equipedWeapon.type == "Sword":
+                #     value += (self.get_strength() * 1.5 + self.get_dexterity() * 1.5 + self.get_luck()) * class_damage
+                # elif self.equipedWeapon.type == "Knife":
+                #     value += (self.get_dexterity() * 2 + self.get_strength() * 1 + self.get_luck()) * class_damage
+                # elif self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
+                #     value += (self.get_intelligence() * 2 + self.get_wisdom() * 1 + self.get_luck()) * class_damage
+                # elif self.equipedWeapon.type == "Book":
+                #     value += (self.get_wisdom() * 3 + self.get_luck()) * class_damage
                 
                 weapon_base_damage = self.equipedWeapon.base_damage
                 if self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
@@ -523,6 +563,8 @@ init python:
             if self.equipedWeapon != None:
                 if self.equipedWeapon.type not in self.basePoints.usable_weapon_types:
                     self.unequip_weapon()
+
+            self.re_evaluate_level_points()
             return
 
     class Expedition:
@@ -607,7 +649,6 @@ init python:
             protectorName = self.assignedProtectorName
             self.status = "started"
             self.success_rate = success_rate
-            renpy.notify(self.title)
             my_protector = get_my_protector(protectorName)
             my_protector.set_status("In a mission")
             resetAssignmentsForThisProtectorName(protectorName)
@@ -684,6 +725,7 @@ init python:
                     bossExpedition.successfulMinorExpeditions += 1
 
                 if my_protectors_map[self.assignedProtectorName].readyForPromotion == True:
+                    # TODO: make this show a report instead of poping up this notification
                     # notifying that the mission was a success!
                     messages = [
                         f"Expedition success (rolled {roll:.2f} vs rate {success_rate}%)",
@@ -692,11 +734,13 @@ init python:
                     renpy.notify(messages)
                     
                 else:
+                    # TODO: make this show a report instead of poping up this notification
                     # notifying that the mission was a success!
-                    renpy.notify(f"Expedition success (rolled {roll:.2f} vs rate {success_rate}%)")
+                    renpy.notify(f"Expedition success ✅ (rolled {roll:.2f} vs rate {success_rate}%)")
             else:
                 mission_success = False
-                renpy.notify(f"Expedition failed (rolled {roll:.2f} vs rate {success_rate}%)")
+                # TODO: make this show a report instead of poping up this notification
+                renpy.notify(f"Expedition failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
                 
                 # updating the expeditions failed on this protector
                 my_protectors_map[self.assignedProtectorName].expeditions_failed += 1
@@ -797,6 +841,7 @@ init python:
                 
                 # check if the protector is now ready for promotion
                 if my_protectors_map[self.assignedProtectorName].readyForPromotion == True:
+                    # TODO: make this show a report instead of poping up this notification
                     renpy.notify(f"{self.assignedProtectorName} is ready for promotion!")
                     
             elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:                
