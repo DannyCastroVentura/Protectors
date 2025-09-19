@@ -149,12 +149,17 @@ label start:
     # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again
     #
     # TODO: improve the images
-    # 
-    # TODO: informing that the protector can only equipe specified weapons in the protector detail
+    #   -   add images for the ACE
+    #   -   -   I want to have images of:
+    #   -   -   -   Cards with Blue Aura 1 - 4
+    #   -   -   -   Cards with demonic appearence 5_1 - 10_1
+    #   -   -   -   Cards with ninja appearence 5_2 - 10_2
     # 
     # TODO: add the option to sell equipment / weapons
     # 
-    # TODO: create the boss images for the other stages
+    # TODO: test all the bosses
+    # 
+    # TODO: add the expeditions and the shop into the menu
     # 
     # TODO: also make an option to send the protectors to help the organization
     #   -   this would make us earn weekly money

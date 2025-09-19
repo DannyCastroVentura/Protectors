@@ -467,6 +467,20 @@ screen protector_detail_screen(my_protector):
                             text "[str(current_status['luck'])]" size 22 color "#EEE" xalign 0.9999
 
 
+                if my_protector.basePoints.can_it_use_weapons == True:
+                    $ possible_weapons = my_protector.basePoints.usable_weapon_types
+                    vbox:
+                        xalign 0.5
+                        yalign 0.5
+                        spacing 20
+                        null height 10  # This adds 40 pixels of vertical space at the top
+                        text "Usable weapon types:" size 23 color "#EEE" xalign 0.5
+                        for i in range(0, len(possible_weapons), 4):
+                            hbox:
+                                xalign 0.5
+                                spacing 20
+                                for weapon_type in possible_weapons[i:i+4]:
+                                    text "[weapon_type]" size 22 color "#EEE" xalign 0.5
             vbox:
                 spacing 20
                 xalign 0.99999999999
@@ -477,11 +491,11 @@ screen protector_detail_screen(my_protector):
                     xalign 0.5
                     spacing 20
                     bar value my_protector.hp range my_protector.get_health_points() style "hp_bar"
-                    text "[my_protector.hp] / [my_protector.get_health_points()]" size 20 color "#DDD"
+                    text "[my_protector.hp] / [my_protector.get_health_points()]" size 20 color "#DDD" xalign 1.0
                     bar value my_protector.get_mana_points() range my_protector.get_mana_points() style "mana_bar"
-                    text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD"
+                    text "[my_protector.get_mana_points()] / [my_protector.get_mana_points()]" size 20 color "#DDD" xalign 1.0
                     bar value my_protector.xp range my_protector.get_amount_of_xp_needed_for_leveling_up() style "xp_bar"
-                    text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD"
+                    text "[my_protector.xp] / [my_protector.get_amount_of_xp_needed_for_leveling_up()]" size 20 color "#DDD" xalign 1.0
                     null height 10  # This adds 40 pixels of vertical space at the top
 
                 vbox:
