@@ -98,7 +98,7 @@ init python:
             "decrease": [ "Intelligence", "Wisdom" ]
         },
         "STR_ONLY": {  # Glass cannon
-            "increase": [ "Strength", "Strength" ],
+            "increase": [ "Strength" ],
             "decrease": [ "Intelligence", "Wisdom", "Luck" ]
         },
         "STR_STR_STR_CON_SPE": {  # Pure bruiser
@@ -146,7 +146,7 @@ init python:
             "decrease": [ "Intelligence", "Wisdom" ]
         },
         "HP": {  # Health-obsessed
-            "increase": [ "Constitution", "Constitution" ],
+            "increase": [ "Constitution" ],
             "decrease": [ "Dexterity", "Luck" ]
         },
         "EVA": {  # Evasion build

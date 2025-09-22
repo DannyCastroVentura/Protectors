@@ -275,6 +275,49 @@ init python:
             "Rusty Combat Knife"
         )
 
+        protectors_base_information["Robot"] = BaseProtectorData(
+            {
+                "strength": 16,
+                "dexterity": 9,
+                "constitution": 18,
+                "intelligence": 12,
+                "wisdom": 8,
+                "charisma": 10,
+                "speed": 8,
+                "luck": 9,
+                "attack_speed": 1
+            },
+            {
+                "basic": [
+                    "strength", "constitution", "constitution", "dexterity", "speed", 
+                    "constitution", "strength", "speed", "constitution", "strength", 
+                    "dexterity", "constitution", "constitution", "strength", "constitution", 
+                    "constitution", "strength", "constitution", "constitution", "constitution"
+                ], 
+                "evolution1": [
+                    "strength", "strength", "strength", "constitution", "constitution", 
+                    "strength", "constitution", "speed", "constitution", "strength", 
+                    "strength", "constitution", "strength", "strength", "strength", 
+                    "constitution", "strength", "constitution", "constitution", "strength"
+                ], 
+                "evolution2": [
+                    "constitution", "speed", "constitution", "constitution", "constitution", 
+                    "constitution", "constitution", "constitution", "constitution", "strength", 
+                    "constitution", "constitution", "strength", "constitution", "constitution", 
+                    "strength", "constitution", "constitution", "constitution", "speed"
+                ], 
+            },            
+            "STR_CON", "HP",
+            "Tech Samurai",
+            "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
+            "Wolf Samurai",
+            "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
+            [""], [""], [""],
+            "Melee",
+            "Regular", "Regular", "Regular",
+            ""
+        )
+
         # protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, 
         #     "HP", "INT_TAN",
         #     "Name 1",

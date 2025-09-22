@@ -143,14 +143,17 @@ label start:
     #
     # TODOS:
     #
+    # 
+    # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
+    #   -   robot - still need images for this
+    #   -   skeleton - dexterity based
+    #   -   priest - this will use miracles
+    #   -   lawyer - this will be good for charisma and political missions
+    # 
     # TODO: create a report for the expeditions, instead of making them to send a notification
     #   -   also add the information if the protector leveled up, or is ready for promotion
     # 
     # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again
-    #
-    # TODO: improve the images
-    #   -   only left is Wizard
-    #   -   if I have the time, I can also take a look to Templar
     # 
     # TODO: add the option to sell equipment / weapons
     # 
@@ -193,12 +196,6 @@ label start:
     #   -   "This expeditions was completed, this protector got this xp and this money"
     #   -   it was successful or not
     #   -   also the reason
-    # 
-    # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
-    #   -   robot - this will be the tanky one ( lets try it :) )
-    #   -   skeleton - dexterity based
-    #   -   priest - this will use miracles
-    #   -   lawyer - this will be good for charisma and political missions
     #
     # TODO: [ PRIO 1 ] test all the protectors 
     # 
