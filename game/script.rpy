@@ -149,11 +149,8 @@ label start:
     # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again
     #
     # TODO: improve the images
-    #   -   add images for the ACE
-    #   -   -   I want to have images of:
-    #   -   -   -   Cards with Blue Aura 1 - 4
-    #   -   -   -   Cards with demonic appearence 5_1 - 10_1
-    #   -   -   -   Cards with ninja appearence 5_2 - 10_2
+    #   -   only left is Wizard
+    #   -   if I have the time, I can also take a look to Templar
     # 
     # TODO: add the option to sell equipment / weapons
     # 
