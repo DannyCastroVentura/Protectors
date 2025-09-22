@@ -166,38 +166,18 @@ init python:
             "decrease": [ "Strength", "Constitution", "Speed" ]
         }
     }
-
+    
     expedition_stages = {
-        "Verdenglade": {
-            "unlocked": True
-        },
-        "Cinderforge": {
-            "unlocked": False
-        },
-        "Moonhollow": {
-            "unlocked": False
-        },
-        "Rainmere": {
-            "unlocked": False
-        },
-        "Greyspire": {
-            "unlocked": False
-        },
-        "Ironridge": {
-            "unlocked": False
-        },
-        "Brightgate": {
-            "unlocked": False
-        },
-        "Steamcoil": {
-            "unlocked": False
-        },
-        "Chronopolis": {
-            "unlocked": False
-        },
-        "Techspire": {
-            "unlocked": False
-        }
+        "Verdenglade": {"unlocked": True},
+        "Cinderforge": {"unlocked": False},
+        "Moonhollow": {"unlocked": False},
+        "Rainmere": {"unlocked": False},
+        "Greyspire": {"unlocked": False},
+        "Ironridge": {"unlocked": False},
+        "Brightgate": {"unlocked": False},
+        "Steamcoil": {"unlocked": False},
+        "Chronopolis": {"unlocked": False},
+        "Techspire": {"unlocked": False}
     }
     
     percentage_for_increasing_on_evolutions = 0.50
@@ -269,8 +249,9 @@ init python:
         global my_protectors_map
         global protectors_base_information
         new_protector = Protector(protector_name, stage, level, "Available", protectors_base_information)
-        default_weapon_name = new_protector.basePoints.default_weapon
-        if default_weapon_name != None:
+        can_new_protector_use_weapons = new_protector.basePoints.can_it_use_weapons
+        if can_new_protector_use_weapons:
+            default_weapon_name = new_protector.basePoints.default_weapon
             # get the weapon id
             default_weapon_id = get_weapon_by_name(default_weapon_name).weapon_id
 

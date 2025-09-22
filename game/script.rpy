@@ -143,6 +143,7 @@ label start:
     #
     # TODOS:
     #
+    # TODO: fix the issue on expeditions are starting over - maybe I can create a new object for this? It seems the objects are not losing its information..
     # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
     #   -   robot - still need images for this
@@ -179,8 +180,6 @@ label start:
     #   -   -   -   -   Region 3 - 1 D Equipment or Weapon
     #   -   -   -   -   Region 2 - 2 E Equipment or Weapon
     #   -   -   -   -   Region 1 - 1 E Equipment or Weapon
-    #   -   also make the critical chance with critical damage attribute to play a role when doing damage
-    #   -   also make the evasion attribute to play a role when receiving damage
     #   -   once the stage 1 is killed:
     #   -   -   unlock battles
     #

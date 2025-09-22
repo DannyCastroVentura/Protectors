@@ -31,11 +31,11 @@ init python:
                     "dexterity", "constitution", "dexterity", "speed", "dexterity"
                 ], 
                 "evolution1": [
-                    "dexterity", "speed", "Luck", "dexterity", "speed",
-                    "Luck", "dexterity", "dexterity", "speed", "Luck", 
-                    "dexterity", "dexterity", "speed", "Luck", "speed", 
-                    "speed", "speed", "dexterity", "Luck", "dexterity", 
-                    "Luck", "speed", "dexterity", "speed", "dexterity"
+                    "dexterity", "speed", "luck", "dexterity", "speed",
+                    "luck", "dexterity", "dexterity", "speed", "luck", 
+                    "dexterity", "dexterity", "speed", "luck", "speed", 
+                    "speed", "speed", "dexterity", "luck", "dexterity", 
+                    "luck", "speed", "dexterity", "speed", "dexterity"
                 ], 
                 "evolution2": [
                     "dexterity", "constitution", "constitution", "dexterity", "speed",
@@ -312,7 +312,7 @@ init python:
             "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
             "Wolf Samurai",
             "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
-            [""], [""], [""],
+            [""], None, None,
             "Melee",
             "Regular", "Regular", "Regular",
             ""

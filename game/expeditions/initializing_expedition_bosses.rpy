@@ -81,7 +81,7 @@ init python:
             "Description 2",
             ["Sword"], None, None,
             "Ranged",
-            "Divine", "Divine", "Divine",
+            "Regular", "Regular", "Regular",
             "Rusty Sword"
         )
         
@@ -115,8 +115,8 @@ init python:
             "Name 2", 
             "Description 2",
             ["Knife"], None, None,
-            "Ranged",
-            "Divine", "Divine", "Divine",
+            "Melee",
+            "Regular", "Regular", "Regular",
             "Balanced Knife"
         )
 

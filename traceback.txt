@@ -1,43 +1,355 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 13, in script
-    menu:
-  File "game/protector_detail.rpy", line 2, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/protector_detail.rpy", line 2, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/protector_detail.rpy", line 5, in execute
-    frame:
-  File "game/protector_detail.rpy", line 10, in execute
-    fixed:
-  File "game/protector_detail.rpy", line 59, in execute
-    vbox:
-  File "game/protector_detail.rpy", line 65, in execute
-    hbox:
-  File "game/protector_detail.rpy", line 140, in execute
-    vbox:
-  File "game/protector_detail.rpy", line 143, in execute
-    for i in range(0, len(possible_future_weapons_array), 6):
-  File "game/protector_detail.rpy", line 143, in <module>
-    for i in range(0, len(possible_future_weapons_array), 6):
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      
-NameError: name 'possible_future_weapons_array' is not defined
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 6 more times]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 34, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 2 more times]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 7 more times]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 37, in script call
+    call see_expeditions_for_region(2)
+  File "game/base_of_operations.rpy", line 83, in script
+    call screen expedition_screen(regionNumber)
+  File "game/classes.rpy", line 823, in startBossExpedition
+    enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
+                                                         ^^^^^^^^^^^^^^^^^ 
+UnboundLocalError: cannot access local variable 'target_class_name' where it is not associated with a value
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 13, in script
-    menu:
-  File "renpy/ast.py", line 1815, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 135, in menu
-    rv = renpy.store.menu(new_items)
-         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
-  File "renpy/exports/menuexports.py", line 418, in display_menu
-    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 6 more times]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 34, in script call
+    call see_expeditions_for_region(1)
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 2 more times]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+[Previous line repeated 7 more times]
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 79, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 53, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 15, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 5, in script call
+    call see_expeditions(1)
+  File "game/base_of_operations.rpy", line 37, in script call
+    call see_expeditions_for_region(2)
+  File "game/base_of_operations.rpy", line 83, in script
+    call screen expedition_screen(regionNumber)
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -51,58 +363,57 @@ Traceback (most recent call last):
         ^^^^^^^^^
     )  # type: ignore
     ^                
-  File "renpy/display/core.py", line 2757, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2757, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/protector_detail.rpy", line 2, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/protector_detail.rpy", line 2, in execute
-    screen protector_detail_screen(my_protector):
-  File "game/protector_detail.rpy", line 5, in execute
-    frame:
-  File "game/protector_detail.rpy", line 10, in execute
-    fixed:
-  File "game/protector_detail.rpy", line 59, in execute
-    vbox:
-  File "game/protector_detail.rpy", line 65, in execute
-    hbox:
-  File "game/protector_detail.rpy", line 140, in execute
-    vbox:
-  File "game/protector_detail.rpy", line 143, in execute
-    for i in range(0, len(possible_future_weapons_array), 6):
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/protector_detail.rpy", line 143, in <module>
-    for i in range(0, len(possible_future_weapons_array), 6):
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      
-NameError: name 'possible_future_weapons_array' is not defined
+  File "renpy/display/core.py", line 3302, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 805, in event
+    rv = self.child.event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1508, in event
+    rv = super(Window, self).event(ev, x, y, st)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 273, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/layout.py", line 1284, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1184, in event
+    return handle_click(self.clicked)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/display/behavior.py", line 1107, in handle_click
+    rv = run(action)
+         ~~~^^^^^^^^
+  File "renpy/display/behavior.py", line 411, in run
+    return action(*args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^
+  File "renpy/common/00action_other.rpy", line 618, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 823, in startBossExpedition
+    enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
+                                                         ^^^^^^^^^^^^^^^^^ 
+UnboundLocalError: cannot access local variable 'target_class_name' where it is not associated with a value
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Fri Sep 19 17:43:47 2025
+Mon Sep 22 18:07:11 2025

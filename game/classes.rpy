@@ -8,8 +8,12 @@ init python:
     ranged_starting_period = 50
     start_fight_timer_period = 100
     fight_you_attacked_message = "You attacked the enemy.."
+    fight_you_attacked_crit_message = "You did critical damage to the enemy!"
+    fight_enemy_evaded_message = "Enemy evaded the attack.."
     fight_you_are_defending_message = "You are now defending.."
     fight_enemy_attacked_message = "Enemy attacked you.."
+    fight_enemy_attacked_crit_message = "Enemy did critical damage to you!"
+    fight_you_evaded_message = "You evaded the attack.."
     fight_enemy_is_defending_message = "Enemy is now defending.."
     fight_victory_message = "You won!"
     fight_defeat_message = "You lost!"
@@ -68,7 +72,7 @@ init python:
             self.evo1_unarmed_damage_type = evo1_unarmed_damage_type
             self.evo2_unarmed_damage_type = evo2_unarmed_damage_type
             self.can_it_use_weapons = True
-            if usable_weapon_types == "":
+            if usable_weapon_types[0] == "":
                 self.can_it_use_weapons = False
             self.default_weapon = default_weapon
             return
@@ -421,7 +425,7 @@ init python:
             critical_chance = round(0.05 + self.get_luck() * 0.001 + self.get_dexterity() * 0.0005, 4)
             if critical_chance > 1:
                 critical_chance = 1
-            return critical_chance
+            return critical_chance * 100
         
         def get_critical_damage(self):
             critical_damage = round(1.5 + self.get_dexterity() * 0.001 + self.get_luck() * 0.0005 + self.get_strength() * 0.0005, 2)
@@ -433,7 +437,7 @@ init python:
             return critical_damage
 
         def get_evasion(self):
-            return round(self.get_dexterity() * 0.03 + self.get_luck() * 0.003, 2)
+            return round(self.get_dexterity() * 0.03 + self.get_luck() * 0.003, 2) * 100
 
         def get_recon_points(self):
             return round(self.get_dexterity() * 0.5 + self.get_speed() * 0.5 + self.get_evasion() * 10, 2)
@@ -811,10 +815,21 @@ init python:
             
             # Getting equipments
             if rarity_number >= 0:
-                if self.title == "The Mireborn Tyrant":
+                if self.title == "The Mireborn Tyrant" or \
+                self.title == "The Hollow Sentinel" or \
+                self.title == "The Iron Colossus":
                     target_class_name = "Tank"
-                if self.title == "The Pale King":
+                elif self.title == "The Pale King" or \
+                self.title == "The Infernal Architect" or \
+                self.title == "The Eclipse Warden":
                     target_class_name = "Miracle"
+                elif self.title == "The Clockwork Butcher":
+                    target_class_name = "Speed"
+                elif self.title == "The Drowned Prophet" or \
+                self.title == "The Shattered Queen":
+                    target_class_name = "Magic"
+                elif self.title == "The Void-Touched Seraph":
+                    target_class_name = "Shield"
 
                 enemy = enemy_equip_equipments(enemy, rarity_number, target_class_name)
 
@@ -1054,8 +1069,9 @@ init python:
                 protector_to_sell = Protector(p_name, 1, 1, "To sell", protectors_base_information)
                 protector_to_sell.price = 10000
                 protector_to_sell.stillAvailable = True
-                default_weapon = get_weapon_by_name(protector_to_sell.basePoints.default_weapon)
-                protector_to_sell.set_weapon(default_weapon)
+                if protector_to_sell.basePoints.can_it_use_weapons:
+                    default_weapon = get_weapon_by_name(protector_to_sell.basePoints.default_weapon)
+                    protector_to_sell.set_weapon(default_weapon)
                 chosen.append(protector_to_sell)
                 if len(chosen) == 2:
                     break
@@ -1102,10 +1118,23 @@ init python:
             if self.enemy_defend == True:
                 damage = int(damage / 2)
                 self.enemy_defend = False
-            self.enemy.hp -= damage * ( 100 / (100 + self.enemy.get_defense()))
+            eva_chance_roll = int(random.uniform(0, 10000))  # get a random float between 0 and 100
+            eva_chance = self.enemy.get_evasion()
+            if eva_chance_roll < eva_chance:
+                self.battle_message = fight_enemy_evaded_message
+                renpy.notify('Enemy evaded the attack')
+            else:
+                crit_chance_roll = int(random.uniform(0, 100))  # get a random float between 0 and 100
+                crit_chance = self.protector.get_critical_chance()
+                if crit_chance_roll < crit_chance:
+                    damage = damage * self.protector.get_critical_damage()
+                    self.battle_message = fight_you_attacked_crit_message
+                    renpy.notify('Enemy had recieved a critical attack')
+                else:
+                    self.battle_message = fight_you_attacked_message
+                self.enemy.hp -= damage * ( 100 / (100 + self.enemy.get_defense()))
             self.enemy_time_until_atack -= self.protector_time_until_atack
             self.protector_time_until_atack = 1 / self.protector.get_attack_speed()
-            self.battle_message = fight_you_attacked_message
             self.your_turn = False
             
             # checking if protector killed enemy
@@ -1125,11 +1154,24 @@ init python:
             damage = self.enemy.get_damage_points()
             if self.protector_defend == True:
                 damage = int(damage / 2)
-                self.protector_defend = False
-            self.protector.hp -= damage * ( 100 / (100 + self.protector.get_defense()))
+                self.protector_defend = False            
+            eva_chance_roll = int(random.uniform(0, 10000))  # get a random float between 0 and 100
+            renpy.notify('evasion roll: ' + str(eva_chance_roll))
+            eva_chance = self.protector.get_evasion()
+            if eva_chance_roll < eva_chance:
+                self.battle_message = fight_you_evaded_message
+            else:
+                crit_chance_roll = int(random.uniform(0, 100))  # get a random float between 0 and 100
+                crit_chance = self.enemy.get_critical_chance()
+                if crit_chance_roll < crit_chance:
+                    damage = damage * self.enemy.get_critical_damage()
+                    self.battle_message = fight_enemy_attacked_crit_message
+                    renpy.notify('You had recieved a critical attack')
+                else:
+                    self.battle_message = fight_enemy_attacked_message
+                self.protector.hp -= damage * ( 100 / (100 + self.protector.get_defense()))
             self.protector_time_until_atack -= self.enemy_time_until_atack
             self.enemy_time_until_atack = 1 / self.enemy.get_attack_speed()
-            self.battle_message = fight_enemy_attacked_message
 
             # checking if enemy killed protector            
             if int(self.protector.hp) <= 0:
@@ -1200,7 +1242,11 @@ init python:
             elif self.battle_message == fight_you_attacked_message or \
                 self.battle_message == fight_you_are_defending_message or \
                 self.battle_message == fight_enemy_attacked_message or \
-                self.battle_message == fight_enemy_is_defending_message:
+                self.battle_message == fight_enemy_is_defending_message or \
+                self.battle_message == fight_enemy_evaded_message or \
+                self.battle_message == fight_you_evaded_message or \
+                self.battle_message == fight_you_attacked_crit_message or \
+                self.battle_message == fight_enemy_attacked_crit_message:
                 if self.protector_time_until_atack <= self.enemy_time_until_atack:
                     self.battle_message = fight_your_turn_message
                     self.your_turn = True

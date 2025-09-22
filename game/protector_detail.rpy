@@ -469,6 +469,10 @@ screen protector_detail_screen(my_protector):
 
                 if my_protector.basePoints.can_it_use_weapons == True:
                     $ possible_weapons = my_protector.basePoints.usable_weapon_types
+                    if my_protector.chosen_evolution == 1:
+                        $ possible_weapons = my_protector.basePoints.usable_weapon_types_evolution_1
+                    elif my_protector.chosen_evolution == 2:
+                        $ possible_weapons = my_protector.basePoints.usable_weapon_types_evolution_2
                     vbox:
                         xalign 0.5
                         yalign 0.5
