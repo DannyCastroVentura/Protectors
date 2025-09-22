@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/base_of_operations.rpy", line 23: end of line expected.
-    "[expedition_names[1]]": if False:
-                             ^
+File "game/functions.rpy", line 485: invalid syntax
+    global regions_variable.object
+                               ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Thu Sep 18 14:23:29 2025
+Mon Sep 22 21:49:57 2025

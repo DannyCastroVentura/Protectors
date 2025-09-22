@@ -2823,8 +2823,23 @@ init python:
         # initializing the expedition bosses things
         initializing_expedition_bosses()
 
+        expedition_stages = {
+            "Verdenglade": {"unlocked": True},
+            "Cinderforge": {"unlocked": False},
+            "Moonhollow": {"unlocked": False},
+            "Rainmere": {"unlocked": False},
+            "Greyspire": {"unlocked": False},
+            "Ironridge": {"unlocked": False},
+            "Brightgate": {"unlocked": False},
+            "Steamcoil": {"unlocked": False},
+            "Chronopolis": {"unlocked": False},
+            "Techspire": {"unlocked": False}
+        }
         
         global online_shop_variable
         online_shop_variable = OnlineShop()
+
+        global regions_variable
+        regions_variable = Regions(expedition_stages)
 
         return 

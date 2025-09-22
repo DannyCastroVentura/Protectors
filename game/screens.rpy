@@ -3841,7 +3841,7 @@ screen boss_expedition_results(bossExpedition, result):
                 yalign 0.5
                 xalign 0.5
                 spacing 20
-                $ expedition_stage_names = list(expedition_stages.keys())
+                $ expedition_stage_names = list(regions_variable.object.keys())
                 if result == bossExpeditionVictoryResult:
                     text "Victory! You crushed it! You are now the hero of [expedition_stage_names[int(bossExpedition.regionNumber - 1)]]!" size 20 color "#FFF" xalign 0.5
                     text "You have unlocked the next region: [expedition_stage_names[int(bossExpedition.regionNumber)]]" size 20 color "#FFF" xalign 0.5

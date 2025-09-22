@@ -339,7 +339,6 @@ init python:
                 used_stage = fake_stage
             return int(self.basePoints.wisdom * used_stage * self.get_increments("Wisdom") * self.get_evolution_increments("Wisdom", fake_evolution))
         
-        # TODO: add things to increment charisma attribute
         def get_charisma(self, fake_stage = None, fake_evolution = None):
             used_stage = self.stage
             if fake_stage != None:
@@ -425,7 +424,7 @@ init python:
             critical_chance = round(0.05 + self.get_luck() * 0.001 + self.get_dexterity() * 0.0005, 4)
             if critical_chance > 1:
                 critical_chance = 1
-            return critical_chance * 100
+            return critical_chance
         
         def get_critical_damage(self):
             critical_damage = round(1.5 + self.get_dexterity() * 0.001 + self.get_luck() * 0.0005 + self.get_strength() * 0.0005, 2)
@@ -437,7 +436,7 @@ init python:
             return critical_damage
 
         def get_evasion(self):
-            return round(self.get_dexterity() * 0.03 + self.get_luck() * 0.003, 2) * 100
+            return round(self.get_dexterity() * 0.03 + self.get_luck() * 0.003, 2)
 
         def get_recon_points(self):
             return round(self.get_dexterity() * 0.5 + self.get_speed() * 0.5 + self.get_evasion() * 10, 2)
@@ -1119,17 +1118,15 @@ init python:
                 damage = int(damage / 2)
                 self.enemy_defend = False
             eva_chance_roll = int(random.uniform(0, 10000))  # get a random float between 0 and 100
-            eva_chance = self.enemy.get_evasion()
+            eva_chance = self.enemy.get_evasion() * 100
             if eva_chance_roll < eva_chance:
                 self.battle_message = fight_enemy_evaded_message
-                renpy.notify('Enemy evaded the attack')
             else:
                 crit_chance_roll = int(random.uniform(0, 100))  # get a random float between 0 and 100
-                crit_chance = self.protector.get_critical_chance()
+                crit_chance = self.protector.get_critical_chance() * 100
                 if crit_chance_roll < crit_chance:
                     damage = damage * self.protector.get_critical_damage()
                     self.battle_message = fight_you_attacked_crit_message
-                    renpy.notify('Enemy had recieved a critical attack')
                 else:
                     self.battle_message = fight_you_attacked_message
                 self.enemy.hp -= damage * ( 100 / (100 + self.enemy.get_defense()))
@@ -1156,17 +1153,15 @@ init python:
                 damage = int(damage / 2)
                 self.protector_defend = False            
             eva_chance_roll = int(random.uniform(0, 10000))  # get a random float between 0 and 100
-            renpy.notify('evasion roll: ' + str(eva_chance_roll))
-            eva_chance = self.protector.get_evasion()
+            eva_chance = self.protector.get_evasion() * 100
             if eva_chance_roll < eva_chance:
                 self.battle_message = fight_you_evaded_message
             else:
                 crit_chance_roll = int(random.uniform(0, 100))  # get a random float between 0 and 100
-                crit_chance = self.enemy.get_critical_chance()
+                crit_chance = self.enemy.get_critical_chance() * 100
                 if crit_chance_roll < crit_chance:
                     damage = damage * self.enemy.get_critical_damage()
                     self.battle_message = fight_enemy_attacked_crit_message
-                    renpy.notify('You had recieved a critical attack')
                 else:
                     self.battle_message = fight_enemy_attacked_message
                 self.protector.hp -= damage * ( 100 / (100 + self.protector.get_defense()))
@@ -1255,3 +1250,7 @@ init python:
                     self.your_turn = False
             return
             
+
+    class Regions:
+        def __init__(self, _object):
+            self.object = _object

@@ -167,19 +167,6 @@ init python:
         }
     }
     
-    expedition_stages = {
-        "Verdenglade": {"unlocked": True},
-        "Cinderforge": {"unlocked": False},
-        "Moonhollow": {"unlocked": False},
-        "Rainmere": {"unlocked": False},
-        "Greyspire": {"unlocked": False},
-        "Ironridge": {"unlocked": False},
-        "Brightgate": {"unlocked": False},
-        "Steamcoil": {"unlocked": False},
-        "Chronopolis": {"unlocked": False},
-        "Techspire": {"unlocked": False}
-    }
-    
     percentage_for_increasing_on_evolutions = 0.50
     percentage_for_decreasing_on_evolutions = 0.50
     
@@ -495,8 +482,8 @@ init python:
         return enemy
 
     def unlockingExpeditionStage(number):
-        global expedition_stages
-        expedition_stage_names = list(expedition_stages.keys())
+        global regions_variable
+        expedition_stage_names = list(regions_variable.object.keys())
         name = expedition_stage_names[number]
-        expedition_stages[name]['unlocked'] = True
+        regions_variable.object[name]['unlocked'] = True
         return

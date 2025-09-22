@@ -142,8 +142,6 @@ label start:
     
     #
     # TODOS:
-    #
-    # TODO: fix the issue on expeditions are starting over - maybe I can create a new object for this? It seems the objects are not losing its information..
     # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
     #   -   robot - still need images for this
