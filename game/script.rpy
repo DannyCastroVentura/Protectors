@@ -154,7 +154,7 @@ label start:
     # TODO: create a report for the expeditions, instead of making them to send a notification
     #   -   also add the information if the protector leveled up, or is ready for promotion
     # 
-    # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again
+    # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again - once I deleted the renpy.notify , the issue started again - let's add it again?
     # 
     # TODO: add the option to sell equipment / weapons
     # 
