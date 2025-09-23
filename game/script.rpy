@@ -143,10 +143,9 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: check the differences between ninja evolutions, as the second one is giving more evasion, and it should be the oposite..
+    # TODO: make the evasion and the critical chance to be more limited -> a way that the higher the number is, the dificul is to get to 100
     # 
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
-    #   -   robot - still need images for this
     #   -   skeleton - dexterity based
     #   -   priest - this will use miracles
     #   -   lawyer - this will be good for charisma and political missions

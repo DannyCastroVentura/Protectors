@@ -150,7 +150,7 @@ init python:
             "decrease": [ "Dexterity", "Luck" ]
         },
         "EVA": {  # Evasion build
-            "increase": [ "Dexterity", "Dexterity", "Dexterity", "Speed", "Speed", "Constitution" ],
+            "increase": [ "Dexterity", "Dexterity", "Dexterity", "Speed", "Speed", "Constitution", "Luck" ],
             "decrease": [ "Strength", "Wisdom", "Intelligence" ]
         },
         "CRI": {  # Critical strike build
