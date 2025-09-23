@@ -868,13 +868,10 @@ init python:
 
                 # Updating wallet
                 updating_wallet(self.gold_received)
-                renpy.notify("before the if")
 
                 # unlock the next region
                 if self.regionNumber < 10:
                     unlockingExpeditionStage(self.regionNumber)
-                                    
-                renpy.notify("after the if")
             elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:                
                 # updating the expeditions failed on this protector
                 my_protectors_map[self.assignedProtectorName].boss_expeditions_failed += 1

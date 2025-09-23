@@ -3,32 +3,74 @@
 While running game code:
   File "game/places.rpy", line 5, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 3, in script
-    $ is_online_store_unlocked = regions_variable.object['OnlineStore'].unlocked
-  File "game/base_of_operations.rpy", line 3, in <module>
-    $ is_online_store_unlocked = regions_variable.object['OnlineStore'].unlocked
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'RevertableDict' object has no attribute 'unlocked'
+  File "game/base_of_operations.rpy", line 6, in script call
+    call see_expeditions(1)
+  File "game/places.rpy", line 12, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 19, in script call
+    call rest()
+  File "game/resting.rpy", line 5, in script
+    python:
+  File "game/resting.rpy", line 9, in <module>
+    expedition.updateDaysPassed()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 712, in updateDaysPassed
+    self.finishExpedition()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 748, in finishExpedition
+    my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 190, in increasing_xp
+    self.leveling_up()
+    ~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 164, in leveling_up
+    self.basePoints.increase_attribute(attribute)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "game/classes.rpy", line 104, in increase_attribute
+    setattr(self, att, getattr(self, att) + value)
+                       ~~~~~~~^^^^^^^^^^^         
+AttributeError: 'BaseProtectorData' object has no attribute 'Dexterity'. Did you mean: 'dexterity'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
   File "game/places.rpy", line 5, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 3, in script
-    $ is_online_store_unlocked = regions_variable.object['OnlineStore'].unlocked
+  File "game/base_of_operations.rpy", line 6, in script call
+    call see_expeditions(1)
+  File "game/places.rpy", line 12, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 19, in script call
+    call rest()
+  File "game/resting.rpy", line 5, in script
+    python:
   File "renpy/ast.py", line 1187, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1260, in py_exec_bytecode
     exec(bytecode, globals, locals)
     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/base_of_operations.rpy", line 3, in <module>
-    $ is_online_store_unlocked = regions_variable.object['OnlineStore'].unlocked
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'RevertableDict' object has no attribute 'unlocked'
+  File "game/resting.rpy", line 9, in <module>
+    expedition.updateDaysPassed()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 712, in updateDaysPassed
+    self.finishExpedition()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 748, in finishExpedition
+    my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/classes.rpy", line 190, in increasing_xp
+    self.leveling_up()
+    ~~~~~~~~~~~~~~~~^^
+  File "game/classes.rpy", line 164, in leveling_up
+    self.basePoints.increase_attribute(attribute)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "game/classes.rpy", line 104, in increase_attribute
+    setattr(self, att, getattr(self, att) + value)
+                       ~~~~~~~^^^^^^^^^^^         
+AttributeError: 'BaseProtectorData' object has no attribute 'Dexterity'. Did you mean: 'dexterity'?
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Sep 23 17:38:45 2025
+Tue Sep 23 19:04:34 2025

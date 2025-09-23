@@ -281,16 +281,16 @@ init python:
             },
             {
                 "basic": [
-                    "Dexterity", "constitution", "constitution", "dexterity", "speed", 
-                    "constitution", "Dexterity", "speed", "constitution", "Dexterity", 
-                    "dexterity", "constitution", "constitution", "Dexterity", "constitution", 
-                    "constitution", "Dexterity", "constitution", "constitution", "constitution"
+                    "dexterity", "constitution", "constitution", "dexterity", "speed", 
+                    "constitution", "dexterity", "speed", "constitution", "dexterity", 
+                    "dexterity", "constitution", "constitution", "dexterity", "constitution", 
+                    "constitution", "dexterity", "constitution", "constitution", "constitution"
                 ], 
                 "evolution1": [
-                    "Dexterity", "Dexterity", "Dexterity", "constitution", "constitution", 
-                    "Dexterity", "constitution", "speed", "constitution", "Dexterity", 
-                    "Dexterity", "constitution", "Dexterity", "Dexterity", "Dexterity", 
-                    "constitution", "Dexterity", "constitution", "constitution", "Dexterity"
+                    "dexterity", "dexterity", "dexterity", "constitution", "constitution", 
+                    "dexterity", "constitution", "speed", "constitution", "dexterity", 
+                    "dexterity", "constitution", "dexterity", "dexterity", "dexterity", 
+                    "constitution", "dexterity", "constitution", "constitution", "dexterity"
                 ], 
                 "evolution2": [
                     "constitution", "speed", "constitution", "constitution", "constitution", 

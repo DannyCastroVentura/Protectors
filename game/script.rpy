@@ -63,6 +63,7 @@ define selected_protector = None
 
 
 label start:
+    $ update_menu_disable_options(True)
     $ initializing_things()
     $ testing_things()
     anonymous_yet "Greetings, human."
@@ -142,6 +143,11 @@ label start:
     
     #
     # TODOS:
+    # 
+    # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
+    # 
+    # TODO: on completing stages rewareds:
+    #   -   4 we receive another protector lucky box
     # 
     # TODO: try to understand why is not working the online store to be unlocked
     # 

@@ -3421,6 +3421,11 @@ screen boss_expedition_results(bossExpedition, result):
                         text "Time to collect your rewards and get ready for the next challenge." size 20 color "#FFF" xalign 0.5
                     else:
                         text "You have already unlocked all regions!" size 20 color "#FFF" xalign 0.5
+                        
+                    if int(bossExpedition.regionNumber) == 1:
+                        text "You have also unlocked the online store!" size 20 color "#FFF" xalign 0.5
+                        text "Now you can go there and buy some equipment!" size 20 color "#FFF" xalign 0.5
+                        
                 elif result == bossExpeditionDefeatResult:
                     text "You were defeated by the [bossExpedition.title]!" size 25 color "#FFF" xalign 0.5
                     text "Don’t give up! Take on more missions, gain experience, level up, and come back stronger!" size 25 color "#FFF" xalign 0.5
@@ -3443,4 +3448,4 @@ screen boss_expedition_results(bossExpedition, result):
                                 yalign 0.5  # vertical center
                                 spacing 5
                                 text "Continue"
-                        action [Function(bossExpedition.finishBossExpedition, result), Hide("boss_expedition_results"), Jump("resting_area")]
+                        action [Function(bossExpedition.finishBossExpedition, result), Hide("boss_expedition_results"), Jump("base_of_operations")]

@@ -185,9 +185,6 @@ init python:
     xp_starter_size = 10
     xp_size = 20
     increasing_per_level_multiplier_xp = 2
-    
-    # showing disabled options
-    config.menu_include_disabled = False    
 
     folder_path = "game\images\protectors"
     full_path = os.path.join(config.basedir, folder_path)
@@ -482,14 +479,13 @@ init python:
         return enemy
 
     def unlockingExpeditionStage(number):
-        renpy.notify("the number is: " + str(number))
         global regions_variable
         expedition_stage_names = list(regions_variable.object.keys())
         name = expedition_stage_names[number]
         regions_variable.object[name]['unlocked'] = True
         
         # on finishing the first region we unlock the online shop!
-        if number == 0:
-            renpy.notify("OnlineStore is unlocked")
+        if number == 1:
+            renpy.notify("OnlineStore unlocked!")
             regions_variable.object['OnlineStore']['unlocked'] = True
         return
