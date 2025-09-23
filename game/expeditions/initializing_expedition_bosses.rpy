@@ -45,7 +45,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Sword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Sword"
         )
@@ -80,7 +80,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Sword"], None, None,
-            "Ranged",
+            "Ranged", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Sword"
         )
@@ -115,7 +115,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Knife"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Balanced Knife"
         )
@@ -150,7 +150,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Book"], None, None,
-            "Ranged",
+            "Ranged", None, None,
             "Divine", "Divine", "Divine",
             "Cleric’s Scripture"
         )
@@ -185,7 +185,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Staff"], None, None,
-            "Ranged",
+            "Ranged", None, None,
             "Magic", "Magic", "Magic",
             "Elemental Staff"
         )
@@ -220,7 +220,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Greatsword"], None, None,
-            "Ranged",
+            "Ranged", None, None,
             "Magic", "Magic", "Magic",
             "Warrior’s Greatsword"
         )
@@ -255,7 +255,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Greatsword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Divine", "Divine", "Divine",
             "Crusader’s Greatsword"
         )
@@ -290,7 +290,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Sword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Divine", "Divine", "Divine",
             "Sword of Purity"
         )
@@ -325,7 +325,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Staff"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Magic", "Magic", "Magic",
             "Arcane Staff"
         )
@@ -360,7 +360,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Staff"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Knife of the Trickster"
         )

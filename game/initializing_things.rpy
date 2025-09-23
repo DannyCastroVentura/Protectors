@@ -51,7 +51,7 @@ init python:
             "Tech Ninja", 
             "Recruited by the army, he wields weapons infused with cutting-edge technology and wears armor that adapts to any threat. Every strike is precise, every movement optimized, making him a deadly force on the battlefield.",
             ["Knife", "Sword", "Katana"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Thief’s Knife"
         )
@@ -94,7 +94,7 @@ init python:
             "Demonic Templar",
             "Once a templar of faith, he forsook the light and accepted a blasphemous blessing from demons. His blade burns with unholy fire, his armor twists with infernal power, and every strike spreads corruption.",
             ["Sword", "Spear", "Greatsword", "Great Hammer", "Greataxe"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Divine", "Divine",
             "Rusty Greatsword"
         )
@@ -138,7 +138,7 @@ init python:
             "Nature Wizard",
             "Clad in enchanted robes, he uses his nature spells to wields traps and kill enemies from the ground using his deadly vines. Using precision and strategy he shows as a dangerous threat for anyone who faces him.",
             ["Wand", "Staff"], ["Wand", "Staff", "Book"], ["Wand", "Staff"],
-            "Ranged",
+            "Ranged", None, None,
             "Magic", "Divine", "Magic",
             "Cracked Wooden Wand"
         )
@@ -184,7 +184,7 @@ init python:
             "Ace of Fates",
             "A master of strategy and dexterity, he wields his deck like a razor-sharp blade. Every card is a weapon, every draw a calculated gamble, turning him into a lethal force from afar.",
             ["Cards"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Divine", "Regular",
             "Paper Throwing Cards"
         )
@@ -227,7 +227,7 @@ init python:
             "Wolf Samurai",
             "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
             ["Katana"], ["Katana"], ["Katana", "Sword", "Knife"],
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Katana"
         )
@@ -238,9 +238,9 @@ init python:
                 "dexterity": 15,
                 "constitution": 17,
                 "intelligence": 10,
-                "wisdom": 9,
+                "wisdom": 8,
                 "charisma": 13,
-                "speed": 9,
+                "speed": 11,
                 "luck": 11,
                 "attack_speed": 1
             },
@@ -270,16 +270,16 @@ init python:
             "Berserker",
             "Trapped in fear during a mission, the recruit’s mind finally snapped, and that terror erupted into uncontrollable, burning rage. Now he fights with pure instinct as he charges into battle with relentless ferocity.",
             ["Knife", "Gun", "Machine gun", "Sniper"], ["Knife", "Gun", "Machine gun", "Sniper"], ["Knife", "Sword", "Greatsword", "Greataxe", "Spear", "Axe", "Hammer", "Great Hammer", "Mace"],
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Combat Knife"
         )
 
         protectors_base_information["Robot"] = BaseProtectorData(
             {
-                "strength": 16,
-                "dexterity": 9,
-                "constitution": 18,
+                "strength": 15,
+                "dexterity": 18,
+                "constitution": 20,
                 "intelligence": 12,
                 "wisdom": 8,
                 "charisma": 10,
@@ -289,52 +289,34 @@ init python:
             },
             {
                 "basic": [
-                    "strength", "constitution", "constitution", "dexterity", "speed", 
-                    "constitution", "strength", "speed", "constitution", "strength", 
-                    "dexterity", "constitution", "constitution", "strength", "constitution", 
-                    "constitution", "strength", "constitution", "constitution", "constitution"
+                    "Dexterity", "constitution", "constitution", "dexterity", "speed", 
+                    "constitution", "Dexterity", "speed", "constitution", "Dexterity", 
+                    "dexterity", "constitution", "constitution", "Dexterity", "constitution", 
+                    "constitution", "Dexterity", "constitution", "constitution", "constitution"
                 ], 
                 "evolution1": [
-                    "strength", "strength", "strength", "constitution", "constitution", 
-                    "strength", "constitution", "speed", "constitution", "strength", 
-                    "strength", "constitution", "strength", "strength", "strength", 
-                    "constitution", "strength", "constitution", "constitution", "strength"
+                    "Dexterity", "Dexterity", "Dexterity", "constitution", "constitution", 
+                    "Dexterity", "constitution", "speed", "constitution", "Dexterity", 
+                    "Dexterity", "constitution", "Dexterity", "Dexterity", "Dexterity", 
+                    "constitution", "Dexterity", "constitution", "constitution", "Dexterity"
                 ], 
                 "evolution2": [
                     "constitution", "speed", "constitution", "constitution", "constitution", 
-                    "constitution", "constitution", "constitution", "constitution", "strength", 
+                    "constitution", "strength", "constitution", "constitution", "strength", 
                     "constitution", "constitution", "strength", "constitution", "constitution", 
                     "strength", "constitution", "constitution", "constitution", "speed"
                 ], 
             },            
-            "STR_CON", "HP",
-            "Tech Samurai",
-            "Once bound by tradition, he forged a secret pact with visionary craftsmen. His blade, born of ancient mastery and hidden technology, strikes with unmatched precision; his armor adapts to any threat.",
-            "Wolf Samurai",
-            "Once a disciplined samurai, he was transformed into a fearsome wolf. Now faster, and driven by primal instinct, his strikes land with devastating force. He is an unstoppable predator on the battlefield.",
+            "CON_DEX", "HP",
+            "Bladeform X",
+            "The humanoid robot has downloaded advanced Agile combat data, allowing it to redesign its body and incorporate fluid, high-speed sword techniques into its movements.",
+            "Titanform Y",
+            "The massive tank-like robot has downloaded advanced heavy combat protocols, redesigning its armor and systems to maximize durability, firepower, and battlefield dominance.",
             [""], None, None,
-            "Melee",
-            "Regular", "Regular", "Regular",
+            "Ranged", "Melee", "Melee",
+            "Dexterity", "Dexterity", "Regular",
             ""
         )
-
-        # protectors_base_information["Robot"] = BaseProtectorData(16, 14, 18, 16, 10, 6, 5, 0.25, 0.34, 0.2, 0.5, 0.16, 0.125, 0.1, 
-        #     "HP", "INT_TAN",
-        #     "Name 1",
-        #     "Description 1",
-        #     "Name 2",
-        #     "Description 2",
-        #     "",
-        #     "Ranged"
-        # )
-        # # it gains:
-        # # 1 intelligence per 2 levels
-        # # 1 dexterity per 3 levels
-        # # 1 strenght per 4 levels
-        # # 1 constitution per 5 levels
-        # # 1 wisdom per 6 levels
-        # # 1 charisma per 8 levels
-        # # 1 luck per 10 levels
 
         # protectors_base_information["Skeleton"] = BaseProtectorData(17, 18, 10, 6, 8, 6, 20, 0.34, 0.5, 0.25, 0.2, 0.125, 0, 0, 
         #     "EVA", "DAM",

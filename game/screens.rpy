@@ -3689,15 +3689,6 @@ screen boss_expedition(bossExpedition, fight):
                 yalign 0.1
                 xalign 0.5
                 text "[bossExpedition.title]" size 50 color "#FFF" xalign 0.5
-                text "[my_protector.get_evasion()]"
-                text "[my_protector.get_critical_chance()]"
-                text "[my_protector.get_critical_damage()]"
-            vbox:
-                yalign 0.1
-                xalign 0.5
-                text "[enemy.get_evasion()]"
-                text "[enemy.get_critical_chance()]"
-                text "[enemy.get_critical_damage()]"
             fixed:
                 yalign 1.0
                 xalign 0.0

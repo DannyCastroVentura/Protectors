@@ -40,7 +40,7 @@ init python:
             evolution_2, evolution_name_1, evolution_description_1,
             evolution_name_2, evolution_description_2, usable_weapon_types, 
             usable_weapon_types_evolution_1, usable_weapon_types_evolution_2,
-            unarmed_range, basic_unarmed_damage_type, evo1_unarmed_damage_type, 
+            unarmed_range, unarmed_range_evo_1, unarmed_range_evo_2, basic_unarmed_damage_type, evo1_unarmed_damage_type, 
             evo2_unarmed_damage_type, default_weapon):
             self.strength = stats["strength"]
             self.dexterity = stats["dexterity"]
@@ -67,7 +67,18 @@ init python:
                 self.usable_weapon_types_evolution_2 = self.usable_weapon_types
             else:
                 self.usable_weapon_types_evolution_2 = usable_weapon_types_evolution_2
+            
+            # range on unarmed
             self.unarmed_range = unarmed_range
+            self.unarmed_range_evo_1 = unarmed_range_evo_1
+            self.unarmed_range_evo_2 = unarmed_range_evo_2
+            
+            # if unarmed range for evolutions are None, then they do not change on evolution
+            if unarmed_range_evo_1 == None:
+                self.unarmed_range_evo_1 = unarmed_range
+            if unarmed_range_evo_2 == None:
+                self.unarmed_range_evo_2 = unarmed_range
+
             self.basic_unarmed_damage_type = basic_unarmed_damage_type
             self.evo1_unarmed_damage_type = evo1_unarmed_damage_type
             self.evo2_unarmed_damage_type = evo2_unarmed_damage_type

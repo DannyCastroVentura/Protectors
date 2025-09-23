@@ -78,10 +78,15 @@ screen protector_detail_screen(my_protector):
                         # Scale the image
                         $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
-                        if my_protector.status == "Available" and my_protector.basePoints.can_it_use_weapons == True:
+                        if my_protector.status == "Available":
                             $ action_button = Function(show_weapons, my_protector)
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
+                        
+                        if my_protector.basePoints.can_it_use_weapons == True:
+                            $ action_button = Function(show_weapons, my_protector)
+                        else: 
+                            $ action_button = Function(send_custom_notification, my_protector.name + " cannot equip weapons.")
 
                         button:
                             action action_button
@@ -485,6 +490,26 @@ screen protector_detail_screen(my_protector):
                                 spacing 20
                                 for weapon_type in possible_weapons[i:i+4]:
                                     text "[weapon_type]" size 22 color "#EEE" xalign 0.5
+
+                
+                $ range_for_the_moment = my_protector.basePoints.unarmed_range
+                if my_protector.chosen_evolution == 1:
+                    $ range_for_the_moment = my_protector.basePoints.unarmed_range_evo_1
+                elif my_protector.chosen_evolution == 2:
+                    $ range_for_the_moment = my_protector.basePoints.unarmed_range_evo_2
+                
+                if my_protector.equipedWeapon != None:
+                    $ range_for_the_moment = my_protector.equipedWeapon.range
+                vbox:
+                    xalign 0.5
+                    yalign 0.5
+                    spacing 20
+                    null height 10  # This adds 40 pixels of vertical space at the top
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        text "Atack range:" size 23 color "#EEE" xalign 0.5
+                        text range_for_the_moment size 23 color "#EEE" xalign 0.5
             vbox:
                 spacing 20
                 xalign 0.99999999999

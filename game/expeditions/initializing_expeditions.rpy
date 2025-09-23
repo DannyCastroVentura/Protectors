@@ -37,7 +37,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Greatsword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
@@ -72,7 +72,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Greatsword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
@@ -107,7 +107,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Greatsword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
@@ -142,7 +142,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Greatsword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
@@ -177,7 +177,7 @@ init python:
             "Name 2", 
             "Description 2",
             ["Greatsword"], None, None,
-            "Melee",
+            "Melee", None, None,
             "Regular", "Regular", "Regular",
             "Rusty Greatsword"
         )
