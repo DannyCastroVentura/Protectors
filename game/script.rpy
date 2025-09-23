@@ -147,9 +147,16 @@ label start:
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
     # TODO: on completing stages rewareds:
-    #   -   4 we receive another protector lucky box
-    # 
-    # TODO: try to understand why is not working the online store to be unlocked
+    #   -   2 we start to get raids, every 8 to 12 days (randomly)
+    #   -   3 we receive another protector lucky box - as good work rewards (only the first time)
+    #   -   4 we unlock the Battles
+    #   -   5 we unlock the tournament    
+    #   -   -   its like battles agaisnt enemys of level > 100 , we can make like every 50 levels -> 100 / 150 / 200 / 250 / 300 and so on infinite
+    #   -   6
+    #   -   7
+    #   -   8
+    #   -   9
+    #   -   10  we receive an S Weapon lucky box - as good work rewards (only the first time)
     # 
     # TODO: [ PRIO 4 ] also have the possibility to unequip and equip an equipment / weapon in the equipment and weapon detail
     # 
