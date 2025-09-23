@@ -31,18 +31,10 @@ init python:
                     "dexterity", "constitution", "dexterity", "speed", "dexterity"
                 ], 
                 "evolution1": [
-                    "dexterity", "speed", "luck", "dexterity", "speed",
-                    "luck", "dexterity", "dexterity", "speed", "luck", 
-                    "dexterity", "dexterity", "speed", "luck", "speed", 
-                    "speed", "speed", "dexterity", "luck", "dexterity", 
-                    "luck", "speed", "dexterity", "speed", "dexterity"
+                    "dexterity", "dexterity", "dexterity", "speed", "speed", "constitution"
                 ], 
                 "evolution2": [
-                    "dexterity", "constitution", "constitution", "dexterity", "speed",
-                    "constitution", "dexterity", "dexterity", "speed", "constitution", 
-                    "dexterity", "dexterity", "constitution", "constitution", "constitution", 
-                    "speed", "constitution", "dexterity", "dexterity", "dexterity", 
-                    "constitution", "constitution", "dexterity", "speed", "dexterity"
+                    "dexterity", "dexterity", "dexterity", "constitution", "constitution", "constitution", "speed"
                 ]
             },
             "EVA", "DEX_TAN", 

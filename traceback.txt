@@ -1,56 +1,208 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 66, in script
-    $ initializing_things()
-  File "game/script.rpy", line 66, in <module>
-    $ initializing_things()
-      ~~~~~~~~~~~~~~~~~~~^^
-  File "game/initializing_things.rpy", line 2824, in initializing_things
-    initializing_expedition_bosses()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/expeditions/initializing_expedition_bosses.rpy", line 19, in initializing_expedition_bosses
-    expeditions_bosses_base_data["The Mireborn Tyrant"] = BaseProtectorData(
-                                                          ~~~~~~~~~~~~~~~~~^
-        {
-        ^
-    ...<29 lines>...
-        "Rusty Sword"
-        ^^^^^^^^^^^^^
-    )
-    ^
-TypeError: BaseProtectorData.__init__() missing 2 required positional arguments: 'evo2_unarmed_damage_type' and 'default_weapon'
+  File "game/places.rpy", line 17, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 31, in script
+    menu:
+  File "game/screens.rpy", line 1757, in execute
+    screen my_weapons_screen():
+  File "game/screens.rpy", line 1757, in execute
+    screen my_weapons_screen():
+  File "game/screens.rpy", line 1758, in execute
+    frame:
+  File "game/screens.rpy", line 1771, in execute
+    vbox:
+  File "game/screens.rpy", line 1778, in execute
+    viewport:
+  File "game/screens.rpy", line 1783, in execute
+    vbox:
+  File "game/screens.rpy", line 1786, in execute
+    frame:
+  File "game/screens.rpy", line 1791, in execute
+    has vbox
+  File "game/screens.rpy", line 1794, in execute
+    viewport:
+  File "game/screens.rpy", line 1799, in execute
+    vbox:
+  File "game/screens.rpy", line 1822, in execute
+    for i in range(0, len(array_of_my_weapons), 4):
+  File "game/screens.rpy", line 1823, in execute
+    hbox:
+  File "game/screens.rpy", line 1827, in execute
+    for weapon_map in array_of_my_weapons[i:i+4]:
+  File "game/screens.rpy", line 1845, in execute
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+  File "game/screens.rpy", line 1845, in <module>
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: Couldn't find file 'images/weapons/Dexterity.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 66, in script
-    $ initializing_things()
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1260, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 66, in <module>
-    $ initializing_things()
-      ~~~~~~~~~~~~~~~~~~~^^
-  File "game/initializing_things.rpy", line 2824, in initializing_things
-    initializing_expedition_bosses()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "game/expeditions/initializing_expedition_bosses.rpy", line 19, in initializing_expedition_bosses
-    expeditions_bosses_base_data["The Mireborn Tyrant"] = BaseProtectorData(
-                                                          ~~~~~~~~~~~~~~~~~^
-        {
-        ^
-    ...<29 lines>...
-        "Rusty Sword"
-        ^^^^^^^^^^^^^
-    )
-    ^
-TypeError: BaseProtectorData.__init__() missing 2 required positional arguments: 'evo2_unarmed_damage_type' and 'default_weapon'
+  File "game/places.rpy", line 17, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 35, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 24, in script call
+    call show_my_available_protectors(False)
+  File "game/places.rpy", line 26, in script call
+    call base_travel_menu()
+  File "game/places.rpy", line 33, in script call
+    call rest()
+  File "game/places.rpy", line 31, in script
+    menu:
+  File "renpy/ast.py", line 1815, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 135, in menu
+    rv = renpy.store.menu(new_items)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 418, in display_menu
+    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/screens.rpy", line 1757, in execute
+    screen my_weapons_screen():
+  File "game/screens.rpy", line 1757, in execute
+    screen my_weapons_screen():
+  File "game/screens.rpy", line 1758, in execute
+    frame:
+  File "game/screens.rpy", line 1771, in execute
+    vbox:
+  File "game/screens.rpy", line 1778, in execute
+    viewport:
+  File "game/screens.rpy", line 1783, in execute
+    vbox:
+  File "game/screens.rpy", line 1786, in execute
+    frame:
+  File "game/screens.rpy", line 1791, in execute
+    has vbox
+  File "game/screens.rpy", line 1794, in execute
+    viewport:
+  File "game/screens.rpy", line 1799, in execute
+    vbox:
+  File "game/screens.rpy", line 1822, in execute
+    for i in range(0, len(array_of_my_weapons), 4):
+  File "game/screens.rpy", line 1823, in execute
+    hbox:
+  File "game/screens.rpy", line 1827, in execute
+    for weapon_map in array_of_my_weapons[i:i+4]:
+  File "game/screens.rpy", line 1845, in execute
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+  File "game/screens.rpy", line 1845, in <module>
+    $ orig_width, orig_height = renpy.image_size(weapon_img)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "renpy/exports/displayexports.py", line 771, in image_size
+    surf = im.load()
+           ~~~~~~~^^
+  File "renpy/display/im.py", line 838, in load
+    raise e
+  File "renpy/display/im.py", line 792, in load
+    filelike = renpy.loader.load(self.filename, directory="images")
+               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/loader.py", line 698, in load
+    raise FileNotFoundError("Couldn't find file '%s'." % name)
+FileNotFoundError: Couldn't find file 'images/weapons/Dexterity.png'.
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Tue Sep 23 11:38:05 2025
+Tue Sep 23 13:43:14 2025

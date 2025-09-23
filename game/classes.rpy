@@ -72,7 +72,7 @@ init python:
             self.unarmed_range = unarmed_range
             self.unarmed_range_evo_1 = unarmed_range_evo_1
             self.unarmed_range_evo_2 = unarmed_range_evo_2
-            
+
             # if unarmed range for evolutions are None, then they do not change on evolution
             if unarmed_range_evo_1 == None:
                 self.unarmed_range_evo_1 = unarmed_range
@@ -321,52 +321,84 @@ init python:
         #           -> prio2 -> dexterity
 
         def get_strength(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            strength_points = self.basePoints.strength
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.strength * used_stage * self.get_increments("Strength") * self.get_evolution_increments("Strength", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                strength_points = new_protector.basePoints.strength
+            return int(strength_points * used_stage * self.get_equipment_increments("Strength") * self.get_evolution_increments("Strength", fake_evolution))
         
         def get_dexterity(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            dexterity_points = self.basePoints.dexterity
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.dexterity * used_stage * self.get_increments("Dexterity") * self.get_evolution_increments("Dexterity", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                dexterity_points = new_protector.basePoints.dexterity
+            return int(dexterity_points * used_stage * self.get_equipment_increments("Dexterity") * self.get_evolution_increments("Dexterity", fake_evolution))
         
         def get_constitution(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            constitution_points = self.basePoints.constitution
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.constitution * used_stage * self.get_increments("Constitution") * self.get_evolution_increments("Constitution", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                constitution_points = new_protector.basePoints.constitution
+            return int(constitution_points * used_stage * self.get_equipment_increments("Constitution") * self.get_evolution_increments("Constitution", fake_evolution))
         
         def get_intelligence(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            intelligence_points = self.basePoints.intelligence
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.intelligence * used_stage * self.get_increments("Intelligence") * self.get_evolution_increments("Intelligence", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                intelligence_points = new_protector.basePoints.intelligence
+            return int(intelligence_points * used_stage * self.get_equipment_increments("Intelligence") * self.get_evolution_increments("Intelligence", fake_evolution))
         
         def get_wisdom(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            wisdom_points = self.basePoints.wisdom
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.wisdom * used_stage * self.get_increments("Wisdom") * self.get_evolution_increments("Wisdom", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                wisdom_points = new_protector.basePoints.wisdom
+            return int(wisdom_points * used_stage * self.get_equipment_increments("Wisdom") * self.get_evolution_increments("Wisdom", fake_evolution))
         
         def get_charisma(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            charisma_points = self.basePoints.charisma
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.charisma * used_stage * self.get_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                charisma_points = new_protector.basePoints.charisma
+            return int(charisma_points * used_stage * self.get_equipment_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
 
         def get_speed(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            speed_points = self.basePoints.speed
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.speed * used_stage * self.get_increments("Speed") * self.get_evolution_increments("Speed", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                speed_points = new_protector.basePoints.speed
+            return int(speed_points * used_stage * self.get_equipment_increments("Speed") * self.get_evolution_increments("Speed", fake_evolution))
         
         def get_luck(self, fake_stage = None, fake_evolution = None):
+            global protectors_base_information
             used_stage = self.stage
+            luck_points = self.basePoints.luck
             if fake_stage != None:
                 used_stage = fake_stage
-            return int(self.basePoints.luck * used_stage * self.get_increments("Luck") * self.get_evolution_increments("Luck", fake_evolution))
+                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
+                luck_points = new_protector.basePoints.luck
+            return int(luck_points * used_stage * self.get_equipment_increments("Luck") * self.get_evolution_increments("Luck", fake_evolution))
         
         def get_health_points(self):
             return int(50 + self.get_constitution() * 10 + self.get_strength() * 2)
@@ -397,39 +429,31 @@ init python:
                 elif using_unarmed_damage_type == "Divine":
                     value = (self.get_wisdom() * 3 + self.get_luck()) * type_damage
             else:
-                if self.equipedWeapon.class_name == "Strength":
+                if self.equipedWeapon.type == "Strength":
                     value = (self.get_strength() * 2 + self.get_dexterity() + self.get_luck())
-                elif self.equipedWeapon.class_name == "Dexterity":
+                elif self.equipedWeapon.type == "Dexterity":
                     value = (self.get_dexterity() * 2 + self.get_strength() + self.get_luck())
-                elif self.equipedWeapon.class_name == "Magic":
+                elif self.equipedWeapon.type == "Magic":
                     value = (self.get_intelligence() * 2 + self.get_wisdom() + self.get_luck())
-                elif self.equipedWeapon.class_name == "Divine":
+                elif self.equipedWeapon.type == "Divine":
                     value = (self.get_wisdom() * 3 + self.get_luck())
-
-                # # commenting this out because I don't want the damage output to be depending on the type of the weapon
-                # # it seemed a good idea, but thinking about it, I'm not sure if I like that idea anymore
-                # class_damage = 0.5
-                # if self.equipedWeapon.type == "Axe" or self.equipedWeapon.type == "Hammer" or self.equipedWeapon.type == "Mace":
-                #     value += (self.get_strength() * 2 + self.get_dexterity() + self.get_luck()) * class_damage
-                # elif self.equipedWeapon.type == "Cards" or self.equipedWeapon.type == "Gun" or self.equipedWeapon.type == "Machine gun" or self.equipedWeapon.type == "Sniper":
-                #     value += (self.get_dexterity() * 3 + self.get_luck()) * class_damage
-                # elif self.equipedWeapon.type == "Great Hammer" or self.equipedWeapon.type == "Greataxe" or self.equipedWeapon.type == "Greatsword":
-                #     value += (self.get_strength() * 2.7 + self.get_dexterity() * 0.3 + self.get_luck()) * class_damage
-                # elif self.equipedWeapon.type == "Katana" or self.equipedWeapon.type == "Spear" or self.equipedWeapon.type == "Sword":
-                #     value += (self.get_strength() * 1.5 + self.get_dexterity() * 1.5 + self.get_luck()) * class_damage
-                # elif self.equipedWeapon.type == "Knife":
-                #     value += (self.get_dexterity() * 2 + self.get_strength() * 1 + self.get_luck()) * class_damage
-                # elif self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
-                #     value += (self.get_intelligence() * 2 + self.get_wisdom() * 1 + self.get_luck()) * class_damage
-                # elif self.equipedWeapon.type == "Book":
-                #     value += (self.get_wisdom() * 3 + self.get_luck()) * class_damage
                 
                 weapon_base_damage = self.equipedWeapon.base_damage
-                if self.equipedWeapon.type == "Staff" or self.equipedWeapon.type == "Wand":
+                if self.equipedWeapon.class_name == "Staff" or self.equipedWeapon.class_name == "Wand":
                     weapon_base_damage += (self.get_intelligence() * (1/3) + self.get_wisdom() * (1/6)) * (rank_multipliers.get(self.equipedWeapon.rarity, 0) + 1)
-                elif self.equipedWeapon.type == "Book":
+                elif self.equipedWeapon.class_name == "Book":
                     weapon_base_damage += (self.get_wisdom()) * (1/2) * (rank_multipliers.get(self.equipedWeapon.rarity, 0) + 1)
             return int(value + weapon_base_damage)
+
+        def get_damage_type(self):
+            damage_type = self.basePoints.basic_unarmed_damage_type
+            if self.chosen_evolution == 1:
+                damage_type = self.basePoints.evo1_unarmed_damage_type
+            elif self.chosen_evolution == 2:
+                damage_type = self.basePoints.evo2_unarmed_damage_type
+            if self.equipedWeapon != None:
+                damage_type = self.equipedWeapon.type
+            return damage_type
 
         def get_critical_chance(self):
             critical_chance = round(0.05 + self.get_luck() * 0.001 + self.get_dexterity() * 0.0005, 4)
@@ -503,7 +527,7 @@ init python:
                 total_defense = total_defense + self.equipedBoots.base_defense
             return total_defense
         
-        def get_increments(self, searchingClassName):
+        def get_equipment_increments(self, searchingClassName):
             totalIncrement = 1
             for className, prios in stats_increment_map.items():
                 # helmet
@@ -575,7 +599,7 @@ init python:
             if evolution == 2:
                 self.basePoints.usable_weapon_types = self.basePoints.usable_weapon_types_evolution_2
             if self.equipedWeapon != None:
-                if self.equipedWeapon.type not in self.basePoints.usable_weapon_types:
+                if self.equipedWeapon.class_name not in self.basePoints.usable_weapon_types:
                     self.unequip_weapon()
 
             self.re_evaluate_level_points()
@@ -892,7 +916,7 @@ init python:
     class Weapon:
         _id_counter = 0
         _names_list = []
-        def __init__(self, name, description, weapon_type, class_name, _range, rarity):
+        def __init__(self, name, description, weapon_class, weapon_type, _range, rarity):
             self.weapon_id = Weapon._id_counter
             Weapon._id_counter += 1
             if name in Weapon._names_list:
@@ -901,18 +925,18 @@ init python:
                 Weapon._names_list.append(name)
             self.name = name # name of the weapon
             self.description = description # a small description for the weapon, it also can have a story of the weapon
-            self.type = weapon_type # the type (knife, sword, axe, lance, etc..)
-            self.class_name = class_name # Dexterity / Strength / Magic / Divine
+            self.class_name = weapon_class # the type (knife, sword, axe, lance, etc..)
+            self.type = weapon_type # Dexterity / Strength / Magic / Divine
             self.range = _range
             self.rarity = rarity
             self.crit_damage = 1
             self.attack_speed_boost = 1
 
-            if self.type == "Wand" or self.type == "Book":
+            if self.class_name == "Wand" or self.class_name == "Book":
                 # defining base damage
                 base_damage = 5
                 
-            elif self.type == "Staff":
+            elif self.class_name == "Staff":
                 # defining base damage
                 base_damage = 10
 
@@ -921,13 +945,13 @@ init python:
                 base_damage = 30
 
                 # update the damage type if its a great (big and heavy) weapon, or a knife
-                if self.type == "Great Hammer" or self.type == "Greataxe" or self.type == "Greatsword":
+                if self.class_name == "Great Hammer" or self.class_name == "Greataxe" or self.class_name == "Greatsword":
                     base_damage *=  2
                     self.attack_speed_boost = 0.67
-                elif self.type == "Katana" or self.type == "Spear":
+                elif self.class_name == "Katana" or self.class_name == "Spear":
                     base_damage *=  1.2
                     self.attack_speed_boost = 0.83
-                elif self.type == "Knife":
+                elif self.class_name == "Knife":
                     base_damage *= 0.67
                     self.crit_damage = 1.5                    
                     self.attack_speed_boost = 1.1

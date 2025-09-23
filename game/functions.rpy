@@ -150,8 +150,8 @@ init python:
             "decrease": [ "Dexterity", "Luck" ]
         },
         "EVA": {  # Evasion build
-            "increase": [ "Dexterity", "Dexterity", "Luck", "Speed" ],
-            "decrease": [ "Strength", "Wisdom" ]
+            "increase": [ "Dexterity", "Dexterity", "Dexterity", "Speed", "Speed", "Constitution" ],
+            "decrease": [ "Strength", "Wisdom", "Intelligence" ]
         },
         "CRI": {  # Critical strike build
             "increase": [ "Dexterity", "Luck", "Luck" ],
@@ -432,7 +432,7 @@ init python:
         #   -   also needs to be according to the rarity he should use
         weapon = next(
             w for w in weapons 
-                if w.type == enemy.basePoints.usable_weapon_types[0]
+                if w.class_name == enemy.basePoints.usable_weapon_types[0]
                 if w.rarity == rarity_letter 
         )
 

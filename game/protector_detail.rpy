@@ -101,7 +101,7 @@ screen protector_detail_screen(my_protector):
                                     ((scale - new_width) // 2, 0), weapon_scaled   
                                 )
                     else:
-                        $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.type)
+                        $ weapon_img = "images/weapons/{}.png".format(my_protector.equipedWeapon.class_name)
                         $ background_color_style = EClassColor
                         if my_protector.equipedWeapon.rarity == "D":
                             $ background_color_style = DClassColor
@@ -563,10 +563,19 @@ screen protector_detail_screen(my_protector):
                         spacing 25
                         vbox:
                             xalign 0.5
-                            text "Real damage:" size 30 color "#EEE"
+                            text "Real Damage:" size 30 color "#EEE"
                         vbox:
                             xalign 0.5
                             text "[str(my_protector.get_damage_points())]" size 30 color "#EEE"
+                    hbox:
+                        xalign 0.5
+                        spacing 25
+                        vbox:
+                            xalign 0.5
+                            text "Damage Type:" size 30 color "#EEE"
+                        vbox:
+                            xalign 0.5
+                            text "[str(my_protector.get_damage_type())]" size 30 color "#EEE"
 
             if my_protector.readyForPromotion == True and my_protector.status == "Available":
 
