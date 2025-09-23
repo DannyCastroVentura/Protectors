@@ -3,12 +3,10 @@
     menu:
         "Expeditions":
             call see_expeditions(1)
-        "Check online shop":
+        "Check online shop" if regions_variable.object['OnlineStore']['unlocked']:
             call check_online_shop()
         "Go back":
             jump base_of_operations
-        "Let's go to elsewhere":
-            call base_travel_menu()
     jump go_to_computer
 
 label see_expeditions(page):
@@ -49,8 +47,6 @@ label see_expeditions(page):
                 call see_expeditions(2)
             "Go back":
                 jump go_to_computer
-            "Let's go to elsewhere":
-                call base_travel_menu()
     elif page == 2:
         $ update_menu_disable_options(True)
         menu:
@@ -74,8 +70,6 @@ label see_expeditions(page):
                 call see_expeditions(1)
             "Go back":
                 jump go_to_computer
-            "Let's go to elsewhere":
-                call base_travel_menu()
     call see_expeditions(1)
 
 label see_expeditions_for_region(regionNumber):

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 485: invalid syntax
-    global regions_variable.object
-                               ^
+File "game/functions.rpy", line 493: expected an indented block after 'if' statement on line 476
+    return
+        ^^^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Mon Sep 22 21:49:57 2025
+Tue Sep 23 17:33:29 2025

@@ -2166,99 +2166,6 @@ screen my_protectors_screen():
                                                         color my_color
                                                         line_spacing 0
 
-screen menu_button_for_protectors_game():
-    if show_things:
-        $ button_style = "hover_white"
-        textbutton "Menu":
-            text_style button_style
-            background "#4448"
-            xalign 0.5
-            yalign 0.0
-            padding (20, 10)
-            text_size 40
-            action Show("menu_for_protectors_game")
-
-screen menu_for_protectors_game():
-    frame:
-        modal True
-        background Solid(black_see_through_color)
-        xysize (config.screen_width, config.screen_height)
-        $ scale = 300
-
-        $ buttons_background = im.Scale("images/background_item.png", scale, scale)
-
-        fixed:
-            xfill True
-            yfill True
-
-            # Close button - top right
-            textbutton "Close" action Hide("menu_for_protectors_game"):
-                text_style "hover_white"
-                xalign 1.0
-                yalign 0.0
-                padding (10, 5)
-            vbox:
-                yalign 0.1
-                xalign 0.5
-                text "Menu" size 50 color "#FFF" xalign 0.5
-            vbox:
-                yalign 0.5
-                xalign 0.5
-                spacing 50
-                hbox:
-                    yalign 0.5
-                    xalign 0.5
-                    spacing 100
-                    
-                    vbox:
-                        spacing 20
-                        $ show_protectors_image = "images/menu/protectors.png"
-                        $ show_protectors_scaled = im.Scale(show_protectors_image, scale, scale)
-                            
-                        button:
-                            action Show("my_protectors_screen")  # show possible weapons to use
-                            background "#ffffff"
-                            frame:
-                                add im.Composite(
-                                    (scale, scale),
-                                    (0, 0), buttons_background,
-                                    (0, 0), show_protectors_scaled
-                                )
-                        text "Protectors" color "#FFF" xalign 0.5
-                    
-                    vbox:
-                        spacing 20
-                        $ show_weapons_image = "images/menu/weapons.png"
-                        $ show_weapons_scaled = im.Scale(show_weapons_image, scale, scale)
-                            
-                        button:
-                            action Show("my_weapons_screen")  # show possible weapons to use
-                            background "#ffffff"
-                            frame:
-                                add im.Composite(
-                                    (scale, scale),
-                                    (0, 0), buttons_background,
-                                    (0, 0), show_weapons_scaled
-                                )
-                        text "Weapons" color "#FFF" xalign 0.5
-                    
-                    vbox:
-                        spacing 20
-                        $ show_equipment_image = "images/menu/equipments.png"
-                        $ show_equipment_scaled = im.Scale(show_equipment_image, scale, scale)
-                            
-                        button:
-                            action Show("my_equipments_screen")  # show possible weapons to use
-                            background "#ffffff"
-                            frame:
-                                add im.Composite(
-                                    (scale, scale),
-                                    (0, 0), buttons_background,
-                                    (0, 0), show_equipment_scaled
-                                )
-                        text "Equipments" color "#FFF" xalign 0.5
-
-
 screen current_day_screen():
     if show_things:
         textbutton "Day: {}".format(current_day):
@@ -3509,8 +3416,11 @@ screen boss_expedition_results(bossExpedition, result):
                 $ expedition_stage_names = list(regions_variable.object.keys())
                 if result == bossExpeditionVictoryResult:
                     text "Victory! You crushed it! You are now the hero of [expedition_stage_names[int(bossExpedition.regionNumber - 1)]]!" size 20 color "#FFF" xalign 0.5
-                    text "You have unlocked the next region: [expedition_stage_names[int(bossExpedition.regionNumber)]]" size 20 color "#FFF" xalign 0.5
-                    text "Time to collect your rewards and get ready for the next challenge." size 20 color "#FFF" xalign 0.5
+                    if int(bossExpedition.regionNumber) < 10:
+                        text "You have unlocked the next region: [expedition_stage_names[int(bossExpedition.regionNumber)]]" size 20 color "#FFF" xalign 0.5
+                        text "Time to collect your rewards and get ready for the next challenge." size 20 color "#FFF" xalign 0.5
+                    else:
+                        text "You have already unlocked all regions!" size 20 color "#FFF" xalign 0.5
                 elif result == bossExpeditionDefeatResult:
                     text "You were defeated by the [bossExpedition.title]!" size 25 color "#FFF" xalign 0.5
                     text "Don’t give up! Take on more missions, gain experience, level up, and come back stronger!" size 25 color "#FFF" xalign 0.5

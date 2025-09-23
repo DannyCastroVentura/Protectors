@@ -143,20 +143,11 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: add the locations to the game menu instead
-    #   -   should have 2 columns
-    #   -   -   in the first we have 2 rows
-    #   -   -   -   protectors
-    #   -   -   -   weapons / equipments
-    #   -   -   in the second row we should have 2 rows
-    #   -   -   -   base of operations
-    #   -   -   -   Training / Rest
-    #   - we should delete the old menu
+    # TODO: try to understand why is not working the online store to be unlocked
     # 
     # TODO: [ PRIO 4 ] also have the possibility to unequip and equip an equipment / weapon in the equipment and weapon detail
     # 
-    # TODO: create a report for the expeditions, instead of making them to send a notification
-    #   -   also add the information if the protector leveled up, or is ready for promotion
+    # TODO: on boss final expeditions, we should give the player a equipment/weapon box, depending on the rarity of the box, different drops will be achieved!
     #
     # TODO: add the option to sell equipment / weapons
     # 
@@ -175,8 +166,6 @@ label start:
     # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again - once I deleted the renpy.notify , the issue started again - let's add it again?
     # 
     # TODO: test all the bosses
-    # 
-    # TODO: add the expeditions and the shop into the menu
     # 
     # TODO: also make an option to send the protectors to help the organization
     #   -   this would make us earn weekly money
@@ -206,23 +195,12 @@ label start:
     #   -   item drop chance
     #   -   -   at the end of each expedition mission, we should have a percentage of item drop -> 5% + luck attributes
     #   -   -   depending on the difficulty of the mission, this change get's ligther -> we should divide the total chance by the number per each rank of the equipment/weapon
-    # 
-    # TODO: [ PRIO 1 ] once a expedition is finished should we show a report
-    #   -   "This expeditions was completed, this protector got this xp and this money"
-    #   -   it was successful or not
-    #   -   also the reason
     #
     # TODO: [ PRIO 1 ] test all the protectors 
-    # 
-    # TODO: [ PRIO 2 ] make the extra damage things to be dependent on the improvement bonus (like in dark souls 3)
-    #   -   ex:     divine sword, should have a divine rank: C (ex) and then I would get these calculations on the get damage
     # 
     # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
     #   -   for now the statistics are expeditions_succeeded / expeditions_failed / expeditions_went -> I can also create a bar
     #   -   in case a evolution was already specified, we can also show the description once again
-    # 
-    # TODO: [ PRIO 4 ] make it possible to call nova
-    #   -   make her also explain the things regarding the calculations for the different things (but this would need to be done only at the end of the game, as I'll be changing this pretty often - I assume)
     # 
     # TODO: [ PRIO 4 ] as we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
     # 
@@ -283,6 +261,8 @@ label showFirst3Weapons():
 label nova_explains_tutorial():
     nova "Let me take you to your base of operations!"
     $ set_background("base-of-operations")
+    hide nova
+    show nova at fit_to_screen_height, right
     nova "Here we are!"
     nova "You can use your base of operations to: \n- Check your expeditions list \n- Train you protectors\n- Rest area"
     nova "Check your expeditions list: \nIn here you can see what expeditions you have received."
@@ -292,11 +272,15 @@ label nova_explains_tutorial():
     nova "Check your expeditions list: \nBe careful when assinging protectors to expeditions."
 
     $ set_background("training-ground")
+    hide nova
+    show nova at fit_to_screen_height, right
     nova "Training ground: \nThis is the a place we have built for helping you make new protectors stronger."
     nova "Training ground: \nTraining ground should be very helpful for inexperienced protectors."
     nova "Training ground: \nBut as they become stronger - the training ground start to be less effective."
     
     $ set_background("resting-area")
+    hide nova
+    show nova at fit_to_screen_height, right
     nova "Resting area: \nYou can also go to the bedrooms to rest!"
     nova "Resting area: \nResting is very important, as your protectors also need to recover when they are back from their expeditions."
     nova "Resting area: \nResting is also very helpful when you need to advance the time."
@@ -304,6 +288,17 @@ label nova_explains_tutorial():
     nova "Resting area: \nNew expeditions appear every day, but be careful! Old expeditions might disapear when you rest."
     nova "Resting area: \nEvery mission have a time to be started. If a mission was not yet initiated and this time finished, then this mission is closed as ignored."
     return
+
+label get_help_from_nova():
+    hide nova
+    show nova at center, fit_to_screen_height
+    call nova_explains_tutorial()
+    hide nova
+    show nova at center, fit_to_screen_height
+    nova "Hope you understood everything!"
+    nova "If not, just ask me again!"
+    nova "Bye bye!"
+    jump base_of_operations
 
 label show_my_available_protectors(isThisExpedition):
     call screen protector_selection(isThisExpedition)

@@ -744,8 +744,6 @@ init python:
             roll = int(random.uniform(0, 100))  # get a random float between 0 and 100
 
             if success_rate >= roll:
-                mission_success = True
-
                 # updating xp
                 my_protectors_map[self.assignedProtectorName].increasing_xp(self.xp_received * self.daysPassed)
 
@@ -763,23 +761,9 @@ init python:
                     bossExpedition = next((m for m in bossExpeditions if m.regionNumber == mission_stage), None)
                     bossExpedition.successfulMinorExpeditions += 1
 
-                if my_protectors_map[self.assignedProtectorName].readyForPromotion == True:
-                    # TODO: make this show a report instead of poping up this notification
-                    # notifying that the mission was a success!
-                    messages = [
-                        f"Expedition success (rolled {roll:.2f} vs rate {success_rate}%)",
-                        f"{self.assignedProtectorName} is ready for promotion!"
-                    ]
-                    renpy.notify(messages)
-                    
-                else:
-                    # TODO: make this show a report instead of poping up this notification
-                    # notifying that the mission was a success!
-                    renpy.notify(f"Expedition success ✅ (rolled {roll:.2f} vs rate {success_rate}%)")
+                result = renpy.call_screen("expedition_finish_screen", self, "Success!")
             else:
-                mission_success = False
-                # TODO: make this show a report instead of poping up this notification
-                renpy.notify(f"Expedition failed ❌ (rolled {roll:.2f} vs rate {success_rate}%)")
+                result = renpy.call_screen("expedition_finish_screen", self, "Failed!")
                 
                 # updating the expeditions failed on this protector
                 my_protectors_map[self.assignedProtectorName].expeditions_failed += 1
@@ -884,16 +868,13 @@ init python:
 
                 # Updating wallet
                 updating_wallet(self.gold_received)
+                renpy.notify("before the if")
 
                 # unlock the next region
-                if self.regionNumber != 10:
+                if self.regionNumber < 10:
                     unlockingExpeditionStage(self.regionNumber)
-                
-                # check if the protector is now ready for promotion
-                if my_protectors_map[self.assignedProtectorName].readyForPromotion == True:
-                    # TODO: make this show a report instead of poping up this notification
-                    renpy.notify(f"{self.assignedProtectorName} is ready for promotion!")
-                    
+                                    
+                renpy.notify("after the if")
             elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:                
                 # updating the expeditions failed on this protector
                 my_protectors_map[self.assignedProtectorName].boss_expeditions_failed += 1
@@ -1102,7 +1083,7 @@ init python:
 
             for p_name in filtered:
                 protector_to_sell = Protector(p_name, 1, 1, "To sell", protectors_base_information)
-                protector_to_sell.price = 10000
+                protector_to_sell.price = 1
                 protector_to_sell.stillAvailable = True
                 if protector_to_sell.basePoints.can_it_use_weapons:
                     default_weapon = get_weapon_by_name(protector_to_sell.basePoints.default_weapon)
