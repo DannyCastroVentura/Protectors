@@ -471,7 +471,8 @@ init python:
             return critical_damage
 
         def get_evasion(self):
-            return round(self.get_dexterity() * 0.03 + self.get_luck() * 0.06, 2)
+            evasion_rate = self.get_luck() * 0.05 + self.get_dexterity() * 0.025
+            return round(100 * ( evasion_rate / (evasion_rate + 100)), 2)
 
         def get_recon_points(self):
             return round(self.get_dexterity() * 0.5 + self.get_speed() * 0.5 + self.get_evasion() * 10, 2)
