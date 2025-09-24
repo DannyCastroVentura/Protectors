@@ -146,6 +146,8 @@ label start:
     # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
+    # TODO: make the lucky boxes also be sold in the online_shop
+    # 
     # TODO: on completing stages rewareds:
     #   -   2 we start to get raids, every 8 to 12 days (randomly)
     #   -   3 we receive another protector lucky box - as good work rewards (only the first time)

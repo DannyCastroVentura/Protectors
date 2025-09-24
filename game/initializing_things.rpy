@@ -2808,7 +2808,7 @@ init python:
             "Steamcoil": {"unlocked": False},
             "Chronopolis": {"unlocked": False},
             "Techspire": {"unlocked": False},
-            "OnlineStore": {"unlocked": False}
+            "OnlineStore": {"unlocked": True}
         }
         
         global online_shop_variable
