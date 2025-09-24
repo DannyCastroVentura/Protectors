@@ -144,7 +144,7 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] also have the possibility to unequip and equip an equipment / weapon in the equipment and weapon detail
+    # TODO: [ PRIO 1 ] also have the possibility to view the equipment / weapon in the protector detail
     # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
