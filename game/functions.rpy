@@ -189,6 +189,7 @@ init python:
     folder_path = "game\images\protectors"
     full_path = os.path.join(config.basedir, folder_path)
     folder_map = {}
+    items_per_page = 3
 
     # Scan and define backgrounds
     for f in renpy.list_files():

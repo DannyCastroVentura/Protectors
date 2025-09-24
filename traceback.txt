@@ -3,67 +3,6 @@
 While running game code:
   File "game/places.rpy", line 5, in script call
     call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 42, in script call
-    call see_expeditions(2)
-  File "game/base_of_operations.rpy", line 58, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 42, in script call
-    call see_expeditions(2)
-  File "game/base_of_operations.rpy", line 58, in script call
-    call see_expeditions(1)
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 8, in script call
-    call check_online_shop()
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 32, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 19, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 32, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 12, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 32, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 61, in script call
-    call see_expeditions(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
   File "game/base_of_operations.rpy", line 8, in script call
     call check_online_shop()
   File "game/base_of_operations.rpy", line 69, in script
@@ -72,91 +11,36 @@ While running game code:
     screen online_shop():
   File "game/online_shop_screen.rpy", line 2, in execute
     screen online_shop():
-  File "game/online_shop_screen.rpy", line 23, in execute
+  File "game/online_shop_screen.rpy", line 25, in execute
     frame:
-  File "game/online_shop_screen.rpy", line 59, in execute
+  File "game/online_shop_screen.rpy", line 61, in execute
     vbox:
-  File "game/online_shop_screen.rpy", line 63, in execute
+  File "game/online_shop_screen.rpy", line 65, in execute
     if selling_or_buying == None:
-  File "game/online_shop_screen.rpy", line 545, in execute
+  File "game/online_shop_screen.rpy", line 533, in execute
     if online_shop_show == "show_equipments":
-  File "game/online_shop_screen.rpy", line 547, in execute
+  File "game/online_shop_screen.rpy", line 534, in execute
     hbox:
-  File "game/online_shop_screen.rpy", line 551, in execute
-    for equipment in equipments:
-  File "game/online_shop_screen.rpy", line 578, in execute
-    vbox:
-  File "game/online_shop_screen.rpy", line 608, in execute
-    if equipment.stillAvailable:
-  File "game/online_shop_screen.rpy", line 608, in <module>
-    if equipment.stillAvailable:
-       ^^^^^^^^^^^^^^^^^^^^^^^^ 
-AttributeError: 'Equipment' object has no attribute 'stillAvailable'
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 545, in <lambda>
+    eq.get("name", "")
+    ^^^^^^            
+AttributeError: 'Equipment' object has no attribute 'get'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 42, in script call
-    call see_expeditions(2)
-  File "game/base_of_operations.rpy", line 58, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 42, in script call
-    call see_expeditions(2)
-  File "game/base_of_operations.rpy", line 58, in script call
-    call see_expeditions(1)
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 8, in script call
-    call check_online_shop()
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 32, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 19, in script call
-    call rest()
-[Previous line repeated 1 more time]
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 32, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 12, in script call
-    call show_my_available_protectors(False)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 32, in script call
-    call see_expeditions_for_region(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 6, in script call
-    call see_expeditions(1)
-  File "game/base_of_operations.rpy", line 61, in script call
-    call see_expeditions(1)
-  File "game/places.rpy", line 19, in script call
-    call rest()
-  File "game/places.rpy", line 19, in script call
-    call rest()
   File "game/places.rpy", line 5, in script call
     call go_to_computer()
   File "game/base_of_operations.rpy", line 8, in script call
@@ -219,34 +103,37 @@ Traceback (most recent call last):
     screen online_shop():
   File "game/online_shop_screen.rpy", line 2, in execute
     screen online_shop():
-  File "game/online_shop_screen.rpy", line 23, in execute
+  File "game/online_shop_screen.rpy", line 25, in execute
     frame:
-  File "game/online_shop_screen.rpy", line 59, in execute
+  File "game/online_shop_screen.rpy", line 61, in execute
     vbox:
-  File "game/online_shop_screen.rpy", line 63, in execute
+  File "game/online_shop_screen.rpy", line 65, in execute
     if selling_or_buying == None:
-  File "game/online_shop_screen.rpy", line 545, in execute
+  File "game/online_shop_screen.rpy", line 533, in execute
     if online_shop_show == "show_equipments":
-  File "game/online_shop_screen.rpy", line 547, in execute
+  File "game/online_shop_screen.rpy", line 534, in execute
     hbox:
-  File "game/online_shop_screen.rpy", line 551, in execute
-    for equipment in equipments:
-  File "game/online_shop_screen.rpy", line 578, in execute
-    vbox:
-  File "game/online_shop_screen.rpy", line 608, in execute
-    if equipment.stillAvailable:
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/online_shop_screen.rpy", line 608, in <module>
-    if equipment.stillAvailable:
-       ^^^^^^^^^^^^^^^^^^^^^^^^ 
-AttributeError: 'Equipment' object has no attribute 'stillAvailable'
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 545, in <lambda>
+    eq.get("name", "")
+    ^^^^^^            
+AttributeError: 'Equipment' object has no attribute 'get'
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Wed Sep 24 14:57:15 2025
+Wed Sep 24 18:59:10 2025

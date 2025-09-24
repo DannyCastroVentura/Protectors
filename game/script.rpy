@@ -143,12 +143,10 @@ label start:
     
     #
     # TODOS:
-    #
-    # TODO: check what happens when we have a lot of items  - like 3? - online shop
     # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
-    # TODO: make the lucky boxes also be sold in the online_shop
+    # TODO: on boss final expeditions, we should give the player a equipment/weapon box, depending on the rarity of the box, different drops will be achieved!
     # 
     # TODO: on completing stages rewareds:
     #   -   2 we start to get raids, every 8 to 12 days (randomly)
@@ -163,10 +161,6 @@ label start:
     #   -   10  we receive an S Weapon lucky box - as good work rewards (only the first time)
     # 
     # TODO: [ PRIO 4 ] also have the possibility to unequip and equip an equipment / weapon in the equipment and weapon detail
-    # 
-    # TODO: on boss final expeditions, we should give the player a equipment/weapon box, depending on the rarity of the box, different drops will be achieved!
-    #
-    # TODO: add the option to sell equipment / weapons
     # 
     # TODO: battles:
     #   -   the level of the enemy is random from 100 to 200

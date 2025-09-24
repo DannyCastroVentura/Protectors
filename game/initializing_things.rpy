@@ -2797,6 +2797,21 @@ init python:
         # initializing the expedition bosses things
         initializing_expedition_bosses()
 
+        # add equipments for testing purposes
+        add_new_equipment_to_our_bag(0)
+        add_new_equipment_to_our_bag(1)
+        add_new_equipment_to_our_bag(2)
+        add_new_equipment_to_our_bag(3)
+        add_new_equipment_to_our_bag(4)
+        
+        add_new_weapon_to_our_bag(0)
+        add_new_weapon_to_our_bag(1)
+        add_new_weapon_to_our_bag(2)
+        add_new_weapon_to_our_bag(3)
+        add_new_weapon_to_our_bag(4)
+
+
+
         region_map = {
             "Verdenglade": {"unlocked": True},
             "Cinderforge": {"unlocked": False},

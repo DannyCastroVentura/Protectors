@@ -1,23 +1,25 @@
 
 screen online_shop():
-    
     # # Check if I already have the protector
     # #   -   if so, then it should not be available anymore
     $ online_shop_variable.checkIfProtectorStillAvailable()
 
     default selling_or_buying = None
-    default online_shop_show = "main_menu"
+    default online_shop_show = None
     default rarity_selected = "S"
+    default equipment_page = 0
+    default weapon_page = 0
     $ online_shop_color = "#FFF"
     $ title_size = 60
     $ tittle_v_align = 0.1
-    if online_shop_show != "main_menu":
+    if online_shop_show != None:
         $ title_size = 40
         $ tittle_v_align = 0.01
 
     $ text_style_back_button = "rarity_navegation_text_online_shop"
     $ main_options_scale = 350
     $ items_scale = 400
+    $ selling_items_scale = 300
     $ main_buttons_background = im.Scale("images/background_item.png", main_options_scale, main_options_scale)
     $ empty_scaled = im.Scale("images/background_item.png", items_scale, items_scale)
     frame:
@@ -105,7 +107,7 @@ screen online_shop():
                                 )
 
             elif selling_or_buying == "buying":
-                if online_shop_show == "main_menu":
+                if online_shop_show == None:
                     hbox:
                         spacing 50
                         xalign 0.5
@@ -297,7 +299,7 @@ screen online_shop():
                         textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5 text_style text_style_D
                         text "|"
                         textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
-                    textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
+                    textbutton "Back" action [SetScreenVariable("online_shop_show", None), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
 
                 if online_shop_show == "show_weapons":
 
@@ -414,7 +416,7 @@ screen online_shop():
                         textbutton "D" action SetScreenVariable("rarity_selected", "D") yalign 0.9 xalign 0.5 text_style text_style_D
                         text "|"
                         textbutton "E" action SetScreenVariable("rarity_selected", "E") yalign 0.9 xalign 0.5 text_style text_style_E
-                    textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
+                    textbutton "Back" action [SetScreenVariable("online_shop_show", None), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
 
                 if online_shop_show == "show_protectors":
                     
@@ -485,16 +487,16 @@ screen online_shop():
                                                 xalign 0.5
                                                 text "Buy" size 24 color "#fff" xalign 0.5
                                         action online_shop_action
-                    textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
+                    textbutton "Back" action [SetScreenVariable("online_shop_show", None), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
                         
             elif selling_or_buying == "selling":
                 
-                if online_shop_show == "main_menu":
+                if online_shop_show == None:
                     hbox:
                         spacing 50
                         xalign 0.5
                         yalign 0.5
-                        
+
                         $ show_weapons_image = "images/menu/weapons.png"
                         $ show_weapons_scaled = im.Scale(show_weapons_image, main_options_scale, main_options_scale)
                         
@@ -510,13 +512,6 @@ screen online_shop():
                                         (0, 0), main_buttons_background,
                                         (0, 0), show_weapons_scaled
                                     )
-                            if online_shop_new_weapons == True:
-                                frame:
-                                    background "#fff"  # white background
-                                    padding (5, 2)    # space around the "!"
-                                    xalign 1.0
-                                    yalign 0.0
-                                    text "!" size 30 color "#f00" bold True
                                 
 
                         $ show_equipment_image = "images/menu/equipments.png"
@@ -534,21 +529,31 @@ screen online_shop():
                                         (0, 0), main_buttons_background,
                                         (0, 0), show_equipment_scaled
                                     )
-                            if online_shop_new_equipments == True:
-                                frame:
-                                    background "#fff"  # white background
-                                    padding (5, 2)    # space around the "!"
-                                    xalign 1.0
-                                    yalign 0.0
-                                    text "!" size 30 color "#f00" bold True
 
                 if online_shop_show == "show_equipments":
-                    
                     hbox:
                         spacing 50
                         xalign 0.5
                         yalign 0.5
-                        for equipment in myEquipments:
+                        # calculate pagination values in the screen's Python block
+                        python:
+                            # Sort equipments by rarity (then by name as a fallback)
+                            sorted_equips = sorted(
+                                myEquipments,
+                                key=lambda eq: (
+                                    -rank_multipliers[eq.rarity],
+                                    eq.name
+                                )
+                            )
+                            total = len(sorted_equips)
+                            per_page = items_per_page
+                            total_pages = (total + per_page - 1) // per_page  # ceil
+                            page = max(0, min(equipment_page, max(0, total_pages-1)))
+                            start = page * per_page
+                            end = start + per_page
+                            page_items = sorted_equips[start:end]
+                        
+                        for equipment in page_items:
                             $ price = get_value_for_item_of_this_rarity(equipment.rarity)
                             $ my_color = EClassColor
                             $ rarity = equipment.rarity
@@ -569,10 +574,10 @@ screen online_shop():
                             $ orig_width, orig_height = renpy.image_size(equipment_img)
 
                             # Calculate proportional width
-                            $ new_width = int(orig_width * (items_scale / float(orig_height)))
+                            $ new_width = int(orig_width * (selling_items_scale / float(orig_height)))
 
                             # Scale the image
-                            $ equipment_scaled = im.Scale(equipment_img, new_width, items_scale)
+                            $ equipment_scaled = im.Scale(equipment_img, new_width, selling_items_scale)
 
                             $ button_action = Show("equipment_detail_screen", None, "e", equipment)
                             vbox:
@@ -581,8 +586,8 @@ screen online_shop():
                                 spacing 20
                                 vbox:
                                     xalign 0.5
-                                    xminimum 700
-                                    xmaximum 700
+                                    xminimum 400
+                                    xmaximum 400
                                     vbox:
                                         xalign 0.5
                                         button:
@@ -594,9 +599,9 @@ screen online_shop():
                                                 background my_color
                                                 xalign 0.5 
                                                 add im.Composite(
-                                                    (items_scale, items_scale),
+                                                    (selling_items_scale, selling_items_scale),
                                                     (0, 0), empty_scaled,
-                                                    ((items_scale - new_width) // 2, 0), equipment_scaled   
+                                                    ((selling_items_scale - new_width) // 2, 0), equipment_scaled   
                                                 )
 
                                 text str(equipment.name) xalign 0.5 color online_shop_color
@@ -619,7 +624,17 @@ screen online_shop():
                                             xalign 0.5
                                             text "Sell" size 24 color "#fff" xalign 0.5
                                     action online_shop_action
-                    textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
+
+                    null height 25
+                    # pagination controls
+                    hbox:
+                        spacing 15
+                        xalign 0.5
+                        textbutton "<" action If(equipment_page > 0, SetScreenVariable("equipment_page", equipment_page - 1), NullAction())
+                        text "[page + 1] / [max(1, total_pages)]"
+                        textbutton ">" action If(equipment_page < total_pages - 1, SetScreenVariable("equipment_page", equipment_page + 1), NullAction())
+
+                    textbutton "Back" action [SetScreenVariable("online_shop_show", None), SetScreenVariable("equipment_page", 0)] yalign 0.9 xalign 0.5 text_style text_style_back_button
 
                 if online_shop_show == "show_weapons":
 
@@ -628,7 +643,25 @@ screen online_shop():
                         xalign 0.5
                         yalign 0.5
                         
-                        for weapon in myWeapons:
+                        # calculate pagination values in the screen's Python block
+                        python:
+                            # Sort equipments by rarity (then by name as a fallback)
+                            sorted_equips = sorted(
+                                myWeapons,
+                                key=lambda eq: (
+                                    -rank_multipliers[eq.rarity],
+                                    eq.name
+                                )
+                            )
+                            total = len(sorted_equips)
+                            per_page = items_per_page
+                            total_pages = (total + per_page - 1) // per_page  # ceil
+                            page = max(0, min(weapon_page, max(0, total_pages-1)))
+                            start = page * per_page
+                            end = start + per_page
+                            page_items = sorted_equips[start:end]
+
+                        for weapon in page_items:
                             $ price = get_value_for_item_of_this_rarity(weapon.rarity)
                             $ my_color = EClassColor
                             $ rarity = weapon.rarity
@@ -649,10 +682,10 @@ screen online_shop():
                             $ orig_width, orig_height = renpy.image_size(weapon_img)
 
                             # Calculate proportional width
-                            $ new_width = int(orig_width * (items_scale / float(orig_height)))
+                            $ new_width = int(orig_width * (selling_items_scale / float(orig_height)))
 
                             # Scale the image
-                            $ weapon_scaled = im.Scale(weapon_img, new_width, items_scale)
+                            $ weapon_scaled = im.Scale(weapon_img, new_width, selling_items_scale)
 
                             $ button_action = Show("equipment_detail_screen", None, "w", weapon)
                             vbox:
@@ -661,8 +694,8 @@ screen online_shop():
                                 spacing 20
                                 vbox:
                                     xalign 0.5
-                                    xminimum 700
-                                    xmaximum 700
+                                    xminimum 400
+                                    xmaximum 400
                                     vbox:
                                         xalign 0.5
                                         button:
@@ -674,9 +707,9 @@ screen online_shop():
                                                 background my_color
                                                 xalign 0.5 
                                                 add im.Composite(
-                                                    (items_scale, items_scale),
+                                                    (selling_items_scale, selling_items_scale),
                                                     (0, 0), empty_scaled,
-                                                    ((items_scale - new_width) // 2, 0), weapon_scaled   
+                                                    ((selling_items_scale - new_width) // 2, 0), weapon_scaled   
                                                 )
 
                                 text str(weapon.name) xalign 0.5 color online_shop_color
@@ -699,8 +732,15 @@ screen online_shop():
                                             xalign 0.5
                                             text "Sell" size 24 color "#fff" xalign 0.5
                                     action online_shop_action
-
-                    textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
+                    null height 25
+                    # pagination controls
+                    hbox:
+                        spacing 15
+                        xalign 0.5
+                        textbutton "<" action If(weapon_page > 0, SetScreenVariable("weapon_page", weapon_page - 1), NullAction())
+                        text "[page + 1] / [max(1, total_pages)]"
+                        textbutton ">" action If(weapon_page < total_pages - 1, SetScreenVariable("weapon_page", weapon_page + 1), NullAction())
+                    textbutton "Back" action [SetScreenVariable("online_shop_show", None), SetScreenVariable("weapon_page", 0)] yalign 0.9 xalign 0.5 text_style text_style_back_button
         if selling_or_buying == None:
             hbox:
                 spacing 20
@@ -712,4 +752,4 @@ screen online_shop():
                 spacing 20
                 xalign 0.5
                 yalign 0.99
-                textbutton "Return" action SetScreenVariable("selling_or_buying", None) xalign 0.5 text_style text_style_back_button
+                textbutton "Return" action [SetScreenVariable("selling_or_buying", None),SetScreenVariable("equipment_page", 0),SetScreenVariable("online_shop_show", None)] xalign 0.5 text_style text_style_back_button

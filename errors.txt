@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/online_shop_screen.rpy", line 562: 'price' is not a keyword argument or valid child of the for statement.
-    price = get_value_for_item_of_this_rarity(weapon.rarity)
-         ^
+File "game/online_shop_screen.rpy", line 544: invalid syntax. Perhaps you forgot a comma?
+    -rank_multipliers[eq.rarity]
+                                ^^^^^^^^^^^^^^^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Sep 24 12:46:55 2025
+Wed Sep 24 18:58:59 2025
