@@ -343,6 +343,13 @@ init python:
         myWeapons.append(weapon)
         return
 
+    def remove_weapon_from_our_bag(weapon_id):
+        global myWeapons        
+        weapon = get_weapon_by_id(weapon_id)
+        if weapon in myWeapons:
+            myWeapons.remove(weapon) # remove from the bag
+        return    
+
     def show_equipments(protector, equipment_type):
         renpy.show_screen("equipment_select", protector, equipment_type)
         return
@@ -407,6 +414,12 @@ init python:
         updating_wallet(int(0 - weapon.price))
         renpy.notify(f"You’ve purchased a new weapon: {weapon.name}")
         weapon.stillAvailable = False
+        return
+
+    def sell_new_weapon(weapon):
+        remove_weapon_from_our_bag(weapon.weapon_id)
+        updating_wallet(int(get_value_for_item_of_this_rarity(weapon.rarity)))
+        renpy.notify(f"You’ve sold your weapon: {weapon.name}")
         return
 
     def buy_new_protector(protector):
@@ -489,3 +502,14 @@ init python:
             renpy.notify("OnlineStore unlocked!")
             regions_variable.object['OnlineStore']['unlocked'] = True
         return
+
+    def get_value_for_item_of_this_rarity(rarity):
+        rarities = [ "E", "D", "C", "B", "A", "S" ]
+        
+        aux = 0
+        for rar in rarities:
+            if rar == rarity:
+                return int(int(item_prices[aux]) / 3)
+            aux += 1
+                
+        return None

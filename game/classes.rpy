@@ -23,6 +23,8 @@ init python:
     bossExpeditionVictoryResult = "Victory!"
     bossExpeditionDefeatResult = "Defeat..."
     bossExpeditionFledResult = "You fled the battle."
+
+    item_prices = [ 250, 600, 1500, 5000, 12000, 50000 ]
             
     # define the base multiplier per rank
     rank_multipliers = {
@@ -1040,7 +1042,6 @@ init python:
             results = {}
             
             rarities = [ "E", "D", "C", "B", "A", "S" ]
-            prices = [ 250, 600, 1500, 5000, 12000, 50000 ]
             aux = 0
             for rar in rarities:
                 
@@ -1054,7 +1055,7 @@ init python:
 
                 for e in filtered:
                     if e.type not in seen_types:
-                        e.price = prices[aux]
+                        e.price = item_prices[aux]
                         e.stillAvailable = True
                         chosen.append(e)
                         seen_types.add(e.type)

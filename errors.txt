@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/online_shop_screen.rpy", line 86: 'color' is not a keyword argument or valid child of the textbutton statement.
-    textbutton "Buy" action SetScreenVariable("selling_or_buying", "buying") xalign 0.5 color online_shop_color
-                                                                                             ^
+File "game/online_shop_screen.rpy", line 562: 'price' is not a keyword argument or valid child of the for statement.
+    price = get_value_for_item_of_this_rarity(weapon.rarity)
+         ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Sep 24 11:30:14 2025
+Wed Sep 24 12:46:55 2025
