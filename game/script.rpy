@@ -144,6 +144,8 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: [ PRIO 1 ] also have the possibility to unequip and equip an equipment / weapon in the equipment and weapon detail
+    # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
     # TODO: on boss final expeditions, we should give the player a equipment/weapon box, depending on the rarity of the box, different drops will be achieved!
@@ -159,8 +161,6 @@ label start:
     #   -   8
     #   -   9
     #   -   10  we receive an S Weapon lucky box - as good work rewards (only the first time)
-    # 
-    # TODO: [ PRIO 4 ] also have the possibility to unequip and equip an equipment / weapon in the equipment and weapon detail
     # 
     # TODO: battles:
     #   -   the level of the enemy is random from 100 to 200

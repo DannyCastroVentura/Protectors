@@ -1627,3 +1627,1811 @@ Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
 Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 265 ms
+Loading save slot metadata took 27 ms
+Loading persistent took 0 ms
+Running init code took 41 ms
+Loading analysis data took 15 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 14 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 57 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 85 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 46 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 0 ms
+Save bytecode took 1 ms
+Running _start took 1 ms
+Interface start took 405 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Cleaning stores took 0 ms
+Load screen analysis took 99 ms
+Analyze screens took 0 ms
+Running _start took 2 ms
+Resetting cache.
+Early init took 11 ms
+Loading error handling took 11 ms
+Loading script took 185 ms
+Loading save slot metadata took 18 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 14 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 12 ms
+Dump and make backups took 48 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 91 ms
+DPI scale factor: 1.000000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 98 ms
+Analyze screens took 1 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 430 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 301 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 36 ms
+Loading analysis data took 17 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 56 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 93 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 40 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 407 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 11 ms
+Loading script took 266 ms
+Loading save slot metadata took 18 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 15 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 57 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 87 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 39 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 408 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1057) drawable=(1920, 1057)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 13 ms
+Loading error handling took 14 ms
+Loading script took 318 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 38 ms
+Loading analysis data took 16 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 14 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 55 ms
+Cleaning cache took 1 ms
+Making clean stores took 0 ms
+Initial gc took 95 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 41 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 15 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 419 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 309 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 17 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 57 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 90 ms
+DPI scale factor: 1.000000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 42 ms
+Save screen analysis took 25 ms
+Save pyanalysis took 15 ms
+Save bytecode took 1 ms
+Running _start took 0 ms
+Interface start took 426 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 13 ms
+Loading error handling took 12 ms
+Loading script took 187 ms
+Loading save slot metadata took 18 ms
+Loading persistent took 0 ms
+
+File "game/online_shop_screen.rpy", line 6: 'rarity_order' is not a keyword argument or valid child of the screen statement.
+    rarity_order = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
+                ^
+DPI scale factor: 1.000000
+Interface start took 146 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 190 ms
+Loading save slot metadata took 18 ms
+Loading persistent took 0 ms
+
+File "game/online_shop_screen.rpy", line 6: 'rarity_order' is not a keyword argument or valid child of the screen statement.
+    rarity_order = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
+                ^
+DPI scale factor: 1.000000
+Interface start took 125 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 14 ms
+Loading script took 372 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 82 ms
+Loading analysis data took 17 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 59 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 103 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 0 ms
+Analyze screens took 53 ms
+Save screen analysis took 25 ms
+Save pyanalysis took 16 ms
+Save bytecode took 2 ms
+Running _start took 1 ms
+Interface start took 448 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+Resetting cache.
+Early init took 13 ms
+Loading error handling took 13 ms
+Loading script took 297 ms
+Loading save slot metadata took 18 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 16 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 55 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 88 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 38 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 0 ms
+Save bytecode took 1 ms
+Running _start took 0 ms
+Interface start took 416 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+Resetting cache.
+Early init took 13 ms
+Loading error handling took 13 ms
+Loading script took 341 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 41 ms
+Loading analysis data took 18 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 14 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 58 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 106 ms
+DPI scale factor: 1.000000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 59 ms
+Save screen analysis took 31 ms
+Save pyanalysis took 15 ms
+Save bytecode took 2 ms
+Running _start took 0 ms
+Interface start took 445 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 26, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 62, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 534, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 535, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 540, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 26, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 62, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 534, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 535, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 540, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+Resetting cache.
+Early init took 13 ms
+Loading error handling took 14 ms
+Loading script took 325 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 15 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 56 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 92 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 47 ms
+Save screen analysis took 24 ms
+Save pyanalysis took 15 ms
+Save bytecode took 2 ms
+Running _start took 0 ms
+Interface start took 458 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 30, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 66, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 70, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 538, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 539, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 544, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 546, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+        key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 548, in <lambda>
+    key=lambda eq: (rarity_order.get(eq.get("rarity", "E"), 99), eq.get("name", ""))
+                    ^^^^^^^^^^^^                                                    
+NameError: name 'rarity_order' is not defined
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 332 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 17 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 55 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 93 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 49 ms
+Save screen analysis took 25 ms
+Save pyanalysis took 15 ms
+Save bytecode took 2 ms
+Running _start took 1 ms
+Interface start took 430 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 306 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 40 ms
+Loading analysis data took 16 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 55 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 94 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 46 ms
+Save screen analysis took 30 ms
+Save pyanalysis took 21 ms
+Save bytecode took 1 ms
+Running _start took 1 ms
+Interface start took 433 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 25, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 61, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 65, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 533, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 534, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 544, in <lambda>
+    -rank_multipliers.get(eq.get("rarity", "E"), -99),  # negate so S=5 → -5 (comes first)
+                          ^^^^^^                                                          
+AttributeError: 'Equipment' object has no attribute 'get'
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 25, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 61, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 65, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 533, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 534, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 544, in <lambda>
+    -rank_multipliers.get(eq.get("rarity", "E"), -99),  # negate so S=5 → -5 (comes first)
+                          ^^^^^^                                                          
+AttributeError: 'Equipment' object has no attribute 'get'
+Resetting cache.
+Early init took 13 ms
+Loading error handling took 11 ms
+Loading script took 304 ms
+Loading save slot metadata took 18 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 16 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 57 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 88 ms
+DPI scale factor: 1.000000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 38 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 15 ms
+Save bytecode took 1 ms
+Running _start took 0 ms
+Interface start took 424 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 25, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 61, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 65, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 533, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 534, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 545, in <lambda>
+    eq.get("name", "")
+    ^^^^^^            
+AttributeError: 'Equipment' object has no attribute 'get'
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 25, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 61, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 65, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 533, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 534, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 545, in <lambda>
+    eq.get("name", "")
+    ^^^^^^            
+AttributeError: 'Equipment' object has no attribute 'get'
+Resetting cache.
+Early init took 13 ms
+Loading error handling took 12 ms
+Loading script took 192 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 1 ms
+
+File "game/online_shop_screen.rpy", line 547: unmatched ')'
+    )
+    ^
+DPI scale factor: 1.000000
+Interface start took 147 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 11 ms
+Loading script took 332 ms
+Loading save slot metadata took 18 ms
+Loading persistent took 0 ms
+
+File "game/online_shop_screen.rpy", line 544: invalid syntax. Perhaps you forgot a comma?
+    -rank_multipliers[eq.rarity]
+                                ^^^^^^^^^^^^^^^^^^
+DPI scale factor: 1.000000
+Interface start took 132 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 318 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 70 ms
+Loading analysis data took 16 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 14 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 55 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 80 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 39 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 14 ms
+Save bytecode took 2 ms
+Running _start took 0 ms
+Interface start took 423 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "renpy/ast.py", line 2231, in execute
+    self.call("execute")
+    ~~~~~~~~~^^^^^^^^^^^
+  File "renpy/ast.py", line 2195, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/statements.py", line 379, in call
+    return method(parsed, *args, **kwargs)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/statementexports.py", line 348, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 304, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2219, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )  # type: ignore
+    ^                
+  File "renpy/display/core.py", line 2757, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 432, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2757, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 25, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 61, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 65, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 533, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 534, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "renpy/revertable.py", line 247, in revertable_sorted
+    return RevertableList(sorted(*args, **kwargs))
+                          ~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "game/online_shop_screen.rpy", line 545, in <lambda>
+    eq.get("name", "")
+    ^^^^^^            
+AttributeError: 'Equipment' object has no attribute 'get'
+
+While running game code:
+  File "game/places.rpy", line 5, in script call
+    call go_to_computer()
+  File "game/base_of_operations.rpy", line 8, in script call
+    call check_online_shop()
+  File "game/base_of_operations.rpy", line 69, in script
+    call screen online_shop()
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 2, in execute
+    screen online_shop():
+  File "game/online_shop_screen.rpy", line 25, in execute
+    frame:
+  File "game/online_shop_screen.rpy", line 61, in execute
+    vbox:
+  File "game/online_shop_screen.rpy", line 65, in execute
+    if selling_or_buying == None:
+  File "game/online_shop_screen.rpy", line 533, in execute
+    if online_shop_show == "show_equipments":
+  File "game/online_shop_screen.rpy", line 534, in execute
+    hbox:
+  File "game/online_shop_screen.rpy", line 539, in execute
+    python:
+  File "game/online_shop_screen.rpy", line 541, in <module>
+    sorted_equips = sorted(
+                    ~~~~~~^
+        myEquipments,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        )
+        ^
+    )
+    ^
+  File "game/online_shop_screen.rpy", line 545, in <lambda>
+    eq.get("name", "")
+    ^^^^^^            
+AttributeError: 'Equipment' object has no attribute 'get'
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 13 ms
+Loading script took 308 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 15 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 56 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 95 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 0 ms
+Analyze screens took 40 ms
+Save screen analysis took 23 ms
+Save pyanalysis took 15 ms
+Save bytecode took 1 ms
+Running _start took 1 ms
+Interface start took 432 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 313 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 1 ms
+Running init code took 37 ms
+Loading analysis data took 16 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 12 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 55 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 98 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 42 ms
+Save screen analysis took 24 ms
+Save pyanalysis took 15 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 438 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 12 ms
+Loading script took 298 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 37 ms
+Loading analysis data took 15 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\danny\\AppData\\Roaming/RenPy/backups\\Protectors':
+Dump and make backups took 54 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 93 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 0 ms
+Analyze screens took 39 ms
+Save screen analysis took 25 ms
+Save pyanalysis took 14 ms
+Save bytecode took 1 ms
+Running _start took 1 ms
+Interface start took 445 ms
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 576.02'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
