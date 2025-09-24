@@ -79,12 +79,12 @@ screen protector_detail_screen(my_protector):
                         $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(show_weapons, my_protector)
+                            $ action_button = Show("weapon_select", None, my_protector)
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
                         
                         if my_protector.basePoints.can_it_use_weapons == True:
-                            $ action_button = Function(show_weapons, my_protector)
+                            $ action_button = Show("weapon_select", None, my_protector)
                         else: 
                             $ action_button = Function(send_custom_notification, my_protector.name + " cannot equip weapons.")
 
@@ -124,7 +124,8 @@ screen protector_detail_screen(my_protector):
                         $ weapon_scaled = im.Scale(weapon_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(my_protector.unequip_weapon)
+                            $ action_button = Show("protector_detail_weapon_click", None, my_protector)
+                            
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -169,7 +170,7 @@ screen protector_detail_screen(my_protector):
                         $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(show_equipments, my_protector, "helmet")
+                            $ action_button = Show("equipment_select", None, my_protector, "helmet")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -210,7 +211,7 @@ screen protector_detail_screen(my_protector):
                         $ helmet_scaled = im.Scale(helmet_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(my_protector.unequip_equipment, "helmet")
+                            $ action_button = Show("protector_detail_equipment_click", None, my_protector, "Helmet")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -239,7 +240,7 @@ screen protector_detail_screen(my_protector):
                         $ body_scaled = im.Scale(body_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(show_equipments, my_protector, "body")
+                            $ action_button = Show("equipment_select", None, my_protector, "body")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -279,7 +280,7 @@ screen protector_detail_screen(my_protector):
                         $ body_scaled = im.Scale(body_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(my_protector.unequip_equipment, "body")
+                            $ action_button = Show("protector_detail_equipment_click", None, my_protector, "Body")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -312,7 +313,7 @@ screen protector_detail_screen(my_protector):
                         $ pants_scaled = im.Scale(pants_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(show_equipments, my_protector, "pants")
+                            $ action_button = Show("equipment_select", None, my_protector, "pants")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -352,7 +353,7 @@ screen protector_detail_screen(my_protector):
                         $ pants_scaled = im.Scale(pants_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(my_protector.unequip_equipment, "pants")
+                            $ action_button = Show("protector_detail_equipment_click", None, my_protector, "Pants")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -382,7 +383,7 @@ screen protector_detail_screen(my_protector):
                         $ boots_scaled = im.Scale(boots_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(show_equipments, my_protector, "boots")
+                            $ action_button = Show("equipment_select", None, my_protector, "boots")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -422,7 +423,7 @@ screen protector_detail_screen(my_protector):
                         $ boots_scaled = im.Scale(boots_img, new_width, scale)
 
                         if my_protector.status == "Available":
-                            $ action_button = Function(my_protector.unequip_equipment, "boots")
+                            $ action_button = Show("protector_detail_equipment_click", None, my_protector, "Boots")
                         else: 
                             $ action_button = Function(send_not_available_notification, my_protector, "Equipment not updatable")
 
@@ -601,3 +602,138 @@ screen protector_detail_screen(my_protector):
                             textbutton "No" action Hide("protector_detail_screen"):
                                 text_size 25
                                 text_style "button_in_black_background"
+
+
+
+screen protector_detail_weapon_click(my_protector):
+
+    tag menu  # so the player can't open other menus while this is open
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 20
+        ypadding 20
+
+        vbox:
+            spacing 10
+            xalign 0.5
+            text "Menu" size 30 xalign 0.5
+            textbutton "More information":
+                action [Show("equipment_detail_screen", None, "w", my_protector.equipedWeapon), Hide("protector_detail_weapon_click")]
+                ypadding 10
+                xalign 0.5
+                
+            textbutton "Unequip":
+                action [Function(my_protector.unequip_weapon), Hide("protector_detail_weapon_click")]
+                ypadding 10
+                xalign 0.5
+
+            textbutton "Cancel":
+                action Hide("protector_detail_weapon_click")
+                xalign 0.5
+                ypadding 10
+
+screen protector_detail_equipment_click(my_protector, equipment_type):
+
+    
+    $ equipment = my_protector.equipedHelmet
+    if equipment_type == "Body":
+        $ equipment = my_protector.equipedBodyArmor
+    elif equipment_type == "Pants":
+        $ equipment = my_protector.equipedPants
+    if equipment_type == "Boots":
+        $ equipment = my_protector.equipedBoots
+
+    tag menu  # so the player can't open other menus while this is open
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 20
+        ypadding 20
+
+        vbox:
+            spacing 10
+            xalign 0.5
+            text "Menu" size 30 xalign 0.5
+            textbutton "More information":
+                action [Show("equipment_detail_screen", None, "e", equipment), Hide("protector_detail_equipment_click")]
+                ypadding 10
+                xalign 0.5
+                
+            textbutton "Unequip":
+                action [Function(my_protector.unequip_equipment, equipment.type), Hide("protector_detail_equipment_click")]
+                ypadding 10
+                xalign 0.5
+
+            textbutton "Cancel":
+                action Hide("protector_detail_equipment_click")
+                xalign 0.5
+                ypadding 10
+
+
+screen weapon_select(protector):
+
+    tag menu  # so the player can't open other menus while this is open
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 20
+        ypadding 20
+
+        vbox:
+            spacing 10
+            xalign 0.5
+            text "Select your weapon:" size 30 xalign 0.5
+
+            # For each available weapon, create a button
+            $ filtered_weapons = sorted(
+                [weapon for weapon in myWeapons if weapon.class_name in protector.basePoints.usable_weapon_types],
+                key=lambda weapon: (weapon.rarity, weapon.name.lower())
+            )
+            for weapon in filtered_weapons:
+                textbutton "[weapon.name] - [weapon.type] ([weapon.rarity])":
+                    action [Function(protector.equip_weapon, weapon.weapon_id), Hide("weapon_select")]
+                    ypadding 10
+                    xalign 0.5
+
+            textbutton "Cancel":
+                action Hide("weapon_select")
+                xalign 0.5
+                ypadding 10
+
+
+screen equipment_select(protector, equipment_type):
+
+    tag menu  # so the player can't open other menus while this is open
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 20
+        ypadding 20
+
+        vbox:
+            spacing 10
+            xalign 0.5
+
+            text "Select your equipment:" size 30 xalign 0.5
+
+            # For each available weapon, create a button
+            $ filtered_equipments = sorted(
+                [equipment for equipment in myEquipments if equipment.type == equipment_type],
+                key=lambda equipment: (equipment.rarity, equipment.name.lower())
+            )
+
+            for equipment in filtered_equipments:
+                textbutton "[equipment.name] - [equipment.class_name] ([equipment.rarity])":
+                    action [Function(protector.equip_equipment, equipment.equipment_id), Hide("equipment_select")]
+                    xalign 0.5
+                    ypadding 10
+
+            textbutton "Cancel":
+                action Hide("equipment_select")
+                ypadding 10
+                xalign 0.5

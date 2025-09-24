@@ -144,8 +144,6 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: [ PRIO 1 ] also have the possibility to view the equipment / weapon in the protector detail
-    # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
     # TODO: on boss final expeditions, we should give the player a equipment/weapon box, depending on the rarity of the box, different drops will be achieved!

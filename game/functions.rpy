@@ -321,9 +321,6 @@ init python:
                 expedition.status = "not assigned"
         return
 
-    def show_weapons(protector):
-        renpy.show_screen("weapon_select", protector)
-
     def get_weapon_by_id(weapon_id):
         global weapons
         return next(w for w in weapons if w.weapon_id == weapon_id)

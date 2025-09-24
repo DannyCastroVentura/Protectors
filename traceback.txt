@@ -1,67 +1,39 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 8, in script call
-    call check_online_shop()
-  File "game/base_of_operations.rpy", line 69, in script
-    call screen online_shop()
-  File "game/online_shop_screen.rpy", line 2, in execute
-    screen online_shop():
-  File "game/online_shop_screen.rpy", line 2, in execute
-    screen online_shop():
-  File "game/online_shop_screen.rpy", line 25, in execute
+  File "game/places.rpy", line 3, in script
+    menu:
+  File "game/equipment_detail_screen.rpy", line 1, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/equipment_detail_screen.rpy", line 1, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/equipment_detail_screen.rpy", line 2, in execute
     frame:
-  File "game/online_shop_screen.rpy", line 61, in execute
+  File "game/equipment_detail_screen.rpy", line 8, in execute
+    fixed:
+  File "game/equipment_detail_screen.rpy", line 22, in execute
     vbox:
-  File "game/online_shop_screen.rpy", line 65, in execute
-    if selling_or_buying == None:
-  File "game/online_shop_screen.rpy", line 533, in execute
-    if online_shop_show == "show_equipments":
-  File "game/online_shop_screen.rpy", line 534, in execute
-    hbox:
-  File "game/online_shop_screen.rpy", line 539, in execute
-    python:
-  File "game/online_shop_screen.rpy", line 541, in <module>
-    sorted_equips = sorted(
-                    ~~~~~~^
-        myEquipments,
-        ^^^^^^^^^^^^^
-    ...<3 lines>...
-        )
-        ^
-    )
-    ^
-  File "game/online_shop_screen.rpy", line 545, in <lambda>
-    eq.get("name", "")
-    ^^^^^^            
-AttributeError: 'Equipment' object has no attribute 'get'
+  File "game/equipment_detail_screen.rpy", line 35, in execute
+    $ orig_width, orig_height = renpy.image_size(e_or_w_image)
+  File "game/equipment_detail_screen.rpy", line 35, in <module>
+    $ orig_width, orig_height = renpy.image_size(e_or_w_image)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+FileNotFoundError: Couldn't find file 'images/weapons/Tank.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/places.rpy", line 5, in script call
-    call go_to_computer()
-  File "game/base_of_operations.rpy", line 8, in script call
-    call check_online_shop()
-  File "game/base_of_operations.rpy", line 69, in script
-    call screen online_shop()
-  File "renpy/ast.py", line 2231, in execute
-    self.call("execute")
-    ~~~~~~~~~^^^^^^^^^^^
-  File "renpy/ast.py", line 2195, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/statements.py", line 379, in call
-    return method(parsed, *args, **kwargs)
-           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/000statements.rpy", line 695, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 348, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/places.rpy", line 3, in script
+    menu:
+  File "renpy/ast.py", line 1815, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 135, in menu
+    rv = renpy.store.menu(new_items)
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "renpy/exports/menuexports.py", line 418, in display_menu
+    rv = renpy.ui.interact(mouse="menu", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/ui.py", line 304, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,41 +71,34 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/online_shop_screen.rpy", line 2, in execute
-    screen online_shop():
-  File "game/online_shop_screen.rpy", line 2, in execute
-    screen online_shop():
-  File "game/online_shop_screen.rpy", line 25, in execute
+  File "game/equipment_detail_screen.rpy", line 1, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/equipment_detail_screen.rpy", line 1, in execute
+    screen equipment_detail_screen(weaponOrEquipment_type, equipment_or_weapon, protector = None):
+  File "game/equipment_detail_screen.rpy", line 2, in execute
     frame:
-  File "game/online_shop_screen.rpy", line 61, in execute
+  File "game/equipment_detail_screen.rpy", line 8, in execute
+    fixed:
+  File "game/equipment_detail_screen.rpy", line 22, in execute
     vbox:
-  File "game/online_shop_screen.rpy", line 65, in execute
-    if selling_or_buying == None:
-  File "game/online_shop_screen.rpy", line 533, in execute
-    if online_shop_show == "show_equipments":
-  File "game/online_shop_screen.rpy", line 534, in execute
-    hbox:
-  File "game/online_shop_screen.rpy", line 539, in execute
-    python:
-  File "game/online_shop_screen.rpy", line 541, in <module>
-    sorted_equips = sorted(
-                    ~~~~~~^
-        myEquipments,
-        ^^^^^^^^^^^^^
-    ...<3 lines>...
-        )
-        ^
-    )
-    ^
-  File "renpy/revertable.py", line 247, in revertable_sorted
-    return RevertableList(sorted(*args, **kwargs))
-                          ~~~~~~^^^^^^^^^^^^^^^^^ 
-  File "game/online_shop_screen.rpy", line 545, in <lambda>
-    eq.get("name", "")
-    ^^^^^^            
-AttributeError: 'Equipment' object has no attribute 'get'
+  File "game/equipment_detail_screen.rpy", line 35, in execute
+    $ orig_width, orig_height = renpy.image_size(e_or_w_image)
+  File "game/equipment_detail_screen.rpy", line 35, in <module>
+    $ orig_width, orig_height = renpy.image_size(e_or_w_image)
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "renpy/exports/displayexports.py", line 771, in image_size
+    surf = im.load()
+           ~~~~~~~^^
+  File "renpy/display/im.py", line 838, in load
+    raise e
+  File "renpy/display/im.py", line 792, in load
+    filelike = renpy.loader.load(self.filename, directory="images")
+               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/loader.py", line 698, in load
+    raise FileNotFoundError("Couldn't find file '%s'." % name)
+FileNotFoundError: Couldn't find file 'images/weapons/Tank.png'.
 
 Windows-11-10.0.26120-SP0 AMD64
 Ren'Py 8.4.1.25072401
 Protectors 1.0
-Wed Sep 24 18:59:10 2025
+Wed Sep 24 22:44:48 2025
