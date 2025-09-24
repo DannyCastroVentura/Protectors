@@ -143,6 +143,8 @@ label start:
     
     #
     # TODOS:
+    #
+    # TODO: check what happens when we have a lot of items  - like 3? - online shop
     # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 

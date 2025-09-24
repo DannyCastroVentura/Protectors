@@ -348,6 +348,13 @@ init python:
         weapon = get_weapon_by_id(weapon_id)
         if weapon in myWeapons:
             myWeapons.remove(weapon) # remove from the bag
+        return
+
+    def remove_equipment_from_our_bag(equipment_id):
+        global myEquipments        
+        equipment = get_equipment_by_id(equipment_id)
+        if equipment in myEquipments:
+            myEquipments.remove(equipment) # remove from the bag
         return    
 
     def show_equipments(protector, equipment_type):
@@ -407,6 +414,12 @@ init python:
         updating_wallet(int(0 - equipment.price))
         renpy.notify(f"You’ve purchased a new equipment: {equipment.name}")
         equipment.stillAvailable = False
+        return
+
+    def sell_new_equipment(equipment):
+        remove_equipment_from_our_bag(equipment.equipment_id)
+        updating_wallet(int(get_value_for_item_of_this_rarity(equipment.rarity)))
+        renpy.notify(f"You’ve sold your weapon: {equipment.name}")
         return
 
     def buy_new_weapon(weapon):

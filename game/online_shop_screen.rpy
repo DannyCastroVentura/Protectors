@@ -548,7 +548,77 @@ screen online_shop():
                         spacing 50
                         xalign 0.5
                         yalign 0.5
-                        text "show the equipments I have so we can sell them" xalign 0.5 color online_shop_color
+                        for equipment in myEquipments:
+                            $ price = get_value_for_item_of_this_rarity(equipment.rarity)
+                            $ my_color = EClassColor
+                            $ rarity = equipment.rarity
+                            if equipment.rarity == "D":
+                                $ my_color = DClassColor
+                            if equipment.rarity == "C":
+                                $ my_color = CClassColor
+                            if equipment.rarity == "B":
+                                $ my_color = BClassColor
+                            if equipment.rarity == "A":
+                                $ my_color = AClassColor
+                            if equipment.rarity == "S":
+                                $ my_color = SClassColor
+                            
+                            $ equipment_img = "images/equipments/{}_{}.png".format(equipment.class_name, equipment.type)
+
+                            # Get original image size
+                            $ orig_width, orig_height = renpy.image_size(equipment_img)
+
+                            # Calculate proportional width
+                            $ new_width = int(orig_width * (items_scale / float(orig_height)))
+
+                            # Scale the image
+                            $ equipment_scaled = im.Scale(equipment_img, new_width, items_scale)
+
+                            $ button_action = Show("equipment_detail_screen", None, "e", equipment)
+                            vbox:
+                                xalign 0.5
+                                yalign 0.5
+                                spacing 20
+                                vbox:
+                                    xalign 0.5
+                                    xminimum 700
+                                    xmaximum 700
+                                    vbox:
+                                        xalign 0.5
+                                        button:
+                                            action button_action
+                                            style "option_button_online_shop"
+                                            xpadding 4
+                                            ypadding 4
+                                            frame:                                            
+                                                background my_color
+                                                xalign 0.5 
+                                                add im.Composite(
+                                                    (items_scale, items_scale),
+                                                    (0, 0), empty_scaled,
+                                                    ((items_scale - new_width) // 2, 0), equipment_scaled   
+                                                )
+
+                                text str(equipment.name) xalign 0.5 color online_shop_color
+
+                                text str(price) + " $" xalign 0.5 color online_shop_color
+
+                                $ online_shop_action = Function(sell_new_equipment, equipment)
+
+                                button:
+                                    style "option_button_online_shop"
+                                    xfill True
+                                    xmaximum 500
+                                    xalign 0.5
+                                    frame:
+                                        xfill True
+                                        background "#444"
+                                        padding (10, 10)
+                                        vbox:
+                                            spacing 5
+                                            xalign 0.5
+                                            text "Sell" size 24 color "#fff" xalign 0.5
+                                    action online_shop_action
                     textbutton "Back" action [SetScreenVariable("online_shop_show", "main_menu"), SetScreenVariable("rarity_selected", "S")] yalign 0.9 xalign 0.5 text_style text_style_back_button
 
                 if online_shop_show == "show_weapons":
