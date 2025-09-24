@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 493: expected an indented block after 'if' statement on line 476
-    return
-        ^^^^^^
+File "game/online_shop_screen.rpy", line 86: 'color' is not a keyword argument or valid child of the textbutton statement.
+    textbutton "Buy" action SetScreenVariable("selling_or_buying", "buying") xalign 0.5 color online_shop_color
+                                                                                             ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Tue Sep 23 17:33:29 2025
+Wed Sep 24 11:30:14 2025

@@ -61,8 +61,49 @@ screen online_shop():
             xalign 0.5
             yalign 0.5
             if selling_or_buying == None:
-                textbutton "Buy" action SetScreenVariable("selling_or_buying", "buying")
-                textbutton "Sell" action SetScreenVariable("selling_or_buying", "selling")
+                hbox:
+                    spacing 50
+                    xalign 0.5
+                    yalign 0.5
+                    $ show_buy_image = "images/menu/buy.png"
+                    $ show_buy_scaled = im.Scale(show_buy_image, main_options_scale, main_options_scale)
+
+                    fixed: 
+                        xmaximum main_options_scale
+                        ymaximum main_options_scale
+                        button:
+                            action SetScreenVariable("selling_or_buying", "buying")
+                            style "option_button_online_shop"
+                            frame:
+                                add im.Composite(
+                                    (main_options_scale, main_options_scale),
+                                    (0, 0), main_buttons_background,
+                                    (0, 0), show_buy_scaled
+                                )
+                        if online_shop_new_protectors == True or online_shop_new_equipments == True or online_shop_new_weapons == True:
+                            frame:
+                                background "#fff"  # white background
+                                padding (5, 2)    # space around the "!"
+                                xalign 1.0
+                                yalign 0.0
+                                text "!" size 30 color "#f00" bold True
+
+                    $ show_sell_image = "images/menu/sell.png"
+                    $ show_sell_scaled = im.Scale(show_sell_image, main_options_scale, main_options_scale)
+                        
+                    fixed: 
+                        xmaximum main_options_scale
+                        ymaximum main_options_scale
+                        button:
+                            action SetScreenVariable("selling_or_buying", "selling")
+                            style "option_button_online_shop"
+                            frame:
+                                add im.Composite(
+                                    (main_options_scale, main_options_scale),
+                                    (0, 0), main_buttons_background,
+                                    (0, 0), show_sell_scaled
+                                )
+
             elif selling_or_buying == "buying":
                 if online_shop_show == "main_menu":
                     hbox:
