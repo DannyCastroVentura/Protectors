@@ -2240,14 +2240,12 @@ screen base_stats(baseProtectorObject):
                     text "Strength:" size 25 color "#EEE"
                     text "Constitution:" size 25 color "#EEE"
                     text "Wisdom:" size 25 color "#EEE"
-                    text "Morality:" size 25 color "#EEE"
                 vbox:
                     spacing 30
                     xalign 0.5
                     text "[str(baseProtectorObject.get_base_information()['strength'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['constitution'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['wisdom'])]" size 25 color "#EEE"
-                    text "[str(baseProtectorObject.get_base_information()['morality'])]" size 25 color "#EEE"
                 vbox:
                     spacing 30
                     xalign 0.5

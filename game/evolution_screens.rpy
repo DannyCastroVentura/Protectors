@@ -150,7 +150,6 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                 $ spe_t_color = "#EEE"
                 $ dex_t_color = "#EEE"
                 $ int_t_color = "#EEE"
-                $ cha_t_color = "#EEE"
                 $ luc_t_color = "#EEE"
 
                 $ current_stats = my_protector.get_current_stats(4, None)
@@ -275,7 +274,6 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                                 xalign 0.5
                                 text "[dex_text]" size size_letter color dex_t_color
                                 text "[int_text]" size size_letter color int_t_color
-                                text "[cha_text]" size size_letter color cha_t_color
                                 text "[luc_text]" size size_letter color luc_t_color
                     vbox:
                         spacing 20
