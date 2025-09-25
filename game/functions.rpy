@@ -63,13 +63,9 @@ init python:
             "prio1": "Speed",
             "prio2": "Dexterity"
         },
-        "Political":{
-            "prio1": "Charisma",
-            "prio2": "Wisdom"
-        },
         "Miracle":{
             "prio1": "Wisdom",
-            "prio2": "Charisma"
+            "prio2": "Constitution"
         }
     }
     evolution_increment_map = {
@@ -156,14 +152,6 @@ init python:
         "CRI": {  # Critical strike build
             "increase": [ "Dexterity", "Luck", "Luck" ],
             "decrease": [ "Strength", "Constitution", "Wisdom" ]
-        },
-        "CHA_WIS": {  # Charisma and wisdom
-            "increase": [ "Charisma", "Wisdom" ],
-            "decrease": [ "Strength", "Constitution", "Speed" ]
-        },
-        "CHA": {  # Charisma
-            "increase": [ "Charisma" ],
-            "decrease": [ "Strength", "Constitution", "Speed" ]
         }
     }
     

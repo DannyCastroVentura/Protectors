@@ -15,7 +15,6 @@ init python:
                 "constitution": 15,
                 "intelligence": 15,
                 "wisdom": 15,
-                "charisma": 15,
                 "speed": 15,
                 "luck": 15,
                 "attack_speed": 1
@@ -50,7 +49,6 @@ init python:
                 "constitution": 15,
                 "intelligence": 15,
                 "wisdom": 15,
-                "charisma": 15,
                 "speed": 15,
                 "luck": 15,
                 "attack_speed": 1
@@ -85,7 +83,6 @@ init python:
                 "constitution": 15,
                 "intelligence": 15,
                 "wisdom": 15,
-                "charisma": 15,
                 "speed": 15,
                 "luck": 15,
                 "attack_speed": 1
@@ -112,75 +109,6 @@ init python:
             "Rusty Greatsword"
         )
         
-        # MORAL charisma and wisdom
-        expeditions_enemies_base_data["Moral"] = BaseProtectorData(
-            {
-                "strength": 15,
-                "dexterity": 15,
-                "constitution": 15,
-                "intelligence": 15,
-                "wisdom": 15,
-                "charisma": 15,
-                "speed": 15,
-                "luck": 15,
-                "attack_speed": 1
-            },
-            {
-                "basic": [
-                    "charisma", "wisdom", "wisdom", "wisdom"
-                ], 
-                "evolution1": [
-                    "charisma", "wisdom", "wisdom", "wisdom"
-                ], 
-                "evolution2": [
-                    "charisma", "wisdom", "wisdom", "wisdom"
-                ]
-            }, 
-            "CHA_WIS", "CHA_WIS", 
-            "Name 1", 
-            "Description 1",
-            "Name 2", 
-            "Description 2",
-            ["Greatsword"], None, None,
-            "Melee", None, None,
-            "Regular", "Regular", "Regular",
-            "Rusty Greatsword"
-        )
-        
-        # POLITICAL charisma
-        expeditions_enemies_base_data["Political"] = BaseProtectorData(
-            {
-                "strength": 15,
-                "dexterity": 15,
-                "constitution": 15,
-                "intelligence": 15,
-                "wisdom": 15,
-                "charisma": 15,
-                "speed": 15,
-                "luck": 15,
-                "attack_speed": 1
-            },
-            {
-                "basic": [
-                    "charisma", "charisma", "charisma", "wisdom"
-                ], 
-                "evolution1": [
-                    "charisma", "charisma", "charisma", "wisdom"
-                ], 
-                "evolution2": [
-                    "charisma", "charisma", "charisma", "wisdom"
-                ]
-            }, 
-            "CHA", "CHA", 
-            "Name 1", 
-            "Description 1",
-            "Name 2", 
-            "Description 2",
-            ["Greatsword"], None, None,
-            "Melee", None, None,
-            "Regular", "Regular", "Regular",
-            "Rusty Greatsword"
-        )
 
         
         # Recreate Possible Expeditions # Tittle / description
@@ -260,58 +188,6 @@ init python:
         allExpeditionTemplates.append(ExpeditionTemplate("Shifting Tracks", "Enemy patrol routes are changing daily. Record and map their new strategy.", "Recon"))
         allExpeditionTemplates.append(ExpeditionTemplate("Lurking Below", "Creatures have been seen in sewer tunnels. Investigate and confirm the threat.", "Recon"))
         allExpeditionTemplates.append(ExpeditionTemplate("Fog of War", "A thick fog conceals enemy movements. Scout and relay their position.", "Recon"))
-
-
-        # 🌿 23 - Moral - Intelligence + wisdom?
-        allExpeditionTemplates.append(ExpeditionTemplate("Food for the Famine", "A village is starving after a drought. Deliver supplies and ensure no one interferes.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Justice or Mercy?", "A criminal has surrendered—but the locals want blood. Decide their fate and keep the peace.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Healing the Wounded", "A field hospital is overrun. Defend the medics and help evacuate the wounded.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("A Town in Flames", "An accidental fire has devastated a village. Help organize rescue and relief.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Peace Talks", "Two factions are on the verge of war. Broker peace—without drawing your sword.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Defend the Innocent", "Vigilantes seek to punish suspected traitors. Intervene and ensure due process.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Medicine Run", "A deadly illness spreads fast. Deliver antidotes to the afflicted before it's too late.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Prison Riot", "Inmates have taken over a prison. Stop the violence without unnecessary bloodshed.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("The Orphan’s Plea", "A child begs you to save their kidnapped parent. Will you answer the call?", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Clean Water Crisis", "A poisoned river threatens an entire region. Investigate and resolve the source.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("The Unjust Law", "An edict puts innocents in danger. Uphold justice—even if it means defying orders.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Shelter from the Storm", "A deadly storm is coming. Guide survivors to shelter in time.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("A Burdened Conscience", "A soldier regrets their actions in battle. Help them find redemption—or justice.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("The Execution Order", "You're ordered to execute prisoners you believe are innocent. Decide what to do.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Child Soldiers", "Enemy forces include conscripted children. Find a way to stop the conflict peacefully.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Buried in Shame", "A past atrocity by your side has come to light. How will you respond?", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Outcast’s Return", "A wrongly exiled villager seeks protection. Decide whether to risk taking them in.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("The Slaver’s Coin", "A wealthy slaver offers gold to look the other way. Will you accept?", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Dying Wish", "A wounded enemy begs you to deliver a letter to their family. Will you honor it?", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("The Silent Ones", "A mute community is being exploited. Help them find justice without violence.", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Echoes of Guilt", "An ally admits to a war crime. Do you turn them in or protect them?", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("False Prophet", "A preacher is stirring hate under the guise of peace. Confront or ignore?", "Moral"))
-        allExpeditionTemplates.append(ExpeditionTemplate("The Beggar Prince", "A beggar claims to be a lost prince. Do you investigate or dismiss the claim?", "Moral"))
-
-
-        # 🏛️ 23 - Political - Charisma
-        allExpeditionTemplates.append(ExpeditionTemplate("Guard the Summit", "Leaders from across the land are meeting. Ensure their safety and prevent sabotage.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Negotiator's Escort", "A diplomat needs protection in hostile lands. Stay vigilant and avoid bloodshed.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Suppress the Coup", "A power struggle threatens to erupt into civil war. Step in and restore order before it's too late.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Guard the Treaty", "A peace treaty is about to be signed. Protect the venue from saboteurs.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Interrogate the Envoy", "A foreign diplomat may be a double agent. Handle the questioning with care.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Prevent the Vote", "A corrupt law is about to pass. Delay the council meeting by any (non-lethal) means.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Expose the Traitor", "Someone within the court is leaking secrets. Identify and confront them discreetly.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Public Trial", "A controversial trial draws angry mobs. Maintain peace during the proceedings.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Hidden Alliance", "Uncover a secret alliance that threatens to tip the balance of power.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Royal Escort", "The heir to the throne must travel through enemy-controlled territory. Protect them at all costs.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Noble Dispute", "A feud between two powerful houses threatens civil war. Mediate before it's too late.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Divided City", "A city is torn between factions. Support peaceful reunification through diplomacy and action.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Secure the Vote", "Corruption threatens the outcome of an election. Protect the polling process from interference.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Backroom Bargain", "A powerful lord is making secret deals. Discover what they're hiding.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Crowned in Secret", "A coronation was held in secret. Determine if the claim to power is legitimate.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Shield the Reformer", "A reformer wants to change the system. Protect them from assassination attempts.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Court of Lies", "Attend a royal court and uncover the falsehoods spreading among nobles.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Spoils of Peace", "Peace talks may lead to unjust land grabs. Expose the corruption.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Festival of Unity", "Keep tensions low between feuding factions during a national celebration.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Uneasy Alliance", "Two former enemies now share power. Keep the alliance from unraveling.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("The Puppet Master", "A figure behind the throne pulls all the strings. Discover their influence.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Scroll of Secrets", "A stolen diplomatic scroll contains dangerous secrets. Retrieve it discreetly.", "Political"))
-        allExpeditionTemplates.append(ExpeditionTemplate("Kingmaker’s Gamble", "A noble is building power to influence the next ruler. Decide whether to support or stop them.", "Political"))
 
 
         # Recreate expeditions

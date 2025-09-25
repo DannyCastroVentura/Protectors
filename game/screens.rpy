@@ -2253,14 +2253,12 @@ screen base_stats(baseProtectorObject):
                     xalign 0.5
                     text "Dexterity:" size 25 color "#EEE"
                     text "Intelligence:" size 25 color "#EEE"
-                    text "Charisma:" size 25 color "#EEE"
                     text "Luck:" size 25 color "#EEE"
                 vbox:
                     spacing 30
                     xalign 0.5
                     text "[str(baseProtectorObject.get_base_information()['dexterity'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['intelligence'])]" size 25 color "#EEE"
-                    text "[str(baseProtectorObject.get_base_information()['charisma'])]" size 25 color "#EEE"
                     text "[str(baseProtectorObject.get_base_information()['luck'])]" size 25 color "#EEE"
 
 

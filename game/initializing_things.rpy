@@ -17,7 +17,6 @@ init python:
                 "constitution": 12,
                 "intelligence": 14,
                 "wisdom": 13,
-                "charisma": 8,
                 "speed": 15,
                 "luck": 11,
                 "attack_speed": 1.3
@@ -25,7 +24,7 @@ init python:
             {
                 "basic": [
                     "dexterity", "luck", "constitution", "dexterity", "speed",
-                    "constitution", "dexterity", "strength", "speed", "charisma", 
+                    "constitution", "dexterity", "strength", "speed", "constitution", 
                     "dexterity", "speed", "strength", "constitution", "luck", 
                     "speed", "luck", "dexterity", "strength", "dexterity", 
                     "dexterity", "constitution", "dexterity", "speed", "dexterity"
@@ -55,7 +54,6 @@ init python:
                 "constitution": 18,
                 "intelligence": 11,
                 "wisdom": 16,
-                "charisma": 15,
                 "speed": 7,
                 "luck": 8,
                 "attack_speed": 0.7
@@ -99,7 +97,6 @@ init python:
                 "constitution": 12,
                 "intelligence": 22,
                 "wisdom": 18,
-                "charisma": 9,
                 "speed": 8,
                 "luck": 12,
                 "attack_speed": 0.9
@@ -109,7 +106,7 @@ init python:
                     "intelligence", "wisdom", "constitution", "intelligence", "dexterity", 
                     "wisdom", "intelligence", "constitution", "wisdom", "dexterity", 
                     "intelligence", "wisdom", "constitution", "luck", "intelligence", 
-                    "wisdom", "charisma", "intelligence", "wisdom", "constitution", "speed"
+                    "wisdom", "constitution", "intelligence", "wisdom", "constitution", "speed"
                 ], 
                 "evolution1": [
                     "wisdom", "wisdom", "constitution", "wisdom", "constitution", 
@@ -142,7 +139,6 @@ init python:
                 "constitution": 12,
                 "intelligence": 15,
                 "wisdom": 15,
-                "charisma": 9,
                 "speed": 10,
                 "luck": 16,
                 "attack_speed": 1.2
@@ -188,7 +184,6 @@ init python:
                 "constitution": 15,
                 "intelligence": 12,
                 "wisdom": 14,
-                "charisma": 10,
                 "speed": 10,
                 "luck": 9,
                 "attack_speed": 1.2
@@ -198,7 +193,7 @@ init python:
                     "strength", "speed", "strength", "constitution", "speed", 
                     "wisdom", "dexterity", "speed", "constitution", "strength", 
                     "dexterity", "wisdom", "strength", "dexterity", "strength", 
-                    "intelligence", "strength", "dexterity", "constitution", "charisma"
+                    "intelligence", "strength", "dexterity", "constitution", "constitution"
                 ], 
                 "evolution1": [
                     "strength", "strength", "strength", "constitution", "constitution", 
@@ -231,7 +226,6 @@ init python:
                 "constitution": 17,
                 "intelligence": 10,
                 "wisdom": 8,
-                "charisma": 13,
                 "speed": 11,
                 "luck": 11,
                 "attack_speed": 1
@@ -240,8 +234,8 @@ init python:
                 "basic": [
                     "dexterity", "strength", "speed", "constitution", "dexterity", 
                     "strength", "dexterity", "constitution", "dexterity", "strength", 
-                    "dexterity", "constitution", "dexterity", "strength", "charisma", 
-                    "strength", "luck", "strength", "constitution", "charisma", "speed"
+                    "dexterity", "constitution", "dexterity", "strength", "constitution", 
+                    "strength", "luck", "strength", "constitution", "constitution", "speed"
                 ], 
                 "evolution1": [
                     "dexterity", "dexterity", "speed", "constitution", "dexterity", 
@@ -274,7 +268,6 @@ init python:
                 "constitution": 20,
                 "intelligence": 12,
                 "wisdom": 8,
-                "charisma": 10,
                 "speed": 8,
                 "luck": 9,
                 "attack_speed": 1
@@ -392,38 +385,6 @@ init python:
 
         #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   
         # E CLASS
-        ######## FULL POLITICAL GEAR (Rank E) ########
-        equipments.append(Equipment(
-            "Simple Glasses",
-            "A plain pair of glasses. Offers a small boost to confidence.",
-            "helmet",
-            "Political",
-            "E"
-        ))
-
-        equipments.append(Equipment(
-            "Simple Suit",
-            "An old suit, slightly frayed at the edges. Provides minimal authority.",
-            "body",
-            "Political",
-            "E"
-        ))
-
-        equipments.append(Equipment(
-            "Simple Pants",
-            "Pants that have seen better days. Helps maintain a basic professional look.",
-            "pants",
-            "Political",
-            "E"
-        ))
-
-        equipments.append(Equipment(
-            "Simple Shoes",
-            "Shoes with worn soles. Barely suitable for public appearances.",
-            "boots",
-            "Political",
-            "E"
-        ))
 
         ######## FULL MIRACLE GEAR (Rank E) ########
         equipments.append(Equipment(
@@ -749,39 +710,6 @@ init python:
             "D"
         ))
 
-        ######## FULL POLITICAL GEAR (Rank D) ########
-        equipments.append(Equipment(
-            "Shining Glasses",
-            "A neat pair of glasses that slightly enhances charisma and sharpens appearance.",
-            "helmet",
-            "Political",
-            "D"
-        ))
-
-        equipments.append(Equipment(
-            "Shining Suit",
-            "A clean, well-maintained suit. Helps project credibility in public speeches.",
-            "body",
-            "Political",
-            "D"
-        ))
-
-        equipments.append(Equipment(
-            "Shining Pants",
-            "Pants with a better fit, improving confidence and composure.",
-            "pants",
-            "Political",
-            "D"
-        ))
-
-        equipments.append(Equipment(
-            "Shining Shoes",
-            "Shoes carefully polished for public appearances. A small boost to confidence.",
-            "boots",
-            "Political",
-            "D"
-        ))
-        
         ######## FULL GEAR FOR SPEED: WINDRUNNER SET ########
         equipments.append(Equipment(
             "Windrunner Helmet",
@@ -1121,39 +1049,6 @@ init python:
             "Sandals said to leave footprints of light. Brings steadiness to each step.",
             "boots",
             "Miracle",
-            "C"
-        ))
-
-        ######## FULL POLITICAL GEAR (Rank C) ########
-        equipments.append(Equipment(
-            "Executive Glasses",
-            "A stylish pair of glasses that improve public image and persuasive power.",
-            "helmet",
-            "Political",
-            "C"
-        ))
-
-        equipments.append(Equipment(
-            "Executive Suit",
-            "A high-quality suit worn by rising politicians. Enhances authority and credibility.",
-            "body",
-            "Political",
-            "C"
-        ))
-
-        equipments.append(Equipment(
-            "Executive Pants",
-            "Well-tailored pants that complete the professional look. Boosts confidence under pressure.",
-            "pants",
-            "Political",
-            "C"
-        ))
-
-        equipments.append(Equipment(
-            "Executive Shoes",
-            "Immaculately kept shoes designed for the spotlight. Supports long hours of campaigning.",
-            "boots",
-            "Political",
             "C"
         ))
 
@@ -1542,39 +1437,6 @@ init python:
             "Miracle",
             "B"
         ))
-
-        ######## FULL POLITICAL GEAR (Rank B) ########
-        equipments.append(Equipment(
-            "Leader’s Glasses",
-            "Elegant glasses with a subtle shine. They enhance charm and inspire trust in speeches.",
-            "helmet",
-            "Political",
-            "B"
-        ))
-
-        equipments.append(Equipment(
-            "Leader’s Suit",
-            "A refined suit tailored for high-profile events. Radiates authority and respect.",
-            "body",
-            "Political",
-            "B"
-        ))
-
-        equipments.append(Equipment(
-            "Leader’s Pants",
-            "Perfectly tailored pants that symbolize prestige. They reinforce composure in negotiations.",
-            "pants",
-            "Political",
-            "B"
-        ))
-
-        equipments.append(Equipment(
-            "Leader’s Shoes",
-            "Polished leather shoes that carry authority with every step. Ideal for debates and campaigns.",
-            "boots",
-            "Political",
-            "B"
-        ))
         ######## FULL GEAR FOR SPEED ########
         equipments.append(Equipment(
             "Speedster Helmet",
@@ -1937,39 +1799,6 @@ init python:
             "Footwear said to tread upon both earth and heavens. Each step carries divine will.",
             "boots",
             "Miracle",
-            "A"
-        ))
-
-        ######## FULL POLITICAL GEAR (Rank A) ########
-        equipments.append(Equipment(
-            "Statesman’s Glasses",
-            "A distinguished pair of glasses that project intelligence and inspire confidence in all who see them.",
-            "helmet",
-            "Political",
-            "A"
-        ))
-
-        equipments.append(Equipment(
-            "Statesman’s Suit",
-            "A luxurious, impeccably tailored suit that commands respect and demonstrates leadership.",
-            "body",
-            "Political",
-            "A"
-        ))
-
-        equipments.append(Equipment(
-            "Statesman’s Trousers",
-            "Flawlessly tailored pants that complete the commanding look, boosting authority in any setting.",
-            "pants",
-            "Political",
-            "A"
-        ))
-
-        equipments.append(Equipment(
-            "Statesman’s Shoes",
-            "Polished, high-quality shoes that exude confidence and stability, perfect for high-stakes appearances.",
-            "boots",
-            "Political",
             "A"
         ))
 
@@ -2425,38 +2254,6 @@ init python:
             "S"
         ))
 
-        ######## FULL POLITICAL GEAR (Rank S) ########
-        equipments.append(Equipment(
-            "Legendary Visionary’s Spectacles",
-            "A flawless pair of glasses that radiate genius and unparalleled charisma, making all who see them inspired.",
-            "helmet",
-            "Political",
-            "S"
-        ))
-
-        equipments.append(Equipment(
-            "Legendary Statesman Suit",
-            "A masterfully crafted suit that exudes unmatched authority and presence. Wearing it commands attention and respect on a global scale.",
-            "body",
-            "Political",
-            "S"
-        ))
-
-        equipments.append(Equipment(
-            "Legendary Diplomat’s Trousers",
-            "Perfectly tailored trousers that complete an aura of influence and wisdom. Instills confidence in allies and awe in opponents.",
-            "pants",
-            "Political",
-            "S"
-        ))
-
-        equipments.append(Equipment(
-            "Legendary Monarch’s Shoes",
-            "Shoes of impeccable craftsmanship that carry the weight of leadership with grace and power. Every step exudes confidence and dominance.",
-            "boots",
-            "Political",
-            "S"
-        ))
 
         ######## FULL GEAR FOR SPEED: GODSLAYER SET ########
         equipments.append(Equipment(

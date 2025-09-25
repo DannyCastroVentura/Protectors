@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/protector_detail.rpy", line 640: 'equipment' is not a keyword argument or valid child of the screen statement.
-    equipment = my_protector.equipedHelmet
-             ^
+File "game/classes.rpy", line 646: invalid syntax
+    elif self.expedition_type == "Recon":
+        ^^^^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Wed Sep 24 22:42:29 2025
+Thu Sep 25 17:03:43 2025

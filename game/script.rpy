@@ -144,6 +144,8 @@ label start:
     #
     # TODOS:
     # 
+    # TODO: make this issues on mission disapearing -> to say "Hidden mission found! While in the middle of the mission, the protector found this and this, and won this ammount of gold (and xp)"
+    # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
     # TODO: on boss final expeditions, we should give the player a equipment/weapon box, depending on the rarity of the box, different drops will be achieved!
@@ -170,9 +172,6 @@ label start:
     # TODO: [ PRIO 1 ] update the names for evolutions and descriptions for the other characters (even create the other characters)
     #   -   skeleton - dexterity based
     #   -   priest - this will use miracles
-    #   -   lawyer - this will be good for charisma and political missions
-    # 
-    # TODO: the finish expedition is finishing the wrong one OR when we are assigning a mission, we are assigning it to the wrong one. - after I added the number in the name, never got this error again - once I deleted the renpy.notify , the issue started again - let's add it again?
     # 
     # TODO: test all the bosses
     # 

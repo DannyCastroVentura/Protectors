@@ -458,7 +458,6 @@ screen protector_detail_screen(my_protector):
                             text "Constitution:" size 22 color "#EEE" xalign 0.0000001
                             text "Intelligence:" size 22 color "#EEE" xalign 0.0000001
                             text "Wisdom:" size 22 color "#EEE" xalign 0.0000001
-                            text "Charisma:" size 22 color "#EEE" xalign 0.0000001
                             text "Speed:" size 22 color "#EEE" xalign 0.0000001
                             text "Luck:" size 22 color "#EEE" xalign 0.0000001
                         vbox:
@@ -468,7 +467,6 @@ screen protector_detail_screen(my_protector):
                             text "[str(current_status['constitution'])]" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['intelligence'])]" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['wisdom'])]" size 22 color "#EEE" xalign 0.9999
-                            text "[str(current_status['charisma'])]" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['speed'])]" size 22 color "#EEE" xalign 0.9999
                             text "[str(current_status['luck'])]" size 22 color "#EEE" xalign 0.9999
 
@@ -539,22 +537,20 @@ screen protector_detail_screen(my_protector):
                         xfill True
                         vbox:
                             xalign 0.3
-                            text "Attack speed:" size 22 color "#EEE" xalign 0.0000001
-                            text "Defense:" size 22 color "#EEE" xalign 0.0000001
-                            text "Evasion:" size 22 color "#EEE" xalign 0.0000001
-                            text "Morality:" size 22 color "#EEE" xalign 0.0000001
-                            text "Cooldown reduction:" size 22 color "#EEE" xalign 0.0000001
-                            text "Critical Damage:" size 22 color "#EEE" xalign 0.0000001
-                            text "Critical chance:" size 22 color "#EEE" xalign 0.0000001
+                            text "Attack speed:" size 22 color "#EEE" xalign 0.0
+                            text "Defense:" size 22 color "#EEE" xalign 0.0
+                            text "Evasion:" size 22 color "#EEE" xalign 0.0
+                            text "Cooldown reduction:" size 22 color "#EEE" xalign 0.0
+                            text "Critical Damage:" size 22 color "#EEE" xalign 0.0
+                            text "Critical chance:" size 22 color "#EEE" xalign 0.0
                         vbox:
                             xalign 0.7
-                            text "[str(round(current_status['attack_speed'], 2))] a/s" size 22 color "#EEE" xalign 0.9999
-                            text "[str(current_status['defense'])]" size 22 color "#EEE" xalign 0.9999
-                            text "[str(current_status['evasion'])]" size 22 color "#EEE" xalign 0.9999
-                            text "[str(current_status['morality'])]" size 22 color "#EEE" xalign 0.9999
-                            text "[str(current_status['cooldown_reduction'])]" size 22 color "#EEE" xalign 0.9999
-                            text "[str(round(current_status['critical_damage'] * 100, 2))] %" size 22 color "#EEE" xalign 0.9999
-                            text "[str(round(current_status['critical_chance'] * 100, 2))] %" size 22 color "#EEE" xalign 0.9999
+                            text "[str(round(current_status['attack_speed'], 2))] a/s" size 22 color "#EEE" xalign 1.0
+                            text "[str(current_status['defense'])]" size 22 color "#EEE" xalign 1.0
+                            text "[str(current_status['evasion'])]" size 22 color "#EEE" xalign 1.0
+                            text "[str(current_status['cooldown_reduction'])]" size 22 color "#EEE" xalign 1.0
+                            text "[str(round(current_status['critical_damage'] * 100, 2))] %" size 22 color "#EEE" xalign 1.0
+                            text "[str(round(current_status['critical_chance'] * 100, 2))] %" size 22 color "#EEE" xalign 1.0
                 vbox:
                     xalign 0.5
                     spacing 70

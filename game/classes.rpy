@@ -49,7 +49,6 @@ init python:
             self.constitution = stats["constitution"]
             self.intelligence = stats["intelligence"]
             self.wisdom = stats["wisdom"]
-            self.charisma = stats["charisma"]
             self.speed = stats["speed"]
             self.luck = stats["luck"]
             self.attack_speed = stats["attack_speed"]
@@ -97,7 +96,6 @@ init python:
                 "constitution": self.constitution,
                 "intelligence": self.intelligence,
                 "wisdom": self.wisdom,
-                "charisma": self.charisma,
                 "speed": self.speed,
                 "luck": self.luck
             }
@@ -371,16 +369,6 @@ init python:
                 new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
                 wisdom_points = new_protector.basePoints.wisdom
             return int(wisdom_points * used_stage * self.get_equipment_increments("Wisdom") * self.get_evolution_increments("Wisdom", fake_evolution))
-        
-        def get_charisma(self, fake_stage = None, fake_evolution = None):
-            global protectors_base_information
-            used_stage = self.stage
-            charisma_points = self.basePoints.charisma
-            if fake_stage != None:
-                used_stage = fake_stage
-                new_protector = Protector(self.name, fake_stage, self.level, "Available", protectors_base_information, fake_evolution)
-                charisma_points = new_protector.basePoints.charisma
-            return int(charisma_points * used_stage * self.get_equipment_increments("Charisma") * self.get_evolution_increments("Charisma", fake_evolution))
 
         def get_speed(self, fake_stage = None, fake_evolution = None):
             global protectors_base_information
@@ -484,9 +472,6 @@ init python:
         
         def get_defense(self):
             return round(self.get_defense_from_equipment() + int(self.get_constitution() * 0.5 + self.get_evasion() * 0.5), 2)
-        
-        def get_morality(self, fake_stage = None, fake_evolution = None):
-            return round(self.get_charisma(fake_stage, fake_evolution) * 0.6 + self.get_wisdom(fake_stage, fake_evolution) * 0.4, 2)
 
         def get_cooldown_reduction(self):
             return round(self.get_wisdom() * 0.05, 2)
@@ -506,13 +491,11 @@ init python:
                 "constitution": self.get_constitution(fake_stage, fake_evolution),
                 "intelligence": self.get_intelligence(fake_stage, fake_evolution),
                 "wisdom": self.get_wisdom(fake_stage, fake_evolution),
-                "charisma": self.get_charisma(fake_stage, fake_evolution),
                 "speed": self.get_speed(fake_stage, fake_evolution),
                 "luck": self.get_luck(fake_stage, fake_evolution),                
                 "attack_speed": self.get_attack_speed(),
                 "defense": self.get_defense(),
                 "evasion": self.get_evasion(),
-                "morality": self.get_morality(),
                 "cooldown_reduction": self.get_cooldown_reduction(),
                 "critical_chance": self.get_critical_chance(),
                 "critical_damage": self.get_critical_damage()
@@ -660,11 +643,7 @@ init python:
 
                 # if combat:
                 target_class_name = "Tank"
-                if self.expedition_type == "Moral":
-                    target_class_name = "Political"
-                elif self.expedition_type == "Political":
-                    target_class_name = "Political"
-                elif self.expedition_type == "Recon":
+                if self.expedition_type == "Recon":
                     target_class_name = "Speed"
                 elif self.expedition_type == "Rescue":
                     target_class_name = "Shield"
@@ -674,10 +653,6 @@ init python:
                 # Assign the target value of the needed thing for this expedition_type
                 if self.expedition_type == "Combat":
                     enemy_target_value = enemy.get_damage_points() * enemy.get_attack_speed() + enemy.get_health_points()
-                elif self.expedition_type == "Moral":
-                    enemy_target_value = enemy.get_morality()
-                elif self.expedition_type == "Political":
-                    enemy_target_value = enemy.get_charisma()
                 elif self.expedition_type == "Recon":
                     enemy_target_value = enemy.get_recon_points()
                 elif self.expedition_type == "Rescue":
@@ -726,10 +701,6 @@ init python:
                 protector_stat = protector.get_rescue_points()
             if expedition_type == "Recon":
                 protector_stat = protector.get_recon_points()
-            if expedition_type == "Political":
-                protector_stat = protector.get_charisma()
-            if expedition_type == "Moral":
-                protector_stat = protector.get_morality()
             if expedition_type == "Combat":
                 protector_stat = protector.get_damage_points() * protector.get_attack_speed() + protector.get_health_points()
             difficulty = self.difficulty
@@ -1021,7 +992,7 @@ init python:
                 base_defense = base_defense * 1
                 prio1 = prio1 * 1
                 prio2 = prio2 * 1
-            elif self.class_name == "Political" or self.class_name == "Miracle":
+            elif self.class_name == "Miracle":
                 base_defense = base_defense * 0.2
                 prio1 = prio1 * 1.8
                 prio2 = prio2 * 1.8

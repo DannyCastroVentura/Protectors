@@ -162,7 +162,6 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                 $ spe_text = str(current_stats['speed'])
                 $ dex_text = str(current_stats['dexterity'])
                 $ int_text = str(current_stats['intelligence'])
-                $ cha_text = str(current_stats['charisma'])
                 $ luc_text = str(current_stats['luck'])
 
                 if int(current_stats['strength']) < int(evolution_stats['strength']):
@@ -225,16 +224,6 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                     $ percentage_change = int(int(current_stats['intelligence']) * 100 / int(evolution_stats['intelligence'])) - 100
                     $ int_t_color = "#F44336"
                     $ int_text = str(current_stats['intelligence']) + " → " + str(evolution_stats['intelligence']) + " (-" + str(percentage_change) + "%)"
-                if int(current_stats['charisma']) < int(evolution_stats['charisma']):
-                    # always need to have the bigger number first
-                    $ percentage_change = int(int(evolution_stats['charisma']) * 100 / int(current_stats['charisma'])) - 100
-                    $ cha_t_color = "#4CAF50"
-                    $ cha_text = str(current_stats['charisma']) + " → " + str(evolution_stats['charisma']) + " (+" + str(percentage_change) + "%)"
-                elif int(current_stats['charisma']) > int(evolution_stats['charisma']):
-                    # always need to have the bigger number first
-                    $ percentage_change = int(int(current_stats['charisma']) * 100 / int(evolution_stats['charisma'])) - 100
-                    $ cha_t_color = "#F44336"
-                    $ cha_text = str(current_stats['charisma']) + " → " + str(evolution_stats['charisma']) + " (-" + str(percentage_change) + "%)"
                 if int(current_stats['luck']) < int(evolution_stats['luck']):
                     # always need to have the bigger number first
                     $ percentage_change = int(int(evolution_stats['luck']) * 100 / int(current_stats['luck'])) - 100
@@ -281,7 +270,6 @@ screen protector_evolution_detail_screen(my_protector, evolution):
                                 xalign 0.5
                                 text "Dexterity:" size size_letter color dex_t_color
                                 text "Intelligence:" size size_letter color int_t_color
-                                text "Charisma:" size size_letter color cha_t_color
                                 text "Luck:" size size_letter color luc_t_color
                             vbox:
                                 xalign 0.5
