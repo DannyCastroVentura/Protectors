@@ -149,6 +149,10 @@ label start:
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
     # TODO: on boss final expeditions, we should give the player a equipment/weapon box, depending on the rarity of the box, different drops will be achieved!
+    #   -   add a new buton on the menu called: special items
+    #   -   and there we should show all the special items like boxes
+    #   -   make the expedition bosses to drop these boxes
+    #   -   to open them we need to go to our inventory - special items and click on the boxes there
     # 
     # TODO: on completing stages rewareds:
     #   -   2 we start to get raids, every 8 to 12 days (randomly)
