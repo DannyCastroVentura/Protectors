@@ -121,10 +121,10 @@ init python:
             self.basePoints = copy.deepcopy(protector_enemies_map[name])
             self.expeditions_succeeded = 0
             self.expeditions_failed = 0
-            self.expeditions_went = 0
             self.boss_expeditions_succeeded = 0
             self.boss_expeditions_failed = 0
-            self.boss_expeditions_went = 0
+            self.special_expeditions_succeeded = 0
+            self.special_expeditions_failed = 0
             self.chosen_evolution = 0
             if chosen_evolution_value != None:
                 self.chosen_evolution = chosen_evolution_value
@@ -142,9 +142,41 @@ init python:
         def adding_not_available_counter(self):
             self.not_available_counter += 1
             if self.not_available_counter >= 10:
-                self.status = "Available"
-                self.not_available_counter = 0
-                renpy.notify(f"Something unexpected occured, but {self.name} is back!")
+                # check if it will pass the mission or not
+                roll = int(random.uniform(1, 2))  # get a random float between 0 and 100
+                if roll != 1:
+                    self.status = "Available"
+                    self.not_available_counter = 0
+
+                    # updating the expeditions succeeded on this protector
+                    my_protectors_map[self.assignedProtectorName].special_expeditions_failed += 1
+
+                    messages = [
+                        "The mission revealed to be difficultier than expected!",
+                        "At the end, " + str(self.name) + " failed completing the expedition."
+                    ]
+                    renpy.notify(messages)
+                else: 
+                    self.status = "Available"
+                    self.not_available_counter = 0
+                    
+                    gold_received = self.level * 30
+                    xp_received = self.gold_received * 2
+                    
+                    # updating xp
+                    my_protectors_map[self.assignedProtectorName].increasing_xp(xp_received)
+
+                    # updating the expeditions succeeded on this protector
+                    my_protectors_map[self.assignedProtectorName].special_expeditions_succeeded += 1
+
+                    # Updating wallet
+                    updating_wallet(gold_received)
+                    messages = [
+                        "The mission revealed to be difficultier than expected!",
+                        "At the end, " + str(self.name) + " was able to complete the expedition!"
+                    ]
+                    renpy.notify(messages)
+                # if it does pass we should add the tripple of gold and xp and say that it passed
             return
 
         def reset_not_available_counter(self):
@@ -747,10 +779,6 @@ init python:
 
             # Reset counter
             my_protectors_map[self.assignedProtectorName].reset_not_available_counter()
-            
-            # updating the expeditions went on this protector
-            my_protectors_map[self.assignedProtectorName].expeditions_went += 1
-
 
             # deleting the mission if not training
             if self.expedition_id != 0:
@@ -848,9 +876,6 @@ init python:
             elif result == bossExpeditionDefeatResult or result == bossExpeditionVictoryResult:                
                 # updating the expeditions failed on this protector
                 my_protectors_map[self.assignedProtectorName].boss_expeditions_failed += 1
-
-            # updating the expeditions went on this protector
-            my_protectors_map[self.assignedProtectorName].boss_expeditions_went += 1
 
             # reseting the BossExpedition
             self.successfulMinorExpeditions = 0

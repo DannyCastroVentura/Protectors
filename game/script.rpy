@@ -144,7 +144,7 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: make this issues on mission disapearing -> to say "Hidden mission found! While in the middle of the mission, the protector found this and this, and won this ammount of gold (and xp)"
+    # TODO: improve the hidden expedition to show a screen as well
     # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
@@ -211,7 +211,7 @@ label start:
     # TODO: [ PRIO 1 ] test all the protectors 
     # 
     # TODO: [ PRIO 3 ] add a way to see the statistics for this protector ( maybe I can add a link to the name of the protector, and when clicked, it shows the statistics )
-    #   -   for now the statistics are expeditions_succeeded / expeditions_failed / expeditions_went -> I can also create a bar
+    #   -   for now the statistics are expeditions_succeeded / expeditions_failed -> I can also create a bar
     #   -   in case a evolution was already specified, we can also show the description once again
     # 
     # TODO: [ PRIO 4 ] as we are having good results the resitance will provide some other new protectors or items (in here weapons are a possibility)
