@@ -144,7 +144,16 @@ label start:
     #
     # TODOS:
     # 
-    # TODO: improve the hidden expedition to show a screen as well
+    # TODO: add a tutorial for a battle
+    #   -   at the start let's make the user to fight agaisnt a weak goblin lvl 1 and with all stats 5 instead of 15
+    #   -   the protector should win the required xp and the user should also win the gold.
+    #
+    # TODO: Lets make the battles the first thing to unlock
+    #   -   the battles should be a thing called "Defend the perimeter" - which when we it, it should show 3 enemies, with low levels
+    #   -   as we are unlocking new stages, new enemies are going to be unlocked
+    #   -   every week these 3 enemies should refresh
+    # 
+    # TODO: improve the hidden expedition to show a screen as well - let's wait to see if it is working without it
     # 
     # TODO: check the level we go to the next - because on level 80 we are already in stage 5, and stage 10 is at 180
     # 
